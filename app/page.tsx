@@ -235,6 +235,11 @@ export default function Home() {
                             <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                           ) : "Join the Waitlist"}
                         </button>
+                        <p className="mt-3 text-[11px] leading-relaxed text-slate-400 text-center">
+                          By joining, you consent to receive SMS messages from Zoe by Freedomology at the phone number provided. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out at any time.{" "}
+                          <a href="/privacy" className="underline hover:text-slate-600 transition-colors">Privacy Policy</a>{" · "}
+                          <a href="/terms" className="underline hover:text-slate-600 transition-colors">Terms of Service</a>
+                        </p>
                       </form>
                     )}
                   </div>
@@ -357,7 +362,7 @@ export default function Home() {
 
         <footer className="bg-white text-slate-500 py-12 px-6 border-t border-slate-100 text-sm">
           <div className="mx-auto max-w-7xl flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div className="font-medium text-slate-400">© {new Date().getFullYear()} Zoe by Freedomology. All rights reserved.</div>
+            <div className="font-medium text-slate-400">&copy; {new Date().getFullYear()} Zoe by Freedomology. All rights reserved.</div>
             <div className="flex gap-8 font-medium">
               <a href="/privacy" className="hover:text-slate-900 transition-colors">Privacy</a>
               <a href="/terms" className="hover:text-slate-900 transition-colors">Terms</a>
