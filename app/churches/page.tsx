@@ -23,12 +23,12 @@ const objections = [
   {
     icon: <UserCheck className="h-6 w-6 text-vibrant-cyan" />,
     question: "Is Zoe trying to replace my pastor?",
-    answer: "No. Zoe is a tool for pastors, not a replacement for them. It’s designed to strengthen real discipleship relationships and push people TOWARD community — small groups, prayer partners, and pastoral care when needed.",
+    answer: "No. Zoe is a tool for pastors, not a replacement for them. It's designed to strengthen real discipleship relationships and push people TOWARD community — small groups, prayer partners, and pastoral care when needed.",
   },
   {
     icon: <Users className="h-6 w-6 text-vibrant-jade" />,
-    question: "Shouldn’t people just text a friend instead of an AI?",
-    answer: "Yes — deep relationships are the goal. Zoe doesn’t compete with that; it reinforces it. It helps people take a first step (especially when they’re stuck or isolated), and then it nudges them toward real people with practical prompts like “reach out to someone,” “bring this to your small group,” or “talk to a pastor.”",
+    question: "Shouldn't people just text a friend instead of an AI?",
+    answer: "Yes — deep relationships are the goal. Zoe doesn't compete with that; it reinforces it. It helps people take a first step (especially when they're stuck or isolated), and then it nudges them toward real people with practical prompts like \"reach out to someone,\" \"bring this to your small group,\" or \"talk to a pastor.\"",
   },
   {
     icon: <BookOpen className="h-6 w-6 text-vibrant-jade" />,
@@ -57,8 +57,8 @@ const faqs = [
     answer: "No. The magic of Zoe is that it happens entirely over text message (SMS). Your congregation wants to live differently, but app fatigue is real. Zoe meets your people where they already are."
   },
   {
-    question: "What if some people in my church don’t want anything to do with AI?",
-    answer: "That’s okay. This is opt-in, not a new requirement. The goal isn’t to replace real discipleship — it’s to give people an extra tool during the week. For many churches, even 10–20% adoption is enough to create meaningful fruit without dividing the room."
+    question: "What if some people in my church don't want anything to do with AI?",
+    answer: "That's okay. This is opt-in, not a new requirement. The goal isn't to replace real discipleship — it's to give people an extra tool during the week. For many churches, even 10–20% adoption is enough to create meaningful fruit without dividing the room."
   },
   {
     question: "How should we answer privacy objections from members?",
@@ -140,7 +140,7 @@ export default function Home() {
                 A Companion <br />For Your Walk <br />With <span className="bg-gradient-to-r from-vibrant-cyan to-vibrant-jade bg-clip-text text-transparent">Jesus.</span>
               </motion.h1>
               <motion.p variants={fadeUp} className="mt-6 max-w-xl text-lg text-slate-500 md:text-xl leading-relaxed font-medium">
-                Sunday mornings inspire people — then real life hits on Monday, and most people forget what you preached (or they just don’t know how to apply it). Zoe is an SMS-based companion that keeps the conversation going Monday through Saturday, in a way that’s aligned with what your church actually teaches.
+                Sunday mornings inspire people — then real life hits on Monday, and most people forget what you preached (or they just don't know how to apply it). Zoe is an SMS-based companion that keeps the conversation going Monday through Saturday, in a way that's aligned with what your church actually teaches.
               </motion.p>
 
               <motion.div variants={fadeUp} className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -221,7 +221,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-slate-900">It Pushes People Toward People</h3>
-                    <p className="mt-2 text-slate-500 font-medium">Zoe doesn’t replace Christian community — it strengthens it. It nudges people to text a friend, talk to a leader, bring something to their small group, and actually stay connected between Sundays.</p>
+                    <p className="mt-2 text-slate-500 font-medium">Zoe doesn't replace Christian community — it strengthens it. It nudges people to text a friend, talk to a leader, bring something to their small group, and actually stay connected between Sundays.</p>
                   </div>
                 </div>
               </div>
@@ -241,7 +241,7 @@ export default function Home() {
               <motion.div variants={fadeUp} className="bg-white rounded-[2rem] p-10 flex flex-col items-center text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] group">
                 <div className="text-vibrant-cyan font-bold mb-6 text-xs tracking-[0.2em] uppercase">Morning (2 Min)</div>
                 <h3 className="text-2xl font-bold text-slate-900">The Anchor</h3>
-                <p className="mt-5 text-slate-500 leading-relaxed font-medium">Receive one Scripture from your church’s plan, a short reflection, and one simple “do this today” step that fits your real life — not a generic script.</p>
+                <p className="mt-5 text-slate-500 leading-relaxed font-medium">Receive one Scripture from your church's plan, a short reflection, and one simple "do this today" step that fits your real life — not a generic script.</p>
               </motion.div>
               <motion.div variants={fadeUp} className="bg-white rounded-[2rem] p-10 flex flex-col items-center text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] group">
                 <div className="text-slate-400 font-bold mb-6 text-xs tracking-[0.2em] uppercase group-hover:text-slate-600 transition-colors">Midday (15 Sec)</div>
@@ -251,7 +251,7 @@ export default function Home() {
               <motion.div variants={fadeUp} className="bg-white rounded-[2rem] p-10 flex flex-col items-center text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] group">
                 <div className="text-vibrant-jade font-bold mb-6 text-xs tracking-[0.2em] uppercase">Evening (2 Min)</div>
                 <h3 className="text-2xl font-bold text-slate-900">The Recap</h3>
-                <p className="mt-5 text-slate-500 leading-relaxed font-medium">&quot;Where did you actually walk with Jesus today?&quot; Zoe remembers what’s going on in your life and follows up in a way that’s genuinely personal.</p>
+                <p className="mt-5 text-slate-500 leading-relaxed font-medium">&quot;Where did you actually walk with Jesus today?&quot; Zoe remembers what's going on in your life and follows up in a way that's genuinely personal.</p>
               </motion.div>
             </motion.div>
           </div>
@@ -315,7 +315,7 @@ export default function Home() {
                   <Settings className="text-slate-900 mt-1 h-6 w-6 shrink-0" />
                   <div>
                     <span className="text-slate-900 font-bold block mb-1">Reinforce your Sunday message (and help people go deeper).</span>
-                    <span className="text-slate-700 block max-w-md">People who want to do extra Bible study during the week finally have a simple way to do it — in a way that stays aligned with your church’s theology, values, and the direction you’re already leading.</span>
+                    <span className="text-slate-700 block max-w-md">People who want to do extra Bible study during the week finally have a simple way to do it — in a way that stays aligned with your church's theology, values, and the direction you're already leading.</span>
                   </div>
                 </li>
               </ul>
@@ -345,7 +345,7 @@ export default function Home() {
                   <strong className="text-white font-semibold">What does life with God look like in the midst of Monday meetings, Tuesday commutes, and Wednesday stress?</strong>
                 </p>
                 <p>
-                  Zoe is the bridge. It helps people walk and step with Jesus in the middle of real life — with dynamic, personalized coaching that’s shaped by your church’s teaching. <span className="text-vibrant-cyan font-semibold">Where the rubber meets the road.</span>
+                  Zoe is the bridge. It helps people walk and step with Jesus in the middle of real life — with dynamic, personalized coaching that's shaped by your church's teaching. <span className="text-vibrant-cyan font-semibold">Where the rubber meets the road.</span>
                 </p>
               </div>
             </motion.div>
@@ -375,7 +375,7 @@ export default function Home() {
                 <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-slate-200 to-slate-200 group-hover:from-vibrant-cyan group-hover:to-vibrant-jade transition-all duration-500" />
                 <LayoutDashboard className="h-10 w-10 text-slate-700 mb-6 group-hover:text-vibrant-jade transition-colors" />
                 <h3 className="text-2xl font-bold text-slate-900">Set the Sermon Series</h3>
-                <p className="mt-4 text-slate-600 font-medium leading-relaxed">Don’t let Monday steal Sunday’s seed. Zoe turns your sermon series into simple, personalized prompts and follow-ups that help people actually live it out during the week.</p>
+                <p className="mt-4 text-slate-600 font-medium leading-relaxed">Don't let Monday steal Sunday's seed. Zoe turns your sermon series into simple, personalized prompts and follow-ups that help people actually live it out during the week.</p>
               </motion.div>
 
               <motion.div variants={fadeUp} className="bg-slate-50 rounded-[2rem] p-10 border border-slate-200 relative overflow-hidden group hover:shadow-xl transition-shadow duration-300">
@@ -395,7 +395,7 @@ export default function Home() {
               How Setup Works
             </motion.h2>
             <motion.p variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-6 text-lg text-slate-600 font-medium max-w-3xl mx-auto">
-              Most churches are live within a week. We help your team connect Sunday’s message to weekday discipleship in three simple steps.
+              Most churches are live within a week. We help your team connect Sunday's message to weekday discipleship in three simple steps.
             </motion.p>
             <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-16 grid gap-8 md:grid-cols-3">
               <motion.div variants={fadeUp} className="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm text-left">
@@ -406,7 +406,7 @@ export default function Home() {
               <motion.div variants={fadeUp} className="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm text-left">
                 <div className="text-xs font-bold uppercase tracking-[0.2em] text-vibrant-jade">Step 2</div>
                 <h3 className="mt-4 text-2xl font-bold text-slate-900">Set your theology</h3>
-                <p className="mt-3 text-slate-500 font-medium">Define your doctrinal guardrails, tone, and ministry priorities so Zoe speaks in your church’s voice.</p>
+                <p className="mt-3 text-slate-500 font-medium">Define your doctrinal guardrails, tone, and ministry priorities so Zoe speaks in your church's voice.</p>
               </motion.div>
               <motion.div variants={fadeUp} className="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm text-left">
                 <div className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Step 3</div>
@@ -622,8 +622,12 @@ export default function Home() {
                 >
                   {status === "sent" ? <><CheckCircle className="h-5 w-5" /> Request Received!</> : "Join the Waitlist"}
                 </button>
+                <p className="mt-3 text-[11px] leading-relaxed text-slate-400 text-center">
+                  By joining, you consent to receive SMS messages from Zoe by Freedomology at the phone number provided. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out at any time.{" "}
+                  <a href="/privacy" className="underline hover:text-slate-600 transition-colors">Privacy Policy</a>{" · "}
+                  <a href="/terms" className="underline hover:text-slate-600 transition-colors">Terms of Service</a>
+                </p>
               </form>
-              <p className="mt-6 text-xs text-slate-400">We will never share your information.</p>
             </motion.div>
           </div>
         </section>
