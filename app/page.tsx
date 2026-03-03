@@ -66,7 +66,7 @@ const faqs = [
   },
   {
     question: "What does it cost?",
-    answer: "After a 14-day free trial, it's $7 a month. Cancel anytime. No contracts, no guilt trips.",
+    answer: "After a 30-day free trial, it's $99 a year. Cancel anytime. No contracts, no guilt trips.",
   },
 ];
 
