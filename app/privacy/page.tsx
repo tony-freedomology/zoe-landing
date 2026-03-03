@@ -2,7 +2,7 @@ const sections = [
   {
     title: "1. Scope",
     body: [
-      "This policy applies to Zoe’s websites, SMS experience, church admin features, and support operations where this policy is posted or linked."
+      "This policy applies to Zoe's websites, SMS experience, church admin features, and support operations where this policy is posted or linked."
     ]
   },
   {
@@ -26,7 +26,7 @@ const sections = [
   {
     title: "4. How We Use Information",
     bullets: [
-      "Operate Zoe’s conversational SMS experience",
+      "Operate Zoe's conversational SMS experience",
       "Provide daily devotional touchpoints and follow-ups",
       "Personalize responses using prior context and configured memory settings",
       "Run safety workflows, including crisis escalation pathways",
@@ -57,69 +57,79 @@ const sections = [
       "We may disclose information for legal reasons when required by law or lawful process.",
       "We may disclose limited information for safety reasons to help prevent imminent harm where legally permitted.",
       "In a business transfer, data may transfer subject to applicable confidentiality and legal safeguards.",
-      "We do not sell personal information for money."
+      "We do not sell personal information for money.",
+      "No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. All categories above exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties."
     ]
   },
   {
-    title: "8. Consent and Privacy Controls",
+    title: "8. SMS Messaging Program",
+    body: [
+      "Zoe communicates with users via SMS text messages. By opting in to receive messages from Zoe, you agree to receive recurring automated text messages at the phone number you provide. Messages may include daily scripture reflections, spiritual encouragement, check-ins, reading plan content, onboarding conversations, trial and billing notifications, and responses to your questions.",
+      "Message frequency varies based on your selected cadence (1 to 3 messages per day), plus conversational replies when you text Zoe. Message and data rates may apply.",
+      "You can opt out at any time by replying STOP to any message. After opting out, you will receive a confirmation message and no further messages will be sent. You can opt back in by texting START.",
+      "For help, reply HELP to any message or email support@zoe.live. You can also visit https://www.zoe.live for more information."
+    ]
+  },
+  {
+    title: "9. Consent and Privacy Controls",
     body: [
       "Depending on product availability and role, controls may include memory mode, AI-improvement opt-in/opt-out, human support access, and retention profile settings.",
       "When material consent states change, Zoe maintains consent event records for accountability."
     ]
   },
   {
-    title: "9. Data Retention",
+    title: "10. Data Retention",
     body: [
       "We retain data for as long as reasonably necessary to provide the service, maintain safety/security logs, satisfy legal/accounting obligations, and enforce agreements.",
       "Retention windows vary by data category. Backup deletion may follow delayed overwrite cycles and may not be immediate."
     ]
   },
   {
-    title: "10. Security",
+    title: "11. Security",
     body: [
       "We use layered technical and organizational safeguards, including encryption in transit, role-based access controls, least-privilege principles, authentication protections, and monitoring of sensitive access paths.",
       "No internet service can be guaranteed to be 100% secure."
     ]
   },
   {
-    title: "11. Safety and Crisis Workflows",
+    title: "12. Safety and Crisis Workflows",
     body: [
       "Zoe may detect crisis language and trigger safety-oriented workflows.",
       "Where feasible, Zoe follows a consent-first approach, with narrow exceptions for urgent life-safety scenarios."
     ]
   },
   {
-    title: "12. Your Rights and Choices",
+    title: "13. Your Rights and Choices",
     body: [
       "Subject to applicable law, you may request access, correction, export, and deletion of personal data, as well as changes to optional consent settings."
     ]
   },
   {
-    title: "13. U.S. State Privacy Disclosures",
+    title: "14. U.S. State Privacy Disclosures",
     body: [
       "Residents of certain U.S. states may have additional rights, including rights to know, delete, correct, and opt out of certain processing categories. Zoe processes verified requests as required by applicable law."
     ]
   },
   {
-    title: "14. Children",
+    title: "15. Children",
     body: [
       "Zoe is not intended for children under 13. If we learn that personal information from a child under 13 was collected without required authorization, we will take steps to delete it as required by law."
     ]
   },
   {
-    title: "15. International Processing",
+    title: "16. International Processing",
     body: [
       "Data may be processed in the United States and other countries where Zoe or its processors operate. Where required, appropriate safeguards are applied."
     ]
   },
   {
-    title: "16. Changes to This Policy",
+    title: "17. Changes to This Policy",
     body: [
       "We may update this policy from time to time. Material changes will be reflected by an updated effective date and, where appropriate, additional notice."
     ]
   },
   {
-    title: "17. Contact",
+    title: "18. Contact",
     body: ["For privacy questions or requests: privacy@zoe.live"]
   }
 ];
@@ -180,7 +190,7 @@ export default function PrivacyPage() {
             Zoe is designed as an interactive prayer journal with proactive support. <span className="text-slate-900">Privacy is part of the product, not a footnote.</span>
           </p>
           <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-            Zoe is operated by Freedomology ("Zoe", "we", "us", "our"). This policy explains what personal information we collect, how we use it, when we share it, and the choices available to users.
+            Zoe is operated by Freedomology (&quot;Zoe&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;). This policy explains what personal information we collect, how we use it, when we share it, and the choices available to users.
           </p>
         </header>
 
