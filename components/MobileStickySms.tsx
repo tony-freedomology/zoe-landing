@@ -194,7 +194,30 @@ export default function MobileStickySms() {
                     {/* ── PHASE 2 CHAT ── */}
                     <motion.div style={{ opacity: c2Opacity }} className="absolute top-[8vh] left-0 w-full px-4 flex flex-col gap-[6px] z-20 pointer-events-auto">
                         <ScrollTimestamp text="Today, 7:02 AM" scrollYProgress={scrollYProgress} fadeInRange={[0.52, 0.53]} />
-                        <ScrollBubble sender="zoe" text="morning! mark 4:35-41 today. jesus and the disciples are crossing the sea of galilee when a massive storm hits. the disciples are losing it. jesus? asleep in the back of the boat. they wake him up and he just... tells the storm to stop. then turns to them: 'why are you so afraid?' read it. what hits you?" scrollYProgress={scrollYProgress} fadeInRange={[0.54, 0.56]} />
+                        <ScrollBubble
+                            sender="zoe"
+                            text={
+                                <>
+                                    morning! mark 4:35-41 today.
+                                    <br />
+                                    <br />
+                                    jesus and the disciples are crossing the sea of galilee when a massive storm hits.
+                                    <br />
+                                    the disciples are losing it.
+                                    <br />
+                                    jesus? asleep in the back of the boat.
+                                    <br />
+                                    they wake him up and he just... tells the storm to stop.
+                                    <br />
+                                    then turns to them: &quot;why are you so afraid?&quot;
+                                    <br />
+                                    <br />
+                                    read it. what hits you?
+                                </>
+                            }
+                            scrollYProgress={scrollYProgress}
+                            fadeInRange={[0.54, 0.56]}
+                        />
                         <ScrollBubble sender="user" text="the part about him sleeping. i feel like i'm panicking about my business right now and he's just... asleep." scrollYProgress={scrollYProgress} fadeInRange={[0.57, 0.59]} />
                         <ScrollBubble sender="zoe" text="yeah that tension is the whole point of the story. he's not absent — he's so unbothered by the storm that he's napping. what does that say about what he thinks of the things you're panicking about? sit with that today." scrollYProgress={scrollYProgress} fadeInRange={[0.60, 0.63]} />
                     </motion.div>
@@ -215,12 +238,12 @@ export default function MobileStickySms() {
                     {/* ── PHASE 3 CHAT (fades in, then slides up + fades out before dawn) ── */}
                     <motion.div style={{ opacity: c3Opacity, y: c3TranslateY }} className="absolute top-[8vh] left-0 w-full px-4 flex flex-col gap-[6px] z-20 pointer-events-auto">
                         <ScrollTimestamp text="1:24 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.83, 0.84]} />
-                        <ScrollBubble sender="zoe" text="hey — still thinking about that storm? sometimes the bravest thing is just not waking him up. he's got it." scrollYProgress={scrollYProgress} fadeInRange={[0.84, 0.86]} />
+                        <ScrollBubble sender="zoe" text="hey - just checking in to remind you what we read about this morning. Jesus, calm. Unbothered. Even with a storm going on, because he's in control." scrollYProgress={scrollYProgress} fadeInRange={[0.84, 0.86]} />
 
                         <ScrollTimestamp text="8:30 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.86, 0.87]} />
                         <ScrollBubble sender="zoe" text="evening. where did you notice God today?" scrollYProgress={scrollYProgress} fadeInRange={[0.87, 0.88]} />
-                        <ScrollBubble sender="user" text="i had a moment where i wanted to hit the panic button on a client project, but i just stopped and took a breath. actually felt some peace." scrollYProgress={scrollYProgress} fadeInRange={[0.88, 0.90]} />
-                        <ScrollBubble sender="zoe" text="that IS the passage. you lived it today without even trying. tomorrow's mark 5 — jesus meets a guy everyone else gave up on. you'll love it." scrollYProgress={scrollYProgress} fadeInRange={[0.90, 0.92]} />
+                        <ScrollBubble sender="user" text="i had a moment where i was kind of panicking but had that picture of Jesus asleep pop into my head. Wish I could sleep like him" scrollYProgress={scrollYProgress} fadeInRange={[0.88, 0.90]} />
+                        <ScrollBubble sender="zoe" text="haha. Yeah well, why don't you pray for his peace tonight? Ask Him to help you trust to the point where you can be that calm" scrollYProgress={scrollYProgress} fadeInRange={[0.90, 0.92]} />
                     </motion.div>
 
                 </div>
