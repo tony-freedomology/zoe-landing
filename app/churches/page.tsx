@@ -183,7 +183,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl flex flex-col items-center justify-between gap-6 rounded-[2rem] border border-slate-800 bg-slate-900/70 px-8 py-10 text-center md:flex-row md:text-left">
             <div>
               <div className="text-xs font-bold uppercase tracking-[0.2em] text-vibrant-cyan">For Individuals</div>
-              <h3 className="mt-3 text-2xl font-bold">Looking for personal use? Try Zoe for Individuals →</h3>
+              <h3 className="mt-3 text-2xl font-bold">Looking for personal use? Try Zoe for Individuals &rarr;</h3>
               <p className="mt-2 text-slate-300">Explore daily texts and personal discipleship rhythms.</p>
             </div>
             <a
@@ -250,7 +250,7 @@ export default function Home() {
               <motion.div variants={fadeUp} className="bg-white rounded-[2rem] p-10 flex flex-col items-center text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] group">
                 <div className="text-vibrant-cyan font-bold mb-6 text-xs tracking-[0.2em] uppercase">Morning (2 Min)</div>
                 <h3 className="text-2xl font-bold text-slate-900">The Anchor</h3>
-                <p className="mt-5 text-slate-500 leading-relaxed font-medium">Receive one Scripture from your church's plan, a short reflection, and one simple "do this today" step that fits your real life — not a generic script.</p>
+                <p className="mt-5 text-slate-500 leading-relaxed font-medium">Receive one Scripture from your church's plan, a short reflection, and one simple &quot;do this today&quot; step that fits your real life — not a generic script.</p>
               </motion.div>
               <motion.div variants={fadeUp} className="bg-white rounded-[2rem] p-10 flex flex-col items-center text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] group">
                 <div className="text-slate-400 font-bold mb-6 text-xs tracking-[0.2em] uppercase group-hover:text-slate-600 transition-colors">Midday (15 Sec)</div>
@@ -636,8 +636,8 @@ export default function Home() {
                     <><CheckCircle className="h-5 w-5" /> Request Received!</>
                   ) : "Join the Waitlist"}
                 </button>
-                <p className="mt-3 text-[11px] leading-relaxed text-slate-400 text-center">
-                  By joining, you consent to receive SMS messages from Zoe by Freedomology at the phone number provided. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out at any time.{" "}
+                <p className="mt-3 text-xs leading-relaxed text-slate-400 text-center">
+                  By joining, you consent to receive recurring automated SMS messages from Zoe by Freedomology at the phone number provided. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out or HELP for help.{" "}
                   <a href="/privacy" className="underline hover:text-slate-600 transition-colors">Privacy Policy</a>{" · "}
                   <a href="/terms" className="underline hover:text-slate-600 transition-colors">Terms of Service</a>
                 </p>
