@@ -61,13 +61,13 @@ export default function AboutPage() {
             The Problem We Saw
           </div>
           <h2 className="text-4xl md:text-5xl tracking-tighter-editorial text-slate-900 font-bold leading-[1.1] mb-8">
-            Good intentions aren&apos;t enough when the world is this loud.
+            People want to grow. The structure just isn\Good intentions aren&apos;t enough when the world is this loud.apos;t there.
           </h2>
           <div className="prose text-slate-600 font-medium leading-relaxed text-lg max-w-none space-y-6">
             <p>Sunday morning, the sermon lands. You feel it. You mean it. You walk out with every intention of living differently this week.</p>
             <p>Then Monday shows up. The inbox is already full. The commute is already loud. The kids are already asking for something. By Tuesday, you can&apos;t quite remember the passage. By Thursday, the intention is just gone.</p>
-            <p>That&apos;s not a spiritual failure. That&apos;s a design problem. And it&apos;s exactly the gap we built Zoe to close.</p>
-            <p>The data confirms what anyone in ministry already knows: only 31% of regular churchgoers read the Bible every day. Most people who genuinely want to grow spiritually don&apos;t have a daily structure to act on that desire. The desire is real. The scaffolding isn&apos;t there.</p>
+            <p>And that gap is exactly what we built Zoe to close.</p>
+            <p>The data confirms what anyone in ministry already knows: only 31% of regular churchgoers read the Bible every day. Most people who genuinely want to grow spiritually don&apos;t have a daily structure to act on that desire. The desire is real — but the daily scaffolding to act on it mostly isn&apos;t.</p>
           </div>
         </div>
       </section>
@@ -147,7 +147,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-24 px-6 bg-slate-900">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl md:text-5xl tracking-tighter-editorial text-white font-bold leading-[1.1] mb-6">Come walk with us.</h2>
+          <h2 className="text-4xl md:text-5xl tracking-tighter-editorial text-white font-bold leading-[1.1] mb-6">We&apos;re just getting started.</h2>
           <p className="text-lg text-slate-300 font-medium leading-relaxed mb-10">Zoe is early, and we&apos;re building it carefully. Join the waitlist to be part of the first group to experience it.</p>
           <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
             Join the Waitlist <ArrowRight className="h-4 w-4" />

@@ -159,7 +159,7 @@ export default function FAQPage() {
       <section className="py-24 px-6 bg-slate-900">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-4xl md:text-5xl tracking-tighter-editorial text-white font-bold leading-[1.1] mb-6">Ready to try it?</h2>
-          <p className="text-lg text-slate-300 font-medium leading-relaxed mb-10">Join the waitlist and be among the first to experience discipleship that actually fits inside your day.</p>
+          <p className="text-lg text-slate-300 font-medium leading-relaxed mb-10">Join the waitlist. No app, no login — just your phone and a daily text.</p>
           <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
             Join the Waitlist <ArrowRight className="h-4 w-4" />
           </Link>

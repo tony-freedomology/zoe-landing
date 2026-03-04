@@ -82,7 +82,7 @@ export default function SmsDiscipleshipPost() {
             <p>But something can.</p>
             <p>SMS discipleship creates a bridge between the pastor&apos;s sermon and the congregation&apos;s week. When the preaching touches something, a mid-week text prompt can carry it further. When someone makes a commitment on Sunday, a follow-up the next day can help them keep it. When a church wants to know whether discipleship is actually happening — not just whether people are showing up — consistent, conversational engagement creates real data.</p>
             <p>The Great Commission is a relational command. &quot;Go and make disciples&quot; isn&apos;t satisfied by a weekly program, a curriculum, or even a great small group structure. It requires ongoing, attentive, personalized care. That&apos;s always been the vision. The challenge has been scale.</p>
-            <p>Good intentions aren&apos;t enough when the world is this loud. People need a partner in the noise — something that brings them back, holds them to what they said, and asks the questions a good friend would ask.</p>
+            <p>People need a partner in the noise. Something that brings them back to what they said, holds them to what they committed to, and asks the questions a good friend would ask.</p>
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">What SMS Discipleship Is and Isn&apos;t</h2>
             <p>It&apos;s worth being precise here, because the term matters.</p>
@@ -102,7 +102,7 @@ export default function SmsDiscipleshipPost() {
               <li>Dependent on your motivation on any given morning — it comes to you</li>
             </ul>
             <p>The difference matters. A discipleship tool that waits for you to show up will mostly collect dust. One that shows up where you already are — in your texts — has a real chance of becoming part of how you actually live.</p>
-            <p className="text-xl font-bold text-slate-900 text-center py-4">We don&apos;t need a daily devotional. We need day-long devotion.</p>
+            <p className="text-xl font-bold text-slate-900 text-center py-4">The goal isn&apos;t a daily devotional. It&apos;s day-long devotion.</p>
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">Zoe: Built for SMS Discipleship</h2>
             <p>This is the category that Zoe was built to serve. Zoe is an SMS-based discipleship companion — not an app, not a platform, not a curriculum. Zoe lives in your texts.</p>
