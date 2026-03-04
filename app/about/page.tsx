@@ -49,7 +49,7 @@ export default function AboutPage() {
             We&apos;re building something we wish existed.
           </h1>
           <p className="mt-6 text-xl text-slate-300 font-medium leading-relaxed">
-            Not because it&apos;s a good business idea. Because the gap between Sunday morning and Monday morning is real — and it costs people something.
+            The gap between Sunday morning and Monday morning is real — and it costs people something.
           </p>
         </div>
       </section>
@@ -82,9 +82,9 @@ export default function AboutPage() {
             The habit is already there.
           </h2>
           <div className="prose text-slate-600 font-medium leading-relaxed text-lg max-w-none space-y-6">
-            <p>People check their texts more than 10 times a day. Not because they have to. Because it&apos;s where conversations actually happen — where your spouse sends you something funny, where your friend checks in, where your mom says she&apos;s praying for you.</p>
-            <p>That personal, intimate channel is where Zoe lives. Not as an intrusion, but as a natural part of how you already communicate.</p>
-            <p>SMS messages are opened at 98%, with most read within three minutes. That&apos;s not a marketing stat. It&apos;s a description of where attention actually lives. Zoe doesn&apos;t build a new habit from scratch — it attaches spiritual practice to one people already have.</p>
+            <p>People check their texts more than 10 times a day. It&apos;s where conversations actually happen — where your spouse sends you something funny, where your friend checks in, where your mom says she&apos;s praying for you.</p>
+            <p>That personal, intimate channel is where Zoe lives. It&apos;s already part of how you communicate — Zoe just shows up inside it.</p>
+            <p>SMS messages are opened at 98%, with most read within three minutes. That tells you where attention actually lives. Zoe doesn&apos;t build a new habit from scratch — it attaches spiritual practice to one people already have.</p>
             <p>No downloads. No logins. No learning curve. You already know how to reply to a text.</p>
           </div>
         </div>
@@ -110,7 +110,7 @@ export default function AboutPage() {
                 <div className="text-slate-600 font-medium leading-relaxed space-y-4">
                   <p>I never thought I&apos;d build an AI tool. For over a decade, I served as a worship pastor. My whole thing was presence — the kind that can&apos;t be automated, the kind that happens when a room full of broken people encounter a living God.</p>
                   <p>But I kept watching what happened after Sunday. People would leave transformed — or at least moved — and then life would close back over the moment like water over a stone. The transformation didn&apos;t stick, not because people didn&apos;t mean it, but because there was nothing to help them carry it through the week.</p>
-                  <p>Zoe is what I wished existed. Not because I&apos;m excited about AI. Because I&apos;m still very much a pastor at heart, and I want to help people hold onto what God is doing in them.</p>
+                  <p>Zoe is what I wished existed. I&apos;m still very much a pastor at heart, and I want to help people hold onto what God is doing in them.</p>
                 </div>
                 <p className="text-slate-400 text-sm font-medium mt-6">Cleveland, OH · Freedomology.com</p>
               </div>

@@ -95,7 +95,7 @@ export default function AiWalkWithJesusPost() {
               <li>Convict you in the way the Holy Spirit convicts</li>
               <li>Replace your pastor, your small group, your spouse, or your community</li>
             </ul>
-            <p>That last list is not a deficiency to be apologized for. It&apos;s just an honest description of what a tool is. A hammer isn&apos;t a house. A study Bible isn&apos;t God. A discipleship AI isn&apos;t the Holy Spirit.</p>
+            <p>That last list is just an honest description of what a tool is. A hammer isn&apos;t a house. A study Bible isn&apos;t God. A discipleship AI isn&apos;t the Holy Spirit.</p>
             <p><a href="https://www.thegospelcoalition.org/article/ai-usefulness-dangers-preachers/" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">The Gospel Coalition&apos;s assessment of AI for preachers captures this well</a>: &quot;An AI can assist with parts of the academic task, but it&apos;s categorically excluded from the prayerful, worshipful, Spirit-dependent reality of the process.&quot; Precisely. The prayerful, worshipful reality is yours to bring. The tool helps you not lose the thread.</p>
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">Why I Built This Anyway</h2>

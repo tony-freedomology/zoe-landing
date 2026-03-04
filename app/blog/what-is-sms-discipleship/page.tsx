@@ -38,7 +38,7 @@ export default function SmsDiscipleshipPost() {
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">What Is SMS Discipleship?</h2>
             <p>SMS discipleship is the practice of growing spiritually through text messages — short, intentional exchanges throughout the day that keep you connected to what God is saying and what you&apos;re actually going to do about it.</p>
-            <p>It&apos;s not a replacement for church. It&apos;s not a devotional app or a Bible reading plan. It&apos;s the thing that happens <em>between</em> Sundays — the daily, ordinary, often-invisible work of becoming more like Jesus.</p>
+            <p>SMS discipleship doesn&apos;t replace church or your Bible reading plan. It&apos;s the thing that happens <em>between</em> Sundays — the daily, ordinary, often-invisible work of becoming more like Jesus.</p>
             <p>The word &quot;discipleship&quot; comes straight from the Great Commission. In Matthew 28:19–20, Jesus told his followers to &quot;go and make disciples of all nations.&quot; A disciple isn&apos;t just someone who hears teaching. A disciple is someone who follows, learns, and changes — and eventually helps others do the same. That&apos;s an active, ongoing, daily process. It requires more than one hour a week in a building.</p>
             <p>SMS discipleship takes that process and puts it where most people already spend a big chunk of their day: their text messages.</p>
             <hr className="border-slate-200 my-10" />
@@ -51,7 +51,7 @@ export default function SmsDiscipleshipPost() {
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">Why Text Messages Work When Other Things Don&apos;t</h2>
             <p>You already know the stats on email. Open rates average around 20–28%. SMS messages, by contrast, are opened at roughly <strong>98%</strong>, with <a href="https://www.kixie.com/sales-blog/sms-vs-email-marketing-a-data-driven-study-for-your-sales-strategy/" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">most texts read within three minutes of delivery</a>. The response rate for SMS is <strong>45%</strong>, compared to just 6% for email.</p>
-            <p>But it&apos;s not really about marketing stats. The reason text messages work for spiritual formation is simpler than that: people check their texts. Not because they have to. Because it&apos;s where conversations actually happen. Your texts are where your spouse sends you something funny, where your friend checks in, where your mom says she&apos;s praying for you. It&apos;s a personal, intimate channel.</p>
+            <p>But it&apos;s not really about marketing stats. The reason text messages work for spiritual formation is simpler than that: people check their texts. It&apos;s where real conversations happen. Your texts are where your spouse sends you something funny, where your friend checks in, where your mom says she&apos;s praying for you. It&apos;s a personal, intimate channel.</p>
             <p>When your daily discipleship practice lives there, it&apos;s not an intrusion into your day — it&apos;s woven into it.</p>
             <p>That&apos;s qualitatively different from an app. And this is where the &quot;do we really need another app?&quot; objection comes in.</p>
             <hr className="border-slate-200 my-10" />
