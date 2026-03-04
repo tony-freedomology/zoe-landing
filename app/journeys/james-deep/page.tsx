@@ -27,8 +27,8 @@ export default function JamesDeepPage() {
   return (
     <div className="min-h-screen text-slate-900">
       <section className="relative bg-[#141008] py-32 px-6 pt-40 overflow-hidden">
-        <Image src="/images/journeys/james-deep.jpg" alt="" fill className="object-cover opacity-30" priority />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#141008]/80 via-[#141008]/40 to-[#141008]/85" />
+        <Image src="/images/journeys/james-deep.jpg" alt="" fill className="object-cover opacity-40" priority />
+
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-jade mb-8">
             10-Day Journey
