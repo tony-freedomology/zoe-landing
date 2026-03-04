@@ -61,7 +61,7 @@ export default function AboutPage() {
             The Problem We Saw
           </div>
           <h2 className="text-4xl md:text-5xl tracking-tighter-editorial text-slate-900 font-bold leading-[1.1] mb-8">
-            People want to grow. The structure just isn\Good intentions aren&apos;t enough when the world is this loud.apos;t there.
+            People want to grow. The structure just isn&apos;t there.
           </h2>
           <div className="prose text-slate-600 font-medium leading-relaxed text-lg max-w-none space-y-6">
             <p>Sunday morning, the sermon lands. You feel it. You mean it. You walk out with every intention of living differently this week.</p>
