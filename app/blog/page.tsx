@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../components/Footer";
@@ -51,6 +52,11 @@ export default function BlogIndexPage() {
           <p className="mt-6 text-xl text-slate-300 font-medium leading-relaxed">Technology, faith, and what it looks like to walk with Jesus in the everyday.</p>
         </div>
       </section>
+
+      <div className="relative w-full h-[400px] md:h-[500px] -mt-20">
+        <Image src="/images/blog-hero.jpg" alt="Zoe blog — exploring faith, technology, and discipleship" fill className="object-cover" priority />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 to-transparent" />
+      </div>
 
       <section className="py-24 px-6 bg-[#F8FBFA]">
         <div className="mx-auto max-w-3xl">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { MessageCircle, Users, BookOpen, ShieldCheck, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Footer from "../../components/Footer";
