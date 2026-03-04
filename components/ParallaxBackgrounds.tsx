@@ -4,7 +4,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
-export default function ParallaxBackgrounds() {
+interface ParallaxProps {
+    variant?: "default" | "jesus-red";
+}
+
+export default function ParallaxBackgrounds({ variant = "default" }: ParallaxProps = {}) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     // Track scroll progress across the entirety of the long page
@@ -17,6 +21,10 @@ export default function ParallaxBackgrounds() {
     const forestOpacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0.8]);
     // Slowly scale down the background over the whole page scroll
     const forestScale = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
+
+    if (variant === "jesus-red") {
+        return null; // Return null so we don't render expensive layers for the variant
+    }
 
     return (
         <div ref={containerRef} className="absolute inset-0 pointer-events-none -z-10 h-full w-full">

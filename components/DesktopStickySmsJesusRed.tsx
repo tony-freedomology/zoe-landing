@@ -8,14 +8,12 @@ function ScrollBubble({
     sender,
     text,
     scrollYProgress,
-    fadeInRange,
-    variant
+    fadeInRange
 }: {
     sender: "user" | "zoe",
     text: React.ReactNode,
     scrollYProgress: MotionValue<number>,
-    fadeInRange: [number, number],
-    variant?: "default" | "jesus-red"
+    fadeInRange: [number, number]
 }) {
     const isUser = sender === "user";
     // Bubble fades in and slides up seamlessly precisely as the user scrubs through its designated scroll range
@@ -28,8 +26,8 @@ function ScrollBubble({
             className={clsx(
                 "max-w-[80%] md:max-w-[85%] px-4 py-3 text-[15px] font-medium leading-[1.4] shadow-sm tracking-tight",
                 isUser
-                    ? clsx("bg-[#007AFF] text-white self-end", variant === "jesus-red" ? "rounded-md" : "rounded-[18px] rounded-br-[4px]")
-                    : clsx("bg-[#E9E9EB] text-[#111] self-start", variant === "jesus-red" ? "rounded-md" : "rounded-[18px] rounded-bl-[4px]")
+                    ? "bg-[#007AFF] text-white self-end rounded-[18px] rounded-br-[4px]"
+                    : "bg-[#E9E9EB] text-[#111] self-start rounded-[18px] rounded-bl-[4px]"
             )}
         >
             {text}
@@ -57,7 +55,7 @@ function ScrollTimestamp({
     );
 }
 
-export default function DesktopStickySms({ variant = "default" }: { variant?: "default" | "jesus-red" } = {}) {
+export default function DesktopStickySmsJesusRed() {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const { scrollYProgress } = useScroll({
@@ -143,13 +141,13 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
     };
 
     return (
-        <section ref={containerRef} className={clsx("relative w-full h-[500vh] z-20 block", variant === "jesus-red" ? "bg-[#f5efe6]" : "bg-[#F9FAFB]")}>
+        <section ref={containerRef} className="relative w-full h-[500vh] z-20 block bg-[#f5efe6]">
 
             {/* Sticky Container locks viewport to coordinate cinematic scroll physics for BOTH Desktop and Mobile */}
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden pointer-events-none z-20 px-0 md:px-4">
 
                 {/* DESKTOP NARRATIVE COPY (Left & Right of iPhone) */}
-                <div className="absolute inset-0 w-full h-full pointer-events-none z-10 font-sans">
+                <div className="absolute inset-0 w-full h-full pointer-events-none z-10">
                     <div className="relative max-w-[1400px] mx-auto h-full w-full">
 
                         {/* PHASE 1 */}
@@ -200,8 +198,7 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
                 </div>
 
                 {/* Simulated iPhone Device Frame on Desktop, Full Bleed on Mobile */}
-                <div className={clsx("relative w-full h-full md:w-[400px] md:h-[80vh] md:max-h-[850px] border-slate-900 md:shadow-2xl overflow-hidden shrink-0 pointer-events-auto z-20",
-                    variant === "jesus-red" ? "bg-[#faf7f0] md:rounded-[32px] md:border-[10px]" : "bg-[#F9FAFB] md:rounded-[48px] md:border-[12px]")}>
+                <div className="relative w-full h-full md:w-[400px] md:h-[80vh] md:max-h-[850px] border-slate-900 md:shadow-2xl overflow-hidden shrink-0 pointer-events-auto z-20 bg-[#faf7f0] md:rounded-[48px] md:border-[12px]">
 
                     {/* CONTINUOUS CHAT THREAD (Grouped into 3 fixed 1/3 height "Pages") */}
                     <motion.div
@@ -213,10 +210,10 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
                             <div className="absolute top-[8vh] md:top-[10%] left-0 w-full px-4 flex flex-col gap-[6px]">
                                 <ScrollTimestamp text="Yesterday, 9:14 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.01, 0.03]} />
                                 <ScrollTimestamp text="Yesterday, 9:14 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.01, 0.03]} />
-                                <ScrollBubble sender="user" variant={variant} text="hey can we go through one of the gospels together? i want to actually understand what jesus was like, not just the sunday school version" scrollYProgress={scrollYProgress} fadeInRange={[0.04, 0.06]} />
-                                <ScrollBubble sender="zoe" variant={variant} text="mark. 100%. it reads like a documentary — no long speeches, just jesus doing things that blow people's minds. 16 chapters, we can do it in 2 weeks. what time works for morning readings?" scrollYProgress={scrollYProgress} fadeInRange={[0.07, 0.10]} />
-                                <ScrollBubble sender="user" variant={variant} text="7am" scrollYProgress={scrollYProgress} fadeInRange={[0.11, 0.12]} />
-                                <ScrollBubble sender="zoe" variant={variant} text="done. starting tomorrow 👋" scrollYProgress={scrollYProgress} fadeInRange={[0.13, 0.14]} />
+                                <ScrollBubble sender="user" text="hey can we go through one of the gospels together? i want to actually understand what jesus was like, not just the sunday school version" scrollYProgress={scrollYProgress} fadeInRange={[0.04, 0.06]} />
+                                <ScrollBubble sender="zoe" text="mark. 100%. it reads like a documentary — no long speeches, just jesus doing things that blow people's minds. 16 chapters, we can do it in 2 weeks. what time works for morning readings?" scrollYProgress={scrollYProgress} fadeInRange={[0.07, 0.10]} />
+                                <ScrollBubble sender="user" text="7am" scrollYProgress={scrollYProgress} fadeInRange={[0.11, 0.12]} />
+                                <ScrollBubble sender="zoe" text="done. starting tomorrow 👋" scrollYProgress={scrollYProgress} fadeInRange={[0.13, 0.14]} />
                             </div>
                         </div>
 
@@ -227,7 +224,6 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
                                 <ScrollTimestamp text="Today, 7:02 AM" scrollYProgress={scrollYProgress} fadeInRange={[0.35, 0.38]} />
                                 <ScrollBubble
                                     sender="zoe"
-                                    variant={variant}
                                     text={
                                         <>
                                             morning! mark 4:35-41 today.
@@ -250,8 +246,8 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
                                     scrollYProgress={scrollYProgress}
                                     fadeInRange={[0.40, 0.46]}
                                 />
-                                <ScrollBubble sender="user" variant={variant} text="the part about him sleeping. i feel like i'm panicking about my business right now and he's just... asleep." scrollYProgress={scrollYProgress} fadeInRange={[0.48, 0.52]} />
-                                <ScrollBubble sender="zoe" variant={variant} text="yeah that tension is the whole point of the story. he's not absent — he's so unbothered by the storm that he's napping. what does that say about what he thinks of the things you're panicking about? sit with that today." scrollYProgress={scrollYProgress} fadeInRange={[0.54, 0.60]} />
+                                <ScrollBubble sender="user" text="the part about him sleeping. i feel like i'm panicking about my business right now and he's just... asleep." scrollYProgress={scrollYProgress} fadeInRange={[0.48, 0.52]} />
+                                <ScrollBubble sender="zoe" text="yeah that tension is the whole point of the story. he's not absent — he's so unbothered by the storm that he's napping. what does that say about what he thinks of the things you're panicking about? sit with that today." scrollYProgress={scrollYProgress} fadeInRange={[0.54, 0.60]} />
                             </motion.div>
                         </div>
 
@@ -259,12 +255,12 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
                         <div className="h-1/3 w-full flex flex-col justify-end pb-[8%] relative px-4 pointer-events-auto">
                             <motion.div className="absolute top-[-2%] left-0 w-full px-4 flex flex-col gap-[6px]">
                                 <ScrollTimestamp text="1:24 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.85, 0.86]} />
-                                <ScrollBubble sender="zoe" variant={variant} text="hey - just checking in to remind you what we read about this morning. Jesus, calm. Unbothered. Even with a storm going on, because he's in control." scrollYProgress={scrollYProgress} fadeInRange={[0.87, 0.89]} />
+                                <ScrollBubble sender="zoe" text="hey - just checking in to remind you what we read about this morning. Jesus, calm. Unbothered. Even with a storm going on, because he's in control." scrollYProgress={scrollYProgress} fadeInRange={[0.87, 0.89]} />
 
                                 <ScrollTimestamp text="8:30 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.90, 0.91]} />
-                                <ScrollBubble sender="zoe" variant={variant} text="evening. where did you notice God today?" scrollYProgress={scrollYProgress} fadeInRange={[0.92, 0.93]} />
-                                <ScrollBubble sender="user" variant={variant} text="i had a moment where i was kind of panicking but had that picture of Jesus asleep pop into my head. Wish I could sleep like him" scrollYProgress={scrollYProgress} fadeInRange={[0.94, 0.96]} />
-                                <ScrollBubble sender="zoe" variant={variant} text="haha. Yeah well, why don't you pray for his peace tonight? Ask Him to help you trust to the point where you can be that calm" scrollYProgress={scrollYProgress} fadeInRange={[0.97, 0.99]} />
+                                <ScrollBubble sender="zoe" text="evening. where did you notice God today?" scrollYProgress={scrollYProgress} fadeInRange={[0.92, 0.93]} />
+                                <ScrollBubble sender="user" text="i had a moment where i was kind of panicking but had that picture of Jesus asleep pop into my head. Wish I could sleep like him" scrollYProgress={scrollYProgress} fadeInRange={[0.94, 0.96]} />
+                                <ScrollBubble sender="zoe" text="haha. Yeah well, why don't you pray for his peace tonight? Ask Him to help you trust to the point where you can be that calm" scrollYProgress={scrollYProgress} fadeInRange={[0.97, 0.99]} />
                             </motion.div>
                         </div>
 
@@ -274,15 +270,7 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
             </div>
 
             {/* Seamless Gradient blending into the next section */}
-            <div
-                className="absolute bottom-0 left-0 right-0 h-[30vh] pointer-events-none z-10"
-                style={{
-                    background: variant === "jesus-red"
-                        ? "linear-gradient(to bottom, #f5efe6 0%, #fecdd3 100%)"
-                        : "linear-gradient(to bottom, #F9FAFB 0%, #fecdd3 100%)"
-                }}
-            />
-            <div className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-rose-200 pointer-events-none z-10" />
+            <div className="absolute bottom-[-2px] left-0 right-0 h-[30vh] pointer-events-none z-10" style={{ background: "linear-gradient(to bottom, #f5efe6 0%, #fecdd3 100%)" }} />
         </section>
     );
 }

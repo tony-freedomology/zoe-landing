@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import clsx from "clsx";
 
 import { Highlight } from './Highlight';
 
@@ -10,7 +11,11 @@ const fadeUp = {
     show: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } }
 };
 
-export default function ThesisSection() {
+interface ThesisProps {
+    variant?: "default" | "jesus-red";
+}
+
+export default function ThesisSection({ variant = "default" }: ThesisProps = {}) {
     return (
         <section className="w-full bg-misty-green-950 text-white py-24 md:py-40 px-4 md:px-6 relative flex justify-center border-b border-misty-green-900">
             <div className="max-w-[900px] w-full flex flex-col gap-24 md:gap-32">
@@ -24,7 +29,9 @@ export default function ThesisSection() {
                     className="max-w-3xl mx-auto text-center"
                 >
                     <p className="text-brand-jade font-semibold tracking-widest uppercase text-sm mb-6">The Promise</p>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-tighter-editorial text-white mb-8 font-bold leading-[1.1]">
+                    <h2 className={clsx("text-4xl md:text-5xl lg:text-6xl tracking-tighter-editorial mb-8 font-bold leading-[1.1]",
+                        variant === "jesus-red" ? "text-[#f5efe6]" : "text-white"
+                    )}>
                         "I have come that they may have life and have it to the <Highlight type="underline" color="text-brand-jade">full."</Highlight>
                     </h2>
                     <div className="space-y-6 text-xl md:text-2xl text-misty-green-100 leading-relaxed font-medium">
@@ -49,7 +56,9 @@ export default function ThesisSection() {
                     className="max-w-3xl mx-auto text-center"
                 >
                     <p className="text-amber-500 font-semibold tracking-widest uppercase text-sm mb-6">The Reality</p>
-                    <h3 className="text-2xl md:text-4xl font-semibold tracking-tighter-editorial text-white mb-6 leading-tight">
+                    <h3 className={clsx("text-2xl md:text-4xl font-semibold tracking-tighter-editorial mb-6 leading-tight",
+                        variant === "jesus-red" ? "text-[#f5efe6]" : "text-white"
+                    )}>
                         Good intentions aren't enough when the world is this loud.
                     </h3>
                     <div className="space-y-6 text-lg md:text-[22px] text-misty-green-200 leading-relaxed">
@@ -71,20 +80,22 @@ export default function ThesisSection() {
                     className="max-w-3xl mx-auto mt-4 text-center"
                 >
                     <p className="text-brand-cyan font-semibold tracking-widest uppercase text-sm mb-6">The Answer</p>
-                    <h3 className="text-3xl md:text-5xl font-semibold tracking-tighter-editorial text-white mb-8 leading-tight">
+                    <h3 className={clsx("text-3xl md:text-5xl font-semibold tracking-tighter-editorial mb-8 leading-tight",
+                        variant === "jesus-red" ? "text-[#f5efe6]" : "text-white"
+                    )}>
                         We don't need a daily devotional. We need <Highlight type="underline" color="text-brand-cyan">day-long</Highlight> devotion.
                     </h3>
                     <p className="text-xl md:text-2xl text-misty-green-100 leading-relaxed font-medium mb-12">
                         What we actually want is a <span className="-translate-x-2 inline-block"><Highlight type="circle" color="text-brand-cyan">fully integrated life.</Highlight></span> We want to notice where God is actively working, to remember Him often, and to actually walk the path Jesus invited us to walk.
                     </p>
 
-                    <div className="p-8 md:p-12 bg-[#0E1513] border border-misty-green-800/60 rounded-[2rem] shadow-2xl relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-misty-green-800/10 to-transparent"></div>
-                        <div className="relative z-10">
-                            <p className="text-2xl md:text-4xl font-semibold tracking-tighter-editorial text-white mb-4">
+                    <div className={`p-8 md:p-12 ${variant === "jesus-red" ? "bg-[#f5efe6] border-[#e0d8cd] shadow-xl shadow-black/20 rounded-md" : "bg-[#0E1513] border-misty-green-800/60 rounded-[2rem]"} border relative overflow-hidden`}>
+                        <div className={`absolute inset-0 bg-gradient-to-br ${variant === "jesus-red" ? "from-white/60" : "from-misty-green-800/10"} to-transparent`}></div>
+                        <div className={`relative z-10 flex flex-col items-center text-center max-w-2xl mx-auto`}>
+                            <h3 className={clsx("text-2xl md:text-4xl tracking-tighter-editorial mb-4", variant === "jesus-red" ? "text-[#5c1624] font-medium" : "text-white font-semibold")}>
                                 That's exactly why we built Zoe.
-                            </p>
-                            <p className="text-lg md:text-[22px] text-misty-green-200 leading-relaxed">
+                            </h3>
+                            <p className={`text-lg md:text-[22px] ${variant === "jesus-red" ? "text-slate-800" : "text-misty-green-200"} leading-relaxed`}>
                                 It's not another app to feed your distraction, but a simple, quiet tool designed specifically to bring you back to what matters, all day long.
                             </p>
                         </div>

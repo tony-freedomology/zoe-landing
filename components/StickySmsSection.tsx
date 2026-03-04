@@ -3,14 +3,14 @@
 import DesktopStickySms from "./DesktopStickySms";
 import MobileStickySms from "./MobileStickySms";
 
-export default function StickySmsSection() {
+export default function StickySmsSection({ variant = "default" }: { variant?: "default" | "jesus-red" } = {}) {
     return (
         <div className="w-full relative">
             <div className="hidden md:block overflow-x-clip w-full">
-                <DesktopStickySms />
+                <DesktopStickySms variant={variant} />
             </div>
             <div className="block md:hidden overflow-x-clip w-full">
-                <MobileStickySms />
+                <MobileStickySms variant={variant} />
             </div>
         </div>
     );

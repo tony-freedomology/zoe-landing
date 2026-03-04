@@ -6,17 +6,17 @@
 
 /* ── Tokens ────────────────────────────────────────────── */
 .theme-jesus-red {
-  --jr-red:       #7a2332;
+  --jr-red: #7a2332;
   --jr-red-light: #9b3347;
-  --jr-red-deep:  #5c1624;
-  --jr-gold:      #c9a96e;
-  --jr-gold-light:#e8d7b0;
+  --jr-red-deep: #5c1624;
+  --jr-gold: #c9a96e;
+  --jr-gold-light: #e8d7b0;
   --jr-parchment: #f5efe6;
-  --jr-cream:     #faf7f0;
-  --jr-ink:       #1e1c1a;
+  --jr-cream: #faf7f0;
+  --jr-ink: #1e1c1a;
   --jr-ink-light: #3a3632;
   --jr-warm-gray: #6b6560;
-  --jr-border:    #e0d8cd;
+  --jr-border: #e0d8cd;
 
   --font-sans: "Source Sans 3", system-ui, -apple-system, sans-serif;
 }
@@ -25,7 +25,15 @@
 .theme-jesus-red {
   background: var(--jr-parchment) !important;
   color: var(--jr-ink) !important;
-  font-family: var(--font-sans);
+  font-family: var(--font-serif), "Georgia", serif;
+}
+
+/* Hide the main-site navbar — jesus.red is a standalone landing page.
+   The beforeInteractive Script ensures .theme-jesus-red is on <body>
+   before first paint, so the navbar is never visible (no FOUC). */
+.theme-jesus-red>header,
+.theme-jesus-red>nav {
+  display: none !important;
 }
 
 /* ── Headings → serif ──────────────────────────────────── */
@@ -36,43 +44,33 @@
 }
 
 /* ── Hero section ──────────────────────────────────────── */
-/* Tint the sky layer with a warm overlay */
+/* Tint the sky layer with a warm overlay - NO LONGER NEEDED for jesus-red variant since we swapped the background entirely, but kept scoped in case others use it. */
 .theme-jesus-red section:first-of-type {
   position: relative;
 }
-.theme-jesus-red section:first-of-type::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(92, 22, 36, 0.25) 0%,
-    rgba(30, 28, 26, 0.10) 50%,
-    rgba(30, 28, 26, 0.65) 100%
-  );
-  mix-blend-mode: multiply;
-}
 
 /* Hero text & CTA recolor */
-.theme-jesus-red .drop-shadow-sm {
-  color: var(--jr-cream) !important;
+.theme-jesus-red main>section:first-of-type .drop-shadow-sm {
+  color: var(--jr-red-deep) !important;
 }
 
-.theme-jesus-red a[href="#waitlist"],
-.theme-jesus-red a[href="/#waitlist"] {
+.theme-jesus-red section:first-of-type a[href="#waitlist"],
+.theme-jesus-red section:first-of-type a[href="/#waitlist"] {
   background: var(--jr-red) !important;
   color: var(--jr-cream) !important;
   box-shadow: 0 0 30px -5px rgba(122, 35, 50, 0.35) !important;
 }
-.theme-jesus-red a[href="#waitlist"]:hover,
-.theme-jesus-red a[href="/#waitlist"]:hover {
+
+.theme-jesus-red section:first-of-type a[href="#waitlist"]:hover,
+.theme-jesus-red section:first-of-type a[href="/#waitlist"]:hover {
   background: var(--jr-red-light) !important;
 }
 
-/* Bottom gradient of hero → transition into parchment */
-.theme-jesus-red section:first-of-type > div:last-child {
+
+/* Bottom gradient of hero → transition into parchment.
+   IMPORTANT: Must scope to main > section:first-of-type so we only hit the Hero,
+   not every section:first-of-type inside wrapper divs (e.g. StickySmsSectionJesusRed). */
+.theme-jesus-red main>section:first-of-type>div:last-child {
   background: linear-gradient(to top, var(--jr-ink), transparent) !important;
 }
 
@@ -91,6 +89,7 @@
 .theme-jesus-red [class*="bg-slate-50"] {
   background-color: var(--jr-parchment) !important;
 }
+
 .theme-jesus-red [class*="bg-white\\/60"],
 .theme-jesus-red [class*="bg-white\\/70"],
 .theme-jesus-red .glass {
@@ -103,14 +102,17 @@
 .theme-jesus-red [class*="text-brand-cyan"] {
   color: var(--jr-red) !important;
 }
+
 .theme-jesus-red [class*="bg-brand-jade"],
 .theme-jesus-red [class*="bg-brand-cyan"] {
   background-color: var(--jr-red) !important;
 }
+
 .theme-jesus-red [class*="border-brand-jade"],
 .theme-jesus-red [class*="border-brand-cyan"] {
   border-color: var(--jr-red) !important;
 }
+
 .theme-jesus-red [class*="ring-brand-jade"],
 .theme-jesus-red [class*="ring-brand-cyan"] {
   --tw-ring-color: var(--jr-red) !important;
@@ -121,11 +123,12 @@
   color: var(--jr-gold) !important;
 }
 
-/* Pills / badges */
 .theme-jesus-red [class*="bg-brand-jade\\/5"],
 .theme-jesus-red [class*="bg-brand-cyan\\/5"] {
-  background-color: rgba(122, 35, 50, 0.06) !important;
+  background-color: rgba(122, 35, 50, 0.12) !important;
+  color: var(--jr-red-deep) !important;
 }
+
 .theme-jesus-red [class*="border-brand-jade\\/20"],
 .theme-jesus-red [class*="border-brand-cyan\\/20"] {
   border-color: rgba(122, 35, 50, 0.18) !important;
@@ -138,23 +141,28 @@
 }
 
 /* ── Cards ─────────────────────────────────────────────── */
-.theme-jesus-red [class*="bg-white"] {
-  background-color: var(--jr-cream) !important;
-}
+/* Removed aggressive bg-white override that caused gradient bleed-through */
 
 /* ── Buttons (slate-900 dark buttons → deep red) ───────── */
+.theme-jesus-red a[href*="#waitlist"],
+.theme-jesus-red a[href="/privacy"] {
+  border-radius: 0.375rem !important;
+  /* Forces a square/rounded-md look universally */
+}
+
 .theme-jesus-red button[class*="bg-slate-900"],
 .theme-jesus-red a[class*="bg-slate-900"] {
   background-color: var(--jr-red) !important;
 }
+
 .theme-jesus-red button[class*="bg-slate-900"]:hover,
 .theme-jesus-red a[class*="bg-slate-900"]:hover {
   background-color: var(--jr-red-light) !important;
 }
 
-/* ── FAQ accordion active state ────────────────────────── */
-.theme-jesus-red [class*="bg-brand-cyan"] {
-  background-color: var(--jr-red) !important;
+/* ── FAQ styling ────────────────────────── */
+.theme-jesus-red .bg-slate-900 svg {
+  color: var(--jr-cream) !important;
 }
 
 /* ── Footer ────────────────────────────────────────────── */
@@ -168,6 +176,7 @@
   background-color: #fff !important;
   border-color: var(--jr-border) !important;
 }
+
 .theme-jesus-red input:focus {
   --tw-ring-color: rgba(122, 35, 50, 0.4) !important;
   border-color: rgba(122, 35, 50, 0.4) !important;
@@ -175,11 +184,9 @@
 
 /* ── Glow / halo radials → warm ────────────────────────── */
 .theme-jesus-red .bg-halo {
-  background-image: radial-gradient(
-    ellipse at 50% 30%,
-    rgba(201, 169, 110, 0.12),
-    transparent 60%
-  ) !important;
+  background-image: radial-gradient(ellipse at 50% 30%,
+      rgba(201, 169, 110, 0.12),
+      transparent 60%) !important;
 }
 
 /* ── Highlight underline SVGs → red ────────────────────── */
@@ -192,12 +199,15 @@
 .theme-jesus-red [class*="bg-brand-jade\\/10"] {
   background-color: rgba(122, 35, 50, 0.10) !important;
 }
+
 .theme-jesus-red div[class*="bg-brand-jade"]:not([class*="\\/"]) {
   background-color: var(--jr-red) !important;
 }
+
 .theme-jesus-red [class*="border-brand-jade\\/30"] {
   border-color: rgba(122, 35, 50, 0.30) !important;
 }
+
 .theme-jesus-red [class*="bg-brand-jade\\/80"] {
   background-color: rgba(122, 35, 50, 0.80) !important;
 }

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import Home from "../page";
+import Script from "next/script";
+import HomePageContentJesusRed from "../../components/HomePageContentJesusRed";
 
 export default function JesusRedPage() {
   useEffect(() => {
@@ -28,5 +29,21 @@ export default function JesusRedPage() {
     };
   }, []);
 
-  return <Home />;
+  return (
+    <>
+      {/* 
+        This inline script executes immediately when the HTML is parsed,
+        long before React hydrates. This prevents the "Flash of Unstyled Content" (FOUC)
+        where the default blue/green CSS shows before the useEffect fires.
+      */}
+      <Script
+        id="theme-jesus-red-init"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `document.body.classList.add('theme-jesus-red');`,
+        }}
+      />
+      <HomePageContentJesusRed />
+    </>
+  );
 }

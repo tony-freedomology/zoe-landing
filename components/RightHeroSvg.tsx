@@ -1,0 +1,302 @@
+
+"use client";
+import React from 'react';
+import { motion } from 'framer-motion';
+
+export default function RightHeroSvg({ className }: { className?: string }) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250" fill="none" className={className} preserveAspectRatio="xMaxYMax meet">
+            {/* removed rect background */}
+            <motion.path d="M 141.84,84.3 C 140.76,85.01 140.38,86.96 141.83,86.91 C 143.62,86.86 143.71,85.64 143.32,85.01 C 142.93,84.38 142.32,83.98 141.84,84.3 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 197.54,90.49 C 196.18,91.72 196.78,93.73 198.39,93.69 C 200.41,93.63 200.52,92.16 200.12,91.21 C 199.72,90.26 198.51,89.73 197.54,90.49 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 207.79,75.98 C 206.42,77.21 207.02,79.68 208.63,79.63 C 210.66,79.57 210.76,77.71 210.37,76.76 C 209.97,75.81 208.76,75.22 207.79,75.98 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 206.61,85.69 C 205.79,86.06 205.72,87.17 206.29,87.23 C 207.29,87.33 207.5,86.78 207.42,86.26 C 207.34,85.73 207.07,85.51 206.61,85.69 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 220.08,106.62 C 218.71,107.85 219.65,110.81 221.68,110.75 C 223.71,110.69 223.81,109.22 223.67,108.01 C 223.48,106.39 221.65,105.51 220.08,106.62 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 238.06,109.08 C 236.88,110.14 237.7,112.33 239.11,112.29 C 240.88,112.23 240.88,110.92 240.76,109.89 C 240.59,108.48 239.21,108.06 238.06,109.08 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 234.84,115.12 C 234.46,115.3 234.42,115.81 234.72,115.84 C 235.29,115.9 235.41,115.57 235.36,115.27 C 235.31,114.97 235.15,114.96 234.84,115.12 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 227.62,118.09 C 227.12,118.21 227.06,119.01 227.48,119.06 C 228.06,119.12 228.15,118.72 228.09,118.42 C 228.03,118.12 227.91,118.01 227.62,118.09 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 214.72,117.93 C 213.9,118.3 213.82,119.84 214.39,119.9 C 215.39,120 215.61,119.14 215.53,118.43 C 215.46,117.72 215.18,117.75 214.72,117.93 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 196.94,123.09 C 195.76,123.89 196.68,125.76 198.09,125.59 C 199.61,125.39 199.71,124.62 199.41,123.83 C 199.11,123.03 197.94,122.43 196.94,123.09 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 137.07,120.06 C 136.44,120.51 136.53,121.98 137.27,121.89 C 138.26,121.77 138.22,120.89 138.02,120.39 C 137.82,119.89 137.47,119.78 137.07,120.06 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 146.41,116.32 C 145.91,116.5 145.85,117.01 146.27,117.06 C 146.85,117.12 146.97,116.79 146.92,116.49 C 146.87,116.19 146.71,116.18 146.41,116.32 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 152.58,111.31 C 151.4,112.11 152.32,114.41 153.73,114.24 C 155.25,114.04 154.88,112.91 154.58,112.11 C 154.28,111.31 153.58,110.65 152.58,111.31 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 157.52,112.11 C 155.69,113.75 156.51,117.39 159.34,117.31 C 161.77,117.23 162.71,114.97 162.11,113.43 C 161.31,111.27 159.21,110.65 157.52,112.11 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 132.69,132.07 C 131.33,132.98 131.23,135.63 133.55,135.71 C 135.58,135.79 135.68,134.09 135.29,132.88 C 134.89,131.67 133.66,131.41 132.69,132.07 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 145.91,96.63 C 145.53,96.81 145.49,97.32 145.79,97.35 C 146.36,97.41 146.49,97.08 146.44,96.78 C 146.39,96.48 146.23,96.47 145.91,96.63 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 149.91,91.91 C 146.97,92.39 146.18,95.77 147.91,97.66 C 149.63,99.55 150.75,99.71 152.02,98.91 C 153.61,97.89 154.56,95.29 153.61,93.71 C 152.66,92.13 151.62,91.66 149.91,91.91 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 150.19,99.29 C 149.37,99.66 149.29,100.77 149.86,100.83 C 150.86,100.93 151.08,100.38 151,99.86 C 150.92,99.33 150.65,99.11 150.19,99.29 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 223.68,133.01 C 222.4,133.38 222.47,134.21 223.31,134.39 C 224.49,134.66 225.12,133.84 224.82,133.31 C 224.52,132.78 224.39,132.78 223.68,133.01 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 231.72,139.61 C 228.04,140.71 228.31,145.26 230.74,147.01 C 232.77,148.41 234.93,148.01 235.88,146.06 C 236.83,144.11 237.23,141.95 235.41,140.41 C 234.16,139.35 232.91,139.25 231.72,139.61 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 243.71,154.62 C 239.52,153.08 233.28,148.77 230.32,146.82 C 225.98,144.07 218.89,143.28 211.39,142.82 L 204.71,136.88 L 208.28,133.29 L 209.81,134.31 C 209.81,136.01 210.21,137.96 211.29,137.21 C 211.89,136.78 211.84,135.75 212.28,135.46 C 213.46,134.69 215.01,135.96 216.16,134.31 C 217.31,132.66 218.79,133.16 219.26,131.34 C 219.61,130.06 219.19,128.91 220.91,127.9 C 222.16,127.14 223.21,126.26 222.03,126.39 C 220.21,126.61 220.09,127.11 219.27,126.11 C 218.67,125.39 218.74,123.27 217.87,122.8 C 217.16,122.41 217.21,123.81 216.91,124.17 C 216.19,125.05 214.24,123.91 213.29,124.86 C 211.91,126.26 211.66,127.38 210.81,128.11 C 209.86,128.91 210.11,127.81 209.26,127.01 C 208.11,125.91 207.81,126.91 208.76,127.91 C 209.71,128.91 208.76,129.16 208.76,130.51 C 208.76,131.86 208.21,132.16 206.49,133.26 C 205.34,134.01 206.41,135.01 207.36,135.21 L 204.13,137.86 L 198.22,133.71 C 197.51,131.11 193.16,131.26 192.31,133.11 V 135.76 L 189.31,135.91 L 189.01,97.51 L 189.79,67.61 L 219.09,62.61 L 220.41,62.01 L 219.71,60.31 L 220.19,48.41 L 214.81,45.11 L 188.81,49.76 L 188.71,27.91 L 189.16,27.21 L 185.21,23 L 184.61,23.11 L 173.11,25.81 L 170.56,27.71 L 171.81,27.96 L 172.21,53.91 L 145.31,58.21 L 145.11,58.71 L 145.31,70.71 L 150.11,74.81 L 172.91,70.31 L 172.81,133.71 C 167.71,132.61 166.11,133.41 161.61,135.31 C 155.81,137.81 146.41,141.51 143.91,145.71 C 139.41,153.21 134.21,153.91 130.01,153.51 C 124.81,153.01 122.71,153.61 118.41,157.81 C 109.41,166.61 102.61,175.11 95.11,176.21 C 91.31,176.71 86.11,175.41 81.11,176.91 C 71.21,179.91 64.21,184.91 56.21,192.11 C 47.91,199.71 42.31,200.71 35.31,205.21 C 31.61,207.71 28.61,209.91 25.61,211.21 C 18.61,212.71 12.21,213.91 5,215.91 L 5.11,216.71 C 10.21,215.41 14.61,214.51 18.81,213.61 C 16.01,215.51 13.21,217.71 12.01,219.31 L 12.61,219.91 C 21.11,216.31 27.11,212.41 35.71,210.51 C 44.21,208.61 58.91,197.21 64.91,194.71 C 71.11,192.11 73.91,192.31 77.01,193.61 C 80.21,194.91 84.91,194.01 89.21,193.31 C 98.01,191.81 106.81,190.41 116.91,184.71 C 124.91,180.11 127.81,175.01 137.11,168.91 C 144.31,164.11 150.91,160.11 159.81,158.21 C 155.01,162.11 152.21,167.01 152.21,167.01 C 150.71,170.11 152.91,173.91 156.11,171.61 C 160.81,167.41 164.01,165.11 167.71,163.21 C 177.61,158.41 188.61,155.31 199.11,154.21 C 202.31,153.81 205.01,154.61 207.01,155.31 C 207.11,158.21 209.41,160.71 212.81,162.21 C 214.61,163.01 215.81,168.11 215.71,170.41 C 213.91,175.71 213.11,181.01 215.91,181.61 C 218.71,182.21 218.11,177.91 217.01,171.01 C 218.91,169.71 223.11,169.61 226.91,169.41 C 232.11,169.11 238.81,169.41 240.71,167.41 C 242.61,165.41 241.21,163.61 238.91,162.21 C 235.01,159.81 228.11,157.11 223.81,155.01 L 224.11,153.81 C 229.01,155.41 234.01,158.31 239.41,160.21 C 244.21,161.91 245.01,160.11 243.71,159.11 C 240.71,157.91 236.71,156.01 236.11,155.01 C 238.21,155.71 241.91,157.21 243.81,157.61 C 245.51,157.91 245.71,155.31 243.71,154.62 Z M 180.01,133.61 H 177.91 L 176.11,129.01 L 175.61,133.71 L 174.81,133.61 L 175.61,67.01 L 177.01,66.11 L 177.81,98.21 L 178.71,66.01 L 180.01,65.71 V 133.61 Z M 187.11,113.11 L 186.11,106.31 L 186.31,118.81 L 187.11,113.11 Z M 187.71,27.61 L 188.21,50.11 L 187.01,50.51 L 186.21,25.21 L 187.71,27.61 Z M 172.91,27.21 L 175.11,26.81 L 175.71,52.51 L 173.71,52.81 L 172.91,27.21 Z M 176.21,26.61 L 183.11,25.41 L 182.91,50.91 L 176.71,52.41 L 176.21,26.61 Z M 146.21,59.81 L 173.11,56.21 L 173.71,54.11 L 184.71,51.51 L 185.01,52.01 L 187.21,51.01 L 187.61,50.41 L 214.31,46.71 L 214.61,50.11 L 190.41,54.91 L 214.61,51.21 L 214.81,53.01 L 200.61,55.91 L 207.71,55.41 L 190.81,58.71 L 162.71,63.11 L 170.31,62.21 L 146.41,66.01 L 146.21,59.81 Z M 147.21,71.01 L 185.71,63.71 L 186.11,64.41 L 215.11,58.91 L 215.91,54.91 L 216.11,60.01 L 186.71,65.61 L 185.81,65.21 L 150.11,72.71 L 147.21,71.01 Z M 185.71,95.01 L 186.11,73.51 L 187.31,90.01 L 185.71,95.01 Z M 137.91,153.91 C 141.61,149.31 144.91,145.71 149.21,144.91 L 150.61,148.01 C 156.31,144.61 167.91,140.11 176.61,139.21 L 177.31,140.01 C 171.61,141.41 167.41,143.11 165.91,144.31 C 172.71,142.21 181.11,140.41 189.61,139.91 L 189.81,141.51 C 177.41,143.91 164.01,148.61 153.11,156.11 C 144.11,159.11 133.21,167.91 126.11,175.21 C 118.01,183.61 107.21,188.91 95.41,189.71 C 102.81,186.01 107.71,178.61 113.01,171.91 C 117.11,167.61 120.71,166.31 126.71,165.21 C 122.81,166.71 118.81,168.81 116.01,170.61 C 121.11,165.01 125.21,160.91 130.61,160.01 C 134.41,159.41 135.31,157.31 137.91,153.91 Z M 117.11,163.81 C 119.01,159.21 120.71,157.01 125.11,156.91 C 128.31,157.11 130.91,157.21 133.71,156.11 C 130.21,159.71 126.91,160.11 124.01,160.11 C 120.81,160.11 118.91,162.01 116.01,165.11 L 117.11,163.81 Z M 90.41,182.81 C 85.91,183.21 81.11,182.01 77.21,182.61 C 71.31,183.51 65.81,190.41 58.01,195.11 C 48.41,200.81 43.01,205.21 30.01,208.81 C 34.51,204.81 39.11,203.11 44.01,200.71 C 52.61,196.71 62.31,184.11 75.11,180.61 C 80.81,178.91 83.11,178.11 89.21,178.91 C 93.71,179.51 97.41,178.91 100.61,177.41 C 98.11,179.91 96.21,182.31 90.41,182.81 Z M 239.91,167.11 C 237.81,169.71 228.01,168.61 220.51,169.61 C 218.81,169.81 217.71,170.11 216.81,170.51 C 216.91,166.91 217.71,162.11 220.11,160.41 L 223.11,162.71 L 223.81,162.11 L 220.61,158.81 C 221.11,157.71 222.31,157.31 223.91,157.71 C 227.11,158.61 232.51,160.71 236.71,162.21 C 239.91,163.31 241.21,165.41 239.91,167.11 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 177.91,166.11 C 176.73,166.48 176.81,167.91 177.64,167.71 C 178.64,167.46 178.91,166.81 178.71,166.31 C 178.51,165.81 178.41,165.91 177.91,166.11 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 197.81,169.01 C 194.21,169.71 191.81,169.11 188.31,169.41 C 183.11,170.41 175.11,172.31 168.01,175.21 L 167.71,172.91 C 160.61,176.01 147.91,182.21 136.11,191.61 C 133.11,194.11 129.01,195.11 127.91,195.31 C 123.61,196.21 123.11,201.91 126.91,204.21 C 129.21,205.51 132.21,204.81 135.81,203.31 C 126.21,208.71 122.11,209.81 118.91,210.61 C 130.71,210.01 139.81,202.91 149.11,197.61 C 156.11,194.21 164.61,190.71 174.11,189.01 C 178.01,188.31 178.81,187.51 182.71,187.91 C 185.71,188.21 187.11,187.01 189.91,187.01 C 194.91,186.91 198.91,187.11 202.41,187.51 C 208.91,188.21 217.91,189.61 222.71,187.91 L 224.11,185.61 L 223.61,183.11 C 218.61,180.11 208.21,179.01 200.21,179.41 C 194.21,179.71 186.11,180.41 179.11,182.21 C 184.31,179.81 187.91,178.41 190.91,177.41 L 192.21,177.61 L 197.81,172.21 C 200.81,170.01 199.91,168.61 197.81,169.01 Z M 190.01,186.11 L 187.91,186.21 L 189.21,185.81 L 190.01,186.11 Z M 193.31,185.81 L 191.61,185.91 L 191.91,185.51 L 193.31,185.81 Z M 204.81,185.91 C 201.11,185.41 198.81,185.31 196.61,185.41 L 196.31,184.91 C 199.01,184.71 202.11,185.01 204.81,185.91 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 192.61,184.71 C 183.11,185.01 172.01,186.11 166.61,188.71 L 166.31,188.11 C 172.41,185.51 181.71,184.21 192.61,184.21 V 184.71 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 200.11,172.81 C 203.31,171.91 209.61,170.91 213.11,170.71 V 171.21 C 208.91,171.31 203.61,172.31 200.11,172.81 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 198.21,162.21 C 197.39,162.58 197.31,163.69 197.88,163.75 C 198.88,163.85 199.1,163.3 199.02,162.78 C 198.94,162.25 198.67,162.03 198.21,162.21 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 140.71,187.11 C 126.91,194.81 119.81,196.01 111.81,199.71 C 103.11,203.81 92.41,210.61 77.21,213.31 C 95.21,213.61 108.21,207.61 124.91,201.31 L 126.01,200.11 L 140.71,187.11 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 83.71,201.01 C 70.71,202.81 46.31,212.91 35.11,224.91 L 34.21,225.61 C 44.81,216.01 68.61,206.11 81.91,203.61 C 92.11,201.61 98.91,198.81 103.31,196.21 C 98.11,198.01 92.71,199.71 83.71,201.01 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+            <motion.path d="M 177.71,107.71 L 177.51,118.91 L 177.21,107.71 H 177.71 Z" fill="#7a2332"
+                initial={{ pathLength: 0, fillOpacity: 0 }}
+                animate={{ pathLength: 1, fillOpacity: 1 }}
+                transition={{
+                    pathLength: { duration: 2.5, ease: "easeInOut" },
+                    fillOpacity: { duration: 1, delay: 2 }
+                }}
+                stroke="#7a2332"
+                strokeWidth="1"
+            />
+        </svg>
+    );
+}
