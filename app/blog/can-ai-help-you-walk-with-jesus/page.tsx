@@ -52,7 +52,7 @@ export default function AiWalkWithJesusPost() {
             <p>AI sits in the same category. A thread among Christians on Reddit put it plainly: &quot;AI is not being used in place of the Holy Spirit. It&apos;s being used as a search tool and nothing more… no different than a concordance or a Bible search.&quot; The concordance doesn&apos;t generate revelation. It helps you find where the revelation already is. Same principle here.</p>
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">&quot;Can a Machine Understand Spiritual Things?&quot;</h2>
-            <p>Here&apos;s where I want to be really direct, because this matters:</p>
+            <p>I want to be direct here:</p>
             <p className="text-xl font-bold text-slate-900 border-l-4 border-brand-jade pl-6 py-2">Zoe cannot understand spiritual things. Full stop.</p>
             <p>It doesn&apos;t know God. It doesn&apos;t pray. It doesn&apos;t have the mind of Christ. When Zoe asks &quot;What is God saying to you today?&quot;, it isn&apos;t interpreting the answer spiritually — it&apos;s capturing it so <em>you</em> can return to it later. The understanding happens in you, through the Spirit, through the Word, through the people around you.</p>
             <p>Think of it this way: when you read a commentary by John Calvin or Charles Spurgeon, that commentary doesn&apos;t <em>understand</em> your specific situation before God. It reflects the Spirit-guided wisdom of another human. Yet we read commentaries because they help us think. We use study Bibles. We read books about prayer. All of those are tools mediating human insight — they&apos;re not the real thing, but they help us get to the real thing.</p>
@@ -76,7 +76,7 @@ export default function AiWalkWithJesusPost() {
             <p>The printing press wasn&apos;t built by theologians. Radio wasn&apos;t invented by missionaries. And yet God used both to spread his Word farther than any of their inventors imagined.</p>
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">Here&apos;s What AI Can and Can&apos;t Actually Do</h2>
-            <p>Let me be as clear as I know how to be.</p>
+            <p>So here&apos;s where I land.</p>
             <p className="font-bold text-slate-900">What AI can do:</p>
             <ul className="list-disc pl-6 space-y-2 text-slate-700">
               <li>Remember what you said last Tuesday</li>
@@ -102,10 +102,10 @@ export default function AiWalkWithJesusPost() {
             <p>I keep thinking about a specific kind of Sunday.</p>
             <p>You&apos;re in church. The pastor says something that cuts right to the center of your chest. You write it down, or you type a note in your phone. You feel that rare clarity — <em>God is saying something specific to me, right now.</em> You mean to do something with it.</p>
             <p>Then Monday happens. And Tuesday. By Wednesday, the note is buried. By the following Sunday, you barely remember what the message was about.</p>
-            <p>This isn&apos;t a character flaw. This is what it&apos;s like to be human in a loud world. &quot;Good intentions aren&apos;t enough when the world is this loud.&quot; That line is basically the entire reason Zoe exists.</p>
+            <p>This isn&apos;t a character flaw. This is what it&apos;s like to be human in a loud world. &quot;Life is loud. And good intentions fade fast.&quot; That line is basically the entire reason Zoe exists.</p>
             <p>What Zoe does — what I wanted it to do when I started building it — is close the loop between Sunday&apos;s intention and Monday&apos;s follow-through. Not by doing the spiritual work for you. But by remembering that you said you were going to do something, and gently asking if you did.</p>
             <p>Three times a day, at morning, noon, and evening, Zoe asks simple questions: What is God saying to you? What are you going to do about it? And then it remembers the answers.</p>
-            <p>Because transformation happens when someone helps you connect the dots across days, not just moments.</p>
+            <p>Because follow-through happens when something remembers what you said yesterday and asks about it tomorrow.</p>
             <p>Zoe lives in your texts. No app to download. No login. No new habit to build. You already open your phone 50 times a day — Zoe just shows up inside that habit and asks one honest question.</p>
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The Line Worth Drawing</h2>
@@ -127,7 +127,7 @@ export default function AiWalkWithJesusPost() {
             </div>
             <div>
               <p className="font-bold text-slate-900">Tony Allen</p>
-              <p className="text-sm text-slate-500 font-medium leading-relaxed">Founder of Zoe and a former worship pastor at Heartland Community Church in Bloomington, Illinois. He builds tools at the intersection of technology and discipleship at Freedomology.</p>
+              <p className="text-sm text-slate-500 font-medium leading-relaxed">Founder of Zoe and Freedomology. Former worship pastor. Now building tools at the intersection of technology and discipleship.</p>
             </div>
           </div>
         </div>

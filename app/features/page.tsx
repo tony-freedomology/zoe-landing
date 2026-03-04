@@ -121,7 +121,7 @@ export default function FeaturesPage() {
                 When you tell Zoe on Monday that you&apos;re going to have that hard conversation — Zoe brings it back on Thursday.
               </p>
               <p className="text-lg text-slate-600 font-medium leading-relaxed">
-                Transformation happens when someone helps you connect the dots across days, not just moments. That&apos;s what memory does.
+                When you tell Zoe something on Monday, it can bring it back on Thursday. That continuity across days is what actually changes people.
               </p>
             </div>
           </div>
@@ -225,10 +225,10 @@ export default function FeaturesPage() {
       <section className="py-24 px-6 bg-slate-900">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-4xl md:text-5xl tracking-tighter-editorial text-white font-bold leading-[1.1] mb-6">
-            Ready to close the loop?
+            See what it feels like.
           </h2>
           <p className="text-lg text-slate-300 font-medium leading-relaxed mb-10">
-            Zoe is currently in early access. Join the waitlist to be among the first to experience discipleship that fits inside your actual day.
+            Zoe is in early access. Join the waitlist and see what it feels like to close the loop between Sunday and Monday.
           </p>
           <Link
             href="/#waitlist"
