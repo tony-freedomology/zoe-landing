@@ -115,6 +115,8 @@ export default function Hero2D({ variant = "default" }: Hero2DProps = {}) {
                         quality={90}
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/50" />
+                    {/* Radial vignette to darken the center where text/SVG sit */}
+                    <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 55%, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.05) 100%)' }} />
                 </div>
             ) : variant === "jesus-red" ? (
                 // 1. Elegant Parchment Background for jesus-red variant

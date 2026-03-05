@@ -189,7 +189,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
 
                 <div className="relative z-10">
                   <div className={clsx("inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
-                    variant === "jesus-red" ? "rounded-md border border-[#e0d8cd] bg-[#f5efe6] text-[#7a2332]" : "rounded-full border border-brand-jade/20 bg-brand-jade/5 text-brand-jade")}>
+                    variant === "jesus-red" ? "rounded-md border border-[#e0d8cd] bg-[#f5efe6] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : "rounded-full border border-brand-jade/20 bg-brand-jade/5 text-brand-jade")}>
                     Pre-Alpha Waitlist
                   </div>
 
@@ -278,7 +278,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
           <div className="mx-auto max-w-3xl relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-20">
               <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
-                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : "rounded-full border-brand-jade/20 bg-brand-jade/5 text-brand-jade")}>
+                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : "rounded-full border-brand-jade/20 bg-brand-jade/5 text-brand-jade")}>
                 Trust & Privacy
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-tighter-editorial text-slate-900 leading-[1.1] font-bold">
@@ -339,7 +339,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
           <div className="mx-auto max-w-4xl relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-16">
               <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6 shadow-sm",
-                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : "rounded-full border-brand-cyan/20 bg-brand-cyan/5 text-brand-cyan")}>
+                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : "rounded-full border-brand-cyan/20 bg-brand-cyan/5 text-brand-cyan")}>
                 FAQs
               </div>
               <h2 className="text-4xl tracking-tighter-editorial text-slate-900 md:text-5xl font-bold">You've got questions. <br className="md:hidden" />We get it.</h2>
