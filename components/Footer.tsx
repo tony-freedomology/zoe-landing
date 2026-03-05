@@ -2,12 +2,12 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-slate-500 py-12 px-6 border-t border-slate-100 text-sm">
+    <footer className="bg-white text-slate-500 py-12 px-6 border-t border-slate-100 text-sm font-sans">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           {/* Brand */}
           <div className="flex flex-col gap-2">
-            <Link href="/" className="text-xl font-bold tracking-tighter-editorial-relaxed text-slate-900">
+            <Link href="/" className="text-xl font-bold tracking-tighter-editorial-relaxed font-serif text-slate-900">
               Zoe
             </Link>
             <p className="text-slate-400 text-xs leading-relaxed max-w-xs">

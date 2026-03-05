@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../components/Footer";
+import EmeraldUniTheme from "../../components/EmeraldUniTheme";
 
 export const metadata: Metadata = {
   title: "Journeys — Zoe",
@@ -55,13 +56,14 @@ const journeys = [
 
 export default function JourneysHubPage() {
   return (
-    <div className="min-h-screen text-slate-900 bg-[#F8FBFA]">
-      <section className="bg-gradient-to-b from-[#1a1308] to-[#141008] py-32 px-6 pt-40">
+    <div className="min-h-screen text-slate-900 bg-[#F8FBFA] font-sans">
+      <EmeraldUniTheme />
+      <section className="bg-gradient-to-b from-[#0a2e1f] to-[#061a12] py-32 px-6 pt-40">
         <div className="mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-jade mb-8">
             Guided Journeys
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tighter-editorial text-white leading-[1.1] font-bold">Walk the path.</h1>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tighter-editorial font-serif text-white leading-[1.1] font-bold">Walk the path.</h1>
           <p className="mt-6 text-xl text-slate-300 font-medium leading-relaxed max-w-2xl mx-auto">
             Daily rhythms of reading, prayer, and reflection delivered directly to your phone. Pick a journey and start building a practice that lasts.
           </p>
@@ -84,18 +86,18 @@ export default function JourneysHubPage() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a2e1f]/70 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
                     <span className="inline-flex items-center rounded-full bg-white/20 backdrop-blur-md px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white border border-white/30">
                       {journey.duration}
                     </span>
-                    <span className="inline-flex items-center rounded-full bg-slate-900/40 backdrop-blur-md px-3 py-1 text-xs font-semibold capitalize text-white border border-white/20">
+                    <span className="inline-flex items-center rounded-full bg-[#0a2e1f]/40 backdrop-blur-md px-3 py-1 text-xs font-semibold capitalize text-white border border-white/20">
                       {journey.difficulty}
                     </span>
                   </div>
                 </div>
                 <div className="p-8 flex flex-col flex-grow">
-                  <h2 className="text-2xl tracking-tighter-editorial text-slate-900 font-bold mb-3 group-hover:text-brand-jade transition-colors duration-200">
+                  <h2 className="text-2xl tracking-tighter-editorial font-serif text-slate-900 font-bold mb-3 group-hover:text-brand-jade transition-colors duration-200">
                     {journey.title}
                   </h2>
                   <p className="text-slate-600 font-medium leading-relaxed text-sm flex-grow mb-6 line-clamp-4">
@@ -110,9 +112,9 @@ export default function JourneysHubPage() {
           </div>
         </div>
       </section>
-      <section className="py-24 px-6 bg-slate-900">
+      <section className="py-24 px-6 bg-[#0a2e1f]">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl md:text-5xl tracking-tighter-editorial text-white font-bold leading-[1.1] mb-6">Your daily companion.</h2>
+          <h2 className="text-4xl md:text-5xl tracking-tighter-editorial font-serif text-white font-bold leading-[1.1] mb-6">Your daily companion.</h2>
           <p className="text-lg text-slate-300 font-medium leading-relaxed mb-10">Zoe is currently in early access. Join the waitlist to be among the first to walk through a guided journey with a daily discipleship companion in your texts.</p>
           <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
             Join the Waitlist <ArrowRight className="h-4 w-4" />

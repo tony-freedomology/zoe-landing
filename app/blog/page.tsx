@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../components/Footer";
+import EmeraldUniTheme from "../../components/EmeraldUniTheme";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -42,23 +43,19 @@ const posts = [
 
 export default function BlogIndexPage() {
   return (
-    <div className="min-h-screen text-slate-900">
-      <section className="relative bg-slate-900 py-32 px-6 pt-40 overflow-hidden">
+    <div className="min-h-screen text-slate-900 font-sans">
+      <EmeraldUniTheme />
+      <section className="relative bg-[#0a2e1f] py-32 px-6 pt-40 overflow-hidden">
         <Image src="/images/blog-hero.jpg" alt="" fill className="object-cover opacity-30" priority />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#141008]/80 via-[#141008]/40 to-[#141008]/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a2e1f]/80 via-[#0a2e1f]/40 to-[#0a2e1f]/85" />
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-jade mb-8">
             The Zoe Blog
           </div>
-          <h1 className="text-5xl md:text-6xl tracking-tighter-editorial text-white leading-[1.1] font-bold">Thinking on discipleship.</h1>
+          <h1 className="text-5xl md:text-6xl tracking-tighter-editorial font-serif text-white leading-[1.1] font-bold">Thinking on discipleship.</h1>
           <p className="mt-6 text-xl text-slate-300 font-medium leading-relaxed">Technology, faith, and what it looks like to walk with Jesus in the everyday.</p>
         </div>
       </section>
-
-      <div className="relative w-full h-[400px] md:h-[500px] -mt-20">
-        <Image src="/images/blog-hero.jpg" alt="Zoe blog — exploring faith, technology, and discipleship" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 to-transparent" />
-      </div>
 
       <section className="py-24 px-6 bg-[#F8FBFA]">
         <div className="mx-auto max-w-3xl">
@@ -77,7 +74,7 @@ export default function BlogIndexPage() {
                   <span className="text-slate-300 text-xs">·</span>
                   <span className="text-slate-400 text-xs font-medium">{post.readTime}</span>
                 </div>
-                <h2 className="text-2xl md:text-3xl tracking-tighter-editorial text-slate-900 font-bold leading-snug mb-4 group-hover:text-brand-jade transition-colors duration-200">
+                <h2 className="text-2xl md:text-3xl tracking-tighter-editorial font-serif text-slate-900 font-bold leading-snug mb-4 group-hover:text-brand-jade transition-colors duration-200">
                   {post.title}
                 </h2>
                 <p className="text-slate-600 font-medium leading-relaxed mb-6">{post.description}</p>

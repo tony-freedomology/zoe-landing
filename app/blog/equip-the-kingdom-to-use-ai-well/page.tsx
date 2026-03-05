@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
+import EmeraldUniTheme from "../../../components/EmeraldUniTheme";
 
 export const metadata: Metadata = {
   title: "What Does It Look Like to Equip the Kingdom to Use AI Well?",
@@ -11,8 +12,9 @@ export const metadata: Metadata = {
 
 export default function EquipKingdomPost() {
   return (
-    <div className="min-h-screen text-slate-900">
-      <section className="bg-gradient-to-b from-[#1a1308] to-[#141008] py-32 px-6 pt-40">
+    <div className="min-h-screen text-slate-900 font-sans">
+      <EmeraldUniTheme />
+      <section className="bg-gradient-to-b from-[#0a2e1f] to-[#061a12] py-32 px-6 pt-40">
         <div className="mx-auto max-w-3xl">
           <div className="mb-6">
             <Link href="/blog" className="text-sm font-semibold text-slate-400 hover:text-white transition-colors">← Blog</Link>
@@ -23,7 +25,7 @@ export default function EquipKingdomPost() {
             <span className="text-slate-600 text-xs">·</span>
             <span className="text-slate-400 text-xs font-medium">9 min read</span>
           </div>
-          <h1 className="text-4xl md:text-5xl tracking-tighter-editorial text-white leading-[1.1] font-bold mb-6">What Does It Look Like to Equip the Kingdom to Use AI Well?</h1>
+          <h1 className="text-4xl md:text-5xl tracking-tighter-editorial font-serif text-white leading-[1.1] font-bold mb-6">What Does It Look Like to Equip the Kingdom to Use AI Well?</h1>
           <p className="text-xl text-slate-300 font-medium leading-relaxed">The church can&apos;t afford to sit this one out. Here&apos;s a practical framework for how churches and ministries should evaluate, adopt, and shape AI tools faithfully.</p>
         </div>
       </section>
@@ -35,13 +37,13 @@ export default function EquipKingdomPost() {
             <p>Meanwhile, most local churches are still deciding whether to have a &quot;digital ministry&quot; strategy.</p>
             <p>I&apos;m not saying that to be harsh. I say it because the gap between where the conversation is happening and where most of our congregations are is enormous — and it matters. A lot.</p>
             <hr className="border-slate-200 my-10" />
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The Church Has Always Shaped Culture or Been Shaped by It</h2>
+            <h2 className="text-3xl tracking-tighter-editorial font-serif text-slate-900 font-bold mt-10 mb-4">The Church Has Always Shaped Culture or Been Shaped by It</h2>
             <p>The printing press. The radio. Television. The internet. Every major information technology in history triggered the same two responses from the church: a prophetic voice that helped communities engage wisely, and a fearful silence that left people to figure it out alone.</p>
             <p>We don&apos;t get to make AI go away by ignoring it. It&apos;s already in your people&apos;s pockets, reshaping how they learn, how they relate, how they form habits of mind. <a href="https://africa.thegospelcoalition.org/article/how-artificial-intelligence-is-shaping-the-christian-and-church-life/" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">According to the Gospel Coalition&apos;s African network</a>, one of the top uses of generative AI in 2025 was therapy and companionship. People are turning to AI chatbots because they&apos;re lonely, because the church hasn&apos;t created enough on-ramps for real connection, and because AI is available at 2am when anxiety hits hardest.</p>
             <p>That&apos;s not a technology problem. That&apos;s a discipleship gap AI is rushing to fill.</p>
             <p>So let me be direct: the church has a responsibility to be at the table when AI is being built, evaluated, and deployed — especially in faith contexts. And that responsibility starts with equipping our own people well.</p>
             <hr className="border-slate-200 my-10" />
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The &quot;Just Ignore It&quot; Option Is Already Gone</h2>
+            <h2 className="text-3xl tracking-tighter-editorial font-serif text-slate-900 font-bold mt-10 mb-4">The &quot;Just Ignore It&quot; Option Is Already Gone</h2>
             <p>I&apos;ve talked with pastors who think staying silent on AI is somehow neutral or safe. I want to push back on that.</p>
             <p>Silence is a position. When you say nothing, your congregation fills the vacuum with whatever YouTube, Reddit, and their coworkers are saying. And right now, those voices aren&apos;t exactly steeped in theology of the image of God.</p>
             <p><a href="https://www.barna.com/research/christians-ai-church/" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">Barna Group research</a> found that most Christians who have concerns about AI still fall into the &quot;don&apos;t know&quot; category — meaning they&apos;re not hostile to engagement, they just haven&apos;t been given tools for discernment. That&apos;s a pastoral opening, not a reason to wait.</p>
@@ -49,14 +51,14 @@ export default function EquipKingdomPost() {
             <p>The Vatican&apos;s <em>Antiqua et Nova</em> document, released in January 2025, put it plainly: <a href="https://www.usccb.org/news/2025/morality-ai-depends-human-choices-vatican-says-new-document" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">technological progress is part of God&apos;s plan for creation</a>, but people must take responsibility for how it&apos;s used. &quot;Like any tool, AI is an extension of human power.&quot; The moral weight doesn&apos;t belong to the algorithm — it belongs to the humans who build it and the communities who choose to adopt it.</p>
             <p>That means us.</p>
             <hr className="border-slate-200 my-10" />
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The False Binary That&apos;s Slowing Us Down</h2>
+            <h2 className="text-3xl tracking-tighter-editorial font-serif text-slate-900 font-bold mt-10 mb-4">The False Binary That&apos;s Slowing Us Down</h2>
             <p>&quot;AI vs. faith.&quot;</p>
             <p>I hear some version of this framing constantly, and it frustrates me every time. The question is never really &quot;AI or faith.&quot; It&apos;s always &quot;who built this, what values did they build in, and what does it do to the people who use it?&quot;</p>
             <p>A hammer isn&apos;t good or evil. A hammer wielded by someone trying to build a shelter for homeless families does something very different than the same hammer in other hands. The question isn&apos;t the tool — it&apos;s the craftsperson, the intent, and the accountability structure around both.</p>
             <p>The <a href="https://erlc.com/press/sbc-becomes-first-denomination-to-address-ethics-of-artificial-intelligence-and-emerging-technologies-guiding-erlc/" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">SBC&apos;s 2023 AI resolution</a> frames it well: believers should engage AI &quot;from a place of eschatological hope rather than uncritical embrace or fearful rejection.&quot; That&apos;s not a muddled middle — that&apos;s actually a sophisticated position. It takes human dignity seriously, holds technology accountable, and doesn&apos;t flinch from either the opportunity or the risk.</p>
             <p>The binary — AI or faith, technology or tradition — is a distraction. The real work is building and choosing tools that actually reflect our values.</p>
             <hr className="border-slate-200 my-10" />
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">What &quot;Good AI&quot; Looks Like in a Faith Context</h2>
+            <h2 className="text-3xl tracking-tighter-editorial font-serif text-slate-900 font-bold mt-10 mb-4">What &quot;Good AI&quot; Looks Like in a Faith Context</h2>
             <p>If your church or ministry is evaluating an AI tool for discipleship, pastoral care, prayer support, or faith formation, here&apos;s a practical framework I&apos;d put to any vendor or product:</p>
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100 space-y-8 not-prose">
               {[
@@ -67,7 +69,7 @@ export default function EquipKingdomPost() {
                 { number: "5", title: "Is it accountable to pastoral leadership?", body: "Any AI tool deployed in a church context should give ministry leaders visibility into what it's doing \u2014 at an aggregate level \u2014 without compromising individual privacy. Pastors need to be able to see whether the tool is reinforcing the teaching coming from the pulpit, whether it's doctrinally consistent, and whether it's producing fruit in people's lives. AI with no pastoral oversight isn't ministry tech. It's just tech." },
               ].map((item) => (
                 <div key={item.number} className="flex gap-5 items-start">
-                  <div className="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center flex-shrink-0 text-white text-sm font-bold">{item.number}</div>
+                  <div className="w-8 h-8 rounded-full bg-[#0a2e1f] flex items-center justify-center flex-shrink-0 text-white text-sm font-bold">{item.number}</div>
                   <div>
                     <h3 className="font-bold text-slate-900 text-base mb-2">{item.title}</h3>
                     <p className="text-slate-600 text-sm leading-relaxed font-medium">{item.body}</p>
@@ -76,7 +78,7 @@ export default function EquipKingdomPost() {
               ))}
             </div>
             <hr className="border-slate-200 my-10" />
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">Who Should Be at the Table When AI Is Being Built?</h2>
+            <h2 className="text-3xl tracking-tighter-editorial font-serif text-slate-900 font-bold mt-10 mb-4">Who Should Be at the Table When AI Is Being Built?</h2>
             <p>At NRB 2026 in Nashville, a panel of Christian leaders made a point that I keep coming back to. Someone named Skytland said: <a href="https://www.christiandaily.com/news/christian-scholars-call-for-moral-framework-as-ai-reshapes-relationships-and-community" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">&quot;I think we have a moral, ethical, theological responsibility as Christians to shape technology for good.&quot;</a></p>
             <p>I agree. And I&apos;d go further.</p>
             <p>If we believe that human beings are made in the image of God — that our worth isn&apos;t reducible to productivity or utility — then we have something to say that the secular AI industry desperately needs to hear. The biggest AI labs in the world are building systems that make choices about learning, relationships, mental health, and meaning. They&apos;re doing it with engineers and product managers and investors. Very few of them have a theology of personhood.</p>
@@ -84,7 +86,7 @@ export default function EquipKingdomPost() {
             <p>The LDS Church has published <a href="https://newsroom.churchofjesuschrist.org/article/faith--ethics--and-human-dignity-in-an-age-of-artificial-intelligence--a-call-to-action" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">seven principles for their use of AI</a>, covering spiritual connection, transparency, privacy, and accountability. The NAE&apos;s president Walter Kim signed the Rome Call for AI Ethics at the Vatican Summit. The SBC has made AI advocacy a cornerstone of the ERLC&apos;s work. These aren&apos;t fringe reactions — they&apos;re institutional commitments from major faith communities that understand something important: you don&apos;t get to complain about the tools if you weren&apos;t in the room when they were built.</p>
             <p>The window for faith communities to shape the values baked into AI is right now. In five years, the defaults will be set.</p>
             <hr className="border-slate-200 my-10" />
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The Specific Challenge of AI for Discipleship</h2>
+            <h2 className="text-3xl tracking-tighter-editorial font-serif text-slate-900 font-bold mt-10 mb-4">The Specific Challenge of AI for Discipleship</h2>
             <p>Let me make this concrete, because I care about this one personally.</p>
             <p>Discipleship has always had a gap. The sermon ends, people go home, and the transformation that started on Sunday gets lost by Tuesday. Life is loud. Good intentions aren&apos;t enough when the world is this loud.</p>
             <p>AI can help close that gap — but only if it&apos;s built right. The difference between AI that genuinely serves spiritual formation and AI that just mimics it is enormous, and most people can&apos;t tell them apart yet.</p>
@@ -98,7 +100,7 @@ export default function EquipKingdomPost() {
             <p>This is exactly what we&apos;re building with <a href="https://zoe.live" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">Zoe</a>. Zoe is an SMS-based discipleship tool — it lives in your text messages, asks you what God is saying to you and what you&apos;re going to do about it, and remembers your commitments across days so you can actually follow through. It&apos;s built for church communities, accountable to pastoral leadership, and privacy-first by design. No app, no login, no surveillance of your spiritual life.</p>
             <p>It&apos;s a tool. A well-built one, we think. Built by people who believe this stuff matters.</p>
             <hr className="border-slate-200 my-10" />
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">So What Does It Look Like to Equip the Kingdom?</h2>
+            <h2 className="text-3xl tracking-tighter-editorial font-serif text-slate-900 font-bold mt-10 mb-4">So What Does It Look Like to Equip the Kingdom?</h2>
             <p>It looks like pastors who understand AI well enough to evaluate tools — not fear them, not uncritically adopt them, but actually evaluate them with a theological framework.</p>
             <p>It looks like denominations and parachurch organizations putting people in the room where AI policy is being made — not just reacting to it after the fact.</p>
             <p>It looks like ministry leaders asking the right questions before they deploy anything: Is it transparent? Is it privacy-first? Is it theologically grounded? Does it reinforce community? Is it accountable to us?</p>
@@ -109,7 +111,7 @@ export default function EquipKingdomPost() {
           <div className="mt-12 bg-slate-50 rounded-3xl p-8 border border-slate-100 text-center">
             <p className="text-lg font-bold text-slate-900 mb-3">Zoe is built for this.</p>
             <p className="text-slate-600 font-medium leading-relaxed mb-6">If your church is looking for an AI discipleship tool that&apos;s transparent, privacy-first, theologically grounded, and designed to work alongside pastoral leadership — not replace it — we&apos;d love to have you along for the journey.</p>
-            <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-700 transition-all duration-200">
+            <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-[#0a2e1f] text-white px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-700 transition-all duration-200">
               Join the Zoe Waitlist <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
