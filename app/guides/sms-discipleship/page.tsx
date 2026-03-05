@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "How is SMS discipleship different from a Bible app?",
-    a: "A Bible app requires you to remember to open it, find it on your phone, and navigate to your reading plan. SMS discipleship arrives automatically in your text messages — the same channel you already check dozens of times per day. The core difference is activation energy: apps require effort; SMS requires none.",
+    a: "A Bible app requires you to remember to open it, find it on your phone, and get to your reading plan. SMS discipleship arrives automatically in your text messages — the same channel you already check dozens of times per day. The core difference is activation energy: apps require effort; SMS requires none.",
   },
   {
     q: "Is Zoe an app?",
@@ -94,7 +94,7 @@ export default function SmsDiscipleshipGuidePage() {
           <div className="prose prose-slate max-w-none text-slate-700 font-medium leading-relaxed text-lg space-y-6">
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold">The problem SMS discipleship solves</h2>
             <p>71% of users abandon apps within 90 days of downloading them. For Bible apps, the number is likely higher — the motivation to install a Bible app often peaks at a Sunday morning feeling and drops steeply by Thursday.</p>
-            <p>The issue isn't the apps themselves. The issue is the friction model. Every time you want to engage with your Bible app, you need to: remember it exists, find it on your phone, open it, and navigate to your content. That's multiple decisions per day, every day. Habits that require repeated decisions tend not to last.</p>
+            <p>The friction model is the problem. Every time you want to use a Bible app, you need to: remember it exists, find it on your phone, open it, and get to your content. That's multiple decisions per day, every day. Habits that require repeated decisions tend not to last.</p>
             <p>SMS discipleship eliminates the decision. Daily content arrives in your existing text thread — the same place you're already checking throughout the day. You don't go to it. It comes to you.</p>
 
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10">How it works</h2>

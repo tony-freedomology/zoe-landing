@@ -75,11 +75,11 @@ const apps = [
 const faqs = [
   {
     q: "What is the best discipleship app for Christians in 2026?",
-    a: "The best discipleship app depends on what problem you're trying to solve. For daily Bible habit without the friction of opening an app, Zoe (SMS-based, no download) is the strongest option for people who've struggled to maintain consistency. For Bible reference and reading plans, YouVersion remains the most comprehensive tool. For guided prayer, Hallow leads the category for Catholics; Lectio 365 for Protestants.",
+    a: "The best discipleship app depends on what problem you're trying to solve. For daily Bible habit without app friction, Zoe (SMS-based, no download) is the strongest option for people who've struggled to stay consistent. For Bible reference and reading plans, YouVersion is still the most complete tool. For guided prayer, Hallow leads for Catholics; Lectio 365 for Protestants.",
   },
   {
     q: "Why do people stop using Bible apps?",
-    a: "App abandonment data shows 71% of users abandon apps within 90 days of downloading. The core issue is friction: to use a Bible app, you have to unlock your phone, find the app, open it, and navigate to your reading plan — at any one of those steps the habit breaks. SMS-based tools like Zoe eliminate this by delivering content to your existing text thread automatically.",
+    a: "App abandonment data shows 71% of users abandon apps within 90 days of downloading. The core issue is friction: to use a Bible app, you have to unlock your phone, find the app, open it, and get to your reading plan — at any one of those steps the habit breaks. SMS-based tools like Zoe eliminate this by delivering content to your existing text thread automatically.",
   },
   {
     q: "Is Zoe an app?",
@@ -144,7 +144,7 @@ export default function BestDiscipleshipAppsPage() {
           <div className="prose prose-slate max-w-none text-slate-700 font-medium leading-relaxed text-lg space-y-6">
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold">The problem with most discipleship apps</h2>
             <p>YouVersion has been downloaded over 500 million times. By most measures, it's the most successful Christian app ever built. And yet — most of those users are inactive.</p>
-            <p>The problem isn't the app. It's the friction model. To use a Bible app every day, you have to: unlock your phone, find the app on page three, open it, navigate past the notification, and get to your reading plan. That's four to six decisions before you read a single word of Scripture.</p>
+            <p>The friction model is the problem. To use a Bible app every day, you have to: unlock your phone, find the app on page three, open it, scroll past the notification, and get to your reading plan. That's four to six decisions before you read a single word of Scripture.</p>
             <p>Habit research is clear: the more friction between a person and a behavior, the more likely they are to skip it on any given day. And skipping it once makes it twice as easy to skip again.</p>
             <p>This is why SMS discipleship is a fundamentally different model — not better features, but fewer steps. Your daily content arrives in your text thread. You're already there. One swipe, and you're in it.</p>
           </div>
@@ -222,7 +222,7 @@ export default function BestDiscipleshipAppsPage() {
             <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-4">How to choose</h2>
             <ul className="space-y-3 text-slate-700 font-medium">
               <li className="flex gap-3"><span className="text-brand-jade font-bold flex-shrink-0">→</span><span><strong className="text-slate-900">If you keep abandoning Bible apps:</strong> Try Zoe. SMS removes the friction entirely.</span></li>
-              <li className="flex gap-3"><span className="text-brand-jade font-bold flex-shrink-0">→</span><span><strong className="text-slate-900">If you want a comprehensive Bible reference:</strong> YouVersion is still the standard.</span></li>
+              <li className="flex gap-3"><span className="text-brand-jade font-bold flex-shrink-0">→</span><span><strong className="text-slate-900">If you want a full Bible reference tool:</strong> YouVersion is still the standard.</span></li>
               <li className="flex gap-3"><span className="text-brand-jade font-bold flex-shrink-0">→</span><span><strong className="text-slate-900">If you're a pastor who wants congregation-wide daily touchpoints:</strong> Zoe is built for this use case.</span></li>
               <li className="flex gap-3"><span className="text-brand-jade font-bold flex-shrink-0">→</span><span><strong className="text-slate-900">If you want guided audio prayer:</strong> Hallow (Catholic) or Abide (Protestant).</span></li>
               <li className="flex gap-3"><span className="text-brand-jade font-bold flex-shrink-0">→</span><span><strong className="text-slate-900">If your small group needs curriculum:</strong> Right Now Media.</span></li>

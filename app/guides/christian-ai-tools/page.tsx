@@ -45,7 +45,7 @@ const tools = [
     url: "chatgpt.com",
     category: "General AI",
     rating: "Useful for study, risky for doctrine",
-    description: "Many Christians use ChatGPT or Claude for Bible study help — asking for Greek word explanations, historical context, or passage summaries. Genuinely useful for research. Not designed for spiritual formation. Prone to confident errors on nuanced theological questions.",
+    description: "Many Christians use ChatGPT or Claude for Bible study help — asking for Greek word explanations, historical context, or passage summaries. Genuinely useful for research. Not designed for spiritual formation. Prone to confident errors on complex theological questions.",
     good: ["Strong for historical/language research", "Good for explaining concepts", "No cost to start"],
     avoid: ["Not authoritative on doctrine", "Will generate plausible-sounding errors", "No accountability or habit structure"],
     highlight: false,
