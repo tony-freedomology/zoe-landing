@@ -20,10 +20,20 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
   const [phone, setPhone] = usePhoneFormatter("");
   const [submitError, setSubmitError] = useState<string | null>(null);
 
+  const isJR = variant === "jesus-red";
+  const isEM = variant === "emerald-uni";
+
   useEffect(() => {
     document.body.classList.add("hide-navbar");
-    return () => document.body.classList.remove("hide-navbar");
-  }, []);
+    // Force body background to match our theme to prevent grey bleed from globals.css
+    const originalBg = document.body.style.backgroundColor;
+    document.body.style.backgroundColor = isJR ? "#f5efe6" : "white";
+
+    return () => {
+      document.body.classList.remove("hide-navbar");
+      document.body.style.backgroundColor = originalBg;
+    };
+  }, [isJR]);
 
   const handleWaitlistSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -51,9 +61,6 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     }
   };
 
-  const isJR = variant === "jesus-red";
-  const isEM = variant === "emerald-uni";
-
   // Theme values Let's keep the focus ring conditional on the actual variant color
   const primaryColor = isJR ? "text-[#7a2332]" : isEM ? "text-[#00c292]" : "text-brand-jade";
   const primaryBg = isJR ? "bg-[#7a2332]" : isEM ? "bg-[#00c292]" : "bg-brand-jade";
@@ -71,7 +78,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
   ];
 
   return (
-    <main className={clsx("h-[100dvh] w-full overflow-hidden relative flex flex-col md:flex-row", mainBg)}>
+    <main className={clsx("min-h-[100dvh] w-full overflow-hidden relative flex flex-col md:flex-row", mainBg)}>
 
       {/* Mobile Visual (Background) */}
       <div className="md:hidden absolute inset-0 z-0 bg-slate-900 pointer-events-none flex flex-col">
