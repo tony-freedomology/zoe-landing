@@ -144,7 +144,7 @@ export default function Hero2DJesusRed() {
                         transition={{ delay: 1.5, duration: 1 }}
                         className="mt-6 flex flex-col items-center pointer-events-auto text-center px-4"
                     >
-                        <p className="mb-5 text-xl md:text-2xl font-medium tracking-tighter-editorial text-[#3c2a21] drop-shadow-sm max-w-sm md:max-w-xl leading-snug">
+                        <p className="mb-5 text-xl md:text-2xl font-medium tracking-tighter-editorial-relaxed text-[#3c2a21] drop-shadow-sm max-w-sm md:max-w-xl leading-snug">
                             Walk with Jesus.
                         </p>
                         <a

@@ -282,7 +282,7 @@ export default function HomePageContentJesusRed({ variant = "jesus-red" }: HomeP
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mb-20">
               <div className="flex items-center gap-4 mb-6">
                 <ShieldCheck className="w-10 h-10 text-[#7a2332]" />
-                <h2 className="text-4xl md:text-5xl tracking-tighter-editorial text-slate-900 font-bold">How private is this?</h2>
+                <h2 className="text-4xl md:text-5xl tracking-tighter-editorial-relaxed text-slate-900 font-bold">How private is this?</h2>
               </div>
               <p className="text-xl text-slate-700 font-medium leading-relaxed max-w-3xl">
                 By default, completely private. Your conversations with Zoe are yours alone — we are completely transparent about how your data is processed and you are always in control.
@@ -362,7 +362,7 @@ export default function HomePageContentJesusRed({ variant = "jesus-red" }: HomeP
                 variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : "rounded-full border-brand-cyan/20 bg-brand-cyan/5 text-brand-cyan")}>
                 FAQs
               </div>
-              <h2 className="text-4xl tracking-tighter-editorial text-slate-900 md:text-5xl font-bold">You've got questions. <br className="md:hidden" />We get it.</h2>
+              <h2 className="text-4xl tracking-tighter-editorial-relaxed text-slate-900 md:text-5xl font-bold">You've got questions. <br className="md:hidden" />We get it.</h2>
               <p className="mt-6 text-lg text-slate-600 font-medium max-w-2xl mx-auto italic">(We'd be worried if you didn't have any.)</p>
             </motion.div>
             <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="flex flex-col gap-4">

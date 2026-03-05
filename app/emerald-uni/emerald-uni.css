@@ -47,7 +47,7 @@
 .theme-emerald-uni h3 {
   font-family: var(--font-serif), "Georgia", serif;
   font-weight: 600 !important;
-  letter-spacing: -0.02em !important;
+  letter-spacing: -0.055em !important;
   /* NOTE: Do NOT set color here with !important —
      it overrides Framer Motion inline styles in the
      StickyRhythms dusk section color transitions. */
@@ -55,7 +55,7 @@
 
 .theme-emerald-uni h1 {
   font-weight: 500 !important;
-  letter-spacing: -0.03em !important;
+  letter-spacing: -0.055em !important;
 }
 
 /* ── Hero section ──────────────────────────────────────── */

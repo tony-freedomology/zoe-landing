@@ -284,7 +284,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                 variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : "rounded-full border-brand-jade/20 bg-brand-jade/5 text-brand-jade")}>
                 Trust & Privacy
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-tighter-editorial text-slate-900 leading-[1.1] font-bold">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-tighter-editorial-relaxed text-slate-900 leading-[1.1] font-bold">
                 How private is <Highlight type="underline" color="text-brand-jade" scrollOffset={["start 90%", "start 40%"]}>this?</Highlight>
               </h2>
               <p className="mt-8 text-xl text-slate-600 font-medium leading-relaxed">
@@ -365,7 +365,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                 variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : "rounded-full border-brand-cyan/20 bg-brand-cyan/5 text-brand-cyan")}>
                 FAQs
               </div>
-              <h2 className="text-4xl tracking-tighter-editorial text-slate-900 md:text-5xl font-bold">You've got questions. <br className="md:hidden" />We get it.</h2>
+              <h2 className="text-4xl tracking-tighter-editorial-relaxed text-slate-900 md:text-5xl font-bold">You've got questions. <br className="md:hidden" />We get it.</h2>
               <p className="mt-6 text-lg text-slate-600 font-medium max-w-2xl mx-auto italic">(We'd be worried if you didn't have any.)</p>
             </motion.div>
             <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="flex flex-col gap-4">

@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           {/* Brand */}
           <div className="flex flex-col gap-2">
-            <Link href="/" className="text-xl font-bold tracking-tighter-editorial text-slate-900">
+            <Link href="/" className="text-xl font-bold tracking-tighter-editorial-relaxed text-slate-900">
               Zoe
             </Link>
             <p className="text-slate-400 text-xs leading-relaxed max-w-xs">

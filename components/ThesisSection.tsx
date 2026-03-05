@@ -29,7 +29,7 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
                     className="max-w-3xl mx-auto text-center"
                 >
                     <p className="text-brand-jade font-semibold tracking-widest uppercase text-sm mb-6">The Promise</p>
-                    <h2 className={clsx("text-4xl md:text-5xl lg:text-6xl tracking-tighter-editorial mb-8 font-bold leading-[1.1]",
+                    <h2 className={clsx("text-4xl md:text-5xl lg:text-6xl tracking-tighter-editorial-relaxed mb-8 font-bold leading-[1.1]",
                         variant === "jesus-red" ? "text-[#f5efe6]" : "text-white"
                     )}>
                         "I have come that they may have life and have it to the <Highlight type="underline" color="text-brand-jade">full."</Highlight>
@@ -56,7 +56,7 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
                     className="max-w-3xl mx-auto text-center"
                 >
                     <p className="text-amber-500 font-semibold tracking-widest uppercase text-sm mb-6">The Reality</p>
-                    <h3 className={clsx("text-2xl md:text-4xl font-semibold tracking-tighter-editorial mb-6 leading-tight",
+                    <h3 className={clsx("text-2xl md:text-4xl font-semibold tracking-tighter-editorial-relaxed mb-6 leading-tight",
                         variant === "jesus-red" ? "text-[#f5efe6]" : "text-white"
                     )}>
                         Good intentions aren't enough when the world is this loud.
@@ -80,7 +80,7 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
                     className="max-w-3xl mx-auto mt-4 text-center"
                 >
                     <p className="text-brand-cyan font-semibold tracking-widest uppercase text-sm mb-6">The Answer</p>
-                    <h3 className={clsx("text-3xl md:text-5xl font-semibold tracking-tighter-editorial mb-8 leading-tight",
+                    <h3 className={clsx("text-3xl md:text-5xl font-semibold tracking-tighter-editorial-relaxed mb-8 leading-tight",
                         variant === "jesus-red" ? "text-[#f5efe6]" : "text-white"
                     )}>
                         We don't need a daily devotional. We need <Highlight type="underline" color="text-brand-cyan">day-long</Highlight> devotion.
@@ -96,7 +96,7 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
                     <div className={`p-8 md:p-12 ${variant === "jesus-red" ? "bg-[#f5efe6] border-[#e0d8cd] shadow-xl shadow-black/20 rounded-md" : "bg-[#0E1513] border-misty-green-800/60 rounded-[2rem]"} border relative overflow-hidden`}>
                         <div className={`absolute inset-0 bg-gradient-to-br ${variant === "jesus-red" ? "from-white/60" : "from-misty-green-800/10"} to-transparent`}></div>
                         <div className={`relative z-10 flex flex-col items-center text-center max-w-2xl mx-auto`}>
-                            <h3 className={clsx("text-2xl md:text-4xl tracking-tighter-editorial mb-4", variant === "jesus-red" ? "text-[#5c1624] font-medium" : "text-white font-semibold")}>
+                            <h3 className={clsx("text-2xl md:text-4xl tracking-tighter-editorial-relaxed mb-4", variant === "jesus-red" ? "text-[#5c1624] font-medium" : "text-white font-semibold")}>
                                 That's exactly why we built Zoe.
                             </h3>
                             <p className={`text-lg md:text-[22px] ${variant === "jesus-red" ? "text-slate-800" : "text-misty-green-200"} leading-relaxed`}>

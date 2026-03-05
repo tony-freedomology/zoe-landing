@@ -61,7 +61,7 @@ export default function Navbar() {
         <Link
           href="/"
           className={clsx(
-            "text-2xl font-bold tracking-tighter-editorial transition-colors duration-300",
+            "text-2xl font-bold tracking-tighter-editorial-relaxed transition-colors duration-300",
             opaque ? "text-slate-900" : "text-white"
           )}
         >
