@@ -62,7 +62,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
 
   const mainBg = isJR ? "bg-[#f5efe6]" : isEM ? "bg-white" : "bg-[#F8FBFA]";
   const cardBg = isJR ? "bg-[#f5efe6]" : "bg-white"; // Bottom sheet on mobile matches theme
-  const headlineFont = (isJR || isEM) ? "font-serif tracking-tighter-editorial" : "font-sans tracking-tight";
+  const headlineFont = (isJR || isEM) ? "font-serif tracking-tighter-editorial-relaxed" : "font-sans tracking-tighter-sans";
 
   const proofPoints = [
     { icon: MessageCircle, title: "Meets you where you are", desc: "No new apps or logins. Just a daily text message in your natural rhythm." },
@@ -122,8 +122,10 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
         {variant === "emerald-uni" && (
           <div className="absolute inset-0 overflow-hidden">
             <img src="/assets/hero/emerald-campus-wide.jpg" className="absolute inset-0 w-full h-full object-cover object-center" alt="" />
-            <div className="absolute inset-0 bg-emerald-950/20 mix-blend-multiply" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-emerald-900/40 to-emerald-950/80" />
+            {/* Extremely subtle brightening green wash */}
+            <div className="absolute inset-0 bg-[#00f2b5]/5 mix-blend-screen opacity-50" />
+            <div className="absolute inset-0 bg-[#00c292]/5 mix-blend-multiply" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-emerald-500/10 to-emerald-950/40" />
           </div>
         )}
 
@@ -149,7 +151,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
         <div className="mb-4 w-48 drop-shadow-2xl relative z-10">
           <ZoeSVG variant={variant} color={isJR ? "#3c2a21" : "white"} fast={true} />
         </div>
-        <h1 className={clsx("text-3xl font-medium tracking-tighter-editorial drop-shadow-md text-center relative z-10", isJR ? "font-serif text-[#3c2a21]" : "font-sans text-white")}>
+        <h1 className={clsx("text-3xl font-medium drop-shadow-md text-center relative z-10", headlineFont, isJR ? "text-[#3c2a21]" : "text-white")}>
           Walk with Jesus.
         </h1>
       </div>
