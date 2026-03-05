@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import clsx from "clsx";
 import { CheckCircle, MessageCircle, BookOpen, ShieldCheck } from "lucide-react";
 import ZoeSVG from "./ZoeSVG";
@@ -16,6 +16,11 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
   const [name, setName] = useState("");
   const [phone, setPhone] = usePhoneFormatter("");
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  useEffect(() => {
+    document.body.classList.add("hide-navbar");
+    return () => document.body.classList.remove("hide-navbar");
+  }, []);
 
   const handleWaitlistSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -97,9 +102,6 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
             <img src="/assets/hero/parchment-bg.png" className="absolute inset-0 w-full h-full object-cover" alt="" />
             <div className="relative w-full h-full max-w-lg max-h-[800px] border-[1px] border-[#3c2a21]/20 rounded-[2rem] overflow-hidden shadow-2xl">
               <img src="/assets/hero/parchment-bg.png" className="absolute inset-0 w-full h-full object-cover scale-110" alt="" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-80">
-                <img src="/jesus-red/apple-touch-icon.png" className="w-56 h-56 opacity-15 grayscale sepia mix-blend-multiply drop-shadow-sm" alt="" />
-              </div>
             </div>
           </div>
         )}
@@ -114,7 +116,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
         {/* Overlay Content on Visual */}
         <div className="relative z-10 flex flex-col items-center text-center mt-[-10%]">
           <div className="mb-8 w-64 md:w-80 lg:w-96 drop-shadow-2xl">
-            <ZoeSVG variant={variant} color={isJR ? "#3c2a21" : "white"} />
+            <ZoeSVG variant={variant} color={isJR ? "#3c2a21" : "white"} fast={true} />
           </div>
           <h1 className={clsx("text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight drop-shadow-md", headlineFont, isJR ? "text-[#3c2a21]" : "text-white")}>
             Walk with Jesus.
@@ -125,7 +127,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       {/* Mobile Overlay Content (Only visible on small screens before the bottom sheet covers it) */}
       <div className="md:hidden absolute inset-x-0 top-0 pt-16 flex flex-col items-center z-0 px-6">
         <div className="mb-4 w-48 drop-shadow-2xl">
-          <ZoeSVG variant={variant} color={isJR ? "#3c2a21" : "white"} />
+          <ZoeSVG variant={variant} color={isJR ? "#3c2a21" : "white"} fast={true} />
         </div>
         <h1 className={clsx("text-3xl font-medium tracking-tight drop-shadow-md text-center", headlineFont, isJR ? "text-[#3c2a21]" : "text-white")}>
           Walk with Jesus.

@@ -47,9 +47,10 @@ function samplePath(pathData: string, numPoints: number): { x: number; y: number
 interface ZoeSVGProps {
     variant?: "default" | "jesus-red" | "emerald-uni";
     color?: string;
+    fast?: boolean;
 }
 
-export default function ZoeSVG({ variant = "default", color: customColor }: ZoeSVGProps = {}) {
+export default function ZoeSVG({ variant = "default", color: customColor, fast = false }: ZoeSVGProps = {}) {
     if (variant === "jesus-red") {
         return (
             <motion.div
@@ -79,11 +80,11 @@ export default function ZoeSVG({ variant = "default", color: customColor }: ZoeS
 
     const MIN_WIDTH = 16;
     const MAX_WIDTH = 80;
-    const DRAW_DURATION = 2500; // ms
-    const DRAW_DELAY = 500; // ms before drawing starts
-    const ACCENT_DELAY = 2200; // ms
-    const ACCENT_DURATION = 600; // ms
-    const CROSSFADE_DELAY = 3200; // ms after mount
+    const DRAW_DURATION = fast ? 1200 : 2500; // ms
+    const DRAW_DELAY = fast ? 100 : 500; // ms before drawing starts
+    const ACCENT_DELAY = fast ? 1100 : 2200; // ms
+    const ACCENT_DURATION = fast ? 400 : 600; // ms
+    const CROSSFADE_DELAY = fast ? 1500 : 3200; // ms after mount
 
     const drawFrame = useCallback((
         ctx: CanvasRenderingContext2D,
@@ -148,7 +149,7 @@ export default function ZoeSVG({ variant = "default", color: customColor }: ZoeS
         } else {
             setCanvasDone(true);
         }
-    }, []);
+    }, [DRAW_DELAY, DRAW_DURATION, ACCENT_DELAY, ACCENT_DURATION, CROSSFADE_DELAY, color]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -181,7 +182,7 @@ export default function ZoeSVG({ variant = "default", color: customColor }: ZoeS
         );
 
         return () => cancelAnimationFrame(animationRef.current);
-    }, [drawFrame, color]);
+    }, [drawFrame]);
 
     // Calligraphic shape fades/blurs in after canvas finishes
     const calligraphicFadeIn = {
@@ -189,7 +190,7 @@ export default function ZoeSVG({ variant = "default", color: customColor }: ZoeS
         visible: {
             opacity: 1,
             filter: "blur(0px)",
-            transition: { duration: 0.4, delay: 3.1, ease: "easeInOut" }
+            transition: { duration: 0.4, delay: fast ? 1.4 : 3.1, ease: "easeInOut" }
         }
     };
 
