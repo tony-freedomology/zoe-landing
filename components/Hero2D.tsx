@@ -96,12 +96,22 @@ export default function Hero2D({ variant = "default" }: Hero2DProps = {}) {
             {variant === "emerald-uni" ? (
                 // 1. Photographic campus background for emerald-uni variant
                 <div className="absolute inset-0 z-0" style={gpuLayer}>
+                    {/* Mobile: portrait image */}
                     <Image
                         src="/assets/hero/emerald-campus.jpg"
                         alt="University Campus View"
                         fill
                         priority
-                        className="object-cover object-center"
+                        className="object-cover object-center md:hidden"
+                        quality={90}
+                    />
+                    {/* Desktop: wide cinematic image */}
+                    <Image
+                        src="/assets/hero/emerald-campus-desktop.jpg"
+                        alt="University Campus View"
+                        fill
+                        priority
+                        className="object-cover object-center hidden md:block"
                         quality={90}
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/50" />
