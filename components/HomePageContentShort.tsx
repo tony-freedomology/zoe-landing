@@ -136,7 +136,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.1, duration: 1.2 }}
-              className="absolute inset-0 flex items-center justify-center translate-y-[10%] pointer-events-none"
+              className="absolute inset-0 flex items-center justify-center translate-y-[18%] pointer-events-none"
             >
               <div className="w-[140%] h-64 bg-black/24 blur-3xl rounded-full" />
               <div className="absolute w-[100%] h-48 bg-black/18 blur-[60px] rounded-full" />
@@ -158,7 +158,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1, duration: 1.2 }}
-            className="absolute inset-0 flex items-center justify-center translate-y-[10%]"
+            className="absolute inset-0 flex items-center justify-center translate-y-[18%]"
           >
             <div className="w-[120%] h-48 bg-black/24 blur-2xl rounded-full" />
             <div className="absolute w-[80%] h-32 bg-black/18 blur-[40px] rounded-full" />
