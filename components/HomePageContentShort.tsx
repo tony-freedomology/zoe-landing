@@ -132,10 +132,15 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
         {/* Overlay Content on Visual */}
         <div className="relative z-10 flex flex-col items-center text-center mt-[-10%] p-4">
           {variant === "emerald-uni" && (
-            <div className="absolute inset-0 flex items-center justify-center -translate-y-12 pointer-events-none">
-              <div className="w-[140%] h-64 bg-black/40 blur-3xl rounded-full" />
-              <div className="absolute w-[100%] h-48 bg-black/30 blur-[60px] rounded-full" />
-            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1, duration: 1.2 }}
+              className="absolute inset-0 flex items-center justify-center translate-y-[10%] pointer-events-none"
+            >
+              <div className="w-[140%] h-64 bg-black/24 blur-3xl rounded-full" />
+              <div className="absolute w-[100%] h-48 bg-black/18 blur-[60px] rounded-full" />
+            </motion.div>
           )}
           <div className="mb-8 w-64 md:w-80 lg:w-96 drop-shadow-2xl relative z-10">
             <ZoeSVG variant={variant} color={isJR ? "#3c2a21" : "white"} fast={true} />
@@ -149,10 +154,15 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       {/* Mobile Overlay Content (Only visible on small screens before the bottom sheet covers it) */}
       <div className="md:hidden absolute inset-x-0 top-0 h-[40dvh] flex flex-col items-center justify-center z-0 px-6 pt-4">
         {variant === "emerald-uni" && (
-          <div className="absolute inset-0 flex items-center justify-center -translate-y-4">
-            <div className="w-[120%] h-48 bg-black/40 blur-2xl rounded-full" />
-            <div className="absolute w-[80%] h-32 bg-black/30 blur-[40px] rounded-full" />
-          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1, duration: 1.2 }}
+            className="absolute inset-0 flex items-center justify-center translate-y-[10%]"
+          >
+            <div className="w-[120%] h-48 bg-black/24 blur-2xl rounded-full" />
+            <div className="absolute w-[80%] h-32 bg-black/18 blur-[40px] rounded-full" />
+          </motion.div>
         )}
         <div className="mb-4 w-48 drop-shadow-2xl relative z-10">
           <ZoeSVG variant={variant} color={isJR ? "#3c2a21" : "white"} fast={true} />
