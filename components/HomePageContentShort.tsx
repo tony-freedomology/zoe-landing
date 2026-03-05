@@ -75,7 +75,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       <div className="md:hidden absolute inset-0 z-0 bg-slate-900 pointer-events-none flex flex-col">
         {variant === "default" && (
           <div className="relative w-full h-[50dvh] overflow-hidden bg-[#e0f2fe]">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[150%] h-[100dvh] origin-top scale-[0.66] pointer-events-none">
+            <div className="absolute bottom-[2dvh] left-1/2 -translate-x-1/2 w-[150%] h-[100dvh] origin-bottom scale-[0.66] pointer-events-none">
               <Hero2D variant="default" hideOverlayContent={true} fullHeight={true} layout="split" />
             </div>
             {/* Dark gradient fade for the bottom edge to blend into the card better if needed */}
