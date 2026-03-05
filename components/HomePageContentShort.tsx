@@ -4,18 +4,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, type FormEvent } from "react";
 import clsx from "clsx";
 import { CheckCircle, MessageCircle, BookOpen, ShieldCheck } from "lucide-react";
-import Hero2D from "./Hero2D";
-import Footer from "./Footer";
+import ZoeSVG from "./ZoeSVG";
 import { usePhoneFormatter } from "../app/hooks/usePhoneFormatter";
 
 interface ShortProps {
   variant?: "default" | "jesus-red" | "emerald-uni";
 }
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } },
-};
 
 export default function HomePageContentShort({ variant = "default" }: ShortProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "sent">("idle");
@@ -28,93 +22,161 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     setStatus("submitting");
     setSubmitError(null);
     try {
-      const payload = { name, phone, type: "individual", source: "short-landing-waitlist", submittedAt: new Date().toISOString() };
-      const response = await fetch("/api/waitlist", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      const payload = {
+        name,
+        phone,
+        type: "individual",
+        source: `short-landing-${variant}`,
+        submittedAt: new Date().toISOString()
+      };
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
       const data = await response.json();
       if (!response.ok) throw new Error(data?.details || data?.error || "Unable to submit");
       setStatus("sent");
-    } catch {
+    } catch (err: any) {
       setStatus("idle");
-      setSubmitError("We couldn't submit your request right now. Please try again in a moment.");
+      setSubmitError(err.message || "We couldn't submit your request right now.");
     }
   };
 
   const isJR = variant === "jesus-red";
   const isEM = variant === "emerald-uni";
-  const bgMain = isJR ? "bg-[#f5efe6]" : isEM ? "bg-white" : "bg-[#F8FBFA]";
+
+  // Theme values
   const accentColor = isJR ? "text-[#7a2332]" : isEM ? "text-[#009f52]" : "text-brand-jade";
   const accentBg = isJR ? "bg-[#7a2332]" : isEM ? "bg-[#009f52]" : "bg-brand-jade";
   const accentBgLight = isJR ? "bg-[#7a2332]/10" : isEM ? "bg-[#009f52]/10" : "bg-brand-jade/10";
-  const cardBg = isJR ? "bg-[#ebe3d5]" : isEM ? "bg-white" : "bg-white";
-  const cardBorder = isJR ? "border-[#d4c4a8]" : isEM ? "border-slate-100" : "border-slate-100";
-  const headlineFont = isJR ? "font-serif" : isEM ? "font-serif" : "";
+  const mainBg = isJR ? "bg-[#f5efe6]" : isEM ? "bg-white" : "bg-[#F8FBFA]";
+  const headlineFont = (isJR || isEM) ? "font-serif" : "font-sans";
 
   const proofPoints = [
-    { icon: MessageCircle, title: "Arrives via text", desc: "No app to download. No login. Just open your texts." },
-    { icon: BookOpen, title: "Original language depth", desc: "Greek and Hebrew context in every message. Seminary depth in 90 seconds." },
-    { icon: ShieldCheck, title: "Works on any phone", desc: "Smartphone or flip phone. If it gets texts, it gets Zoe." },
+    { icon: MessageCircle, title: "Arrives via text" },
+    { icon: BookOpen, title: "Original language depth" },
+    { icon: ShieldCheck, title: "Works on any phone" },
   ];
 
   return (
-    <div className={clsx("min-h-screen", bgMain)}>
-      <Hero2D variant={variant} />
-
-      {/* Proof Points */}
-      <motion.section className={clsx("py-16 md:py-24 px-6", bgMain)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }}>
-        <div className="mx-auto max-w-4xl">
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            {proofPoints.map((point) => (
-              <motion.div key={point.title} variants={fadeUp} className={clsx("rounded-2xl p-6 md:p-8 border", cardBg, cardBorder)}>
-                <div className={clsx("w-10 h-10 rounded-xl flex items-center justify-center mb-4", accentBgLight)}>
-                  <point.icon className={clsx("w-5 h-5", accentColor)} />
-                </div>
-                <h3 className={clsx("text-lg font-bold tracking-tight mb-2", headlineFont, isJR ? "text-[#2a1810]" : "text-slate-900")}>{point.title}</h3>
-                <p className="text-slate-600 font-medium leading-relaxed text-sm">{point.desc}</p>
-              </motion.div>
-            ))}
+    <main className={clsx("h-[100dvh] w-full overflow-hidden flex flex-col md:flex-row", mainBg)}>
+      {/* Left Column: Content & Form */}
+      <div className="w-full md:w-[45%] lg:w-[40%] flex flex-col justify-center px-6 md:px-12 lg:px-16 py-12 z-20 overflow-y-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-md mx-auto md:mx-0 w-full"
+        >
+          <div className="mb-10 w-48 md:w-56">
+            <ZoeSVG variant={variant} />
           </div>
-        </div>
-      </motion.section>
 
-      {/* Tagline */}
-      <section className={clsx("py-8 px-6", bgMain)}>
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-slate-500 font-medium text-sm tracking-wide uppercase">Daily discipleship. Zero friction. Just scripture in your texts.</p>
-        </div>
-      </section>
+          <h1 className={clsx("text-2xl md:text-3xl font-medium tracking-tight mb-8 text-slate-800", headlineFont)}>
+            Walk with Jesus.
+          </h1>
 
-      {/* Waitlist CTA */}
-      <section id="waitlist" className={clsx("py-16 md:py-24 px-6", isJR ? "bg-[#2a1810]" : "bg-slate-900")}>
-        <div className="mx-auto max-w-lg text-center">
           <AnimatePresence mode="wait">
             {status === "sent" ? (
-              <motion.div key="success" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center gap-4">
-                <div className={clsx("w-16 h-16 rounded-full flex items-center justify-center", accentBgLight)}>
-                  <CheckCircle className={clsx("w-8 h-8", accentColor)} />
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="flex flex-col items-start gap-4"
+              >
+                <div className={clsx("w-12 h-12 rounded-full flex items-center justify-center", accentBgLight)}>
+                  <CheckCircle className={clsx("w-6 h-6", accentColor)} />
                 </div>
-                <h2 className="text-3xl font-bold text-white tracking-tight">You&apos;re on the list.</h2>
-                <p className="text-slate-300 font-medium">We&apos;ll text you when spots open up.</p>
+                <div>
+                  <h2 className="text-xl font-bold text-slate-900 mb-1">You&apos;re on the list.</h2>
+                  <p className="text-slate-600 font-medium">We&apos;ll text you when spots open up.</p>
+                </div>
               </motion.div>
             ) : (
-              <motion.div key="form" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}>
-                <h2 className={clsx("text-3xl md:text-4xl font-bold text-white tracking-tight mb-4", headlineFont)}>Ready to start?</h2>
-                <p className="text-slate-300 font-medium mb-8 leading-relaxed">Join the waitlist. We&apos;ll text you when spots open — from the same number that&apos;ll deliver your daily scripture.</p>
-                <form onSubmit={handleWaitlistSubmit} className="flex flex-col gap-3 max-w-sm mx-auto">
-                  <input type="text" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} required className="w-full rounded-xl px-4 py-3 bg-white/10 border border-white/20 text-white placeholder-white/50 font-medium focus:outline-none focus:ring-2 focus:ring-white/30" />
-                  <input type="tel" placeholder="(555) 555-5555" value={phone} onChange={(e) => setPhone(e.target.value)} required className="w-full rounded-xl px-4 py-3 bg-white/10 border border-white/20 text-white placeholder-white/50 font-medium focus:outline-none focus:ring-2 focus:ring-white/30" />
-                  <button type="submit" disabled={status === "submitting"} className={clsx("w-full rounded-xl px-6 py-3 font-bold text-white transition-all duration-200 hover:opacity-90 disabled:opacity-50", accentBg)}>
+              <motion.div key="form" exit={{ opacity: 0, x: -20 }}>
+                <p className="text-slate-600 font-medium mb-8 leading-relaxed max-w-sm">
+                  Join the pre-alpha waitlist. Deep discipleship. Zero friction. Just scripture in your texts.
+                </p>
+
+                <form onSubmit={handleWaitlistSubmit} className="flex flex-col gap-3 mb-10">
+                  <input
+                    type="text"
+                    placeholder="Your name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    className="w-full rounded-xl px-4 py-3 bg-slate-100 border border-slate-200 text-slate-900 placeholder-slate-400 font-medium focus:outline-none focus:ring-2 focus:ring-brand-jade/20"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="(555) 555-5555"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                    className="w-full rounded-xl px-4 py-3 bg-slate-100 border border-slate-200 text-slate-900 placeholder-slate-400 font-medium focus:outline-none focus:ring-2 focus:ring-brand-jade/20"
+                  />
+                  <button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className={clsx("w-full rounded-xl px-6 py-4 font-bold text-white transition-all duration-200 hover:opacity-90 disabled:opacity-50 shadow-lg shadow-brand-jade/10", accentBg)}
+                  >
                     {status === "submitting" ? "Joining..." : "Join the Waitlist"}
                   </button>
-                  {submitError && <p className="text-red-400 text-sm font-medium mt-1">{submitError}</p>}
+                  {submitError && <p className="text-red-500 text-sm font-medium mt-1">{submitError}</p>}
                 </form>
-                <p className="text-slate-500 text-xs mt-4 font-medium">No spam. Just a heads-up when it&apos;s your turn.</p>
+
+                <div className="grid grid-cols-1 gap-4">
+                  {proofPoints.map((point) => (
+                    <div key={point.title} className="flex items-center gap-3">
+                      <div className={clsx("w-8 h-8 rounded-lg flex items-center justify-center shrink-0", accentBgLight)}>
+                        <point.icon className={clsx("w-4 h-4", accentColor)} />
+                      </div>
+                      <span className="text-slate-600 font-semibold text-sm">{point.title}</span>
+                    </div>
+                  ))}
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
-      </section>
+        </motion.div>
+      </div>
 
-      <Footer />
-    </div>
+      {/* Right Column: Stunning Visual */}
+      <div className="hidden md:block w-full md:w-[55%] lg:w-[60%] relative h-full bg-slate-900">
+        {variant === "default" && (
+          <div className="absolute inset-0">
+            <img src="/assets/hero/sky.png" className="absolute inset-0 w-full h-full object-cover" alt="" />
+            <img src="/assets/hero/hills-man.png" className="absolute inset-0 w-full h-full object-cover object-bottom" alt="" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
+          </div>
+        )}
+        {variant === "jesus-red" && (
+          <div className="absolute inset-0 flex items-center justify-center p-12">
+            <img src="/assets/hero/parchment-bg.png" className="absolute inset-0 w-full h-full object-cover" alt="" />
+            <div className="relative w-full h-full border-[12px] border-[#3c2a21]/5 rounded-[2rem] overflow-hidden">
+              <img src="/assets/hero/parchment-bg.png" className="absolute inset-0 w-full h-full object-cover scale-110" alt="" />
+              <div className="absolute inset-0 flex items-center justify-center opacity-80">
+                <img src="/jesus-red/apple-touch-icon.png" className="w-48 h-48 opacity-20 grayscale sepia" alt="" />
+              </div>
+            </div>
+          </div>
+        )}
+        {variant === "emerald-uni" && (
+          <div className="absolute inset-0">
+            <img src="/assets/hero/emerald-campus.jpg" className="absolute inset-0 w-full h-full object-cover" alt="" />
+            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-transparent" />
+          </div>
+        )}
+      </div>
+
+      {/* Mobile Visual Background (Subtle) */}
+      <div className="md:hidden absolute inset-0 -z-10 opacity-30 pointer-events-none">
+        {variant === "default" && <img src="/assets/hero/sky.png" className="w-full h-full object-cover" alt="" />}
+        {variant === "jesus-red" && <img src="/assets/hero/parchment-bg.png" className="w-full h-full object-cover" alt="" />}
+        {variant === "emerald-uni" && <img src="/assets/hero/emerald-campus.jpg" className="w-full h-full object-cover" alt="" />}
+      </div>
+    </main>
   );
 }

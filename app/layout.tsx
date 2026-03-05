@@ -10,7 +10,7 @@ const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-serif", di
 export const metadata: Metadata = {
   metadataBase: new URL("https://zoe.live"),
   title: {
-    default: "Zoe — A Partner in Your Walk with Jesus",
+    default: "Zoe — Walk with Jesus",
     template: "%s | Zoe",
   },
   description:
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Zoe — A Partner in Your Walk with Jesus",
+    title: "Zoe — Walk with Jesus",
     description:
       "Zoe is an AI-powered guide that helps you build daily rhythms, engage Scripture, and connect with your community in a deeper way.",
     type: "website",
     url: "/",
     images: [
       {
-        url: "/images/og-hero-v2.png",
+        url: "/images/og-default.png",
         width: 1200,
         height: 630,
         alt: "Zoe Discipleship Companion",
@@ -39,10 +39,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zoe — A Partner in Your Walk with Jesus",
+    title: "Zoe — Walk with Jesus",
     description:
       "Zoe is an AI-powered guide that helps you build daily rhythms, engage Scripture, and connect with your community in a deeper way.",
-    images: ["/images/og-hero-v2.png"],
+    images: ["/images/og-default.png"],
   },
 };
 

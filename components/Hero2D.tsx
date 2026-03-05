@@ -293,7 +293,7 @@ export default function Hero2D({ variant = "default" }: Hero2DProps = {}) {
                         style={{ x: variant === "jesus-red" ? 0 : midX, y: variant === "jesus-red" || variant === "emerald-uni" ? 0 : midY, ...gpuLayer }}
                     >
                         <p className="mb-5 text-xl md:text-2xl font-medium tracking-tighter-editorial text-slate-800 drop-shadow-sm max-w-sm md:max-w-xl leading-snug">
-                            A partner in your walk with Jesus.
+                            Walk with Jesus.
                         </p>
                         <a
                             href="#waitlist"

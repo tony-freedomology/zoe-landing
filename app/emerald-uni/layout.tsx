@@ -1,7 +1,7 @@
 import "./emerald-uni.css";
 
 export const metadata = {
-  title: "Zoe — Formation for the Thoughtful Life",
+  title: "Zoe — Walk with Jesus",
   description:
     "A discipleship companion rooted in Scripture, built for depth.",
   icons: {
@@ -12,7 +12,7 @@ export const metadata = {
     apple: "/emerald-uni/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Zoe — Formation for the Thoughtful Life",
+    title: "Zoe — Walk with Jesus",
     description:
       "A discipleship companion rooted in Scripture, built for depth.",
     type: "website",
