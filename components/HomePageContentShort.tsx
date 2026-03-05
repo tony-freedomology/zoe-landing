@@ -60,7 +60,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
   const primaryBgLight = isJR ? "bg-[#7a2332]/10" : isEM ? "bg-[#00c292]/10" : "bg-brand-jade/10";
   const focusRing = isJR ? "focus:ring-[#7a2332]/30" : isEM ? "focus:ring-[#00c292]/30" : "focus:ring-brand-jade/30";
 
-  const mainBg = isJR ? "bg-[#f5efe6]" : isEM ? "bg-white" : "bg-[#F8FBFA]";
+  const mainBg = isJR ? "bg-[#f5efe6]" : "bg-white";
   const cardBg = isJR ? "bg-[#f5efe6]" : "bg-white"; // Bottom sheet on mobile matches theme
   const headlineFont = (isJR || isEM) ? "font-serif tracking-tighter-editorial-relaxed" : "font-sans tracking-tighter-sans";
 
