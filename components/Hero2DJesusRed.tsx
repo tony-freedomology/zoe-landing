@@ -112,7 +112,7 @@ export default function Hero2DJesusRed() {
                 {/* Layer 1: Left Hill & Figure (Slow Parallax) */}
                 <motion.div variants={fadeInVariant} className="absolute inset-0 z-10 select-none pointer-events-none" style={gpuLayer}>
                     <motion.div style={{ x: layer1X, y: layer1Y, ...gpuLayer }} className="absolute inset-0 will-change-transform">
-                        <div className="absolute left-[-2vw] bottom-[25vh] md:bottom-[7vh] lg:bottom-[0vh] w-[60vw] md:w-[55vw] lg:w-[45vw] xl:w-[40vw] min-w-[300px] max-w-[800px] h-[60vh] md:h-[65vh] lg:h-[75vh]">
+                        <div className="absolute left-[-2vw] bottom-[2vh] md:bottom-[7vh] lg:bottom-[0vh] w-[60vw] md:w-[55vw] lg:w-[45vw] xl:w-[40vw] min-w-[300px] max-w-[800px] h-[50vh] md:h-[65vh] lg:h-[75vh]">
                             <LeftHeroSvg className="w-full h-full object-contain object-bottom-left" />
                         </div>
                     </motion.div>
@@ -121,7 +121,7 @@ export default function Hero2DJesusRed() {
                 {/* Layer 2: Right Hill & Cross (Medium Parallax) */}
                 <motion.div variants={fadeInVariant} className="absolute inset-0 z-20 select-none pointer-events-none" style={gpuLayer}>
                     <motion.div style={{ x: layer2X, y: layer2Y, ...gpuLayer }} className="absolute inset-0 will-change-transform">
-                        <div className="absolute right-[8vw] bottom-[25vh] md:bottom-[7vh] lg:bottom-[0vh] w-[60vw] md:w-[55vw] lg:w-[45vw] xl:w-[40vw] min-w-[300px] max-w-[800px] h-[60vh] md:h-[65vh] lg:h-[75vh]">
+                        <div className="absolute right-[8vw] bottom-[2vh] md:bottom-[7vh] lg:bottom-[0vh] w-[60vw] md:w-[55vw] lg:w-[45vw] xl:w-[40vw] min-w-[300px] max-w-[800px] h-[50vh] md:h-[65vh] lg:h-[75vh]">
                             <RightHeroSvg className="w-full h-full object-contain object-bottom-right" />
                         </div>
                     </motion.div>
