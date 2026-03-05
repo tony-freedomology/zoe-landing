@@ -1,0 +1,295 @@
+/* ═══════════════════════════════════════════════════════════
+   Emerald University theme
+   Clean, bright, academic. White + vibrant emerald + dark gray.
+   Magazine-editorial serif headlines, thinner weights.
+   Applied via .theme-emerald-uni on <body>.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Tokens ────────────────────────────────────────────── */
+.theme-emerald-uni {
+  --eu-emerald:       #047857;
+  --eu-emerald-light: #059669;
+  --eu-emerald-deep:  #065f46;
+  --eu-emerald-vivid: #10b981;
+  --eu-emerald-mist:  #d1fae5;
+  --eu-white:         #ffffff;
+  --eu-off-white:     #fafcfb;
+  --eu-warm-white:    #f8faf9;
+  --eu-ink:           #1f2937;
+  --eu-ink-light:     #374151;
+  --eu-ink-medium:    #4b5563;
+  --eu-slate:         #6b7280;
+  --eu-border:        #e5e7eb;
+  --eu-border-light:  #f3f4f6;
+  --eu-gold-accent:   #d97706;
+
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+
+/* ── Base ──────────────────────────────────────────────── */
+.theme-emerald-uni {
+  background: var(--eu-white) !important;
+  color: var(--eu-ink) !important;
+  font-family: var(--font-sans);
+}
+
+/* ── Headings → elegant thin serif ─────────────────────── */
+.theme-emerald-uni h1,
+.theme-emerald-uni h2,
+.theme-emerald-uni h3 {
+  font-family: var(--font-serif), "Georgia", serif;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--eu-ink) !important;
+}
+
+.theme-emerald-uni h1 {
+  font-weight: 500 !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* ── Hero section ──────────────────────────────────────── */
+/* Bright, airy overlay instead of dark/moody */
+.theme-emerald-uni section:first-of-type {
+  position: relative;
+}
+.theme-emerald-uni section:first-of-type::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 120, 87, 0.08) 0%,
+    rgba(255, 255, 255, 0.0) 40%,
+    rgba(255, 255, 255, 0.65) 100%
+  );
+}
+
+/* Hero text */
+.theme-emerald-uni .drop-shadow-sm {
+  color: var(--eu-white) !important;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hero CTA button → emerald */
+.theme-emerald-uni a[href="#waitlist"],
+.theme-emerald-uni a[href="/#waitlist"] {
+  background: var(--eu-emerald) !important;
+  color: var(--eu-white) !important;
+  box-shadow: 0 4px 24px -4px rgba(4, 120, 87, 0.3) !important;
+  border-radius: 9999px !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+}
+.theme-emerald-uni a[href="#waitlist"]:hover,
+.theme-emerald-uni a[href="/#waitlist"]:hover {
+  background: var(--eu-emerald-light) !important;
+  transform: translateY(-1px);
+}
+
+/* Bottom gradient of hero → transition into white */
+.theme-emerald-uni section:first-of-type > div:last-child {
+  background: linear-gradient(to top, var(--eu-white), transparent) !important;
+}
+
+/* ── Thesis / dark sections ────────────────────────────── */
+.theme-emerald-uni [class*="bg-misty-green-950"],
+.theme-emerald-uni [class*="from-misty-green-950"],
+.theme-emerald-uni [class*="bg-\\[\\#141f1a\\]"] {
+  background-color: var(--eu-ink) !important;
+}
+
+/* ── Light section backgrounds → clean white ───────────── */
+.theme-emerald-uni [class*="bg-\\[\\#F8FBFA\\]"],
+.theme-emerald-uni [class*="bg-\\[\\#FCFAF8\\]"],
+.theme-emerald-uni [class*="bg-\\[\\#f4f7f5\\]"],
+.theme-emerald-uni [class*="bg-slate-50"] {
+  background-color: var(--eu-off-white) !important;
+}
+.theme-emerald-uni [class*="bg-white\\/60"],
+.theme-emerald-uni [class*="bg-white\\/70"],
+.theme-emerald-uni .glass {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-color: var(--eu-border) !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+/* ── Accent color swaps (cyan/jade → emerald) ──────────── */
+.theme-emerald-uni [class*="text-brand-jade"],
+.theme-emerald-uni [class*="text-brand-cyan"] {
+  color: var(--eu-emerald) !important;
+}
+.theme-emerald-uni [class*="bg-brand-jade"],
+.theme-emerald-uni [class*="bg-brand-cyan"] {
+  background-color: var(--eu-emerald) !important;
+}
+.theme-emerald-uni [class*="border-brand-jade"],
+.theme-emerald-uni [class*="border-brand-cyan"] {
+  border-color: var(--eu-emerald) !important;
+}
+.theme-emerald-uni [class*="ring-brand-jade"],
+.theme-emerald-uni [class*="ring-brand-cyan"] {
+  --tw-ring-color: var(--eu-emerald) !important;
+}
+
+/* Gold accents → warm amber to complement emerald */
+.theme-emerald-uni [class*="text-amber-400"] {
+  color: var(--eu-gold-accent) !important;
+}
+
+/* Pills / badges → emerald tint */
+.theme-emerald-uni [class*="bg-brand-jade\\/5"],
+.theme-emerald-uni [class*="bg-brand-cyan\\/5"] {
+  background-color: rgba(4, 120, 87, 0.05) !important;
+}
+.theme-emerald-uni [class*="border-brand-jade\\/20"],
+.theme-emerald-uni [class*="border-brand-cyan\\/20"] {
+  border-color: rgba(4, 120, 87, 0.15) !important;
+}
+
+/* ── Navbar → clean white with subtle border ───────────── */
+.theme-emerald-uni header[class*="bg-white"] {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: var(--eu-border-light) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+/* ── Cards → white with subtle shadow ──────────────────── */
+.theme-emerald-uni [class*="bg-white"] {
+  background-color: var(--eu-white) !important;
+}
+
+/* ── Buttons (dark buttons → emerald) ──────────────────── */
+.theme-emerald-uni button[class*="bg-slate-900"],
+.theme-emerald-uni a[class*="bg-slate-900"] {
+  background-color: var(--eu-emerald) !important;
+  border-radius: 12px !important;
+}
+.theme-emerald-uni button[class*="bg-slate-900"]:hover,
+.theme-emerald-uni a[class*="bg-slate-900"]:hover {
+  background-color: var(--eu-emerald-light) !important;
+}
+
+/* ── FAQ accordion ─────────────────────────────────────── */
+.theme-emerald-uni [class*="bg-brand-cyan"] {
+  background-color: var(--eu-emerald) !important;
+}
+/* FAQ cards → crisp white with emerald hover */
+.theme-emerald-uni .group:hover span {
+  color: var(--eu-emerald) !important;
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+.theme-emerald-uni footer {
+  background-color: var(--eu-off-white) !important;
+  border-color: var(--eu-border-light) !important;
+}
+
+/* ── Form inputs ───────────────────────────────────────── */
+.theme-emerald-uni input[class*="bg-white"] {
+  background-color: #fff !important;
+  border-color: var(--eu-border) !important;
+  border-radius: 12px !important;
+}
+.theme-emerald-uni input:focus {
+  --tw-ring-color: rgba(4, 120, 87, 0.3) !important;
+  border-color: rgba(4, 120, 87, 0.4) !important;
+}
+
+/* ── Glow / halo radials → emerald mist ────────────────── */
+.theme-emerald-uni .bg-halo {
+  background-image: radial-gradient(
+    ellipse at 50% 30%,
+    rgba(16, 185, 129, 0.06),
+    transparent 60%
+  ) !important;
+}
+
+/* ── Subtle emerald radials on sections ────────────────── */
+.theme-emerald-uni [class*="bg-\\[radial-gradient"] {
+  opacity: 0.6;
+}
+
+/* ── Highlight underline SVGs → emerald ────────────────── */
+.theme-emerald-uni [class*="text-brand-jade"] svg path,
+.theme-emerald-uni [class*="text-brand-cyan"] svg path {
+  stroke: var(--eu-emerald) !important;
+}
+
+/* ── Trust timeline line → emerald ─────────────────────── */
+.theme-emerald-uni [class*="bg-brand-jade\\/10"] {
+  background-color: rgba(4, 120, 87, 0.10) !important;
+}
+.theme-emerald-uni div[class*="bg-brand-jade"]:not([class*="\\/"]) {
+  background-color: var(--eu-emerald) !important;
+}
+.theme-emerald-uni [class*="border-brand-jade\\/30"] {
+  border-color: rgba(4, 120, 87, 0.25) !important;
+}
+.theme-emerald-uni [class*="bg-brand-jade\\/80"] {
+  background-color: rgba(4, 120, 87, 0.80) !important;
+}
+
+/* ── Sticky floating CTA → emerald ─────────────────────── */
+.theme-emerald-uni .fixed button[class*="bg-slate-900"] {
+  background-color: var(--eu-emerald) !important;
+  box-shadow: 0 8px 30px rgba(4, 120, 87, 0.2) !important;
+  border-radius: 9999px !important;
+}
+
+/* ── Typography refinements ────────────────────────────── */
+/* Body text → slightly lighter for magazine feel */
+.theme-emerald-uni p {
+  color: var(--eu-ink-medium) !important;
+  line-height: 1.75 !important;
+}
+
+/* Override for headings that got caught by p rule */
+.theme-emerald-uni h1,
+.theme-emerald-uni h2,
+.theme-emerald-uni h3,
+.theme-emerald-uni h4 {
+  line-height: 1.15 !important;
+}
+
+/* Section headers → editorial weight */
+.theme-emerald-uni h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem) !important;
+}
+
+/* Sub-pills / badges text → emerald */
+.theme-emerald-uni [class*="tracking-widest"][class*="text-brand"] {
+  color: var(--eu-emerald) !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+}
+
+/* ── Waitlist card → clean glass with emerald accents ──── */
+.theme-emerald-uni [class*="bg-slate-50\\/80"] {
+  background: rgba(250, 252, 251, 0.9) !important;
+  border-color: var(--eu-border-light) !important;
+}
+
+/* ── Decorative touches ────────────────────────────────── */
+/* Rounded-3xl cards → slightly less round for editorial */
+.theme-emerald-uni [class*="rounded-3xl"] {
+  border-radius: 1.25rem !important;
+}
+.theme-emerald-uni [class*="rounded-\\[3rem\\]"] {
+  border-radius: 1.5rem !important;
+}
+
+/* Shadow refinement → softer, more diffuse */
+.theme-emerald-uni [class*="shadow-\\[0_4px_20px"] {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* ── Bold serif sub-headings ───────────────────────────── */
+.theme-emerald-uni h3 {
+  font-weight: 700 !important;
+  font-family: var(--font-serif) !important;
+  letter-spacing: -0.01em !important;
+}
