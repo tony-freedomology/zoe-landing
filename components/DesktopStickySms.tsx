@@ -15,7 +15,7 @@ function ScrollBubble({
     text: React.ReactNode,
     scrollYProgress: MotionValue<number>,
     fadeInRange: [number, number],
-    variant?: "default" | "jesus-red"
+    variant?: "default" | "jesus-red" | "emerald-uni"
 }) {
     const isUser = sender === "user";
     // Bubble fades in and slides up seamlessly precisely as the user scrubs through its designated scroll range
@@ -57,7 +57,7 @@ function ScrollTimestamp({
     );
 }
 
-export default function DesktopStickySms({ variant = "default" }: { variant?: "default" | "jesus-red" } = {}) {
+export default function DesktopStickySms({ variant = "default" }: { variant?: "default" | "jesus-red" | "emerald-uni" } = {}) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const { scrollYProgress } = useScroll({

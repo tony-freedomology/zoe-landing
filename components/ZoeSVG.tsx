@@ -45,7 +45,7 @@ function samplePath(pathData: string, numPoints: number): { x: number; y: number
 
 // ── The component ─────────────────────────────────────────────────────────
 interface ZoeSVGProps {
-    variant?: "default" | "jesus-red";
+    variant?: "default" | "jesus-red" | "emerald-uni" | "emerald-uni";
 }
 
 export default function ZoeSVG({ variant = "default" }: ZoeSVGProps = {}) {

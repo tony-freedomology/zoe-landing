@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import Home from "../page";
+import Script from "next/script";
+import HomePageContent from "../../components/HomePageContent";
 
 export default function EmeraldUniPage() {
   useEffect(() => {
     document.body.classList.add("theme-emerald-uni");
 
-    // Load Cormorant Garamond (elegant thin serif) + DM Sans (clean modern sans)
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href =
@@ -32,5 +32,16 @@ export default function EmeraldUniPage() {
     };
   }, []);
 
-  return <Home />;
+  return (
+    <>
+      <Script
+        id="theme-emerald-uni-init"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `document.body.classList.add('theme-emerald-uni');`,
+        }}
+      />
+      <HomePageContent variant="emerald-uni" />
+    </>
+  );
 }

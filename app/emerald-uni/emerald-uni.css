@@ -293,3 +293,32 @@
   font-family: var(--font-serif) !important;
   letter-spacing: -0.01em !important;
 }
+
+/* ── Thesis section headline fix — white text on dark bg ── */
+.theme-emerald-uni [class*="bg-misty-green-950"] h2,
+.theme-emerald-uni [class*="bg-misty-green-950"] h3 {
+  color: #ffffff !important;
+}
+.theme-emerald-uni [class*="bg-misty-green-950"] p {
+  color: #d1d5db !important;
+}
+/* The sub-labels in thesis (The Promise, The Reality, etc) */
+.theme-emerald-uni [class*="bg-misty-green-950"] .text-brand-jade,
+.theme-emerald-uni [class*="bg-misty-green-950"] .text-brand-cyan {
+  color: var(--eu-emerald-vivid) !important;
+}
+/* The "That's exactly why we built Zoe" card */
+.theme-emerald-uni [class*="bg-misty-green-950"] [class*="bg-\\[\\#0E1513\\]"] h3 {
+  color: #ffffff !important;
+}
+.theme-emerald-uni [class*="bg-misty-green-950"] [class*="bg-\\[\\#0E1513\\]"] p {
+  color: #9ca3af !important;
+}
+/* Zoe italic text in thesis */
+.theme-emerald-uni [class*="bg-misty-green-950"] .text-white {
+  color: #ffffff !important;
+}
+/* Thesis section → emerald dark instead of misty-green-950 */
+.theme-emerald-uni [class*="bg-misty-green-950"] {
+  background-color: #0f1f1a !important;
+}

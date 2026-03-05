@@ -13,7 +13,7 @@ const gpuLayer: React.CSSProperties = {
 };
 
 interface Hero2DProps {
-    variant?: "default" | "jesus-red";
+    variant?: "default" | "jesus-red" | "emerald-uni" | "emerald-uni";
 }
 
 export default function Hero2D({ variant = "default" }: Hero2DProps = {}) {
@@ -91,9 +91,22 @@ export default function Hero2D({ variant = "default" }: Hero2DProps = {}) {
     return (
         <section
             ref={containerRef}
-            className={`relative w-full overflow-hidden bg-[#e0f2fe] ${variant === "jesus-red" ? "min-h-[100vh]" : "h-[85vh] min-h-[600px] max-h-[900px]"}`}
+            className={`relative w-full overflow-hidden ${variant === "emerald-uni" ? "bg-white h-[85vh] min-h-[600px] max-h-[900px]" : variant === "jesus-red" ? "bg-[#e0f2fe] min-h-[100vh]" : "bg-[#e0f2fe] h-[85vh] min-h-[600px] max-h-[900px]"}`}
         >
-            {variant === "jesus-red" ? (
+            {variant === "emerald-uni" ? (
+                // 1. Photographic campus background for emerald-uni variant
+                <div className="absolute inset-0 z-0" style={gpuLayer}>
+                    <Image
+                        src="/assets/hero/emerald-campus.jpg"
+                        alt="University Campus View"
+                        fill
+                        priority
+                        className="object-cover object-center"
+                        quality={90}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/50" />
+                </div>
+            ) : variant === "jesus-red" ? (
                 // 1. Elegant Parchment Background for jesus-red variant
                 <div className="absolute inset-0 z-0 bg-[#f5efe6]" style={gpuLayer}>
                     <Image
@@ -125,9 +138,9 @@ export default function Hero2D({ variant = "default" }: Hero2DProps = {}) {
                 initial="hidden"
                 animate="show"
                 className="absolute inset-0 w-full h-full"
-                style={variant === "jesus-red" ? undefined : gpuLayer}
+                style={variant === "jesus-red" || variant === "emerald-uni" ? undefined : gpuLayer}
             >
-                {variant !== "jesus-red" && (
+                {variant !== "jesus-red" && variant !== "emerald-uni" && (
                     <>
                         {/* 2. Clouds ───────────────────────────────────────────── */}
                         <div className="absolute inset-0 z-10 select-none pointer-events-none overflow-hidden" style={gpuLayer}>
@@ -254,9 +267,9 @@ export default function Hero2D({ variant = "default" }: Hero2DProps = {}) {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 1 }}
                     className="absolute inset-0 z-50 flex flex-col items-center justify-center select-none pb-0 md:pb-8 lg:pb-12"
-                    style={variant === "jesus-red" ? undefined : gpuLayer}
+                    style={variant === "jesus-red" || variant === "emerald-uni" ? undefined : gpuLayer}
                 >
-                    <motion.div style={{ x: variant === "jesus-red" ? 0 : midX, y: variant === "jesus-red" ? 0 : midY, ...gpuLayer }} className="w-full max-w-[280px] md:max-w-[450px] px-4 md:px-6 flex flex-col items-center pointer-events-none drop-shadow-xl mt-12 md:mt-0">
+                    <motion.div style={{ x: variant === "jesus-red" || variant === "emerald-uni" ? 0 : midX, y: variant === "jesus-red" || variant === "emerald-uni" ? 0 : midY, ...gpuLayer }} className="w-full max-w-[280px] md:max-w-[450px] px-4 md:px-6 flex flex-col items-center pointer-events-none drop-shadow-xl mt-12 md:mt-0">
                         <ZoeSVG variant={variant} />
                     </motion.div>
 
@@ -265,7 +278,7 @@ export default function Hero2D({ variant = "default" }: Hero2DProps = {}) {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 2.5, duration: 1 }}
                         className="mt-6 flex flex-col items-center pointer-events-auto text-center px-4"
-                        style={{ x: variant === "jesus-red" ? 0 : midX, y: variant === "jesus-red" ? 0 : midY, ...gpuLayer }}
+                        style={{ x: variant === "jesus-red" ? 0 : midX, y: variant === "jesus-red" || variant === "emerald-uni" ? 0 : midY, ...gpuLayer }}
                     >
                         <p className="mb-5 text-xl md:text-2xl font-medium tracking-tighter-editorial text-slate-800 drop-shadow-sm max-w-sm md:max-w-xl leading-snug">
                             A partner in your walk with Jesus.
@@ -286,6 +299,9 @@ export default function Hero2D({ variant = "default" }: Hero2DProps = {}) {
             )}
             {variant === "jesus-red" && (
                 <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1e1c1a] to-transparent z-[60] pointer-events-none" />
+            )}
+            {variant === "emerald-uni" && (
+                <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0f1f1a] to-transparent z-[60] pointer-events-none" style={gpuLayer} />
             )}
         </section>
     );

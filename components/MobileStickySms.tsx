@@ -24,7 +24,7 @@ function ScrollBubble({
     text: React.ReactNode,
     scrollYProgress: MotionValue<number>,
     fadeInRange: [number, number],
-    variant?: "default" | "jesus-red"
+    variant?: "default" | "jesus-red" | "emerald-uni"
 }) {
     const isUser = sender === "user";
     const opacity = useTransform(scrollYProgress, fadeInRange, [0, 1]);
@@ -64,7 +64,7 @@ function ScrollTimestamp({
     );
 }
 
-export default function MobileStickySms({ variant = "default" }: { variant?: "default" | "jesus-red" } = {}) {
+export default function MobileStickySms({ variant = "default" }: { variant?: "default" | "jesus-red" | "emerald-uni" } = {}) {
     const containerRef = useRef<HTMLElement>(null);
     const [isInView, setIsInView] = useState(false);
 

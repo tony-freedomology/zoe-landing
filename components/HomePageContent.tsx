@@ -15,7 +15,7 @@ import { Highlight } from './Highlight';
 import { usePhoneFormatter } from '../app/hooks/usePhoneFormatter';
 
 interface HomeProps {
-  variant?: "default" | "jesus-red";
+  variant?: "default" | "jesus-red" | "emerald-uni" | "emerald-uni";
 }
 
 const fadeUp = {
