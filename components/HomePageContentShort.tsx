@@ -72,6 +72,15 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
 
   return (
     <main className={clsx("fixed inset-0 w-full h-full overflow-hidden flex flex-col md:flex-row", mainBg)}>
+      <style jsx global>{`
+        html, body {
+          background-color: ${isJR ? "#f5efe6" : "white"} !important;
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          overflow: hidden;
+        }
+      `}</style>
 
       {/* Mobile Visual (Background) */}
       <div className="md:hidden absolute inset-0 z-0 bg-slate-900 pointer-events-none flex flex-col">
@@ -97,7 +106,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       </div>
 
       {/* Left Column (Desktop Visual) */}
-      <div className="hidden md:flex w-full md:w-[50%] lg:w-[55%] relative h-full bg-slate-900 z-0 flex-col items-center justify-center p-12">
+      <div className="hidden md:flex w-full md:w-[50%] lg:w-[55%] relative h-full md:h-screen bg-slate-900 z-0 flex-col items-center justify-center p-12">
         {variant === "default" && (
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <Hero2D variant="default" hideOverlayContent={true} fullHeight={true} layout="split" />
@@ -175,7 +184,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       {/* Right Column (Desktop Content) / Bottom Sheet (Mobile Form) */}
       <div className={clsx(
         "absolute inset-x-0 bottom-0 z-10 h-auto max-h-[85dvh] rounded-t-3xl shadow-[0_-20px_40px_rgba(0,0,0,0.15)] pb-6", // Mobile bottom sheet - hugs content
-        "md:static md:h-full md:flex-1 md:w-[50%] lg:w-[45%] md:rounded-none md:shadow-[-20px_0_40px_rgba(0,0,0,0.05)] md:border-l md:border-black/5 md:pb-0", // Desktop split
+        "md:static md:h-screen md:flex-1 md:w-[50%] lg:w-[45%] md:rounded-none md:shadow-[-20px_0_40px_rgba(0,0,0,0.05)] md:border-l md:border-black/5 md:pb-0", // Desktop split
         cardBg,
         "overflow-y-auto"
       )}>
