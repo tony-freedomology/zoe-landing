@@ -91,7 +91,7 @@ export default function Hero2D({ variant = "default" }: Hero2DProps = {}) {
     return (
         <section
             ref={containerRef}
-            className={`relative w-full overflow-hidden ${variant === "emerald-uni" ? "bg-white h-[85vh] min-h-[600px] max-h-[900px]" : variant === "jesus-red" ? "bg-[#e0f2fe] min-h-[100vh]" : "bg-[#e0f2fe] h-[85vh] min-h-[600px] max-h-[900px]"}`}
+            className={`relative w-full overflow-hidden ${variant === "emerald-uni" ? "bg-white min-h-[100vh]" : variant === "jesus-red" ? "bg-[#e0f2fe] min-h-[100vh]" : "bg-[#e0f2fe] h-[85vh] min-h-[600px] max-h-[900px]"}`}
         >
             {variant === "emerald-uni" ? (
                 // 1. Photographic campus background for emerald-uni variant
@@ -294,7 +294,7 @@ export default function Hero2D({ variant = "default" }: Hero2DProps = {}) {
             </motion.div>
 
             {/* Gradient fade into the dark ThesisSection */}
-            {variant !== "jesus-red" && (
+            {variant !== "jesus-red" && variant !== "emerald-uni" && (
                 <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-misty-green-950 to-transparent z-[60] pointer-events-none" style={gpuLayer} />
             )}
             {variant === "jesus-red" && (
