@@ -42,7 +42,7 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
                             When Jesus uses this word, He’s not talking about prosperity gospel, and he's not talking about just getting into heaven someday.
                         </p>
                         <p>
-                            He’s talking about life the way it was meant to be - flourishing and fully integrated. He's talking about life <span className="italic text-white">with</span> God. It's what you were made for and <span className={clsx("font-bold", variant === "jesus-red" ? "text-[#5c1624]" : "text-brand-jade")}>it’s something that can start right now.</span>
+                            He’s talking about life the way it was meant to be - flourishing and fully integrated. He's talking about life <span className="italic text-white">with</span> God. It's what you were made for and <span className={clsx("font-bold", variant === "jesus-red" ? "bg-[#7a2332]/20 text-[#f5efe6] border border-[#7a2332]/30 px-2 py-0.5 rounded-sm" : "text-brand-jade")}>it’s something that can start right now.</span>
                         </p>
                     </div>
                 </motion.div>
