@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../components/Footer";
+import blogBg from "../../public/images/blog-bg.png";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -53,8 +54,8 @@ const posts = [
 export default function BlogIndexPage() {
   return (
     <div className="min-h-screen text-slate-900">
-      <section className="relative w-full aspect-video overflow-hidden bg-slate-900" style={{ marginTop: '72px' }}>
-        <Image src="/images/blog-bg.png" alt="Blog Background" fill className="object-cover" priority />
+      <section className="relative w-full aspect-video overflow-hidden bg-misty-green-950" style={{ marginTop: '72px' }}>
+        <Image src={blogBg} alt="Blog Background" fill placeholder="blur" className="object-cover" priority />
 
         {/* Subtle Text Backdrop */}
         <div className="absolute inset-0 z-10 md:w-2/3 lg:w-1/2 flex items-center">

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
+import rootedPsalmsImg from "../../../public/images/journeys/rooted-psalms.jpg";
 
 export const metadata: Metadata = {
   title: "Rooted: 30 Days in the Psalms — Zoe",
@@ -46,8 +47,8 @@ const days = [
 export default function RootedPage() {
   return (
     <div className="min-h-screen text-slate-900">
-      <section className="relative w-full overflow-hidden" style={{ aspectRatio: '16/9' }}>
-        <Image src="/images/journeys/rooted-psalms.jpg" alt="Rooted" fill className="object-cover" priority />
+      <section className="relative w-full overflow-hidden bg-misty-green-950" style={{ aspectRatio: '16/9' }}>
+        <Image src={rootedPsalmsImg} alt="Rooted" fill placeholder="blur" className="object-cover" priority />
       </section>
 
       <section className="py-16 px-6 bg-white">

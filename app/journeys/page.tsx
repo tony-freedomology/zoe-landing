@@ -3,6 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../components/Footer";
+import jamesDeepImg from "../../public/images/journeys/james-deep.jpg";
+import stillPrayerImg from "../../public/images/journeys/still-prayer.jpg";
+import examenReflectionImg from "../../public/images/journeys/examen-reflection.jpg";
+import rootedPsalmsImg from "../../public/images/journeys/rooted-psalms.jpg";
+import wayOfJesusImg from "../../public/images/journeys/way-of-jesus.jpg";
 
 export const metadata: Metadata = {
   title: "Journeys — Zoe",
@@ -16,7 +21,7 @@ const journeys = [
     title: "James: 10 Days Deep",
     duration: "10 Days",
     difficulty: "intermediate",
-    image: "/images/journeys/james-deep.jpg",
+    image: jamesDeepImg,
     description: "James writes to a scattered church — people who claimed faith but lived differently from Monday to Saturday. His letter is less a theology lecture and more a direct conversation: you say you believe. Does your life show it?",
   },
   {
@@ -24,7 +29,7 @@ const journeys = [
     title: "Still: 21 Days of Contemplative Prayer",
     duration: "21 Days",
     difficulty: "introductory",
-    image: "/images/journeys/still-prayer.jpg",
+    image: stillPrayerImg,
     description: "Most of us talk at God. This journey teaches you to sit with God. Twenty-one days of building a contemplative prayer practice — starting with just two minutes of silence and gradually deepening into a rhythm that changes how you experience God's presence.",
   },
   {
@@ -32,7 +37,7 @@ const journeys = [
     title: "The Examen: 14 Days of Evening Reflection",
     duration: "14 Days",
     difficulty: "introductory",
-    image: "/images/journeys/examen-reflection.jpg",
+    image: examenReflectionImg,
     description: "The Examen is a 500-year-old prayer practice from Ignatius of Loyola. It's simple: at the end of each day, look back and notice where God showed up — and where you missed it. Fourteen days to build the habit of paying attention.",
   },
   {
@@ -40,7 +45,7 @@ const journeys = [
     title: "Rooted: 30 Days in the Psalms",
     duration: "30 Days",
     difficulty: "introductory",
-    image: "/images/journeys/rooted-psalms.jpg",
+    image: rootedPsalmsImg,
     description: "The Psalms are the prayer book of the Bible — raw, honest, and deeply human. This 30-day journey pairs one psalm per day with a contemplative reading practice. Some days you'll sit in praise. Others, you'll wrestle with doubt. That's the point.",
   },
   {
@@ -48,7 +53,7 @@ const journeys = [
     title: "The Way of Jesus: 40 Days Through the Gospels",
     duration: "40 Days",
     difficulty: "deep",
-    image: "/images/journeys/way-of-jesus.jpg",
+    image: wayOfJesusImg,
     description: "Forty days walking through the life and teachings of Jesus — from his first sermon to his last words. Each day pairs a Gospel passage with an application challenge. Because understanding what Jesus said without doing what he said is the whole problem.",
   },
 ];
@@ -82,6 +87,7 @@ export default function JourneysHubPage() {
                     src={journey.image}
                     alt={journey.title}
                     fill
+                    placeholder="blur"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 

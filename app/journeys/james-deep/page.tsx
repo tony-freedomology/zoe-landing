@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
+import jamesDeepImg from "../../../public/images/journeys/james-deep.jpg";
 
 export const metadata: Metadata = {
   title: "James: 10 Days Deep — Zoe",
@@ -26,8 +27,8 @@ const days = [
 export default function JamesDeepPage() {
   return (
     <div className="min-h-screen text-slate-900">
-      <section className="relative w-full overflow-hidden" style={{ aspectRatio: '16/9' }}>
-        <Image src="/images/journeys/james-deep.jpg" alt="James: 10 Days Deep" fill className="object-cover" priority />
+      <section className="relative w-full overflow-hidden bg-misty-green-950" style={{ aspectRatio: '16/9' }}>
+        <Image src={jamesDeepImg} alt="James: 10 Days Deep" fill placeholder="blur" className="object-cover" priority />
       </section>
 
       <section className="py-16 px-6 bg-white">

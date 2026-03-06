@@ -144,8 +144,11 @@ export default function Hero2DJesusRed() {
                         transition={{ delay: 1.5, duration: 1 }}
                         className="mt-6 flex flex-col items-center pointer-events-auto text-center px-4"
                     >
-                        <p className="mb-5 text-xl md:text-2xl font-medium tracking-tighter-editorial-relaxed text-[#3c2a21] drop-shadow-sm max-w-sm md:max-w-xl leading-snug">
+                        <h1 className="mb-2 text-4xl md:text-5xl font-bold tracking-tighter-editorial-relaxed text-[#3c2a21] drop-shadow-sm max-w-sm md:max-w-xl leading-snug">
                             Walk with Jesus.
+                        </h1>
+                        <p className="mb-6 text-xl md:text-2xl font-medium tracking-tight text-[#5c1624] drop-shadow-sm max-w-sm md:max-w-xl leading-snug opacity-90">
+                            What if you quit living in two worlds?
                         </p>
                         <a
                             href="#waitlist"

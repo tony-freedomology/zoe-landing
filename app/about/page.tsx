@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../components/Footer";
+import { Lock, Smartphone, Database, Ban, FileDown, ShieldCheck } from "lucide-react";
+import aboutBg from "../../public/images/about-bg.png";
 
 export const metadata: Metadata = {
   title: "About",
@@ -41,8 +43,8 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen text-slate-900">
       {/* Hero */}
-      <section className="relative w-full aspect-video overflow-hidden bg-slate-900" style={{ marginTop: '72px' }}>
-        <Image src="/images/about-bg.png" alt="About Background" fill className="object-cover" priority />
+      <section className="relative w-full aspect-video overflow-hidden bg-misty-green-950" style={{ marginTop: '72px' }}>
+        <Image src={aboutBg} alt="About Background" fill placeholder="blur" className="object-cover" priority />
 
         {/* Subtle Text Backdrop */}
         <div className="absolute inset-0 z-10 md:w-2/3 lg:w-1/2 flex items-center">

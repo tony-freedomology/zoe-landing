@@ -3,6 +3,7 @@ import Image from "next/image";
 import { MessageCircle, Users, BookOpen, ShieldCheck, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Footer from "../../components/Footer";
+import featuresBg from "../../public/images/features-bg.png";
 
 export const metadata: Metadata = {
   title: "Features",
@@ -14,8 +15,8 @@ export default function FeaturesPage() {
   return (
     <div className="min-h-screen text-slate-900">
       {/* Hero */}
-      <section className="relative w-full aspect-video overflow-hidden bg-slate-900" style={{ marginTop: '72px' }}>
-        <Image src="/images/features-bg.png" alt="Features Background" fill className="object-cover" priority />
+      <section className="relative w-full aspect-video overflow-hidden bg-misty-green-950" style={{ marginTop: '72px' }}>
+        <Image src={featuresBg} alt="Features Background" fill placeholder="blur" className="object-cover" priority />
 
         {/* Subtle Text Backdrop */}
         <div className="absolute inset-0 z-10 md:w-2/3 lg:w-1/2 flex items-center">
