@@ -11,34 +11,46 @@ export const metadata: Metadata = {
 };
 
 const days = [
-  {"day": 1, "passage": "Psalm 139:23–24", "theme": "Search Me", "prompt": "Review your day. What's one moment you felt most alive today? What's one moment you felt most drained?"},
-  {"day": 2, "passage": "Psalm 90:12", "theme": "Numbering Your Days", "prompt": "Walk through your day hour by hour. Where did you feel closest to God? Where did you feel furthest away?"},
-  {"day": 3, "passage": "Lamentations 3:22–23", "theme": "New Every Morning", "prompt": "What's one thing today that you're grateful for that you almost missed? Thank God for it specifically."},
-  {"day": 4, "passage": "Romans 12:1–2", "theme": "Renewed Minds", "prompt": "Where today did you conform to a pattern around you instead of following what you know is true?"},
-  {"day": 5, "passage": "Philippians 4:8–9", "theme": "Think on These Things", "prompt": "Name something true, noble, right, pure, lovely, or admirable from your day. Let your mind rest there."},
-  {"day": 6, "passage": "Micah 6:8", "theme": "What Does the Lord Require?", "prompt": "Did you act justly today? Love mercy? Walk humbly? Which one came easiest? Which was hardest?"},
-  {"day": 7, "passage": "Matthew 11:28–30", "theme": "Come to Me", "prompt": "Where are you carrying weight that isn't yours to carry? Name it. Lay it down — just for tonight."},
-  {"day": 8, "passage": "Colossians 3:15–17", "theme": "Let the Peace of Christ Rule", "prompt": "When did you feel peace today? When did you feel anxiety? What was different about those two moments?"},
-  {"day": 9, "passage": "Proverbs 3:5–6", "theme": "Trust and Acknowledge", "prompt": "Where did you lean on your own understanding today? Where did you actually trust God?"},
-  {"day": 10, "passage": "1 Thessalonians 5:16–18", "theme": "Rejoice, Pray, Give Thanks", "prompt": "Three things: one joy, one prayer, one thanks from today. Name them out loud."},
-  {"day": 11, "passage": "James 1:17", "theme": "Every Good Gift", "prompt": "What good gift came from above today? Sometimes the best ones are the ones we didn't notice at the time."},
-  {"day": 12, "passage": "Ephesians 5:15–16", "theme": "Making the Most of Time", "prompt": "How did you spend your time today? Where did time feel wasted? Where did it feel full?"},
-  {"day": 13, "passage": "2 Corinthians 4:16–18", "theme": "Unseen and Eternal", "prompt": "What temporary thing consumed your attention today? What eternal thing did you almost overlook?"},
-  {"day": 14, "passage": "Psalm 103:1–5", "theme": "Forget Not His Benefits", "prompt": "Review not just today, but the past two weeks. What has God been doing in you? What pattern do you see?"}
+  { "day": 1, "passage": "Psalm 139:23–24", "theme": "Search Me", "prompt": "Review your day. What's one moment you felt most alive today? What's one moment you felt most drained?" },
+  { "day": 2, "passage": "Psalm 90:12", "theme": "Numbering Your Days", "prompt": "Walk through your day hour by hour. Where did you feel closest to God? Where did you feel furthest away?" },
+  { "day": 3, "passage": "Lamentations 3:22–23", "theme": "New Every Morning", "prompt": "What's one thing today that you're grateful for that you almost missed? Thank God for it specifically." },
+  { "day": 4, "passage": "Romans 12:1–2", "theme": "Renewed Minds", "prompt": "Where today did you conform to a pattern around you instead of following what you know is true?" },
+  { "day": 5, "passage": "Philippians 4:8–9", "theme": "Think on These Things", "prompt": "Name something true, noble, right, pure, lovely, or admirable from your day. Let your mind rest there." },
+  { "day": 6, "passage": "Micah 6:8", "theme": "What Does the Lord Require?", "prompt": "Did you act justly today? Love mercy? Walk humbly? Which one came easiest? Which was hardest?" },
+  { "day": 7, "passage": "Matthew 11:28–30", "theme": "Come to Me", "prompt": "Where are you carrying weight that isn't yours to carry? Name it. Lay it down — just for tonight." },
+  { "day": 8, "passage": "Colossians 3:15–17", "theme": "Let the Peace of Christ Rule", "prompt": "When did you feel peace today? When did you feel anxiety? What was different about those two moments?" },
+  { "day": 9, "passage": "Proverbs 3:5–6", "theme": "Trust and Acknowledge", "prompt": "Where did you lean on your own understanding today? Where did you actually trust God?" },
+  { "day": 10, "passage": "1 Thessalonians 5:16–18", "theme": "Rejoice, Pray, Give Thanks", "prompt": "Three things: one joy, one prayer, one thanks from today. Name them out loud." },
+  { "day": 11, "passage": "James 1:17", "theme": "Every Good Gift", "prompt": "What good gift came from above today? Sometimes the best ones are the ones we didn't notice at the time." },
+  { "day": 12, "passage": "Ephesians 5:15–16", "theme": "Making the Most of Time", "prompt": "How did you spend your time today? Where did time feel wasted? Where did it feel full?" },
+  { "day": 13, "passage": "2 Corinthians 4:16–18", "theme": "Unseen and Eternal", "prompt": "What temporary thing consumed your attention today? What eternal thing did you almost overlook?" },
+  { "day": 14, "passage": "Psalm 103:1–5", "theme": "Forget Not His Benefits", "prompt": "Review not just today, but the past two weeks. What has God been doing in you? What pattern do you see?" }
 ];
 
 export default function TheExamenPage() {
   return (
     <div className="min-h-screen text-slate-900">
-      <section className="relative bg-[#141008] py-32 px-6 pt-40 overflow-hidden">
-        <Image src="/images/journeys/examen-reflection.jpg" alt="" fill className="object-cover opacity-40" priority />
+      <section className="relative bg-white py-32 px-6 pt-40 overflow-hidden">
+        <Image src="/images/journeys/examen-reflection.jpg" alt="" fill className="object-cover opacity-100" priority />
+
+        {/* Soft Feathered Blur Overlay */}
+        <div
+          className="absolute inset-0 backdrop-blur-xl z-[1]"
+          style={{
+            WebkitMaskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)',
+            maskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)'
+          }}
+        />
+
+        {/* Subtle Darkening Radial */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.35)_0%,_transparent_75%)] z-[2]" />
 
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-jade mb-8">
             14-Day Journey
           </div>
           <h1 className="text-5xl md:text-6xl tracking-tighter-editorial text-white leading-[1.1] font-bold">The Examen</h1>
-          <p className="mt-6 text-xl text-slate-300 font-medium leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-6 text-xl text-slate-100 font-medium leading-relaxed max-w-2xl mx-auto">
             The Examen is a 500-year-old prayer practice from Ignatius of Loyola. It's simple: at the end of each day, look back and notice where God showed up — and where you missed it.
           </p>
           <div className="mt-10">
@@ -52,7 +64,7 @@ export default function TheExamenPage() {
       <section className="py-20 px-6 bg-[#F8FBFA]">
         <div className="mx-auto max-w-3xl">
           <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {[{label:"Duration",value:"14 Days"},{label:"Practice",value:"5–10 min/evening"},{label:"Style",value:"Guided reflection"}].map((stat) => (
+            {[{ label: "Duration", value: "14 Days" }, { label: "Practice", value: "5–10 min/evening" }, { label: "Style", value: "Guided reflection" }].map((stat) => (
               <div key={stat.label} className="bg-white rounded-2xl p-6 text-center border border-slate-100 shadow-sm">
                 <p className="text-3xl font-bold tracking-tighter-editorial text-slate-900 mb-1">{stat.value}</p>
                 <p className="text-sm font-semibold uppercase tracking-widest text-slate-400">{stat.label}</p>

@@ -11,30 +11,42 @@ export const metadata: Metadata = {
 };
 
 const days = [
-  {"day": 1, "passage": "James 1:1–4", "theme": "Trials as Teachers", "prompt": "What challenge in your life right now might actually be producing something good in you?"},
-  {"day": 2, "passage": "James 1:5–8", "theme": "Asking for Wisdom", "prompt": "Where do you most need wisdom today — and are you actually asking for it?"},
-  {"day": 3, "passage": "James 1:12–18", "theme": "The Source of Temptation", "prompt": "What desire, if left unchecked, tends to lead you somewhere you don't want to go?"},
-  {"day": 4, "passage": "James 1:19–27", "theme": "Hearing and Doing", "prompt": "Is there a truth you know but haven't acted on yet? What's stopping you?"},
-  {"day": 5, "passage": "James 2:1–13", "theme": "No Favoritism", "prompt": "Who in your life do you treat as less important because of status, appearance, or wealth?"},
-  {"day": 6, "passage": "James 2:14–26", "theme": "Faith and Works", "prompt": "What would someone know about your faith just from watching your actions this week?"},
-  {"day": 7, "passage": "James 3:1–12", "theme": "Taming the Tongue", "prompt": "What's something you said recently that you wish you could take back?"},
-  {"day": 8, "passage": "James 3:13–4:3", "theme": "Two Kinds of Wisdom", "prompt": "Is the wisdom guiding your decisions right now from God — or from somewhere else?"},
-  {"day": 9, "passage": "James 4:4–17", "theme": "Humility Before God", "prompt": "Where are you striving for something God hasn't given you? What would it look like to submit that?"},
-  {"day": 10, "passage": "James 5:7–20", "theme": "Patient Endurance", "prompt": "Who in your life needs someone to turn them back toward God right now?"}
+  { "day": 1, "passage": "James 1:1–4", "theme": "Trials as Teachers", "prompt": "What challenge in your life right now might actually be producing something good in you?" },
+  { "day": 2, "passage": "James 1:5–8", "theme": "Asking for Wisdom", "prompt": "Where do you most need wisdom today — and are you actually asking for it?" },
+  { "day": 3, "passage": "James 1:12–18", "theme": "The Source of Temptation", "prompt": "What desire, if left unchecked, tends to lead you somewhere you don't want to go?" },
+  { "day": 4, "passage": "James 1:19–27", "theme": "Hearing and Doing", "prompt": "Is there a truth you know but haven't acted on yet? What's stopping you?" },
+  { "day": 5, "passage": "James 2:1–13", "theme": "No Favoritism", "prompt": "Who in your life do you treat as less important because of status, appearance, or wealth?" },
+  { "day": 6, "passage": "James 2:14–26", "theme": "Faith and Works", "prompt": "What would someone know about your faith just from watching your actions this week?" },
+  { "day": 7, "passage": "James 3:1–12", "theme": "Taming the Tongue", "prompt": "What's something you said recently that you wish you could take back?" },
+  { "day": 8, "passage": "James 3:13–4:3", "theme": "Two Kinds of Wisdom", "prompt": "Is the wisdom guiding your decisions right now from God — or from somewhere else?" },
+  { "day": 9, "passage": "James 4:4–17", "theme": "Humility Before God", "prompt": "Where are you striving for something God hasn't given you? What would it look like to submit that?" },
+  { "day": 10, "passage": "James 5:7–20", "theme": "Patient Endurance", "prompt": "Who in your life needs someone to turn them back toward God right now?" }
 ];
 
 export default function JamesDeepPage() {
   return (
     <div className="min-h-screen text-slate-900">
-      <section className="relative bg-[#141008] py-32 px-6 pt-40 overflow-hidden">
-        <Image src="/images/journeys/james-deep.jpg" alt="" fill className="object-cover opacity-40" priority />
+      <section className="relative bg-white py-32 px-6 pt-40 overflow-hidden">
+        <Image src="/images/journeys/james-deep.jpg" alt="" fill className="object-cover opacity-100" priority />
+
+        {/* Soft Feathered Blur Overlay */}
+        <div
+          className="absolute inset-0 backdrop-blur-xl z-[1]"
+          style={{
+            WebkitMaskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)',
+            maskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)'
+          }}
+        />
+
+        {/* Subtle Darkening Radial */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.35)_0%,_transparent_75%)] z-[2]" />
 
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-jade mb-8">
             10-Day Journey
           </div>
           <h1 className="text-5xl md:text-6xl tracking-tighter-editorial text-white leading-[1.1] font-bold">James: 10 Days Deep</h1>
-          <p className="mt-6 text-xl text-slate-300 font-medium leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-6 text-xl text-slate-100 font-medium leading-relaxed max-w-2xl mx-auto">
             James writes to a scattered church — people who claimed faith but lived differently from Monday to Saturday. His letter is less a theology lecture and more a direct conversation: you say you believe. Does your life show it?
           </p>
           <div className="mt-10">
@@ -48,7 +60,7 @@ export default function JamesDeepPage() {
       <section className="py-20 px-6 bg-[#F8FBFA]">
         <div className="mx-auto max-w-3xl">
           <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {[{label:"Duration",value:"10 Days"},{label:"Check-ins",value:"3 per day"},{label:"Passages",value:"10 readings"}].map((stat) => (
+            {[{ label: "Duration", value: "10 Days" }, { label: "Check-ins", value: "3 per day" }, { label: "Passages", value: "10 readings" }].map((stat) => (
               <div key={stat.label} className="bg-white rounded-2xl p-6 text-center border border-slate-100 shadow-sm">
                 <p className="text-3xl font-bold tracking-tighter-editorial text-slate-900 mb-1">{stat.value}</p>
                 <p className="text-sm font-semibold uppercase tracking-widest text-slate-400">{stat.label}</p>

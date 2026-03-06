@@ -11,50 +11,62 @@ export const metadata: Metadata = {
 };
 
 const days = [
-  {"day": 1, "passage": "Psalm 1", "theme": "Two Paths", "prompt": "What does it mean to be 'planted by streams of water' in your life right now?"},
-  {"day": 2, "passage": "Psalm 8", "theme": "What Is Humanity?", "prompt": "When was the last time you looked up at the sky and felt genuinely small?"},
-  {"day": 3, "passage": "Psalm 13", "theme": "How Long, O Lord?", "prompt": "What question have you been asking God that still doesn't have an answer?"},
-  {"day": 4, "passage": "Psalm 16", "theme": "The Path of Life", "prompt": "What does 'fullness of joy in your presence' actually feel like to you?"},
-  {"day": 5, "passage": "Psalm 19", "theme": "The Heavens Declare", "prompt": "Where do you most clearly see God's fingerprint in creation?"},
-  {"day": 6, "passage": "Psalm 22", "theme": "Why Have You Forsaken Me?", "prompt": "Have you ever felt utterly abandoned by God? What happened next?"},
-  {"day": 7, "passage": "Psalm 23", "theme": "The Lord Is My Shepherd", "prompt": "Which line of this psalm do you most need to hear today? Sit with it for a few minutes."},
-  {"day": 8, "passage": "Psalm 27", "theme": "One Thing I Ask", "prompt": "If you could ask God for one thing, what would it be? Not the Sunday school answer — the real one."},
-  {"day": 9, "passage": "Psalm 30", "theme": "Weeping to Dancing", "prompt": "What season of mourning in your life eventually gave way to something beautiful?"},
-  {"day": 10, "passage": "Psalm 32", "theme": "The Joy of Forgiveness", "prompt": "Is there something you've been carrying that you need to confess? What would it feel like to let it go?"},
-  {"day": 11, "passage": "Psalm 34", "theme": "Taste and See", "prompt": "Where have you 'tasted' God's goodness recently — even in a small way?"},
-  {"day": 12, "passage": "Psalm 37:1–11", "theme": "Trust and Do Good", "prompt": "What are you fretting about right now? What would it look like to trust God with it — specifically?"},
-  {"day": 13, "passage": "Psalm 40:1–5", "theme": "He Lifted Me Up", "prompt": "Tell the story of a time God pulled you out of something. Remember the details."},
-  {"day": 14, "passage": "Psalm 42", "theme": "As the Deer", "prompt": "What are you thirsty for right now? Be honest."},
-  {"day": 15, "passage": "Psalm 46", "theme": "God Is Our Refuge", "prompt": "What would change in your day if you really believed 'the Lord of hosts is with us'?"},
-  {"day": 16, "passage": "Psalm 51", "theme": "Create in Me", "prompt": "Where do you need a clean heart today? Ask God specifically."},
-  {"day": 17, "passage": "Psalm 63", "theme": "My Soul Thirsts for You", "prompt": "David wrote this in a desert. What's your desert right now — and can you still praise God there?"},
-  {"day": 18, "passage": "Psalm 73", "theme": "Until I Entered the Sanctuary", "prompt": "Have you ever been jealous of someone who doesn't follow God? What shifted your perspective?"},
-  {"day": 19, "passage": "Psalm 84", "theme": "Better Is One Day", "prompt": "What does it feel like to be in God's presence for you? Can you describe it?"},
-  {"day": 20, "passage": "Psalm 90", "theme": "Teach Us to Number Our Days", "prompt": "How would you live today if you genuinely believed your time was limited?"},
-  {"day": 21, "passage": "Psalm 91", "theme": "Under His Wings", "prompt": "What does it mean to make the Most High your dwelling place — in a practical, daily sense?"},
-  {"day": 22, "passage": "Psalm 100", "theme": "Enter His Gates", "prompt": "Start today with thanksgiving. Name five specific things. No generics."},
-  {"day": 23, "passage": "Psalm 103", "theme": "Forget Not His Benefits", "prompt": "Which of God's benefits do you most take for granted? Healing, forgiveness, redemption, love, compassion?"},
-  {"day": 24, "passage": "Psalm 116", "theme": "I Love the Lord", "prompt": "When did God hear your cry? Can you remember the exact moment?"},
-  {"day": 25, "passage": "Psalm 119:105–112", "theme": "A Lamp to My Feet", "prompt": "What decision in front of you needs light right now?"},
-  {"day": 26, "passage": "Psalm 121", "theme": "I Lift Up My Eyes", "prompt": "Where does your help come from? Not in theory — where did it come from this week?"},
-  {"day": 27, "passage": "Psalm 130", "theme": "Out of the Depths", "prompt": "From what depths have you called out to God? What did you learn in the waiting?"},
-  {"day": 28, "passage": "Psalm 136:1–9", "theme": "His Love Endures Forever", "prompt": "Write your own version of Psalm 136. List specific things God has done, followed by 'his love endures forever.'"},
-  {"day": 29, "passage": "Psalm 139", "theme": "You Know Me", "prompt": "What does it feel like to be completely known — not just your public self, but all of it?"},
-  {"day": 30, "passage": "Psalm 150", "theme": "Let Everything Praise", "prompt": "You've been in the Psalms for 30 days. What has changed in how you talk to God?"}
+  { "day": 1, "passage": "Psalm 1", "theme": "Two Paths", "prompt": "What does it mean to be 'planted by streams of water' in your life right now?" },
+  { "day": 2, "passage": "Psalm 8", "theme": "What Is Humanity?", "prompt": "When was the last time you looked up at the sky and felt genuinely small?" },
+  { "day": 3, "passage": "Psalm 13", "theme": "How Long, O Lord?", "prompt": "What question have you been asking God that still doesn't have an answer?" },
+  { "day": 4, "passage": "Psalm 16", "theme": "The Path of Life", "prompt": "What does 'fullness of joy in your presence' actually feel like to you?" },
+  { "day": 5, "passage": "Psalm 19", "theme": "The Heavens Declare", "prompt": "Where do you most clearly see God's fingerprint in creation?" },
+  { "day": 6, "passage": "Psalm 22", "theme": "Why Have You Forsaken Me?", "prompt": "Have you ever felt utterly abandoned by God? What happened next?" },
+  { "day": 7, "passage": "Psalm 23", "theme": "The Lord Is My Shepherd", "prompt": "Which line of this psalm do you most need to hear today? Sit with it for a few minutes." },
+  { "day": 8, "passage": "Psalm 27", "theme": "One Thing I Ask", "prompt": "If you could ask God for one thing, what would it be? Not the Sunday school answer — the real one." },
+  { "day": 9, "passage": "Psalm 30", "theme": "Weeping to Dancing", "prompt": "What season of mourning in your life eventually gave way to something beautiful?" },
+  { "day": 10, "passage": "Psalm 32", "theme": "The Joy of Forgiveness", "prompt": "Is there something you've been carrying that you need to confess? What would it feel like to let it go?" },
+  { "day": 11, "passage": "Psalm 34", "theme": "Taste and See", "prompt": "Where have you 'tasted' God's goodness recently — even in a small way?" },
+  { "day": 12, "passage": "Psalm 37:1–11", "theme": "Trust and Do Good", "prompt": "What are you fretting about right now? What would it look like to trust God with it — specifically?" },
+  { "day": 13, "passage": "Psalm 40:1–5", "theme": "He Lifted Me Up", "prompt": "Tell the story of a time God pulled you out of something. Remember the details." },
+  { "day": 14, "passage": "Psalm 42", "theme": "As the Deer", "prompt": "What are you thirsty for right now? Be honest." },
+  { "day": 15, "passage": "Psalm 46", "theme": "God Is Our Refuge", "prompt": "What would change in your day if you really believed 'the Lord of hosts is with us'?" },
+  { "day": 16, "passage": "Psalm 51", "theme": "Create in Me", "prompt": "Where do you need a clean heart today? Ask God specifically." },
+  { "day": 17, "passage": "Psalm 63", "theme": "My Soul Thirsts for You", "prompt": "David wrote this in a desert. What's your desert right now — and can you still praise God there?" },
+  { "day": 18, "passage": "Psalm 73", "theme": "Until I Entered the Sanctuary", "prompt": "Have you ever been jealous of someone who doesn't follow God? What shifted your perspective?" },
+  { "day": 19, "passage": "Psalm 84", "theme": "Better Is One Day", "prompt": "What does it feel like to be in God's presence for you? Can you describe it?" },
+  { "day": 20, "passage": "Psalm 90", "theme": "Teach Us to Number Our Days", "prompt": "How would you live today if you genuinely believed your time was limited?" },
+  { "day": 21, "passage": "Psalm 91", "theme": "Under His Wings", "prompt": "What does it mean to make the Most High your dwelling place — in a practical, daily sense?" },
+  { "day": 22, "passage": "Psalm 100", "theme": "Enter His Gates", "prompt": "Start today with thanksgiving. Name five specific things. No generics." },
+  { "day": 23, "passage": "Psalm 103", "theme": "Forget Not His Benefits", "prompt": "Which of God's benefits do you most take for granted? Healing, forgiveness, redemption, love, compassion?" },
+  { "day": 24, "passage": "Psalm 116", "theme": "I Love the Lord", "prompt": "When did God hear your cry? Can you remember the exact moment?" },
+  { "day": 25, "passage": "Psalm 119:105–112", "theme": "A Lamp to My Feet", "prompt": "What decision in front of you needs light right now?" },
+  { "day": 26, "passage": "Psalm 121", "theme": "I Lift Up My Eyes", "prompt": "Where does your help come from? Not in theory — where did it come from this week?" },
+  { "day": 27, "passage": "Psalm 130", "theme": "Out of the Depths", "prompt": "From what depths have you called out to God? What did you learn in the waiting?" },
+  { "day": 28, "passage": "Psalm 136:1–9", "theme": "His Love Endures Forever", "prompt": "Write your own version of Psalm 136. List specific things God has done, followed by 'his love endures forever.'" },
+  { "day": 29, "passage": "Psalm 139", "theme": "You Know Me", "prompt": "What does it feel like to be completely known — not just your public self, but all of it?" },
+  { "day": 30, "passage": "Psalm 150", "theme": "Let Everything Praise", "prompt": "You've been in the Psalms for 30 days. What has changed in how you talk to God?" }
 ];
 
 export default function RootedPage() {
   return (
     <div className="min-h-screen text-slate-900">
-      <section className="relative bg-[#141008] py-32 px-6 pt-40 overflow-hidden">
-        <Image src="/images/journeys/rooted-psalms.jpg" alt="" fill className="object-cover opacity-40" priority />
+      <section className="relative bg-white py-32 px-6 pt-40 overflow-hidden">
+        <Image src="/images/journeys/rooted-psalms.jpg" alt="" fill className="object-cover opacity-100" priority />
+
+        {/* Soft Feathered Blur Overlay */}
+        <div
+          className="absolute inset-0 backdrop-blur-xl z-[1]"
+          style={{
+            WebkitMaskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)',
+            maskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)'
+          }}
+        />
+
+        {/* Subtle Darkening Radial */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.35)_0%,_transparent_75%)] z-[2]" />
 
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-jade mb-8">
             30-Day Journey
           </div>
           <h1 className="text-5xl md:text-6xl tracking-tighter-editorial text-white leading-[1.1] font-bold">Rooted: 30 Days in the Psalms</h1>
-          <p className="mt-6 text-xl text-slate-300 font-medium leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-6 text-xl text-slate-100 font-medium leading-relaxed max-w-2xl mx-auto">
             The Psalms are the prayer book of the Bible — raw, honest, and deeply human. This 30-day journey pairs one psalm per day with a contemplative reading practice. Some days you'll sit in praise. Others, you'll wrestle with doubt. That's the point.
           </p>
           <div className="mt-10">
@@ -68,7 +80,7 @@ export default function RootedPage() {
       <section className="py-20 px-6 bg-[#F8FBFA]">
         <div className="mx-auto max-w-3xl">
           <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {[{label:"Duration",value:"30 Days"},{label:"Check-ins",value:"3 per day"},{label:"Psalms",value:"30 readings"}].map((stat) => (
+            {[{ label: "Duration", value: "30 Days" }, { label: "Check-ins", value: "3 per day" }, { label: "Psalms", value: "30 readings" }].map((stat) => (
               <div key={stat.label} className="bg-white rounded-2xl p-6 text-center border border-slate-100 shadow-sm">
                 <p className="text-3xl font-bold tracking-tighter-editorial text-slate-900 mb-1">{stat.value}</p>
                 <p className="text-sm font-semibold uppercase tracking-widest text-slate-400">{stat.label}</p>
