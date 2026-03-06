@@ -30,30 +30,16 @@ const days = [
 export default function TheExamenPage() {
   return (
     <div className="min-h-screen text-slate-900">
-      <section className="relative bg-white py-32 px-6 pt-40 overflow-hidden">
-        <Image src="/images/journeys/examen-reflection.jpg" alt="" fill className="object-cover opacity-100" priority />
+      <section className="relative w-full overflow-hidden" style={{ aspectRatio: '16/9' }}>
+        <Image src="/images/journeys/examen-reflection.jpg" alt="The Examen" fill className="object-cover" priority />
+      </section>
 
-        {/* Soft Feathered Blur Overlay */}
-        <div
-          className="absolute inset-0 backdrop-blur-xl z-[1]"
-          style={{
-            WebkitMaskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)',
-            maskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)'
-          }}
-        />
-
-        {/* Subtle Darkening Radial */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.35)_0%,_transparent_75%)] z-[2]" />
-
-        <div className="relative z-10 mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-jade mb-8">
-            14-Day Journey
-          </div>
-          <h1 className="text-5xl md:text-6xl tracking-tighter-editorial text-white leading-[1.1] font-bold">The Examen</h1>
-          <p className="mt-6 text-xl text-slate-100 font-medium leading-relaxed max-w-2xl mx-auto">
+      <section className="py-16 px-6 bg-white">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto mb-8">
             The Examen is a 500-year-old prayer practice from Ignatius of Loyola. It's simple: at the end of each day, look back and notice where God showed up — and where you missed it.
           </p>
-          <div className="mt-10">
+          <div>
             <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
               Start This Journey <ArrowRight className="h-4 w-4" />
             </Link>

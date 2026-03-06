@@ -84,7 +84,7 @@ export default function JourneysHubPage() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                  
                   <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
                     <span className="inline-flex items-center rounded-full bg-white/20 backdrop-blur-md px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white border border-white/30">
                       {journey.duration}
