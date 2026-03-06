@@ -44,8 +44,21 @@ export default function AboutPage() {
       <section className="relative w-full aspect-video overflow-hidden bg-slate-900" style={{ marginTop: '72px' }}>
         <Image src="/images/about-bg.png" alt="About Background" fill className="object-cover" priority />
 
+        {/* Subtle Text Backdrop */}
+        <div className="absolute inset-0 z-10 md:w-2/3 lg:w-1/2 flex items-center">
+          <div className="w-full h-[150%] -ml-[20%] pointer-events-none backdrop-blur-md"
+            style={{
+              WebkitMaskImage: 'radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)',
+              maskImage: 'radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)'
+            }}
+          />
+        </div>
+        <div className="absolute inset-0 z-10 md:w-2/3 lg:w-1/2 flex items-center">
+          <div className="w-full h-[150%] -ml-[20%] pointer-events-none bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,0,0,0.5)_0%,_transparent_100%)]" />
+        </div>
+
         {/* Text Overlay */}
-        <div className="absolute inset-0 z-10 flex flex-col justify-center px-6 md:px-12 lg:px-24">
+        <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-12 lg:px-24">
           <div className="max-w-4xl">
             <h1 className="text-5xl md:text-7xl lg:text-[80px] tracking-tighter-editorial text-white leading-[1.05] font-bold mb-2 lg:mb-4">
               We&apos;re building something<br />we wish existed
