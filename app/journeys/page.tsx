@@ -56,13 +56,13 @@ const journeys = [
 export default function JourneysHubPage() {
   return (
     <div className="min-h-screen text-slate-900 bg-[#F8FBFA]">
-      <section className="bg-gradient-to-b from-[#1a1308] to-[#141008] py-32 px-6 pt-40">
+      <section className="bg-white py-32 px-6 pt-40">
         <div className="mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-jade mb-8">
             Guided Journeys
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tighter-editorial text-white leading-[1.1] font-bold">Walk the path.</h1>
-          <p className="mt-6 text-xl text-slate-300 font-medium leading-relaxed max-w-2xl mx-auto">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tighter-editorial text-slate-900 leading-[1.1] font-bold">Walk the path.</h1>
+          <p className="mt-6 text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
             Daily rhythms of reading, prayer, and reflection delivered directly to your phone. Pick a journey and start building a practice that lasts.
           </p>
         </div>
@@ -72,19 +72,19 @@ export default function JourneysHubPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {journeys.map((journey) => (
-              <Link 
-                href={`/journeys/${journey.slug}`} 
+              <Link
+                href={`/journeys/${journey.slug}`}
                 key={journey.slug}
                 className="group flex flex-col rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-full"
               >
                 <div className="relative h-64 w-full overflow-hidden bg-slate-100">
-                  <Image 
-                    src={journey.image} 
+                  <Image
+                    src={journey.image}
                     alt={journey.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  
+
                   <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
                     <span className="inline-flex items-center rounded-full bg-white/20 backdrop-blur-md px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white border border-white/30">
                       {journey.duration}

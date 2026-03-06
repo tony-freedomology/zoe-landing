@@ -53,27 +53,17 @@ const posts = [
 export default function BlogIndexPage() {
   return (
     <div className="min-h-screen text-slate-900">
-      <section className="relative bg-white py-32 px-6 pt-40 overflow-hidden">
-        <Image src="/images/blog-hero.jpg" alt="" fill className="object-cover opacity-100" priority />
+      <section className="relative w-full overflow-hidden" style={{ aspectRatio: '16/9' }}>
+        <Image src="/images/blog-hero.jpg" alt="Blog" fill className="object-cover" priority />
+      </section>
 
-        {/* Soft Feathered Blur Overlay */}
-        <div
-          className="absolute inset-0 backdrop-blur-xl z-[1]"
-          style={{
-            WebkitMaskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)',
-            maskImage: 'radial-gradient(circle at center, black 0%, transparent 80%)'
-          }}
-        />
-
-        {/* Subtle Darkening Radial */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.35)_0%,_transparent_75%)] z-[2]" />
-
-        <div className="relative z-10 mx-auto max-w-3xl text-center">
+      <section className="py-16 px-6 bg-white">
+        <div className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-jade mb-8">
             The Zoe Blog
           </div>
-          <h1 className="text-5xl md:text-6xl tracking-tighter-editorial text-white leading-[1.1] font-bold">Thinking on discipleship.</h1>
-          <p className="mt-6 text-xl text-slate-100 font-medium leading-relaxed">Technology, faith, and what it looks like to walk with Jesus in the everyday.</p>
+          <h1 className="text-5xl md:text-6xl tracking-tighter-editorial text-slate-900 leading-[1.1] font-bold">Thinking on discipleship.</h1>
+          <p className="mt-6 text-xl text-slate-600 font-medium leading-relaxed">Technology, faith, and what it looks like to walk with Jesus in the everyday.</p>
         </div>
       </section>
 
