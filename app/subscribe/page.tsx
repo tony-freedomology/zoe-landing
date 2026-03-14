@@ -41,7 +41,7 @@ export default function SubscribePage({ searchParams }: SubscribePageProps) {
       : "$7/month. Cancel anytime.";
 
   return (
-    <main className="relative h-[100svh] overflow-hidden bg-[#f5f4f0] text-[#1c2433] sm:min-h-screen sm:h-auto">
+    <main className="relative h-[100svh] overflow-y-auto overflow-x-hidden bg-[#f5f4f0] text-[#1c2433] sm:min-h-screen sm:h-auto sm:overflow-visible">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-[54svh] sm:h-[60vh]">
           <Image
@@ -58,8 +58,8 @@ export default function SubscribePage({ searchParams }: SubscribePageProps) {
         <div className="absolute bottom-[-10rem] left-[-5rem] h-[16rem] w-[16rem] rounded-full bg-[#e7ddd0] blur-[95px]" />
       </div>
 
-      <section className="relative z-10 flex h-full flex-col overflow-hidden px-5 pb-0 pt-5 sm:min-h-screen sm:px-6">
-        <div className="mx-auto flex h-full w-full max-w-md flex-1 flex-col">
+      <section className="relative z-10 flex min-h-full flex-col px-5 pb-0 pt-5 sm:min-h-screen sm:px-6">
+        <div className="mx-auto flex min-h-full w-full max-w-md flex-1 flex-col">
           <div className="flex flex-[0_0_44svh] flex-col items-center text-center sm:min-h-[56vh] sm:flex-auto">
             <div className="w-full pt-2">
               <div className="mx-auto w-[8.8rem] max-w-[38vw] drop-shadow-[0_10px_18px_rgba(0,0,0,0.18)] sm:w-[9.5rem]">
