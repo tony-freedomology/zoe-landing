@@ -9,16 +9,16 @@ import {
   ArrowRight,
   CircleAlert,
   LoaderCircle,
-  LockKeyhole,
-  RefreshCcw,
-  ShieldCheck,
-  Sparkles,
+  PencilLine,
 } from "lucide-react";
 import {
-  formatRecurringPrice,
   formatUsPhoneDisplay,
   formatUsPhoneInput,
+  normalizeIndividualBillingPlan,
+  normalizeSubscribeFlowMode,
   normalizeUsPhoneInput,
+  type IndividualBillingPlan,
+  type SubscribeFlowMode,
 } from "../lib/subscribe";
 
 const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -26,36 +26,51 @@ const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
   : null;
 
 const appearance = {
-  theme: "stripe" as const,
   variables: {
     colorPrimary: "#00c292",
     colorBackground: "#ffffff",
-    colorText: "#172033",
-    colorDanger: "#9f2d2d",
+    colorText: "#1c2433",
+    colorTextPlaceholder: "#8d94a5",
+    colorDanger: "#b64855",
     colorSuccess: "#00c292",
-    borderRadius: "16px",
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif",
+    borderRadius: "12px",
+    fontFamily:
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     spacingUnit: "4px",
   },
   rules: {
     ".Input": {
-      border: "1px solid rgba(215, 194, 159, 0.45)",
-      boxShadow: "0 10px 30px rgba(19, 29, 45, 0.05)",
+      border: "1px solid rgba(28, 36, 51, 0.12)",
+      boxShadow: "none",
+      padding: "16px",
+      fontSize: "16px",
+      backgroundColor: "#ffffff",
+    },
+    ".Input:focus": {
+      border: "1px solid #00c292",
+      boxShadow: "0 0 0 4px rgba(0, 194, 146, 0.10)",
     },
     ".Tab": {
-      border: "1px solid rgba(215, 194, 159, 0.45)",
+      border: "1px solid rgba(28, 36, 51, 0.10)",
       boxShadow: "none",
+      backgroundColor: "#f8f7f3",
     },
     ".Tab--selected": {
       borderColor: "#00c292",
-      color: "#0f7a73",
+      color: "#1c2433",
+      backgroundColor: "#ffffff",
     },
     ".Label": {
-      color: "#334155",
+      color: "#1c2433",
+      fontWeight: "500",
+      marginBottom: "8px",
     },
     ".Block": {
       backgroundColor: "#ffffff",
-      boxShadow: "0 18px 40px rgba(19, 29, 45, 0.05)",
+      boxShadow: "none",
+    },
+    ".Error": {
+      color: "#b64855",
     },
   },
 };
@@ -65,6 +80,7 @@ type SubscribeSession = {
   customerId: string;
   subscriptionId: string;
   phone: string;
+  plan: IndividualBillingPlan;
   trialDays: number;
   price: {
     amountCents: number | null;
@@ -75,20 +91,39 @@ type SubscribeSession = {
 
 type SubscribeExperienceProps = {
   initialPhone?: string;
+  initialPlan?: string;
+  initialMode?: string;
   canceled?: boolean;
 };
 
+const PLAN_OPTIONS: Array<{
+  id: IndividualBillingPlan;
+  label: string;
+  price: string;
+  cadence: string;
+  badge?: string;
+}> = [
+  { id: "month", label: "Monthly", price: "$7", cadence: "/month" },
+  { id: "year", label: "Annual", price: "$70", cadence: "/year", badge: "Save 17%" },
+];
+
 const revealTransition = {
-  duration: 0.4,
-  ease: [0.22, 1, 0.36, 1] as const,
+  type: "spring" as const,
+  stiffness: 300,
+  damping: 30,
 };
 
 export default function SubscribeExperience({
   initialPhone = "",
+  initialPlan = "month",
+  initialMode = "subscribe",
   canceled = false,
 }: SubscribeExperienceProps) {
   const initialNormalizedPhone = normalizeUsPhoneInput(initialPhone);
+  const initialBillingPlan = normalizeIndividualBillingPlan(initialPlan);
+  const flowMode = normalizeSubscribeFlowMode(initialMode);
   const [phoneInput, setPhoneInput] = useState(() => formatUsPhoneInput(initialPhone));
+  const [selectedPlan, setSelectedPlan] = useState<IndividualBillingPlan>(initialBillingPlan);
   const [session, setSession] = useState<SubscribeSession | null>(null);
   const [error, setError] = useState<string | null>(
     canceled
@@ -105,26 +140,44 @@ export default function SubscribeExperience({
   const displayPhone = formatUsPhoneDisplay(
     session?.phone ?? normalizedInputPhone ?? initialNormalizedPhone
   );
-  const planLabel = formatRecurringPrice(session?.price);
-  const priceNote = planLabel ?? "Billed monthly after your free week";
   const hasSmsLinkedPhone = !!initialNormalizedPhone;
+  const activePlan = session?.plan ?? selectedPlan;
+  const numberEyebrow = session
+    ? "Same thread"
+    : flowMode === "reactivate"
+      ? "Welcome back"
+      : "Confirm your number";
+  const numberHelper = session
+    ? displayPhone
+    : hasSmsLinkedPhone
+      ? flowMode === "reactivate"
+        ? "We found your Zoe number."
+        : "From your Zoe text."
+      : flowMode === "reactivate"
+        ? "Use the same number you used with Zoe before."
+        : "Use the number you text Zoe from.";
+  const reassuranceCopy =
+    flowMode === "reactivate"
+      ? "Cancel anytime via text. Your same thread will keep going."
+      : "Cancel anytime via text. Secure and encrypted.";
 
   useEffect(() => {
     if (!hasSmsLinkedPhone || canceled || autoStartedRef.current) return;
     if (session || isPreparing || configError || !initialNormalizedPhone) return;
 
     autoStartedRef.current = true;
-    void prepareCheckout(initialNormalizedPhone);
+    void prepareCheckout(initialNormalizedPhone, selectedPlan);
   }, [
     canceled,
     configError,
     hasSmsLinkedPhone,
     initialNormalizedPhone,
     isPreparing,
+    selectedPlan,
     session,
   ]);
 
-  async function prepareCheckout(phone: string) {
+  async function prepareCheckout(phone: string, plan: IndividualBillingPlan) {
     setIsPreparing(true);
     setError(null);
 
@@ -134,7 +187,7 @@ export default function SubscribeExperience({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ phone }),
+        body: JSON.stringify({ phone, plan }),
       });
 
       const payload = (await response.json()) as Partial<SubscribeSession> & {
@@ -148,10 +201,11 @@ export default function SubscribeExperience({
       window.history.replaceState(
         {},
         "",
-        `/subscribe?phone=${encodeURIComponent(payload.phone)}`
+        `/subscribe?phone=${encodeURIComponent(payload.phone)}&plan=${encodeURIComponent(plan)}&mode=${encodeURIComponent(flowMode)}`
       );
 
       startTransition(() => {
+        setSelectedPlan((payload.plan as IndividualBillingPlan | undefined) ?? plan);
         setSession(payload as SubscribeSession);
       });
     } catch (err) {
@@ -178,7 +232,7 @@ export default function SubscribeExperience({
       return;
     }
 
-    await prepareCheckout(normalizedInputPhone);
+    await prepareCheckout(normalizedInputPhone, selectedPlan);
   }
 
   function resetPhoneFlow() {
@@ -187,161 +241,162 @@ export default function SubscribeExperience({
     autoStartedRef.current = true;
   }
 
+  function handlePlanChange(plan: IndividualBillingPlan) {
+    if (isPreparing) return;
+    if (plan === activePlan && (!session || session.plan === plan)) return;
+
+    setSelectedPlan(plan);
+
+    if (session?.phone) {
+      void prepareCheckout(session.phone, plan);
+    }
+  }
+
   return (
-    <div className="relative overflow-hidden rounded-[2rem] border border-[#d7c29f]/40 bg-[#fffdf9]/90 p-5 shadow-[0_28px_90px_rgba(48,36,16,0.13)] backdrop-blur-xl sm:p-6">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,194,146,0.10),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(0,139,163,0.10),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,250,243,0.95))]" />
+    <motion.section
+      layout
+      transition={revealTransition}
+      className="relative overflow-hidden rounded-t-[2rem] bg-white px-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] pt-5 shadow-[0_-28px_80px_rgba(28,36,51,0.11)] sm:mb-8 sm:rounded-[2rem] sm:border sm:border-white/70 sm:px-6 sm:pb-6 sm:pt-6"
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(250,249,245,1))]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(0,194,146,0.22),transparent)]" />
 
-      <div className="relative z-10">
-        <div className="flex items-center justify-between gap-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#d7c29f]/35 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#0f7a73]">
-            <span className="h-2 w-2 rounded-full bg-brand-jade animate-pulse" />
-            Secure your thread
-          </div>
-          <div className="rounded-full border border-white/80 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-            Stripe
-          </div>
-        </div>
-
-        <div className="mt-5 rounded-[1.5rem] border border-[#e8dcc7]/70 bg-white/75 px-4 py-4 shadow-[0_14px_40px_rgba(25,33,44,0.05)]">
-          <div className="flex items-center justify-between gap-4">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-400">
-                Monthly
-              </p>
-              <p className="mt-1 text-lg font-semibold text-slate-900">
-                {priceNote}
-              </p>
-            </div>
-            <p className="text-sm font-medium text-slate-500">
-              Same thread
+      <motion.div layout transition={revealTransition} className="relative z-10">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#1c2433]/36">
+              {numberEyebrow}
             </p>
-          </div>
-        </div>
-
-        {!session ? (
-          <form className="mt-5 space-y-4" onSubmit={handlePrepareCheckout}>
-            <label className="block">
-              <span className="mb-3 block text-center text-sm font-semibold text-slate-700">
-                Confirm your mobile number
-              </span>
-              <input
-                type="tel"
-                inputMode="tel"
-                autoComplete="tel"
-                placeholder="(555) 555-5555"
-                value={phoneInput}
-                onChange={(event) => setPhoneInput(formatUsPhoneInput(event.target.value))}
-                className="w-full rounded-[1.6rem] border border-[#d7c29f]/45 bg-white/92 px-4 py-4 text-center text-2xl font-semibold tracking-[-0.04em] text-slate-900 shadow-[0_18px_50px_rgba(25,33,44,0.05)] outline-none transition focus:border-brand-jade focus:ring-4 focus:ring-brand-jade/10 sm:text-3xl [font-family:var(--font-serif)]"
-              />
-            </label>
-
-            <div className="flex justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/75 px-3 py-1.5 text-xs font-medium text-slate-500">
-                <Sparkles className="h-3.5 w-3.5 text-brand-jade" />
-                {hasSmsLinkedPhone
-                  ? "We pulled this from your Zoe link"
-                  : "Use the number you've been texting Zoe from"}
-              </span>
-            </div>
-
-            {error ? (
-              <div className="flex items-start gap-3 rounded-[1.4rem] border border-rose-200 bg-rose-50/95 px-4 py-3 text-sm text-rose-800">
-                <CircleAlert className="mt-0.5 h-4 w-4 flex-shrink-0" />
-                <p>{error}</p>
-              </div>
-            ) : null}
-
-            <button
-              type="submit"
-              disabled={isPreparing}
-              className={clsx(
-                "inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-base font-bold text-white transition-transform duration-200",
-                isPreparing
-                  ? "cursor-wait bg-slate-500"
-                  : "bg-slate-900 shadow-[0_18px_40px_rgba(15,23,42,0.14)] hover:scale-[1.01] hover:bg-slate-800 active:scale-[0.99]"
-              )}
-            >
-              {isPreparing ? (
-                <>
-                  <LoaderCircle className="h-4 w-4 animate-spin" />
-                  Locating thread...
-                </>
-              ) : (
-                <>
-                  {hasSmsLinkedPhone ? "Continue with this number" : "Find my thread"}
-                  <ArrowRight className="h-4 w-4" />
-                </>
-              )}
-            </button>
-          </form>
-        ) : (
-          <div className="mt-5 rounded-[1.6rem] border border-[#e8dcc7]/70 bg-white/78 px-4 py-4 shadow-[0_18px_50px_rgba(25,33,44,0.05)]">
-            <div className="flex items-center justify-between gap-3">
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-400">
-                  Same Zoe thread
-                </p>
-                <p className="mt-1 text-lg font-semibold text-slate-900">
-                  {displayPhone}
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={resetPhoneFlow}
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
-              >
-                <RefreshCcw className="h-4 w-4" />
-                Edit
-              </button>
-            </div>
-
-            <AnimatePresence initial={false}>
-              <motion.div
-                key="payment"
-                initial={{ opacity: 0, y: 16 }}
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.p
+                key={session ? "session-phone" : "phone-help"}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 8 }}
+                exit={{ opacity: 0, y: -8 }}
                 transition={revealTransition}
-                className="mt-5"
+                className="mt-2 text-sm font-medium leading-6 text-[#1c2433]/64"
               >
-                <Elements
-                  stripe={stripePromise}
-                  options={{
-                    clientSecret: session.clientSecret,
-                    appearance,
-                  }}
-                >
-                  <EmbeddedPaymentForm
-                    phone={session.phone}
-                    priceLabel={planLabel}
-                  />
-                </Elements>
-              </motion.div>
+                {numberHelper}
+              </motion.p>
             </AnimatePresence>
           </div>
-        )}
 
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-xs font-medium text-slate-500">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1.5">
-            <LockKeyhole className="h-3.5 w-3.5 text-brand-jade" />
-            Encrypted
-          </span>
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1.5">
-            <ShieldCheck className="h-3.5 w-3.5 text-brand-cyan" />
-            Cancel anytime
-          </span>
+          {session ? (
+            <button
+              type="button"
+              onClick={resetPhoneFlow}
+              className="inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-medium text-[#1c2433]/54 transition hover:bg-[#f5f4f0] hover:text-[#1c2433]"
+            >
+              <PencilLine className="h-3.5 w-3.5" />
+              Edit
+            </button>
+          ) : null}
         </div>
-      </div>
-    </div>
+
+        <AnimatePresence mode="wait" initial={false}>
+          {!session ? (
+            <motion.form
+              key="phone"
+              layout
+              className="mt-6 space-y-4"
+              onSubmit={handlePrepareCheckout}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={revealTransition}
+            >
+              <PlanToggle
+                selectedPlan={activePlan}
+                isPreparing={isPreparing}
+                onSelect={handlePlanChange}
+              />
+
+              <label className="block">
+                <span className="sr-only">Phone number</span>
+                <input
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  placeholder="(555) 555-5555"
+                  value={phoneInput}
+                  onChange={(event) => setPhoneInput(formatUsPhoneInput(event.target.value))}
+                  className="w-full rounded-[1.4rem] border border-[#1c2433]/10 bg-[#fbfaf7] px-4 py-4 text-center text-[1.85rem] font-semibold tracking-[-0.055em] text-[#1c2433] outline-none transition focus:border-brand-jade focus:bg-white focus:ring-4 focus:ring-brand-jade/10 [font-family:var(--font-sans)] sm:text-[2.1rem]"
+                />
+              </label>
+
+              {error ? (
+                <div className="flex items-start gap-3 rounded-[1.2rem] bg-[#f7ebed] px-4 py-3 text-sm text-[#8f3441]">
+                  <CircleAlert className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                  <p>{error}</p>
+                </div>
+              ) : null}
+
+              <button
+                type="submit"
+                disabled={isPreparing}
+                className={clsx(
+                  "inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-4 text-base font-semibold text-white transition",
+                  isPreparing
+                    ? "cursor-wait bg-[#627070]"
+                    : "bg-brand-jade shadow-[0_16px_34px_rgba(0,194,146,0.26)] hover:bg-[#00ae84] active:scale-[0.995]"
+                )}
+              >
+                {isPreparing ? (
+                  <>
+                    <LoaderCircle className="h-4 w-4 animate-spin" />
+                    Just a second
+                  </>
+                ) : (
+                  <>
+                    Next
+                    <ArrowRight className="h-4 w-4" />
+                  </>
+                )}
+              </button>
+            </motion.form>
+          ) : (
+            <motion.div
+              key="payment"
+              layout
+              className="mt-6"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={revealTransition}
+            >
+              <PlanToggle
+                selectedPlan={activePlan}
+                isPreparing={isPreparing}
+                onSelect={handlePlanChange}
+              />
+
+              <Elements
+                stripe={stripePromise}
+                options={{
+                  clientSecret: session.clientSecret,
+                  appearance,
+                }}
+              >
+                <EmbeddedPaymentForm phone={session.phone} mode={flowMode} />
+              </Elements>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <p className="mt-5 text-center text-xs font-medium text-[#1c2433]/42">
+          {reassuranceCopy}
+        </p>
+      </motion.div>
+    </motion.section>
   );
 }
 
 function EmbeddedPaymentForm({
   phone,
-  priceLabel,
+  mode,
 }: {
   phone: string;
-  priceLabel: string | null;
+  mode: SubscribeFlowMode;
 }) {
   const stripe = useStripe();
   const elements = useElements();
@@ -361,6 +416,7 @@ function EmbeddedPaymentForm({
 
     const returnUrl = new URL("/thanks", window.location.origin);
     returnUrl.searchParams.set("phone", phone);
+    returnUrl.searchParams.set("mode", mode);
 
     const result = await stripe.confirmPayment({
       elements,
@@ -381,8 +437,9 @@ function EmbeddedPaymentForm({
 
   return (
     <motion.form
-      className="space-y-5"
+      className="mt-4 space-y-5"
       onSubmit={handleSubmit}
+      layout
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={revealTransition}
@@ -390,7 +447,7 @@ function EmbeddedPaymentForm({
       <PaymentElement options={{ layout: "tabs" }} />
 
       {error ? (
-        <div className="flex items-start gap-3 rounded-[1.4rem] border border-rose-200 bg-rose-50/95 px-4 py-3 text-sm text-rose-800">
+        <div className="flex items-start gap-3 rounded-[1.2rem] bg-[#f7ebed] px-4 py-3 text-sm text-[#8f3441]">
           <CircleAlert className="mt-0.5 h-4 w-4 flex-shrink-0" />
           <p>{error}</p>
         </div>
@@ -400,10 +457,10 @@ function EmbeddedPaymentForm({
         type="submit"
         disabled={!stripe || !elements || isSubmitting}
         className={clsx(
-          "inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-base font-bold text-white transition-transform duration-200",
+          "inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-4 text-base font-semibold text-white transition",
           !stripe || !elements || isSubmitting
-            ? "cursor-not-allowed bg-slate-500"
-            : "bg-brand-jade shadow-[0_10px_30px_rgba(0,194,146,0.28)] hover:scale-[1.01] hover:bg-[#00a87d] active:scale-[0.99]"
+            ? "cursor-not-allowed bg-[#627070]"
+            : "bg-brand-jade shadow-[0_16px_34px_rgba(0,194,146,0.26)] hover:bg-[#00ae84] active:scale-[0.995]"
         )}
       >
         {isSubmitting ? (
@@ -413,15 +470,63 @@ function EmbeddedPaymentForm({
           </>
         ) : (
           <>
-            Keep my thread going
+            Keep walking
             <ArrowRight className="h-4 w-4" />
           </>
         )}
       </button>
-
-      <p className="text-center text-sm font-medium text-slate-500">
-        {priceLabel ?? "Your monthly Zoe plan"}.
-      </p>
     </motion.form>
+  );
+}
+
+function PlanToggle({
+  selectedPlan,
+  isPreparing,
+  onSelect,
+}: {
+  selectedPlan: IndividualBillingPlan;
+  isPreparing: boolean;
+  onSelect: (plan: IndividualBillingPlan) => void;
+}) {
+  return (
+    <div className="grid grid-cols-2 gap-2">
+      {PLAN_OPTIONS.map((option) => {
+        const selected = option.id === selectedPlan;
+
+        return (
+          <button
+            key={option.id}
+            type="button"
+            onClick={() => onSelect(option.id)}
+            disabled={isPreparing}
+            className={clsx(
+              "relative rounded-[1.2rem] border px-4 py-3 text-left transition",
+              selected
+                ? "border-brand-jade bg-brand-jade/5 shadow-[0_8px_24px_rgba(0,194,146,0.08)]"
+                : "border-[#1c2433]/10 bg-white/80 hover:border-[#1c2433]/18 hover:bg-[#fbfaf7]",
+              isPreparing && "cursor-wait opacity-70"
+            )}
+          >
+            {option.badge ? (
+              <span className="absolute right-3 top-3 rounded-full bg-brand-jade px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
+                {option.badge}
+              </span>
+            ) : null}
+
+            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#1c2433]/42">
+              {option.label}
+            </p>
+            <div className="mt-2 flex items-end gap-1 text-[#1c2433]">
+              <span className="text-[1.65rem] font-semibold tracking-[-0.05em]">
+                {option.price}
+              </span>
+              <span className="pb-1 text-sm font-medium text-[#1c2433]/56">
+                {option.cadence}
+              </span>
+            </div>
+          </button>
+        );
+      })}
+    </div>
   );
 }

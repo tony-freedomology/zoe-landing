@@ -4,6 +4,21 @@ type PublicPrice = {
   interval: string;
 };
 
+export type IndividualBillingPlan = "month" | "year";
+export type SubscribeFlowMode = "subscribe" | "reactivate";
+
+export function normalizeIndividualBillingPlan(
+  value: string | undefined | null
+): IndividualBillingPlan {
+  return value === "year" ? "year" : "month";
+}
+
+export function normalizeSubscribeFlowMode(
+  value: string | undefined | null
+): SubscribeFlowMode {
+  return value === "reactivate" ? "reactivate" : "subscribe";
+}
+
 export function normalizeUsPhoneInput(value: string | undefined | null): string | null {
   if (!value) return null;
 

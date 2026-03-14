@@ -1,17 +1,21 @@
+import Image from "next/image";
 import type { Metadata } from "next";
-import Footer from "../../components/Footer";
 import SubscribeExperience from "../../components/SubscribeExperience";
+import ZoeSVG from "../../components/ZoeSVG";
+import { normalizeSubscribeFlowMode } from "../../lib/subscribe";
 
 export const metadata: Metadata = {
-  title: "Subscribe",
+  title: "Continue with Zoe",
   description:
-    "Keep the same Zoe thread, memory, and rhythm going with a calm, simple subscribe flow.",
+    "A calm, focused checkout to keep your Zoe thread going.",
 };
 
 type SubscribePageProps = {
   searchParams?: {
     phone?: string | string[];
     canceled?: string | string[];
+    plan?: string | string[];
+    mode?: string | string[];
   };
 };
 
@@ -22,76 +26,67 @@ export default function SubscribePage({ searchParams }: SubscribePageProps) {
   const canceled = Array.isArray(searchParams?.canceled)
     ? searchParams?.canceled[0] === "1"
     : searchParams?.canceled === "1";
+  const initialPlan = Array.isArray(searchParams?.plan)
+    ? searchParams?.plan[0]
+    : searchParams?.plan ?? "month";
+  const initialMode = normalizeSubscribeFlowMode(
+    Array.isArray(searchParams?.mode)
+      ? searchParams?.mode[0]
+      : searchParams?.mode
+  );
+  const heading = initialMode === "reactivate" ? "Welcome back." : "Keep walking.";
+  const subheading =
+    initialMode === "reactivate"
+      ? "Pick up right where you left off."
+      : "$7/month. Cancel anytime.";
 
   return (
-    <main className="overflow-hidden bg-[#f6efe4] text-slate-900">
-      <section className="relative px-6 pb-20 pt-28 md:px-8 md:pt-36">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,#f3e8d8_0%,#f8f4ec_42%,#f6efe4_100%)]" />
-          <div className="absolute left-[-6rem] top-[-4rem] h-[20rem] w-[20rem] rounded-full bg-brand-jade/10 blur-[120px]" />
-          <div className="absolute right-[-7rem] top-[7rem] h-[18rem] w-[18rem] rounded-full bg-brand-cyan/10 blur-[120px]" />
-          <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(15,122,115,0.35),transparent)]" />
+    <main className="relative min-h-screen overflow-hidden bg-[#f5f4f0] text-[#1c2433]">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-[60vh]">
+          <Image
+            src="/images/generated/subscribe-hero-phone-off.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,16,20,0.34)_0%,rgba(12,16,20,0.08)_28%,rgba(245,244,240,0.2)_58%,#f5f4f0_100%)]" />
+          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/18 to-transparent" />
         </div>
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(245,244,240,0)_0%,rgba(245,244,240,0)_52%,#f5f4f0_100%)]" />
+        <div className="absolute bottom-[-10rem] left-[-5rem] h-[16rem] w-[16rem] rounded-full bg-[#e7ddd0] blur-[95px]" />
+      </div>
 
-        <div className="relative z-10 mx-auto max-w-2xl">
-          <div className="text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.36em] text-brand-jade">
-              Continue Your Rhythm
-            </p>
-            <h1 className="mt-5 text-[3.2rem] font-bold leading-[0.9] tracking-[-0.065em] text-slate-900 md:text-[5rem] [font-family:var(--font-serif)]">
-              Let's keep the conversation going.
-            </h1>
-            <p className="mx-auto mt-5 max-w-xl text-base font-medium leading-8 text-slate-600 md:text-lg">
-              Your free week is wrapping up. Confirm your number and keep the same Zoe thread going.
-            </p>
+      <section className="relative z-10 flex min-h-screen flex-col px-5 pb-0 pt-5 sm:px-6">
+        <div className="mx-auto flex w-full max-w-md flex-1 flex-col">
+          <div className="flex min-h-[56vh] flex-col items-center text-center">
+            <div className="w-full pt-2">
+              <div className="mx-auto w-[8.8rem] max-w-[38vw] drop-shadow-[0_10px_18px_rgba(0,0,0,0.18)] sm:w-[9.5rem]">
+                <ZoeSVG variant="default" color="#fff8ef" fast={true} />
+              </div>
+            </div>
 
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-              {["same thread", "same number", "cancel anytime"].map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-white/80 bg-white/70 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500 shadow-sm backdrop-blur"
-                >
-                  {item}
-                </span>
-              ))}
+            <div className="mt-auto max-w-xs pb-11 sm:max-w-sm sm:pb-14">
+              <h1 className="text-balance text-[3.5rem] font-semibold leading-[0.9] tracking-[-0.07em] text-[#fff8ef] drop-shadow-[0_12px_30px_rgba(15,23,42,0.28)] [font-family:var(--font-serif)] sm:text-[4.4rem]">
+                {heading}
+              </h1>
+              <p className="mx-auto mt-4 max-w-[18rem] text-sm font-medium leading-6 text-[#fff8ef]/86 drop-shadow-[0_8px_24px_rgba(15,23,42,0.22)] sm:text-[15px]">
+                {subheading}
+              </p>
             </div>
           </div>
 
-          <div className="mt-10">
-            <SubscribeExperience initialPhone={initialPhone} canceled={canceled} />
-          </div>
-
-          <div className="mt-8 rounded-[1.75rem] border border-white/75 bg-white/65 p-4 shadow-[0_18px_50px_rgba(25,33,44,0.05)] backdrop-blur">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-cyan">
-              Same Thread
-            </p>
-            <div className="mt-4 space-y-3">
-              <div className="flex justify-start">
-                <div className="max-w-[17rem] rounded-[18px] rounded-tl-[8px] bg-[#fffdfa] px-4 py-3 text-slate-800 shadow-[0_16px_30px_rgba(25,33,44,0.05)]">
-                  <p className="text-sm leading-6">
-                    good morning. what are you carrying into today?
-                  </p>
-                  <p className="mt-2 text-[11px] uppercase tracking-[0.24em] text-slate-400">
-                    zoe - 7:02 am
-                  </p>
-                </div>
-              </div>
-              <div className="flex justify-end">
-                <div className="max-w-[15rem] rounded-[18px] rounded-tr-[8px] bg-[#1b8f7d] px-4 py-3 text-white shadow-[0_18px_30px_rgba(27,143,125,0.18)]">
-                  <p className="text-sm leading-6">
-                    no reset. just keep going.
-                  </p>
-                  <p className="mt-2 text-[11px] uppercase tracking-[0.24em] text-white/65">
-                    you - now
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="relative left-1/2 w-screen max-w-[32rem] -translate-x-1/2">
+            <SubscribeExperience
+              initialPhone={initialPhone}
+              initialPlan={initialPlan}
+              initialMode={initialMode}
+              canceled={canceled}
+            />
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

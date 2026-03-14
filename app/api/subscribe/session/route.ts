@@ -1,14 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getZoeApiBaseUrl, normalizeUsPhoneInput } from "../../../../lib/subscribe";
+import {
+  getZoeApiBaseUrl,
+  normalizeIndividualBillingPlan,
+  normalizeUsPhoneInput,
+} from "../../../../lib/subscribe";
 
 type SubscribeBody = {
   phone?: string;
+  plan?: string;
 };
 
 export async function POST(req: NextRequest) {
   try {
     const body = (await req.json()) as SubscribeBody;
     const phone = normalizeUsPhoneInput(body.phone);
+    const plan = normalizeIndividualBillingPlan(body.plan);
 
     if (!phone) {
       return NextResponse.json(
@@ -23,7 +29,7 @@ export async function POST(req: NextRequest) {
         "Content-Type": "application/json",
       },
       cache: "no-store",
-      body: JSON.stringify({ phone }),
+      body: JSON.stringify({ phone, plan }),
     });
 
     const raw = await response.text();

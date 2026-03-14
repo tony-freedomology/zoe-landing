@@ -26,6 +26,7 @@ const journeyLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const hideOnPath = pathname === "/subscribe" || pathname === "/thanks";
   const isHomePage = pathname === "/";
 
   const [scrolled, setScrolled] = useState(false);
@@ -46,6 +47,10 @@ export default function Navbar() {
   }, [pathname]);
 
   const opaque = !isHomePage || scrolled;
+
+  if (hideOnPath) {
+    return null;
+  }
 
   return (
     <header

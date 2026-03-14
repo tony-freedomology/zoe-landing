@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "../../components/Footer";
-import { formatUsPhoneDisplay } from "../../lib/subscribe";
+import {
+  formatUsPhoneDisplay,
+  normalizeSubscribeFlowMode,
+} from "../../lib/subscribe";
 
 export const metadata: Metadata = {
   title: "You're Set",
@@ -12,6 +15,7 @@ export const metadata: Metadata = {
 type ThanksPageProps = {
   searchParams?: {
     phone?: string | string[];
+    mode?: string | string[];
   };
 };
 
@@ -19,7 +23,22 @@ export default function ThanksPage({ searchParams }: ThanksPageProps) {
   const rawPhone = Array.isArray(searchParams?.phone)
     ? searchParams?.phone[0]
     : searchParams?.phone;
+  const mode = normalizeSubscribeFlowMode(
+    Array.isArray(searchParams?.mode)
+      ? searchParams?.mode[0]
+      : searchParams?.mode
+  );
   const displayPhone = formatUsPhoneDisplay(rawPhone);
+  const eyebrow = mode === "reactivate" ? "Welcome Back" : "Subscription Active";
+  const headline =
+    mode === "reactivate"
+      ? "You're back in. Zoe can keep walking with you."
+      : "You're set. Zoe can keep walking with you.";
+  const summary = displayPhone
+    ? mode === "reactivate"
+      ? `Your subscription is active again for ${displayPhone}.`
+      : `Your subscription is now tied to ${displayPhone}.`
+    : "Your subscription is active.";
 
   return (
     <main className="min-h-screen bg-[#f6f1e7] text-slate-900">
@@ -33,15 +52,13 @@ export default function ThanksPage({ searchParams }: ThanksPageProps) {
         <div className="relative z-10 mx-auto max-w-4xl">
           <div className="rounded-[2.4rem] border border-white/70 bg-white/75 p-8 shadow-[0_30px_90px_rgba(28,32,40,0.08)] backdrop-blur md:p-12">
             <p className="text-[11px] font-semibold uppercase tracking-[0.38em] text-brand-jade">
-              Subscription Active
+              {eyebrow}
             </p>
             <h1 className="mt-5 max-w-[11ch] text-[3.2rem] font-bold leading-[0.92] tracking-[-0.06em] text-slate-900 md:text-[5rem] [font-family:var(--font-serif)]">
-              You're back in. Zoe can keep walking with you.
+              {headline}
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-medium leading-8 text-slate-600">
-              {displayPhone
-                ? `Your subscription is now tied to ${displayPhone}.`
-                : "Your subscription is active."} Keep replying in your existing Zoe text thread and the conversation will continue at your normal rhythm.
+              {summary} Keep replying in your existing Zoe text thread and the conversation will continue at your normal rhythm.
             </p>
 
             <div className="mt-10 grid gap-5 md:grid-cols-3">
