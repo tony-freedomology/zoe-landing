@@ -41,9 +41,9 @@ export default function SubscribePage({ searchParams }: SubscribePageProps) {
       : "$7/month. Cancel anytime.";
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#f5f4f0] text-[#1c2433]">
+    <main className="relative h-[100svh] overflow-hidden bg-[#f5f4f0] text-[#1c2433] sm:min-h-screen sm:h-auto">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute inset-x-0 top-0 h-[60vh]">
+        <div className="absolute inset-x-0 top-0 h-[54svh] sm:h-[60vh]">
           <Image
             src="/images/generated/subscribe-hero-phone-off.jpg"
             alt=""
@@ -58,26 +58,26 @@ export default function SubscribePage({ searchParams }: SubscribePageProps) {
         <div className="absolute bottom-[-10rem] left-[-5rem] h-[16rem] w-[16rem] rounded-full bg-[#e7ddd0] blur-[95px]" />
       </div>
 
-      <section className="relative z-10 flex min-h-screen flex-col px-5 pb-0 pt-5 sm:px-6">
-        <div className="mx-auto flex w-full max-w-md flex-1 flex-col">
-          <div className="flex min-h-[56vh] flex-col items-center text-center">
+      <section className="relative z-10 flex h-full flex-col overflow-hidden px-5 pb-0 pt-5 sm:min-h-screen sm:px-6">
+        <div className="mx-auto flex h-full w-full max-w-md flex-1 flex-col">
+          <div className="flex flex-[0_0_44svh] flex-col items-center text-center sm:min-h-[56vh] sm:flex-auto">
             <div className="w-full pt-2">
               <div className="mx-auto w-[8.8rem] max-w-[38vw] drop-shadow-[0_10px_18px_rgba(0,0,0,0.18)] sm:w-[9.5rem]">
                 <ZoeSVG variant="default" color="#fff8ef" fast={true} />
               </div>
             </div>
 
-            <div className="mt-auto max-w-xs pb-11 sm:max-w-sm sm:pb-14">
-              <h1 className="text-balance text-[3.5rem] font-semibold leading-[0.9] tracking-[-0.07em] text-[#fff8ef] drop-shadow-[0_12px_30px_rgba(15,23,42,0.28)] [font-family:var(--font-serif)] sm:text-[4.4rem]">
+            <div className="mt-auto max-w-xs pb-7 sm:max-w-sm sm:pb-14">
+              <h1 className="text-balance text-[3.3rem] font-semibold leading-[0.9] tracking-[-0.07em] text-[#fff8ef] drop-shadow-[0_12px_30px_rgba(15,23,42,0.28)] [font-family:var(--font-serif)] sm:text-[4.4rem]">
                 {heading}
               </h1>
-              <p className="mx-auto mt-4 max-w-[18rem] text-sm font-medium leading-6 text-[#fff8ef]/86 drop-shadow-[0_8px_24px_rgba(15,23,42,0.22)] sm:text-[15px]">
+              <p className="mx-auto mt-3 max-w-[18rem] text-sm font-medium leading-6 text-[#fff8ef]/86 drop-shadow-[0_8px_24px_rgba(15,23,42,0.22)] sm:mt-4 sm:text-[15px]">
                 {subheading}
               </p>
             </div>
           </div>
 
-          <div className="relative left-1/2 w-screen max-w-[32rem] -translate-x-1/2">
+          <div className="relative left-1/2 z-10 -mt-4 w-screen max-w-[32rem] -translate-x-1/2 sm:mt-0">
             <SubscribeExperience
               initialPhone={initialPhone}
               initialPlan={initialPlan}

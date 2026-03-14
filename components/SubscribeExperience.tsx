@@ -256,7 +256,7 @@ export default function SubscribeExperience({
     <motion.section
       layout
       transition={revealTransition}
-      className="relative overflow-hidden rounded-t-[2rem] bg-white px-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] pt-5 shadow-[0_-28px_80px_rgba(28,36,51,0.11)] sm:mb-8 sm:rounded-[2rem] sm:border sm:border-white/70 sm:px-6 sm:pb-6 sm:pt-6"
+      className="relative overflow-hidden rounded-t-[2rem] bg-white px-5 pb-[calc(0.9rem+env(safe-area-inset-bottom))] pt-4 shadow-[0_-24px_70px_rgba(28,36,51,0.10)] sm:mb-8 sm:rounded-[2rem] sm:border sm:border-white/70 sm:px-6 sm:pb-6 sm:pt-6"
     >
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(250,249,245,1))]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(0,194,146,0.22),transparent)]" />
@@ -298,7 +298,7 @@ export default function SubscribeExperience({
             <motion.form
               key="phone"
               layout
-              className="mt-6 space-y-4"
+              className="mt-4 space-y-3"
               onSubmit={handlePrepareCheckout}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -320,7 +320,7 @@ export default function SubscribeExperience({
                   placeholder="(555) 555-5555"
                   value={phoneInput}
                   onChange={(event) => setPhoneInput(formatUsPhoneInput(event.target.value))}
-                  className="w-full rounded-[1.4rem] border border-[#1c2433]/10 bg-[#fbfaf7] px-4 py-4 text-center text-[1.85rem] font-semibold tracking-[-0.055em] text-[#1c2433] outline-none transition focus:border-brand-jade focus:bg-white focus:ring-4 focus:ring-brand-jade/10 [font-family:var(--font-sans)] sm:text-[2.1rem]"
+                  className="w-full rounded-[1.35rem] border border-[#1c2433]/10 bg-[#fbfaf7] px-4 py-3.5 text-center text-[1.72rem] font-semibold tracking-[-0.055em] text-[#1c2433] outline-none transition focus:border-brand-jade focus:bg-white focus:ring-4 focus:ring-brand-jade/10 [font-family:var(--font-sans)] sm:rounded-[1.4rem] sm:px-4 sm:py-4 sm:text-[2.1rem]"
                 />
               </label>
 
@@ -335,7 +335,7 @@ export default function SubscribeExperience({
                 type="submit"
                 disabled={isPreparing}
                 className={clsx(
-                  "inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-4 text-base font-semibold text-white transition",
+                  "inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 text-base font-semibold text-white transition sm:py-4",
                   isPreparing
                     ? "cursor-wait bg-[#627070]"
                     : "bg-brand-jade shadow-[0_16px_34px_rgba(0,194,146,0.26)] hover:bg-[#00ae84] active:scale-[0.995]"
@@ -358,7 +358,7 @@ export default function SubscribeExperience({
             <motion.div
               key="payment"
               layout
-              className="mt-6"
+              className="mt-4"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
@@ -383,7 +383,7 @@ export default function SubscribeExperience({
           )}
         </AnimatePresence>
 
-        <p className="mt-5 text-center text-xs font-medium text-[#1c2433]/42">
+        <p className="mt-4 text-center text-[11px] font-medium text-[#1c2433]/42 sm:mt-5 sm:text-xs">
           {reassuranceCopy}
         </p>
       </motion.div>
@@ -437,7 +437,7 @@ function EmbeddedPaymentForm({
 
   return (
     <motion.form
-      className="mt-4 space-y-5"
+      className="mt-3 space-y-4 sm:mt-4 sm:space-y-5"
       onSubmit={handleSubmit}
       layout
       initial={{ opacity: 0, y: 12 }}
@@ -457,7 +457,7 @@ function EmbeddedPaymentForm({
         type="submit"
         disabled={!stripe || !elements || isSubmitting}
         className={clsx(
-          "inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-4 text-base font-semibold text-white transition",
+          "inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 text-base font-semibold text-white transition sm:py-4",
           !stripe || !elements || isSubmitting
             ? "cursor-not-allowed bg-[#627070]"
             : "bg-brand-jade shadow-[0_16px_34px_rgba(0,194,146,0.26)] hover:bg-[#00ae84] active:scale-[0.995]"
@@ -500,7 +500,7 @@ function PlanToggle({
             onClick={() => onSelect(option.id)}
             disabled={isPreparing}
             className={clsx(
-              "relative rounded-[1.2rem] border px-4 py-3 text-left transition",
+              "relative rounded-[1.15rem] border px-4 py-2.5 text-left transition sm:rounded-[1.2rem] sm:py-3",
               selected
                 ? "border-brand-jade bg-brand-jade/5 shadow-[0_8px_24px_rgba(0,194,146,0.08)]"
                 : "border-[#1c2433]/10 bg-white/80 hover:border-[#1c2433]/18 hover:bg-[#fbfaf7]",
@@ -508,7 +508,7 @@ function PlanToggle({
             )}
           >
             {option.badge ? (
-              <span className="absolute right-3 top-3 rounded-full bg-brand-jade px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
+              <span className="absolute right-2.5 top-2.5 rounded-full bg-brand-jade px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white sm:right-3 sm:top-3">
                 {option.badge}
               </span>
             ) : null}
@@ -516,11 +516,11 @@ function PlanToggle({
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#1c2433]/42">
               {option.label}
             </p>
-            <div className="mt-2 flex items-end gap-1 text-[#1c2433]">
-              <span className="text-[1.65rem] font-semibold tracking-[-0.05em]">
+            <div className="mt-1.5 flex items-end gap-1 text-[#1c2433] sm:mt-2">
+              <span className="text-[1.52rem] font-semibold tracking-[-0.05em] sm:text-[1.65rem]">
                 {option.price}
               </span>
-              <span className="pb-1 text-sm font-medium text-[#1c2433]/56">
+              <span className="pb-0.5 text-[13px] font-medium text-[#1c2433]/56 sm:pb-1 sm:text-sm">
                 {option.cadence}
               </span>
             </div>
