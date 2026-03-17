@@ -4,12 +4,13 @@ import { Inter, Newsreader } from "next/font/google";
 import clsx from "clsx";
 import Navbar from "../components/Navbar";
 import ImagePrefetcher from "../components/ImagePrefetcher";
+import { SITE_URL, toAbsoluteUrl } from "../lib/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-serif", display: "swap", adjustFontFallback: false });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zoe.live"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Zoe — Walk with Jesus",
     template: "%s | Zoe",
@@ -51,8 +52,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Zoe",
-  url: "https://zoe.live",
-  logo: "https://zoe.live/images/og-hero-v2.png",
+  url: SITE_URL,
+  logo: toAbsoluteUrl("/images/og-hero-v2.png"),
   description:
     "Zoe is an SMS-based AI discipleship tool that delivers daily scripture with original Greek and Hebrew context. No app to download — just text messages that help you build a real Bible habit.",
   sameAs: [],
@@ -71,7 +72,7 @@ const softwareSchema = {
   operatingSystem: "SMS (any phone)",
   description:
     "SMS-based AI discipleship tool. Daily scripture with original language context delivered via text message. No download required.",
-  url: "https://zoe.live",
+  url: SITE_URL,
   offers: {
     "@type": "Offer",
     price: "0",
