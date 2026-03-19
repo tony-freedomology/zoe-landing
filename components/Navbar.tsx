@@ -26,7 +26,10 @@ const journeyLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const hideOnPath = pathname === "/subscribe" || pathname === "/thanks";
+  const hideOnPath =
+    pathname === "/subscribe" ||
+    pathname === "/thanks" ||
+    pathname.startsWith("/journeys/lesson-preview");
   const isHomePage = pathname === "/";
 
   const [scrolled, setScrolled] = useState(false);
