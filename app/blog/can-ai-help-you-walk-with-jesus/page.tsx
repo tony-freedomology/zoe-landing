@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
@@ -27,6 +28,17 @@ export default function AiWalkWithJesusPost() {
           <p className="text-xl text-slate-300 font-medium leading-relaxed">AI can&apos;t love you or know God&apos;s will — but it can remember your commitments and bring you back. Here&apos;s an honest look at AI discipleship tools.</p>
         </div>
       </section>
+
+      {/* Hero Image */}
+      <div className="relative w-full aspect-[16/7] bg-slate-100">
+        <Image
+          src="/blog/can-ai-help-you-walk-with-jesus/hero.jpg"
+          alt="AI and walking with Jesus"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
 
       <article className="py-16 px-6 bg-white">
         <div className="mx-auto max-w-3xl">

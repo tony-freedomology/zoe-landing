@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image"; // Added for the hero image
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
 import FaqSchema from "../../../components/FaqSchema";
@@ -8,35 +9,35 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/blog/the-daily-scripture-habit-that-finally-stuck-and-why-it-live/hero.jpg"],
   },
-  title: "The Daily Scripture Habit That Finally Stuck (And Why It Lives in Your Texts)",
+  title: "Daily Scripture That Actually Sticks (And Why It Has Nothing to Do With Discipline)",
   description:
-    "Every Bible app I've ever downloaded is still on my phone. Some have streaks I'm proud of. Most have streaks I abandoned at day four.",
+    "The daily decision is what kills scripture habits — not lack of faith. Here's how removing that choice builds the kind of consistent rhythm that actually lasts.",
 };
 
 const faqs = [
   {
-    "q": "I always start strong with daily scripture apps, but my streaks never last. What am I doing wrong?",
-    "a": "You're not doing anything wrong! The struggle to maintain streaks with apps is common because they require you to actively choose them every day. Our approach at Zoe delivers scripture directly to your texts, removing that initial friction and making consistency much easier."
+    q: "Why can't I make daily scripture a consistent habit?",
+    a: "The most common reason is decision fatigue — having to actively choose to open an app every morning draws from the same mental energy you use for everything else. Remove the daily decision and consistency follows naturally.",
   },
   {
-    "q": "It feels like such a struggle to 'open' my Bible app every morning. Is there an easier way to get scripture?",
-    "a": "Absolutely. That moment of decision, when you're tired and busy, creates enough friction to derail the habit. When Zoe sends your daily scripture directly to your phone's messages, it comes to you passively, fitting into a routine you already have – checking your texts."
+    q: "How does Zoe help with daily scripture consistency?",
+    a: "Zoe sends your daily scripture directly to your text messages. No app to open, no choice to make. The habit builds itself because the Word arrives where you already are.",
   },
   {
-    "q": "Why is getting daily scripture by text message better than using a dedicated Bible app?",
-    "a": "Bible apps require you to remember to open them and actively seek out scripture, often against many distractions. Our method at Zoe flips this by bringing scripture to you, removing the need for an 'extra' step in your day. This shift from active seeking to passive receiving makes a huge difference in consistency."
+    q: "Is a morning quiet time the only way to read scripture daily?",
+    a: "Not at all. Daily scripture that arrives throughout your day — in texts, during gaps in your routine — can actually be more connected to real life than one isolated morning session. Zoe is built around this idea.",
   },
   {
-    "q": "I really want a consistent daily scripture habit. What’s the most effective way to make it stick long-term?",
-    "a": "The key is to reduce friction and integrate scripture into your existing routines. Instead of trying to add a new 'app-opening' habit, letting scripture arrive where you already spend time—your texts—makes it almost effortless. This simple change can help the habit truly take root."
+    q: "How long does it take to read a Zoe daily message?",
+    a: "About 30-60 seconds for the passage and reflection. You can go deeper in conversation if you want, but the daily contact happens in under a minute.",
   },
   {
-    "q": "Is this daily scripture text message program something I can do even on busy mornings?",
-    "a": "Absolutely! The design is specifically for busy lives, delivering a concise scripture directly to your phone. There's no app to open or login to remember; just a quick, meaningful read waiting for you when you check your messages. This simplicity makes it perfect for even your most hectic mornings."
-  }
+    q: "Is Zoe free to try?",
+    a: "Yes. Start a free trial at zoe.live — your first daily scripture arrives the next morning, no app required.",
+  },
 ];
 
-export default function TheDailyScriptureHabitThatFinallyStuckPage() {
+export default function DailyScriptureHabitPage() {
   return (
     <>
     <FaqSchema faqs={faqs} />
@@ -47,110 +48,87 @@ export default function TheDailyScriptureHabitThatFinallyStuckPage() {
             <Link href="/blog" className="text-sm font-semibold text-slate-400 hover:text-white transition-colors">&larr; Blog</Link>
           </div>
           <div className="flex flex-wrap gap-3 items-center mb-6">
-            <span className="inline-flex items-center rounded-full border border-brand-jade/30 bg-brand-jade/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-jade">Daily Scripture</span>
+            <span className="inline-flex items-center rounded-full border border-brand-jade/30 bg-brand-jade/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-jade">Discipleship</span>
             <span className="text-slate-400 text-xs font-medium">March 2026</span>
             <span className="text-slate-600 text-xs">&middot;</span>
-            <span className="text-slate-400 text-xs font-medium">6 min read</span>
+            <span className="text-slate-400 text-xs font-medium">4 min read</span>
           </div>
-          <h1 className="text-4xl md:text-5xl tracking-tighter-editorial text-white leading-[1.1] font-bold mb-6">The Daily Scripture Habit That Finally Stuck (And Why It Lives in Your Texts)</h1>
-          <p className="text-xl text-slate-300 font-medium leading-relaxed">Every Bible app I&apos;ve ever downloaded is still on my phone. Some have streaks I&apos;m proud of. Most have streaks I abandoned at day four.</p>
+          <h1 className="text-4xl md:text-5xl tracking-tighter-editorial text-white leading-[1.1] font-bold mb-6">Daily Scripture That Actually Sticks (And Why It Has Nothing to Do With Discipline)</h1>
+          <p className="text-xl text-slate-300 font-medium leading-relaxed">The daily decision is what kills scripture habits — not lack of faith. Here&apos;s how removing that choice builds the kind of consistent rhythm that actually lasts.</p>
         </div>
       </section>
+
+      {/* Hero Image Section */}
+      <div className="relative w-full aspect-[16/7] bg-slate-100">
+        <Image
+          src="/blog/the-daily-scripture-habit-that-finally-stuck-and-why-it-live/hero.jpg"
+          alt="Daily scripture habit"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
 
       <article className="py-16 px-6 bg-white">
         <div className="mx-auto max-w-3xl">
 
-          {/* TL;DR */}
-          <section className="mb-12 py-8 px-6 bg-brand-jade/5 border-y border-brand-jade/10 rounded-lg">
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-16 h-8 rounded bg-brand-jade/20 flex items-center justify-center text-brand-jade font-bold text-sm tracking-wider">TL;DR</div>
-              <p className="text-slate-700 font-medium leading-relaxed">
-                Bible apps often fail because they require constant effort to open and use. <strong>Zoe</strong> removes this friction by delivering daily scripture directly to your text messages, making consistent engagement effortless. It&apos;s discipleship that meets you where you already are, fostering a habit that truly sticks.
-              </p>
-            </div>
-          </section>
+          {/* TL;DR section removed as no content was provided for it in the new post details. */}
 
           <div className="prose prose-slate max-w-none text-slate-700 font-medium leading-relaxed text-lg space-y-6">
 
-            <p>Every Bible app I&apos;ve ever downloaded is still on my phone. Some have streaks I&apos;m proud of. Most have streaks I abandoned at day four.</p>
+            <p>Here&apos;s something I&apos;ve noticed after years of watching people try to build a consistent daily scripture habit.</p>
 
-            <p>That&apos;s not a personal failing. That&apos;s just how these things work. You download the app with real intention, open it for two or three days, then life gets loud and you miss a morning and the streak breaks. Once the streak breaks, somehow the whole habit breaks with it.</p>
-
-            <p>Here&apos;s what I kept getting wrong about daily scripture.</p>
+            <p>The ones who struggle aren&apos;t short on faith. They care deeply. They want to be in the Word. What&apos;s actually tripping them up is something quieter — and way more fixable.</p>
 
             <hr className="border-slate-200 my-10" />
 
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The Problem with &ldquo;Opening&rdquo; Your Bible</h2>
+            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The Real Enemy Is the Daily Decision</h2>
 
-            <p>Reading scripture sounds simple &mdash; just open the Bible and read. But that instruction assumes you&apos;ve already built the mental pathway that makes opening feel automatic.</p>
+            <p>Every morning, when you sit down to read scripture, you&apos;re making a choice. Open the app or not. Which passage today. Do I have time right now. Where did I leave off.</p>
 
-            <p>For most people, it requires a decision. Decisions require energy. In the morning, when you&apos;re tired and the day is already calling, that moment of &ldquo;should I open the Bible app right now?&rdquo; is enough friction to derail everything.</p>
+            <p>Those micro-decisions don&apos;t sound like much, but they stack. Researchers call it <strong>decision fatigue</strong> — the idea that every choice you make draws from the same finite pool of mental energy. By the time you&apos;ve gotten the kids sorted, checked your first few emails, and figured out your day, that pool gets shallow fast.</p>
 
-            <p>Apps are passive &mdash; they sit there, firing notifications you swipe away without thinking. They require you to choose them, every single day, against everything else competing for your attention. Before the habit is built, that&apos;s a tough ask.</p>
+            <p>And so the Bible app sits untouched, not because you stopped caring, but because you had to actively choose it — every single morning, against the friction of a hundred other things pulling at you.</p>
 
-            <p>I watched a lot of people try to build daily scripture habits and fall off. They cared about God. The tool just demanded too much before the habit had a chance to form.</p>
-
-            <hr className="border-slate-200 my-10" />
-
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">When Scripture Comes to You</h2>
-
-            <p>When your daily scripture arrives in your texts, the whole dynamic shifts.</p>
-
-            <p>You&apos;re already in your messages &mdash; because everyone checks their messages &mdash; and there it is. A verse. A short reflection. A gentle point of contact with something real, arriving where you already are.</p>
-
-            <p>That&apos;s the idea behind <a href="https://zoe.live" className="text-brand-cyan hover:underline">Zoe</a>. Zoe texts you every morning. A daily scripture, a short thought, sometimes a question worth sitting with. The scripture arrives in your messages; you&apos;re already there.</p>
-
-            <p>That question worth sitting with is the part that gets me. Reading a verse in isolation is one thing. Reading it with a prompt that connects it to your life this week &mdash; that&apos;s discipleship. That&apos;s the difference between information and formation.</p>
+            <p>That&apos;s the pattern. And once you see it, the fix becomes obvious.</p>
 
             <hr className="border-slate-200 my-10" />
 
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">Why SMS Is the Oldest Trick in the Pastoral Book</h2>
+            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">Remove the Choice. Build the Rhythm.</h2>
 
-            <p>Pastors have known this for centuries. The most effective spiritual directors &mdash; the ones who actually shape people&apos;s faith over years &mdash; show up consistently. They reach out. They don&apos;t wait for the person to come to them every time.</p>
+            <p>Habits that stick aren&apos;t built on willpower. They&apos;re built on systems that make the desired behavior happen without requiring a daily decision.</p>
 
-            <p>Text messaging is just that at scale. Zoe sends your daily scripture because showing up in your messages is a form of pastoral presence. Small, consistent, personal &mdash; even when it&apos;s automated.</p>
+            <p>That&apos;s exactly what Zoe does. Daily scripture lands in your text messages. Your phone buzzes. You read it. There&apos;s no decision point. The habit stops requiring activation energy and starts just... happening.</p>
 
-            <p>Here&apos;s what happens over time: the habit forms on its own. You don&apos;t have to white-knuckle your way to day 21. You just reply. You read. You respond to the question if it moves you. And one day you realise you&apos;ve been walking with Jesus through your everyday life &mdash; through your phone, in your texts &mdash; for three months, and it never once felt like a discipline you were dragging yourself through.</p>
+            <p>The consistency you&apos;ve been chasing doesn&apos;t come from trying harder. It comes from setting up something that works with how your brain actually operates. When scripture arrives in the same place you&apos;re already looking — your texts — it stops being a task you have to remember and becomes a moment that finds you.</p>
 
-            <p>That&apos;s the goal. Discipleship that feels like a conversation, not a performance.</p>
-
-            <hr className="border-slate-200 my-10" />
-
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">What a Real Daily Scripture Habit Actually Looks Like</h2>
-
-            <p>There&apos;s a version of this people imagine: quiet morning, coffee, leather Bible, golden light through the window, totally unhurried.</p>
-
-            <p>That&apos;s real and beautiful when it happens. But that&apos;s maybe three mornings a week if you&apos;re lucky, and only when the kids sleep in.</p>
-
-            <p>The other four mornings? Scripture finds you in the carpool lane. In a two-minute break between meetings. Right before bed, when you&apos;re winding down and a verse lands differently because the day has already worn you soft.</p>
-
-            <p>Daily scripture via SMS meets you in the actual texture of your life, not the idealized version of it.</p>
-
-            <p>And over time, those small contact points accumulate into something. You&apos;ll find yourself remembering a verse at the exact moment you need it &mdash; not because you have a great memory, but because you&apos;ve been fed consistently. That&apos;s how formation works. Formation takes time. You keep showing up, and it does its work.</p>
+            <p>That rhythm builds fast. And once it&apos;s built, it feels effortless — not because you&apos;ve developed superhuman discipline, but because you designed out the friction.</p>
 
             <hr className="border-slate-200 my-10" />
 
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">Who Zoe Is For</h2>
+            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">Walking With Jesus Throughout the Day, Not Just for Ten Minutes</h2>
 
-            <p>Zoe works best for people who genuinely want to walk with Jesus but have given up on their own consistency.</p>
+            <p>There&apos;s a version of the faith life that looks like this: one dedicated quiet time in the morning, Bible open, coffee hot, totally unhurried. That&apos;s a beautiful thing when it happens.</p>
 
-            <p>People who care deeply about their faith but can&apos;t seem to build a sustainable rhythm. People who&apos;ve downloaded YouVersion four times and still carry a low-grade guilt about it. People who went through a season where scripture was alive for them, and they want that back, and they&apos;re willing to let something simple carry them toward it.</p>
+            <p>But most mornings are not that morning.</p>
 
-            <p>If that&apos;s you, Zoe is worth trying. There are journeys for almost every starting point &mdash; whether you want to go deep in the Psalms, follow the Gospel of Mark, or just get a daily verse that connects to where you actually are.</p>
+            <p>And more importantly — why should one ten-minute window be the only touchpoint with Jesus in a sixteen-hour day?</p>
 
-            <p>Each journey comes with scripture, a short reflection, and a conversation thread so you can respond, push back, ask questions. Real back-and-forth, not a one-way broadcast.</p>
+            <p>When scripture arrives in your texts, it shows up at the carpool line. During the gap between meetings. On the walk home. Those are the moments when a verse can actually land in the middle of real life, where it connects to what you&apos;re actually carrying that day.</p>
+
+            <p>That&apos;s a richer way to walk with Jesus than a single morning ritual. Scripture woven through your whole day — showing up when you&apos;re distracted, when you&apos;re stressed, when you&apos;re just going about it — is discipleship working the way it was meant to. Consistent contact. Not performance.</p>
 
             <hr className="border-slate-200 my-10" />
 
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The Simplest Path to Daily Scripture</h2>
+            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">What This Looks Like in Practice</h2>
 
-            <p>Building a faith habit runs on consistency, and consistency runs on not having to fight yourself every single morning to get started. Small, daily contact wins &mdash; scripture arriving where you already are, in a format that takes thirty seconds to receive and a minute to sit with.</p>
+            <p>Every morning, a Zoe text arrives. A passage. A short reflection. Sometimes a question worth sitting with through the day.</p>
 
-            <p>That&apos;s all Zoe is. A daily scripture, a gentle reflection, a conversation thread if you want it.</p>
+            <p>You read it in thirty seconds, or you go deeper if the morning allows. Either way, the Word showed up. No app to open, no decision to make, no streak to maintain.</p>
 
-            <p>Start there. See what God does with consistent contact.</p>
+            <p>Over time — and it doesn&apos;t take long — those daily contacts accumulate. You start remembering verses at the right moments. Specific words come back when you need them. The practice does what it&apos;s supposed to do: form the kind of thinking that scripture has shaped over time, in the texture of an ordinary Tuesday.</p>
 
-            <p>Try a Zoe journey at zoe.live. First week is free.</p>
+            <p>Start a free trial at <a href="https://zoe.live" className="text-brand-cyan hover:underline">zoe.live</a>. Your first daily scripture arrives tomorrow morning.</p>
 
           </div>
 
@@ -159,7 +137,7 @@ export default function TheDailyScriptureHabitThatFinallyStuckPage() {
               href="/#waitlist"
               className="inline-flex items-center gap-2 rounded-full bg-brand-jade px-8 py-4 text-base font-semibold text-white hover:bg-brand-jade/90 transition-colors"
             >
-              Try Zoe <ArrowRight className="h-4 w-4" />
+              Join the waitlist <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>

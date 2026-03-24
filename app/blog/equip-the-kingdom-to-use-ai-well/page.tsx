@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
@@ -27,6 +28,17 @@ export default function EquipKingdomPost() {
           <p className="text-xl text-slate-300 font-medium leading-relaxed">The church can&apos;t afford to sit this one out. Here&apos;s a practical framework for how churches and ministries should evaluate, adopt, and shape AI tools faithfully.</p>
         </div>
       </section>
+
+      {/* Hero Image */}
+      <div className="relative w-full aspect-[16/7] bg-slate-100">
+        <Image
+          src="/blog/equip-the-kingdom-to-use-ai-well/hero.jpg"
+          alt="Equip the kingdom to use AI well"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
 
       <article className="py-16 px-6 bg-white">
         <div className="mx-auto max-w-3xl">
