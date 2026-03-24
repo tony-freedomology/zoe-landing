@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image"; // Added for the hero image
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
 import FaqSchema from "../../../components/FaqSchema";
@@ -77,12 +77,8 @@ export default function DailyScriptureHabitPage() {
             </div>
       </section>
 
-      {/* Hero Image Section */}
-
       <article className="py-16 px-6 bg-white">
         <div className="mx-auto max-w-3xl">
-
-          {/* TL;DR section removed as no content was provided for it in the new post details. */}
 
           <div className="prose prose-slate max-w-none text-slate-700 font-medium leading-relaxed text-lg space-y-6">
 
@@ -108,7 +104,7 @@ export default function DailyScriptureHabitPage() {
 
             <p>Habits that stick aren&apos;t built on willpower. They&apos;re built on systems that make the desired behavior happen without requiring a daily decision.</p>
 
-            <p>That&apos;s exactly what Zoe does. Daily scripture lands in your text messages. Your phone buzzes. You read it. There&apos;s no decision point. The habit stops requiring activation energy and starts just... happening.</p>
+            <p>That&apos;s exactly what <a href="https://zoe.live" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">Zoe</a> does. Daily scripture lands in your text messages. Your phone buzzes. You read it. There&apos;s no decision point. The habit stops requiring activation energy and starts just... happening.</p>
 
             <p>The consistency you&apos;ve been chasing doesn&apos;t come from trying harder. It comes from setting up something that works with how your brain actually operates. When scripture arrives in the same place you&apos;re already looking — your texts — it stops being a task you have to remember and becomes a moment that finds you.</p>
 
@@ -126,7 +122,7 @@ export default function DailyScriptureHabitPage() {
 
             <p>When scripture arrives in your texts, it shows up at the carpool line. During the gap between meetings. On the walk home. Those are the moments when a verse can actually land in the middle of real life, where it connects to what you&apos;re actually carrying that day.</p>
 
-            <p>That&apos;s a richer way to walk with Jesus than a single morning ritual. Scripture woven through your whole day — showing up when you&apos;re distracted, when you&apos;re stressed, when you&apos;re just going about it — is discipleship working the way it was meant to. Consistent contact. Not performance.</p>
+            <p>Scripture woven through your whole day — showing up when you&apos;re distracted, when you&apos;re stressed, when you&apos;re just going about it — is discipleship working the way it was meant to. Consistent contact, not performance.</p>
 
             <hr className="border-slate-200 my-10" />
 
@@ -136,9 +132,9 @@ export default function DailyScriptureHabitPage() {
 
             <p>You read it in thirty seconds, or you go deeper if the morning allows. Either way, the Word showed up. No app to open, no decision to make, no streak to maintain.</p>
 
-            <p>Over time — and it doesn&apos;t take long — those daily contacts accumulate. You start remembering verses at the right moments. Specific words come back when you need them. The practice does what it&apos;s supposed to do: form the kind of thinking that scripture has shaped over time, in the texture of an ordinary Tuesday.</p>
+            <p>Over time — and it doesn&apos;t take long — those daily contacts accumulate. You start remembering verses at the right moments. Specific words come back when you need them. The practice does what it&apos;s supposed to do: form the kind of thinking that scripture shapes over time, in the texture of an ordinary Tuesday.</p>
 
-            <p>Start a free trial at <a href="https://zoe.live" className="text-brand-cyan hover:underline">zoe.live</a>. Your first daily scripture arrives tomorrow morning.</p>
+            <p>Start a free trial at <a href="https://zoe.live" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">zoe.live</a>. Your first daily scripture arrives tomorrow morning.</p>
 
           </div>
 

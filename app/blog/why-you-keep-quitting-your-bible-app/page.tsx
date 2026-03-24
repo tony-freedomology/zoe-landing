@@ -84,16 +84,6 @@ export default function WhyYouKeepQuittingPage() {
       <article className="py-16 px-6 bg-white">
         <div className="mx-auto max-w-3xl">
 
-          {/* TL;DR */}
-          <section className="mb-12 py-8 px-6 bg-brand-jade/5 border-y border-brand-jade/10 rounded-lg">
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-16 h-8 rounded bg-brand-jade/20 flex items-center justify-center text-brand-jade font-bold text-sm tracking-wider">TL;DR</div>
-              <p className="text-slate-700 font-medium leading-relaxed">
-                <strong>Bible apps fail for the same reason most apps fail: friction.</strong> You have to remember to open them, find your place, and stay focused while your phone buzzes with everything else. SMS-based tools like <strong>Zoe</strong> skip all of that — daily scripture arrives in your text messages with original Greek and Hebrew context. No download, no login, 95%+ open rate.
-              </p>
-            </div>
-          </section>
-
           <div className="prose prose-slate max-w-none text-slate-700 font-medium leading-relaxed text-lg space-y-6">
 
             <p>You&apos;ve done this before. Probably more than once.</p>
@@ -155,17 +145,19 @@ export default function WhyYouKeepQuittingPage() {
 
             <p>The reason is simple: text messages live in a channel you already check dozens of times a day. You don&apos;t have to form a new habit. You don&apos;t have to remember to open anything. Scripture arrives in the same place as your conversations with friends and family.</p>
 
-            <p>There&apos;s a psychological principle at work here too. When something arrives in your messages, your brain processes it differently than an app notification. A notification feels like a demand. A text feels like a conversation. One triggers guilt; the other triggers curiosity.</p>
+            <p>There&apos;s a psychological thing at work here too. When something arrives in your messages, your brain processes it differently than an app notification. A notification feels like a demand. A text feels like a conversation. One triggers guilt; the other triggers curiosity.</p>
 
             <hr className="border-slate-200 my-10" />
 
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">What Zoe Does Differently</h2>
 
-            <p><a href="https://zoe.live" className="text-brand-cyan hover:underline">Zoe</a> is an SMS discipleship tool. No app. No download. You get a text message every day with a scripture passage and original-language context — the kind of Greek and Hebrew word studies that used to require a seminary library or a stack of commentaries.</p>
+            <p>I built <a href="https://zoe.live" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">Zoe</a> because I watched this pattern play out for over a decade — in myself and in the people I pastored. Good intentions fading by Tuesday. Notes from Sunday buried by Wednesday. The desire was always real. The delivery mechanism kept failing.</p>
 
-            <p>Here&apos;s what a typical Zoe message looks like: you get a passage from the book you&apos;re reading through, plus a note on a key word in the original language. Maybe the passage uses the word &ldquo;endurance&rdquo; and Zoe surfaces the Greek word <em>hypomone</em> — which doesn&apos;t just mean &ldquo;hang in there.&rdquo; It means &ldquo;remaining under the weight with purpose.&rdquo; That kind of depth changes how you read the verse. And it takes 90 seconds.</p>
+            <p>Zoe is an SMS discipleship tool. No app. No download. You pick a book of the Bible and a reading pace, and you get a text message every day with your passage and original-language context — the kind of Greek and Hebrew word studies that used to require a seminary library or a stack of commentaries.</p>
 
-            <p>Zoe uses AI in the background to surface that context — but the AI is a research tool, not a conversation partner. Zoe will never try to be your pastor, your counselor, or your friend. It points you to Scripture, to the original languages, and to the people around you. Every time.</p>
+            <p>Here&apos;s what a typical Zoe message looks like: you get a passage from the book you&apos;re reading through, plus a note on a key word in the original language. Maybe the passage uses the word &ldquo;endurance&rdquo; and Zoe surfaces the Greek word <em>hypomone</em> — which doesn&apos;t mean &ldquo;hang in there.&rdquo; It means &ldquo;remaining under the weight with purpose.&rdquo; That kind of depth changes how you read the verse. And it takes 90 seconds.</p>
+
+            <p>Zoe uses AI in the background to surface that context — but the AI is a research tool, not a conversation partner. It&apos;ll never try to be your pastor, your counselor, or your friend. It points you to Scripture, to the original languages, and to the people around you. Every time.</p>
 
             <hr className="border-slate-200 my-10" />
 
@@ -190,7 +182,7 @@ export default function WhyYouKeepQuittingPage() {
 
             <p>If you lead a church, you already know the discipleship gap is real. You preach on Sunday and hope it sticks through the week. Sometimes it does. Usually it doesn&apos;t.</p>
 
-            <p>Zoe is built for church deployment. Every member with a phone number — including basic phones, no smartphone required — can receive daily scripture. Pastors can deploy Zoe across their congregation without adding another app, another login, or another thing for people to manage.</p>
+            <p>Zoe is built for church deployment. Every member with a phone number — including basic phones, no smartphone required — can receive daily scripture. No app for your congregation to download, no login to set up, no tech support emails.</p>
 
             <p>The simplest way to think about it: Zoe fills the space between Sundays. Daily, personal, zero friction.</p>
 
