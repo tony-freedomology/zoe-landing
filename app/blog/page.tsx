@@ -13,6 +13,16 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    slug: "daily-scripture-that-actually-sticks-and-why-it-has-nothing",
+    title: "Daily Scripture That Actually Sticks (And Why It Has Nothing to Do With Discipline)",
+    description: "*Waiting for ✅ approval from Tony or Greg before publishing.*",
+    date: "March 2026",
+    readTime: "1 min read",
+    badge: "Discipleship",
+    badgeColor: "text-brand-jade border-brand-jade/20 bg-brand-jade/5",
+    image: "/blog/daily-scripture-that-actually-sticks-and-why-it-has-nothing/hero.jpg",
+  },
+  {
     slug: "the-daily-scripture-habit-that-finally-stuck-and-why-it-live",
     title: "The Daily Scripture Habit That Finally Stuck (And Why It Lives in Your Texts)",
     description: "Every Bible app I've ever downloaded is still on my phone. Some have streaks I'm proud of. Most have streaks I abandoned at day four.",
