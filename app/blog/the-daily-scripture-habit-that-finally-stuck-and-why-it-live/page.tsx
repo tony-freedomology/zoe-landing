@@ -78,15 +78,6 @@ export default function DailyScriptureHabitPage() {
       </section>
 
       {/* Hero Image Section */}
-      <div className="relative w-full aspect-[16/7] bg-slate-100">
-        <Image
-          src="/blog/the-daily-scripture-habit-that-finally-stuck-and-why-it-live/hero.jpg"
-          alt="Daily scripture habit"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
 
       <article className="py-16 px-6 bg-white">
         <div className="mx-auto max-w-3xl">
