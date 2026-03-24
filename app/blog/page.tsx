@@ -13,6 +13,16 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    slug: "the-daily-scripture-habit-that-finally-stuck-and-why-it-live",
+    title: "The Daily Scripture Habit That Finally Stuck (And Why It Lives in Your Texts)",
+    description: "Every Bible app I've ever downloaded is still on my phone. Some have streaks I'm proud of. Most have streaks I abandoned at day four.",
+    date: "March 2026",
+    readTime: "6 min read",
+    badge: "Discipleship",
+    badgeColor: "text-brand-jade border-brand-jade/20 bg-brand-jade/5",
+    image: "/blog/the-daily-scripture-habit-that-finally-stuck-and-why-it-live/hero.jpg",
+  },
+  {
     slug: "why-you-keep-quitting-your-bible-app",
     title: "Why You Keep Quitting Your Bible App (And What Actually Works)",
     description: "71% of apps are abandoned within 90 days. Bible apps are no different. The problem is friction — and the fix is simpler than you think.",
