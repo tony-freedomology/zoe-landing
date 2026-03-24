@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 const posts = [
   {
     slug: "the-daily-scripture-habit-that-finally-stuck-and-why-it-live",
-    title: "The Daily Scripture Habit That Finally Stuck (And Why It Lives in Your Texts)",
-    description: "Every Bible app I've ever downloaded is still on my phone. Some have streaks I'm proud of. Most have streaks I abandoned at day four.",
+    title: "Daily Scripture That Actually Sticks (And Why It Has Nothing to Do With Discipline)",
+    description: "The daily decision is what kills scripture habits — not lack of faith. Here's how removing that choice builds the kind of consistent rhythm that actually lasts.",
     date: "March 2026",
-    readTime: "6 min read",
+    readTime: "4 min read",
     badge: "Discipleship",
     badgeColor: "text-brand-jade border-brand-jade/20 bg-brand-jade/5",
     image: "/blog/the-daily-scripture-habit-that-finally-stuck-and-why-it-live/hero.jpg",
@@ -44,7 +44,7 @@ const posts = [
   {
     slug: "can-ai-help-you-walk-with-jesus",
     title: "Can AI Help You Walk With Jesus?",
-    description: "AI can't love you or know God's will — but it can remember your commitments and bring you back. Here's an honest look at AI discipleship tools.",
+    description: "AI can't love you or know God's will — but it can remember what you said on Tuesday and ask about it on Friday. Here's an honest look at what that's worth.",
     date: "February 2026",
     readTime: "8 min read",
     badge: "AI & Faith",

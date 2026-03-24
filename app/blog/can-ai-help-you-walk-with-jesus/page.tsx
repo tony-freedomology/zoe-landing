@@ -51,7 +51,7 @@ export default function AiWalkWithJesusPost() {
         <div className="mx-auto max-w-3xl">
           <div className="prose prose-slate max-w-none text-slate-700 font-medium leading-relaxed text-lg space-y-6">
             <p>I spent eleven years as a worship pastor. My whole world was presence — leading rooms full of people into moments where something real happens between them and God. You can&apos;t automate that. I wouldn&apos;t want to.</p>
-            <p>So when I started building an AI discipleship tool, I had to sit with a lot of discomfort before I sat with any excitement. And honestly, I think the discomfort was doing its job.</p>
+            <p>So when I started building an AI discipleship tool, I had to sit with a lot of discomfort before I sat with any excitement. I think the discomfort was doing its job, honestly.</p>
             <p>Can something built on code and pattern-matching actually help someone follow Jesus? I don&apos;t think that question deserves a quick answer. I think it deserves an honest one.</p>
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The Discomfort Is Doing Its Job</h2>
@@ -72,7 +72,7 @@ export default function AiWalkWithJesusPost() {
             <p>Short answer: no. And if any tool positions itself as doing that, run.</p>
             <p>The Holy Spirit convicts, guides, comforts, and sanctifies. No algorithm does any of that. An AI doesn&apos;t intercede for you with groans too deep for words (Romans 8:26). It doesn&apos;t indwell you or testify to your spirit that you are a child of God.</p>
             <p>What Zoe does is way more modest. It asks you questions. It remembers what you said. It brings you back to your own commitments. That&apos;s closer to the work of a journal that can read.</p>
-            <p>And here&apos;s the thing about journaling: nobody worries that writing in a Moleskine is quenching the Spirit. Because we understand it&apos;s a tool that helps us process, remember, and reflect. The Spirit does the illumination. The journal just helps us not forget.</p>
+            <p>Nobody worries that writing in a Moleskine is quenching the Spirit. Because we understand it&apos;s a tool that helps us process, remember, and reflect. The Spirit does the revealing. The journal just helps us not forget.</p>
             <p>Same principle here. A concordance doesn&apos;t generate revelation. It helps you find where the revelation already is.</p>
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The Church Has Always Been Scared of the New Tool</h2>

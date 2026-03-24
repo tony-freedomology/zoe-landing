@@ -53,7 +53,7 @@ export default function EquipKingdomPost() {
             <p>A year ago, if you told me I&apos;d be building an AI tool for churches, I would&apos;ve been skeptical. I spent eleven years leading worship — standing in front of rooms full of people, watching the Spirit move in ways that had nothing to do with technology. My whole career was built on presence. Real, physical, in-the-room presence.</p>
             <p>And now I&apos;m building something that lives in a text message.</p>
             <p>So yeah. I&apos;ve had to wrestle with this. And I think the wrestling is the point — because if you&apos;re building something for the church and you&apos;re NOT uncomfortable with hard questions, you&apos;re probably not asking the right ones.</p>
-            <p>Here&apos;s what I&apos;ve figured out so far.</p>
+            <p>This is what I&apos;ve figured out so far.</p>
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The Question Pastors Actually Ask Me</h2>
             <p>When I talk to pastors about Zoe, they don&apos;t ask about the technology. They don&apos;t care about the AI model or the architecture. The question is almost always some version of:</p>
@@ -65,7 +65,7 @@ export default function EquipKingdomPost() {
             <p>Pastors who worry about AI replacing human discipleship are picking up on something real. There are genuine risks:</p>
             <p>People could start treating a chatbot like a counselor. They could settle for AI-generated answers to questions that deserve a real human sitting across from them. They could drift away from community because a screen feels easier.</p>
             <p>These aren&apos;t hypothetical concerns. A Barna survey found that 30% of Americans think spiritual advice from AI is as trustworthy as advice from a pastor. Among younger adults, it&apos;s closer to 40%. That should make anyone in ministry pay attention.</p>
-            <p>But the solution to bad AI isn&apos;t no AI. It&apos;s good AI, built by people who actually understand what&apos;s at stake.</p>
+            <p>But the answer to bad AI isn&apos;t no AI. It&apos;s good AI, built by people who actually understand what&apos;s at stake.</p>
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The Discipleship Gap That Already Existed</h2>
             <p>Before AI entered the conversation, the church already had a follow-through problem.</p>
@@ -110,7 +110,7 @@ export default function EquipKingdomPost() {
             <p>I don&apos;t have all this figured out. Nobody does — the intersection of AI and faith is genuinely new territory, and anyone who claims to have it all mapped out is selling something.</p>
             <p>What I do know is this: the church has always adopted new tools — printing presses, radio, television, the internet — and the pattern is always the same. Some people engage wisely and shape how the tool gets used. Some people withdraw and then spend years catching up.</p>
             <p>I&apos;d rather be in the first group. And I&apos;d rather build something I&apos;d actually want my own church to use.</p>
-            <p>If that resonates, check out <a href="https://zoe.live" className="text-brand-cyan hover:underline font-bold" target="_blank" rel="noopener noreferrer">zoe.live</a>. We&apos;re in beta, it&apos;s free, and I&apos;d genuinely love feedback from pastors and church leaders who are thinking about this stuff.</p>
+            <p>If you&apos;re thinking about this stuff, check out <a href="https://zoe.live" className="text-brand-cyan hover:underline font-bold" target="_blank" rel="noopener noreferrer">zoe.live</a>. We&apos;re in beta, it&apos;s free, and I&apos;d genuinely love feedback from pastors and church leaders who are thinking about this stuff.</p>
           </div>
 
           <div className="mt-12 bg-slate-50 rounded-3xl p-8 border border-slate-100 text-center">

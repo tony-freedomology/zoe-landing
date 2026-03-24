@@ -57,11 +57,11 @@ export default function SmsDiscipleshipPost() {
             <p>Here&apos;s something I saw over and over during my eleven years as a worship pastor: Sunday mornings would be incredible. People would encounter God. They&apos;d cry, they&apos;d write things down, they&apos;d come up after service and say &quot;that was exactly what I needed to hear.&quot;</p>
             <p>And then Monday would happen. By Wednesday, the note they typed during the sermon was buried under 40 other things on their phone. By the following Sunday, most people couldn&apos;t tell you what the message was about.</p>
             <p>That&apos;s not a faith problem. It&apos;s a follow-through problem. And it affects basically everyone.</p>
-            <p>The desire is there. The consistency isn&apos;t. And every tool we&apos;ve built to solve this — devotional books, Bible apps, reading plans — still requires someone to actively choose to engage, every single day, against the noise of everything else in their life.</p>
+            <p>The desire is real — the consistency just isn&apos;t. And every tool we&apos;ve built to solve this — devotional books, Bible apps, reading plans — still requires someone to actively choose to engage, every single day, against the noise of everything else in their life.</p>
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">So What Is SMS Discipleship?</h2>
             <p>SMS discipleship is spiritual growth that happens through text messages. You don&apos;t download an app. You don&apos;t log in to anything. Scripture and reflection questions arrive in the same place your conversations already live — your texts.</p>
-            <p>That&apos;s it. That&apos;s the whole concept.</p>
+            <p>That&apos;s the whole concept.</p>
             <p>It works because it removes friction. You already check your texts dozens of times a day. When scripture shows up there, you don&apos;t have to form a new habit. The habit finds you.</p>
             <hr className="border-slate-200 my-10" />
             <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">Why Text Messages Specifically?</h2>
