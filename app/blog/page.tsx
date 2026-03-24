@@ -52,10 +52,10 @@ const posts = [
   },
   {
     slug: "equip-the-kingdom-to-use-ai-well",
-    title: "What Does It Look Like to Equip the Kingdom to Use AI Well?",
-    description: "The church can't afford to sit this one out. Here's a practical framework for how churches and ministries should evaluate, adopt, and shape AI tools faithfully.",
+    title: "I'm a Former Worship Pastor Building an AI Discipleship Tool. Here's What I've Learned.",
+    description: "Building something for the church means wrestling with hard questions — about trust, about replacement anxiety, and about what technology should actually do in a faith context.",
     date: "March 2026",
-    readTime: "9 min read",
+    readTime: "8 min read",
     badge: "Church & Technology",
     badgeColor: "text-amber-600 border-amber-200 bg-amber-50",
   },
