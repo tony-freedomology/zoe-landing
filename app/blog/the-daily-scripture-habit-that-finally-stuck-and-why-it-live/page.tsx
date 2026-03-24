@@ -42,8 +42,27 @@ export default function DailyScriptureHabitPage() {
     <>
     <FaqSchema faqs={faqs} />
     <div className="min-h-screen text-slate-900">
-      <section className="bg-gradient-to-b from-[#1a1308] to-[#141008] py-32 px-6 pt-40">
-        <div className="mx-auto max-w-3xl">
+      <section className="relative overflow-hidden bg-[#141008] py-32 px-6 pt-40">
+        {/* Hero Background */}
+        <Image
+          src="/blog/the-daily-scripture-habit-that-finally-stuck-and-why-it-live/hero.jpg"
+          alt="Daily scripture habit"
+          fill
+          className="object-cover opacity-25"
+          priority
+        />
+        {/* Subtle blur over left/text area */}
+        <div className="absolute inset-0 z-10 pointer-events-none backdrop-blur-[2px]"
+          style={{
+            WebkitMaskImage: 'radial-gradient(ellipse 60% 80% at 30% 50%, black 0%, transparent 100%)',
+            maskImage: 'radial-gradient(ellipse 60% 80% at 30% 50%, black 0%, transparent 100%)',
+          }}
+        />
+        {/* Dimming radial gradient */}
+        <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(ellipse_60%_80%_at_30%_50%,_rgba(0,0,0,0.55)_0%,_transparent_100%)]" />
+        {/* Bottom fade to white article */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 z-10 bg-gradient-to-b from-transparent to-[#141008]" />
+        <div className="relative z-20 mx-auto max-w-3xl">
           <div className="mb-6">
             <Link href="/blog" className="text-sm font-semibold text-slate-400 hover:text-white transition-colors">&larr; Blog</Link>
           </div>
@@ -55,7 +74,7 @@ export default function DailyScriptureHabitPage() {
           </div>
           <h1 className="text-4xl md:text-5xl tracking-tighter-editorial text-white leading-[1.1] font-bold mb-6">Daily Scripture That Actually Sticks (And Why It Has Nothing to Do With Discipline)</h1>
           <p className="text-xl text-slate-300 font-medium leading-relaxed">The daily decision is what kills scripture habits — not lack of faith. Here&apos;s how removing that choice builds the kind of consistent rhythm that actually lasts.</p>
-        </div>
+            </div>
       </section>
 
       {/* Hero Image Section */}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
@@ -45,8 +46,27 @@ export default function WhyYouKeepQuittingPage() {
     <>
     <FaqSchema faqs={faqs} />
     <div className="min-h-screen text-slate-900">
-      <section className="bg-gradient-to-b from-[#1a1308] to-[#141008] py-32 px-6 pt-40">
-        <div className="mx-auto max-w-3xl">
+      <section className="relative overflow-hidden bg-[#141008] py-32 px-6 pt-40">
+        {/* Hero Background */}
+        <Image
+          src="/blog/why-you-keep-quitting-your-bible-app/hero.jpg"
+          alt="Why you keep quitting your Bible app"
+          fill
+          className="object-cover opacity-25"
+          priority
+        />
+        {/* Subtle blur over left/text area */}
+        <div className="absolute inset-0 z-10 pointer-events-none backdrop-blur-[2px]"
+          style={{
+            WebkitMaskImage: 'radial-gradient(ellipse 60% 80% at 30% 50%, black 0%, transparent 100%)',
+            maskImage: 'radial-gradient(ellipse 60% 80% at 30% 50%, black 0%, transparent 100%)',
+          }}
+        />
+        {/* Dimming radial gradient */}
+        <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(ellipse_60%_80%_at_30%_50%,_rgba(0,0,0,0.55)_0%,_transparent_100%)]" />
+        {/* Bottom fade to white article */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 z-10 bg-gradient-to-b from-transparent to-[#141008]" />
+        <div className="relative z-20 mx-auto max-w-3xl">
           <div className="mb-6">
             <Link href="/blog" className="text-sm font-semibold text-slate-400 hover:text-white transition-colors">&larr; Blog</Link>
           </div>
@@ -58,7 +78,7 @@ export default function WhyYouKeepQuittingPage() {
           </div>
           <h1 className="text-4xl md:text-5xl tracking-tighter-editorial text-white leading-[1.1] font-bold mb-6">Why You Keep Quitting Your Bible App (And What Actually Works)</h1>
           <p className="text-xl text-slate-300 font-medium leading-relaxed">71% of apps are abandoned within 90 days. Bible apps are no different. The problem is friction — and the fix is simpler than you think.</p>
-        </div>
+            </div>
       </section>
 
       <article className="py-16 px-6 bg-white">

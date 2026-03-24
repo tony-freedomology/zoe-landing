@@ -13,8 +13,27 @@ export const metadata: Metadata = {
 export default function AiWalkWithJesusPost() {
   return (
     <div className="min-h-screen text-slate-900">
-      <section className="bg-gradient-to-b from-[#1a1308] to-[#141008] py-32 px-6 pt-40">
-        <div className="mx-auto max-w-3xl">
+      <section className="relative overflow-hidden bg-[#141008] py-32 px-6 pt-40">
+        {/* Hero Background */}
+        <Image
+          src="/blog/can-ai-help-you-walk-with-jesus/hero.jpg"
+          alt="Can AI help you walk with Jesus"
+          fill
+          className="object-cover opacity-25"
+          priority
+        />
+        {/* Subtle blur over left/text area */}
+        <div className="absolute inset-0 z-10 pointer-events-none backdrop-blur-[2px]"
+          style={{
+            WebkitMaskImage: 'radial-gradient(ellipse 60% 80% at 30% 50%, black 0%, transparent 100%)',
+            maskImage: 'radial-gradient(ellipse 60% 80% at 30% 50%, black 0%, transparent 100%)',
+          }}
+        />
+        {/* Dimming radial gradient */}
+        <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(ellipse_60%_80%_at_30%_50%,_rgba(0,0,0,0.55)_0%,_transparent_100%)]" />
+        {/* Bottom fade to white article */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 z-10 bg-gradient-to-b from-transparent to-[#141008]" />
+        <div className="relative z-20 mx-auto max-w-3xl">
           <div className="mb-6">
             <Link href="/blog" className="text-sm font-semibold text-slate-400 hover:text-white transition-colors">← Blog</Link>
           </div>
@@ -26,21 +45,9 @@ export default function AiWalkWithJesusPost() {
           </div>
           <h1 className="text-4xl md:text-5xl tracking-tighter-editorial text-white leading-[1.1] font-bold mb-6">Can AI Help You Walk With Jesus?</h1>
           <p className="text-xl text-slate-300 font-medium leading-relaxed">AI can&apos;t love you or know God&apos;s will — but it can remember your commitments and bring you back. Here&apos;s an honest look at AI discipleship tools.</p>
-        </div>
+            </div>
       </section>
-
-      {/* Hero Image */}
-      <div className="relative w-full aspect-[16/7] bg-slate-100">
-        <Image
-          src="/blog/can-ai-help-you-walk-with-jesus/hero.jpg"
-          alt="AI and walking with Jesus"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
-
-      <article className="py-16 px-6 bg-white">
+<article className="py-16 px-6 bg-white">
         <div className="mx-auto max-w-3xl">
           <div className="prose prose-slate max-w-none text-slate-700 font-medium leading-relaxed text-lg space-y-6">
             <p>I never thought I&apos;d be the guy building an AI discipleship tool.</p>

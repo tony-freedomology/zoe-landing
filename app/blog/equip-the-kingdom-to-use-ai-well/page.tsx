@@ -13,8 +13,27 @@ export const metadata: Metadata = {
 export default function EquipKingdomPost() {
   return (
     <div className="min-h-screen text-slate-900">
-      <section className="bg-gradient-to-b from-[#1a1308] to-[#141008] py-32 px-6 pt-40">
-        <div className="mx-auto max-w-3xl">
+      <section className="relative overflow-hidden bg-[#141008] py-32 px-6 pt-40">
+        {/* Hero Background */}
+        <Image
+          src="/blog/equip-the-kingdom-to-use-ai-well/hero.jpg"
+          alt="Equip the kingdom to use AI well"
+          fill
+          className="object-cover opacity-25"
+          priority
+        />
+        {/* Subtle blur over left/text area */}
+        <div className="absolute inset-0 z-10 pointer-events-none backdrop-blur-[2px]"
+          style={{
+            WebkitMaskImage: 'radial-gradient(ellipse 60% 80% at 30% 50%, black 0%, transparent 100%)',
+            maskImage: 'radial-gradient(ellipse 60% 80% at 30% 50%, black 0%, transparent 100%)',
+          }}
+        />
+        {/* Dimming radial gradient */}
+        <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(ellipse_60%_80%_at_30%_50%,_rgba(0,0,0,0.55)_0%,_transparent_100%)]" />
+        {/* Bottom fade to white article */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 z-10 bg-gradient-to-b from-transparent to-[#141008]" />
+        <div className="relative z-20 mx-auto max-w-3xl">
           <div className="mb-6">
             <Link href="/blog" className="text-sm font-semibold text-slate-400 hover:text-white transition-colors">← Blog</Link>
           </div>
@@ -26,21 +45,9 @@ export default function EquipKingdomPost() {
           </div>
           <h1 className="text-4xl md:text-5xl tracking-tighter-editorial text-white leading-[1.1] font-bold mb-6">What Does It Look Like to Equip the Kingdom to Use AI Well?</h1>
           <p className="text-xl text-slate-300 font-medium leading-relaxed">The church can&apos;t afford to sit this one out. Here&apos;s a practical framework for how churches and ministries should evaluate, adopt, and shape AI tools faithfully.</p>
-        </div>
+            </div>
       </section>
-
-      {/* Hero Image */}
-      <div className="relative w-full aspect-[16/7] bg-slate-100">
-        <Image
-          src="/blog/equip-the-kingdom-to-use-ai-well/hero.jpg"
-          alt="Equip the kingdom to use AI well"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
-
-      <article className="py-16 px-6 bg-white">
+<article className="py-16 px-6 bg-white">
         <div className="mx-auto max-w-3xl">
           <div className="prose prose-slate max-w-none text-slate-700 font-medium leading-relaxed text-lg space-y-6">
             <p>Here&apos;s something that shouldn&apos;t be surprising but still is: the Southern Baptist Convention became the first major denomination in America to pass a formal statement on AI ethics — in June 2023. The Vatican had already been at the table with Microsoft and IBM since February 2020, co-signing something called the <a href="https://www.vatican.va/roman_curia/pontifical_academies/acdlife/documents/rc_pont-acd_life_doc_20202228_rome-call-for-ai-ethics_en.pdf" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">Rome Call for AI Ethics</a>. The National Association of Evangelicals signed on too.</p>
