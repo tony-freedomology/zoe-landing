@@ -84,3 +84,52 @@ body {
 .hide-navbar>nav {
   display: none !important;
 }
+
+@keyframes journey-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes journey-marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.journey-marquee-row {
+  overflow: hidden;
+}
+
+.journey-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: journey-marquee 42s linear infinite;
+  will-change: transform;
+}
+
+.journey-marquee-track-reverse {
+  animation-name: journey-marquee-reverse;
+  animation-duration: 46s;
+}
+
+.journey-marquee-row:hover .journey-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-marquee-track,
+  .journey-marquee-track-reverse {
+    animation: none;
+    transform: translateX(0);
+  }
+}
