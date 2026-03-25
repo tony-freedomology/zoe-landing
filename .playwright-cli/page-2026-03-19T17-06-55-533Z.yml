@@ -1,0 +1,61 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - link "Prototypes" [ref=e4] [cursor=pointer]:
+      - /url: /journeys/lesson-preview
+      - img [ref=e5]
+      - text: Prototypes
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - img "Letting Go of the Weight" [ref=e11]
+        - generic [ref=e13]:
+          - paragraph [ref=e14]: 14-Day Journey on Forgiveness
+          - 'heading "Day 4: Release" [level=1] [ref=e15]'
+          - paragraph [ref=e16]: Forgiveness is not pretending the wound never happened. It is setting down what has been shaping your posture so healing can begin.
+          - generic [ref=e17]:
+            - img [ref=e18]
+            - paragraph [ref=e20]: Begin the descent
+      - generic [ref=e22]:
+        - img [ref=e24]
+        - heading "What memory still changes your posture the moment it comes to mind?" [level=2] [ref=e27]
+        - paragraph [ref=e28]: Breathe in. Name it. Breathe out.
+      - generic [ref=e30]:
+        - img "Atmospheric evening landscape" [ref=e33]
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - img [ref=e37]
+            - paragraph [ref=e40]: Second movement
+          - heading "Where do you feel the cost of carrying this hurt in your body, attention, or prayers?" [level=2] [ref=e41]
+          - paragraph [ref=e42]: Forgiveness makes space. It does not erase the wound, but it refuses to let the wound be the only thing growing in you.
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - img [ref=e47]
+          - generic [ref=e50]:
+            - paragraph [ref=e51]: Internalize
+            - paragraph [ref=e52]: Record one true sentence.
+        - generic [ref=e53]:
+          - textbox "Type your truth..." [ref=e54]
+          - button "Record Reflection" [ref=e55] [cursor=pointer]
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - img [ref=e60]
+          - paragraph [ref=e64]: Collective echoes
+        - generic [ref=e65]:
+          - article [ref=e66]:
+            - paragraph [ref=e67]: “I realized I have been carrying a conversation from two years ago like it happened yesterday. Naming that felt honest, and honestly a little freeing.”
+            - paragraph [ref=e68]: Sarah M.
+          - article [ref=e69]:
+            - paragraph [ref=e70]: “The line about not letting the offense become my identity hit me hard. I think I have been defining this season by what someone took from me.”
+            - paragraph [ref=e71]: David K.
+          - article [ref=e72]:
+            - paragraph [ref=e73]: “My first act of release is going to be praying for someone without rehearsing my side of the story first. Small step, but it feels real.”
+            - paragraph [ref=e74]: Amina R.
+        - generic [ref=e75]:
+          - img [ref=e78]
+          - paragraph [ref=e82]: Step 4 of 14 complete
+    - navigation:
+      - generic [ref=e83]:
+        - img [ref=e85]
+        - img [ref=e89]
+        - img [ref=e93]
+        - img [ref=e98]
+  - alert [ref=e101]

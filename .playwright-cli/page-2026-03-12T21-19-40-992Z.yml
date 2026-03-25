@@ -1,0 +1,92 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Zoe" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - button "Toggle menu" [ref=e105] [cursor=pointer]:
+        - img [ref=e106]
+  - main [ref=e18]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - paragraph [ref=e22]: Continue Your Rhythm
+        - heading "Let's keep the conversation going." [level=1] [ref=e23]
+        - paragraph [ref=e24]: Your free week is wrapping up. Confirm your number and keep the same Zoe thread going.
+        - generic [ref=e25]:
+          - generic [ref=e26]: same thread
+          - generic [ref=e27]: same number
+          - generic [ref=e28]: cancel anytime
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]: Secure your thread
+          - generic [ref=e36]: Stripe
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - paragraph [ref=e40]: Monthly
+            - paragraph [ref=e41]: Billed monthly after your free week
+          - paragraph [ref=e42]: Same thread
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: Confirm your mobile number
+            - textbox "Confirm your mobile number" [ref=e46]:
+              - /placeholder: (555) 555-5555
+          - generic [ref=e48]:
+            - img [ref=e49]
+            - text: Use the number you've been texting Zoe from
+          - button "Find my thread" [ref=e52] [cursor=pointer]:
+            - text: Find my thread
+            - img [ref=e53]
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - img [ref=e57]
+            - text: Encrypted
+          - generic [ref=e61]:
+            - img [ref=e62]
+            - text: Cancel anytime
+      - generic [ref=e65]:
+        - paragraph [ref=e66]: Same Thread
+        - generic [ref=e67]:
+          - generic [ref=e69]:
+            - paragraph [ref=e70]: good morning. what are you carrying into today?
+            - paragraph [ref=e71]: zoe - 7:02 am
+          - generic [ref=e73]:
+            - paragraph [ref=e74]: no reset. just keep going.
+            - paragraph [ref=e75]: you - now
+    - generic [ref=e77]:
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - link "Zoe" [ref=e80] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e81]: A daily discipleship companion that lives in your texts. No app. No login. Just the questions that matter.
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - paragraph [ref=e84]: Product
+            - link "Features" [ref=e85] [cursor=pointer]:
+              - /url: /features
+            - link "FAQ" [ref=e86] [cursor=pointer]:
+              - /url: /faq
+            - link "Join The Walk" [ref=e87] [cursor=pointer]:
+              - /url: /#waitlist
+          - generic [ref=e88]:
+            - paragraph [ref=e89]: Journeys
+            - link "Book of James" [ref=e90] [cursor=pointer]:
+              - /url: /journeys/book-of-james
+            - link "New Believer" [ref=e91] [cursor=pointer]:
+              - /url: /journeys/new-believer
+          - generic [ref=e92]:
+            - paragraph [ref=e93]: Company
+            - link "About" [ref=e94] [cursor=pointer]:
+              - /url: /about
+            - link "For Churches" [ref=e95] [cursor=pointer]:
+              - /url: /churches
+            - link "Blog" [ref=e96] [cursor=pointer]:
+              - /url: /blog
+          - generic [ref=e97]:
+            - paragraph [ref=e98]: Legal
+            - link "Privacy" [ref=e99] [cursor=pointer]:
+              - /url: /privacy
+            - link "Terms" [ref=e100] [cursor=pointer]:
+              - /url: /terms
+      - generic [ref=e101]:
+        - generic [ref=e102]: © 2026 Zoe by Freedomology. All rights reserved.
+        - generic [ref=e103]: Built in Cleveland, OH.
+  - alert [ref=e104]

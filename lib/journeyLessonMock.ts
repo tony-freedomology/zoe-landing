@@ -1,6 +1,6 @@
 import type { StaticImageData } from "next/image";
-import morningImg from "../public/assets/illustrations/morning.jpeg";
-import duskImg from "../public/assets/illustrations/dusk.jpeg";
+import forgivenessHeroPhotoImg from "../public/assets/illustrations/journey-lesson-forgiveness-hero-photo.jpg";
+import forgivenessDetailPhotoImg from "../public/assets/illustrations/journey-lesson-forgiveness-detail-photo.jpg";
 
 export type LessonComment = {
   id: string;
@@ -32,9 +32,9 @@ export const journeyLessonMock: JourneyLessonData = {
   title: "Letting Go of the Weight",
   scripture: "Matthew 18:21-22",
   readTime: "3 min read",
-  coverImage: morningImg,
-  detailImage: duskImg,
-  detailImageAlt: "Evening landscape",
+  coverImage: forgivenessHeroPhotoImg,
+  detailImage: forgivenessDetailPhotoImg,
+  detailImageAlt: "Blue-hour stream through a quiet meadow",
   summary:
     "Forgiveness is not pretending the wound never happened. It is setting down what has been shaping your posture so healing can begin.",
   body: [

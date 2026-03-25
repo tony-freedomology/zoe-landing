@@ -24,14 +24,10 @@ function JourneyRow({ journeys, reverse = false }: { journeys: typeof journeyCat
               placeholder="blur"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0f1f1a]/80 via-[#0f1f1a]/15 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/75">
+            <div className="absolute bottom-4 right-4 rounded-full border border-white/20 bg-black/40 px-3 py-1.5 backdrop-blur-md">
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/95">
                 {journey.duration}
               </p>
-              <h3 className="max-w-[16rem] text-xl font-semibold leading-tight tracking-tight">
-                {journey.title}
-              </h3>
             </div>
           </Link>
         ))}
