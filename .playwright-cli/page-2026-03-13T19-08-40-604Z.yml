@@ -1,0 +1,22 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: Zoe
+        - generic [ref=e8]:
+          - heading "Keep walking." [level=1] [ref=e9]
+          - paragraph [ref=e10]: Same thread. No reset.
+      - generic [ref=e13]:
+        - generic [ref=e15]:
+          - paragraph [ref=e16]: Confirm your number
+          - paragraph [ref=e17]: Use the number you text Zoe from.
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - generic [ref=e20]: Phone number
+            - textbox "Phone number" [ref=e21]:
+              - /placeholder: (555) 555-5555
+          - button "Next" [ref=e22] [cursor=pointer]:
+            - text: Next
+            - img [ref=e23]
+        - paragraph [ref=e25]: Cancel anytime via text. Secure and encrypted.
+  - alert [ref=e26]

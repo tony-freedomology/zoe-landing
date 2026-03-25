@@ -10,6 +10,7 @@ import ParallaxBackgrounds from './ParallaxBackgrounds';
 import Hero2D from './Hero2D';
 import StickySmsSection from './StickySmsSection';
 import StickyRhythmsSection from './StickyRhythmsSection';
+import JourneyMarquee from './JourneyMarquee';
 import ThesisSection from './ThesisSection';
 import { Highlight } from './Highlight';
 import { usePhoneFormatter } from '../app/hooks/usePhoneFormatter';
@@ -168,6 +169,28 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
 
         {/* Act 2: The Daily Rhythm */}
         <StickyRhythmsSection />
+
+        <section className={clsx("relative overflow-hidden px-6 py-20 md:py-28", variant === "jesus-red" ? "bg-[#f8f1e7]" : "bg-[#FCFAF8]")}>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(217,119,6,0.08),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(0,194,146,0.08),transparent_40%)] pointer-events-none" />
+          <div className="mx-auto max-w-7xl relative z-10">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mx-auto mb-12 max-w-3xl text-center">
+              <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6 shadow-sm",
+                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#00c292] text-white border-transparent" : "rounded-full border-[#d97706]/20 bg-[#d97706]/10 text-[#d97706]")}>
+                Guided Journeys
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tighter-editorial text-slate-900 leading-[1.08]">
+                Scripture for the places people actually live.
+              </h2>
+              <p className="mt-5 text-lg md:text-xl text-slate-600 font-medium leading-relaxed">
+                Twenty-five guided paths on fear, money, marriage, grief, prayer, leadership, and the rest of the questions that do not stay theoretical for long.
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+              <JourneyMarquee />
+            </motion.div>
+          </div>
+        </section>
 
         {/* Act 3: The Clearing (Unified CTA & Pricing) */}
         <section ref={waitlistRef} id="waitlist" className={clsx("min-h-[150vh] relative", variant === "jesus-red" ? "bg-[#f5efe6]" : "bg-[#F8FBFA]")}>

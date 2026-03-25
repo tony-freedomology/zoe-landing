@@ -1,0 +1,92 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - link "Prototypes" [ref=e5] [cursor=pointer]:
+        - /url: /journeys/lesson-preview
+        - img [ref=e6]
+        - text: Prototypes
+      - generic [ref=e8]: Version 2
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - paragraph [ref=e11]: 14-Day Journey on Forgiveness
+        - 'heading "Day 4: Letting Go of the Weight" [level=1] [ref=e12]'
+        - paragraph [ref=e13]: Forgiveness is not pretending the wound never happened. It is setting down what has been shaping your posture so healing can begin.
+      - img "Letting Go of the Weight" [ref=e14]
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - img [ref=e19]
+        - generic [ref=e21]:
+          - paragraph [ref=e22]: Lesson notes
+          - paragraph [ref=e23]: Matthew 18:21-22 · 3 min read
+      - generic [ref=e24]:
+        - paragraph [ref=e25]: Resentment has a way of turning one moment of pain into a daily rhythm. We rehearse what happened. We rebuild the case. We carry the conversation long after the other person has left the room.
+        - paragraph [ref=e26]: Jesus does not ask you to call evil good. He invites you to stop letting the offense become your identity. Forgiveness is the release of your right to keep reliving the injury as the center of the story.
+        - paragraph [ref=e27]: Today is not about forcing resolution. It is about loosening your grip. Notice the weight you have been carrying and ask what would change if you no longer needed to keep proving you were wronged.
+    - generic [ref=e28]:
+      - img [ref=e30]
+      - generic [ref=e33]:
+        - paragraph [ref=e34]: Reflection prompts
+        - heading "Questions for the walk home" [level=2] [ref=e35]
+        - list [ref=e36]:
+          - listitem [ref=e37]:
+            - generic [ref=e38]: +What memory still changes your posture the moment it comes to mind?
+          - listitem [ref=e39]:
+            - generic [ref=e40]: +Where do you feel the cost of carrying this hurt in your body, attention, or prayers?
+          - listitem [ref=e41]:
+            - generic [ref=e42]: +What would a first act of release look like today, even if reconciliation is still far away?
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - img [ref=e47]
+        - generic [ref=e50]:
+          - paragraph [ref=e51]: Closing prayer
+          - paragraph [ref=e52]: A quieter ending
+      - paragraph [ref=e53]: Jesus, I do not know how to heal this by myself. Teach me to release what I keep replaying, and make room in me for peace without denial.
+    - generic [ref=e55]:
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - img [ref=e59]
+          - generic [ref=e61]:
+            - paragraph [ref=e62]: Community Notes
+            - heading "Add your field note" [level=2] [ref=e63]
+        - generic [ref=e64]:
+          - textbox "What is surfacing for you today?" [ref=e65]
+          - button "Post Reflection" [ref=e66]:
+            - text: Post Reflection
+            - img [ref=e67]
+          - paragraph [ref=e69]: Prototype only. Reflections persist locally in this browser.
+      - generic [ref=e70]:
+        - article [ref=e71]:
+          - generic [ref=e73]:
+            - generic [ref=e74]: SM
+            - generic [ref=e75]:
+              - generic [ref=e76]:
+                - paragraph [ref=e77]: Sarah M.
+                - text: 12 minutes ago
+              - paragraph [ref=e78]: Day 4, morning reflection
+              - paragraph [ref=e79]: I realized I have been carrying a conversation from two years ago like it happened yesterday. Naming that felt honest, and honestly a little freeing.
+        - article [ref=e80]:
+          - generic [ref=e82]:
+            - generic [ref=e83]: DK
+            - generic [ref=e84]:
+              - generic [ref=e85]:
+                - paragraph [ref=e86]: David K.
+                - text: 34 minutes ago
+              - paragraph [ref=e87]: After lunch break
+              - paragraph [ref=e88]: The line about not letting the offense become my identity hit me hard. I think I have been defining this season by what someone took from me.
+        - article [ref=e89]:
+          - generic [ref=e91]:
+            - generic [ref=e92]: AR
+            - generic [ref=e93]:
+              - generic [ref=e94]:
+                - paragraph [ref=e95]: Amina R.
+                - text: 1 hour ago
+              - paragraph [ref=e96]: Evening walk
+              - paragraph [ref=e97]: My first act of release is going to be praying for someone without rehearsing my side of the story first. Small step, but it feels real.
+    - generic [ref=e98]:
+      - generic [ref=e99]:
+        - paragraph [ref=e100]: Compare against
+        - paragraph [ref=e101]: The warmer workbook version
+      - link "Open V1" [ref=e102] [cursor=pointer]:
+        - /url: /journeys/lesson-preview/v1
+        - text: Open V1
+        - img [ref=e103]
