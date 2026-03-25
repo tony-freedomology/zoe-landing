@@ -3,60 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../components/Footer";
-import jamesDeepImg from "../../public/images/journeys/james-deep.jpg";
-import stillPrayerImg from "../../public/images/journeys/still-prayer.jpg";
-import examenReflectionImg from "../../public/images/journeys/examen-reflection.jpg";
-import rootedPsalmsImg from "../../public/images/journeys/rooted-psalms.jpg";
-import wayOfJesusImg from "../../public/images/journeys/way-of-jesus.jpg";
+import { journeyCatalog } from "../../lib/journeyCatalog";
 
 export const metadata: Metadata = {
-  title: "Journeys — Zoe",
+  title: "Journeys - Zoe",
   description:
-    "Explore guided daily reading, prayer, and reflection journeys built to help you walk with Jesus.",
+    "Explore twenty-five guided reading, prayer, and reflection journeys built to help you walk with Jesus in the places real life hits hardest.",
 };
-
-const journeys = [
-  {
-    slug: "james-deep",
-    title: "James: 10 Days Deep",
-    duration: "10 Days",
-    difficulty: "intermediate",
-    image: jamesDeepImg,
-    description: "James writes to a scattered church — people who claimed faith but lived differently from Monday to Saturday. His letter is less a theology lecture and more a direct conversation: you say you believe. Does your life show it?",
-  },
-  {
-    slug: "still",
-    title: "Still: 21 Days of Contemplative Prayer",
-    duration: "21 Days",
-    difficulty: "introductory",
-    image: stillPrayerImg,
-    description: "Most of us talk at God. This journey teaches you to sit with God. Twenty-one days of building a contemplative prayer practice — starting with just two minutes of silence and gradually deepening into a rhythm that changes how you experience God's presence.",
-  },
-  {
-    slug: "the-examen",
-    title: "The Examen: 14 Days of Evening Reflection",
-    duration: "14 Days",
-    difficulty: "introductory",
-    image: examenReflectionImg,
-    description: "The Examen is a 500-year-old prayer practice from Ignatius of Loyola. It's simple: at the end of each day, look back and notice where God showed up — and where you missed it. Fourteen days to build the habit of paying attention.",
-  },
-  {
-    slug: "rooted",
-    title: "Rooted: 30 Days in the Psalms",
-    duration: "30 Days",
-    difficulty: "introductory",
-    image: rootedPsalmsImg,
-    description: "The Psalms are the prayer book of the Bible — raw, honest, and deeply human. This 30-day journey pairs one psalm per day with a contemplative reading practice. Some days you'll sit in praise. Others, you'll wrestle with doubt. That's the point.",
-  },
-  {
-    slug: "way-of-jesus",
-    title: "The Way of Jesus: 40 Days Through the Gospels",
-    duration: "40 Days",
-    difficulty: "deep",
-    image: wayOfJesusImg,
-    description: "Forty days walking through the life and teachings of Jesus — from his first sermon to his last words. Each day pairs a Gospel passage with an application challenge. Because understanding what Jesus said without doing what he said is the whole problem.",
-  },
-];
 
 export default function JourneysHubPage() {
   return (
@@ -76,7 +29,7 @@ export default function JourneysHubPage() {
       <section className="py-24 px-6">
         <div className="mx-auto max-w-7xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {journeys.map((journey) => (
+            {journeyCatalog.map((journey) => (
               <Link
                 href={`/journeys/${journey.slug}`}
                 key={journey.slug}
