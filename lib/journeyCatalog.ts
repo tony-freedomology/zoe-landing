@@ -24,6 +24,11 @@ import wisdomImg from "../public/images/journeys/wisdom.jpg";
 import addictionImg from "../public/images/journeys/addiction.jpg";
 import gratitudeImg from "../public/images/journeys/gratitude.jpg";
 import patienceImg from "../public/images/journeys/patience.jpg";
+import courageImg from "../public/images/journeys/courage.jpg";
+import generosityImg from "../public/images/journeys/generosity.jpg";
+import restImg from "../public/images/journeys/rest.jpg";
+import sufferingImg from "../public/images/journeys/suffering.jpg";
+import legacyImg from "../public/images/journeys/legacy.jpg";
 import { journeyContent } from "./journeyContent";
 
 export type JourneySummary = {
@@ -240,5 +245,45 @@ export const journeyCatalog: JourneySummary[] = [
     difficulty: journeyContent.patience.difficulty,
     image: patienceImg,
     description: journeyContent.patience.description,
+  },
+  {
+    slug: journeyContent.courage.slug,
+    title: journeyContent.courage.title,
+    duration: journeyContent.courage.duration,
+    difficulty: journeyContent.courage.difficulty,
+    image: courageImg,
+    description: journeyContent.courage.description,
+  },
+  {
+    slug: journeyContent.generosity.slug,
+    title: journeyContent.generosity.title,
+    duration: journeyContent.generosity.duration,
+    difficulty: journeyContent.generosity.difficulty,
+    image: generosityImg,
+    description: journeyContent.generosity.description,
+  },
+  {
+    slug: journeyContent.rest.slug,
+    title: journeyContent.rest.title,
+    duration: journeyContent.rest.duration,
+    difficulty: journeyContent.rest.difficulty,
+    image: restImg,
+    description: journeyContent.rest.description,
+  },
+  {
+    slug: journeyContent.suffering.slug,
+    title: journeyContent.suffering.title,
+    duration: journeyContent.suffering.duration,
+    difficulty: journeyContent.suffering.difficulty,
+    image: sufferingImg,
+    description: journeyContent.suffering.description,
+  },
+  {
+    slug: journeyContent.legacy.slug,
+    title: journeyContent.legacy.title,
+    duration: journeyContent.legacy.duration,
+    difficulty: journeyContent.legacy.difficulty,
+    image: legacyImg,
+    description: journeyContent.legacy.description,
   },
 ];
