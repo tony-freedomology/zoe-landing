@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import clsx from "clsx";
 import {
   ArrowRight,
@@ -25,6 +27,7 @@ import {
 import SmsAnimation from "../../components/SmsAnimation";
 import Footer from "../../components/Footer";
 import { usePhoneFormatter } from "../hooks/usePhoneFormatter";
+import communityBg from "../../public/images/community-image.png";
 
 /* ━━━ Animation Tokens (matching main page) ━━━ */
 const fadeUp = {
@@ -61,8 +64,8 @@ const pillars = [
     eyebrow: "Ask the hard questions before launch",
     body: "Clergy can pressure-test Zoe with real edge cases and see the exact response before a single member joins.",
     icon: <Eye className="h-6 w-6" />,
-    accent: "text-slate-700",
-    accentBg: "bg-slate-100",
+    accent: "text-zinc-700",
+    accentBg: "bg-zinc-100",
     layout: "lg:col-span-2",
   },
   {
@@ -126,8 +129,8 @@ const extraFeatures = [
 const privacyPillars = [
   { title: "Private by default", body: "Leaders don't read members' personal threads. The default posture is private, not pastoral surveillance.", icon: <Lock className="h-5 w-5 text-brand-jade" /> },
   { title: "Anonymized church insight", body: "Pastors see patterns, not confessions. Feedback and trends stay aggregated unless someone explicitly asks for follow-up.", icon: <BarChart3 className="h-5 w-5 text-brand-cyan" /> },
-  { title: "Consent controls", body: "Members opt into prayer distribution, optional sharing, and any deeper support workflow. Nothing sneaks past consent.", icon: <Settings className="h-5 w-5 text-slate-700" /> },
-  { title: "Clear records and auditability", body: "Sensitive actions are logged. Export and delete rights stay available. Staff access stays accountable.", icon: <FileText className="h-5 w-5 text-slate-700" /> },
+  { title: "Consent controls", body: "Members opt into prayer distribution, optional sharing, and any deeper support workflow. Nothing sneaks past consent.", icon: <Settings className="h-5 w-5 text-zinc-700" /> },
+  { title: "Clear records and auditability", body: "Sensitive actions are logged. Export and delete rights stay available. Staff access stays accountable.", icon: <FileText className="h-5 w-5 text-zinc-700" /> },
 ];
 
 const faqs = [
@@ -166,166 +169,163 @@ export default function ChurchesPage() {
   };
 
   return (
-    <div className="min-h-screen text-slate-900 selection:bg-brand-jade/20">
+    <div className="min-h-screen text-zinc-900 selection:bg-brand-jade/20">
       <main className="relative z-10 overflow-hidden font-sans">
 
         {/* ━━━ HERO ━━━ */}
-        <section className="relative px-6 pb-24 pt-28 md:pb-32 md:pt-36 bg-[#FCFAF8]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,194,146,0.06),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(0,139,163,0.05),transparent_45%)] pointer-events-none" />
+        {/* ━━━ HERO ━━━ */}
+        <section className="relative w-full overflow-hidden bg-[#0f1f1a] pt-32 pb-48 md:pt-40 md:pb-64 border-b border-white/10">
+          <Image src={communityBg} alt="Church Community Background" fill className="object-cover opacity-25 mix-blend-luminosity" priority />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0f1f1a] via-[#0f1f1a]/80 to-[#0f1f1a]/40" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-jade/20 via-transparent to-transparent opacity-70" />
 
-          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:items-center relative z-10">
-            <motion.div variants={stagger} initial="hidden" animate="show">
+          <div className="mx-auto max-w-7xl px-6 relative z-10 flex flex-col items-center text-center">
+            <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-4xl flex flex-col items-center">
               <motion.div variants={fadeUp}>
-                <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/20 bg-brand-jade/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-jade shadow-sm">
+                <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-jade shadow-sm backdrop-blur-md">
                   For pastors, priests, and church teams
                 </div>
               </motion.div>
 
               <motion.h1
                 variants={fadeUp}
-                className="mt-8 max-w-4xl text-[2.85rem] font-bold leading-[1.05] tracking-tighter-editorial text-slate-900 md:text-[4.5rem] lg:text-[5rem]"
+                className="mt-8 max-w-4xl text-[3.25rem] font-bold leading-[1.05] tracking-tighter-editorial text-white md:text-[5rem] lg:text-[5.5rem] drop-shadow-lg"
               >
                 Your church&apos;s weekday
                 <br />
                 <span className="text-brand-jade">discipleship layer.</span>
               </motion.h1>
 
-              <motion.p variants={fadeUp} className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-slate-600 md:text-xl">
+              <motion.p variants={fadeUp} className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-zinc-300 md:text-2xl drop-shadow">
                 Sunday can hit hard. Then Monday shows up with work, school drop-off, hospital visits, bills, and
                 a hundred other things. Zoe closes that gap with daily texts shaped by what your
                 church actually taught.
               </motion.p>
 
-              <motion.div variants={fadeUp} className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <motion.div variants={fadeUp} className="mt-12 flex flex-col gap-5 sm:flex-row sm:items-center justify-center w-full sm:w-auto">
                 <a
                   href="#waitlist"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition-all hover:-translate-y-0.5 hover:bg-slate-800"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-jade px-10 py-4 text-base font-bold text-zinc-900 shadow-[0_0_40px_rgba(0,194,146,0.3)] transition-all hover:-translate-y-0.5 hover:bg-emerald-400 hover:shadow-[0_0_60px_rgba(0,194,146,0.4)]"
                 >
                   Join the church waitlist
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-5 w-5" />
                 </a>
-                <a
+                <Link
                   href="/"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-4 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:bg-slate-50 hover:text-slate-900"
+                  className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-10 py-4 text-base font-semibold text-white backdrop-blur-md shadow-sm transition-colors hover:bg-white/10 hover:border-white/30"
                 >
                   See Zoe for individuals
-                </a>
+                </Link>
               </motion.div>
 
-              <motion.div variants={fadeUp} className="mt-10 max-w-2xl rounded-2xl border border-slate-200/60 bg-white/80 p-6 shadow-sm backdrop-blur">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-sm">
-                    <Quote className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-lg font-semibold leading-relaxed text-slate-900 md:text-xl">
-                      &ldquo;Take my sermon and help my people live it this week.&rdquo;
-                    </p>
-                    <p className="mt-2 text-sm font-medium leading-relaxed text-slate-500">
-                      That&apos;s the whole pitch. Keep Sunday&apos;s teaching alive when real life starts pressing on it.
-                    </p>
-                  </div>
-                </div>
+              <motion.div variants={fadeUp} className="mt-12 flex flex-wrap justify-center items-center gap-3 text-xs font-bold uppercase tracking-widest text-zinc-300">
+                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 shadow-sm backdrop-blur-md">Staff preview before send</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 shadow-sm backdrop-blur-md">No app for members</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 shadow-sm backdrop-blur-md">Human handoff when it matters</span>
               </motion.div>
-
-              <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-widest text-slate-500">
-                <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 shadow-sm">Staff preview before send</span>
-                <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 shadow-sm">No app for members</span>
-                <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 shadow-sm">Human handoff when it matters</span>
-              </motion.div>
-            </motion.div>
-
-            {/* Hero Dashboard Preview */}
-            <motion.div variants={fadeUp} initial="hidden" animate="show" className="relative mx-auto w-full max-w-[36rem]">
-              <div className="relative rounded-[2rem] border border-slate-200/60 bg-white/90 p-5 shadow-[0_35px_120px_-45px_rgba(15,23,42,0.25)] backdrop-blur md:p-6">
-                <div className="flex items-center justify-between border-b border-slate-200 pb-4">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">This week at St. Mark</p>
-                    <p className="mt-1 text-lg font-bold text-slate-900">Sunday sermon companion</p>
-                  </div>
-                  <div className="rounded-full bg-brand-jade/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-jade">
-                    Ready to review
-                  </div>
-                </div>
-
-                <div className="mt-5 grid gap-5 xl:grid-cols-[1fr_19rem]">
-                  <div className="space-y-4">
-                    <div className="rounded-2xl bg-slate-900 p-5 text-white">
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="font-semibold">The kingdom is closer than you think</span>
-                        <span className="rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-widest text-slate-200">Mon–Fri draft</span>
-                      </div>
-                      <div className="mt-4 space-y-3">
-                        {["Mon: name the pressure point", "Tue: one scripture, one question", "Wed: a practice for the commute home", "Thu: prayer circle follow-up", "Fri: one concrete next step"].map((item) => (
-                          <div key={item} className="flex items-center gap-3 rounded-xl bg-white/5 px-3 py-2.5">
-                            <CheckCircle className="h-4 w-4 shrink-0 text-brand-jade" />
-                            <span className="text-sm text-slate-100">{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div className="rounded-xl border border-slate-200 bg-[#FCFAF8] p-4">
-                        <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Theology profile</p>
-                        <p className="mt-2 text-base font-bold text-slate-900">Catholic</p>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-slate-600">Sacramental questions defer to clergy. Prayer language stays grounded and direct.</p>
-                      </div>
-                      <div className="rounded-xl border border-slate-200 bg-[#FCFAF8] p-4">
-                        <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Prayer circle</p>
-                        <p className="mt-2 text-base font-bold text-slate-900">12 people prayed today</p>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-slate-600">Anonymous by default. Pastor chooses prayer team only or wider church opt-in.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="rounded-xl bg-[#F8FBFA] p-3">
-                    <div className="mx-auto max-w-[19rem]">
-                      <SmsAnimation />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute -bottom-6 left-5 max-w-[16rem] rounded-xl border border-slate-200 bg-white p-4 shadow-lg">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600"><QrCode className="h-5 w-5" /></div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Launch kit</p>
-                    <p className="text-sm font-semibold text-slate-900">Bulk SMS + QR + invite link</p>
-                  </div>
-                </div>
-              </div>
             </motion.div>
           </div>
         </section>
 
+        {/* Hero Dashboard Preview OVERLAPPING */}
+        <div className="relative z-20 mx-auto w-full max-w-6xl px-4 -mt-24 md:-mt-48 mb-24 md:mb-32">
+          <motion.div variants={fadeUp} initial="hidden" animate="show" className="rounded-[2.5rem] border border-white/20 bg-white/95 p-6 shadow-[0_45px_150px_-30px_rgba(0,194,146,0.25)] backdrop-blur-2xl md:p-10">
+            <div className="flex items-center justify-between border-b border-zinc-200 pb-5">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">This week at St. Mark</p>
+                <p className="mt-1 text-2xl font-bold tracking-tight text-zinc-900">Sunday sermon companion</p>
+              </div>
+              <div className="rounded-full bg-brand-jade/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-brand-jade">
+                Ready to review
+              </div>
+            </div>
+
+            <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_22rem]">
+              <div className="space-y-6">
+                <div className="rounded-3xl bg-[#0f1f1a] p-8 text-white shadow-lg relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-brand-jade/10 rounded-full blur-[80px] -mr-20 -mt-20" />
+                  <div className="flex items-center justify-between text-base relative z-10">
+                    <span className="font-bold text-xl">The kingdom is closer than you think</span>
+                    <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-zinc-200 backdrop-blur-sm">Mon–Fri draft</span>
+                  </div>
+                  <div className="mt-8 space-y-4 relative z-10">
+                    {["Mon: name the pressure point", "Tue: one scripture, one question", "Wed: a practice for the commute home", "Thu: prayer circle follow-up", "Fri: one concrete next step"].map((item) => (
+                      <div key={item} className="flex items-center gap-4 rounded-xl bg-white/5 border border-white/5 px-5 py-4 transition hover:bg-white/10">
+                        <CheckCircle className="h-5 w-5 shrink-0 text-brand-jade" />
+                        <span className="text-base font-medium text-zinc-100">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="grid gap-6 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-zinc-200/80 bg-zinc-50 p-6 shadow-sm transition hover:shadow-md hover:-translate-y-0.5 hover:border-brand-jade/30">
+                    <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-500">Theology profile</p>
+                    <p className="mt-3 text-xl font-bold tracking-tight text-zinc-900">Catholic</p>
+                    <p className="mt-3 text-sm font-medium leading-relaxed text-zinc-600">Sacramental questions defer to clergy. Prayer language stays grounded and direct.</p>
+                  </div>
+                  <div className="rounded-2xl border border-zinc-200/80 bg-zinc-50 p-6 shadow-sm transition hover:shadow-md hover:-translate-y-0.5 hover:border-amber-400/50">
+                    <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-500">Prayer circle</p>
+                    <p className="mt-3 text-xl font-bold tracking-tight text-zinc-900">12 people prayed today</p>
+                    <p className="mt-3 text-sm font-medium leading-relaxed text-zinc-600">Anonymous by default. Pastor chooses prayer team only or wider church opt-in.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-3xl border border-zinc-200/60 bg-[#F8FBFA] p-6 shadow-inner flex flex-col justify-center relative overflow-hidden">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle_at_center,rgba(0,194,146,0.05),transparent_60%)] pointer-events-none" />
+                <div className="mx-auto max-w-[20rem] relative z-10">
+                  <SmsAnimation />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="absolute -bottom-8 left-12 max-w-[22rem] z-30">
+            <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5 }} className="rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-xl">
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50 text-amber-600 border border-amber-100/50 shadow-sm"><QrCode className="h-6 w-6" /></div>
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-500">Launch kit</p>
+                  <p className="text-base font-bold text-zinc-900">Bulk SMS + QR + invite link</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
         {/* ━━━ THE PROBLEM (dark section) ━━━ */}
-        <section className="relative overflow-hidden bg-misty-green-950 px-6 py-24 text-white md:py-32 border-b border-misty-green-900">
-          <div className="mx-auto max-w-6xl">
+        <section className="relative overflow-hidden bg-[#0f1f1a] px-6 py-32 text-white md:py-48 border-b border-white/5">
+          <div className="absolute top-0 right-1/4 w-[40rem] h-[40rem] bg-brand-jade/10 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute bottom-0 left-1/4 w-[40rem] h-[40rem] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+
+          <div className="mx-auto max-w-6xl relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="max-w-3xl">
-              <p className="text-amber-500 font-semibold tracking-widest uppercase text-sm mb-6">The Reality</p>
-              <h2 className="text-4xl font-bold tracking-tighter-editorial text-white md:text-5xl lg:text-6xl leading-[1.08]">
+              <p className="text-amber-500 font-bold tracking-widest uppercase text-xs mb-6 inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/10 px-4 py-1.5 shadow-sm backdrop-blur">
+                The Reality
+              </p>
+              <h2 className="text-4xl font-bold tracking-tighter-editorial text-white md:text-5xl lg:text-[4.5rem] leading-[1.08] drop-shadow-md">
                 Sunday inspires.
                 <br />
                 Monday reality hits.
               </h2>
-              <p className="mt-6 max-w-2xl text-lg font-medium leading-relaxed text-misty-green-100">
+              <p className="mt-8 max-w-2xl text-xl font-medium leading-relaxed text-zinc-300">
                 Most churches don&apos;t have a sermon problem. They have a follow-through problem. People leave with
                 good intentions, then life gets loud again. Zoe gives the sermon somewhere to keep working after the
                 parking lot empties.
               </p>
             </motion.div>
 
-            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-14 grid gap-5 md:grid-cols-3">
+            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-20 grid gap-6 md:grid-cols-3">
               {[
                 { title: "Sunday afternoon", body: "People mean it. They took notes. They felt convicted. They want to carry it into the week." },
                 { title: "Tuesday afternoon", body: "Work fires, family pressure, hospital waiting rooms, and bad news start crowding the sermon out." },
                 { title: "By Friday", body: "What sticks is whatever kept showing up. Zoe keeps showing up with small, clear next steps tied back to Sunday." },
               ].map((card) => (
-                <motion.div key={card.title} variants={fadeUp} className="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-misty-green-400 mb-4">{card.title}</p>
-                  <p className="text-xl font-bold text-white leading-snug">{card.body}</p>
+                <motion.div key={card.title} variants={fadeUp} className="group relative rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all hover:bg-white/10 hover:border-white/20 hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-[2rem]" />
+                  <p className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-5 group-hover:text-brand-jade transition-colors">{card.title}</p>
+                  <p className="text-2xl font-bold text-white leading-snug tracking-tight relative z-10">{card.body}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -333,38 +333,41 @@ export default function ChurchesPage() {
         </section>
 
         {/* ━━━ FIVE PILLARS ━━━ */}
-        <section className="bg-[#FCFAF8] px-6 py-24 md:py-32">
-          <div className="mx-auto max-w-6xl">
+        <section className="relative bg-[#FCFAF8] px-6 py-32 md:py-48">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,194,146,0.03),transparent_60%)] pointer-events-none" />
+          
+          <div className="mx-auto max-w-6xl relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mx-auto max-w-3xl text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/20 bg-brand-jade/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-jade shadow-sm">
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-jade shadow-sm">
                 Five Pillars
               </div>
-              <h2 className="mt-7 text-4xl font-bold tracking-tighter-editorial text-slate-900 md:text-5xl leading-[1.08]">
+              <h2 className="mt-8 text-4xl font-bold tracking-tighter-editorial text-zinc-900 md:text-5xl lg:text-[4rem] leading-[1.05]">
                 Built for the church week, not just the church service.
               </h2>
-              <p className="mt-6 text-lg font-medium leading-relaxed text-slate-600">
+              <p className="mt-8 text-xl font-medium leading-relaxed text-zinc-600 max-w-2xl mx-auto">
                 These are the pieces that make Zoe feel like a real weekday ministry layer instead of another thing
                 your team has to babysit.
               </p>
             </motion.div>
 
-            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-16 grid gap-6 lg:grid-cols-6">
+            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-20 grid gap-8 lg:grid-cols-6">
               {pillars.map((pillar) => (
                 <motion.div
                   key={pillar.title}
                   variants={fadeUp}
                   className={clsx(
-                    "group relative overflow-hidden rounded-2xl border border-slate-200/60 bg-white p-7 shadow-[0_4px_20px_rgb(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg",
+                    "group relative overflow-hidden rounded-[2.5rem] border border-zinc-200/60 bg-white p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)]",
                     pillar.layout,
                   )}
                 >
-                  <div className="relative">
-                    <div className={clsx("flex h-12 w-12 items-center justify-center rounded-xl", pillar.accentBg, pillar.accent)}>
+                  <div className={clsx("absolute -top-10 -right-10 w-40 h-40 rounded-full blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none", pillar.accentBg)} />
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className={clsx("flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm", pillar.accentBg, pillar.accent)}>
                       {pillar.icon}
                     </div>
-                    <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-slate-500">{pillar.eyebrow}</p>
-                    <h3 className="mt-3 text-2xl font-bold text-slate-900 tracking-tight">{pillar.title}</h3>
-                    <p className="mt-4 text-base font-medium leading-relaxed text-slate-600">{pillar.body}</p>
+                    <p className="mt-8 text-xs font-bold uppercase tracking-widest text-zinc-500">{pillar.eyebrow}</p>
+                    <h3 className="mt-3 text-3xl font-bold text-zinc-900 tracking-tight">{pillar.title}</h3>
+                    <p className="mt-5 text-lg font-medium leading-relaxed text-zinc-600">{pillar.body}</p>
                   </div>
                 </motion.div>
               ))}
@@ -373,27 +376,29 @@ export default function ChurchesPage() {
         </section>
 
         {/* ━━━ HOW IT WORKS ━━━ */}
-        <section className="border-t border-slate-200/60 bg-[#F8FBFA] px-6 py-24 md:py-28">
-          <div className="mx-auto max-w-6xl">
+        <section className="relative bg-white px-6 py-32 md:py-48 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(0,194,146,0.03),transparent_70%)] pointer-events-none" />
+          <div className="mx-auto max-w-7xl relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mx-auto max-w-3xl text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand-cyan/20 bg-brand-cyan/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-cyan shadow-sm">
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-cyan shadow-sm">
                 How it works
               </div>
-              <h2 className="mt-7 text-4xl font-bold tracking-tighter-editorial text-slate-900 md:text-5xl leading-[1.08]">About 15 minutes to first launch.</h2>
-              <p className="mt-6 text-lg font-medium leading-relaxed text-slate-600">
+              <h2 className="mt-8 text-4xl font-bold tracking-tighter-editorial text-zinc-900 md:text-5xl lg:text-[4rem] leading-[1.05]">About 15 minutes to first launch.</h2>
+              <p className="mt-8 text-xl font-medium leading-relaxed text-zinc-600">
                 The setup is short because it has to be. You shouldn&apos;t need a week of training to get one sermon into
                 people&apos;s hands on Monday.
               </p>
             </motion.div>
 
-            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-16 grid gap-5 md:grid-cols-5">
+            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-20 grid gap-6 md:grid-cols-5 relative">
+              <div className="hidden md:block absolute top-[28px] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-brand-jade/0 via-brand-cyan/20 to-amber-600/0 z-0" />
               {setupSteps.map((step, i) => (
-                <motion.div key={step.step} variants={fadeUp} className="rounded-2xl border border-slate-200/60 bg-white p-6 shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
-                  <p className={clsx("text-xs font-semibold uppercase tracking-widest", i === 0 ? "text-brand-jade" : i === 1 ? "text-brand-cyan" : i === 2 ? "text-slate-900" : i === 3 ? "text-amber-600" : "text-brand-jade")}>
-                    Step {step.step}
-                  </p>
-                  <h3 className="mt-4 text-lg font-bold text-slate-900">{step.title}</h3>
-                  <p className="mt-3 text-sm font-medium leading-relaxed text-slate-500">{step.body}</p>
+                <motion.div key={step.step} variants={fadeUp} className="relative z-10 group rounded-[2rem] border border-zinc-100 bg-white p-8 shadow-[0_4px_20px_rgb(0,0,0,0.02)] transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.06)] hover:-translate-y-1">
+                  <div className={clsx("w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-lg mb-6 shadow-sm border transition-colors group-hover:scale-110 duration-300", i === 0 ? "bg-brand-jade/5 text-brand-jade border-brand-jade/20 group-hover:bg-brand-jade/10" : i === 1 ? "bg-brand-cyan/5 text-brand-cyan border-brand-cyan/20 group-hover:bg-brand-cyan/10" : i === 2 ? "bg-zinc-50 text-zinc-900 border-zinc-200 group-hover:bg-zinc-100" : i === 3 ? "bg-amber-50/50 text-amber-600 border-amber-200 group-hover:bg-amber-50" : "bg-brand-jade/5 text-brand-jade border-brand-jade/20 group-hover:bg-brand-jade/10")}>
+                    {step.step}
+                  </div>
+                  <h3 className="text-xl font-bold text-zinc-900">{step.title}</h3>
+                  <p className="mt-4 text-base font-medium leading-relaxed text-zinc-500">{step.body}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -401,43 +406,48 @@ export default function ChurchesPage() {
         </section>
 
         {/* ━━━ TRUST & CONTROL ━━━ */}
-        <section className="border-t border-slate-200/60 bg-[#FCFAF8] px-6 py-24 md:py-32">
-          <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/20 bg-brand-jade/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-jade shadow-sm">
-                Trust and control
+        <section className="bg-zinc-50 px-6 py-32 md:py-48 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[50rem] h-[50rem] bg-[radial-gradient(ellipse_at_top_right,rgba(0,194,146,0.05),transparent_60%)] pointer-events-none" />
+          
+          <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center relative z-10">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="max-w-xl">
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-jade shadow-sm">
+                Trust &amp; Control
               </div>
-              <h2 className="mt-7 text-4xl font-bold tracking-tighter-editorial text-slate-900 md:text-5xl leading-[1.08]">
+              <h2 className="mt-8 text-4xl font-bold tracking-tighter-editorial text-zinc-900 md:text-5xl lg:text-[4.5rem] leading-[1.05]">
                 You don&apos;t have to trust a black box.
               </h2>
-              <p className="mt-6 text-lg font-medium leading-relaxed text-slate-600">
+              <p className="mt-8 text-xl font-medium leading-relaxed text-zinc-600">
                 The point isn&apos;t to hand your weekday ministry to a mystery tool. It&apos;s to make your church&apos;s voice
                 show up more consistently, with guardrails your team can actually inspect.
               </p>
 
-              <div className="mt-8 rounded-2xl border border-slate-200/60 bg-white p-6 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">What pastors usually want to know</p>
-                <div className="mt-5 space-y-4">
+              <div className="mt-12 rounded-[2rem] border border-zinc-200/60 bg-white p-10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-jade/5 rounded-full blur-[40px] group-hover:bg-brand-jade/10 transition-colors duration-500 pointer-events-none" />
+                <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-8">What pastors usually want to know</p>
+                <div className="space-y-6">
                   {[
                     "Can we see exactly what Zoe would say before launch? Yes. That's the sandbox.",
                     "Can clergy define the line between helpful guidance and pastoral care? Yes. That's part of the profile.",
                     "Can members ask for a real person? Yes. The hand-raise path is built in from day one.",
                   ].map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-brand-jade" />
-                      <p className="text-sm font-medium leading-relaxed text-slate-600">{item}</p>
+                    <div key={item} className="flex items-start gap-4">
+                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-jade/10 text-brand-jade mt-0.5"><CheckCircle className="h-4 w-4" /></div>
+                      <p className="text-lg font-medium leading-relaxed text-zinc-600">{item}</p>
                     </div>
                   ))}
                 </div>
               </div>
             </motion.div>
 
-            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid gap-5">
+            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid gap-6">
               {trustCards.map((card) => (
-                <motion.div key={card.title} variants={fadeUp} className="rounded-2xl border border-slate-200/60 bg-white p-7 shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
-                  <div className={clsx("flex h-12 w-12 items-center justify-center rounded-xl", card.accentBg, card.accent)}>{card.icon}</div>
-                  <h3 className="mt-5 text-2xl font-bold text-slate-900 tracking-tight">{card.title}</h3>
-                  <p className="mt-3 text-base font-medium leading-relaxed text-slate-600">{card.body}</p>
+                <motion.div key={card.title} variants={fadeUp} className="group flex flex-col sm:flex-row gap-8 rounded-[2rem] border border-zinc-200/60 bg-white p-8 md:p-10 shadow-[0_4px_20px_rgb(0,0,0,0.02)] transition-all duration-300 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-1">
+                  <div className={clsx("flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl shadow-sm transition-transform duration-500 group-hover:scale-110", card.accentBg, card.accent)}>{card.icon}</div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-zinc-900 tracking-tight">{card.title}</h3>
+                    <p className="mt-4 text-lg font-medium leading-relaxed text-zinc-600">{card.body}</p>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -445,56 +455,56 @@ export default function ChurchesPage() {
         </section>
 
         {/* ━━━ PRAYER CIRCLE ━━━ */}
-        <section className="relative overflow-hidden border-t border-slate-200/60 bg-[#F8FBFA] px-6 py-24 md:py-32">
-          <div className="absolute left-1/2 top-1/2 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-100/20 blur-[120px] pointer-events-none" />
+        <section className="relative overflow-hidden bg-[#FCFAF8] px-6 py-32 md:py-48">
+          <div className="absolute left-1/2 top-1/2 min-w-[50rem] min-h-[50rem] w-[80vw] h-[80vw] max-w-[80rem] max-h-[80rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-500/5 blur-[120px] pointer-events-none" />
 
-          <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center relative z-10">
+          <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-              <div className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-amber-700 shadow-sm">
-                <Heart className="h-3.5 w-3.5" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-700 shadow-sm backdrop-blur">
+                <Heart className="h-4 w-4" />
                 Prayer Circle
               </div>
-              <h2 className="mt-7 text-4xl font-bold tracking-tighter-editorial text-slate-900 md:text-5xl leading-[1.08]">
+              <h2 className="mt-8 text-4xl font-bold tracking-tighter-editorial text-zinc-900 md:text-5xl lg:text-[4.5rem] leading-[1.05]">
                 Your church showed up for you.
               </h2>
-              <p className="mt-6 max-w-2xl text-lg font-medium leading-relaxed text-slate-600">
+              <p className="mt-8 max-w-2xl text-xl font-medium leading-relaxed text-zinc-600">
                 Someone shares a burden. Your church quietly carries it with them. Then the member gets a simple text back saying real people prayed today.
               </p>
-              <div className="mt-8 rounded-2xl border border-amber-200/60 bg-white p-6 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-widest text-amber-600">What the member sees</p>
-                <p className="mt-4 text-2xl font-bold leading-tight text-slate-900">
+              <div className="mt-12 rounded-[2rem] border border-amber-200/60 bg-white/60 p-10 shadow-[0_8px_30px_rgb(0,0,0,0.02)] backdrop-blur-xl">
+                <p className="text-xs font-bold uppercase tracking-widest text-amber-600">What the member sees</p>
+                <p className="mt-6 text-3xl font-bold leading-tight text-zinc-900 tracking-tight">
                   &ldquo;12 people from your church prayed for this today.&rdquo;
                 </p>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-slate-500">
+                <p className="mt-6 text-lg font-medium leading-relaxed text-zinc-600">
                   No performance. No public thread. Just a clear, human sign that the church didn&apos;t leave them alone.
                 </p>
               </div>
             </motion.div>
 
-            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid gap-5">
-              <motion.div variants={fadeUp} className="rounded-2xl border border-slate-200/60 bg-white p-7 shadow-sm">
+            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid gap-6">
+              <motion.div variants={fadeUp} className="rounded-[2rem] border border-zinc-200/60 bg-white p-10 shadow-[0_8px_30px_rgb(0,0,0,0.03)]">
                 <div className="flex items-center justify-between">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Anonymous request</p>
-                  <span className="rounded-full bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-amber-700">scrubbed</span>
+                  <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">Anonymous request</p>
+                  <span className="rounded-full border border-amber-500/20 bg-amber-500/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-700">scrubbed</span>
                 </div>
-                <p className="mt-5 rounded-xl bg-[#FCFAF8] px-5 py-4 text-base font-medium leading-relaxed text-slate-700">
+                <p className="mt-8 rounded-2xl bg-[#FCFAF8] border border-zinc-100 px-6 py-6 text-xl font-medium leading-relaxed text-zinc-700 shadow-inner">
                   &ldquo;Please pray for a medical appointment this week. I&apos;m scared and could use peace.&rdquo;
                 </p>
-                <div className="mt-4 flex items-center gap-3 rounded-xl bg-brand-jade/5 px-5 py-4 text-sm font-semibold text-brand-jade">
-                  <Send className="h-4 w-4" />
+                <div className="mt-6 flex items-center justify-center gap-3 rounded-2xl bg-brand-jade/10 border border-brand-jade/20 px-6 py-5 text-base font-bold text-brand-jade">
+                  <Send className="h-5 w-5" />
                   Sent to prayer team and opted-in members
                 </div>
               </motion.div>
 
-              <motion.div variants={fadeUp} className="grid gap-5 md:grid-cols-3">
+              <motion.div variants={fadeUp} className="grid gap-6 md:grid-cols-3">
                 {[
-                  { title: "Privacy-scrubbed", body: "Identifying details stay out unless the member wants them in." },
-                  { title: "Pastor-controlled audience", body: "Prayer team only or wider congregation. Your call." },
-                  { title: "Anonymous by default", body: "People can share more if they want to, not because the system assumes it." },
+                  { title: "Privacy-scrubbed", body: "Identifying details stay out unless they opt in." },
+                  { title: "Pastor-controlled", body: "Prayer team only or wider congregation. Your call." },
+                  { title: "Anonymous by default", body: "People can share more if they want to." },
                 ].map((item) => (
-                  <div key={item.title} className="rounded-xl border border-slate-200/60 bg-white p-5 shadow-sm">
-                    <h3 className="text-base font-bold text-slate-900">{item.title}</h3>
-                    <p className="mt-2 text-sm font-medium leading-relaxed text-slate-500">{item.body}</p>
+                  <div key={item.title} className="rounded-3xl border border-zinc-200/60 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                    <h3 className="text-lg font-bold text-zinc-900">{item.title}</h3>
+                    <p className="mt-3 text-base font-medium leading-relaxed text-zinc-500">{item.body}</p>
                   </div>
                 ))}
               </motion.div>
@@ -503,62 +513,63 @@ export default function ChurchesPage() {
         </section>
 
         {/* ━━━ DASHBOARD ━━━ */}
-        <section className="relative overflow-hidden border-t border-slate-200/60 bg-misty-green-950 px-6 py-24 text-white md:py-28 border-b border-misty-green-900">
-          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1fr_0.92fr] lg:items-center">
+        <section className="relative overflow-hidden border-t border-white/5 bg-[#0f1f1a] px-6 py-32 text-white md:py-48 border-b">
+          <div className="absolute top-0 right-0 w-[50rem] h-[50rem] bg-brand-jade/5 rounded-full blur-[100px] pointer-events-none" />
+          <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[1fr_0.92fr] lg:items-center relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur shadow-[0_35px_70px_-35px_rgba(0,0,0,0.5)]">
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
+              <div className="rounded-[2.5rem] border border-white/10 bg-white/5 p-8 md:p-10 backdrop-blur-2xl shadow-[0_35px_70px_-35px_rgba(0,0,0,0.5)]">
+                <div className="flex items-center justify-between border-b border-white/10 pb-6">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-misty-green-400">Dashboard mockup</p>
-                    <p className="mt-1 text-xl font-bold text-white">Church dashboard</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-brand-jade mb-1">Dashboard mockup</p>
+                    <p className="text-2xl font-bold text-white tracking-tight">Church dashboard</p>
                   </div>
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-slate-200">This week</span>
+                  <span className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-zinc-200 backdrop-blur-md">This week</span>
                 </div>
 
-                <div className="mt-5 grid gap-4 md:grid-cols-3">
+                <div className="mt-8 grid gap-5 md:grid-cols-3">
                   {[
                     { label: "Companion approved", value: "1 of 1" },
                     { label: "Prayer circle sends", value: "43" },
                     { label: "Hand-raises", value: "6" },
                   ].map((stat) => (
-                    <div key={stat.label} className="rounded-xl border border-white/10 bg-white/5 p-4">
-                      <p className="text-xs font-medium uppercase tracking-widest text-misty-green-400">{stat.label}</p>
-                      <p className="mt-2 text-2xl font-bold text-white">{stat.value}</p>
+                    <div key={stat.label} className="rounded-2xl border border-white/5 bg-white/5 p-5 hover:bg-white/10 transition">
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-400">{stat.label}</p>
+                      <p className="mt-3 text-3xl font-bold text-white tracking-tight">{stat.value}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-5 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-                  <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-                    <p className="text-sm font-semibold text-white">Sermon feedback brief</p>
-                    <div className="mt-4 space-y-4">
+                <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+                  <div className="rounded-2xl border border-white/5 bg-white/5 p-6 hover:bg-white/10 transition">
+                    <p className="text-base font-bold text-white">Sermon feedback brief</p>
+                    <div className="mt-6 space-y-5">
                       {[
-                        { label: "Main idea remembered", value: "82%", width: "w-[82%]", tone: "bg-brand-jade" },
-                        { label: "People tried one next step", value: "61%", width: "w-[61%]", tone: "bg-brand-cyan" },
-                        { label: "Questions needing staff follow-up", value: "14%", width: "w-[14%]", tone: "bg-amber-400" },
+                        { label: "Main idea remembered", value: "82%", width: "w-[82%]", tone: "bg-brand-jade shadow-[0_0_15px_rgba(0,194,146,0.5)]" },
+                        { label: "People tried one next step", value: "61%", width: "w-[61%]", tone: "bg-brand-cyan shadow-[0_0_15px_rgba(0,184,217,0.5)]" },
+                        { label: "Questions needing staff follow-up", value: "14%", width: "w-[14%]", tone: "bg-amber-400 shadow-[0_0_15px_rgba(251,191,36,0.5)]" },
                       ].map((row) => (
                         <div key={row.label}>
-                          <div className="flex items-center justify-between text-sm text-misty-green-100">
+                          <div className="flex items-center justify-between text-sm text-zinc-300 font-medium mb-2">
                             <span>{row.label}</span>
-                            <span className="font-semibold text-white">{row.value}</span>
+                            <span className="font-bold text-white">{row.value}</span>
                           </div>
-                          <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-white/10">
-                            <div className={clsx("h-full rounded-full", row.tone, row.width)} />
+                          <div className="h-2.5 overflow-hidden rounded-full bg-white/10">
+                            <div className={clsx("h-full rounded-full transition-all duration-1000", row.tone, row.width)} />
                           </div>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     {[
-                      { title: "Theology profile", body: "Anglican profile active. Sacraments defer to clergy. Marriage and crisis care route to staff." },
-                      { title: "Launch kit", body: "1 bulk SMS draft, 2 QR codes, bulletin copy, and a branded invite link ready for Sunday." },
-                      { title: "Hand-raise queue", body: "2 requests to talk to a priest, 1 RCIA interest, 3 pastoral care follow-ups." },
+                      { title: "Theology profile", body: "Anglican profile active. Sacraments defer to clergy. Marriage & crisis route to staff." },
+                      { title: "Launch kit", body: "1 bulk SMS draft, 2 QR codes, bulletin copy, and a branded link ready." },
+                      { title: "Hand-raise queue", body: "2 requests to talk to a priest, 1 RCIA interest, 3 pastoral care." },
                     ].map((card) => (
-                      <div key={card.title} className="rounded-xl border border-white/10 bg-white/5 p-5">
-                        <p className="text-sm font-semibold text-white">{card.title}</p>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-misty-green-200">{card.body}</p>
+                      <div key={card.title} className="rounded-2xl border border-white/5 bg-white/5 p-5 hover:bg-white/10 transition">
+                        <p className="text-sm font-bold text-white">{card.title}</p>
+                        <p className="mt-2 text-sm font-medium leading-relaxed text-zinc-400">{card.body}</p>
                       </div>
                     ))}
                   </div>
@@ -567,35 +578,35 @@ export default function ChurchesPage() {
             </motion.div>
 
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-              <p className="text-brand-jade font-semibold tracking-widest uppercase text-sm mb-6">What the church sees</p>
-              <h2 className="text-4xl font-bold tracking-tighter-editorial text-white md:text-5xl leading-[1.08]">
+              <p className="text-brand-jade font-bold tracking-widest uppercase text-xs mb-6 inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 shadow-sm backdrop-blur">What the church sees</p>
+              <h2 className="text-4xl font-bold tracking-tighter-editorial text-white md:text-5xl lg:text-[4rem] leading-[1.05] drop-shadow-md">
                 Clear signals, not dashboard noise.
               </h2>
-              <p className="mt-6 text-lg font-medium leading-relaxed text-misty-green-100">
+              <p className="mt-8 text-xl font-medium leading-relaxed text-zinc-300">
                 The reporting side helps a pastor, priest, or ministry team make better calls. It should feel like a useful weekly brief, not an admin console.
               </p>
 
-              <ul className="mt-8 space-y-5">
+              <ul className="mt-10 space-y-6">
                 {[
                   "See the sermon companion before it goes out and approve it with one click.",
                   "Track anonymized engagement so you know if the message actually stayed with people.",
                   "Catch hand-raises that need pastoral follow-up before they get lost in the week.",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-brand-jade" />
-                    <span className="text-base font-medium leading-relaxed text-misty-green-100">{item}</span>
+                  <li key={item} className="flex items-start gap-4">
+                    <CheckCircle className="mt-0.5 h-6 w-6 shrink-0 text-brand-jade" />
+                    <span className="text-lg font-medium leading-relaxed text-zinc-200">{item}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-10 grid gap-4">
+              <div className="mt-12 grid gap-5">
                 {extraFeatures.map((feature) => (
-                  <div key={feature.title} className="rounded-xl border border-white/10 bg-white/5 p-5 backdrop-blur">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">{feature.icon}</div>
+                  <div key={feature.title} className="group rounded-[1.5rem] border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:bg-white/10 hover:border-white/20">
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 shadow-sm transition-transform duration-300 group-hover:scale-110">{feature.icon}</div>
                       <div>
-                        <h3 className="text-base font-bold text-white">{feature.title}</h3>
-                        <p className="mt-1 text-sm font-medium leading-relaxed text-misty-green-200">{feature.body}</p>
+                        <h3 className="text-lg font-bold text-white">{feature.title}</h3>
+                        <p className="mt-1.5 text-sm font-medium leading-relaxed text-zinc-400">{feature.body}</p>
                       </div>
                     </div>
                   </div>
@@ -606,34 +617,34 @@ export default function ChurchesPage() {
         </section>
 
         {/* ━━━ PRIVACY ━━━ */}
-        <section className="relative bg-[#FCFAF8] px-6 py-24 md:py-28">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,194,146,0.05),transparent_45%)] pointer-events-none" />
+        <section className="relative bg-white px-6 py-32 md:py-48">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,194,146,0.03),transparent_45%)] pointer-events-none" />
           <div className="mx-auto max-w-6xl relative z-10">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mx-auto mb-14 max-w-3xl text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/20 bg-brand-jade/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-jade shadow-sm">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mx-auto mb-16 max-w-3xl text-center">
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-jade shadow-sm">
                 Trust &amp; Privacy
               </div>
-              <h2 className="mt-7 text-4xl font-bold tracking-tighter-editorial text-slate-900 md:text-5xl leading-[1.08]">
+              <h2 className="mt-8 text-4xl font-bold tracking-tighter-editorial text-zinc-900 md:text-5xl lg:text-[4rem] leading-[1.05]">
                 Pastoral visibility without surveillance.
               </h2>
-              <p className="mt-6 text-lg font-medium leading-relaxed text-slate-600">
+              <p className="mt-8 text-xl font-medium leading-relaxed text-zinc-600">
                 Church leaders need enough signal to care well. They don&apos;t need a back door into private conversations.
               </p>
             </motion.div>
 
-            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid gap-5 md:grid-cols-2">
+            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid gap-6 md:grid-cols-2">
               {privacyPillars.map((pillar) => (
-                <motion.div key={pillar.title} variants={fadeUp} className="rounded-2xl border border-slate-200/60 bg-white p-6 shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
-                  <div className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-[#FCFAF8] p-2.5 shadow-sm">{pillar.icon}</div>
-                  <h3 className="mt-5 text-xl font-bold text-slate-900">{pillar.title}</h3>
-                  <p className="mt-3 text-base font-medium leading-relaxed text-slate-600">{pillar.body}</p>
+                <motion.div key={pillar.title} variants={fadeUp} className="group rounded-[2rem] border border-zinc-100 bg-[#F8FBFA] p-8 md:p-10 shadow-[0_4px_20px_rgb(0,0,0,0.02)] transition-all hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.06)] hover:-translate-y-1">
+                  <div className="inline-flex items-center justify-center rounded-2xl border border-zinc-200/60 bg-white p-4 shadow-sm transition-transform duration-300 group-hover:scale-110">{pillar.icon}</div>
+                  <h3 className="mt-8 text-2xl font-bold text-zinc-900 tracking-tight">{pillar.title}</h3>
+                  <p className="mt-4 text-base font-medium leading-relaxed text-zinc-600">{pillar.body}</p>
                 </motion.div>
               ))}
             </motion.div>
 
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-10 text-center border-t border-slate-200/60 pt-8">
-              <p className="text-slate-500 font-medium mb-6">Zoe is a closed, secure loop. We never sell your data, and we never use personal moments to train public models.</p>
-              <a href="/privacy" className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm text-slate-600 px-6 py-3 font-semibold hover:bg-slate-50 hover:text-slate-900 transition-all duration-300">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mt-16 text-center border-t border-zinc-200/60 pt-16">
+              <p className="text-zinc-500 font-medium mb-8 max-w-2xl mx-auto text-lg">Zoe is a closed, secure loop. We never sell your data, and we never use personal moments to train public models.</p>
+              <a href="/privacy" className="inline-flex items-center justify-center rounded-full border border-zinc-200 bg-white shadow-sm text-zinc-600 px-8 py-4 font-bold hover:bg-zinc-50 hover:text-zinc-900 transition-all duration-300">
                 Read Full Privacy Policy
               </a>
             </motion.div>
@@ -641,24 +652,24 @@ export default function ChurchesPage() {
         </section>
 
         {/* ━━━ FAQ ━━━ */}
-        <section className="border-t border-slate-200/60 bg-[#F8FBFA] px-6 py-24 md:py-32">
+        <section className="border-t border-zinc-200/60 bg-[#FCFAF8] px-6 py-32 md:py-48">
           <div className="mx-auto max-w-4xl">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mx-auto mb-14 max-w-3xl text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand-cyan/20 bg-brand-cyan/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-cyan shadow-sm">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mx-auto mb-16 max-w-3xl text-center">
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-cyan shadow-sm">
                 FAQs
               </div>
-              <h2 className="mt-7 text-4xl font-bold tracking-tighter-editorial text-slate-900 md:text-5xl leading-[1.08]">You&apos;ve got questions. We get it.</h2>
-              <p className="mt-6 text-lg text-slate-600 font-medium italic">(We&apos;d be worried if you didn&apos;t have any.)</p>
+              <h2 className="mt-8 text-4xl font-bold tracking-tighter-editorial text-zinc-900 md:text-5xl lg:text-[4rem] leading-[1.05]">You&apos;ve got questions. We get it.</h2>
+              <p className="mt-6 text-xl text-zinc-500 font-medium italic">(We&apos;d be worried if you didn&apos;t have any.)</p>
             </motion.div>
 
-            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="flex flex-col gap-4">
+            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="flex flex-col gap-6">
               {faqs.map((faq, index) => (
-                <motion.div key={faq.question} variants={fadeUp} className="overflow-hidden rounded-2xl bg-white shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
-                  <div className="w-full text-left p-8 pb-4">
-                    <span className="font-semibold text-xl text-brand-cyan">{faq.question}</span>
+                <motion.div key={faq.question} variants={fadeUp} className="group overflow-hidden rounded-[2rem] border border-zinc-100 bg-white shadow-[0_4px_20px_rgb(0,0,0,0.02)] transition hover:shadow-[0_10px_30px_rgb(0,0,0,0.04)] hover:-translate-y-0.5">
+                  <div className="w-full text-left p-8 md:p-10 pb-4 md:pb-6">
+                    <span className="font-bold text-2xl text-brand-cyan tracking-tight">{faq.question}</span>
                   </div>
-                  <div className="px-8 pb-8 pt-0">
-                    <p className="text-slate-600 leading-relaxed font-medium md:text-lg">{faq.answer}</p>
+                  <div className="px-8 md:px-10 pb-8 md:pb-10 pt-0">
+                    <p className="text-zinc-600 leading-relaxed font-medium text-lg">{faq.answer}</p>
                   </div>
                 </motion.div>
               ))}
@@ -667,72 +678,73 @@ export default function ChurchesPage() {
         </section>
 
         {/* ━━━ WAITLIST ━━━ */}
-        <section ref={undefined} id="waitlist" className="border-t border-slate-200/60 bg-[#FCFAF8] px-4 py-24 md:py-32">
+        <section ref={undefined} id="waitlist" className="border-t border-zinc-200/60 bg-white px-4 py-32 md:py-48">
           <div className="mx-auto max-w-5xl">
             <motion.div
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/60 bg-white/60 backdrop-blur-xl p-8 shadow-[0_8px_40px_rgba(0,0,0,0.02)] md:p-12"
+              className="relative overflow-hidden rounded-[3rem] border border-zinc-100 bg-white p-8 md:p-16 shadow-[0_20px_80px_rgba(0,194,146,0.05)]"
             >
-              <div className="absolute top-0 right-0 w-96 h-96 bg-brand-jade/5 rounded-full blur-[100px] -mr-20 -mt-20 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-cyan/5 rounded-full blur-[100px] -ml-20 -mb-20 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-brand-jade/5 rounded-full blur-[100px] -mr-20 -mt-20 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-brand-cyan/5 rounded-full blur-[100px] -ml-20 -mb-20 pointer-events-none" />
 
-              <div className="relative z-10 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <div className="relative z-10 grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
                 <div>
-                  <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/20 bg-brand-jade/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-jade shadow-sm">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-brand-jade/30 bg-brand-jade/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-jade shadow-sm">
                     Church Waitlist
                   </div>
-                  <h2 className="mt-7 text-3xl font-bold tracking-tighter-editorial text-slate-900 md:text-4xl leading-[1.1]">
+                  <h2 className="mt-8 text-4xl font-bold tracking-tighter-editorial text-zinc-900 md:text-5xl leading-[1.05]">
                     Ready to close the Sunday-to-Monday gap?
                   </h2>
-                  <p className="mt-6 text-lg font-medium leading-relaxed text-slate-600">
+                  <p className="mt-8 text-xl font-medium leading-relaxed text-zinc-600">
                     We&apos;re working with a small group of churches first. Join the waitlist and we&apos;ll reach out when a pilot slot opens.
                   </p>
-                  <div className="mt-8 rounded-xl border border-slate-200/60 bg-[#F8FBFA] p-5">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Best fit right now</p>
-                    <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">
+                  <div className="mt-10 rounded-2xl border border-zinc-100 bg-[#FCFAF8] p-6 shadow-inner">
+                    <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">Best fit right now</p>
+                    <p className="mt-4 text-base font-medium leading-relaxed text-zinc-600">
                       Churches that want weekday follow-through from Sunday teaching, pastoral routing when needed, and
                       a launch path that doesn&apos;t require members to learn new software.
                     </p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-slate-200/60 bg-[#F8FBFA]/80 p-6 shadow-sm backdrop-blur">
+                <div className="rounded-[2rem] border border-zinc-100 bg-white p-8 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative z-20">
                   {status === "sent" ? (
-                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center justify-center px-4 py-10 text-center">
-                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-jade/10">
-                        <CheckCircle className="h-8 w-8 text-brand-jade" />
+                    <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center justify-center px-4 py-12 text-center">
+                      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-brand-jade/10 mb-2">
+                        <CheckCircle className="h-10 w-10 text-brand-jade" />
                       </div>
-                      <h3 className="mt-6 text-2xl font-bold text-slate-900">You&apos;re on the list.</h3>
-                      <p className="mt-3 max-w-md text-base font-medium leading-relaxed text-slate-600">
+                      <h3 className="mt-6 text-3xl font-bold text-zinc-900">You&apos;re on the list.</h3>
+                      <p className="mt-4 max-w-md text-lg font-medium leading-relaxed text-zinc-600">
                         We&apos;ve got your info. We&apos;ll reach out when a church pilot slot opens.
                       </p>
                     </motion.div>
                   ) : (
-                    <form className="flex flex-col gap-4" onSubmit={handleWaitlistSubmit}>
+                    <form className="flex flex-col gap-5 max-w-md mx-auto" onSubmit={handleWaitlistSubmit}>
                       <input type="hidden" name="source" value="churches-waitlist" />
-                      <input required type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name / church name" className="rounded-xl border border-slate-200 bg-white px-4 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade/50 transition-all shadow-sm" />
-                      <input required type="tel" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone number" className="rounded-xl border border-slate-200 bg-white px-4 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade/50 transition-all shadow-sm" />
-                      <input required type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email address" className="rounded-xl border border-slate-200 bg-white px-4 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade/50 transition-all shadow-sm" />
+                      <input required type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name / church name" className="rounded-xl border border-zinc-200 bg-zinc-50 px-5 py-4 text-base font-medium text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade/50 transition-all shadow-inner" />
+                      <input required type="tel" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone number" className="rounded-xl border border-zinc-200 bg-zinc-50 px-5 py-4 text-base font-medium text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade/50 transition-all shadow-inner" />
+                      <input required type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email address" className="rounded-xl border border-zinc-200 bg-zinc-50 px-5 py-4 text-base font-medium text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade/50 transition-all shadow-inner" />
                       <button
                         type="submit"
                         disabled={status === "submitting"}
                         className={clsx(
-                          "mt-2 px-4 py-4 text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-white shadow-lg rounded-xl",
-                          status === "submitting" ? "bg-slate-300 text-slate-500" : "bg-slate-900 shadow-slate-900/10 hover:bg-slate-800 hover:-translate-y-0.5",
+                          "mt-2 px-6 py-4 text-base font-bold transition-all duration-300 flex items-center justify-center gap-2 text-zinc-900 shadow-xl rounded-xl",
+                          status === "submitting" ? "bg-zinc-300 text-zinc-500 shadow-none" : "bg-brand-jade hover:bg-emerald-400 hover:-translate-y-0.5 hover:shadow-[0_15px_30px_rgba(0,194,146,0.3)]",
                         )}
                       >
                         {status === "submitting" ? (
-                          <div className="h-5 w-5 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+                          <div className="h-6 w-6 rounded-full border-2 border-zinc-600/30 border-t-slate-600 animate-spin" />
                         ) : "Join the Church Waitlist"}
                       </button>
-                      {submitError ? <p className="text-center text-xs font-medium text-rose-600">{submitError}</p> : null}
-                      <p className="mt-3 text-xs leading-relaxed text-slate-400 text-center">
+                      {submitError ? <p className="text-center text-sm font-medium text-amber-600 bg-amber-50 p-3 rounded-lg border border-amber-100">{submitError}</p> : null}
+                      <p className="mt-4 text-xs font-medium leading-relaxed text-zinc-400 text-center">
                         By joining, you consent to receive recurring automated SMS messages from Zoe by Freedomology at the phone number provided. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out or HELP for help.{" "}
-                        <a href="/privacy" className="underline hover:text-slate-600 transition-colors">Privacy Policy</a>{" · "}
-                        <a href="/terms" className="underline hover:text-slate-600 transition-colors">Terms of Service</a>
+                        <br />
+                        <a href="/privacy" className="underline hover:text-zinc-600 transition-colors">Privacy Policy</a>{" · "}
+                        <a href="/terms" className="underline hover:text-zinc-600 transition-colors">Terms of Service</a>
                       </p>
                     </form>
                   )}
@@ -743,16 +755,16 @@ export default function ChurchesPage() {
         </section>
 
         {/* ━━━ CROSS-LINK ━━━ */}
-        <section className="bg-misty-green-950 px-6 py-10 text-white border-t border-misty-green-900">
-          <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 rounded-2xl border border-white/10 bg-white/5 px-8 py-10 text-center md:flex-row md:text-left backdrop-blur">
+        <section className="bg-[#0f1f1a] px-6 py-12 text-white border-t border-white/5">
+          <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 rounded-3xl border border-white/10 bg-white/5 px-10 py-12 text-center md:flex-row md:text-left backdrop-blur-xl transition hover:bg-white/10 hover:border-white/20">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-brand-jade">For individuals</p>
-              <h3 className="mt-3 text-2xl font-bold">Not leading a church? Zoe also works one person at a time.</h3>
-              <p className="mt-2 max-w-2xl text-misty-green-200">
+              <p className="text-xs font-bold uppercase tracking-widest text-brand-jade">For individuals</p>
+              <h3 className="mt-4 text-3xl font-bold tracking-tight">Not leading a church? Zoe also works one person at a time.</h3>
+              <p className="mt-3 max-w-2xl text-lg font-medium text-zinc-400">
                 The individual product keeps the same text-first experience for daily reflection, follow-through, and gentle accountability.
               </p>
             </div>
-            <a href="/" className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-transform hover:scale-[1.02]">
+            <a href="/" className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-bold text-zinc-900 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
               Explore Zoe for individuals
             </a>
           </div>
