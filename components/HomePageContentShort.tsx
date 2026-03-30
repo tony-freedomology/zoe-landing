@@ -32,14 +32,16 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     event.preventDefault();
     setStatus("submitting");
     setSubmitError(null);
-    try {
-      const payload = {
-        name,
-        phone,
-        type: "individual",
-        source: `short-landing-${variant}`,
-        submittedAt: new Date().toISOString()
-      };
+
+    const payload = {
+      name,
+      phone,
+      type: "individual",
+      source: `short-landing-${variant}`,
+      submittedAt: new Date().toISOString()
+    };
+
+    const attempt = async () => {
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -47,10 +49,22 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data?.details || data?.error || "Unable to submit");
+      return data;
+    };
+
+    try {
+      await attempt();
       setStatus("sent");
-    } catch (err: any) {
-      setStatus("idle");
-      setSubmitError(err.message || "We couldn't submit your request right now.");
+    } catch (firstError) {
+      try {
+        await new Promise((r) => setTimeout(r, 1000));
+        await attempt();
+        setStatus("sent");
+      } catch (retryError) {
+        console.warn("Waitlist submission failed after retry:", retryError);
+        setStatus("idle");
+        setSubmitError("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -267,7 +281,12 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                     >
                       {status === "submitting" ? "Joining..." : "Join The Walk"}
                     </button>
-                    {submitError && <p className="text-red-500 text-sm font-medium mt-1 pl-1">{submitError}</p>}
+                    {submitError && (
+                      <div className="mt-1 pl-1">
+                        <p className="text-red-500 text-sm font-medium">{submitError}</p>
+                        <button type="submit" className={clsx("text-sm font-semibold underline mt-1 transition-colors", primaryColor)}>Try again</button>
+                      </div>
+                    )}
                   </form>
 
                   {/* Styled Proof Points */}
