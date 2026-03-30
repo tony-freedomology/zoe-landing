@@ -28,6 +28,27 @@ function normalizePhone(rawPhone: string): string | null {
   return null;
 }
 
+async function callGHL(
+  url: string,
+  options: RequestInit,
+  retries = 1
+): Promise<Response> {
+  try {
+    const resp = await fetch(url, options);
+    return resp;
+  } catch (err) {
+    if (retries > 0) {
+      console.warn("GHL fetch failed, retrying in 1s...", {
+        error: err instanceof Error ? err.message : String(err),
+        retriesLeft: retries,
+      });
+      await new Promise((r) => setTimeout(r, 1000));
+      return callGHL(url, options, retries - 1);
+    }
+    throw err;
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = (await req.json()) as WaitlistBody;
@@ -55,7 +76,11 @@ export async function POST(req: NextRequest) {
     const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID;
 
     if (!GHL_API_KEY || !GHL_LOCATION_ID) {
-      console.error("GHL credentials not configured in runtime");
+      console.error("GHL credentials not configured", {
+        hasApiKey: !!GHL_API_KEY,
+        hasLocationId: !!GHL_LOCATION_ID,
+        source,
+      });
       return NextResponse.json(
         { ok: false, error: "CRM integration is not configured" },
         { status: 500 }
@@ -80,7 +105,7 @@ export async function POST(req: NextRequest) {
       source,
     };
 
-    const resp = await fetch(`${GHL_BASE}/contacts/upsert`, {
+    const resp = await callGHL(`${GHL_BASE}/contacts/upsert`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -104,6 +129,7 @@ export async function POST(req: NextRequest) {
       console.error("GHL upsert failed", {
         status: resp.status,
         source,
+        email,
         message: data?.message,
         traceId: data?.traceId,
       });
@@ -111,7 +137,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         {
           ok: false,
-          error: "Failed to save contact to GoHighLevel",
+          error: "Failed to save contact — please try again",
           details:
             typeof data?.message === "string"
               ? data.message
@@ -127,9 +153,12 @@ export async function POST(req: NextRequest) {
         (data.contact as { id?: string } | undefined)?.id ?? null,
     });
   } catch (err) {
-    console.error("Waitlist error:", err);
+    console.error("Waitlist error:", {
+      error: err instanceof Error ? err.message : String(err),
+      stack: err instanceof Error ? err.stack : undefined,
+    });
     return NextResponse.json(
-      { ok: false, error: "Unexpected waitlist error" },
+      { ok: false, error: "Something went wrong — please try again" },
       { status: 500 }
     );
   }

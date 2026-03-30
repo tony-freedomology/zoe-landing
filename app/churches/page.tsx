@@ -157,14 +157,27 @@ export default function ChurchesPage() {
     setSubmitError(null);
     const payload = { name, phone, email, source: "churches-waitlist", submittedAt: new Date().toISOString() };
     try { localStorage.setItem("zoe_waitlist_church", JSON.stringify(payload)); } catch {}
-    try {
+
+    const attempt = async () => {
       const response = await fetch("/api/waitlist", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
       const data = await response.json().catch(() => null);
       if (!response.ok || !data?.ok) throw new Error(data?.details || data?.error || "Unable to submit church waitlist request");
+      return data;
+    };
+
+    try {
+      await attempt();
       setStatus("sent");
-    } catch {
-      setStatus("idle");
-      setSubmitError("We couldn't submit your request right now. Please try again in a moment.");
+    } catch (firstError) {
+      try {
+        await new Promise((r) => setTimeout(r, 1000));
+        await attempt();
+        setStatus("sent");
+      } catch (retryError) {
+        console.warn("Church waitlist submission failed after retry:", retryError);
+        setStatus("idle");
+        setSubmitError("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -739,7 +752,12 @@ export default function ChurchesPage() {
                           <div className="h-6 w-6 rounded-full border-2 border-zinc-600/30 border-t-slate-600 animate-spin" />
                         ) : "Join the Church Waitlist"}
                       </button>
-                      {submitError ? <p className="text-center text-sm font-medium text-amber-600 bg-amber-50 p-3 rounded-lg border border-amber-100">{submitError}</p> : null}
+                      {submitError ? (
+                        <div className="text-center bg-amber-50 p-3 rounded-lg border border-amber-100">
+                          <p className="text-sm font-medium text-amber-600">{submitError}</p>
+                          <button type="submit" className="text-sm font-semibold text-brand-jade underline mt-1 hover:text-brand-jade/80 transition-colors">Try again</button>
+                        </div>
+                      ) : null}
                       <p className="mt-4 text-xs font-medium leading-relaxed text-zinc-400 text-center">
                         By joining, you consent to receive recurring automated SMS messages from Zoe by Freedomology at the phone number provided. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out or HELP for help.{" "}
                         <br />

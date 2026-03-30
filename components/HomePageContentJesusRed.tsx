@@ -124,31 +124,40 @@ export default function HomePageContentJesusRed({ variant = "jesus-red" }: HomeP
     setStatus("submitting");
     setSubmitError(null);
 
-    try {
-      const payload = {
-        name,
-        phone,
-        email,
-        source: "individuals-waitlist",
-        submittedAt: new Date().toISOString(),
-      };
+    const payload = {
+      name,
+      phone,
+      email,
+      source: "individuals-waitlist",
+      submittedAt: new Date().toISOString(),
+    };
 
+    const attempt = async () => {
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-
       const data = await response.json().catch(() => null);
       if (!response.ok || !data?.ok) {
         throw new Error(data?.details || data?.error || "Unable to submit waitlist request");
       }
+      return data;
+    };
 
+    try {
+      await attempt();
       setStatus("sent");
-    } catch (error) {
-      console.warn("Waitlist submission error:", error);
-      setStatus("idle");
-      setSubmitError("We couldn't submit your request right now. Please try again in a moment.");
+    } catch (firstError) {
+      try {
+        await new Promise((r) => setTimeout(r, 1000));
+        await attempt();
+        setStatus("sent");
+      } catch (retryError) {
+        console.warn("Waitlist submission failed after retry:", retryError);
+        setStatus("idle");
+        setSubmitError("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -257,7 +266,10 @@ export default function HomePageContentJesusRed({ variant = "jesus-red" }: HomeP
                           ) : "Join The Walk"}
                         </button>
                         {submitError ? (
-                          <p className="text-center text-xs font-medium text-rose-600">{submitError}</p>
+                          <div className="text-center">
+                            <p className="text-xs font-medium text-rose-600 mb-2">{submitError}</p>
+                            <button type="submit" className="text-xs font-semibold text-[#7a2332] underline hover:text-[#7a2332]/80 transition-colors">Try again</button>
+                          </div>
                         ) : null}
                         <p className="mt-3 text-xs leading-relaxed text-slate-400 text-center">
                           By joining, you consent to receive recurring automated SMS messages from Zoe by Freedomology at the phone number provided. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out or HELP for help.{" "}
