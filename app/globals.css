@@ -4,12 +4,28 @@
 
 :root {
   --font-sans: "Inter", sans-serif;
+  --font-serif: "Newsreader", serif;
+  --zoe-oat: #fcf9f4;
+  --zoe-surface: #f6f3ee;
+  --zoe-card: #ffffff;
+  --zoe-ink: #1c1c19;
+  --zoe-muted: #5f5e5b;
+  --zoe-outline: #bbcac1;
+  --zoe-jade: #00c292;
+  --zoe-jade-deep: #004935;
   color-scheme: light;
 }
 
 body {
-  @apply bg-slate-50 text-slate-900 antialiased;
+  @apply antialiased;
+  background: var(--zoe-oat);
+  color: var(--zoe-ink);
   font-family: var(--font-sans);
+}
+
+::selection {
+  background: rgba(0, 194, 146, 0.18);
+  color: var(--zoe-ink);
 }
 
 /* prevent subtle horizontal scroll on mobile without breaking sticky */
@@ -40,10 +56,10 @@ body {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(252, 249, 244, 0.82);
+  border: 1px solid rgba(187, 202, 193, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 .gradient-border {

@@ -7,6 +7,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        serif: ["var(--font-serif)", ...fontFamily.serif],
       },
       letterSpacing: {
         "tight-fine": "-0.035em",
@@ -16,6 +17,16 @@ const config: Config = {
       },
       colors: {
         ink: "#0b0c12",
+        zoe: {
+          oat: "#fcf9f4",
+          surface: "#f6f3ee",
+          card: "#ffffff",
+          ink: "#1c1c19",
+          muted: "#5f5e5b",
+          outline: "#bbcac1",
+          jade: "#00c292",
+          "jade-deep": "#004935",
+        },
         gold: {
           "50": "#fefbe9",
           "100": "#fcf5c8",
@@ -53,7 +64,8 @@ const config: Config = {
       },
       boxShadow: {
         "soft-gold": "0 0 40px 0px rgba(217, 165, 26, 0.15)",
-        soft: "0 20px 60px rgba(15, 23, 42, 0.35)"
+        soft: "0 20px 60px rgba(15, 23, 42, 0.35)",
+        "zoe-card": "0 20px 50px rgba(28, 28, 25, 0.04)"
       },
       backgroundImage: {
         "hero-radial": "radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02), transparent 40%)",

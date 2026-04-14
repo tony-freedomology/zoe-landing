@@ -212,11 +212,10 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
                         <div className="h-1/3 w-full flex flex-col justify-end pb-[4vh] md:pb-[8%] relative px-4 pointer-events-auto">
                             <div className="absolute top-[8vh] md:top-[10%] left-0 w-full px-4 flex flex-col gap-[6px]">
                                 <ScrollTimestamp text="Yesterday, 9:14 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.01, 0.03]} />
-                                <ScrollTimestamp text="Yesterday, 9:14 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.01, 0.03]} />
-                                <ScrollBubble sender="user" variant={variant} text="hey can we go through one of the gospels together? i want to actually understand what jesus was like, not just the sunday school version" scrollYProgress={scrollYProgress} fadeInRange={[0.04, 0.06]} />
-                                <ScrollBubble sender="zoe" variant={variant} text="Mark. 100%. it reads like a documentary — no long speeches, just jesus doing things that blow people's minds. 16 chapters, we can do it in 2 weeks. what time works for morning readings?" scrollYProgress={scrollYProgress} fadeInRange={[0.07, 0.10]} />
-                                <ScrollBubble sender="user" variant={variant} text="7am" scrollYProgress={scrollYProgress} fadeInRange={[0.11, 0.12]} />
-                                <ScrollBubble sender="zoe" variant={variant} text="Done. Starting tomorrow 👋" scrollYProgress={scrollYProgress} fadeInRange={[0.13, 0.14]} />
+                                <ScrollBubble sender="user" variant={variant} text="hey can we go through one of the gospels together? i want to actually understand what jesus was like, not just the sunday school version" scrollYProgress={scrollYProgress} fadeInRange={[0.02, 0.05]} />
+                                <ScrollBubble sender="zoe" variant={variant} text="Mark. 100%. it reads like a documentary — no long speeches, just jesus doing things that blow people's minds. 16 chapters, we can do it in 2 weeks. what time works for morning readings?" scrollYProgress={scrollYProgress} fadeInRange={[0.05, 0.08]} />
+                                <ScrollBubble sender="user" variant={variant} text="7am" scrollYProgress={scrollYProgress} fadeInRange={[0.08, 0.10]} />
+                                <ScrollBubble sender="zoe" variant={variant} text="Done. Starting tomorrow 👋" scrollYProgress={scrollYProgress} fadeInRange={[0.10, 0.12]} />
                             </div>
                         </div>
 

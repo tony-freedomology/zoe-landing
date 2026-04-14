@@ -175,10 +175,10 @@ export default function MobileStickySms({ variant = "default" }: { variant?: "de
                     {/* ── PHASE 1 CHAT ── */}
                     <motion.div style={{ opacity: c1Opacity }} className="absolute top-[8vh] left-0 w-full px-4 flex flex-col gap-[6px] z-20 pointer-events-auto">
                         <ScrollTimestamp text="Yesterday, 9:14 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.20, 0.21]} />
-                        <ScrollBubble sender="user" variant={variant} text="hey can we go through one of the gospels together? i want to actually understand what jesus was like, not just the sunday school version" scrollYProgress={scrollYProgress} fadeInRange={[0.22, 0.23]} />
-                        <ScrollBubble sender="zoe" variant={variant} text="Mark. 100%. it reads like a documentary — no long speeches, just jesus doing things that blow people's minds. 16 chapters, we can do it in 2 weeks. what time works for morning readings?" scrollYProgress={scrollYProgress} fadeInRange={[0.24, 0.26]} />
-                        <ScrollBubble sender="user" variant={variant} text="7am" scrollYProgress={scrollYProgress} fadeInRange={[0.27, 0.28]} />
-                        <ScrollBubble sender="zoe" variant={variant} text="Done. Starting tomorrow 👋" scrollYProgress={scrollYProgress} fadeInRange={[0.29, 0.30]} />
+                        <ScrollBubble sender="user" variant={variant} text="hey can we go through one of the gospels together? i want to actually understand what jesus was like, not just the sunday school version" scrollYProgress={scrollYProgress} fadeInRange={[0.205, 0.225]} />
+                        <ScrollBubble sender="zoe" variant={variant} text="Mark. 100%. it reads like a documentary — no long speeches, just jesus doing things that blow people's minds. 16 chapters, we can do it in 2 weeks. what time works for morning readings?" scrollYProgress={scrollYProgress} fadeInRange={[0.225, 0.245]} />
+                        <ScrollBubble sender="user" variant={variant} text="7am" scrollYProgress={scrollYProgress} fadeInRange={[0.245, 0.26]} />
+                        <ScrollBubble sender="zoe" variant={variant} text="Done. Starting tomorrow 👋" scrollYProgress={scrollYProgress} fadeInRange={[0.26, 0.28]} />
                     </motion.div>
 
                     {/* ── PHASE 2 TEXT ── */}

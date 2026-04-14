@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+
 import Footer from "../../components/Footer";
 import blogBg from "../../public/images/blog-bg.webp";
 
@@ -13,23 +14,14 @@ export const metadata: Metadata = {
 
 const posts = [
   {
-    slug: "daily-scripture-that-actually-sticks-and-why-it-has-nothing",
-    title: "Daily Scripture That Actually Sticks (And Why It Has Nothing to Do With Discipline)",
-    description: "*Waiting for ✅ approval from Tony or Greg before publishing.*",
-    date: "March 2026",
-    readTime: "1 min read",
-    badge: "Discipleship",
-    badgeColor: "text-brand-jade border-brand-jade/20 bg-brand-jade/5",
-    image: "/blog/daily-scripture-that-actually-sticks-and-why-it-has-nothing/hero.jpg",
-  },
-  {
     slug: "the-daily-scripture-habit-that-finally-stuck-and-why-it-live",
     title: "Daily Scripture That Actually Sticks (And Why It Has Nothing to Do With Discipline)",
-    description: "The daily decision is what kills scripture habits — not lack of faith. Here's how removing that choice builds the kind of consistent rhythm that actually lasts.",
+    description:
+      "The daily decision is what kills scripture habits — not lack of faith. Here's how removing that choice builds the kind of consistent rhythm that actually lasts.",
     date: "March 2026",
     readTime: "4 min read",
     badge: "Discipleship",
-    badgeColor: "text-brand-jade border-brand-jade/20 bg-brand-jade/5",
+    badgeColor: "text-zoe-jade-deep border-zoe-jade/20 bg-zoe-jade/10",
     image: "/blog/the-daily-scripture-habit-that-finally-stuck-and-why-it-live/hero.jpg",
   },
   {
@@ -39,7 +31,7 @@ const posts = [
     date: "March 2026",
     readTime: "8 min read",
     badge: "Discipleship",
-    badgeColor: "text-brand-jade border-brand-jade/20 bg-brand-jade/5",
+    badgeColor: "text-zoe-jade-deep border-zoe-jade/20 bg-zoe-jade/10",
     image: "/blog/why-you-keep-quitting-your-bible-app/hero.jpg",
   },
   {
@@ -49,7 +41,7 @@ const posts = [
     date: "February 2026",
     readTime: "7 min read",
     badge: "Discipleship",
-    badgeColor: "text-brand-jade border-brand-jade/20 bg-brand-jade/5",
+    badgeColor: "text-zoe-jade-deep border-zoe-jade/20 bg-zoe-jade/10",
   },
   {
     slug: "can-ai-help-you-walk-with-jesus",
@@ -58,7 +50,7 @@ const posts = [
     date: "February 2026",
     readTime: "8 min read",
     badge: "AI & Faith",
-    badgeColor: "text-brand-cyan border-brand-cyan/20 bg-brand-cyan/5",
+    badgeColor: "text-zoe-jade-deep border-zoe-jade/20 bg-zoe-jade/10",
   },
   {
     slug: "equip-the-kingdom-to-use-ai-well",
@@ -67,64 +59,65 @@ const posts = [
     date: "March 2026",
     readTime: "8 min read",
     badge: "Church & Technology",
-    badgeColor: "text-amber-600 border-amber-200 bg-amber-50",
+    badgeColor: "text-amber-700 border-amber-200 bg-amber-50",
   },
 ];
 
 export default function BlogIndexPage() {
   return (
-    <div className="min-h-screen text-slate-900">
-      <section className="relative w-full aspect-video overflow-hidden bg-slate-100" style={{ marginTop: '72px' }}>
+    <div className="min-h-screen bg-zoe-oat text-slate-900">
+      <section className="relative aspect-video w-full overflow-hidden bg-slate-100" style={{ marginTop: "72px" }}>
         <Image src={blogBg} alt="Blog Background" fill className="object-cover" priority />
 
-        {/* Subtle Text Backdrop */}
-        <div className="absolute inset-0 z-10 md:w-2/3 lg:w-1/2 flex items-center">
-          <div className="w-full h-[150%] -ml-[20%] pointer-events-none backdrop-blur-md"
+        <div className="absolute inset-0 z-10 flex items-center md:w-2/3 lg:w-1/2">
+          <div
+            className="pointer-events-none h-[150%] w-full -ml-[20%] backdrop-blur-md"
             style={{
-              WebkitMaskImage: 'radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)',
-              maskImage: 'radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)'
+              WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)",
+              maskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)",
             }}
           />
         </div>
-        <div className="absolute inset-0 z-10 md:w-2/3 lg:w-1/2 flex items-center">
-          <div className="w-full h-[150%] -ml-[20%] pointer-events-none bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,0,0,0.5)_0%,_transparent_100%)]" />
+        <div className="absolute inset-0 z-10 flex items-center md:w-2/3 lg:w-1/2">
+          <div className="pointer-events-none h-[150%] w-full -ml-[20%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,0,0,0.5)_0%,_transparent_100%)]" />
         </div>
 
-        {/* Text Overlay */}
         <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-12 lg:px-24">
           <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl lg:text-[80px] tracking-tighter-editorial text-white leading-[1.05] font-bold mb-2 lg:mb-4">
+            <h1 className="mb-2 text-5xl font-bold leading-[1.05] tracking-tighter-editorial text-white md:text-7xl lg:mb-4 lg:text-[80px]">
               Thinking on discipleship
             </h1>
-            <p className="text-xl md:text-3xl lg:text-4xl text-white font-medium tracking-tight">
-              Tech, faith, and what it looks like to<br />walk with Jesus in the everyday
+            <p className="text-xl font-medium tracking-tight text-white md:text-3xl lg:text-4xl">
+              Tech, faith, and what it looks like to
+              <br />
+              walk with Jesus in the everyday
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-[#F8FBFA]">
+      <section className="bg-zoe-surface px-6 py-24">
         <div className="mx-auto max-w-3xl">
           <div className="flex flex-col gap-8">
             {posts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group block bg-white rounded-3xl p-8 md:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_8px_40px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5"
+                className="group block rounded-3xl border border-zoe-outline/35 bg-white p-8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(0,0,0,0.08)] md:p-10"
               >
-                <div className="flex flex-wrap gap-3 items-center mb-4">
+                <div className="mb-4 flex flex-wrap items-center gap-3">
                   <span className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-widest ${post.badgeColor}`}>
                     {post.badge}
                   </span>
-                  <span className="text-slate-400 text-xs font-medium">{post.date}</span>
-                  <span className="text-slate-300 text-xs">·</span>
-                  <span className="text-slate-400 text-xs font-medium">{post.readTime}</span>
+                  <span className="text-xs font-medium text-slate-400">{post.date}</span>
+                  <span className="text-xs text-slate-300">·</span>
+                  <span className="text-xs font-medium text-slate-400">{post.readTime}</span>
                 </div>
-                <h2 className="text-2xl md:text-3xl tracking-tighter-editorial text-slate-900 font-bold leading-snug mb-4 group-hover:text-brand-jade transition-colors duration-200">
+                <h2 className="mb-4 text-2xl font-bold leading-snug tracking-tighter-editorial text-slate-900 transition-colors duration-200 group-hover:text-zoe-jade-deep md:text-3xl">
                   {post.title}
                 </h2>
-                <p className="text-slate-600 font-medium leading-relaxed mb-6">{post.description}</p>
-                <div className="flex items-center gap-2 text-sm font-semibold text-slate-500 group-hover:text-brand-jade transition-colors duration-200">
+                <p className="mb-6 font-medium leading-relaxed text-slate-600">{post.description}</p>
+                <div className="flex items-center gap-2 text-sm font-semibold text-slate-500 transition-colors duration-200 group-hover:text-zoe-jade-deep">
                   Read article <ArrowRight className="h-4 w-4" />
                 </div>
               </Link>

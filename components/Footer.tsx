@@ -2,51 +2,49 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-slate-500 py-12 px-6 border-t border-slate-100 text-sm">
+    <footer className="border-t border-zoe-outline/40 bg-zoe-oat px-6 py-14 text-sm text-zoe-muted">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-          {/* Brand */}
           <div className="flex flex-col gap-2">
-            <Link href="/" className="text-xl font-bold tracking-tighter-editorial-relaxed text-slate-900">
+            <Link href="/" className="text-xl font-semibold tracking-tight text-zoe-ink">
               Zoe
             </Link>
-            <p className="text-slate-400 text-xs leading-relaxed max-w-xs">
-              A daily discipleship companion that lives in your texts. No app. No login. Just the questions that matter.
+            <p className="max-w-xs text-xs leading-relaxed text-[#6c7a73]">
+              A quiet companion that lives in your texts. No app. No login. Just a clearer way to stay attentive through the week.
             </p>
           </div>
 
-          {/* Nav columns */}
           <div className="flex flex-wrap gap-8 text-sm">
             <div className="flex flex-col gap-2">
-              <p className="font-semibold text-slate-900 text-xs uppercase tracking-widest mb-1">Product</p>
-              <Link href="/features" className="font-medium hover:text-slate-900 transition-colors">Features</Link>
-              <Link href="/faq" className="font-medium hover:text-slate-900 transition-colors">FAQ</Link>
-              <Link href="/#waitlist" className="font-medium hover:text-slate-900 transition-colors">Join The Walk</Link>
+              <p className="mb-1 text-xs font-medium uppercase tracking-widest text-[#6c7a73]">Product</p>
+              <Link href="/features" className="font-medium transition-colors hover:text-zoe-ink">Features</Link>
+              <Link href="/faq" className="font-medium transition-colors hover:text-zoe-ink">FAQ</Link>
+              <Link href="/#waitlist" className="font-medium transition-colors hover:text-zoe-ink">Join the waitlist</Link>
             </div>
             <div className="flex flex-col gap-2">
-              <p className="font-semibold text-slate-900 text-xs uppercase tracking-widest mb-1">Journeys</p>
-              <Link href="/journeys/book-of-james" className="font-medium hover:text-slate-900 transition-colors">Book of James</Link>
-              <Link href="/journeys/new-believer" className="font-medium hover:text-slate-900 transition-colors">New Believer</Link>
+              <p className="mb-1 text-xs font-medium uppercase tracking-widest text-[#6c7a73]">Journeys</p>
+              <Link href="/journeys/book-of-james" className="font-medium transition-colors hover:text-zoe-ink">Book of James</Link>
+              <Link href="/journeys/new-believer" className="font-medium transition-colors hover:text-zoe-ink">New Believer</Link>
             </div>
             <div className="flex flex-col gap-2">
-              <p className="font-semibold text-slate-900 text-xs uppercase tracking-widest mb-1">Company</p>
-              <Link href="/about" className="font-medium hover:text-slate-900 transition-colors">About</Link>
-              <Link href="/churches" className="font-medium hover:text-slate-900 transition-colors">For Churches</Link>
-              <Link href="/blog" className="font-medium hover:text-slate-900 transition-colors">Blog</Link>
+              <p className="mb-1 text-xs font-medium uppercase tracking-widest text-[#6c7a73]">Company</p>
+              <Link href="/about" className="font-medium transition-colors hover:text-zoe-ink">About</Link>
+              <Link href="/churches" className="font-medium transition-colors hover:text-zoe-ink">For Churches</Link>
+              <Link href="/blog" className="font-medium transition-colors hover:text-zoe-ink">Blog</Link>
             </div>
             <div className="flex flex-col gap-2">
-              <p className="font-semibold text-slate-900 text-xs uppercase tracking-widest mb-1">Legal</p>
-              <Link href="/privacy" className="font-medium hover:text-slate-900 transition-colors">Privacy</Link>
-              <Link href="/terms" className="font-medium hover:text-slate-900 transition-colors">Terms</Link>
+              <p className="mb-1 text-xs font-medium uppercase tracking-widest text-[#6c7a73]">Legal</p>
+              <Link href="/privacy" className="font-medium transition-colors hover:text-zoe-ink">Privacy</Link>
+              <Link href="/terms" className="font-medium transition-colors hover:text-zoe-ink">Terms</Link>
             </div>
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-slate-100 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-          <div className="text-slate-400 font-medium">
+        <div className="mt-10 flex flex-col gap-2 border-t border-zoe-outline/40 pt-6 md:flex-row md:items-center md:justify-between">
+          <div className="font-medium text-[#6c7a73]">
             &copy; {new Date().getFullYear()} Zoe by Freedomology. All rights reserved.
           </div>
-          <div className="text-slate-400">
+          <div className="text-[#6c7a73]">
             Built in Cleveland, OH.
           </div>
         </div>
