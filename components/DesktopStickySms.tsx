@@ -86,6 +86,11 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
         [0, 0.15, 0.35, 0.65, 0.85, 1],
         ["0%", "0%", "-33.3333%", "-33.3333%", "-66.6667%", "-66.6667%"]
     );
+    const phase2ThreadExitY = useTransform(
+        scrollYProgress,
+        [0.60, 0.72, 0.85],
+        [0, -120, -260]
+    );
 
     // Fade Opacities & Transforms for the Desktop-Only Side Narrative Text
     const step1TitleOpacity = useTransform(scrollYProgress, [0, 0.05, 0.15, 0.25], [1, 1, 1, 0]);
@@ -222,7 +227,10 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
                         {/* --- PAGE 2 --- */}
                         <div className="h-1/3 w-full flex flex-col justify-end pb-[8%] relative px-4 pointer-events-auto">
                             {/* Text Messages Wrapper shifted up to reclaim white space */}
-                            <motion.div className="absolute top-[-2%] left-0 w-full px-4 flex flex-col gap-[6px]">
+                            <motion.div
+                                style={{ y: phase2ThreadExitY }}
+                                className="absolute top-[-2%] left-0 w-full px-4 flex flex-col gap-[6px]"
+                            >
                                 <ScrollTimestamp text="Today, 7:01 AM" scrollYProgress={scrollYProgress} fadeInRange={[0.35, 0.38]} />
                                 <ScrollBubble
                                     sender="zoe"
