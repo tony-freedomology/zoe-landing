@@ -113,7 +113,7 @@ It should not feel:
 | Oat | `#FCF9F4` | Default page background |
 | Surface | `#F6F3EE` | Tonal layering and secondary sections |
 | Card White | `#FFFFFF` | Cards, forms, elevated content |
-| Ink | `#1C1C19` | Primary text |
+| Ink | `#2d3231` | Primary text |
 | Muted Ink | `#5F5E5B` | Supporting text |
 | Outline | `#BBCAC1` | Quiet structure and dividers |
 | Jade | `#1DC286` | Canonical Zoe green, main CTA and primary accent |
