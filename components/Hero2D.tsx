@@ -295,12 +295,12 @@ export default function Hero2D({ variant = "default", hideOverlayContent = false
                             className="mt-6 flex flex-col items-center pointer-events-auto text-center px-4"
                             style={{ x: variant === "jesus-red" ? 0 : midX, y: variant === "jesus-red" || variant === "emerald-uni" ? 0 : midY, ...gpuLayer }}
                         >
-                            <h1 className="mb-2 text-4xl md:text-5xl font-bold tracking-tighter-editorial-relaxed text-slate-900 drop-shadow-sm max-w-sm md:max-w-xl leading-snug">
+                            <h1 className="mb-2 text-3xl md:text-4xl font-semibold tracking-tighter-editorial-relaxed text-zoe-ink drop-shadow-sm max-w-sm md:max-w-xl leading-snug">
                                 Walk with Jesus.
                             </h1>
                             <a
                                 href="#waitlist"
-                                className="mt-4 rounded-full bg-white px-8 py-4 md:px-10 md:py-4 text-sm md:text-base font-bold text-slate-900 shadow-[0_0_30px_-5px_rgba(255,255,255,0.4)] transition-transform hover:scale-105"
+                                className="mt-4 rounded-full bg-white px-8 py-4 md:px-10 md:py-4 text-sm md:text-base font-bold text-zoe-ink shadow-[0_0_30px_-5px_rgba(255,255,255,0.4)] transition-transform hover:scale-105"
                             >
                                 Join The Walk
                             </a>

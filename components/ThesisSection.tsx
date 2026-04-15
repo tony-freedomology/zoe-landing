@@ -128,7 +128,7 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
               Here&apos;s what <span className="font-semibold text-white">IS</span> obvious: AI is here, whether we like it or not, and the church (at large) needs to figure out what we&apos;re going to do about it. That&apos;s why we&apos;re building in public, and talking about it in public, and inviting you to join the conversation (and the alpha!)
             </p>
             <p>
-              We&apos;re really not interested in AI that tries to replace pastors (we are pastors so that would be silly lol), tries to fill the role of the Holy Spirit, or offers fake spiritual certainty.
+              We&apos;re really not interested in AI that tries to replace pastors (we are pastors, so that would be silly), tries to fill the role of the Holy Spirit, or offers fake spiritual certainty.
             </p>
             <p>
               But we are very interested in how AI could be used to help people&apos;s attention turn to Christ more often. We already know AI can make a great morning devotional, but what we need is{" "}
