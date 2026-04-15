@@ -16,17 +16,17 @@ const config: Config = {
         "tighter-sans": "-0.05em",
       },
       colors: {
-        ink: "#1c1c19",
+        ink: "#2d3231",
         zoe: {
           oat: "#fcf9f4",
           surface: "#f6f3ee",
           card: "#ffffff",
-          ink: "#1c1c19",
+          ink: "#2d3231",
           muted: "#5f5e5b",
           outline: "#bbcac1",
           sap: "#1dc286",
           leaf: "#1dc286",
-          forest: "#166534",
+          forest: "#007354",
         },
         gold: {
           "50": "#fefbe9",
@@ -66,7 +66,7 @@ const config: Config = {
       boxShadow: {
         "soft-gold": "0 0 40px 0px rgba(217, 165, 26, 0.15)",
         soft: "0 20px 60px rgba(15, 23, 42, 0.35)",
-        "zoe-card": "0 20px 50px rgba(28, 28, 25, 0.04)"
+        "zoe-card": "0 20px 50px rgba(45, 50, 49, 0.04)"
       },
       backgroundImage: {
         "hero-radial": "radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02), transparent 40%)",

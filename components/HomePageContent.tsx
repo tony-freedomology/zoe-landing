@@ -189,8 +189,8 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
               <h2 className={clsx("text-4xl md:text-5xl leading-[1.08]", isDefault ? defaultSectionHeading : "text-slate-900 font-bold tracking-tighter-editorial")}>
                 {isDefault ? (
                   <>
-                    Daily journeys tailored to your actual{" "}
-                    <span className="font-serif font-normal italic text-zoe-leaf">life</span>
+                    Daily journeys tailored to your{" "}
+                    <span className="font-serif font-normal italic text-zoe-leaf">actual life</span>
                   </>
                 ) : (
                   "Scripture for the places people actually live."
@@ -390,7 +390,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
                       <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
-                    <h4 className={clsx("text-2xl tracking-tight mb-3 text-slate-900", isDefault ? "font-semibold" : "font-bold")}>Just between you and God.</h4>
+                    <h4 className={clsx("text-2xl tracking-tight mb-3", isDefault ? "font-semibold text-zoe-ink" : "font-bold text-slate-900")}>Just between you and God.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>Your conversations are never shared with your church, your pastor, or anyone else. What you bring to Zoe stays with you.</p>
                   </motion.div>
 
@@ -398,7 +398,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
                       <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
-                    <h4 className={clsx("text-2xl tracking-tight mb-3 text-slate-900", isDefault ? "font-semibold" : "font-bold")}>Your data, your rules.</h4>
+                    <h4 className={clsx("text-2xl tracking-tight mb-3", isDefault ? "font-semibold text-zoe-ink" : "font-bold text-slate-900")}>Your data, your rules.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>You can take your full history with you if you ever leave, or ask us to erase it completely. No hard feelings, no questions asked.</p>
                   </motion.div>
                 </div>
@@ -416,7 +416,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
                       <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
-                    <h4 className={clsx("text-2xl tracking-tight mb-3 text-slate-900", isDefault ? "font-semibold" : "font-bold")}>We share trends, not secrets.</h4>
+                    <h4 className={clsx("text-2xl tracking-tight mb-3", isDefault ? "font-semibold text-zoe-ink" : "font-bold text-slate-900")}>We share trends, not secrets.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>Pastors can see how their congregation is doing as a whole — themes that are surfacing, areas where people are struggling — but never individual messages or personal confessions.</p>
                   </motion.div>
 
@@ -424,7 +424,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
                       <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
-                    <h4 className={clsx("text-2xl tracking-tight mb-3 text-slate-900", isDefault ? "font-semibold" : "font-bold")}>You hold the keys.</h4>
+                    <h4 className={clsx("text-2xl tracking-tight mb-3", isDefault ? "font-semibold text-zoe-ink" : "font-bold text-slate-900")}>You hold the keys.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>Any data sharing at the congregation level is always opt-in. We are fully transparent about what gets shared and what doesn't.</p>
                   </motion.div>
                 </div>

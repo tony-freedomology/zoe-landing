@@ -16,8 +16,8 @@ Zoe is a brand built on the intersection of ancient wisdom and modern vitality. 
 ### Accents & Action
 
 - **Jade (Primary Accent):** `#1DC286` — The color of vitality and action. Used for primary CTAs (pill-shaped), active states, and brand signifiers.
-- **Forest (Secondary Accent):** `#166534` — Grounding and trust-oriented. Used for secondary elements or moments where a more serious tone is required.
-- **Ink (Typography):** `#1C1C19` — The primary "black." Never use pure #000000. This charcoal-adjacent shade feels softer and more premium.
+- **Forest (Secondary Accent):** `#007354` — Grounding and trust-oriented. Used for secondary elements or moments where a more serious tone is required.
+- **Ink (Typography):** `#2d3231` — The primary "black." Never use pure #000000. This charcoal-adjacent shade feels softer and more premium.
 - **Outline:** `#BBCAC1` — A subtle, muted green used sparingly for low-contrast dividers or border moments.
 
 ## 3. Typography Hierarchy

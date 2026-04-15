@@ -55,12 +55,12 @@ These are the non-negotiables.
 | `--zoe-oat` | `#FCF9F4` | Default page background |
 | `--zoe-surface` | `#F6F3EE` | Secondary sections |
 | `--zoe-card` | `#FFFFFF` | Elevated cards/forms |
-| `--zoe-ink` | `#1C1C19` | Main text |
+| `--zoe-ink` | `#2d3231` | Main text |
 | `--zoe-muted` | `#5F5E5B` | Secondary text |
 | `--zoe-outline` | `#BBCAC1` | Soft outlines/dividers |
 | `--zoe-sap` | `#1DC286` | Jade: canonical primary CTA/accent |
 | `--zoe-leaf` | `#1DC286` | Alias to Jade for supporting active/link accents |
-| `--zoe-forest` | `#166534` | Deeper trust-oriented accent |
+| `--zoe-forest` | `#007354` | Deeper trust-oriented accent |
 
 ### Font roles
 

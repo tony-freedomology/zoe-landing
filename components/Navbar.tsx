@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import clsx from "clsx";
 
@@ -28,6 +28,7 @@ const journeyLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const reduceMotion = useReducedMotion();
   const hideOnPath =
     pathname === "/subscribe" ||
     pathname === "/thanks" ||
@@ -57,13 +58,23 @@ export default function Navbar() {
   }, [pathname]);
 
   const opaque = preserveTheme ? !isHomePage || scrolled : true;
+  const introInitial =
+    reduceMotion || !isHomePage ? { opacity: 1, y: 0 } : { opacity: 1, y: "-115%" };
+  const introTransition =
+    reduceMotion || !isHomePage
+      ? { duration: 0.12 }
+      : { delay: 2.15, duration: 0.42, ease: [0.16, 1, 0.3, 1] };
 
   if (hideOnPath) {
     return null;
   }
 
   return (
-    <header
+    <motion.header
+      initial={introInitial}
+      animate={{ opacity: 1, y: 0 }}
+      transition={introTransition}
+      style={{ willChange: reduceMotion || !isHomePage ? "auto" : "transform, opacity" }}
       className={clsx(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         preserveTheme
@@ -300,6 +311,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }

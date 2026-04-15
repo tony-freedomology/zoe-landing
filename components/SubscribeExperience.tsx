@@ -29,7 +29,7 @@ const appearance = {
   variables: {
     colorPrimary: "#1dc286",
     colorBackground: "#ffffff",
-    colorText: "#1c1c19",
+    colorText: "#2d3231",
     colorTextPlaceholder: "#8d94a5",
     colorDanger: "#b64855",
     colorSuccess: "#1dc286",
@@ -57,11 +57,11 @@ const appearance = {
     },
     ".Tab--selected": {
       borderColor: "#1dc286",
-      color: "#1c1c19",
+      color: "#2d3231",
       backgroundColor: "#ffffff",
     },
     ".Label": {
-      color: "#1c1c19",
+      color: "#2d3231",
       fontWeight: "500",
       marginBottom: "8px",
     },
@@ -264,7 +264,7 @@ export default function SubscribeExperience({
       <motion.div layout transition={revealTransition} className="relative z-10">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#1c1c19]/36">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#2d3231]/36">
               {numberEyebrow}
             </p>
             <AnimatePresence mode="wait" initial={false}>
@@ -274,7 +274,7 @@ export default function SubscribeExperience({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={revealTransition}
-                className="mt-2 text-sm font-medium leading-6 text-[#1c1c19]/64"
+                className="mt-2 text-sm font-medium leading-6 text-[#2d3231]/64"
               >
                 {numberHelper}
               </motion.p>
@@ -285,7 +285,7 @@ export default function SubscribeExperience({
             <button
               type="button"
               onClick={resetPhoneFlow}
-              className="inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-medium text-[#1c1c19]/54 transition hover:bg-[#f5f4f0] hover:text-[#1c1c19]"
+              className="inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-medium text-[#2d3231]/54 transition hover:bg-[#f5f4f0] hover:text-[#2d3231]"
             >
               <PencilLine className="h-3.5 w-3.5" />
               Edit
@@ -320,7 +320,7 @@ export default function SubscribeExperience({
                   placeholder="(555) 555-5555"
                   value={phoneInput}
                   onChange={(event) => setPhoneInput(formatUsPhoneInput(event.target.value))}
-                  className="w-full rounded-[1.35rem] border border-[#1c1c19]/10 bg-[#fbfaf7] px-4 py-3.5 text-center text-[1.72rem] font-semibold tracking-[-0.055em] text-[#1c1c19] outline-none transition focus:border-zoe-leaf focus:bg-white focus:ring-4 focus:ring-zoe-leaf/10 [font-family:var(--font-sans)] sm:rounded-[1.4rem] sm:px-4 sm:py-4 sm:text-[2.1rem]"
+                  className="w-full rounded-[1.35rem] border border-[#2d3231]/10 bg-[#fbfaf7] px-4 py-3.5 text-center text-[1.72rem] font-semibold tracking-[-0.055em] text-[#2d3231] outline-none transition focus:border-zoe-leaf focus:bg-white focus:ring-4 focus:ring-zoe-leaf/10 [font-family:var(--font-sans)] sm:rounded-[1.4rem] sm:px-4 sm:py-4 sm:text-[2.1rem]"
                 />
               </label>
 
@@ -383,7 +383,7 @@ export default function SubscribeExperience({
           )}
         </AnimatePresence>
 
-        <p className="mt-4 text-center text-[11px] font-medium text-[#1c1c19]/42 sm:mt-5 sm:text-xs">
+        <p className="mt-4 text-center text-[11px] font-medium text-[#2d3231]/42 sm:mt-5 sm:text-xs">
           {reassuranceCopy}
         </p>
       </motion.div>
@@ -503,7 +503,7 @@ function PlanToggle({
               "relative rounded-[1.15rem] border px-4 py-2.5 text-left transition sm:rounded-[1.2rem] sm:py-3",
               selected
                 ? "border-zoe-leaf bg-zoe-leaf/5 shadow-[0_8px_24px_rgba(29,194,134,0.08)]"
-                : "border-[#1c1c19]/10 bg-white/80 hover:border-[#1c1c19]/18 hover:bg-[#fbfaf7]",
+                : "border-[#2d3231]/10 bg-white/80 hover:border-[#2d3231]/18 hover:bg-[#fbfaf7]",
               isPreparing && "cursor-wait opacity-70"
             )}
           >
@@ -513,14 +513,14 @@ function PlanToggle({
               </span>
             ) : null}
 
-            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#1c1c19]/42">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#2d3231]/42">
               {option.label}
             </p>
-            <div className="mt-1.5 flex items-end gap-1 text-[#1c1c19] sm:mt-2">
+            <div className="mt-1.5 flex items-end gap-1 text-[#2d3231] sm:mt-2">
               <span className="text-[1.52rem] font-semibold tracking-[-0.05em] sm:text-[1.65rem]">
                 {option.price}
               </span>
-              <span className="pb-0.5 text-[13px] font-medium text-[#1c1c19]/56 sm:pb-1 sm:text-sm">
+              <span className="pb-0.5 text-[13px] font-medium text-[#2d3231]/56 sm:pb-1 sm:text-sm">
                 {option.cadence}
               </span>
             </div>
