@@ -1,14 +1,79 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import clsx from "clsx";
-
-import { Highlight } from "./Highlight";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } },
 };
+
+function MarkedText({
+  children,
+  variant = "underline",
+  delay = 0,
+  className,
+}: {
+  children: ReactNode;
+  variant?: "underline" | "circle";
+  delay?: number;
+  className?: string;
+}) {
+  return (
+    <span className={clsx("relative inline-block whitespace-nowrap", className)}>
+      <span className="relative z-10">{children}</span>
+      {variant === "circle" ? (
+        <motion.svg
+          aria-hidden="true"
+          className="pointer-events-none absolute -inset-x-2 -inset-y-1 h-[calc(100%+0.5rem)] w-[calc(100%+1rem)] overflow-visible"
+          viewBox="0 0 120 42"
+          preserveAspectRatio="none"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <motion.path
+            d="M61 4C83 4 113 9 116 21C119 34 91 39 61 38C29 37 5 32 4 20C3 8 34 4 61 4Z"
+            fill="none"
+            variants={{
+              hidden: { pathLength: 0, opacity: 0 },
+              show: { pathLength: 1, opacity: 1 },
+            }}
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="4"
+            transition={{ duration: 1.1, delay, ease: [0.16, 1, 0.3, 1] }}
+          />
+        </motion.svg>
+      ) : (
+        <motion.svg
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-2 left-0 h-3 w-full overflow-visible"
+          viewBox="0 0 120 12"
+          preserveAspectRatio="none"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          <motion.path
+            d="M4 7C22 4 40 5 58 7C78 9 98 8 116 5"
+            fill="none"
+            variants={{
+              hidden: { pathLength: 0, opacity: 0 },
+              show: { pathLength: 1, opacity: 1 },
+            }}
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeWidth="4"
+            transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
+          />
+        </motion.svg>
+      )}
+    </span>
+  );
+}
 
 interface ThesisProps {
   variant?: "default" | "jesus-red" | "emerald-uni";
@@ -16,8 +81,8 @@ interface ThesisProps {
 
 export default function ThesisSection({ variant = "default" }: ThesisProps = {}) {
   return (
-    <section className="relative flex w-full justify-center border-b border-misty-green-900 bg-misty-green-950 px-4 py-24 text-white md:px-6 md:py-40">
-      <div className="flex w-full max-w-[900px] flex-col gap-24 md:gap-32">
+    <section className="relative flex w-full justify-center border-b border-misty-green-900 bg-misty-green-950 px-4 py-20 text-white md:px-6 md:py-32">
+      <div className="flex w-full max-w-[900px] flex-col gap-14 md:gap-[4.5rem]">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -25,38 +90,17 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
           variants={fadeUp}
           className="mx-auto max-w-3xl text-center"
         >
-          <p className="mb-6 text-sm font-semibold uppercase tracking-widest text-brand-jade">The Promise</p>
+          <p className="mb-6 text-sm font-semibold uppercase tracking-widest text-zoe-leaf">The Question</p>
           <h2
             className={clsx(
               "mb-8 text-4xl font-bold leading-[1.1] tracking-tighter-editorial-relaxed md:text-5xl lg:text-6xl",
               variant === "jesus-red" ? "text-[#f5efe6]" : "text-white"
             )}
           >
-            "I have come that they may have life and have it to the <Highlight type="underline" color="text-brand-jade">full."</Highlight>
+            AI that helps you walk with Jesus more consistently.
           </h2>
-          <div className="space-y-6 text-xl font-medium leading-relaxed text-misty-green-100 md:text-2xl">
-            <p>
-              The Greek word Jesus uses for life here is{" "}
-              <Highlight type="circle" color="text-amber-400" scrollOffset={["start 65%", "start 35%"]}>
-                <span className="italic text-white">Zoe</span>
-              </Highlight>
-              . <span className="text-white">Zoe</span> means an abundant life. Vibrant. Active. Eternal.
-            </p>
-            <p>When Jesus uses this word, He&apos;s not talking about prosperity gospel, and he's not talking about just getting into heaven someday.</p>
-            <p>
-              He&apos;s talking about life the way it was meant to be - flourishing and fully integrated. He&apos;s talking about life{" "}
-              <span className="italic text-white">with</span> God. It&apos;s what you were made for and{" "}
-              <span
-                className={clsx(
-                  "font-bold",
-                  variant === "jesus-red"
-                    ? "rounded-sm border border-[#7a2332]/30 bg-[#7a2332]/20 px-2 py-0.5 text-[#f5efe6]"
-                    : "text-brand-jade"
-                )}
-              >
-                it&apos;s something that can start right now.
-              </span>
-            </p>
+          <div className="space-y-6 text-xl font-normal leading-[1.8] tracking-[0.01em] text-[#E8E1D5]/85 md:text-[1.65rem]">
+            <p>Wait&hellip;can that be done?...should it? And how?</p>
           </div>
         </motion.div>
 
@@ -67,95 +111,48 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
           variants={fadeUp}
           className="mx-auto max-w-3xl text-center"
         >
-          <p className="mb-6 text-sm font-semibold uppercase tracking-widest text-amber-500">The Reality</p>
-          <h3
-            className={clsx(
-              "mb-6 text-2xl font-semibold leading-tight tracking-tighter-editorial-relaxed md:text-4xl",
-              variant === "jesus-red" ? "text-[#f5efe6]" : "text-white"
-            )}
-          >
-            Good intentions aren&apos;t enough when the world is this loud.
-          </h3>
-          <div className="space-y-6 text-lg leading-relaxed text-misty-green-200 md:text-[22px]">
+          <p className="mb-8 text-sm font-semibold uppercase tracking-widest text-amber-500">The Tension</p>
+          <div className="space-y-6 text-lg font-normal leading-[1.8] tracking-[0.01em] text-[#E8E1D5]/78 md:text-[22px]">
             <p>
-              I&apos;m sure you&apos;ve felt this. Most of us desperately want to walk the path that Jesus invites us to. We genuinely intend to follow God, but the{" "}
-              <Highlight type="spiky" color="text-rose-500" scrollOffset={["start 50%", "start 25%"]}>
-                busyness and noise
-              </Highlight>{" "}
-              of life in 2026 - the endless emails, the social media scroll, and the pace of our days - all work together to make it incredibly hard to hear him in the distraction.
+              It sounds obvious, but it really isn&apos;t. How do you make it helpful but not invasive? Proactive but not creepy? How do you make sure it points people{" "}
+              <MarkedText variant="circle" delay={0.15} className="font-semibold text-zoe-leaf">
+                TO
+              </MarkedText>{" "}
+              Jesus and doesn&apos;t become a substitute{" "}
+              <MarkedText variant="circle" delay={0.35} className="font-semibold text-amber-400">
+                FOR
+              </MarkedText>{" "}
+              Him?
             </p>
             <p>
-              So we try to set up a practice. We set aside 15 minutes for a &quot;quiet time&quot; - our morning devotional. We mean well, but after a while it becomes like a{" "}
-              <Highlight type="checkbox" color="text-rose-500" scrollOffset={["start 55%", "start 15%"]}>
-                checkbox.
-              </Highlight>{" "}
-              A faith-related task we try to knock out early in the day so we can reassure ourselves we&apos;re &quot;good Christians,&quot; before we close the book and let the noise of the world take over the rest of our day.
+              Here&apos;s what <span className="font-semibold text-white">IS</span> obvious: AI is here, whether we like it or not, and the church (at large) needs to figure out what we&apos;re going to do about it. That&apos;s why we&apos;re building in public, and talking about it in public, and inviting you to join the conversation (and the alpha!)
+            </p>
+            <p>
+              We&apos;re really not interested in AI that tries to replace pastors (we are pastors so that would be silly lol), tries to fill the role of the Holy Spirit, or offers fake spiritual certainty.
+            </p>
+            <p>
+              But we are very interested in how AI could be used to help people&apos;s attention turn to Christ more often. We already know AI can make a great morning devotional, but what we need is{" "}
+              <MarkedText delay={0.55} className="font-semibold text-zoe-leaf">
+                day-long devotion.
+              </MarkedText>
+            </p>
+            <p>
+              <MarkedText delay={0.75} className="font-semibold text-white">
+                Can it help with that?
+              </MarkedText>
             </p>
           </div>
         </motion.div>
 
-        <motion.div
+        <motion.p
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          className="mx-auto mt-4 max-w-3xl text-center"
+          className="mx-auto font-serif text-4xl italic text-zoe-leaf md:text-6xl"
         >
-          <p className="mb-6 text-sm font-semibold uppercase tracking-widest text-brand-jade">The Answer</p>
-          <h3
-            className={clsx(
-              "mb-8 text-3xl font-semibold leading-tight tracking-tighter-editorial-relaxed md:text-5xl",
-              variant === "jesus-red" ? "text-[#f5efe6]" : "text-white"
-            )}
-          >
-            We don&apos;t need a daily devotional. We need <Highlight type="underline" color="text-brand-jade">day-long</Highlight> devotion.
-          </h3>
-          <p className="mb-12 text-xl font-medium leading-relaxed text-misty-green-100 md:text-2xl">
-            What we actually want is a{" "}
-            <span className="-translate-x-2 inline-block">
-              <Highlight type="circle" color="text-brand-jade">fully integrated life.</Highlight>
-            </span>{" "}
-            We want to notice where God is actively working, to remember Him often, and to actually walk the path Jesus invited us to walk.
-          </p>
-
-          <p className="mb-12 text-xl font-medium leading-relaxed text-misty-green-100 md:text-2xl">
-            That kind of life doesn&apos;t come from a better routine. It comes from a companion who walks through the day with you, reminding you what matters, helping you connect the dots, and pointing you back when you drift.
-          </p>
-
-          <div
-            className={clsx(
-              "relative overflow-hidden border p-8 md:p-12",
-              variant === "jesus-red"
-                ? "rounded-md border-[#e0d8cd] bg-[#f5efe6] shadow-xl shadow-black/20"
-                : "rounded-[2rem] border-[#d9e4dc]/70 bg-[linear-gradient(180deg,rgba(252,249,244,0.98),rgba(245,241,234,0.98))] shadow-[0_28px_80px_rgba(0,0,0,0.18)]"
-            )}
-          >
-            <div
-              className={clsx(
-                "absolute inset-0 bg-gradient-to-br to-transparent",
-                variant === "jesus-red" ? "from-white/60" : "from-brand-jade/8 via-transparent"
-              )}
-            />
-            <div className="relative z-10 mx-auto flex max-w-2xl flex-col items-center text-center">
-              {variant !== "jesus-red" ? (
-                <p className="mb-4 font-serif text-sm italic text-[#6c7a73]">Quiet by design.</p>
-              ) : null}
-              <h3
-                className={clsx(
-                  "mb-4 md:text-4xl",
-                  variant === "jesus-red"
-                    ? "text-2xl font-medium tracking-tighter-editorial-relaxed text-[#5c1624]"
-                    : "text-2xl font-semibold tracking-tighter-sans text-slate-900"
-                )}
-              >
-                That&apos;s exactly why we built Zoe.
-              </h3>
-              <p className={clsx("text-lg leading-relaxed md:text-[22px]", variant === "jesus-red" ? "text-slate-800" : "text-slate-600")}>
-                It&apos;s not another app to feed your distraction, but a simple, quiet tool designed specifically to bring you back to what matters, all day long.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+          Meet Zoe.
+        </motion.p>
       </div>
     </section>
   );

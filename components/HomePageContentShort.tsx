@@ -9,6 +9,11 @@ import ZoeSVG from "./ZoeSVG";
 import LeftHeroSvg from "./LeftHeroSvg";
 import RightHeroSvg from "./RightHeroSvg";
 import { usePhoneFormatter } from "../app/hooks/usePhoneFormatter";
+import {
+  isWaitlistEmailValid,
+  isWaitlistNameValid,
+  isWaitlistPhoneValid,
+} from "../lib/waitlistValidation";
 
 interface ShortProps {
   variant?: "default" | "jesus-red" | "emerald-uni";
@@ -18,7 +23,12 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
   const [status, setStatus] = useState<"idle" | "submitting" | "sent">("idle");
   const [name, setName] = useState("");
   const [phone, setPhone] = usePhoneFormatter("");
+  const [email, setEmail] = useState("");
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const waitlistFormValid =
+    isWaitlistNameValid(name) &&
+    isWaitlistPhoneValid(phone) &&
+    isWaitlistEmailValid(email);
 
   const isJR = variant === "jesus-red";
   const isEM = variant === "emerald-uni";
@@ -30,12 +40,18 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
 
   const handleWaitlistSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!waitlistFormValid) {
+      setSubmitError("Enter a valid name, phone number, and email.");
+      return;
+    }
+
     setStatus("submitting");
     setSubmitError(null);
 
     const payload = {
       name,
       phone,
+      email,
       type: "individual",
       source: `short-landing-${variant}`,
       submittedAt: new Date().toISOString()
@@ -69,10 +85,10 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
   };
 
   // Theme values Let's keep the focus ring conditional on the actual variant color
-  const primaryColor = isJR ? "text-[#7a2332]" : isEM ? "text-[#00c292]" : "text-brand-jade";
-  const primaryBg = isJR ? "bg-[#7a2332]" : isEM ? "bg-[#00c292]" : "bg-brand-jade";
-  const primaryBgLight = isJR ? "bg-[#7a2332]/10" : isEM ? "bg-[#00c292]/10" : "bg-brand-jade/10";
-  const focusRing = isJR ? "focus:ring-[#7a2332]/30" : isEM ? "focus:ring-[#00c292]/30" : "focus:ring-brand-jade/30";
+  const primaryColor = isJR ? "text-[#7a2332]" : isEM ? "text-[#1dc286]" : "text-zoe-leaf";
+  const primaryBg = isJR ? "bg-[#7a2332]" : isEM ? "bg-[#1dc286]" : "bg-zoe-leaf";
+  const primaryBgLight = isJR ? "bg-[#7a2332]/10" : isEM ? "bg-[#1dc286]/10" : "bg-zoe-leaf/10";
+  const focusRing = isJR ? "focus:ring-[#7a2332]/30" : isEM ? "focus:ring-[#1dc286]/30" : "focus:ring-zoe-leaf/30";
 
   const mainBg = isJR ? "bg-[#f5efe6]" : "bg-white";
   const cardBg = isJR ? "bg-[#f5efe6]" : "bg-white"; // Bottom sheet on mobile matches theme
@@ -147,7 +163,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
             <img src="/assets/hero/emerald-campus-wide.jpg" className="absolute inset-0 w-full h-full object-cover object-center" alt="" />
             {/* Extremely subtle brightening green wash */}
             <div className="absolute inset-0 bg-[#00f2b5]/5 mix-blend-screen opacity-50" />
-            <div className="absolute inset-0 bg-[#00c292]/5 mix-blend-multiply" />
+            <div className="absolute inset-0 bg-[#1dc286]/5 mix-blend-multiply" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-emerald-500/10 to-emerald-950/40" />
           </div>
         )}
@@ -250,6 +266,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                     <input
                       type="text"
                       placeholder="Your First Name"
+                      autoComplete="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required
@@ -261,6 +278,8 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                     />
                     <input
                       type="tel"
+                      autoComplete="tel"
+                      inputMode="tel"
                       placeholder="(555) 555-5555"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
@@ -271,11 +290,24 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                         focusRing
                       )}
                     />
+                    <input
+                      type="email"
+                      autoComplete="email"
+                      placeholder="you@example.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className={clsx(
+                        "w-full rounded-xl px-4 py-3.5 bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 font-medium transition-shadow",
+                        "focus:outline-none focus:ring-2 focus:border-transparent",
+                        focusRing
+                      )}
+                    />
                     <button
                       type="submit"
-                      disabled={status === "submitting"}
+                      disabled={status === "submitting" || !waitlistFormValid}
                       className={clsx(
-                        "w-full rounded-xl px-6 py-4 font-bold text-white transition-all duration-200 hover:opacity-90 disabled:opacity-50 mt-1 shadow-lg shadow-black/5",
+                        "w-full rounded-xl px-6 py-4 font-bold text-white transition-all duration-200 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed mt-1 shadow-lg shadow-black/5",
                         primaryBg
                       )}
                     >
@@ -284,7 +316,16 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                     {submitError && (
                       <div className="mt-1 pl-1">
                         <p className="text-red-500 text-sm font-medium">{submitError}</p>
-                        <button type="submit" className={clsx("text-sm font-semibold underline mt-1 transition-colors", primaryColor)}>Try again</button>
+                        <button
+                          type="submit"
+                          disabled={status === "submitting" || !waitlistFormValid}
+                          className={clsx(
+                            "text-sm font-semibold underline mt-1 transition-colors disabled:text-slate-400 disabled:no-underline disabled:cursor-not-allowed",
+                            primaryColor
+                          )}
+                        >
+                          Try again
+                        </button>
                       </div>
                     )}
                   </form>

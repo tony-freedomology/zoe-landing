@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useId } from "react";
 
-export function Highlight({ children, type = "underline", color = "text-brand-jade", scrollOffset = ["start 85%", "start 45%"] }: { children: React.ReactNode, type?: "underline" | "circle" | "scratch" | "checkbox" | "spiky", color?: string, scrollOffset?: [string, string] }) {
+export function Highlight({ children, type = "underline", color = "text-zoe-leaf", scrollOffset = ["start 85%", "start 45%"] }: { children: React.ReactNode, type?: "underline" | "circle" | "scratch" | "checkbox" | "spiky", color?: string, scrollOffset?: [string, string] }) {
     const ref = useRef<HTMLSpanElement>(null);
     const id = useId();
     const { scrollYProgress } = useScroll({

@@ -3,7 +3,7 @@ import "./emerald-uni.css";
 export const metadata = {
   title: "Zoe — Walk with Jesus",
   description:
-    "A discipleship companion rooted in Scripture, built for depth.",
+    "A Scripture-rooted tool for walking with Jesus, built for depth.",
   icons: {
     icon: [
       { url: "/emerald-uni/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -14,7 +14,7 @@ export const metadata = {
   openGraph: {
     title: "Zoe — Walk with Jesus",
     description:
-      "A discipleship companion rooted in Scripture, built for depth.",
+      "A Scripture-rooted tool for walking with Jesus, built for depth.",
     type: "website",
     images: [
       {

@@ -68,7 +68,7 @@ export default function SubscribePage({ searchParams }: SubscribePageProps) {
             </div>
 
             <div className="mt-auto max-w-xs pb-7 sm:max-w-sm sm:pb-14">
-              <h1 className="text-balance text-[3.3rem] font-semibold leading-[0.9] tracking-[-0.07em] text-[#fff8ef] drop-shadow-[0_12px_30px_rgba(15,23,42,0.28)] [font-family:var(--font-serif)] sm:text-[4.4rem]">
+              <h1 className="text-balance text-[3.3rem] font-semibold leading-[0.9] tracking-[-0.07em] text-[#fff8ef] drop-shadow-[0_12px_30px_rgba(15,23,42,0.28)] font-sans sm:text-[4.4rem]">
                 {heading}
               </h1>
               <p className="mx-auto mt-3 max-w-[18rem] text-sm font-medium leading-6 text-[#fff8ef]/86 drop-shadow-[0_8px_24px_rgba(15,23,42,0.22)] sm:mt-4 sm:text-[15px]">

@@ -101,8 +101,8 @@
 }
 
 /* ── Thesis / dark sections ────────────────────────────── */
-.theme-emerald-uni [class*="bg-misty-green-950"],
-.theme-emerald-uni [class*="from-misty-green-950"],
+.theme-emerald-uni [class*="bg-zoe-surface"],
+.theme-emerald-uni [class*="from-zoe-surface"],
 .theme-emerald-uni [class*="bg-\\[\\#141f1a\\]"] {
   background-color: var(--eu-ink) !important;
 }
@@ -124,23 +124,23 @@
 }
 
 /* ── Accent color swaps (cyan/jade → emerald) ──────────── */
-.theme-emerald-uni [class*="text-brand-jade"],
-.theme-emerald-uni [class*="text-brand-cyan"] {
+.theme-emerald-uni [class*="text-zoe-leaf"],
+.theme-emerald-uni [class*="text-zoe-sap"] {
   color: var(--eu-emerald) !important;
 }
 
-.theme-emerald-uni [class*="bg-brand-jade"],
-.theme-emerald-uni [class*="bg-brand-cyan"] {
+.theme-emerald-uni [class*="bg-zoe-leaf"],
+.theme-emerald-uni [class*="bg-zoe-sap"] {
   background-color: var(--eu-emerald) !important;
 }
 
-.theme-emerald-uni [class*="border-brand-jade"],
-.theme-emerald-uni [class*="border-brand-cyan"] {
+.theme-emerald-uni [class*="border-zoe-leaf"],
+.theme-emerald-uni [class*="border-zoe-sap"] {
   border-color: var(--eu-emerald) !important;
 }
 
-.theme-emerald-uni [class*="ring-brand-jade"],
-.theme-emerald-uni [class*="ring-brand-cyan"] {
+.theme-emerald-uni [class*="ring-zoe-leaf"],
+.theme-emerald-uni [class*="ring-zoe-sap"] {
   --tw-ring-color: var(--eu-emerald) !important;
 }
 
@@ -181,8 +181,8 @@
 
 /* ── FAQ accordion ─────────────────────────────────────── */
 /* The default closed state uses bg-slate-50 which is fine.
-   Only apply emerald when expanded (rotate-180 triggers bg-brand-cyan). */
-.theme-emerald-uni button .rotate-180[class*="bg-brand-cyan"] {
+   Only apply emerald when expanded (rotate-180 triggers bg-zoe-sap). */
+.theme-emerald-uni button .rotate-180[class*="bg-zoe-sap"] {
   background-color: var(--eu-emerald) !important;
 }
 
@@ -232,25 +232,25 @@
 }
 
 /* ── Highlight underline SVGs → emerald ────────────────── */
-.theme-emerald-uni [class*="text-brand-jade"] svg path,
-.theme-emerald-uni [class*="text-brand-cyan"] svg path {
+.theme-emerald-uni [class*="text-zoe-leaf"] svg path,
+.theme-emerald-uni [class*="text-zoe-sap"] svg path {
   stroke: var(--eu-emerald) !important;
 }
 
 /* ── Trust timeline line → emerald ─────────────────────── */
-.theme-emerald-uni [class*="bg-brand-jade\\/10"] {
+.theme-emerald-uni [class*="bg-zoe-leaf\\/10"] {
   background-color: rgba(0, 159, 82, 0.10) !important;
 }
 
-.theme-emerald-uni div[class*="bg-brand-jade"]:not([class*="\\/"]) {
+.theme-emerald-uni div[class*="bg-zoe-leaf"]:not([class*="\\/"]) {
   background-color: var(--eu-emerald) !important;
 }
 
-.theme-emerald-uni [class*="border-brand-jade\\/30"] {
+.theme-emerald-uni [class*="border-zoe-leaf\\/30"] {
   border-color: rgba(0, 159, 82, 0.25) !important;
 }
 
-.theme-emerald-uni [class*="bg-brand-jade\\/80"] {
+.theme-emerald-uni [class*="bg-zoe-leaf\\/80"] {
   background-color: rgba(0, 159, 82, 0.80) !important;
 }
 
@@ -338,8 +338,8 @@
 }
 
 /* The sub-labels in thesis (The Promise, The Reality, etc) */
-.theme-emerald-uni [class*="bg-misty-green-950"] .text-brand-jade,
-.theme-emerald-uni [class*="bg-misty-green-950"] .text-brand-cyan {
+.theme-emerald-uni [class*="bg-misty-green-950"] .text-zoe-leaf,
+.theme-emerald-uni [class*="bg-misty-green-950"] .text-zoe-sap {
   color: var(--eu-emerald-vivid) !important;
 }
 

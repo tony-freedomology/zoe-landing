@@ -1,12 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, Newsreader } from "next/font/google";
+import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
 import clsx from "clsx";
 import Navbar from "../components/Navbar";
 import ImagePrefetcher from "../components/ImagePrefetcher";
 import { SITE_URL, toAbsoluteUrl } from "../lib/site";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
 const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-serif", display: "swap", adjustFontFallback: false });
 
 export const metadata: Metadata = {
@@ -103,7 +103,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={clsx(inter.variable, newsreader.variable, "font-sans tracking-tight-fine")}>
+      <body className={clsx(jakarta.variable, newsreader.variable, "font-sans tracking-tight-fine")}>
         <Navbar />
         <ImagePrefetcher />
         {children}

@@ -30,35 +30,35 @@ const days = [
 
 export default function TheExamenPage() {
   return (
-    <div className="min-h-screen text-slate-900">
-      <section className="relative w-full overflow-hidden bg-misty-green-950" style={{ aspectRatio: '16/9' }}>
+    <div className="min-h-screen text-zoe-ink">
+      <section className="relative w-full overflow-hidden bg-zoe-ink" style={{ aspectRatio: '16/9' }}>
         <Image src={examenReflectionImg} alt="The Examen: 14 Days of Evening Reflection" fill placeholder="blur" className="object-cover" priority />
       </section>
 
       <section className="py-16 px-6 bg-white">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-zoe-muted font-medium leading-relaxed max-w-2xl mx-auto mb-8">
             The Examen is a 500-year-old prayer practice from Ignatius of Loyola. It's simple: at the end of each day, look back and notice where God showed up — and where you missed it.
           </p>
           <div>
-            <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
+            <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
               Start This Journey <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-[#F8FBFA]">
+      <section className="py-20 px-6 bg-zoe-surface">
         <div className="mx-auto max-w-3xl">
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[{ label: "Duration", value: "14 Days" }, { label: "Practice", value: "5–10 min/evening" }, { label: "Style", value: "Guided reflection" }].map((stat) => (
-              <div key={stat.label} className="bg-white rounded-2xl p-6 text-center border border-slate-100 shadow-sm">
-                <p className="text-3xl font-bold tracking-tighter-editorial text-slate-900 mb-1">{stat.value}</p>
-                <p className="text-sm font-semibold uppercase tracking-widest text-slate-400">{stat.label}</p>
+              <div key={stat.label} className="bg-white rounded-2xl p-6 text-center border border-zoe-outline/20 shadow-sm">
+                <p className="text-3xl font-bold tracking-tight font-sans text-zoe-ink mb-1">{stat.value}</p>
+                <p className="text-sm font-semibold uppercase tracking-widest text-zoe-muted">{stat.label}</p>
               </div>
             ))}
           </div>
-          <div className="text-slate-600 font-medium leading-relaxed text-lg space-y-6">
+          <div className="text-zoe-muted font-medium leading-relaxed text-lg space-y-6">
             <p>Ignatius of Loyola called the Examen the most important prayer practice a person could have. The idea is straightforward: before you go to sleep, review your day. Where did you feel most alive? Where did you feel most drained? Where was God present — even if you didn't notice at the time?</p>
             <p>This 14-day journey walks you through the Examen step by step, adding depth each day. By the end, you'll have a nightly practice that takes five minutes and changes how you see everything else. Each evening, Zoe walks you through the reflection and helps you notice patterns you might miss on your own.</p>
           </div>
@@ -67,20 +67,20 @@ export default function TheExamenPage() {
 
       <section className="py-20 px-6 bg-white">
         <div className="mx-auto max-w-3xl">
-          <h2 className="text-3xl md:text-4xl tracking-tighter-editorial text-slate-900 font-bold mb-10">The 14 Days</h2>
+          <h2 className="text-3xl md:text-4xl tracking-tight font-sans text-zoe-ink font-bold mb-10">The 14 Days</h2>
           <div className="flex flex-col gap-4">
             {days.map((d) => (
-              <div key={d.day} className="flex gap-5 items-start p-6 rounded-2xl bg-slate-50 border border-slate-100">
-                <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center flex-shrink-0">
+              <div key={d.day} className="flex gap-5 items-start p-6 rounded-2xl bg-zoe-surface border border-zoe-outline/20">
+                <div className="w-10 h-10 rounded-full bg-zoe-ink flex items-center justify-center flex-shrink-0">
                   <span className="text-white text-sm font-bold">{d.day}</span>
                 </div>
                 <div>
                   <div className="flex flex-wrap gap-2 items-center mb-1">
-                    <span className="text-brand-jade font-semibold text-sm">{d.passage}</span>
-                    <span className="text-slate-300 text-sm">·</span>
-                    <span className="font-bold text-slate-900">{d.theme}</span>
+                    <span className="text-zoe-leaf font-semibold text-sm">{d.passage}</span>
+                    <span className="text-zoe-outline text-sm">·</span>
+                    <span className="font-bold text-zoe-ink">{d.theme}</span>
                   </div>
-                  <p className="text-slate-600 text-sm leading-relaxed font-medium italic">&ldquo;{d.prompt}&rdquo;</p>
+                  <p className="text-zoe-muted text-sm leading-relaxed font-medium italic">&ldquo;{d.prompt}&rdquo;</p>
                 </div>
               </div>
             ))}
@@ -88,11 +88,11 @@ export default function TheExamenPage() {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-slate-900">
+      <section className="py-24 px-6 bg-zoe-ink">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl md:text-5xl tracking-tighter-editorial text-white font-bold leading-[1.1] mb-6">Begin the journey.</h2>
-          <p className="text-lg text-slate-300 font-medium leading-relaxed mb-10">Zoe is currently in early access. Join the waitlist to be among the first to walk through The Examen with a daily discipleship companion.</p>
-          <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
+          <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-6">Begin the journey.</h2>
+          <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">Zoe is currently in early access. Join the waitlist to be among the first to walk through The Examen with Daily scripture, reflection, and check-ins in your texts.</p>
+          <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
             Join the Waitlist <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

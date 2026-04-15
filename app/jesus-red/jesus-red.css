@@ -75,9 +75,9 @@
 }
 
 /* ── Thesis / dark sections ────────────────────────────── */
-/* The ThesisSection uses misty-green-950 bg */
-.theme-jesus-red [class*="bg-misty-green-950"],
-.theme-jesus-red [class*="from-misty-green-950"],
+/* The ThesisSection uses zoe-surface bg */
+.theme-jesus-red [class*="bg-zoe-surface"],
+.theme-jesus-red [class*="from-zoe-surface"],
 .theme-jesus-red [class*="bg-\\[\\#141f1a\\]"] {
   background-color: var(--jr-ink) !important;
 }
@@ -98,23 +98,23 @@
 }
 
 /* ── Accent color swaps (cyan/jade → red/gold) ─────────── */
-.theme-jesus-red [class*="text-brand-jade"],
-.theme-jesus-red [class*="text-brand-cyan"] {
+.theme-jesus-red [class*="text-zoe-leaf"],
+.theme-jesus-red [class*="text-zoe-sap"] {
   color: var(--jr-red) !important;
 }
 
-.theme-jesus-red [class*="bg-brand-jade"],
-.theme-jesus-red [class*="bg-brand-cyan"] {
+.theme-jesus-red [class*="bg-zoe-leaf"],
+.theme-jesus-red [class*="bg-zoe-sap"] {
   background-color: var(--jr-red) !important;
 }
 
-.theme-jesus-red [class*="border-brand-jade"],
-.theme-jesus-red [class*="border-brand-cyan"] {
+.theme-jesus-red [class*="border-zoe-leaf"],
+.theme-jesus-red [class*="border-zoe-sap"] {
   border-color: var(--jr-red) !important;
 }
 
-.theme-jesus-red [class*="ring-brand-jade"],
-.theme-jesus-red [class*="ring-brand-cyan"] {
+.theme-jesus-red [class*="ring-zoe-leaf"],
+.theme-jesus-red [class*="ring-zoe-sap"] {
   --tw-ring-color: var(--jr-red) !important;
 }
 
@@ -123,14 +123,14 @@
   color: var(--jr-gold) !important;
 }
 
-.theme-jesus-red [class*="bg-brand-jade\\/5"],
-.theme-jesus-red [class*="bg-brand-cyan\\/5"] {
+.theme-jesus-red [class*="bg-zoe-leaf\\/5"],
+.theme-jesus-red [class*="bg-zoe-sap\\/5"] {
   background-color: rgba(122, 35, 50, 0.12) !important;
   color: var(--jr-red-deep) !important;
 }
 
-.theme-jesus-red [class*="border-brand-jade\\/20"],
-.theme-jesus-red [class*="border-brand-cyan\\/20"] {
+.theme-jesus-red [class*="border-zoe-leaf\\/20"],
+.theme-jesus-red [class*="border-zoe-sap\\/20"] {
   border-color: rgba(122, 35, 50, 0.18) !important;
 }
 
@@ -190,25 +190,25 @@
 }
 
 /* ── Highlight underline SVGs → red ────────────────────── */
-.theme-jesus-red [class*="text-brand-jade"] svg path,
-.theme-jesus-red [class*="text-brand-cyan"] svg path {
+.theme-jesus-red [class*="text-zoe-leaf"] svg path,
+.theme-jesus-red [class*="text-zoe-sap"] svg path {
   stroke: var(--jr-red) !important;
 }
 
 /* ── Trust timeline line ───────────────────────────────── */
-.theme-jesus-red [class*="bg-brand-jade\\/10"] {
+.theme-jesus-red [class*="bg-zoe-leaf\\/10"] {
   background-color: rgba(122, 35, 50, 0.10) !important;
 }
 
-.theme-jesus-red div[class*="bg-brand-jade"]:not([class*="\\/"]) {
+.theme-jesus-red div[class*="bg-zoe-leaf"]:not([class*="\\/"]) {
   background-color: var(--jr-red) !important;
 }
 
-.theme-jesus-red [class*="border-brand-jade\\/30"] {
+.theme-jesus-red [class*="border-zoe-leaf\\/30"] {
   border-color: rgba(122, 35, 50, 0.30) !important;
 }
 
-.theme-jesus-red [class*="bg-brand-jade\\/80"] {
+.theme-jesus-red [class*="bg-zoe-leaf\\/80"] {
   background-color: rgba(122, 35, 50, 0.80) !important;
 }
 

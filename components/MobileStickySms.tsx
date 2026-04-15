@@ -154,7 +154,7 @@ export default function MobileStickySms({ variant = "default" }: { variant?: "de
     };
 
     return (
-        <section ref={containerRef} className={clsx("relative w-full h-[1200vh] z-20 block overflow-x-clip", variant === "jesus-red" ? "bg-[#f5efe6]" : "bg-[#F9FAFB]")}>
+        <section ref={containerRef} className={clsx("relative w-full h-[1200vh] z-20 block overflow-x-clip", variant === "jesus-red" ? "bg-[#f5efe6]" : "bg-zoe-oat")}>
 
             {isInView && (
                 <div className="fixed top-0 left-0 w-full h-[100dvh] flex items-center justify-center overflow-hidden pointer-events-none z-20">
@@ -174,11 +174,11 @@ export default function MobileStickySms({ variant = "default" }: { variant?: "de
 
                     {/* ── PHASE 1 CHAT ── */}
                     <motion.div style={{ opacity: c1Opacity }} className="absolute top-[8vh] left-0 w-full px-4 flex flex-col gap-[6px] z-20 pointer-events-auto">
-                        <ScrollTimestamp text="Yesterday, 9:14 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.20, 0.21]} />
-                        <ScrollBubble sender="user" variant={variant} text="hey can we go through one of the gospels together? i want to actually understand what jesus was like, not just the sunday school version" scrollYProgress={scrollYProgress} fadeInRange={[0.205, 0.225]} />
-                        <ScrollBubble sender="zoe" variant={variant} text="Mark. 100%. it reads like a documentary — no long speeches, just jesus doing things that blow people's minds. 16 chapters, we can do it in 2 weeks. what time works for morning readings?" scrollYProgress={scrollYProgress} fadeInRange={[0.225, 0.245]} />
+                        <ScrollTimestamp text="Yesterday, 8:58 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.20, 0.21]} />
+                        <ScrollBubble sender="user" variant={variant} text="can we do a study on wisdom and decision-making? i've got some big work/family stuff in front of me and i don't want to just spiral about it" scrollYProgress={scrollYProgress} fadeInRange={[0.205, 0.225]} />
+                        <ScrollBubble sender="zoe" variant={variant} text="Yeah sure thing! I can put together a couple of weeks on wisdom - Proverbs, James, Ecclesiastes, and a little Luke. Wanna start tomorrow morning? What time?" scrollYProgress={scrollYProgress} fadeInRange={[0.225, 0.245]} />
                         <ScrollBubble sender="user" variant={variant} text="7am" scrollYProgress={scrollYProgress} fadeInRange={[0.245, 0.26]} />
-                        <ScrollBubble sender="zoe" variant={variant} text="Done. Starting tomorrow 👋" scrollYProgress={scrollYProgress} fadeInRange={[0.26, 0.28]} />
+                        <ScrollBubble sender="zoe" variant={variant} text="Sweet, I'll hit you up in the morning 🙂" scrollYProgress={scrollYProgress} fadeInRange={[0.26, 0.28]} />
                     </motion.div>
 
                     {/* ── PHASE 2 TEXT ── */}
@@ -196,34 +196,34 @@ export default function MobileStickySms({ variant = "default" }: { variant?: "de
 
                     {/* ── PHASE 2 CHAT ── */}
                     <motion.div style={{ opacity: c2Opacity }} className="absolute top-[8vh] left-0 w-full px-4 flex flex-col gap-[6px] z-20 pointer-events-auto">
-                        <ScrollTimestamp text="Today, 7:02 AM" scrollYProgress={scrollYProgress} fadeInRange={[0.52, 0.53]} />
+                        <ScrollTimestamp text="Today, 7:01 AM" scrollYProgress={scrollYProgress} fadeInRange={[0.52, 0.53]} />
                         <ScrollBubble
                             sender="zoe"
                             variant={variant}
                             text={
                                 <>
-                                    Morning! Mark 4:35-41 today.
+                                    morning - day 1 of wisdom and decision-making.
                                     <br />
                                     <br />
-                                    Jesus and the disciples are crossing the sea of galilee when a massive storm hits.
+                                    PROVERBS 3:5-6
                                     <br />
-                                    The disciples are losing it.
-                                    <br />
-                                    Jesus? Asleep in the back of the boat.
-                                    <br />
-                                    They wake him up and he just... tells the storm to stop.
-                                    <br />
-                                    Then turns to them: &quot;why are you so afraid?&quot;
+                                    &quot;Trust in the Lord with all your heart...&quot;
                                     <br />
                                     <br />
-                                    Read it. What hits you?
+                                    The line that matters today is all your ways. That includes the big crossroads and the smaller calls you make while you&apos;re moving.
+                                    <br />
+                                    <br />
+                                    Proverbs treats wisdom as a posture: trust, acknowledge, keep moving. You may still want the full map. God may only give the next faithful step.
+                                    <br />
+                                    <br />
+                                    What&apos;s one decision today you&apos;re tempted to handle on your own?
                                 </>
                             }
                             scrollYProgress={scrollYProgress}
                             fadeInRange={[0.54, 0.56]}
                         />
-                        <ScrollBubble sender="user" variant={variant} text="the part about him sleeping. i feel like i'm panicking about my business right now and he's just... asleep." scrollYProgress={scrollYProgress} fadeInRange={[0.57, 0.59]} />
-                        <ScrollBubble sender="zoe" variant={variant} text="Yeah that tension is the whole point of the story. he's not absent — he's so unbothered by the storm that he's napping. what does that say about what he thinks of the things you're panicking about? sit with that today." scrollYProgress={scrollYProgress} fadeInRange={[0.60, 0.63]} />
+                        <ScrollBubble sender="user" variant={variant} text="the work stuff. i keep wanting the whole plan before i take the next step." scrollYProgress={scrollYProgress} fadeInRange={[0.57, 0.59]} />
+                        <ScrollBubble sender="zoe" variant={variant} text="Yeah. That's the real tension. You can take the next faithful step without seeing the whole map yet. Stay close enough to God to obey what's actually in front of you." scrollYProgress={scrollYProgress} fadeInRange={[0.60, 0.63]} />
                     </motion.div>
 
                     {/* ── PHASE 3 TEXT ── */}
@@ -241,13 +241,13 @@ export default function MobileStickySms({ variant = "default" }: { variant?: "de
 
                     {/* ── PHASE 3 CHAT (fades in, then slides up + fades out before dawn) ── */}
                     <motion.div style={{ opacity: c3Opacity, y: c3TranslateY }} className="absolute top-[8vh] left-0 w-full px-4 flex flex-col gap-[6px] z-20 pointer-events-auto">
-                        <ScrollTimestamp text="1:24 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.83, 0.84]} />
-                        <ScrollBubble sender="zoe" variant={variant} text="Hey - just checking in to remind you what we read about this morning. Jesus, calm. Unbothered. Even with a storm going on, because he's in control." scrollYProgress={scrollYProgress} fadeInRange={[0.84, 0.86]} />
+                        <ScrollTimestamp text="12:18 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.83, 0.84]} />
+                        <ScrollBubble sender="zoe" variant={variant} text={'Just a reminder that acknowledging Him in "all your ways" includes whatever you\'re walking into this afternoon.'} scrollYProgress={scrollYProgress} fadeInRange={[0.84, 0.86]} />
 
-                        <ScrollTimestamp text="8:30 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.86, 0.87]} />
-                        <ScrollBubble sender="zoe" variant={variant} text="Evening. Where did you notice God today?" scrollYProgress={scrollYProgress} fadeInRange={[0.87, 0.88]} />
-                        <ScrollBubble sender="user" variant={variant} text="i had a moment where i was kind of panicking but had that picture of Jesus asleep pop into my head. Wish I could sleep like him" scrollYProgress={scrollYProgress} fadeInRange={[0.88, 0.90]} />
-                        <ScrollBubble sender="zoe" variant={variant} text="Haha. Yeah well, why don't you pray for his peace tonight? Ask Him to help you trust to the point where you can be that calm" scrollYProgress={scrollYProgress} fadeInRange={[0.90, 0.92]} />
+                        <ScrollTimestamp text="8:58 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.86, 0.87]} />
+                        <ScrollBubble sender="zoe" variant={variant} text="Before you crash: where did you feel tempted today to force clarity instead of staying close to Him?" scrollYProgress={scrollYProgress} fadeInRange={[0.87, 0.88]} />
+                        <ScrollBubble sender="user" variant={variant} text="honestly, in the meeting. i wanted to push for certainty, but i held it more loosely." scrollYProgress={scrollYProgress} fadeInRange={[0.88, 0.90]} />
+                        <ScrollBubble sender="zoe" variant={variant} text="Nice! 😁 Proverbs 3 made it into the meeting! Glad you noticed God inviting you to give Him control!" scrollYProgress={scrollYProgress} fadeInRange={[0.90, 0.92]} />
                     </motion.div>
 
                 </div>
@@ -259,7 +259,7 @@ export default function MobileStickySms({ variant = "default" }: { variant?: "de
                 style={{
                     background: variant === "jesus-red"
                         ? "linear-gradient(to bottom, #f5efe6 0%, #fecdd3 100%)"
-                        : "linear-gradient(to bottom, #F9FAFB 0%, #fecdd3 100%)"
+                        : "linear-gradient(to bottom, #FCF9F4 0%, #fecdd3 100%)"
                 }}
             />
             <div className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-rose-200 pointer-events-none z-10" />

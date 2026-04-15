@@ -41,7 +41,7 @@ export default function JourneyMarquee() {
     <div className="relative overflow-hidden rounded-[32px] border border-white/80 bg-[#fffaf2] p-4 shadow-[0_28px_80px_rgba(15,23,42,0.08)] md:p-6">
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-[#fffaf2] to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-[#fffaf2] to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(217,119,6,0.08),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(0,194,146,0.08),transparent_35%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(217,119,6,0.08),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(29,194,134,0.08),transparent_35%)]" />
       <div className="relative z-0 space-y-4">
         <JourneyRow journeys={firstRow} />
         <JourneyRow journeys={secondRow} reverse />

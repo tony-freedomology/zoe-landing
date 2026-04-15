@@ -45,7 +45,7 @@ export default function WhyYouKeepQuittingPage() {
   return (
     <>
     <FaqSchema faqs={faqs} />
-    <div className="min-h-screen text-slate-900">
+    <div className="min-h-screen text-zoe-ink">
       <section className="relative overflow-hidden bg-[#141008] py-32 px-6 pt-40">
         {/* Hero Background */}
         <Image
@@ -68,23 +68,23 @@ export default function WhyYouKeepQuittingPage() {
         <div className="absolute bottom-0 left-0 right-0 h-16 z-10 bg-gradient-to-b from-transparent to-[#141008]" />
         <div className="relative z-20 mx-auto max-w-3xl">
           <div className="mb-6">
-            <Link href="/blog" className="text-sm font-semibold text-slate-400 hover:text-white transition-colors">&larr; Blog</Link>
+            <Link href="/blog" className="text-sm font-semibold text-zoe-muted hover:text-white transition-colors">&larr; Blog</Link>
           </div>
           <div className="flex flex-wrap gap-3 items-center mb-6">
-            <span className="inline-flex items-center rounded-full border border-brand-jade/30 bg-brand-jade/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-jade">Discipleship</span>
-            <span className="text-slate-400 text-xs font-medium">March 2026</span>
-            <span className="text-slate-600 text-xs">&middot;</span>
-            <span className="text-slate-400 text-xs font-medium">8 min read</span>
+            <span className="inline-flex items-center rounded-full border border-zoe-leaf/30 bg-zoe-leaf/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zoe-leaf">Discipleship</span>
+            <span className="text-zoe-muted text-xs font-medium">March 2026</span>
+            <span className="text-zoe-muted text-xs">&middot;</span>
+            <span className="text-zoe-muted text-xs font-medium">8 min read</span>
           </div>
-          <h1 className="text-4xl md:text-5xl tracking-tighter-editorial text-white leading-[1.1] font-bold mb-6">Why You Keep Quitting Your Bible App (And What Actually Works)</h1>
-          <p className="text-xl text-slate-300 font-medium leading-relaxed">71% of apps are abandoned within 90 days. Bible apps are no different. The problem is friction — and the fix is simpler than you think.</p>
+          <h1 className="text-4xl md:text-5xl tracking-tight font-sans text-white leading-[1.1] font-bold mb-6">Why You Keep Quitting Your Bible App (And What Actually Works)</h1>
+          <p className="text-xl text-zoe-outline font-medium leading-relaxed">71% of apps are abandoned within 90 days. Bible apps are no different. The problem is friction — and the fix is simpler than you think.</p>
             </div>
       </section>
 
       <article className="py-16 px-6 bg-white">
         <div className="mx-auto max-w-3xl">
 
-          <div className="prose prose-slate max-w-none text-slate-700 font-medium leading-relaxed text-lg space-y-6">
+          <div className="prose prose-slate max-w-none text-zoe-muted font-medium leading-relaxed text-lg space-y-6">
 
             <p>You&apos;ve done this before. Probably more than once.</p>
 
@@ -94,9 +94,9 @@ export default function WhyYouKeepQuittingPage() {
 
             <p>Sound familiar? You&apos;re in good company. This happens to millions of Christians every year, and the data backs it up.</p>
 
-            <hr className="border-slate-200 my-10" />
+            <hr className="border-zoe-outline/40 my-10" />
 
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The App Abandonment Problem</h2>
+            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold mt-10 mb-4">The App Abandonment Problem</h2>
 
             <p>According to industry data, <strong>71% of mobile apps are abandoned within 90 days</strong> of download. Bible apps aren&apos;t immune to this. YouVersion has been downloaded over 500 million times — but daily active usage is a fraction of that number.</p>
 
@@ -108,9 +108,9 @@ export default function WhyYouKeepQuittingPage() {
 
             <p>But discipline is a finite resource. You use it up making decisions all day. By the time most people have the space to sit with Scripture, their willpower tank is empty. The app sits there, right next to the 47 other things demanding attention, and it loses.</p>
 
-            <hr className="border-slate-200 my-10" />
+            <hr className="border-zoe-outline/40 my-10" />
 
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The Friction Model</h2>
+            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold mt-10 mb-4">The Friction Model</h2>
 
             <p>In product design, there&apos;s a concept called &ldquo;friction&rdquo; — the number of steps between wanting to do something and actually doing it. Every step you add, you lose people.</p>
 
@@ -137,9 +137,9 @@ export default function WhyYouKeepQuittingPage() {
 
             <p>Two steps. And the first one happens automatically.</p>
 
-            <hr className="border-slate-200 my-10" />
+            <hr className="border-zoe-outline/40 my-10" />
 
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">Why SMS Works When Apps Fail</h2>
+            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold mt-10 mb-4">Why SMS Works When Apps Fail</h2>
 
             <p>Text messages have a <strong>95%+ open rate</strong>. The average text is read within 3 minutes of delivery. Compare that to app push notifications, which have an average open rate around 20% — and that&apos;s being generous.</p>
 
@@ -147,11 +147,11 @@ export default function WhyYouKeepQuittingPage() {
 
             <p>There&apos;s a psychological thing at work here too. When something arrives in your messages, your brain processes it differently than an app notification. A notification feels like a demand. A text feels like a conversation. One triggers guilt; the other triggers curiosity.</p>
 
-            <hr className="border-slate-200 my-10" />
+            <hr className="border-zoe-outline/40 my-10" />
 
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">What Zoe Does Differently</h2>
+            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold mt-10 mb-4">What Zoe Does Differently</h2>
 
-            <p>I built <a href="https://zoe.live" className="text-brand-cyan hover:underline" target="_blank" rel="noopener noreferrer">Zoe</a> because I watched this pattern play out for over a decade — in myself and in the people I pastored. Good intentions fading by Tuesday. Notes from Sunday buried by Wednesday. The desire was always real. The delivery mechanism kept failing.</p>
+            <p>I built <a href="https://zoe.live" className="text-zoe-sap hover:underline" target="_blank" rel="noopener noreferrer">Zoe</a> because I watched this pattern play out for over a decade — in myself and in the people I pastored. Good intentions fading by Tuesday. Notes from Sunday buried by Wednesday. The desire was always real. The delivery mechanism kept failing.</p>
 
             <p>Zoe is an SMS discipleship tool. No app. No download. You pick a book of the Bible and a reading pace, and you get a text message every day with your passage and original-language context — the kind of Greek and Hebrew word studies that used to require a seminary library or a stack of commentaries.</p>
 
@@ -159,9 +159,9 @@ export default function WhyYouKeepQuittingPage() {
 
             <p>Zoe uses AI in the background to surface that context — but the AI is a research tool, not a conversation partner. It&apos;ll never try to be your pastor, your counselor, or your friend. It points you to Scripture, to the original languages, and to the people around you. Every time.</p>
 
-            <hr className="border-slate-200 my-10" />
+            <hr className="border-zoe-outline/40 my-10" />
 
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">The Numbers</h2>
+            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold mt-10 mb-4">The Numbers</h2>
 
             <p>Some numbers worth knowing:</p>
 
@@ -176,9 +176,9 @@ export default function WhyYouKeepQuittingPage() {
 
             <p>The gap between intention and action is a design problem. Christians want to engage with Scripture. The delivery mechanism is what keeps failing them.</p>
 
-            <hr className="border-slate-200 my-10" />
+            <hr className="border-zoe-outline/40 my-10" />
 
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">For Pastors: What This Means for Your Church</h2>
+            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold mt-10 mb-4">For Pastors: What This Means for Your Church</h2>
 
             <p>If you lead a church, you already know the discipleship gap is real. You preach on Sunday and hope it sticks through the week. Sometimes it does. Usually it doesn&apos;t.</p>
 
@@ -186,9 +186,9 @@ export default function WhyYouKeepQuittingPage() {
 
             <p>The simplest way to think about it: Zoe fills the space between Sundays. Daily, personal, zero friction.</p>
 
-            <hr className="border-slate-200 my-10" />
+            <hr className="border-zoe-outline/40 my-10" />
 
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold mt-10 mb-4">Getting Started</h2>
+            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold mt-10 mb-4">Getting Started</h2>
 
             <p>If you&apos;ve tried Bible apps and they didn&apos;t stick, that&apos;s worth paying attention to. The desire was real — the tool just created too much friction.</p>
 
@@ -201,7 +201,7 @@ export default function WhyYouKeepQuittingPage() {
           <div className="mt-12 flex justify-center">
             <Link
               href="/#waitlist"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-jade px-8 py-4 text-base font-semibold text-white hover:bg-brand-jade/90 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-zoe-leaf px-8 py-4 text-base font-semibold text-white hover:bg-zoe-leaf/90 transition-colors"
             >
               Join the waitlist <ArrowRight className="h-4 w-4" />
             </Link>
@@ -210,14 +210,14 @@ export default function WhyYouKeepQuittingPage() {
       </article>
 
       {/* FAQ */}
-      <section className="py-20 px-6 bg-slate-50 border-t border-slate-200">
+      <section className="py-20 px-6 bg-zoe-surface border-t border-zoe-outline/40">
         <div className="mx-auto max-w-3xl">
-          <h2 className="text-3xl md:text-4xl tracking-tighter-editorial text-slate-900 font-bold mb-10">Frequently asked questions</h2>
+          <h2 className="text-3xl md:text-4xl tracking-tight font-sans text-zoe-ink font-bold mb-10">Frequently asked questions</h2>
           <div className="space-y-8">
             {faqs.map((item) => (
               <div key={item.q}>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">{item.q}</h3>
-                <p className="text-slate-600 leading-relaxed">{item.a}</p>
+                <h3 className="font-bold text-zoe-ink text-lg mb-2">{item.q}</h3>
+                <p className="text-zoe-muted leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>

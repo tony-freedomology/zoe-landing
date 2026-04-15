@@ -16,7 +16,7 @@ const config: Config = {
         "tighter-sans": "-0.05em",
       },
       colors: {
-        ink: "#0b0c12",
+        ink: "#1c1c19",
         zoe: {
           oat: "#fcf9f4",
           surface: "#f6f3ee",
@@ -24,8 +24,9 @@ const config: Config = {
           ink: "#1c1c19",
           muted: "#5f5e5b",
           outline: "#bbcac1",
-          jade: "#00c292",
-          "jade-deep": "#004935",
+          sap: "#1dc286",
+          leaf: "#1dc286",
+          forest: "#166534",
         },
         gold: {
           "50": "#fefbe9",
@@ -41,12 +42,12 @@ const config: Config = {
           "950": "#3d250c"
         },
         "brand": {
-          "cyan": "#008ba3",
-          "jade": "#00c292"
+          "cyan": "#1dc286",
+          "jade": "#1dc286"
         },
         "vibrant": {
-          "cyan": "#00D2FF",
-          "jade": "#00F0B5"
+          "cyan": "#1dc286",
+          "jade": "#1dc286"
         },
         "misty-green": {
           "50": "#f4f7f5",

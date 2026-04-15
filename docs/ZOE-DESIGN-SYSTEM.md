@@ -1,4 +1,4 @@
-# Zoe Design System
+# Zoe Design System: The Modern Apothecary (Bold Edition)
 
 This is the official agent-facing design system for Zoe's default brand.
 
@@ -6,34 +6,21 @@ Use this document when designing or editing Zoe marketing pages, supporting page
 
 `jesus-red` is explicitly excluded from this system unless a task says otherwise.
 
-## 1. Status
+## 1. Brand Intent
 
-This is the canonical design system for Zoe's default public brand as of April 14, 2026.
-
-Primary references:
-- [docs/BRAND-SPEC.md](/Users/tony/Documents/zoe-landing/docs/BRAND-SPEC.md)
-- [app/globals.css](/Users/tony/Documents/zoe-landing/app/globals.css)
-- [tailwind.config.ts](/Users/tony/Documents/zoe-landing/tailwind.config.ts)
-
-Canonical visual references in the repo:
-- [components/HomePageContent.tsx](/Users/tony/Documents/zoe-landing/components/HomePageContent.tsx)
-- [app/about/page.tsx](/Users/tony/Documents/zoe-landing/app/about/page.tsx)
-- [app/features/page.tsx](/Users/tony/Documents/zoe-landing/app/features/page.tsx)
-- [components/Navbar.tsx](/Users/tony/Documents/zoe-landing/components/Navbar.tsx)
-
-Canonical external reference:
-- Stitch project `Zoe Brand Lab`
-- Reference screen: `9303d5e7daa84cedb0a697744c80bcd1`
-
-## 2. Brand Intent
+**System name:** `The Modern Apothecary (Bold Edition)`
+**Creative North Star:** `The Living Editorial`
 
 Zoe should feel:
-- light
+- calm
+- hopeful
+- premium
+- restrained
+- trustworthy
 - warm
 - modern
-- spiritually serious without becoming dark or editorial
-- premium without feeling luxurious or performative
-- human and disarming, not institutionally polished
+- spiritually grounded
+- light
 
 Zoe should not feel:
 - corporate
@@ -43,77 +30,64 @@ Zoe should not feel:
 - moody
 - navy/cyan SaaS
 - heavy with dark slabs and dramatic contrast
+- like an editorial magazine
 
-## 3. Core Rules
+## 2. Core Rules
 
 These are the non-negotiables.
 
 1. The default Zoe system is light-mode only.
 2. Warm oat and soft beige surfaces are preferred over stark white.
-3. Jade is the primary accent and CTA color.
-4. `Inter` is the dominant typeface.
-5. `Newsreader` is used only as a very occasional serif trust accent.
-6. Dark green sections are not the default brand language.
-7. Cyan is not a primary accent in the default system.
-8. Layouts should feel calm, balanced, and restrained rather than editorial.
+3. Jade `#1DC286` is the primary accent and CTA fill.
+4. CTA text on Jade is always white.
+5. `Plus Jakarta Sans` is the dominant typeface.
+6. `Newsreader Italic` is used only as a very occasional serif trust accent.
+7. Dark green sections are not the default brand language.
+8. Gradients and glassmorphism are not part of the default Zoe system.
+9. Layouts should feel calm, balanced, and restrained rather than editorial.
 
-## 4. Tokens
+## 3. Tokens
 
-### CSS variables
-
-Defined in [app/globals.css](/Users/tony/Documents/zoe-landing/app/globals.css):
+### Core palette
 
 | Token | Value | Use |
 | --- | --- | --- |
-| `--zoe-oat` | `#fcf9f4` | Default page background |
-| `--zoe-surface` | `#f6f3ee` | Secondary sections |
-| `--zoe-card` | `#ffffff` | Elevated cards/forms |
-| `--zoe-ink` | `#1c1c19` | Main text |
-| `--zoe-muted` | `#5f5e5b` | Secondary text |
-| `--zoe-outline` | `#bbcac1` | Soft outlines/dividers |
-| `--zoe-jade` | `#00c292` | Primary CTA/accent |
-| `--zoe-jade-deep` | `#004935` | Deep jade contrast / trust accent |
+| `--zoe-oat` | `#FCF9F4` | Default page background |
+| `--zoe-surface` | `#F6F3EE` | Secondary sections |
+| `--zoe-card` | `#FFFFFF` | Elevated cards/forms |
+| `--zoe-ink` | `#1C1C19` | Main text |
+| `--zoe-muted` | `#5F5E5B` | Secondary text |
+| `--zoe-outline` | `#BBCAC1` | Soft outlines/dividers |
+| `--zoe-sap` | `#1DC286` | Jade: canonical primary CTA/accent |
+| `--zoe-leaf` | `#1DC286` | Alias to Jade for supporting active/link accents |
+| `--zoe-forest` | `#166534` | Deeper trust-oriented accent |
 
-### Tailwind tokens
+### Font roles
 
-Defined in [tailwind.config.ts](/Users/tony/Documents/zoe-landing/tailwind.config.ts):
-
-- `bg-zoe-oat`
-- `bg-zoe-surface`
-- `bg-zoe-card`
-- `text-zoe-ink`
-- `text-zoe-muted`
-- `border-zoe-outline`
-- `bg-zoe-jade`
-- `text-zoe-jade`
-- `text-zoe-jade-deep`
-
-### Fonts
-
-- `font-sans` -> `Inter`
+- `font-sans` -> `Plus Jakarta Sans`
 - `font-serif` -> `Newsreader`
 
-Agents should use `font-serif` for Zoe serif accents. Do not introduce a different serif font.
+Agents should use `font-serif` only for rare trust accents. Do not introduce a different serif font.
 
-## 5. Typography
+## 4. Typography
 
 ### Default type hierarchy
 
 - Primary UI/body/system: `font-sans`
-- Main section headlines: bold sans with slightly tight tracking
-- Buttons/nav/forms/metadata: sans only
+- Main section headlines: bold Plus Jakarta Sans with tight-but-controlled tracking
+- Buttons/nav/forms/metadata: Plus Jakarta Sans only, usually semibold or bold
 - Serif: accent only
 
 ### Headline guidance
 
 Default Zoe headlines should generally use:
-- `font-bold`
-- `tracking-tighter-editorial-relaxed` for big section headings
-- `leading-[1.06]` to `leading-[1.1]`
+- `font-bold` or `font-extrabold`
+- slightly tight tracking
+- controlled line height
 
-The goal is Apple-like control with a little more warmth.
+The goal is authoritative, geometric clarity with warmth, not literary/editorial drama.
 
-### Serif Trust Accent
+### Serif trust accent
 
 This is a real part of the system and should be used occasionally.
 
@@ -121,8 +95,8 @@ Use serif accents for:
 - short trust beats
 - reflective asides
 - privacy/trust micro-headings
-- brief “spiritual weight” moments
-- section ornaments that need warmth, not volume
+- brief spiritual-weight moments
+- small brand-level statements like `quiet by design`
 
 Do not use serif for:
 - main hero headlines
@@ -132,24 +106,14 @@ Do not use serif for:
 - feature-grid titles
 - long paragraphs
 
-Recommended styling for serif trust accents:
+Recommended styling:
 - `font-serif`
-- `italic` only when it improves softness
-- `text-zoe-jade-deep` or `text-zoe-jade`
+- `italic`
+- `text-zoe-forest` or `text-zoe-leaf`
 - small-to-medium size
 - one controlled use per section at most
 
-Good pattern examples:
-- a short line above or between content blocks
-- a small trust phrase inside a privacy section
-- a single warm emphasis beat near a CTA or reflection section
-
-Bad pattern examples:
-- multiple serif headings per section
-- alternating sans/serif everywhere
-- turning the page into an editorial/magazine layout
-
-## 6. Surfaces
+## 5. Surfaces
 
 ### Page backgrounds
 
@@ -175,7 +139,7 @@ Use:
 - warm white or white
 - subtle outline
 - very soft shadow
-- rounded corners
+- large-radius corners
 
 Avoid:
 - glassmorphism
@@ -183,27 +147,28 @@ Avoid:
 - heavy borders
 - glossy gradients
 
-## 7. Buttons
+## 6. Buttons
 
 Primary CTA:
-- `bg-zoe-jade`
+- `bg-zoe-sap`
 - `text-white`
 - rounded full
 - confident, flat, bright
-- shadow is soft and jade-tinted, never dramatic
+- shadow is soft and controlled, never dramatic
 
 Do not use:
-- dark text on jade CTAs
+- dark text on Jade CTAs
 - navy CTA buttons in default Zoe
-- secondary neon glows
+- loud neon glows
 
-## 8. Layout
+## 7. Layout
 
 Preferred layout behavior:
 - centered or balanced composition
 - generous whitespace
 - precise rhythm
 - clear content blocks
+- calm structure over asymmetry
 
 Spacing guidance:
 - section padding usually `py-20` to `py-32`
@@ -211,44 +176,66 @@ Spacing guidance:
 - card padding usually `p-6` to `p-8`
 
 Radii:
-- default premium radius is large
+- premium radius is large
 - common Zoe radii are around `rounded-[1.75rem]` to `rounded-[2rem]`
 - pills and CTAs should often be fully rounded
 
-## 9. Component Rules
+## 8. Component Rules
 
 ### Navbar
 
-- Light warm translucent nav on default pages
-- Zoe SVG wordmark, not plain text
-- Wordmark uses jade by default
+- light warm translucent nav on default pages
+- restrained brand mark treatment
+- restrained links
+- Jade CTA with white text
 
 ### FAQ
 
-- Collapsed by default
-- Only question row visible until opened
-- Jade accordion indicator
-- Cards should be warm white with subtle outline
+- collapsed by default
+- only question row visible until opened
+- green accordion indicator
+- cards should be warm white with subtle outline
 
 ### Waitlist sections
 
-- Avoid outer glass shells
-- Prefer one clean inner form card
-- Let whitespace and typography carry the section
+- avoid glass shells
+- prefer one clean inner form card
+- let whitespace and typography carry the section
 
-### About/features close sections
+### About/features/blog close sections
 
-- Keep them in the light Zoe system
-- Avoid dark full-width closes unless a specific campaign needs it
+- keep them in the light Zoe system
+- avoid dark full-width closes unless a specific campaign needs it
 - CTA carries the emphasis, not the background slab
+
+## 9. Page Guidance
+
+### Preserve these sections structurally
+
+- hero section
+- sticky SMS section
+- sticky rhythms environment and imagery
+
+These can receive typography/color refinements, but not a structural reinvention.
+
+### Priorities for unification
+
+- opt-in / waitlist
+- FAQ
+- objection handling / thesis / trust beats
+- about page
+- blog index and blog posts
+- features page
+- journey marketing pages
+- supporting CTA sections
 
 ## 10. Do / Don't
 
 ### Do
 
 - use oat and surface backgrounds
-- use jade for emphasis
-- keep `Inter` dominant
+- use Jade for emphasis
+- keep `Plus Jakarta Sans` dominant
 - use serif only for trust accents
 - keep shadows subtle
 - prefer calm over spectacle
@@ -267,19 +254,9 @@ Radii:
 
 When editing default Zoe pages:
 
-1. Start from existing `zoe-*` tokens before inventing new colors.
+1. Start from existing Zoe tokens before inventing new colors.
 2. Prefer updating surfaces and accents over redesigning page structure.
 3. If you need a serif moment, use one trust accent, not a new typography system.
 4. Keep `jesus-red` untouched unless the task explicitly includes it.
-5. If a page feels too editorial, remove styling flourishes before changing layout.
-6. If a page feels too corporate, check for dark green slabs, navy text blocks, or hard contrast panels.
-
-## 12. Current Gaps
-
-This system is documented and tokenized, but not every page is fully aligned yet.
-
-Known direction to continue:
-- add occasional serif trust accents to the live site in controlled moments
-- continue rolling the default system through remaining legacy pages
-- gradually remove leftover cyan/navy/default-SaaS styling where it remains
-
+5. If a page feels too editorial, remove flourish before changing layout.
+6. If a page feels too corporate, check for dark panels, navy text systems, or hard contrast sections.

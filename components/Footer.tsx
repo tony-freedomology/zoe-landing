@@ -10,7 +10,7 @@ export default function Footer() {
               Zoe
             </Link>
             <p className="max-w-xs text-xs leading-relaxed text-[#6c7a73]">
-              A quiet companion that lives in your texts. No app. No login. Just a clearer way to stay attentive through the week.
+              A quiet tool that lives in your texts. No app. No login. Just a clearer way to stay attentive through the week.
             </p>
           </div>
 

@@ -89,7 +89,7 @@ export default function Navbar() {
           <div className="w-[72px] md:w-[78px]">
             <ZoeSVG
               variant="default"
-              color={preserveTheme && !opaque ? "#ffffff" : "var(--zoe-jade)"}
+              color={preserveTheme && !opaque ? "#ffffff" : "var(--zoe-sap)"}
               staticOnly={true}
             />
           </div>
@@ -195,7 +195,7 @@ export default function Navbar() {
               "rounded-full px-5 py-2 text-sm transition-all duration-200",
               preserveTheme
                 ? "bg-slate-900 font-semibold text-white shadow-sm hover:bg-slate-700"
-                : "bg-zoe-jade font-semibold text-white shadow-[0_12px_30px_rgba(0,194,146,0.16)] hover:bg-[#35d5a7]"
+                : "bg-zoe-sap font-semibold text-white shadow-sm hover:brightness-105 active:scale-95"
             )}
           >
             Join The Walk
@@ -290,7 +290,7 @@ export default function Navbar() {
                     "mx-4 rounded-full px-5 py-3 text-sm text-center transition-all duration-200",
                     preserveTheme
                       ? "bg-slate-900 font-semibold text-white shadow-sm hover:bg-slate-700"
-                      : "bg-zoe-jade font-semibold text-white shadow-[0_12px_30px_rgba(0,194,146,0.16)] hover:bg-[#35d5a7]"
+                      : "bg-zoe-sap font-semibold text-white shadow-sm hover:brightness-105 active:scale-95"
                   )}
                 >
                   Join The Walk

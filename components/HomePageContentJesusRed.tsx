@@ -13,6 +13,11 @@ import StickyRhythmsSection from './StickyRhythmsSection';
 import ThesisSection from './ThesisSection';
 import { Highlight } from './Highlight';
 import { usePhoneFormatter } from '../app/hooks/usePhoneFormatter';
+import {
+  isWaitlistEmailValid,
+  isWaitlistNameValid,
+  isWaitlistPhoneValid,
+} from "../lib/waitlistValidation";
 
 interface HomeProps {
   variant?: "default" | "jesus-red" | "emerald-uni";
@@ -34,7 +39,7 @@ const stagger = {
 const faqs = [
   {
     question: "Is Zoe replacing my pastor or my church?",
-    answer: "Not even close. Zoe is a companion for the space between Sundays — the Monday through Saturday when your pastor isn't available and your small group isn't meeting. It's designed to point you toward God, not away from community. Think of it as the thing that helps you show up to church more engaged, not less.",
+    answer: "Not even close. Zoe is built for the space between Sundays — the Monday through Saturday when your pastor isn't available and your small group isn't meeting. It's designed to point you toward God, not away from community. Think of it as the thing that helps you show up to church more engaged, not less.",
   },
   {
     question: "Is this just ChatGPT with a Bible?",
@@ -76,12 +81,12 @@ const faqs = [
 
 const trustPillars = [
   {
-    icon: <ShieldCheck className="h-6 w-6 text-brand-jade" />,
+    icon: <ShieldCheck className="h-6 w-6 text-zoe-leaf" />,
     title: "Private by default",
     body: "Your one-to-one conversations are not visible to church leaders by default."
   },
   {
-    icon: <Users className="h-6 w-6 text-brand-cyan" />,
+    icon: <Users className="h-6 w-6 text-zoe-sap" />,
     title: "Aggregated insights only",
     body: "Church dashboards show trend-level health, not personal confessions or journal content."
   },
@@ -118,9 +123,18 @@ export default function HomePageContentJesusRed({ variant = "jesus-red" }: HomeP
 
   const [email, setEmail] = useState("");
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const waitlistFormValid =
+    isWaitlistNameValid(name) &&
+    isWaitlistPhoneValid(phone) &&
+    isWaitlistEmailValid(email);
 
   const handleWaitlistSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!waitlistFormValid) {
+      setSubmitError("Enter a valid name, phone number, and email.");
+      return;
+    }
+
     setStatus("submitting");
     setSubmitError(null);
 
@@ -193,8 +207,8 @@ export default function HomePageContentJesusRed({ variant = "jesus-red" }: HomeP
                 {variant !== "jesus-red" ? (
                   <>
                     <div className="absolute inset-0 bg-white/60 backdrop-blur-xl shadow-[0_8px_40px_rgba(0,0,0,0.02)] border border-white" />
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-brand-cyan/10 rounded-full blur-[100px] -mr-20 -mt-20 pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-jade/10 rounded-full blur-[100px] -ml-20 -mb-20 pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-zoe-sap/10 rounded-full blur-[100px] -mr-20 -mt-20 pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-zoe-leaf/10 rounded-full blur-[100px] -ml-20 -mb-20 pointer-events-none" />
                   </>
                 ) : (
                   <div className="absolute inset-0 bg-[#faf7f0] border border-[#e0d8cd] shadow-lg shadow-black/5" />
@@ -202,7 +216,7 @@ export default function HomePageContentJesusRed({ variant = "jesus-red" }: HomeP
 
                 <div className="relative z-10">
                   <div className={clsx("inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
-                    variant === "jesus-red" ? "rounded-md border border-[#e0d8cd] bg-[#f5efe6] text-[#7a2332]" : "rounded-full border border-brand-jade/20 bg-brand-jade/5 text-brand-jade")}>
+                    variant === "jesus-red" ? "rounded-md border border-[#e0d8cd] bg-[#f5efe6] text-[#7a2332]" : "rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                     Pre-Alpha Waitlist
                   </div>
 
@@ -217,8 +231,8 @@ export default function HomePageContentJesusRed({ variant = "jesus-red" }: HomeP
                     variant === "jesus-red" ? "bg-white border border-[#e0d8cd] shadow-sm rounded-lg" : "rounded-2xl bg-slate-50/80 backdrop-blur-xl border border-slate-100 shadow-sm")}>
                     {status === "sent" ? (
                       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center justify-center py-8 px-4 text-center">
-                        <div className="w-16 h-16 bg-brand-jade/10 rounded-full flex items-center justify-center mb-6">
-                          <CheckCircle className="w-8 h-8 text-brand-jade" />
+                        <div className="w-16 h-16 bg-zoe-leaf/10 rounded-full flex items-center justify-center mb-6">
+                          <CheckCircle className="w-8 h-8 text-zoe-leaf" />
                         </div>
                         <h3 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">You're on the list!</h3>
                         <p className="text-slate-600 font-medium leading-relaxed">
@@ -232,34 +246,40 @@ export default function HomePageContentJesusRed({ variant = "jesus-red" }: HomeP
                           required
                           type="text"
                           name="name"
+                          autoComplete="name"
                           value={name}
                           onChange={(event) => setName(event.target.value)}
                           placeholder="Your Name"
-                          className={clsx("border border-slate-200 bg-white px-4 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all shadow-sm", variant === "jesus-red" ? "rounded-md focus:ring-2 focus:ring-[#7a2332]/50 focus:border-[#7a2332]/50" : "rounded-xl focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade/50")}
+                          className={clsx("border border-slate-200 bg-white px-4 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all shadow-sm", variant === "jesus-red" ? "rounded-md focus:ring-2 focus:ring-[#7a2332]/50 focus:border-[#7a2332]/50" : "rounded-xl focus:ring-2 focus:ring-zoe-leaf/50 focus:border-zoe-leaf/50")}
                         />
                         <input
                           required
                           type="tel"
                           name="phone"
+                          autoComplete="tel"
+                          inputMode="tel"
                           value={phone}
                           onChange={(event) => setPhone(event.target.value)}
                           placeholder="Phone Number"
-                          className={clsx("border border-slate-200 bg-white px-4 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all shadow-sm", variant === "jesus-red" ? "rounded-md focus:ring-2 focus:ring-[#7a2332]/50 focus:border-[#7a2332]/50" : "rounded-xl focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade/50")}
+                          className={clsx("border border-slate-200 bg-white px-4 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all shadow-sm", variant === "jesus-red" ? "rounded-md focus:ring-2 focus:ring-[#7a2332]/50 focus:border-[#7a2332]/50" : "rounded-xl focus:ring-2 focus:ring-zoe-leaf/50 focus:border-zoe-leaf/50")}
                         />
                         <input
                           required
                           type="email"
                           name="email"
+                          autoComplete="email"
                           value={email}
                           onChange={(event) => setEmail(event.target.value)}
                           placeholder="Email Address"
-                          className={clsx("border border-slate-200 bg-white px-4 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all shadow-sm", variant === "jesus-red" ? "rounded-md focus:ring-2 focus:ring-[#7a2332]/50 focus:border-[#7a2332]/50" : "rounded-xl focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade/50")}
+                          className={clsx("border border-slate-200 bg-white px-4 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all shadow-sm", variant === "jesus-red" ? "rounded-md focus:ring-2 focus:ring-[#7a2332]/50 focus:border-[#7a2332]/50" : "rounded-xl focus:ring-2 focus:ring-zoe-leaf/50 focus:border-zoe-leaf/50")}
                         />
                         <button
                           className={clsx("mt-2 px-4 py-4 text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-white shadow-lg",
-                            variant === "jesus-red" ? "rounded-md bg-[#7a2332] shadow-[#7a2332]/20 hover:bg-[#5c1624] hover:-translate-y-0.5" : "rounded-xl bg-slate-900 shadow-slate-900/10 hover:bg-slate-800 hover:-translate-y-0.5")}
+                            variant === "jesus-red"
+                              ? "rounded-md bg-[#7a2332] shadow-[#7a2332]/20 hover:bg-[#5c1624] hover:-translate-y-0.5 disabled:bg-[#7a2332]/45 disabled:shadow-none disabled:hover:translate-y-0"
+                              : "rounded-xl bg-slate-900 shadow-slate-900/10 hover:bg-slate-800 hover:-translate-y-0.5 disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none disabled:hover:translate-y-0")}
                           type="submit"
-                          disabled={status === "submitting"}
+                          disabled={status === "submitting" || !waitlistFormValid}
                         >
                           {status === "submitting" ? (
                             <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -268,7 +288,13 @@ export default function HomePageContentJesusRed({ variant = "jesus-red" }: HomeP
                         {submitError ? (
                           <div className="text-center">
                             <p className="text-xs font-medium text-rose-600 mb-2">{submitError}</p>
-                            <button type="submit" className="text-xs font-semibold text-[#7a2332] underline hover:text-[#7a2332]/80 transition-colors">Try again</button>
+                            <button
+                              type="submit"
+                              disabled={status === "submitting" || !waitlistFormValid}
+                              className="text-xs font-semibold text-[#7a2332] underline hover:text-[#7a2332]/80 transition-colors disabled:text-slate-400 disabled:no-underline disabled:cursor-not-allowed"
+                            >
+                              Try again
+                            </button>
                           </div>
                         ) : null}
                         <p className="mt-3 text-xs leading-relaxed text-slate-400 text-center">
@@ -371,7 +397,7 @@ export default function HomePageContentJesusRed({ variant = "jesus-red" }: HomeP
           <div className="mx-auto max-w-4xl relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-16">
               <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6 shadow-sm",
-                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : "rounded-full border-brand-cyan/20 bg-brand-cyan/5 text-brand-cyan")}>
+                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : "rounded-full border-zoe-sap/20 bg-zoe-sap/5 text-zoe-sap")}>
                 FAQs
               </div>
               <h2 className="text-4xl tracking-tighter-editorial-relaxed text-slate-900 md:text-5xl font-bold">You've got questions. <br className="md:hidden" />We get it.</h2>
@@ -381,7 +407,7 @@ export default function HomePageContentJesusRed({ variant = "jesus-red" }: HomeP
               {faqs.map((faq, i) => (
                 <motion.div variants={fadeUp} key={i} className={clsx("shadow-[0_4px_20px_rgb(0,0,0,0.03)] overflow-hidden transition-all duration-300", variant === "jesus-red" ? "rounded-lg bg-[#faf7f0] border border-[#e0d8cd]" : "rounded-3xl bg-white")}>
                   <div className="w-full text-left p-8 pb-4">
-                    <span className={clsx("font-semibold text-xl pr-8", variant === "jesus-red" ? "text-slate-900" : "text-brand-cyan")}>
+                    <span className={clsx("font-semibold text-xl pr-8", variant === "jesus-red" ? "text-slate-900" : "text-zoe-sap")}>
                       {faq.question}
                     </span>
                   </div>

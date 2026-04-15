@@ -14,24 +14,13 @@ export const metadata: Metadata = {
 
 const posts = [
   {
-    slug: "the-daily-scripture-habit-that-finally-stuck-and-why-it-live",
-    title: "Daily Scripture That Actually Sticks (And Why It Has Nothing to Do With Discipline)",
-    description:
-      "The daily decision is what kills scripture habits — not lack of faith. Here's how removing that choice builds the kind of consistent rhythm that actually lasts.",
-    date: "March 2026",
-    readTime: "4 min read",
-    badge: "Discipleship",
-    badgeColor: "text-zoe-jade-deep border-zoe-jade/20 bg-zoe-jade/10",
-    image: "/blog/the-daily-scripture-habit-that-finally-stuck-and-why-it-live/hero.jpg",
-  },
-  {
     slug: "why-you-keep-quitting-your-bible-app",
     title: "Why You Keep Quitting Your Bible App (And What Actually Works)",
     description: "71% of apps are abandoned within 90 days. Bible apps are no different. The problem is friction — and the fix is simpler than you think.",
     date: "March 2026",
     readTime: "8 min read",
     badge: "Discipleship",
-    badgeColor: "text-zoe-jade-deep border-zoe-jade/20 bg-zoe-jade/10",
+    badgeColor: "text-zoe-forest border-zoe-sap/20 bg-zoe-sap/10",
     image: "/blog/why-you-keep-quitting-your-bible-app/hero.jpg",
   },
   {
@@ -41,7 +30,7 @@ const posts = [
     date: "February 2026",
     readTime: "7 min read",
     badge: "Discipleship",
-    badgeColor: "text-zoe-jade-deep border-zoe-jade/20 bg-zoe-jade/10",
+    badgeColor: "text-zoe-forest border-zoe-sap/20 bg-zoe-sap/10",
   },
   {
     slug: "can-ai-help-you-walk-with-jesus",
@@ -50,7 +39,7 @@ const posts = [
     date: "February 2026",
     readTime: "8 min read",
     badge: "AI & Faith",
-    badgeColor: "text-zoe-jade-deep border-zoe-jade/20 bg-zoe-jade/10",
+    badgeColor: "text-zoe-forest border-zoe-sap/20 bg-zoe-sap/10",
   },
   {
     slug: "equip-the-kingdom-to-use-ai-well",
@@ -65,7 +54,7 @@ const posts = [
 
 export default function BlogIndexPage() {
   return (
-    <div className="min-h-screen bg-zoe-oat text-slate-900">
+    <div className="min-h-screen bg-zoe-oat text-zoe-ink">
       <section className="relative aspect-video w-full overflow-hidden bg-slate-100" style={{ marginTop: "72px" }}>
         <Image src={blogBg} alt="Blog Background" fill className="object-cover" priority />
 
@@ -84,7 +73,7 @@ export default function BlogIndexPage() {
 
         <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-12 lg:px-24">
           <div className="max-w-4xl">
-            <h1 className="mb-2 text-5xl font-bold leading-[1.05] tracking-tighter-editorial text-white md:text-7xl lg:mb-4 lg:text-[80px]">
+            <h1 className="mb-2 text-5xl font-bold leading-[1.05] tracking-tight font-sans text-white md:text-7xl lg:mb-4 lg:text-[80px]">
               Thinking on discipleship
             </h1>
             <p className="text-xl font-medium tracking-tight text-white md:text-3xl lg:text-4xl">
@@ -109,15 +98,15 @@ export default function BlogIndexPage() {
                   <span className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-widest ${post.badgeColor}`}>
                     {post.badge}
                   </span>
-                  <span className="text-xs font-medium text-slate-400">{post.date}</span>
-                  <span className="text-xs text-slate-300">·</span>
-                  <span className="text-xs font-medium text-slate-400">{post.readTime}</span>
+                  <span className="text-xs font-medium text-zoe-muted">{post.date}</span>
+                  <span className="text-xs text-zoe-outline">·</span>
+                  <span className="text-xs font-medium text-zoe-muted">{post.readTime}</span>
                 </div>
-                <h2 className="mb-4 text-2xl font-bold leading-snug tracking-tighter-editorial text-slate-900 transition-colors duration-200 group-hover:text-zoe-jade-deep md:text-3xl">
+                <h2 className="mb-4 text-2xl font-bold leading-snug tracking-tight font-sans text-zoe-ink transition-colors duration-200 group-hover:text-zoe-forest md:text-3xl">
                   {post.title}
                 </h2>
-                <p className="mb-6 font-medium leading-relaxed text-slate-600">{post.description}</p>
-                <div className="flex items-center gap-2 text-sm font-semibold text-slate-500 transition-colors duration-200 group-hover:text-zoe-jade-deep">
+                <p className="mb-6 font-medium leading-relaxed text-zoe-muted">{post.description}</p>
+                <div className="flex items-center gap-2 text-sm font-semibold text-zoe-muted transition-colors duration-200 group-hover:text-zoe-forest">
                   Read article <ArrowRight className="h-4 w-4" />
                 </div>
               </Link>

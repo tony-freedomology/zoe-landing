@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Zoe Brand Reference</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&amp;display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet"
+  />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-variant": "#e5e2dd",
+            "on-primary-container": "#064e3b",
+            "surface-container-high": "#ebe8e3",
+            "primary-fixed": "#1dc286",
+            "background": "#fcf9f4",
+            "inverse-on-surface": "#f3f0eb",
+            "outline": "#6c7a73",
+            "tertiary-container": "#a0afa6",
+            "surface-bright": "#fcf9f4",
+            "on-primary-fixed-variant": "#064e3b",
+            "on-surface": "#1c1c19",
+            "on-tertiary": "#ffffff",
+            "inverse-primary": "#1dc286",
+            "on-tertiary-fixed": "#111e19",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#bbcac1",
+            "surface-tint": "#1dc286",
+            "surface-container-low": "#f6f3ee",
+            "secondary-fixed": "#b1f0d4",
+            "on-primary-fixed": "#064e3b",
+            "surface-container-lowest": "#ffffff",
+            "on-background": "#1c1c19",
+            "on-secondary-fixed-variant": "#0d513c",
+            "error": "#ba1a1a",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "secondary": "#2c6953",
+            "surface-dim": "#dcdad5",
+            "on-surface-variant": "#3c4a43",
+            "primary-container": "#1dc286",
+            "on-tertiary-container": "#35433c",
+            "tertiary": "#54625a",
+            "outline-variant": "#bbcac1",
+            "on-secondary": "#ffffff",
+            "surface-container": "#f0ede9",
+            "primary-fixed-dim": "#1dc286",
+            "tertiary-fixed": "#d7e6dd",
+            "inverse-surface": "#31302d",
+            "primary": "#1dc286",
+            "surface": "#fcf9f4",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#316d57",
+            "on-error-container": "#93000a",
+            "secondary-container": "#aeedd1",
+            "surface-container-highest": "#e5e2dd",
+            "secondary-fixed-dim": "#95d3b8",
+            "on-secondary-fixed": "#002116"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "4xl": "2rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans"],
+            body: ["Plus Jakarta Sans"],
+            label: ["Newsreader"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+    body {
+      background-color: #fcf9f4;
+      color: #1c1c19;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .selection-jade::selection {
+      background-color: #1dc286;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface selection-jade">
+  <!--
+    Visual reference only.
+    Use this file for palette, typography, spacing, radii, CTA, accordion, and overall mood.
+    Do not treat the literal copy as product copy source of truth.
+  -->
+
+  <header class="sticky top-0 z-50 mx-auto flex w-full max-w-full items-center justify-between bg-[#FCF9F4]/90 px-8 py-6">
+    <div class="flex items-center font-headline text-2xl font-bold tracking-tighter text-[#1C1C19]">
+      <span class="mr-3 inline-block h-6 w-1 rounded-full bg-[#1DC286]"></span>Zoe
+    </div>
+    <nav class="hidden gap-x-8 md:flex">
+      <a class="border-b-2 border-[#1DC286] pb-1 font-headline font-bold tracking-tight text-[#1DC286]" href="#">Foundations</a>
+      <a class="font-headline font-bold tracking-tight text-[#1C1C19]/60 transition-colors duration-300 hover:text-[#1DC286]" href="#">Elements</a>
+      <a class="font-headline font-bold tracking-tight text-[#1C1C19]/60 transition-colors duration-300 hover:text-[#1DC286]" href="#">Assets</a>
+    </nav>
+    <button class="rounded-full bg-[#1DC286] px-6 py-2 font-headline text-xs font-extrabold uppercase tracking-widest text-white transition-all hover:brightness-110 active:scale-95">
+      Download Kit
+    </button>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-8 pb-32 pt-16">
+    <section class="mb-24 text-center md:text-left">
+      <h1 class="flex items-center justify-center font-headline text-6xl font-extrabold tracking-tighter md:justify-start md:text-8xl">
+        <span class="mr-6 inline-block h-14 w-2.5 rounded-full bg-[#1DC286]"></span>Zoe Brand Reference
+      </h1>
+      <p class="font-label text-3xl italic text-[#1DC286]">quiet by design</p>
+    </section>
+
+    <div class="mb-24 grid grid-cols-1 gap-8 md:grid-cols-12">
+      <div class="flex flex-col justify-between rounded-4xl bg-surface-container-low p-10 md:col-span-5">
+        <div>
+          <h3 class="mb-12 font-headline text-sm font-extrabold uppercase tracking-widest text-on-surface-variant">Mood &amp; Essence</h3>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-[#1DC286]"></span><span class="font-headline text-3xl font-extrabold tracking-tight">Calm</span></div>
+            <div class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-[#1DC286]"></span><span class="font-headline text-3xl font-extrabold tracking-tight text-on-surface/80">Hopeful</span></div>
+            <div class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-[#1DC286]"></span><span class="font-headline text-3xl font-extrabold tracking-tight text-on-surface/70">Premium</span></div>
+            <div class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-[#1DC286]"></span><span class="font-headline text-3xl font-extrabold tracking-tight text-on-surface/60">Restrained</span></div>
+            <div class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-[#1DC286]"></span><span class="font-headline text-3xl font-extrabold tracking-tight text-on-surface/40">Trustworthy</span></div>
+          </div>
+        </div>
+        <div class="mt-12 font-label text-lg italic text-on-surface-variant">"A digital sanctuary built on intentionality."</div>
+      </div>
+
+      <div class="rounded-4xl border border-surface-container bg-surface-container-lowest p-10 md:col-span-7">
+        <h3 class="mb-12 font-headline text-sm font-extrabold uppercase tracking-widest text-on-surface-variant">Color Palette</h3>
+        <div class="grid grid-cols-2 gap-8 sm:grid-cols-3">
+          <div class="space-y-4"><div class="h-24 w-full rounded-3xl bg-[#1DC286]"></div><div><p class="font-headline text-sm font-extrabold text-on-surface">Jade</p><p class="font-headline text-xs font-bold uppercase tracking-wider text-on-surface/60">#1DC286</p></div></div>
+          <div class="space-y-4"><div class="h-24 w-full rounded-3xl bg-[#166534]"></div><div><p class="font-headline text-sm font-extrabold text-on-surface">Forest</p><p class="font-headline text-xs font-bold uppercase tracking-wider text-on-surface/60">#166534</p></div></div>
+          <div class="space-y-4"><div class="h-24 w-full rounded-3xl border border-outline-variant/30 bg-[#FCF9F4]"></div><div><p class="font-headline text-sm font-extrabold text-on-surface">Oat</p><p class="font-headline text-xs font-bold uppercase tracking-wider text-on-surface/60">#FCF9F4</p></div></div>
+          <div class="space-y-4"><div class="h-24 w-full rounded-3xl bg-[#F6F3EE]"></div><div><p class="font-headline text-sm font-extrabold text-on-surface">Surface</p><p class="font-headline text-xs font-bold uppercase tracking-wider text-on-surface/60">#F6F3EE</p></div></div>
+          <div class="space-y-4"><div class="h-24 w-full rounded-3xl bg-[#1C1C19]"></div><div><p class="font-headline text-sm font-extrabold text-on-surface">Ink</p><p class="font-headline text-xs font-bold uppercase tracking-wider text-on-surface/60">#1C1C19</p></div></div>
+          <div class="space-y-4"><div class="h-24 w-full rounded-3xl bg-[#BBCAC1]"></div><div><p class="font-headline text-sm font-extrabold text-on-surface">Outline</p><p class="font-headline text-xs font-bold uppercase tracking-wider text-on-surface/60">#BBCAC1</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="mb-24 border-t border-outline-variant/20 py-16">
+      <h3 class="mb-12 font-headline text-sm font-extrabold uppercase tracking-widest text-on-surface-variant">
+        <span class="mr-3 inline-block h-2.5 w-2.5 rounded-full bg-[#1DC286]"></span>Typography Hierarchy
+      </h3>
+      <div class="grid grid-cols-1 gap-16 lg:grid-cols-2">
+        <div class="space-y-8">
+          <span class="inline-block rounded-full bg-surface-container px-4 py-1.5 font-headline text-[10px] font-extrabold uppercase tracking-widest text-on-surface-variant">Primary Workhorse</span>
+          <h4 class="font-headline text-6xl font-extrabold leading-none tracking-tighter">Plus Jakarta Bold</h4>
+          <p class="max-w-md font-body text-xl leading-relaxed text-on-surface-variant">
+            Bold, premium, and geometric. Used for all primary headlines, interface labels, and high-density information clusters.
+          </p>
+          <div class="flex flex-wrap gap-2 font-headline text-3xl font-extrabold">
+            <span>Aa</span><span>Bb</span><span>Cc</span><span>Dd</span><span>Ee</span><span>Ff</span><span>Gg</span>
+          </div>
+        </div>
+        <div class="space-y-8 lg:border-l lg:border-outline-variant/20 lg:pl-16">
+          <span class="inline-block rounded-full bg-primary/10 px-4 py-1.5 font-headline text-[10px] font-extrabold uppercase tracking-widest text-[#1DC286]">Trust Accent</span>
+          <h4 class="font-label text-6xl italic leading-none">Newsreader Italic</h4>
+          <p class="max-w-md font-body text-xl font-medium leading-relaxed text-on-surface-variant">
+            Humanistic and editorial. Reserved for rare captions, pull-quotes, and brand-level statements to provide warmth.
+          </p>
+          <div class="flex flex-wrap gap-2 font-label text-3xl italic">
+            <span>Aa</span><span>Bb</span><span>Cc</span><span>Dd</span><span>Ee</span><span>Ff</span><span>Gg</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-24">
+      <h3 class="mb-12 font-headline text-sm font-extrabold uppercase tracking-widest text-on-surface-variant">
+        <span class="mr-3 inline-block h-2.5 w-2.5 rounded-full bg-[#1DC286]"></span>Non-Negotiable Principles
+      </h3>
+      <div class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="space-y-3"><h5 class="font-headline text-lg font-extrabold">Use whitespace generously</h5><p class="text-sm leading-relaxed text-on-surface-variant">Let elements breathe. Content is curated, not crowded. Minimum 48px between sections.</p></div>
+        <div class="space-y-3"><h5 class="font-headline text-lg font-extrabold">No gradients</h5><p class="text-sm leading-relaxed text-on-surface-variant">Colors should be solid and architectural. Depth is achieved via tonal layering, never blurs.</p></div>
+        <div class="space-y-3"><h5 class="font-headline text-lg font-extrabold">Restrained use of Jade</h5><p class="text-sm leading-relaxed text-on-surface-variant">Jade is for action and focus. Do not flood large surfaces with green; use Oat as the canvas.</p></div>
+        <div class="space-y-3"><h5 class="font-headline text-lg font-extrabold">Apple-like softness</h5><p class="text-sm leading-relaxed text-on-surface-variant">Use generous 24px-32px radii. Everything should feel soft, touchable, and modern.</p></div>
+        <div class="space-y-3"><h5 class="font-headline text-lg font-extrabold">Calm balance</h5><p class="text-sm leading-relaxed text-on-surface-variant">Favor balanced composition over rigid grids or editorial chaos.</p></div>
+        <div class="space-y-3"><h5 class="font-headline text-lg font-extrabold">Atmospheric shadows</h5><p class="text-sm leading-relaxed text-on-surface-variant">If a shadow is used, it must be felt, not seen. Keep opacity around 4% max.</p></div>
+        <div class="space-y-3"><h5 class="font-headline text-lg font-extrabold">Literal iconography</h5><p class="text-sm leading-relaxed text-on-surface-variant">Use 2px stroke icons that match the visual weight of the type.</p></div>
+        <div class="space-y-3"><h5 class="font-headline text-lg font-extrabold">Solid paper aesthetic</h5><p class="text-sm leading-relaxed text-on-surface-variant">The UI should feel like stacked sheets of premium cardstock, not digital glass.</p></div>
+      </div>
+    </section>
+
+    <section class="mb-24 rounded-4xl bg-surface-container-low p-12">
+      <h3 class="mb-12 font-headline text-sm font-extrabold uppercase tracking-widest text-on-surface-variant">
+        <span class="mr-3 inline-block h-2.5 w-2.5 rounded-full bg-[#1DC286]"></span>Visual Anchors
+      </h3>
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
+        <div class="space-y-12">
+          <div class="space-y-6">
+            <label class="font-label text-sm italic text-on-surface-variant">Signature CTA</label>
+            <div>
+              <button class="rounded-full bg-[#1DC286] px-10 py-4 font-headline text-sm font-extrabold uppercase tracking-widest text-white transition-all hover:brightness-105 active:scale-98">
+                Explore The Collection
+              </button>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <label class="font-label text-sm italic text-on-surface-variant">Tonal Card Layering</label>
+            <div class="max-w-sm rounded-4xl bg-surface-container-lowest p-8" style="box-shadow: 0 8px 32px rgba(28, 28, 25, 0.04);">
+              <div class="mb-4 flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-[#1DC286]"></span>
+                <span class="font-label text-xs italic text-[#1DC286]">Expert Verified</span>
+              </div>
+              <h6 class="mb-2 font-headline text-xl font-extrabold">Organic Lavender</h6>
+              <p class="text-sm font-medium leading-relaxed text-on-surface-variant">Grown at 1,200m elevation for maximum oil density and purity.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-12">
+          <div class="space-y-6">
+            <label class="font-label text-sm italic text-on-surface-variant">Clean Navbar Snippet</label>
+            <div class="flex w-fit gap-6 rounded-full border border-outline-variant/10 bg-background px-8 py-4">
+              <span class="border-b-2 border-[#1DC286] pb-0.5 font-headline text-sm font-extrabold text-[#1DC286]">Shop</span>
+              <span class="font-headline text-sm font-extrabold text-on-surface/40">About</span>
+              <span class="font-headline text-sm font-extrabold text-on-surface/40">Journal</span>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <label class="font-label text-sm italic text-on-surface-variant">Minimal Accordion</label>
+            <div class="space-y-4">
+              <div class="group flex cursor-pointer items-center justify-between rounded-3xl border border-outline-variant/5 bg-surface-container-lowest px-6 py-5">
+                <span class="font-headline text-sm font-extrabold transition-colors group-hover:text-[#1DC286]">Where is Zoe used?</span>
+                <span class="material-symbols-outlined font-bold text-[#1DC286]">add</span>
+              </div>
+              <div class="group flex cursor-pointer items-center justify-between rounded-3xl border border-outline-variant/5 bg-surface-container-lowest px-6 py-5">
+                <span class="font-headline text-sm font-extrabold transition-colors group-hover:text-[#1DC286]">How private is Zoe?</span>
+                <span class="material-symbols-outlined font-bold text-on-surface/40 group-hover:text-[#1DC286]">expand_more</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 gap-16 md:grid-cols-2">
+      <div class="space-y-8">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined font-bold text-[#1DC286]">check_circle</span>
+          <h3 class="font-headline text-2xl font-extrabold uppercase tracking-tighter">Adopt</h3>
+        </div>
+        <ul class="space-y-4 font-body font-medium text-on-surface-variant">
+          <li class="flex items-start gap-4"><span class="font-extrabold text-[#1DC286]">01</span><span>Balanced layouts with strong whitespace and controlled hierarchy.</span></li>
+          <li class="flex items-start gap-4"><span class="font-extrabold text-[#1DC286]">02</span><span>High-contrast typography sizes with restrained overall composition.</span></li>
+          <li class="flex items-start gap-4"><span class="font-extrabold text-[#1DC286]">03</span><span>Tonal background shifts for structure instead of dark slabs and hard borders.</span></li>
+          <li class="flex items-start gap-4"><span class="font-extrabold text-[#1DC286]">04</span><span>Large 24px+ corner radii and soft card elevation.</span></li>
+        </ul>
+      </div>
+      <div class="space-y-8">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined font-bold text-error">cancel</span>
+          <h3 class="font-headline text-2xl font-extrabold uppercase tracking-tighter">Avoid</h3>
+        </div>
+        <ul class="space-y-4 font-body font-medium text-on-surface-variant">
+          <li class="flex items-start gap-4"><span class="font-extrabold text-error">01</span><span>Sharp 90-degree corners or tiny radii.</span></li>
+          <li class="flex items-start gap-4"><span class="font-extrabold text-error">02</span><span>Dark green slab sections, navy support systems, or cyan-heavy accents.</span></li>
+          <li class="flex items-start gap-4"><span class="font-extrabold text-error">03</span><span>Overuse of Newsreader for functional UI or primary headings.</span></li>
+          <li class="flex items-start gap-4"><span class="font-extrabold text-error">04</span><span>Glassmorphism, noisy gradients, or visible heavy shadowing.</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-24 flex w-full flex-col items-center justify-between bg-[#1C1C19] px-8 py-12 text-[#FCF9F4] md:flex-row">
+    <p class="font-['Newsreader'] text-sm italic opacity-50">© 2026 Zoe. Visual reference only.</p>
+    <div class="mt-6 flex gap-x-8 md:mt-0">
+      <a class="font-['Newsreader'] text-sm italic text-[#FCF9F4]/50 underline decoration-[#1DC286] decoration-2 underline-offset-4 hover:text-[#FCF9F4]" href="#">Accessibility</a>
+      <a class="font-['Newsreader'] text-sm italic text-[#FCF9F4]/50 hover:text-[#FCF9F4]" href="#">Privacy</a>
+      <a class="font-['Newsreader'] text-sm italic text-[#FCF9F4]/50 hover:text-[#FCF9F4]" href="#">Internal Portal</a>
+    </div>
+  </footer>
+</body>
+</html>

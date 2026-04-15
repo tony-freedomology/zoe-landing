@@ -88,23 +88,23 @@ export default function ChristianAiToolsPage() {
   return (
     <>
     <FaqSchema faqs={faqs} />
-    <div className="min-h-screen text-slate-900">
+    <div className="min-h-screen text-zoe-ink">
       {/* Hero */}
-      <section className="bg-slate-900 py-32 px-6 pt-40">
+      <section className="bg-zoe-ink py-32 px-6 pt-40">
         <div className="mx-auto max-w-3xl">
           <div className="mb-6">
-            <Link href="/guides" className="text-sm font-semibold text-slate-400 hover:text-white transition-colors">← Guides</Link>
+            <Link href="/guides" className="text-sm font-semibold text-zoe-muted hover:text-white transition-colors">← Guides</Link>
           </div>
           <div className="flex flex-wrap gap-3 items-center mb-6">
             <span className="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-amber-700">AI & Faith</span>
-            <span className="text-slate-400 text-xs font-medium">Updated March 2026</span>
-            <span className="text-slate-600 text-xs">·</span>
-            <span className="text-slate-400 text-xs font-medium">7 min read</span>
+            <span className="text-zoe-muted text-xs font-medium">Updated March 2026</span>
+            <span className="text-zoe-muted text-xs">·</span>
+            <span className="text-zoe-muted text-xs font-medium">7 min read</span>
           </div>
-          <h1 className="text-4xl md:text-5xl tracking-tighter-editorial text-white leading-[1.1] font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl tracking-tight font-sans text-white leading-[1.1] font-bold mb-6">
             Christian AI Tools: What&apos;s Actually Worth Using in 2026
           </h1>
-          <p className="text-xl text-slate-300 font-medium leading-relaxed">
+          <p className="text-xl text-zoe-outline font-medium leading-relaxed">
             AI is everywhere and everyone has an opinion about it. Here&apos;s an honest look at what&apos;s genuinely useful for spiritual growth, what&apos;s gimmicky, and what to watch out for.
           </p>
         </div>
@@ -117,8 +117,8 @@ export default function ChristianAiToolsPage() {
             <div className="flex-shrink-0 inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-amber-700 mt-1">
               TL;DR
             </div>
-            <p className="text-slate-700 font-medium leading-relaxed">
-              <strong className="text-slate-900">Best AI tool for daily discipleship:</strong> Zoe (SMS, AI-powered scripture context, no download, non-anthropomorphized). <strong className="text-slate-900">Best for Bible reference with AI features:</strong> YouVersion. <strong className="text-slate-900">Best for general Bible research:</strong> ChatGPT or Claude — useful for language and history, not for doctrine. <strong className="text-slate-900">The rule:</strong> Use AI as a research assistant, not a spiritual authority.
+            <p className="text-zoe-muted font-medium leading-relaxed">
+              <strong className="text-zoe-ink">Best AI tool for daily discipleship:</strong> Zoe (SMS, AI-powered scripture context, no download, non-anthropomorphized). <strong className="text-zoe-ink">Best for Bible reference with AI features:</strong> YouVersion. <strong className="text-zoe-ink">Best for general Bible research:</strong> ChatGPT or Claude — useful for language and history, not for doctrine. <strong className="text-zoe-ink">The rule:</strong> Use AI as a research assistant, not a spiritual authority.
             </p>
           </div>
         </div>
@@ -127,8 +127,8 @@ export default function ChristianAiToolsPage() {
       <article className="py-16 px-6 bg-white">
         <div className="mx-auto max-w-3xl space-y-12">
 
-          <div className="prose prose-slate max-w-none text-slate-700 font-medium leading-relaxed text-lg space-y-6">
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold">The honest framing</h2>
+          <div className="prose prose-slate max-w-none text-zoe-muted font-medium leading-relaxed text-lg space-y-6">
+            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold">The honest framing</h2>
             <p>People are already using AI for Bible study. Not because a pastor recommended it — because they're curious, they have a question at 11pm, and ChatGPT is right there. The question isn't whether Christians should use AI tools. The question is which ones are worth using, and what the appropriate guardrails are.</p>
             <p>There's a spectrum. On one end: tools like Zoe, which use AI for specific, well-defined tasks (surfacing original language context) and are explicitly designed <em>not</em> to position themselves as spiritual authorities. On the other end: AI chatbots that will confidently answer any theological question with whatever sounds most plausible, regardless of whether it's accurate or appropriate.</p>
             <p>The gap between these two categories matters a lot.</p>
@@ -136,27 +136,27 @@ export default function ChristianAiToolsPage() {
 
           {/* Tool cards */}
           <div className="space-y-5">
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold">Tools worth knowing</h2>
+            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold">Tools worth knowing</h2>
             {tools.map((tool) => (
-              <div key={tool.name} className={`rounded-2xl p-8 border ${tool.highlight ? "border-brand-jade/20 bg-brand-jade/5" : "border-slate-100 bg-slate-50"}`}>
+              <div key={tool.name} className={`rounded-2xl p-8 border ${tool.highlight ? "border-zoe-leaf/20 bg-zoe-leaf/5" : "border-zoe-outline/20 bg-zoe-surface"}`}>
                 <div className="flex flex-wrap items-center gap-3 mb-3">
-                  <span className="text-xl font-bold text-slate-900">{tool.name}</span>
-                  {tool.highlight && <span className="inline-flex items-center rounded-full border border-brand-jade/30 bg-brand-jade/10 px-2.5 py-0.5 text-xs font-bold text-brand-jade">Recommended</span>}
-                  <span className="text-slate-400 text-xs font-medium">{tool.url}</span>
+                  <span className="text-xl font-bold text-zoe-ink">{tool.name}</span>
+                  {tool.highlight && <span className="inline-flex items-center rounded-full border border-zoe-leaf/30 bg-zoe-leaf/10 px-2.5 py-0.5 text-xs font-bold text-zoe-leaf">Recommended</span>}
+                  <span className="text-zoe-muted text-xs font-medium">{tool.url}</span>
                 </div>
-                <div className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">{tool.category} · {tool.rating}</div>
-                <p className="text-slate-700 font-medium leading-relaxed mb-4 text-sm">{tool.description}</p>
+                <div className="text-xs font-bold uppercase tracking-widest text-zoe-muted mb-2">{tool.category} · {tool.rating}</div>
+                <p className="text-zoe-muted font-medium leading-relaxed mb-4 text-sm">{tool.description}</p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-brand-jade mb-2">Good for</div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-zoe-leaf mb-2">Good for</div>
                     <ul className="space-y-1">
-                      {tool.good.map(g => <li key={g} className="text-sm text-slate-600 font-medium flex gap-2"><span className="text-brand-jade">✓</span>{g}</li>)}
+                      {tool.good.map(g => <li key={g} className="text-sm text-zoe-muted font-medium flex gap-2"><span className="text-zoe-leaf">✓</span>{g}</li>)}
                     </ul>
                   </div>
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Keep in mind</div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-zoe-muted mb-2">Keep in mind</div>
                     <ul className="space-y-1">
-                      {tool.avoid.map(a => <li key={a} className="text-sm text-slate-500 font-medium flex gap-2"><span className="text-slate-400">→</span>{a}</li>)}
+                      {tool.avoid.map(a => <li key={a} className="text-sm text-zoe-muted font-medium flex gap-2"><span className="text-zoe-muted">→</span>{a}</li>)}
                     </ul>
                   </div>
                 </div>
@@ -164,9 +164,9 @@ export default function ChristianAiToolsPage() {
             ))}
           </div>
 
-          <div className="prose prose-slate max-w-none text-slate-700 font-medium leading-relaxed text-lg space-y-6">
-            <h2 className="text-3xl tracking-tighter-editorial text-slate-900 font-bold">The design principle that matters</h2>
-            <p>The best Christian AI tools are built around one principle: <strong className="text-slate-900">AI should point away from itself.</strong></p>
+          <div className="prose prose-slate max-w-none text-zoe-muted font-medium leading-relaxed text-lg space-y-6">
+            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold">The design principle that matters</h2>
+            <p>The best Christian AI tools are built around one principle: <strong className="text-zoe-ink">AI should point away from itself.</strong></p>
             <p>A tool that positions itself as a spiritual guide, generates personalized "prophetic words," or simulates a relationship with God is a tool with a theology problem. The Holy Spirit isn't a chatbot. Pastoral care requires a person. Spiritual direction is a human relationship.</p>
             <p>What AI can do well: research tasks. Finding where a word appears in the original text. Explaining the historical context of a passage. Summarizing what a theologian wrote. Tracking your commitments and reminding you of them. These are useful things that don't require claiming spiritual authority.</p>
             <p>That's why Zoe is designed the way it is. It uses AI to surface depth — original language context, cultural background — and delivers it in a format (SMS, 90 seconds) that gets out of the way. It doesn't chat with you. It doesn't simulate a relationship. It points to the text, and then to your community.</p>
@@ -177,14 +177,14 @@ export default function ChristianAiToolsPage() {
       </article>
 
       {/* FAQ */}
-      <section className="py-24 px-6 bg-[#F8FBFA]">
+      <section className="py-24 px-6 bg-zoe-surface">
         <div className="mx-auto max-w-3xl">
-          <h2 className="text-3xl md:text-4xl tracking-tighter-editorial text-slate-900 font-bold mb-10">Frequently asked questions</h2>
+          <h2 className="text-3xl md:text-4xl tracking-tight font-sans text-zoe-ink font-bold mb-10">Frequently asked questions</h2>
           <div className="space-y-5">
             {faqs.map((item) => (
-              <div key={item.q} className="bg-white rounded-2xl p-7 border border-slate-100">
-                <h3 className="text-base font-bold text-slate-900 mb-2">{item.q}</h3>
-                <p className="text-slate-600 font-medium leading-relaxed text-sm">{item.a}</p>
+              <div key={item.q} className="bg-white rounded-2xl p-7 border border-zoe-outline/20">
+                <h3 className="text-base font-bold text-zoe-ink mb-2">{item.q}</h3>
+                <p className="text-zoe-muted font-medium leading-relaxed text-sm">{item.a}</p>
               </div>
             ))}
           </div>
@@ -192,11 +192,11 @@ export default function ChristianAiToolsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6 bg-slate-900">
+      <section className="py-24 px-6 bg-zoe-ink">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl tracking-tighter-editorial text-white font-bold leading-[1.1] mb-4">AI for depth. Not a chatbot.</h2>
-          <p className="text-lg text-slate-300 font-medium leading-relaxed mb-10">Zoe uses AI to surface original-language context and reflection prompts — delivered to your texts each morning. No download. No spiritual theater.</p>
-          <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
+          <h2 className="text-4xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-4">AI for depth. Not a chatbot.</h2>
+          <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">Zoe uses AI to surface original-language context and reflection prompts — delivered to your texts each morning. No download. No spiritual theater.</p>
+          <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
             Join the Waitlist <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

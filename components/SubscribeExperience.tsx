@@ -27,12 +27,12 @@ const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 
 const appearance = {
   variables: {
-    colorPrimary: "#00c292",
+    colorPrimary: "#1dc286",
     colorBackground: "#ffffff",
-    colorText: "#1c2433",
+    colorText: "#1c1c19",
     colorTextPlaceholder: "#8d94a5",
     colorDanger: "#b64855",
-    colorSuccess: "#00c292",
+    colorSuccess: "#1dc286",
     borderRadius: "12px",
     fontFamily:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -47,7 +47,7 @@ const appearance = {
       backgroundColor: "#ffffff",
     },
     ".Input:focus": {
-      border: "1px solid #00c292",
+      border: "1px solid #1dc286",
       boxShadow: "0 0 0 4px rgba(0, 194, 146, 0.10)",
     },
     ".Tab": {
@@ -56,12 +56,12 @@ const appearance = {
       backgroundColor: "#f8f7f3",
     },
     ".Tab--selected": {
-      borderColor: "#00c292",
-      color: "#1c2433",
+      borderColor: "#1dc286",
+      color: "#1c1c19",
       backgroundColor: "#ffffff",
     },
     ".Label": {
-      color: "#1c2433",
+      color: "#1c1c19",
       fontWeight: "500",
       marginBottom: "8px",
     },
@@ -256,15 +256,15 @@ export default function SubscribeExperience({
     <motion.section
       layout
       transition={revealTransition}
-      className="relative overflow-hidden rounded-t-[2rem] bg-white px-5 pb-[calc(0.9rem+env(safe-area-inset-bottom))] pt-4 shadow-[0_-24px_70px_rgba(28,36,51,0.10)] sm:mb-8 sm:rounded-[2rem] sm:border sm:border-white/70 sm:px-6 sm:pb-6 sm:pt-6"
+      className="relative overflow-hidden rounded-t-[2rem] bg-white px-5 pb-[calc(0.9rem+env(safe-area-inset-bottom))] pt-4 shadow-[0_-24px_70px_rgba(28,28,25,0.10)] sm:mb-8 sm:rounded-[2rem] sm:border sm:border-white/70 sm:px-6 sm:pb-6 sm:pt-6"
     >
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(250,249,245,1))]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(0,194,146,0.22),transparent)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(29,194,134,0.22),transparent)]" />
 
       <motion.div layout transition={revealTransition} className="relative z-10">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#1c2433]/36">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#1c1c19]/36">
               {numberEyebrow}
             </p>
             <AnimatePresence mode="wait" initial={false}>
@@ -274,7 +274,7 @@ export default function SubscribeExperience({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={revealTransition}
-                className="mt-2 text-sm font-medium leading-6 text-[#1c2433]/64"
+                className="mt-2 text-sm font-medium leading-6 text-[#1c1c19]/64"
               >
                 {numberHelper}
               </motion.p>
@@ -285,7 +285,7 @@ export default function SubscribeExperience({
             <button
               type="button"
               onClick={resetPhoneFlow}
-              className="inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-medium text-[#1c2433]/54 transition hover:bg-[#f5f4f0] hover:text-[#1c2433]"
+              className="inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-medium text-[#1c1c19]/54 transition hover:bg-[#f5f4f0] hover:text-[#1c1c19]"
             >
               <PencilLine className="h-3.5 w-3.5" />
               Edit
@@ -320,7 +320,7 @@ export default function SubscribeExperience({
                   placeholder="(555) 555-5555"
                   value={phoneInput}
                   onChange={(event) => setPhoneInput(formatUsPhoneInput(event.target.value))}
-                  className="w-full rounded-[1.35rem] border border-[#1c2433]/10 bg-[#fbfaf7] px-4 py-3.5 text-center text-[1.72rem] font-semibold tracking-[-0.055em] text-[#1c2433] outline-none transition focus:border-brand-jade focus:bg-white focus:ring-4 focus:ring-brand-jade/10 [font-family:var(--font-sans)] sm:rounded-[1.4rem] sm:px-4 sm:py-4 sm:text-[2.1rem]"
+                  className="w-full rounded-[1.35rem] border border-[#1c1c19]/10 bg-[#fbfaf7] px-4 py-3.5 text-center text-[1.72rem] font-semibold tracking-[-0.055em] text-[#1c1c19] outline-none transition focus:border-zoe-leaf focus:bg-white focus:ring-4 focus:ring-zoe-leaf/10 [font-family:var(--font-sans)] sm:rounded-[1.4rem] sm:px-4 sm:py-4 sm:text-[2.1rem]"
                 />
               </label>
 
@@ -338,7 +338,7 @@ export default function SubscribeExperience({
                   "inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 text-base font-semibold text-white transition sm:py-4",
                   isPreparing
                     ? "cursor-wait bg-[#627070]"
-                    : "bg-brand-jade shadow-[0_16px_34px_rgba(0,194,146,0.26)] hover:bg-[#00ae84] active:scale-[0.995]"
+                    : "bg-zoe-leaf shadow-[0_16px_34px_rgba(29,194,134,0.26)] hover:bg-[#1dc286] active:scale-[0.995]"
                 )}
               >
                 {isPreparing ? (
@@ -383,7 +383,7 @@ export default function SubscribeExperience({
           )}
         </AnimatePresence>
 
-        <p className="mt-4 text-center text-[11px] font-medium text-[#1c2433]/42 sm:mt-5 sm:text-xs">
+        <p className="mt-4 text-center text-[11px] font-medium text-[#1c1c19]/42 sm:mt-5 sm:text-xs">
           {reassuranceCopy}
         </p>
       </motion.div>
@@ -460,7 +460,7 @@ function EmbeddedPaymentForm({
           "inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 text-base font-semibold text-white transition sm:py-4",
           !stripe || !elements || isSubmitting
             ? "cursor-not-allowed bg-[#627070]"
-            : "bg-brand-jade shadow-[0_16px_34px_rgba(0,194,146,0.26)] hover:bg-[#00ae84] active:scale-[0.995]"
+            : "bg-zoe-leaf shadow-[0_16px_34px_rgba(29,194,134,0.26)] hover:bg-[#1dc286] active:scale-[0.995]"
         )}
       >
         {isSubmitting ? (
@@ -502,25 +502,25 @@ function PlanToggle({
             className={clsx(
               "relative rounded-[1.15rem] border px-4 py-2.5 text-left transition sm:rounded-[1.2rem] sm:py-3",
               selected
-                ? "border-brand-jade bg-brand-jade/5 shadow-[0_8px_24px_rgba(0,194,146,0.08)]"
-                : "border-[#1c2433]/10 bg-white/80 hover:border-[#1c2433]/18 hover:bg-[#fbfaf7]",
+                ? "border-zoe-leaf bg-zoe-leaf/5 shadow-[0_8px_24px_rgba(29,194,134,0.08)]"
+                : "border-[#1c1c19]/10 bg-white/80 hover:border-[#1c1c19]/18 hover:bg-[#fbfaf7]",
               isPreparing && "cursor-wait opacity-70"
             )}
           >
             {option.badge ? (
-              <span className="absolute right-2.5 top-2.5 rounded-full bg-brand-jade px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white sm:right-3 sm:top-3">
+              <span className="absolute right-2.5 top-2.5 rounded-full bg-zoe-leaf px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white sm:right-3 sm:top-3">
                 {option.badge}
               </span>
             ) : null}
 
-            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#1c2433]/42">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#1c1c19]/42">
               {option.label}
             </p>
-            <div className="mt-1.5 flex items-end gap-1 text-[#1c2433] sm:mt-2">
+            <div className="mt-1.5 flex items-end gap-1 text-[#1c1c19] sm:mt-2">
               <span className="text-[1.52rem] font-semibold tracking-[-0.05em] sm:text-[1.65rem]">
                 {option.price}
               </span>
-              <span className="pb-0.5 text-[13px] font-medium text-[#1c2433]/56 sm:pb-1 sm:text-sm">
+              <span className="pb-0.5 text-[13px] font-medium text-[#1c1c19]/56 sm:pb-1 sm:text-sm">
                 {option.cadence}
               </span>
             </div>

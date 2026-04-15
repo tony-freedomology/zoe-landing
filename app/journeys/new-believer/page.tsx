@@ -35,36 +35,36 @@ const days = [
 
 export default function NewBelieverPage() {
   return (
-    <div className="min-h-screen text-slate-900">
+    <div className="min-h-screen text-zoe-ink">
       <section className="bg-gradient-to-b from-[#1a1308] to-[#141008] py-32 px-6 pt-40">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-cyan mb-8">
+          <div className="inline-flex items-center gap-2 rounded-full border border-zoe-sap/30 bg-zoe-sap/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-zoe-sap mb-8">
             21-Day Journey
           </div>
-          <h1 className="text-5xl md:text-6xl tracking-tighter-editorial text-white leading-[1.1] font-bold">First Steps</h1>
-          <p className="mt-4 text-lg text-brand-cyan font-semibold tracking-tight">A New Believer Journey</p>
-          <p className="mt-6 text-xl text-slate-300 font-medium leading-relaxed max-w-2xl mx-auto">
-            The first weeks after saying yes to Jesus are some of the most important — and the most vulnerable. This journey gives you a daily companion for those first steps.
+          <h1 className="text-5xl md:text-6xl tracking-tight font-sans text-white leading-[1.1] font-bold">First Steps</h1>
+          <p className="mt-4 text-lg text-zoe-sap font-semibold tracking-tight">A New Believer Journey</p>
+          <p className="mt-6 text-xl text-zoe-outline font-medium leading-relaxed max-w-2xl mx-auto">
+            The first weeks after saying yes to Jesus are some of the most important — and the most vulnerable. This journey gives you a Daily path for those first steps.
           </p>
           <div className="mt-10">
-            <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
+            <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
               Start This Journey <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-[#F8FBFA]">
+      <section className="py-20 px-6 bg-zoe-surface">
         <div className="mx-auto max-w-3xl">
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[{label:"Duration",value:"21 Days"},{label:"Check-ins",value:"3 per day"},{label:"Topics",value:"21 foundations"}].map((stat) => (
-              <div key={stat.label} className="bg-white rounded-2xl p-6 text-center border border-slate-100 shadow-sm">
-                <p className="text-3xl font-bold tracking-tighter-editorial text-slate-900 mb-1">{stat.value}</p>
-                <p className="text-sm font-semibold uppercase tracking-widest text-slate-400">{stat.label}</p>
+              <div key={stat.label} className="bg-white rounded-2xl p-6 text-center border border-zoe-outline/20 shadow-sm">
+                <p className="text-3xl font-bold tracking-tight font-sans text-zoe-ink mb-1">{stat.value}</p>
+                <p className="text-sm font-semibold uppercase tracking-widest text-zoe-muted">{stat.label}</p>
               </div>
             ))}
           </div>
-          <div className="text-slate-600 font-medium leading-relaxed text-lg space-y-6">
+          <div className="text-zoe-muted font-medium leading-relaxed text-lg space-y-6">
             <p>New faith is tender. There are a thousand questions, a lot of excitement, and also a lot of uncertainty. What does it even mean to follow Jesus in an ordinary week?</p>
             <p>This 21-day journey is built for exactly that season. Each day covers one foundational topic — from prayer to doubt to baptism to the long walk ahead. Zoe checks in three times a day with the passage, a reflection question, and space to actually think it through.</p>
             <p>No app. No homework. Just a text message that meets you where you are.</p>
@@ -74,20 +74,20 @@ export default function NewBelieverPage() {
 
       <section className="py-20 px-6 bg-white">
         <div className="mx-auto max-w-3xl">
-          <h2 className="text-3xl md:text-4xl tracking-tighter-editorial text-slate-900 font-bold mb-10">The 21 Days</h2>
+          <h2 className="text-3xl md:text-4xl tracking-tight font-sans text-zoe-ink font-bold mb-10">The 21 Days</h2>
           <div className="flex flex-col gap-4">
             {days.map((d) => (
-              <div key={d.day} className="flex gap-5 items-start p-6 rounded-2xl bg-slate-50 border border-slate-100">
-                <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center flex-shrink-0">
+              <div key={d.day} className="flex gap-5 items-start p-6 rounded-2xl bg-zoe-surface border border-zoe-outline/20">
+                <div className="w-10 h-10 rounded-full bg-zoe-ink flex items-center justify-center flex-shrink-0">
                   <span className="text-white text-sm font-bold">{d.day}</span>
                 </div>
                 <div>
                   <div className="flex flex-wrap gap-2 items-center mb-1">
-                    <span className="text-brand-cyan font-semibold text-sm">{d.passage}</span>
-                    <span className="text-slate-300 text-sm">·</span>
-                    <span className="font-bold text-slate-900">{d.theme}</span>
+                    <span className="text-zoe-sap font-semibold text-sm">{d.passage}</span>
+                    <span className="text-zoe-outline text-sm">·</span>
+                    <span className="font-bold text-zoe-ink">{d.theme}</span>
                   </div>
-                  <p className="text-slate-600 text-sm leading-relaxed font-medium italic">&ldquo;{d.prompt}&rdquo;</p>
+                  <p className="text-zoe-muted text-sm leading-relaxed font-medium italic">&ldquo;{d.prompt}&rdquo;</p>
                 </div>
               </div>
             ))}
@@ -95,11 +95,11 @@ export default function NewBelieverPage() {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-slate-900">
+      <section className="py-24 px-6 bg-zoe-ink">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl md:text-5xl tracking-tighter-editorial text-white font-bold leading-[1.1] mb-6">Every journey starts somewhere.</h2>
-          <p className="text-lg text-slate-300 font-medium leading-relaxed mb-10">Join the waitlist and we&apos;ll let you know when this journey is ready to walk with you.</p>
-          <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
+          <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-6">Every journey starts somewhere.</h2>
+          <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">Join the waitlist and we&apos;ll let you know when this journey is ready to walk with you.</p>
+          <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
             Join the Waitlist <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

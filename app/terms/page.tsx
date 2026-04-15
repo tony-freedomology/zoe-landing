@@ -2,7 +2,7 @@ const sections = [
   {
     title: "1. Agreement to Terms",
     body: [
-      "These Terms of Service (\"Terms\") govern your access to and use of Zoe, an SMS-based discipleship companion operated by Freedomology (\"Zoe\", \"we\", \"us\", \"our\").",
+      "These Terms of Service (\"Terms\") govern your access to and use of Zoe, an SMS-based discipleship tool operated by Freedomology (\"Zoe\", \"we\", \"us\", \"our\").",
       "By using Zoe, you agree to these Terms. If you do not agree, do not use the service."
     ]
   },
@@ -115,31 +115,31 @@ import { ArrowLeft } from "lucide-react";
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-[#F8FBFA] text-slate-900 relative selection:bg-brand-cyan/20">
+    <main className="min-h-screen bg-zoe-surface text-zoe-ink relative selection:bg-zoe-sap/20">
       {/* Background glow */}
-      <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-brand-cyan/5 to-transparent pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-jade/5 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-zoe-sap/5 to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-zoe-leaf/5 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none" />
 
       <div className="mx-auto max-w-3xl px-6 py-12 md:py-20 relative z-10">
-        <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-brand-jade transition-colors mb-12">
+        <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-zoe-muted hover:text-zoe-leaf transition-colors mb-12">
           <ArrowLeft className="h-4 w-4" />
           Back to Home
         </Link>
 
         {/* Header */}
         <header className="mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand-cyan/20 bg-brand-cyan/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-cyan mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-zoe-sap/20 bg-zoe-sap/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zoe-sap mb-6">
             Zoe Legal
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tighter-editorial text-slate-900 mb-6 font-bold leading-[1.1]">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-tight font-sans text-zoe-ink mb-6 font-bold leading-[1.1]">
             Terms of Service
           </h1>
-          <div className="flex items-center gap-4 text-sm font-medium text-slate-500 border-l-2 border-slate-200 pl-4">
+          <div className="flex items-center gap-4 text-sm font-medium text-zoe-muted border-l-2 border-zoe-outline/40 pl-4">
             <p>Effective: February 27, 2026</p>
             <span className="w-1 h-1 rounded-full bg-slate-300" />
             <p>Updated: February 27, 2026</p>
           </div>
-          <p className="mt-8 text-xl text-slate-600 leading-relaxed font-medium">
+          <p className="mt-8 text-xl text-zoe-muted leading-relaxed font-medium">
             These Terms define how Zoe can be used and where responsibility sits between us and users.
           </p>
         </header>
@@ -148,8 +148,8 @@ export default function TermsPage() {
         <article className="space-y-12">
           {sections.map((section) => (
             <div key={section.title} className="scroll-mt-24 group">
-              <h2 className="text-2xl font-semibold tracking-tight text-slate-900 mb-4 group-hover:text-brand-cyan transition-colors">{section.title}</h2>
-              <div className="prose prose-slate prose-lg max-w-none prose-p:leading-relaxed text-slate-700">
+              <h2 className="text-2xl font-semibold tracking-tight text-zoe-ink mb-4 group-hover:text-zoe-sap transition-colors">{section.title}</h2>
+              <div className="prose prose-slate prose-lg max-w-none prose-p:leading-relaxed text-zoe-muted">
                 {section.body?.map((paragraph, i) => (
                   <p key={i} className="mb-4 text-lg">
                     {paragraph}
@@ -160,8 +160,8 @@ export default function TermsPage() {
           ))}
         </article>
 
-        <div className="mt-20 pt-8 border-t border-slate-200">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-brand-jade transition-colors">
+        <div className="mt-20 pt-8 border-t border-zoe-outline/40">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-zoe-muted hover:text-zoe-leaf transition-colors">
             <ArrowLeft className="h-4 w-4" />
             Back to Home
           </Link>

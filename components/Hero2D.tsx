@@ -298,12 +298,9 @@ export default function Hero2D({ variant = "default", hideOverlayContent = false
                             <h1 className="mb-2 text-4xl md:text-5xl font-bold tracking-tighter-editorial-relaxed text-slate-900 drop-shadow-sm max-w-sm md:max-w-xl leading-snug">
                                 Walk with Jesus.
                             </h1>
-                            <p className="mb-6 text-xl md:text-2xl font-medium tracking-tight text-slate-800 drop-shadow-sm max-w-sm md:max-w-xl leading-snug opacity-90">
-                                What if you quit living in two worlds?
-                            </p>
                             <a
                                 href="#waitlist"
-                                className="rounded-full bg-white px-8 py-4 md:px-10 md:py-4 text-sm md:text-base font-bold text-slate-900 shadow-[0_0_30px_-5px_rgba(255,255,255,0.4)] transition-transform hover:scale-105"
+                                className="mt-4 rounded-full bg-white px-8 py-4 md:px-10 md:py-4 text-sm md:text-base font-bold text-slate-900 shadow-[0_0_30px_-5px_rgba(255,255,255,0.4)] transition-transform hover:scale-105"
                             >
                                 Join The Walk
                             </a>

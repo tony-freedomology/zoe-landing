@@ -39,7 +39,7 @@ const stagger = {
 const faqs = [
   {
     question: "Is Zoe replacing my pastor or my church?",
-    answer: "Not even close. Zoe is a companion for the space between Sundays — the Monday through Saturday when your pastor isn't available and your small group isn't meeting. It's designed to point you toward God, not away from community. Think of it as the thing that helps you show up to church more engaged, not less.",
+    answer: "Not even close. Zoe is built for the space between Sundays — the Monday through Saturday when your pastor isn't available and your small group isn't meeting. It's designed to point you toward God, not away from community. Think of it as the thing that helps you show up to church more engaged, not less.",
   },
   {
     question: "Is this just ChatGPT with a Bible?",
@@ -81,7 +81,7 @@ const faqs = [
 
 export default function HomePageContent({ variant = "default" }: HomeProps) {
   const isDefault = variant === "default";
-  const defaultSectionHeading = "font-bold tracking-tighter-editorial-relaxed";
+  const defaultSectionHeading = "font-extrabold tracking-tight font-sans text-zoe-ink";
   const [status, setStatus] = useState<"idle" | "submitting" | "sent">("idle");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [name, setName] = useState("");
@@ -155,7 +155,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
   };
 
   return (
-    <div className="min-h-screen text-zoe-ink selection:bg-zoe-jade/20">
+    <div className="min-h-screen text-zoe-ink selection:bg-zoe-sap/20">
       <main className="relative z-10 font-sans">
         <Hero2D variant={variant} />
 
@@ -175,20 +175,29 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
           <div className={clsx(
             "absolute inset-0 pointer-events-none",
             isDefault
-              ? "bg-[radial-gradient(circle_at_top_right,rgba(0,194,146,0.06),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(28,28,25,0.03),transparent_40%)]"
-              : "bg-[radial-gradient(circle_at_top_left,rgba(217,119,6,0.08),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(0,194,146,0.08),transparent_40%)]"
+              ? ""
+              : "bg-[radial-gradient(circle_at_top_left,rgba(217,119,6,0.08),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(29,194,134,0.08),transparent_40%)]"
           )} />
           <div className="mx-auto max-w-7xl relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mx-auto mb-12 max-w-3xl text-center">
-              <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6 shadow-sm",
-                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#00c292] text-white border-transparent" : isDefault ? "rounded-full border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border-[#d97706]/20 bg-[#d97706]/10 text-[#d97706]")}>
-                Guided Journeys
-              </div>
-              <h2 className={clsx("text-4xl md:text-5xl leading-[1.08] text-slate-900", isDefault ? defaultSectionHeading : "font-bold tracking-tighter-editorial")}>
-                Scripture for the places people actually live.
+              {!isDefault ? (
+                <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6 shadow-sm",
+                  variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : "rounded-full border-[#d97706]/20 bg-[#d97706]/10 text-[#d97706]")}>
+                  Guided Journeys
+                </div>
+              ) : null}
+              <h2 className={clsx("text-4xl md:text-5xl leading-[1.08]", isDefault ? defaultSectionHeading : "text-slate-900 font-bold tracking-tighter-editorial")}>
+                {isDefault ? (
+                  <>
+                    Daily journeys tailored to your actual{" "}
+                    <span className="font-serif font-normal italic text-zoe-leaf">life</span>
+                  </>
+                ) : (
+                  "Scripture for the places people actually live."
+                )}
               </h2>
               <p className={clsx("mt-5 text-lg md:text-xl font-medium leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>
-                Twenty-five guided paths on fear, money, marriage, grief, prayer, leadership, and the rest of the questions that do not stay theoretical for long.
+                Choose a pre-made Daily path on fear, money, marriage, grief, prayer, or have Zoe create a custom one.
               </p>
             </motion.div>
 
@@ -199,7 +208,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
         </section>
 
         {/* Act 3: The Clearing (Unified CTA & Pricing) */}
-        <section ref={waitlistRef} id="waitlist" className={clsx("min-h-[150vh] relative", variant === "jesus-red" ? "bg-[#f5efe6]" : isDefault ? "bg-[#fbf8f2]" : "bg-[#F8FBFA]")}>
+        <section ref={waitlistRef} id="waitlist" className={clsx("min-h-[150vh] relative", variant === "jesus-red" ? "bg-[#f5efe6]" : isDefault ? "bg-zoe-surface" : "bg-[#F8FBFA]")}>
           <div className="sticky top-0 h-[100dvh] w-full flex flex-col justify-center overflow-hidden py-24 md:py-40 px-4">
             {variant !== "jesus-red" && (
               <>
@@ -215,14 +224,14 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
 
                 <div className="relative z-10 mx-auto max-w-3xl">
                   {isDefault && (
-                    <div className="mx-auto mb-8 h-1.5 w-16 rounded-full bg-zoe-jade/80" />
+                    <div className="mx-auto mb-8 h-1.5 w-16 rounded-full bg-zoe-sap/80" />
                   )}
                   <div className={clsx("inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
-                    variant === "jesus-red" ? "rounded-md border border-[#e0d8cd] bg-[#f5efe6] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#00c292] text-white border-transparent" : isDefault ? "rounded-full border border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border border-brand-jade/20 bg-brand-jade/5 text-brand-jade")}>
+                    variant === "jesus-red" ? "rounded-md border border-[#e0d8cd] bg-[#f5efe6] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : isDefault ? "rounded-full border border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                     Pre-Alpha Waitlist
                   </div>
 
-                  <h2 className={clsx("mx-auto max-w-2xl text-4xl md:text-6xl text-slate-900 leading-[1.06]", isDefault ? defaultSectionHeading : "font-semibold tracking-tight")}>
+                  <h2 className={clsx("mx-auto max-w-2xl text-4xl md:text-6xl leading-[1.06]", isDefault ? defaultSectionHeading : "text-slate-900 font-semibold tracking-tight")}>
                     Be among the first.
                   </h2>
                   <p className={clsx("mt-5 text-lg font-medium max-w-2xl mx-auto leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>
@@ -233,8 +242,8 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     variant === "jesus-red" ? "bg-white border border-[#e0d8cd] shadow-sm rounded-lg" : isDefault ? "rounded-[2rem] border border-zoe-outline/45 bg-white shadow-[0_18px_44px_rgba(28,28,25,0.06)]" : "rounded-2xl bg-slate-50/80 backdrop-blur-xl border border-slate-100 shadow-sm")}>
                     {status === "sent" ? (
                       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center justify-center py-8 px-4 text-center">
-                        <div className="w-16 h-16 bg-brand-jade/10 rounded-full flex items-center justify-center mb-6">
-                          <CheckCircle className="w-8 h-8 text-brand-jade" />
+                        <div className="w-16 h-16 bg-zoe-leaf/10 rounded-full flex items-center justify-center mb-6">
+                          <CheckCircle className="w-8 h-8 text-zoe-leaf" />
                         </div>
                         <h3 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">You're on the list!</h3>
                         <p className="text-slate-600 font-medium leading-relaxed">
@@ -257,8 +266,8 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                             variant === "jesus-red"
                               ? "rounded-md focus:ring-2 focus:ring-[#7a2332]/50 focus:border-[#7a2332]/50"
                               : isDefault
-                                ? "rounded-[1.2rem] border-zoe-outline/45 bg-[#fcfbf8] focus:border-zoe-jade focus:ring-2 focus:ring-zoe-jade/15"
-                                : "rounded-xl focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade/50"
+                                ? "rounded-[1.2rem] border-zoe-outline/45 bg-zoe-oat focus:border-zoe-sap focus:ring-2 focus:ring-zoe-sap/15"
+                                : "rounded-xl focus:ring-2 focus:ring-zoe-leaf/50 focus:border-zoe-leaf/50"
                           )}
                         />
                         <input
@@ -275,8 +284,8 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                             variant === "jesus-red"
                               ? "rounded-md focus:ring-2 focus:ring-[#7a2332]/50 focus:border-[#7a2332]/50"
                               : isDefault
-                                ? "rounded-[1.2rem] border-zoe-outline/45 bg-[#fcfbf8] focus:border-zoe-jade focus:ring-2 focus:ring-zoe-jade/15"
-                                : "rounded-xl focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade/50"
+                                ? "rounded-[1.2rem] border-zoe-outline/45 bg-zoe-oat focus:border-zoe-sap focus:ring-2 focus:ring-zoe-sap/15"
+                                : "rounded-xl focus:ring-2 focus:ring-zoe-leaf/50 focus:border-zoe-leaf/50"
                           )}
                         />
                         <input
@@ -292,8 +301,8 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                             variant === "jesus-red"
                               ? "rounded-md focus:ring-2 focus:ring-[#7a2332]/50 focus:border-[#7a2332]/50"
                               : isDefault
-                                ? "rounded-[1.2rem] border-zoe-outline/45 bg-[#fcfbf8] focus:border-zoe-jade focus:ring-2 focus:ring-zoe-jade/15"
-                                : "rounded-xl focus:ring-2 focus:ring-brand-jade/50 focus:border-brand-jade/50"
+                                ? "rounded-[1.2rem] border-zoe-outline/45 bg-zoe-oat focus:border-zoe-sap focus:ring-2 focus:ring-zoe-sap/15"
+                                : "rounded-xl focus:ring-2 focus:ring-zoe-leaf/50 focus:border-zoe-leaf/50"
                           )}
                         />
                         <button
@@ -301,7 +310,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                             variant === "jesus-red"
                               ? "rounded-md bg-[#7a2332] shadow-[#7a2332]/20 hover:bg-[#5c1624] hover:-translate-y-0.5 disabled:bg-[#7a2332]/45 disabled:shadow-none disabled:hover:translate-y-0"
                               : isDefault
-                                ? "rounded-full bg-zoe-jade shadow-[0_14px_30px_rgba(0,194,146,0.16)] hover:bg-[#35d5a7] hover:-translate-y-0.5 disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none disabled:hover:translate-y-0"
+                                ? "rounded-full bg-zoe-sap shadow-sm hover:brightness-105 active:scale-95 disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none disabled:active:scale-100"
                                 : "rounded-xl bg-slate-900 shadow-slate-900/10 hover:bg-slate-800 hover:-translate-y-0.5 disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none disabled:hover:translate-y-0")}
                           type="submit"
                           disabled={status === "submitting" || !waitlistFormValid}
@@ -318,7 +327,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                             disabled={status === "submitting" || !waitlistFormValid}
                             className={clsx(
                               "text-xs font-semibold underline transition-colors disabled:text-slate-400 disabled:no-underline disabled:cursor-not-allowed",
-                              isDefault ? "text-zoe-jade-deep hover:text-zoe-jade-deep/80" : "text-brand-jade hover:text-brand-jade/80"
+                              isDefault ? "text-zoe-forest hover:text-zoe-forest/80" : "text-zoe-leaf hover:text-zoe-leaf/80"
                             )}
                           >
                             Try again
@@ -341,21 +350,21 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
 
         {/* Trust & Privacy */}
         <section className={clsx("py-20 md:py-32 px-6 relative overflow-hidden", isDefault ? "bg-zoe-oat" : "bg-[#FCFAF8]")}>
-          <div className={clsx("absolute inset-0 pointer-events-none", isDefault ? "bg-[radial-gradient(circle_at_top_right,rgba(0,194,146,0.06),transparent_38%)]" : "bg-[radial-gradient(circle_at_top_right,rgba(252,211,77,0.05),transparent_50%)]")} />
-          <div className={clsx("absolute inset-0 pointer-events-none", isDefault ? "bg-[radial-gradient(circle_at_bottom_left,rgba(28,28,25,0.03),transparent_42%)]" : "bg-[radial-gradient(circle_at_bottom_left,rgba(0,194,146,0.05),transparent_50%)]")} />
+          <div className={clsx("absolute inset-0 pointer-events-none", isDefault ? "" : "bg-[radial-gradient(circle_at_top_right,rgba(252,211,77,0.05),transparent_50%)]")} />
+          <div className={clsx("absolute inset-0 pointer-events-none", isDefault ? "" : "bg-[radial-gradient(circle_at_bottom_left,rgba(29,194,134,0.05),transparent_50%)]")} />
 
           <div className="mx-auto max-w-3xl relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-20">
               <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
-                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : isDefault ? "rounded-full border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border-brand-jade/20 bg-brand-jade/5 text-brand-jade")}>
+                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : isDefault ? "rounded-full border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                 Trust & Privacy
               </div>
-              <h2 className={clsx("text-4xl md:text-5xl lg:text-6xl text-slate-900 leading-[1.1]", isDefault ? defaultSectionHeading : "font-bold tracking-tighter-editorial-relaxed")}>
+              <h2 className={clsx("text-4xl md:text-5xl lg:text-6xl leading-[1.1]", isDefault ? defaultSectionHeading : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>
                 {isDefault ? (
                   "How private is this?"
                 ) : (
                   <>
-                    How private is <Highlight type="underline" color="text-brand-jade" scrollOffset={["start 90%", "start 40%"]}>this?</Highlight>
+                    How private is <Highlight type="underline" color="text-zoe-leaf" scrollOffset={["start 90%", "start 40%"]}>this?</Highlight>
                   </>
                 )}
               </h2>
@@ -367,27 +376,27 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
             </motion.div>
 
             <div ref={trustRef} className="relative flex flex-col gap-16">
-              <div className={clsx("absolute left-[1px] top-0 bottom-0 w-[2px] hidden md:block", isDefault ? "bg-zoe-outline/45" : "bg-brand-jade/10")} />
-              <motion.div style={{ height: trustLineHeight }} className={clsx("absolute left-[1px] top-0 hidden md:block", isDefault ? "w-[2px] bg-zoe-jade" : "w-[2px] bg-brand-jade")} />
+              <div className={clsx("absolute left-[1px] top-0 bottom-0 w-[2px] hidden md:block", isDefault ? "bg-zoe-outline/45" : "bg-zoe-leaf/10")} />
+              <motion.div style={{ height: trustLineHeight }} className={clsx("absolute left-[1px] top-0 hidden md:block", isDefault ? "w-[2px] bg-zoe-sap" : "w-[2px] bg-zoe-leaf")} />
 
               {/* Individuals Block */}
               <div>
                 <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-10% 0px" }} transition={{ duration: 0.8, ease: "easeOut" }} className="relative md:pl-12 mb-8">
-                  <h3 className={clsx("text-xl uppercase tracking-widest mb-6", isDefault ? "font-medium text-zoe-jade-deep" : "font-bold text-brand-jade")}>For Individuals:</h3>
+                  <h3 className={clsx("text-xl uppercase tracking-widest mb-6", isDefault ? "font-medium text-zoe-forest" : "font-bold text-zoe-leaf")}>For Individuals:</h3>
                 </motion.div>
 
                 <div className="flex flex-col gap-10">
                   <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-10% 0px" }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }} className="relative md:pl-12">
-                    <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-brand-jade/30")}>
-                      <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-jade" : "bg-brand-jade/80")} />
+                    <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
+                      <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
                     <h4 className={clsx("text-2xl tracking-tight mb-3 text-slate-900", isDefault ? "font-semibold" : "font-bold")}>Just between you and God.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>Your conversations are never shared with your church, your pastor, or anyone else. What you bring to Zoe stays with you.</p>
                   </motion.div>
 
                   <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-10% 0px" }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }} className="relative md:pl-12">
-                    <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-brand-jade/30")}>
-                      <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-jade" : "bg-brand-jade/80")} />
+                    <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
+                      <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
                     <h4 className={clsx("text-2xl tracking-tight mb-3 text-slate-900", isDefault ? "font-semibold" : "font-bold")}>Your data, your rules.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>You can take your full history with you if you ever leave, or ask us to erase it completely. No hard feelings, no questions asked.</p>
@@ -398,22 +407,22 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
               {/* Churches Block */}
               <div className="mt-8">
                 <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-10% 0px" }} transition={{ duration: 0.8, ease: "easeOut" }} className="relative md:pl-12 mb-6">
-                  <h3 className={clsx("text-xl uppercase tracking-widest mb-4", isDefault ? "font-medium text-zoe-jade-deep" : "font-bold text-brand-jade")}>For Churches:</h3>
+                  <h3 className={clsx("text-xl uppercase tracking-widest mb-4", isDefault ? "font-medium text-zoe-forest" : "font-bold text-zoe-leaf")}>For Churches:</h3>
                   <p className={clsx("text-lg leading-relaxed mb-8 font-medium", isDefault ? "text-zoe-muted" : "text-slate-600")}>If your church or organization chooses to use Zoe collectively, here's what that looks like:</p>
                 </motion.div>
 
                 <div className="flex flex-col gap-10">
                   <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-10% 0px" }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }} className="relative md:pl-12">
-                    <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-brand-jade/30")}>
-                      <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-jade" : "bg-brand-jade/80")} />
+                    <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
+                      <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
                     <h4 className={clsx("text-2xl tracking-tight mb-3 text-slate-900", isDefault ? "font-semibold" : "font-bold")}>We share trends, not secrets.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>Pastors can see how their congregation is doing as a whole — themes that are surfacing, areas where people are struggling — but never individual messages or personal confessions.</p>
                   </motion.div>
 
                   <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-10% 0px" }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }} className="relative md:pl-12">
-                    <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-brand-jade/30")}>
-                      <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-jade" : "bg-brand-jade/80")} />
+                    <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
+                      <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
                     <h4 className={clsx("text-2xl tracking-tight mb-3 text-slate-900", isDefault ? "font-semibold" : "font-bold")}>You hold the keys.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>Any data sharing at the congregation level is always opt-in. We are fully transparent about what gets shared and what doesn't.</p>
@@ -439,11 +448,13 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
           <div className="mx-auto max-w-4xl relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-16">
               <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6 shadow-sm",
-                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : isDefault ? "rounded-full border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border-brand-jade/20 bg-brand-jade/5 text-brand-jade")}>
+                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : isDefault ? "rounded-full border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                 FAQs
               </div>
-              <h2 className={clsx("text-4xl text-slate-900 md:text-5xl", isDefault ? defaultSectionHeading : "font-bold tracking-tighter-editorial-relaxed")}>You've got questions. <br className="md:hidden" />We get it.</h2>
-              <p className={clsx("mt-6 text-lg font-medium max-w-2xl mx-auto", isDefault ? "text-zoe-muted" : "text-slate-600")}>(We'd be worried if you didn't have any.)</p>
+              <h2 className={clsx("text-4xl md:text-5xl", isDefault ? defaultSectionHeading : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>You've got questions. <br className="md:hidden" />We get it.</h2>
+              <p className={clsx("mt-6 text-lg font-medium max-w-2xl mx-auto", isDefault ? "text-zoe-muted" : "text-slate-600")}>
+                We&apos;d be worried if you <span className="italic">didn&apos;t</span>!
+              </p>
             </motion.div>
             <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="flex flex-col gap-4">
               {faqs.map((faq, i) => (
@@ -455,7 +466,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="flex w-full items-center justify-between gap-6 p-6 text-left md:p-8"
                   >
-                    <span className={clsx("font-semibold text-xl pr-2", variant === "jesus-red" ? "text-slate-900" : isDefault ? "text-zoe-ink" : "text-brand-jade")}>
+                    <span className={clsx("font-semibold text-xl pr-2", variant === "jesus-red" ? "text-slate-900" : isDefault ? "text-zoe-ink" : "text-zoe-leaf")}>
                       {faq.question}
                     </span>
                     <motion.span
@@ -466,8 +477,8 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                         variant === "jesus-red"
                           ? "border-[#7a2332]/20 bg-[#7a2332]/10 text-[#7a2332]"
                           : isDefault
-                            ? "border-zoe-jade/20 bg-zoe-jade/10 text-zoe-jade"
-                            : "border-brand-jade/20 bg-brand-jade/10 text-brand-jade"
+                            ? "border-zoe-sap/20 bg-zoe-sap/10 text-zoe-sap"
+                            : "border-zoe-leaf/20 bg-zoe-leaf/10 text-zoe-leaf"
                       )}
                     >
                       <ChevronDown className="h-5 w-5" />
@@ -506,7 +517,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
           <button
             onClick={() => window.scrollTo({ top: waitlistRef.current?.offsetTop, behavior: 'smooth' })}
             className={clsx("px-6 py-4 text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-white shadow-xl shadow-slate-900/20 hover:-translate-y-0.5",
-              variant === "jesus-red" ? "rounded-md bg-[#7a2332] hover:bg-[#5c1624]" : isDefault ? "rounded-full bg-zoe-jade shadow-[0_14px_30px_rgba(0,194,146,0.16)] hover:bg-[#35d5a7]" : "rounded-full bg-slate-900 hover:bg-slate-800")}
+              variant === "jesus-red" ? "rounded-md bg-[#7a2332] hover:bg-[#5c1624]" : isDefault ? "rounded-full bg-zoe-sap shadow-sm hover:brightness-105 active:scale-95" : "rounded-full bg-slate-900 hover:bg-slate-800")}
           >
             Join The Walk
           </button>

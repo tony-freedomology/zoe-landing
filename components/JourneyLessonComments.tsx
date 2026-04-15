@@ -96,14 +96,14 @@ export default function JourneyLessonComments({
         <div className="relative rounded-[2rem] border border-[#e5e7eb] bg-white px-5 pb-6 pt-5 shadow-[0_18px_45px_rgba(15,31,26,0.08)]">
           <div className="absolute left-8 top-0 h-8 w-20 -translate-y-1/2 rotate-[-4deg] rounded-sm bg-[rgba(255,255,255,0.72)] shadow-[0_6px_18px_rgba(15,31,26,0.08)]" />
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[rgba(0,194,146,0.12)] text-[#00c292]">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[rgba(29,194,134,0.12)] text-[#1dc286]">
               <MessageSquareMore className="h-5 w-5" />
             </div>
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6b7280]">
                 Community Notes
               </p>
-              <h2 className="mt-1 text-[1.65rem] font-medium tracking-[-0.05em] text-[#1f2937] [font-family:var(--font-serif)]">
+              <h2 className="mt-1 text-[1.65rem] font-medium tracking-[-0.05em] text-[#1f2937] font-sans">
                 Add your field note
               </h2>
             </div>
@@ -114,7 +114,7 @@ export default function JourneyLessonComments({
               value={draft}
               onChange={(event) => setDraft(event.target.value)}
               placeholder="What is surfacing for you today?"
-              className="min-h-[136px] w-full rounded-[1.5rem] border border-[#e5e7eb] bg-[#fafcfb] px-4 py-4 text-[15px] leading-7 text-[#1f2937] outline-none transition focus:border-[rgba(0,194,146,0.4)] focus:ring-4 focus:ring-[rgba(0,194,146,0.12)]"
+              className="min-h-[136px] w-full rounded-[1.5rem] border border-[#e5e7eb] bg-[#fafcfb] px-4 py-4 text-[15px] leading-7 text-[#1f2937] outline-none transition focus:border-[rgba(29,194,134,0.4)] focus:ring-4 focus:ring-[rgba(29,194,134,0.12)]"
             />
             {error ? (
               <p className="rounded-2xl border border-[rgba(217,119,6,0.18)] bg-[rgba(217,119,6,0.08)] px-4 py-3 text-sm text-[#946517]">
@@ -123,7 +123,7 @@ export default function JourneyLessonComments({
             ) : null}
             <button
               type="submit"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#00c292] px-5 py-3.5 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(0,194,146,0.18)] transition hover:bg-[#00ae84]"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#1dc286] px-5 py-3.5 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(29,194,134,0.18)] transition hover:bg-[#1ab36f]"
             >
               Post Reflection
               <SendHorizonal className="h-4 w-4" />
@@ -148,7 +148,7 @@ export default function JourneyLessonComments({
               >
                 <div className="absolute right-6 top-0 h-7 w-16 -translate-y-1/2 rotate-[6deg] rounded-sm bg-[rgba(255,255,255,0.72)] shadow-[0_4px_14px_rgba(15,31,26,0.08)]" />
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-[1.35rem] bg-[rgba(0,194,146,0.12)] text-sm font-semibold text-[#00c292]">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-[1.35rem] bg-[rgba(29,194,134,0.12)] text-sm font-semibold text-[#1dc286]">
                     {formatInitials(comment.name)}
                   </div>
                   <div className="min-w-0 flex-1">
@@ -180,14 +180,14 @@ export default function JourneyLessonComments({
     <section className="space-y-4">
       <div className="rounded-[2rem] border border-white/70 bg-white px-5 py-5 shadow-[0_18px_50px_rgba(28,36,51,0.08)]">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-[1.2rem] bg-[rgba(0,194,146,0.1)] text-[#00c292]">
+          <div className="flex h-11 w-11 items-center justify-center rounded-[1.2rem] bg-[rgba(29,194,134,0.1)] text-[#1dc286]">
             <MessageSquareMore className="h-5 w-5" />
           </div>
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1c2433]/42">
               Reflection and Comments
             </p>
-            <h2 className="mt-1 text-[1.7rem] font-semibold tracking-[-0.05em] text-[#1c2433] [font-family:var(--font-serif)]">
+            <h2 className="mt-1 text-[1.7rem] font-semibold tracking-[-0.05em] text-[#1c2433] font-sans">
               What is this stirring in you?
             </h2>
           </div>
@@ -198,7 +198,7 @@ export default function JourneyLessonComments({
             value={draft}
             onChange={(event) => setDraft(event.target.value)}
             placeholder="Share what stood out, what felt difficult, or what you want to carry into today."
-            className="min-h-[136px] w-full rounded-[1.5rem] border border-[#1c2433]/10 bg-[#fbfaf7] px-4 py-4 text-[15px] leading-7 text-[#1c2433] outline-none transition focus:border-[#00c292] focus:bg-white focus:ring-4 focus:ring-[rgba(0,194,146,0.1)]"
+            className="min-h-[136px] w-full rounded-[1.5rem] border border-[#1c2433]/10 bg-[#fbfaf7] px-4 py-4 text-[15px] leading-7 text-[#1c2433] outline-none transition focus:border-[#1dc286] focus:bg-white focus:ring-4 focus:ring-[rgba(29,194,134,0.1)]"
           />
           {error ? (
             <p className="rounded-[1.3rem] bg-[#f7ebed] px-4 py-3 text-sm text-[#8f3441]">
@@ -207,7 +207,7 @@ export default function JourneyLessonComments({
           ) : null}
           <button
             type="submit"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#00c292] px-5 py-3.5 text-sm font-semibold text-white shadow-[0_16px_34px_rgba(0,194,146,0.24)] transition hover:bg-[#00ae84]"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#1dc286] px-5 py-3.5 text-sm font-semibold text-white shadow-[0_16px_34px_rgba(29,194,134,0.24)] transition hover:bg-[#1ab36f]"
           >
             Post Reflection
             <SendHorizonal className="h-4 w-4" />
@@ -243,7 +243,7 @@ export default function JourneyLessonComments({
                       {comment.postedAt}
                     </span>
                   </div>
-                  <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-[#00c292]">
+                  <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-[#1dc286]">
                     {comment.location}
                   </p>
                   <p className="mt-3 text-[15px] leading-7 text-[#1c2433]/76">

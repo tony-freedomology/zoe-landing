@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-serif: "Newsreader", serif;
   --zoe-oat: #fcf9f4;
   --zoe-surface: #f6f3ee;
@@ -11,8 +11,9 @@
   --zoe-ink: #1c1c19;
   --zoe-muted: #5f5e5b;
   --zoe-outline: #bbcac1;
-  --zoe-jade: #00c292;
-  --zoe-jade-deep: #004935;
+  --zoe-sap: #1dc286;
+  --zoe-leaf: #1dc286;
+  --zoe-forest: #166534;
   color-scheme: light;
 }
 
@@ -24,8 +25,8 @@ body {
 }
 
 ::selection {
-  background: rgba(0, 194, 146, 0.18);
-  color: var(--zoe-ink);
+  background: var(--zoe-sap);
+  color: var(--zoe-card);
 }
 
 /* prevent subtle horizontal scroll on mobile without breaking sticky */
@@ -56,10 +57,8 @@ body {
 }
 
 .glass {
-  background: rgba(252, 249, 244, 0.82);
-  border: 1px solid rgba(187, 202, 193, 0.45);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: rgba(252, 249, 244, 0.95);
+  border: 1px solid rgba(187, 202, 193, 0.2);
 }
 
 .gradient-border {
@@ -73,7 +72,7 @@ body {
   padding: 1px;
   border-radius: inherit;
   /* Use the parent's border-radius */
-  background: linear-gradient(120deg, #00D2FF, #00F0B5, #00D2FF);
+  background: var(--zoe-sap);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;

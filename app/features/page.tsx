@@ -34,7 +34,7 @@ export default function FeaturesPage() {
         {/* Text Overlay */}
         <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-12 lg:px-24">
           <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl lg:text-[80px] tracking-tighter-editorial text-white leading-[1.05] font-bold mb-2 lg:mb-4">
+            <h1 className="text-5xl md:text-7xl lg:text-[80px] tracking-tight font-sans text-white leading-[1.05] font-bold mb-2 lg:mb-4">
               Discipleship that fits<br />inside real life
             </h1>
             <p className="text-xl md:text-3xl lg:text-4xl text-white font-medium tracking-tight">
@@ -52,7 +52,7 @@ export default function FeaturesPage() {
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zoe-outline/45 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#6c7a73] shadow-sm">
                 Daily Rhythms
               </div>
-              <h2 className="mb-6 text-4xl font-bold leading-[1.08] tracking-tighter-editorial-relaxed text-zoe-ink md:text-5xl">
+              <h2 className="mb-6 text-4xl font-bold leading-[1.08] tracking-tight font-sans text-zoe-ink md:text-5xl">
                 Dawn. Noon. Dusk.
               </h2>
               <p className="mb-6 text-lg font-medium leading-relaxed text-zoe-muted">
@@ -69,8 +69,8 @@ export default function FeaturesPage() {
                   </div>
                 </li>
                 <li className="flex gap-4 items-start">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-zoe-jade/20 bg-zoe-jade/10">
-                    <span className="text-sm font-bold text-zoe-jade-deep">☀️</span>
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-zoe-sap/20 bg-zoe-sap/10">
+                    <span className="text-sm font-bold text-zoe-forest">☀️</span>
                   </div>
                   <div>
                     <p className="font-semibold text-zoe-ink">Noon</p>
@@ -79,7 +79,7 @@ export default function FeaturesPage() {
                 </li>
                 <li className="flex gap-4 items-start">
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-zoe-outline/45 bg-white">
-                    <span className="text-sm font-bold text-zoe-jade-deep">🌙</span>
+                    <span className="text-sm font-bold text-zoe-forest">🌙</span>
                   </div>
                   <div>
                     <p className="font-semibold text-zoe-ink">Dusk</p>
@@ -95,7 +95,7 @@ export default function FeaturesPage() {
                   <p className="text-sm font-medium text-zoe-ink">Good morning. What&apos;s one thing you want to bring before God today?</p>
                   <p className="mt-1 text-xs text-zoe-muted/70">Zoe · 7:02 AM</p>
                 </div>
-                <div className="max-w-xs self-end rounded-2xl rounded-tr-none border border-zoe-jade/20 bg-zoe-jade/10 px-4 py-3">
+                <div className="max-w-xs self-end rounded-2xl rounded-tr-none border border-zoe-sap/20 bg-zoe-sap/10 px-4 py-3">
                   <p className="text-sm font-medium text-zoe-ink">I want to actually listen today instead of just reacting.</p>
                   <p className="mt-1 text-xs text-zoe-muted/70">You · 7:14 AM</p>
                 </div>
@@ -114,13 +114,13 @@ export default function FeaturesPage() {
         <div className="mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 rounded-[2rem] border border-zoe-outline/35 bg-zoe-surface p-8 shadow-zoe-card md:order-1">
-              <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-zoe-jade-deep">Two questions. Every time.</p>
+              <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-zoe-forest">Two questions. Every time.</p>
               <div className="flex flex-col gap-6">
-                <div className="border-l-2 border-zoe-jade/45 pl-6">
+                <div className="border-l-2 border-zoe-sap/45 pl-6">
                   <p className="text-2xl font-bold leading-snug tracking-tight text-zoe-ink">What is God saying to you?</p>
                   <p className="mt-2 text-sm leading-relaxed text-zoe-muted">Forces you to pay attention. Articulating it makes it real.</p>
                 </div>
-                <div className="border-l-2 border-zoe-jade-deep/30 pl-6">
+                <div className="border-l-2 border-zoe-forest/30 pl-6">
                   <p className="text-2xl font-bold leading-snug tracking-tight text-zoe-ink">What are you going to do about it?</p>
                   <p className="mt-2 text-sm leading-relaxed text-zoe-muted">Closes the gap between knowing and doing.</p>
                 </div>
@@ -131,7 +131,7 @@ export default function FeaturesPage() {
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zoe-outline/45 bg-zoe-oat px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#6c7a73] shadow-sm">
                 Memory &amp; Follow-Through
               </div>
-              <h2 className="mb-6 text-4xl font-bold leading-[1.08] tracking-tighter-editorial-relaxed text-zoe-ink md:text-5xl">
+              <h2 className="mb-6 text-4xl font-bold leading-[1.08] tracking-tight font-sans text-zoe-ink md:text-5xl">
                 It remembers what you said.
               </h2>
               <p className="mb-4 text-lg font-medium leading-relaxed text-zoe-muted">
@@ -152,7 +152,7 @@ export default function FeaturesPage() {
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zoe-outline/45 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#6c7a73] shadow-sm">
               For Churches
             </div>
-            <h2 className="mx-auto max-w-2xl text-4xl font-bold leading-[1.08] tracking-tighter-editorial-relaxed text-zoe-ink md:text-5xl">
+            <h2 className="mx-auto max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight font-sans text-zoe-ink md:text-5xl">
               Extends the pulpit throughout the week.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-relaxed text-zoe-muted">
@@ -163,12 +163,12 @@ export default function FeaturesPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                icon: <BookOpen className="h-6 w-6 text-zoe-jade" />,
+                icon: <BookOpen className="h-6 w-6 text-zoe-sap" />,
                 title: "Sermon Alignment",
                 body: "Align Zoe's weekly prompts with your sermon series, so mid-week check-ins reinforce what your congregation heard on Sunday.",
               },
               {
-                icon: <Users className="h-6 w-6 text-zoe-jade-deep" />,
+                icon: <Users className="h-6 w-6 text-zoe-forest" />,
                 title: "Aggregate Insights",
                 body: "Pastors see congregation-level trends — not personal messages. Know how your church is doing spiritually, not just who showed up.",
               },
@@ -195,7 +195,7 @@ export default function FeaturesPage() {
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zoe-outline/45 bg-zoe-oat px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#6c7a73] shadow-sm">
               Trust &amp; Privacy
             </div>
-            <h2 className="text-4xl font-bold leading-[1.08] tracking-tighter-editorial-relaxed text-zoe-ink md:text-5xl">
+            <h2 className="text-4xl font-bold leading-[1.08] tracking-tight font-sans text-zoe-ink md:text-5xl">
               Private by default.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-relaxed text-zoe-muted">
@@ -206,12 +206,12 @@ export default function FeaturesPage() {
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                icon: <ShieldCheck className="h-6 w-6 text-zoe-jade" />,
+                icon: <ShieldCheck className="h-6 w-6 text-zoe-sap" />,
                 title: "Just between you and God",
                 body: "Your one-to-one conversations are not visible to church leaders by default. Ever.",
               },
               {
-                icon: <Users className="h-6 w-6 text-zoe-jade-deep" />,
+                icon: <Users className="h-6 w-6 text-zoe-forest" />,
                 title: "Aggregate trends only",
                 body: "Church dashboards show trend-level health — not personal confessions or journal content.",
               },
@@ -241,8 +241,8 @@ export default function FeaturesPage() {
       {/* CTA */}
       <section className="border-t border-zoe-outline/35 bg-zoe-surface px-6 py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <div className="mx-auto mb-8 h-1.5 w-16 rounded-full bg-zoe-jade/80" />
-          <h2 className="mb-6 text-4xl font-bold leading-[1.08] tracking-tighter-editorial-relaxed text-zoe-ink md:text-5xl">
+          <div className="mx-auto mb-8 h-1.5 w-16 rounded-full bg-zoe-sap/80" />
+          <h2 className="mb-6 text-4xl font-bold leading-[1.08] tracking-tight font-sans text-zoe-ink md:text-5xl">
             See what it feels like.
           </h2>
           <p className="mb-10 text-lg font-medium leading-relaxed text-zoe-muted">
@@ -250,7 +250,7 @@ export default function FeaturesPage() {
           </p>
           <Link
             href="/#waitlist"
-            className="inline-flex items-center gap-2 rounded-full bg-zoe-jade px-8 py-4 text-base font-bold text-white shadow-[0_14px_30px_rgba(0,194,146,0.16)] transition-all duration-200 hover:bg-[#35d5a7]"
+            className="inline-flex items-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold text-white shadow-sm transition-all duration-200 hover:brightness-105 active:scale-95"
           >
             Join the Waitlist <ArrowRight className="h-4 w-4" />
           </Link>

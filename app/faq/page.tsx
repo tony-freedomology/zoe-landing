@@ -72,24 +72,24 @@ export default function FAQPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen text-slate-900">
+    <div className="min-h-screen text-zoe-ink">
       <section className="bg-gradient-to-b from-[#1a1308] to-[#141008] py-32 px-6 pt-40">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-cyan mb-8">
+          <div className="inline-flex items-center gap-2 rounded-full border border-zoe-sap/30 bg-zoe-sap/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-zoe-sap mb-8">
             FAQ
           </div>
-          <h1 className="text-5xl md:text-6xl tracking-tighter-editorial text-white leading-[1.1] font-bold">
+          <h1 className="text-5xl md:text-6xl tracking-tight font-sans text-white leading-[1.1] font-bold">
             You&apos;ve got questions.
             <br />
-            <span className="text-slate-400">We get it.</span>
+            <span className="text-zoe-muted">We get it.</span>
           </h1>
-          <p className="mt-6 text-xl text-slate-400 font-medium leading-relaxed italic">
+          <p className="mt-6 text-xl text-zoe-muted font-medium leading-relaxed italic">
             (We&apos;d be worried if you didn&apos;t have any.)
           </p>
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-[#F8FBFA]">
+      <section className="py-24 px-6 bg-zoe-surface">
         <div className="mx-auto max-w-3xl">
           <motion.div
             variants={stagger}
@@ -108,19 +108,19 @@ export default function FAQPage() {
                   className="flex w-full items-center justify-between p-8 text-left group"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
-                  <span className="font-semibold text-slate-900 text-lg pr-8 group-hover:text-brand-cyan transition-colors">
+                  <span className="font-semibold text-zoe-ink text-lg pr-8 group-hover:text-zoe-sap transition-colors">
                     {faq.question}
                   </span>
                   <div
                     className={clsx(
-                      "h-10 w-10 flex items-center justify-center rounded-full bg-slate-50 transition-all duration-300 flex-shrink-0 group-hover:bg-brand-cyan/5",
-                      { "rotate-180 bg-brand-cyan": openFaq === i }
+                      "h-10 w-10 flex items-center justify-center rounded-full bg-zoe-surface transition-all duration-300 flex-shrink-0 group-hover:bg-zoe-sap/5",
+                      { "rotate-180 bg-zoe-sap": openFaq === i }
                     )}
                   >
                     <ChevronDown
-                      className={clsx("h-5 w-5 text-slate-400 transition-colors", {
+                      className={clsx("h-5 w-5 text-zoe-muted transition-colors", {
                         "text-white": openFaq === i,
-                        "group-hover:text-brand-cyan": openFaq !== i,
+                        "group-hover:text-zoe-sap": openFaq !== i,
                       })}
                     />
                   </div>
@@ -135,7 +135,7 @@ export default function FAQPage() {
                       className="overflow-hidden"
                     >
                       <div className="px-8 pb-8 pt-0">
-                        <p className="text-slate-600 leading-relaxed font-medium">{faq.answer}</p>
+                        <p className="text-zoe-muted leading-relaxed font-medium">{faq.answer}</p>
                       </div>
                     </motion.div>
                   )}
@@ -145,10 +145,10 @@ export default function FAQPage() {
           </motion.div>
 
           <div className="mt-16 text-center">
-            <p className="text-slate-600 font-medium mb-4">Still have questions?</p>
+            <p className="text-zoe-muted font-medium mb-4">Still have questions?</p>
             <Link
               href="mailto:hello@zoe.live"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 hover:text-slate-900 transition-all duration-200"
+              className="inline-flex items-center gap-2 rounded-full border border-zoe-outline/40 bg-white px-6 py-3 text-sm font-semibold text-zoe-muted shadow-sm hover:bg-zoe-surface hover:text-zoe-ink transition-all duration-200"
             >
               Reach out to us
             </Link>
@@ -156,11 +156,11 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-slate-900">
+      <section className="py-24 px-6 bg-zoe-ink">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl md:text-5xl tracking-tighter-editorial text-white font-bold leading-[1.1] mb-6">Ready to try it?</h2>
-          <p className="text-lg text-slate-300 font-medium leading-relaxed mb-10">Join the waitlist. No app, no login — just your phone and a daily text.</p>
-          <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
+          <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-6">Ready to try it?</h2>
+          <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">Join the waitlist. No app, no login — just your phone and a daily text.</p>
+          <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
             Join the Waitlist <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

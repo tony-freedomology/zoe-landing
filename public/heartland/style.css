@@ -48,10 +48,10 @@
   --misty-green-900: #1d2c24;
   --misty-green-950: #141f1a;
 
-  --brand-jade:    #00C292;
-  --brand-cyan:    #008BA3;
-  --vibrant-jade:  #00F0B5;
-  --vibrant-cyan:  #00D2FF;
+  --zoe-leaf:    #1DC286;
+  --zoe-sap:    #1DC286;
+  --vibrant-jade:  #1DC286;
+  --zoe-sap:  #1DC286;
   --brand-amber:   #F59E0B;
 
   /* ===== RADIUS ===== */
@@ -113,8 +113,8 @@
   --color-text-faint:     rgba(232, 230, 225, 0.35);
   --color-text-inverse:   var(--misty-green-950);
 
-  --color-accent-1:       var(--brand-jade);
-  --color-accent-2:       var(--brand-cyan);
+  --color-accent-1:       var(--zoe-leaf);
+  --color-accent-2:       var(--zoe-sap);
   --color-accent-warm:    var(--brand-amber);
 
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
@@ -262,7 +262,7 @@
 
 /* Jade gradient text for "The Ground" */
 .accent-text {
-  background: linear-gradient(135deg, var(--vibrant-jade), var(--brand-jade), var(--brand-cyan));
+  background: linear-gradient(135deg, var(--vibrant-jade), var(--zoe-leaf), var(--zoe-sap));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -402,12 +402,12 @@
 
 .spectrum-lane__header--human {
   background: rgba(0, 194, 146, 0.08);
-  border-bottom: 2px solid var(--brand-jade);
+  border-bottom: 2px solid var(--zoe-leaf);
 }
 
 .spectrum-lane__header--hybrid {
   background: rgba(0, 139, 163, 0.08);
-  border-bottom: 2px solid var(--brand-cyan);
+  border-bottom: 2px solid var(--zoe-sap);
 }
 
 .spectrum-lane__header--augment {
@@ -427,12 +427,12 @@
 
 .spectrum-lane__header--human .spectrum-lane__icon {
   background: rgba(0, 194, 146, 0.15);
-  color: var(--brand-jade);
+  color: var(--zoe-leaf);
 }
 
 .spectrum-lane__header--hybrid .spectrum-lane__icon {
   background: rgba(0, 139, 163, 0.15);
-  color: var(--brand-cyan);
+  color: var(--zoe-sap);
 }
 
 .spectrum-lane__header--augment .spectrum-lane__icon {
@@ -710,7 +710,7 @@
 .section-divider {
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, var(--brand-jade), var(--brand-cyan));
+  background: linear-gradient(90deg, var(--zoe-leaf), var(--zoe-sap));
   margin: 0 auto var(--space-10);
   border-radius: 1px;
 }
@@ -731,7 +731,7 @@
 }
 
 .svg-underline path {
-  stroke: var(--brand-jade);
+  stroke: var(--zoe-leaf);
   stroke-width: 2;
   fill: none;
   stroke-dasharray: 200;
@@ -800,7 +800,7 @@
 .hero-ambient__orb--jade {
   width: 400px;
   height: 400px;
-  background: var(--brand-jade);
+  background: var(--zoe-leaf);
   top: 30%;
   left: 20%;
   opacity: 0.06;
@@ -810,7 +810,7 @@
 .hero-ambient__orb--cyan {
   width: 350px;
   height: 350px;
-  background: var(--brand-cyan);
+  background: var(--zoe-sap);
   top: 40%;
   right: 15%;
   opacity: 0.04;
