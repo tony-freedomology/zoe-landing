@@ -26,7 +26,7 @@ const config: Config = {
           outline: "#bbcac1",
           sap: "#1dc286",
           leaf: "#1dc286",
-          forest: "#166534",
+          forest: "#007354",
         },
         gold: {
           "50": "#fefbe9",

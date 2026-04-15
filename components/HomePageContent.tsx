@@ -189,8 +189,8 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
               <h2 className={clsx("text-4xl md:text-5xl leading-[1.08]", isDefault ? defaultSectionHeading : "text-slate-900 font-bold tracking-tighter-editorial")}>
                 {isDefault ? (
                   <>
-                    Daily journeys tailored to your actual{" "}
-                    <span className="font-serif font-normal italic text-zoe-leaf">life</span>
+                    Daily journeys tailored to your{" "}
+                    <span className="font-serif font-normal italic text-zoe-leaf">actual life</span>
                   </>
                 ) : (
                   "Scripture for the places people actually live."

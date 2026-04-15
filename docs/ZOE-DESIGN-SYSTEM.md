@@ -60,7 +60,7 @@ These are the non-negotiables.
 | `--zoe-outline` | `#BBCAC1` | Soft outlines/dividers |
 | `--zoe-sap` | `#1DC286` | Jade: canonical primary CTA/accent |
 | `--zoe-leaf` | `#1DC286` | Alias to Jade for supporting active/link accents |
-| `--zoe-forest` | `#166534` | Deeper trust-oriented accent |
+| `--zoe-forest` | `#007354` | Deeper trust-oriented accent |
 
 ### Font roles
 
