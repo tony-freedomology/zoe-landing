@@ -118,7 +118,7 @@ It should not feel:
 | Outline | `#BBCAC1` | Quiet structure and dividers |
 | Jade | `#1DC286` | Canonical Zoe green, main CTA and primary accent |
 | Leaf Green | `#1DC286` | Alias to Jade for supporting active accents |
-| Forest | `#166534` | Sparse trust-oriented deeper accent |
+| Forest | `#007354` | Sparse trust-oriented deeper accent |
 
 ### Color behavior
 
