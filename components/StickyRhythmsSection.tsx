@@ -244,9 +244,7 @@ export default function StickyRhythmsSection() {
                         <span className="text-amber-700 font-semibold tracking-widest uppercase text-sm mb-4">Dawn</span>
                         <h2 className="text-5xl md:text-6xl tracking-tighter-editorial-relaxed text-slate-900 mb-6 font-bold leading-[1.1]">Start with<br />intention.</h2>
                         <div className="space-y-4 text-[17px] md:text-xl text-slate-800 leading-relaxed font-medium max-w-2xl">
-                            <p>Before the emails and the noise, <strong className="text-slate-900 font-semibold">Zoe will check in to remind you what matters most.</strong></p>
-                            <p>A scripture verse or suggested reading. <strong className="text-slate-900 font-semibold">What are you carrying? What do you think God's inviting you to today?</strong></p>
-                            <p>Set the intention — then walk it out all day long.</p>
+                            <p>Before the emails and the noise, Zoe will check in to remind you what matters most - a passage of scripture and personalized reflection questions to start your day on the right foot.</p>
                         </div>
                     </motion.div>
 
