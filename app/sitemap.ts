@@ -27,7 +27,6 @@ const routes: SitemapEntry[] = [
   { path: "/guides/christian-ai-tools", changeFrequency: "monthly", priority: 0.7 },
   { path: "/guides/sms-discipleship", changeFrequency: "monthly", priority: 0.7 },
   { path: "/journeys", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/journeys/book-of-james", changeFrequency: "monthly", priority: 0.7 },
   { path: "/journeys/james-deep", changeFrequency: "monthly", priority: 0.7 },
   { path: "/journeys/new-believer", changeFrequency: "monthly", priority: 0.7 },
   { path: "/journeys/rooted", changeFrequency: "monthly", priority: 0.7 },

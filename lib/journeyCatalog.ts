@@ -1,42 +1,12 @@
-import type { StaticImageData } from "next/image";
-import jamesDeepImg from "../public/images/journeys/james-deep.jpg";
-import stillPrayerImg from "../public/images/journeys/still-prayer.jpg";
-import examenReflectionImg from "../public/images/journeys/examen-reflection.jpg";
-import rootedPsalmsImg from "../public/images/journeys/rooted-psalms.jpg";
-import wayOfJesusImg from "../public/images/journeys/way-of-jesus.jpg";
-import leadershipImg from "../public/images/journeys/leadership.jpg";
-import loveImg from "../public/images/journeys/love.jpg";
-import moneyImg from "../public/images/journeys/money.jpg";
-import healthImg from "../public/images/journeys/health.jpg";
-import fearAnxietyImg from "../public/images/journeys/fear-anxiety.jpg";
-import marriageImg from "../public/images/journeys/marriage.jpg";
-import parentingImg from "../public/images/journeys/parenting.jpg";
-import purposeImg from "../public/images/journeys/purpose.jpg";
-import identityImg from "../public/images/journeys/identity.jpg";
-import forgivenessImg from "../public/images/journeys/forgiveness.jpg";
-import prayerImg from "../public/images/journeys/prayer.jpg";
-import faithDoubtImg from "../public/images/journeys/faith-doubt.jpg";
-import workAmbitionImg from "../public/images/journeys/work-ambition.jpg";
-import griefImg from "../public/images/journeys/grief.jpg";
-import friendshipImg from "../public/images/journeys/friendship.jpg";
-import angerImg from "../public/images/journeys/anger.jpg";
-import wisdomImg from "../public/images/journeys/wisdom.jpg";
-import addictionImg from "../public/images/journeys/addiction.jpg";
-import gratitudeImg from "../public/images/journeys/gratitude.jpg";
-import patienceImg from "../public/images/journeys/patience.jpg";
-import courageImg from "../public/images/journeys/courage.jpg";
-import generosityImg from "../public/images/journeys/generosity.jpg";
-import restImg from "../public/images/journeys/rest.jpg";
-import sufferingImg from "../public/images/journeys/suffering.jpg";
-import legacyImg from "../public/images/journeys/legacy.jpg";
 import { journeyContent } from "./journeyContent";
+import { journeyImagePaths } from "./journeyImages";
 
 export type JourneySummary = {
   slug: string;
   title: string;
   duration: string;
   difficulty: "introductory" | "intermediate" | "deep";
-  image: StaticImageData;
+  image: string;
   description: string;
 };
 
@@ -46,7 +16,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: "James: 10 Days Deep",
     duration: "10 Days",
     difficulty: "intermediate",
-    image: jamesDeepImg,
+    image: journeyImagePaths["james-deep"],
     description:
       "James writes to a scattered church, people who claimed faith but lived differently from Monday to Saturday. His letter is less a theology lecture and more a direct conversation: you say you believe. Does your life show it?",
   },
@@ -55,7 +25,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: "Still: 21 Days of Contemplative Prayer",
     duration: "21 Days",
     difficulty: "introductory",
-    image: stillPrayerImg,
+    image: journeyImagePaths.still,
     description:
       "Most of us talk at God. This journey teaches you to sit with God. Twenty-one days of building a contemplative prayer practice, starting with just two minutes of silence and gradually deepening into a rhythm that changes how you experience God's presence.",
   },
@@ -64,7 +34,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: "The Examen: 14 Days of Evening Reflection",
     duration: "14 Days",
     difficulty: "introductory",
-    image: examenReflectionImg,
+    image: journeyImagePaths["the-examen"],
     description:
       "The Examen is a five-hundred-year-old prayer practice from Ignatius of Loyola. It is simple: at the end of each day, look back and notice where God showed up, and where you missed it. Fourteen days to build the habit of paying attention.",
   },
@@ -73,7 +43,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: "Rooted: 30 Days in the Psalms",
     duration: "30 Days",
     difficulty: "introductory",
-    image: rootedPsalmsImg,
+    image: journeyImagePaths.rooted,
     description:
       "The Psalms are the prayer book of the Bible, raw, honest, and deeply human. This thirty-day journey pairs one psalm per day with a contemplative reading practice. Some days you will sit in praise. Others, you will wrestle with doubt. That is the point.",
   },
@@ -82,16 +52,25 @@ export const journeyCatalog: JourneySummary[] = [
     title: "The Way of Jesus: 40 Days Through the Gospels",
     duration: "40 Days",
     difficulty: "deep",
-    image: wayOfJesusImg,
+    image: journeyImagePaths["way-of-jesus"],
     description:
       "Forty days walking through the life and teachings of Jesus, from his first sermon to his last words. Each day pairs a Gospel passage with an application challenge. Because understanding what Jesus said without doing what he said is the whole problem.",
+  },
+  {
+    slug: "new-believer",
+    title: "First Steps: A New Believer Journey",
+    duration: "21 Days",
+    difficulty: "introductory",
+    image: journeyImagePaths["new-believer"],
+    description:
+      "The first weeks after saying yes to Jesus are some of the most important and most vulnerable. This twenty-one day journey gives you a steady path for those first steps.",
   },
   {
     slug: journeyContent.leadership.slug,
     title: journeyContent.leadership.title,
     duration: journeyContent.leadership.duration,
     difficulty: journeyContent.leadership.difficulty,
-    image: leadershipImg,
+    image: journeyImagePaths.leadership,
     description: journeyContent.leadership.description,
   },
   {
@@ -99,7 +78,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.love.title,
     duration: journeyContent.love.duration,
     difficulty: journeyContent.love.difficulty,
-    image: loveImg,
+    image: journeyImagePaths.love,
     description: journeyContent.love.description,
   },
   {
@@ -107,7 +86,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.money.title,
     duration: journeyContent.money.duration,
     difficulty: journeyContent.money.difficulty,
-    image: moneyImg,
+    image: journeyImagePaths.money,
     description: journeyContent.money.description,
   },
   {
@@ -115,7 +94,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.health.title,
     duration: journeyContent.health.duration,
     difficulty: journeyContent.health.difficulty,
-    image: healthImg,
+    image: journeyImagePaths.health,
     description: journeyContent.health.description,
   },
   {
@@ -123,7 +102,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent["fear-anxiety"].title,
     duration: journeyContent["fear-anxiety"].duration,
     difficulty: journeyContent["fear-anxiety"].difficulty,
-    image: fearAnxietyImg,
+    image: journeyImagePaths["fear-anxiety"],
     description: journeyContent["fear-anxiety"].description,
   },
   {
@@ -131,7 +110,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.marriage.title,
     duration: journeyContent.marriage.duration,
     difficulty: journeyContent.marriage.difficulty,
-    image: marriageImg,
+    image: journeyImagePaths.marriage,
     description: journeyContent.marriage.description,
   },
   {
@@ -139,7 +118,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.parenting.title,
     duration: journeyContent.parenting.duration,
     difficulty: journeyContent.parenting.difficulty,
-    image: parentingImg,
+    image: journeyImagePaths.parenting,
     description: journeyContent.parenting.description,
   },
   {
@@ -147,7 +126,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.purpose.title,
     duration: journeyContent.purpose.duration,
     difficulty: journeyContent.purpose.difficulty,
-    image: purposeImg,
+    image: journeyImagePaths.purpose,
     description: journeyContent.purpose.description,
   },
   {
@@ -155,7 +134,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.identity.title,
     duration: journeyContent.identity.duration,
     difficulty: journeyContent.identity.difficulty,
-    image: identityImg,
+    image: journeyImagePaths.identity,
     description: journeyContent.identity.description,
   },
   {
@@ -163,7 +142,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.forgiveness.title,
     duration: journeyContent.forgiveness.duration,
     difficulty: journeyContent.forgiveness.difficulty,
-    image: forgivenessImg,
+    image: journeyImagePaths.forgiveness,
     description: journeyContent.forgiveness.description,
   },
   {
@@ -171,7 +150,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.prayer.title,
     duration: journeyContent.prayer.duration,
     difficulty: journeyContent.prayer.difficulty,
-    image: prayerImg,
+    image: journeyImagePaths.prayer,
     description: journeyContent.prayer.description,
   },
   {
@@ -179,7 +158,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent["faith-doubt"].title,
     duration: journeyContent["faith-doubt"].duration,
     difficulty: journeyContent["faith-doubt"].difficulty,
-    image: faithDoubtImg,
+    image: journeyImagePaths["faith-doubt"],
     description: journeyContent["faith-doubt"].description,
   },
   {
@@ -187,7 +166,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent["work-ambition"].title,
     duration: journeyContent["work-ambition"].duration,
     difficulty: journeyContent["work-ambition"].difficulty,
-    image: workAmbitionImg,
+    image: journeyImagePaths["work-ambition"],
     description: journeyContent["work-ambition"].description,
   },
   {
@@ -195,7 +174,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.grief.title,
     duration: journeyContent.grief.duration,
     difficulty: journeyContent.grief.difficulty,
-    image: griefImg,
+    image: journeyImagePaths.grief,
     description: journeyContent.grief.description,
   },
   {
@@ -203,7 +182,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.friendship.title,
     duration: journeyContent.friendship.duration,
     difficulty: journeyContent.friendship.difficulty,
-    image: friendshipImg,
+    image: journeyImagePaths.friendship,
     description: journeyContent.friendship.description,
   },
   {
@@ -211,7 +190,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.anger.title,
     duration: journeyContent.anger.duration,
     difficulty: journeyContent.anger.difficulty,
-    image: angerImg,
+    image: journeyImagePaths.anger,
     description: journeyContent.anger.description,
   },
   {
@@ -219,7 +198,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.wisdom.title,
     duration: journeyContent.wisdom.duration,
     difficulty: journeyContent.wisdom.difficulty,
-    image: wisdomImg,
+    image: journeyImagePaths.wisdom,
     description: journeyContent.wisdom.description,
   },
   {
@@ -227,7 +206,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.addiction.title,
     duration: journeyContent.addiction.duration,
     difficulty: journeyContent.addiction.difficulty,
-    image: addictionImg,
+    image: journeyImagePaths.addiction,
     description: journeyContent.addiction.description,
   },
   {
@@ -235,7 +214,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.gratitude.title,
     duration: journeyContent.gratitude.duration,
     difficulty: journeyContent.gratitude.difficulty,
-    image: gratitudeImg,
+    image: journeyImagePaths.gratitude,
     description: journeyContent.gratitude.description,
   },
   {
@@ -243,7 +222,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.patience.title,
     duration: journeyContent.patience.duration,
     difficulty: journeyContent.patience.difficulty,
-    image: patienceImg,
+    image: journeyImagePaths.patience,
     description: journeyContent.patience.description,
   },
   {
@@ -251,7 +230,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.courage.title,
     duration: journeyContent.courage.duration,
     difficulty: journeyContent.courage.difficulty,
-    image: courageImg,
+    image: journeyImagePaths.courage,
     description: journeyContent.courage.description,
   },
   {
@@ -259,7 +238,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.generosity.title,
     duration: journeyContent.generosity.duration,
     difficulty: journeyContent.generosity.difficulty,
-    image: generosityImg,
+    image: journeyImagePaths.generosity,
     description: journeyContent.generosity.description,
   },
   {
@@ -267,7 +246,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.rest.title,
     duration: journeyContent.rest.duration,
     difficulty: journeyContent.rest.difficulty,
-    image: restImg,
+    image: journeyImagePaths.rest,
     description: journeyContent.rest.description,
   },
   {
@@ -275,7 +254,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.suffering.title,
     duration: journeyContent.suffering.duration,
     difficulty: journeyContent.suffering.difficulty,
-    image: sufferingImg,
+    image: journeyImagePaths.suffering,
     description: journeyContent.suffering.description,
   },
   {
@@ -283,7 +262,7 @@ export const journeyCatalog: JourneySummary[] = [
     title: journeyContent.legacy.title,
     duration: journeyContent.legacy.duration,
     difficulty: journeyContent.legacy.difficulty,
-    image: legacyImg,
+    image: journeyImagePaths.legacy,
     description: journeyContent.legacy.description,
   },
 ];

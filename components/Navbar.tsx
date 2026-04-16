@@ -18,6 +18,7 @@ const navLinks = [
 
 const journeyLinks = [
   { href: "/journeys", label: "All Journeys" },
+  { href: "/journeys/new-believer", label: "First Steps" },
   { href: "/journeys/james-deep", label: "James: 10 Days Deep" },
   { href: "/journeys/still", label: "Still: Contemplative Prayer" },
   { href: "/journeys/the-examen", label: "The Examen" },

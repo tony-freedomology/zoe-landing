@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
-import examenReflectionImg from "../../../public/images/journeys/examen-reflection.jpg";
 
 export const metadata: Metadata = {
   title: "The Examen: 14 Days of Evening Reflection — Zoe",
@@ -32,7 +31,7 @@ export default function TheExamenPage() {
   return (
     <div className="min-h-screen text-zoe-ink">
       <section className="relative w-full overflow-hidden bg-zoe-ink" style={{ aspectRatio: '16/9' }}>
-        <Image src={examenReflectionImg} alt="The Examen: 14 Days of Evening Reflection" fill placeholder="blur" className="object-cover" priority />
+        <Image src="/images/journeys/examen-reflection.jpg" alt="The Examen: 14 Days of Evening Reflection" fill className="object-cover" priority />
       </section>
 
       <section className="py-16 px-6 bg-white">

@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
-import stillPrayerImg from "../../../public/images/journeys/still-prayer.jpg";
 
 export const metadata: Metadata = {
   title: "Still: 21 Days of Contemplative Prayer — Zoe",
@@ -39,7 +38,7 @@ export default function StillPage() {
   return (
     <div className="min-h-screen text-zoe-ink">
       <section className="relative w-full overflow-hidden bg-zoe-ink" style={{ aspectRatio: '16/9' }}>
-        <Image src={stillPrayerImg} alt="Still: 21 Days of Contemplative Prayer" fill placeholder="blur" className="object-cover" priority />
+        <Image src="/images/journeys/still-prayer.jpg" alt="Still: 21 Days of Contemplative Prayer" fill className="object-cover" priority />
       </section>
 
       <section className="py-16 px-6 bg-white">
