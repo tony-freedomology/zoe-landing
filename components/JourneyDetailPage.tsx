@@ -1,19 +1,22 @@
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "./Footer";
 import type { JourneyContent } from "../lib/journeyContent";
+import { getJourneyImagePath, type JourneyImageSlug } from "../lib/journeyImages";
 
 interface JourneyDetailPageProps {
   journey: JourneyContent;
-  heroImage: StaticImageData;
+  heroImage?: string;
 }
 
 export default function JourneyDetailPage({ journey, heroImage }: JourneyDetailPageProps) {
+  const resolvedHeroImage = heroImage ?? getJourneyImagePath(journey.slug as JourneyImageSlug);
+
   return (
     <div className="min-h-screen text-zoe-ink">
       <section className="relative w-full overflow-hidden bg-zoe-ink" style={{ aspectRatio: "16/9" }}>
-        <Image src={heroImage} alt={journey.heroAlt} fill placeholder="blur" className="object-cover" priority />
+        <Image src={resolvedHeroImage} alt={journey.heroAlt} fill className="object-cover" priority />
       </section>
 
       <section className="bg-white px-6 py-16">

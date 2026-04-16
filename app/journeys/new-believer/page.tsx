@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
@@ -36,17 +37,16 @@ const days = [
 export default function NewBelieverPage() {
   return (
     <div className="min-h-screen text-zoe-ink">
-      <section className="bg-gradient-to-b from-[#1a1308] to-[#141008] py-32 px-6 pt-40">
+      <section className="relative w-full overflow-hidden bg-zoe-ink" style={{ aspectRatio: "16/9" }}>
+        <Image src="/images/journeys/new-believer.jpg" alt="First Steps — 21-Day New Believer Journey" fill className="object-cover" priority />
+      </section>
+
+      <section className="py-16 px-6 bg-white">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-zoe-sap/30 bg-zoe-sap/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-zoe-sap mb-8">
-            21-Day Journey
-          </div>
-          <h1 className="text-5xl md:text-6xl tracking-tight font-sans text-white leading-[1.1] font-bold">First Steps</h1>
-          <p className="mt-4 text-lg text-zoe-sap font-semibold tracking-tight">A New Believer Journey</p>
-          <p className="mt-6 text-xl text-zoe-outline font-medium leading-relaxed max-w-2xl mx-auto">
-            The first weeks after saying yes to Jesus are some of the most important — and the most vulnerable. This journey gives you a Daily path for those first steps.
+          <p className="text-lg text-zoe-muted font-medium leading-relaxed max-w-2xl mx-auto mb-8">
+            The first weeks after saying yes to Jesus are some of the most important and most vulnerable. This journey gives you a steady daily path for those first steps.
           </p>
-          <div className="mt-10">
+          <div>
             <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
               Start This Journey <ArrowRight className="h-4 w-4" />
             </Link>

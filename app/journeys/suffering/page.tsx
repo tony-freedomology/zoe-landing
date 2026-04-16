@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import JourneyDetailPage from "../../../components/JourneyDetailPage";
 import { journeyContent } from "../../../lib/journeyContent";
-import heroImg from "../../../public/images/journeys/suffering.jpg";
 
 const journey = journeyContent.suffering;
 const days = journey.days;
@@ -12,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function UsufferingPage() {
-  return <JourneyDetailPage journey={{ ...journey, days }} heroImage={heroImg} />;
+  return <JourneyDetailPage journey={{ ...journey, days }} />;
 }

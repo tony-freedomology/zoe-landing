@@ -8,7 +8,7 @@ import { journeyCatalog } from "../../lib/journeyCatalog";
 export const metadata: Metadata = {
   title: "Journeys - Zoe",
   description:
-    "Explore twenty-five guided reading, prayer, and reflection journeys built to help you walk with Jesus in the places real life hits hardest.",
+    "Explore guided reading, prayer, and reflection journeys built to help you walk with Jesus in the places real life hits hardest.",
 };
 
 export default function JourneysHubPage() {
@@ -33,27 +33,23 @@ export default function JourneysHubPage() {
               <Link
                 href={`/journeys/${journey.slug}`}
                 key={journey.slug}
-                className="group flex flex-col rounded-3xl bg-white border border-zoe-outline/20 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-full"
+                className="group flex h-full flex-col rounded-[32px] border border-zoe-outline/20 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
               >
-                <div className="relative h-64 w-full overflow-hidden bg-slate-100">
+                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[24px] bg-zoe-surface">
                   <Image
                     src={journey.image}
                     alt={journey.title}
                     fill
-                    placeholder="blur"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
-                  <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
-                    <span className="inline-flex items-center rounded-full bg-white/20 backdrop-blur-md px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white border border-white/30">
+                  <div className="absolute right-4 top-4">
+                    <span className="inline-flex items-center rounded-full border border-[#E7DED0] bg-[#FCF9F4] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-zoe-ink shadow-[0_12px_28px_rgba(45,50,49,0.14)]">
                       {journey.duration}
-                    </span>
-                    <span className="inline-flex items-center rounded-full bg-zoe-ink/40 backdrop-blur-md px-3 py-1 text-xs font-semibold capitalize text-white border border-white/20">
-                      {journey.difficulty}
                     </span>
                   </div>
                 </div>
-                <div className="p-8 flex flex-col flex-grow">
+                <div className="flex flex-grow flex-col px-3 pb-3 pt-6">
                   <h2 className="text-2xl tracking-tight font-sans text-zoe-ink font-bold mb-3 group-hover:text-zoe-leaf transition-colors duration-200">
                     {journey.title}
                   </h2>

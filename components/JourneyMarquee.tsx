@@ -15,19 +15,20 @@ function JourneyRow({ journeys, reverse = false }: { journeys: typeof journeyCat
           <Link
             href={`/journeys/${journey.slug}`}
             key={`${journey.slug}-${index}`}
-            className="group relative h-[180px] w-[280px] shrink-0 overflow-hidden rounded-[28px] border border-white/70 bg-white shadow-[0_18px_40px_rgba(15,23,42,0.08)] transition-transform duration-300 hover:-translate-y-1"
+            className="group relative w-[288px] shrink-0 overflow-hidden rounded-[28px] border border-white/70 bg-white p-3 shadow-[0_18px_40px_rgba(15,23,42,0.08)] transition-transform duration-300 hover:-translate-y-1"
           >
-            <Image
-              src={journey.image}
-              alt={journey.title}
-              fill
-              placeholder="blur"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute bottom-4 right-4 rounded-full border border-white/20 bg-black/40 px-3 py-1.5 backdrop-blur-md">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/95">
-                {journey.duration}
-              </p>
+            <div className="relative aspect-[16/9] overflow-hidden rounded-[22px] bg-zoe-surface">
+              <Image
+                src={journey.image}
+                alt={journey.title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute right-3 top-3 rounded-full border border-[#E7DED0] bg-[#FCF9F4] px-3 py-1.5 shadow-[0_12px_28px_rgba(45,50,49,0.14)]">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-zoe-ink">
+                  {journey.duration}
+                </p>
+              </div>
             </div>
           </Link>
         ))}

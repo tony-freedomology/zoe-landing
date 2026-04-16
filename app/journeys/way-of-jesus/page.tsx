@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
-import wayOfJesusImg from "../../../public/images/journeys/way-of-jesus.jpg";
 
 export const metadata: Metadata = {
   title: "The Way of Jesus: 40 Days Through the Gospels — Zoe",
@@ -58,7 +57,7 @@ export default function WayOfJesusPage() {
   return (
     <div className="min-h-screen text-zoe-ink">
       <section className="relative w-full overflow-hidden bg-zoe-ink" style={{ aspectRatio: '16/9' }}>
-        <Image src={wayOfJesusImg} alt="The Way of Jesus: 40 Days Through the Gospels" fill placeholder="blur" className="object-cover" priority />
+        <Image src="/images/journeys/way-of-jesus.jpg" alt="The Way of Jesus: 40 Days Through the Gospels" fill className="object-cover" priority />
       </section>
 
       <section className="py-16 px-6 bg-white">

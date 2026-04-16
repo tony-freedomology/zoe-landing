@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import JourneyDetailPage from "../../../components/JourneyDetailPage";
 import { journeyContent } from "../../../lib/journeyContent";
-import purposeImg from "../../../public/images/journeys/purpose.jpg";
 
 const journey = journeyContent.purpose;
 const days = journey.days;
@@ -12,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function PurposePage() {
-  return <JourneyDetailPage journey={{ ...journey, days }} heroImage={purposeImg} />;
+  return <JourneyDetailPage journey={{ ...journey, days }} />;
 }
