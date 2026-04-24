@@ -3,10 +3,11 @@
 ## Canonical Brand Source
 
 Before making any UI, styling, or marketing-page changes in this repo, read:
+- `docs/zoe-product-and-brand-brief.md`
 - `DESIGN.md`
 - `docs/ZOE-BRAND-REFERENCE.html`
 
-These two files define the canonical Zoe brand direction for the default site.
+These files define the canonical Zoe product, voice, and visual direction for the default site. The product and brand brief mirrors the backend repo's source-of-truth copy at `/Users/tony/Documents/zoe/docs/zoe-product-and-brand-brief.md`.
 
 ## Default Brand Rule
 
