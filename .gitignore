@@ -1,5 +1,8 @@
 node_modules/
 .next/
+.next-stale-*/
+.playwright-cli/
 out/
+output/
 
 *.tsbuildinfo

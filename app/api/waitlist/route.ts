@@ -1,13 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const GHL_BASE = "https://services.leadconnectorhq.com";
-const GHL_VERSION = "2021-07-28";
-
 type WaitlistBody = {
   name?: string;
   phone?: string;
   email?: string;
   source?: string;
+  submittedAt?: string;
 };
 
 function normalizePhone(rawPhone: string): string | null {
@@ -28,22 +26,41 @@ function normalizePhone(rawPhone: string): string | null {
   return null;
 }
 
-async function callGHL(
-  url: string,
-  options: RequestInit,
+function getZoeBackendUrl() {
+  return (process.env.ZOE_API_BASE_URL || process.env.ZOE_BACKEND_URL || "").replace(/\/+$/, "");
+}
+
+async function callZoeMarketingApi(
+  payload: Required<Pick<WaitlistBody, "name" | "phone" | "email" | "source">> & {
+    submittedAt: string;
+  },
   retries = 1
 ): Promise<Response> {
+  const baseUrl = getZoeBackendUrl();
+  if (!baseUrl) {
+    throw new Error("ZOE_API_BASE_URL is not configured");
+  }
+
   try {
-    const resp = await fetch(url, options);
-    return resp;
+    return await fetch(`${baseUrl}/api/marketing/waitlist`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...(process.env.ZOE_MARKETING_API_KEY
+          ? { "X-Zoe-Marketing-Key": process.env.ZOE_MARKETING_API_KEY }
+          : {}),
+      },
+      body: JSON.stringify(payload),
+      cache: "no-store",
+    });
   } catch (err) {
     if (retries > 0) {
-      console.warn("GHL fetch failed, retrying in 1s...", {
+      console.warn("Zoe marketing API fetch failed, retrying in 1s...", {
         error: err instanceof Error ? err.message : String(err),
         retriesLeft: retries,
       });
       await new Promise((r) => setTimeout(r, 1000));
-      return callGHL(url, options, retries - 1);
+      return callZoeMarketingApi(payload, retries - 1);
     }
     throw err;
   }
@@ -59,7 +76,7 @@ export async function POST(req: NextRequest) {
 
     if (!name || !phone || !email) {
       return NextResponse.json(
-        { error: "Name, phone, and email are required" },
+        { ok: false, error: "Name, phone, and email are required" },
         { status: 400 }
       );
     }
@@ -72,49 +89,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const GHL_API_KEY = process.env.GHL_API_KEY;
-    const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID;
-
-    if (!GHL_API_KEY || !GHL_LOCATION_ID) {
-      console.error("GHL credentials not configured", {
-        hasApiKey: !!GHL_API_KEY,
-        hasLocationId: !!GHL_LOCATION_ID,
-        source,
-      });
-      return NextResponse.json(
-        { ok: false, error: "CRM integration is not configured" },
-        { status: 500 }
-      );
-    }
-
-    // Split name into first/last
-    const parts = name.trim().split(/\s+/);
-    const firstName = parts[0] || "";
-    const lastName = parts.slice(1).join(" ") || "";
-
-    // Determine tags based on source
-    const typeTag = source === "churches-waitlist" ? "churches" : "individuals";
-
-    const ghlPayload = {
-      locationId: GHL_LOCATION_ID,
-      firstName,
-      lastName,
+    const payload = {
+      name,
       phone: normalizedPhone,
       email,
-      tags: ["zoe-waitlist", typeTag],
       source,
+      submittedAt: body.submittedAt || new Date().toISOString(),
     };
 
-    const resp = await callGHL(`${GHL_BASE}/contacts/upsert`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${GHL_API_KEY}`,
-        Version: GHL_VERSION,
-      },
-      body: JSON.stringify(ghlPayload),
-    });
-
+    const resp = await callZoeMarketingApi(payload);
     const raw = await resp.text();
     let data: Record<string, unknown> = {};
     if (raw) {
@@ -125,13 +108,12 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    if (!resp.ok) {
-      console.error("GHL upsert failed", {
+    if (!resp.ok || data?.ok !== true) {
+      console.error("Zoe marketing waitlist upsert failed", {
         status: resp.status,
         source,
         email,
-        message: data?.message,
-        traceId: data?.traceId,
+        message: data?.error,
       });
 
       return NextResponse.json(
@@ -139,18 +121,18 @@ export async function POST(req: NextRequest) {
           ok: false,
           error: "Failed to save contact — please try again",
           details:
-            typeof data?.message === "string"
-              ? data.message
-              : "Unknown GoHighLevel error",
+            typeof data?.error === "string"
+              ? data.error
+              : "Unknown Zoe marketing API error",
         },
-        { status: 502 }
+        { status: resp.status >= 500 ? 502 : resp.status }
       );
     }
 
     return NextResponse.json({
       ok: true,
-      contactId:
-        (data.contact as { id?: string } | undefined)?.id ?? null,
+      contactId: typeof data.contactId === "string" ? data.contactId : null,
+      segments: Array.isArray(data.segments) ? data.segments : [],
     });
   } catch (err) {
     console.error("Waitlist error:", {
