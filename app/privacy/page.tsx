@@ -190,7 +190,7 @@ export default function PrivacyPage() {
             Zoe is designed as an interactive prayer journal with proactive support. <span className="text-zoe-ink">Privacy is part of the product, not a footnote.</span>
           </p>
           <p className="mt-4 text-lg text-zoe-muted leading-relaxed">
-            Zoe is operated by Freedomology (&quot;Zoe&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;). This policy explains what personal information we collect, how we use it, when we share it, and the choices available to users.
+            This policy explains what personal information Zoe collects, how we use it, when we share it, and the choices available to users.
           </p>
         </header>
 

@@ -38,11 +38,11 @@ export default function SmsDiscipleshipPost() {
       <h2>What Zoe Adds</h2>
       <p>Zoe texts your passage with original-language context: the Greek behind patience, the Hebrew nuance behind righteousness, the cultural texture that makes a first-century letter feel close to your Tuesday morning.</p>
       <p>Then Zoe asks one honest question: what is God saying to you, and what are you going to do about it?</p>
-      <p>If you respond, Zoe remembers. A few days later, she can gently ask whether you followed through. That loop is what makes SMS discipleship different from receiving a daily verse.</p>
+      <p>If you respond, Zoe remembers. A few days later, it can gently ask whether you followed through. That loop is what makes SMS discipleship different from receiving a daily verse.</p>
 
       <h2>What It Is Not</h2>
       <p>SMS discipleship is not a replacement for community, pastoral care, small groups, or the transformation that happens when someone who knows you sits across from you and asks a hard question.</p>
-      <p>Zoe will never try to be your pastor. She will never claim to pray for you. She is a tool that keeps scripture in front of you and your own commitments in front of you.</p>
+      <p>Zoe will never try to be your pastor. It will never claim to pray for you. It is a tool that keeps scripture in front of you and your own commitments in front of you.</p>
 
       <h2>Getting Started</h2>
       <p>Zoe is live in beta. Pick a book. Set your pace. Your first message arrives tomorrow morning.</p>

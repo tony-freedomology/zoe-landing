@@ -338,7 +338,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                           </div>
                         ) : null}
                         <p className="mt-3 text-xs leading-relaxed text-slate-400 text-center">
-                          By joining, you consent to receive recurring automated SMS messages from Zoe by Freedomology at the phone number provided. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out or HELP for help.{" "}
+                          By joining, you consent to receive recurring automated SMS messages from Zoe at the phone number provided. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out or HELP for help.{" "}
                           <a href="/privacy" className="underline hover:text-slate-600 transition-colors">Privacy Policy</a>{" · "}
                           <a href="/terms" className="underline hover:text-slate-600 transition-colors">Terms of Service</a>
                         </p>

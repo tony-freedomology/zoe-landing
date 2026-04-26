@@ -249,9 +249,9 @@ Welcome to the Zoe pilot. Here's what's going to happen over the next 4 weeks.
 
 **What your people experience:**
 - Zoe remembers their story (prayers, struggles, commitments)
-- She follows up on things they mentioned earlier
-- She nudges them toward Scripture, prayer, community
-- She reflects your sermon series back to them mid-week
+- Zoe follows up on things they mentioned earlier
+- Zoe nudges them toward Scripture, prayer, community
+- Zoe reflects your sermon series back to them mid-week
 
 ---
 
@@ -283,7 +283,7 @@ If you don't want to move forward:
 A: No. And that's by design. Privacy is sacred. You'll see anonymized themes, not individual messages.
 
 **Q: What if someone has a crisis (suicidal thoughts, abuse, etc.)?**  
-A: Zoe detects crisis language and escalates immediately. She'll offer 988 Suicide & Crisis Lifeline and (with permission) connect with you as their pastor.
+A: Zoe detects crisis language and escalates immediately. It will offer 988 Suicide & Crisis Lifeline and (with permission) connect with you as their pastor.
 
 **Q: What if Zoe says something theologically off?**  
 A: Let us know immediately. We'll review and adjust. This is why the pilot exists.

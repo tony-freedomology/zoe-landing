@@ -29,7 +29,7 @@ export default function AiWalkWithJesusPost() {
       <p><em>Is this another distraction dressed up in spiritual clothing?</em></p>
 
       <h2>Can a Machine Understand Spiritual Things?</h2>
-      <p>No. Zoe does not know God. Zoe does not pray. Zoe does not have the mind of Christ. When she asks, "What is God saying to you today?", she is not interpreting the answer spiritually. She is helping you return to it later.</p>
+      <p>No. Zoe does not know God. Zoe does not pray. Zoe does not have the mind of Christ. When it asks, "What is God saying to you today?", it is not interpreting the answer spiritually. It is helping you return to it later.</p>
       <p>The understanding happens in you, through the Spirit, through the Word, and through the people around you.</p>
 
       <h2>What AI Can Do</h2>
@@ -57,7 +57,7 @@ export default function AiWalkWithJesusPost() {
 
       <h2>The Line Worth Drawing</h2>
       <p>There are AI tools that present themselves as spiritual companions, replacements for pastoral counsel, or something like the Holy Spirit's presence. That framing is dangerous because it misrepresents what AI is.</p>
-      <p>Zoe is not trying to be your spiritual director. She is a concordance that texts you back. A journal that asks follow-up questions. A nudge that says: you told me Tuesday you were going to do something. Did you do it?</p>
+      <p>Zoe is not trying to be your spiritual director. It is a concordance that texts you back. A journal that asks follow-up questions. A nudge that says: you told me Tuesday you were going to do something. Did you do it?</p>
     </BlogArticleShell>
   );
 }

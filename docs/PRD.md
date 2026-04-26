@@ -255,7 +255,7 @@ The copy should sound like Tony Allen talking to a room of people he cares about
 
 6. **The product is a discipleship tool, not a platform.** Never call Zoe a "platform" or "solution" in hero copy. Zoe is an interactive prayer journal, a study partner, a guide in your walk with Jesus. Describe what Zoe DOES ("helps you," "reminds you," "follows up") more than what Zoe IS. Avoid anthropomorphizing Zoe as a person with feelings.
 
-7. **Day-long devotion, not daily devotional.** This is the core positioning. Zoe isn't a 10-minute morning routine. She stays with you all day. Every piece of copy should reinforce this.
+7. **Day-long devotion, not daily devotional.** This is the core positioning. Zoe isn't a 10-minute morning routine. It helps people keep the thread all day. Every piece of copy should reinforce this.
 
 8. **Amplifier, not replacement.** Zoe amplifies the Holy Spirit's work, doesn't replace it. Zoe strengthens the pastor's voice, doesn't compete with it. This framing must be present in both individual and church copy.
 
@@ -287,7 +287,7 @@ Tony doesn't want Zoe anthropomorphized as a person/companion/friend. The correc
 
 **BAD framing (find and replace):**
 - "companion" as primary descriptor → replace with "tool", "guide", or "daily rhythm"
-- "she/her" pronouns for Zoe → use "Zoe" or "it"
+- Feminine pronouns for Zoe → use "Zoe" or "it"
 - "friend" as primary descriptor → ok in passing ("like a friend who...") but not as THE identity
 - "relationship with Zoe" → "practice with Zoe" or "daily rhythm"
 - Anything that makes Zoe sound like a sentient being with feelings
@@ -307,7 +307,7 @@ Tony doesn't want Zoe anthropomorphized as a person/companion/friend. The correc
 
 ### Words/Phrases to AVOID
 - companion (as primary descriptor)
-- she/her (for Zoe) — use "Zoe" or "it"
+- feminine pronouns (for Zoe) — use "Zoe" or "it"
 - friend (as primary identity) — ok in passing comparison only
 - platform, solution, tool (in hero/emotional copy only — "tool" is acceptable in functional/church copy)
 - leverage, utilize, optimize, empower, unlock
@@ -726,8 +726,8 @@ This section captures Tony's raw messaging instincts for launch content, videos,
 
 ## 14. Key Links
 
-- Backend repo: https://github.com/tony-freedomology/zoe
-- Landing repo: https://github.com/tony-freedomology/zoe-landing
+- Backend repo: zoe
+- Landing repo: zoe-landing
 - Live landing: https://www.zoe.live
 - Live API: https://api.zoe.live
 - Railway project: Zoe (2 services: zoe + zoe-landing + Postgres + Redis)

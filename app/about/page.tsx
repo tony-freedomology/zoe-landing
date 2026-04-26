@@ -7,13 +7,13 @@ import Footer from "../../components/Footer";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Zoe is a quiet SMS discipleship tool built by Freedomology around six commitments: honesty, attention, memory, privacy, Scripture, and ordinary access.",
+    "Zoe is a quiet SMS discipleship tool shaped around six commitments: honesty, attention, memory, privacy, Scripture, and ordinary access.",
 };
 
 const tenets = [
   {
     title: "Zoe is unmistakably AI.",
-    body: "Not a pastor. Not a friend. Not the Holy Spirit. Honest about her limits, careful with spiritual language, and quick to send people toward humans when text is not enough.",
+    body: "Not a pastor. Not a friend. Not the Holy Spirit. Honest about its limits, careful with spiritual language, and quick to send people toward humans when text is not enough.",
   },
   {
     title: "Attention, not engagement.",
@@ -21,7 +21,7 @@ const tenets = [
   },
   {
     title: "Memory serves follow-through.",
-    body: "Zoe remembers the thread of a person's real life so she can help them return to what mattered: the promise from Tuesday, the verse from Sunday, the prayer they did not want to lose.",
+    body: "Zoe remembers the thread of a person's real life so it can help them return to what mattered: the promise from Tuesday, the verse from Sunday, the prayer they did not want to lose.",
   },
   {
     title: "Pastors see the cohort, never the person.",
@@ -55,10 +55,10 @@ const makerNotes = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-zoe-oat text-zoe-ink">
-      <section className="bg-[#173A2E] px-6 pb-24 pt-36 text-white md:pb-32 md:pt-44">
+      <section className="bg-zoe-oat px-6 pb-24 pt-36 text-zoe-ink md:pb-32 md:pt-44">
         <div className="mx-auto max-w-7xl">
           <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
-            About · What we believe
+            About · Commitments
           </p>
           <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_380px] lg:items-end">
             <div>
@@ -69,29 +69,21 @@ export default function AboutPage() {
                 </span>{" "}
                 to point past itself.
               </h1>
-              <p className="mt-8 max-w-3xl text-xl font-medium leading-8 tracking-normal text-white/70 [word-spacing:0.08em] md:text-2xl md:leading-9">
+              <p className="mt-8 max-w-3xl text-xl font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em] md:text-2xl md:leading-9">
                 Six commitments that shape every line of code, every nudge, every word Zoe sends, and every boundary we refuse to blur.
               </p>
             </div>
 
-            <div className="rounded-[2rem] bg-white/8 p-7 ring-1 ring-white/12">
+            <div className="rounded-[2rem] bg-white p-7 shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/45">
               <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-zoe-sap">
-                Direction
+                The posture
               </p>
-              <dl className="mt-5 space-y-4 text-sm">
-                <div className="grid grid-cols-[76px_1fr] gap-4">
-                  <dt className="font-bold uppercase tracking-[0.18em] text-white/42">Vibe</dt>
-                  <dd className="font-semibold tracking-normal text-white/78">Editorial, declarative, structured</dd>
-                </div>
-                <div className="grid grid-cols-[76px_1fr] gap-4">
-                  <dt className="font-bold uppercase tracking-[0.18em] text-white/42">Hero</dt>
-                  <dd className="font-semibold tracking-normal text-white/78">What we believe</dd>
-                </div>
-                <div className="grid grid-cols-[76px_1fr] gap-4">
-                  <dt className="font-bold uppercase tracking-[0.18em] text-white/42">Posture</dt>
-                  <dd className="font-semibold tracking-normal text-white/78">Conviction first, biography second</dd>
-                </div>
-              </dl>
+              <p className="mt-5 font-serif text-3xl italic leading-[1.2] tracking-normal text-zoe-sap [word-spacing:0.06em]">
+                Useful technology should get quieter as faith gets more personal.
+              </p>
+              <p className="mt-6 text-sm font-semibold leading-7 tracking-normal text-zoe-muted [word-spacing:0.08em]">
+                Zoe exists to help people return to scripture, prayer, and the next faithful step. The tool should never become the point.
+              </p>
             </div>
           </div>
         </div>
@@ -125,7 +117,7 @@ export default function AboutPage() {
               A pastor-builder, talking plainly.
             </h2>
             <p className="mt-6 font-serif text-2xl italic leading-9 tracking-normal text-zoe-forest [word-spacing:0.08em]">
-              Zoe is not a replacement for the church. She is a small tool for the space where people usually lose the thread.
+              Zoe is not a replacement for the church. It is a small tool for the space where people usually lose the thread.
             </p>
           </div>
 
@@ -137,7 +129,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-zoe-sap">
-                    Tony Allen · Founder · Freedomology
+                    Tony Allen · Founder
                   </p>
                   <div className="mt-6 space-y-5 text-[1.05rem] font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">
                     <p>
@@ -151,7 +143,7 @@ export default function AboutPage() {
                     </p>
                   </div>
                   <p className="mt-7 text-sm font-semibold tracking-normal text-zoe-muted">
-                    Built in Cleveland, OH · by Freedomology
+                    Built in Cleveland, OH.
                   </p>
                 </div>
               </div>

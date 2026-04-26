@@ -90,7 +90,7 @@ Each carousel is 5-7 slides designed for Instagram/Facebook ads. Visuals should 
 
 ---
 
-## Carousel 3: "She Remembers" (Individual-Facing, Feature-Focused)
+## Carousel 3: "Zoe Remembers" (Individual-Facing, Feature-Focused)
 
 **Target**: People who've tried devotional apps and been disappointed  
 **Mood**: Intimate, personal, "finally someone gets it"  

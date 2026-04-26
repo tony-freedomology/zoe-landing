@@ -56,8 +56,8 @@ export default function EquipKingdomPost() {
       <p>If the church does not show up to shape these tools, the defaults will get set without us.</p>
 
       <h2>What I Am Actually Building</h2>
-      <p>Zoe is an SMS discipleship tool for churches. Members receive daily scripture by text message with original-language context. Zoe asks what God is saying to them and what they are going to do about it. Then she remembers their answers.</p>
-      <p>She does not try to be a counselor. She does not try to be a pastor. She points people to scripture, original languages, and community.</p>
+      <p>Zoe is an SMS discipleship tool for churches. Members receive daily scripture by text message with original-language context. Zoe asks what God is saying to them and what they are going to do about it. Then it remembers their answers.</p>
+      <p>It does not try to be a counselor. It does not try to be a pastor. It points people to scripture, original languages, and community.</p>
 
       <h2>The Honest Version</h2>
       <p>I do not have all this figured out. Nobody does. The intersection of AI and faith is genuinely new territory, and anyone who claims to have it all mapped out is selling something.</p>
