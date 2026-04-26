@@ -101,7 +101,7 @@ export default function BlogIndexPage() {
       <main className="px-5 pb-24 pt-32 md:px-8 md:pt-40">
         <header className="mx-auto max-w-7xl pb-12 md:pb-16">
           <p className="text-[11px] font-extrabold uppercase tracking-[0.34em] text-zoe-sap">
-            The Zoe Journal · Issue 04
+            The Zoe Journal
           </p>
           <h1 className="mt-7 max-w-[11ch] text-[4.65rem] font-extrabold leading-[0.84] tracking-[-0.07em] text-zoe-ink md:text-[9.4rem] md:tracking-[-0.08em]">
             Between the
@@ -149,9 +149,9 @@ export default function BlogIndexPage() {
               </p>
               <div className="relative z-10 w-fit rounded-2xl bg-zoe-forest/70 px-5 py-4 backdrop-blur-md">
                 <p className="text-[2.65rem] font-extrabold leading-none tracking-[-0.045em] text-white md:text-[4rem]">
-                  Issue <em className="font-serif font-medium italic text-zoe-sap">04</em>
+                  Featured essay
                 </p>
-                <p className="mt-1 font-serif text-base italic tracking-normal text-white/80">April · MMXXVI</p>
+                <p className="mt-1 font-serif text-base italic tracking-normal text-white/80">{featured.date}</p>
               </div>
               <p className="relative z-10 text-[10px] font-bold uppercase tracking-[0.22em] text-white/65">
                 - A pastor&apos;s window, between Sundays.
