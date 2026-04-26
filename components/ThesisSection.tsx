@@ -1,158 +1,94 @@
 "use client";
 
-import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
 };
-
-function MarkedText({
-  children,
-  variant = "underline",
-  delay = 0,
-  className,
-}: {
-  children: ReactNode;
-  variant?: "underline" | "circle";
-  delay?: number;
-  className?: string;
-}) {
-  return (
-    <span className={clsx("relative inline-block whitespace-nowrap", className)}>
-      <span className="relative z-10">{children}</span>
-      {variant === "circle" ? (
-        <motion.svg
-          aria-hidden="true"
-          className="pointer-events-none absolute -inset-x-2 -inset-y-1 h-[calc(100%+0.5rem)] w-[calc(100%+1rem)] overflow-visible"
-          viewBox="0 0 120 42"
-          preserveAspectRatio="none"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          <motion.path
-            d="M61 4C83 4 113 9 116 21C119 34 91 39 61 38C29 37 5 32 4 20C3 8 34 4 61 4Z"
-            fill="none"
-            variants={{
-              hidden: { pathLength: 0, opacity: 0 },
-              show: { pathLength: 1, opacity: 1 },
-            }}
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="4"
-            transition={{ duration: 1.1, delay, ease: [0.16, 1, 0.3, 1] }}
-          />
-        </motion.svg>
-      ) : (
-        <motion.svg
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-2 left-0 h-3 w-full overflow-visible"
-          viewBox="0 0 120 12"
-          preserveAspectRatio="none"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          <motion.path
-            d="M4 7C22 4 40 5 58 7C78 9 98 8 116 5"
-            fill="none"
-            variants={{
-              hidden: { pathLength: 0, opacity: 0 },
-              show: { pathLength: 1, opacity: 1 },
-            }}
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeWidth="4"
-            transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
-          />
-        </motion.svg>
-      )}
-    </span>
-  );
-}
 
 interface ThesisProps {
   variant?: "default" | "jesus-red" | "emerald-uni";
 }
 
+const tenets = [
+  {
+    title: "Not a replacement.",
+    body: "Zoe does not pretend to be a pastor, a friend, or the Holy Spirit. It is a quiet tool for attention and follow-through.",
+  },
+  {
+    title: "Built for the ordinary week.",
+    body: "The work is not a better devotional at 7am. The work is helping scripture stay present at noon, at dinner, and before sleep.",
+  },
+  {
+    title: "Memory serves obedience.",
+    body: "Continuity matters because formation takes time. Zoe remembers what you said so it can help you come back to it.",
+  },
+];
+
 export default function ThesisSection({ variant = "default" }: ThesisProps = {}) {
+  const isDefault = variant === "default";
+
   return (
-    <section className="relative flex w-full justify-center border-b border-misty-green-900 bg-misty-green-950 px-4 py-20 text-white md:px-6 md:py-32">
-      <div className="flex w-full max-w-[900px] flex-col gap-14 md:gap-[4.5rem]">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
-          className="mx-auto max-w-3xl text-center"
-        >
-          <p className="mb-6 text-sm font-semibold uppercase tracking-widest text-zoe-leaf">The Question</p>
+    <section
+      className={clsx(
+        "relative border-b px-6 py-24 md:py-32",
+        isDefault ? "border-white/10 bg-[#173A2E] text-white" : "border-zoe-outline/45 bg-zoe-oat text-zoe-ink",
+      )}
+    >
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
+          <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
+            The thesis
+          </p>
           <h2
             className={clsx(
-              "mb-8 text-4xl font-bold leading-[1.1] tracking-tighter-editorial-relaxed md:text-5xl lg:text-6xl",
-              variant === "jesus-red" ? "text-[#f5efe6]" : "text-white"
+              "mt-6 max-w-4xl text-[3.3rem] font-extrabold leading-[0.92] tracking-[-0.075em] md:text-[5.9rem]",
+              isDefault ? "text-white" : "text-zoe-ink",
             )}
           >
-            AI that helps you walk with Jesus more consistently.
+            AI that helps attention return to Jesus.
           </h2>
-          <div className="space-y-6 text-xl font-normal leading-[1.8] tracking-[0.01em] text-[#E8E1D5]/85 md:text-[1.65rem]">
-            <p>Wait&hellip;can that be done?...should it? And how?</p>
-          </div>
         </motion.div>
 
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           variants={fadeUp}
-          className="mx-auto max-w-3xl text-center"
+          className={clsx(
+            "rounded-[2rem] p-7 shadow-[0_18px_60px_rgba(45,50,49,0.05)] md:p-10",
+            isDefault ? "bg-white/8 ring-1 ring-white/12" : "bg-white ring-1 ring-zoe-outline/45",
+          )}
         >
-          <p className="mb-8 text-sm font-semibold uppercase tracking-widest text-amber-500">The Tension</p>
-          <div className="space-y-6 text-lg font-normal leading-[1.8] tracking-[0.01em] text-[#E8E1D5]/78 md:text-[22px]">
-            <p>
-              It sounds obvious, but it really isn&apos;t. How do you make it helpful but not invasive? Proactive but not creepy? How do you make sure it points people{" "}
-              <MarkedText variant="circle" delay={0.15} className="font-semibold text-zoe-leaf">
-                TO
-              </MarkedText>{" "}
-              Jesus and doesn&apos;t become a substitute{" "}
-              <MarkedText variant="circle" delay={0.35} className="font-semibold text-amber-400">
-                FOR
-              </MarkedText>{" "}
-              Him?
-            </p>
-            <p>
-              Here&apos;s what <span className="font-semibold text-white">IS</span> obvious: AI is here, whether we like it or not, and the church (at large) needs to figure out what we&apos;re going to do about it. That&apos;s why we&apos;re building in public, and talking about it in public, and inviting you to join the conversation (and the alpha!)
-            </p>
-            <p>
-              We&apos;re really not interested in AI that tries to replace pastors (we are pastors, so that would be silly), tries to fill the role of the Holy Spirit, or offers fake spiritual certainty.
-            </p>
-            <p>
-              But we are very interested in how AI could be used to help people&apos;s attention turn to Christ more often. We already know AI can make a great morning devotional, but what we need is{" "}
-              <MarkedText delay={0.55} className="font-semibold text-zoe-leaf">
-                day-long devotion.
-              </MarkedText>
-            </p>
-            <p>
-              <MarkedText delay={0.75} className="font-semibold text-white">
-                Can it help with that?
-              </MarkedText>
-            </p>
+          <p
+            className={clsx(
+              "font-serif text-3xl italic leading-[1.22] tracking-normal [word-spacing:0.06em] md:text-4xl",
+              isDefault ? "text-white/88" : "text-zoe-forest",
+            )}
+          >
+            The question is not whether AI can make spiritual content. The question is whether it can stay quiet enough to help people practice what they already believe.
+          </p>
+          <div className={clsx("mt-8 h-px", isDefault ? "bg-white/12" : "bg-zoe-outline/55")} />
+          <div className="mt-8 grid gap-6">
+            {tenets.map((tenet, index) => (
+              <div key={tenet.title} className="grid gap-4 md:grid-cols-[3.5rem_1fr]">
+                <p className="font-serif text-3xl italic leading-none text-zoe-sap">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <div>
+                  <h3 className={clsx("text-xl font-extrabold tracking-[-0.03em]", isDefault ? "text-white" : "text-zoe-ink")}>
+                    {tenet.title}
+                  </h3>
+                  <p className={clsx("mt-2 font-medium leading-7 tracking-normal [word-spacing:0.08em]", isDefault ? "text-white/62" : "text-zoe-muted")}>
+                    {tenet.body}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
-
-        <motion.p
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
-          className="mx-auto font-serif text-4xl italic text-zoe-leaf md:text-6xl"
-        >
-          Meet Zoe.
-        </motion.p>
       </div>
     </section>
   );

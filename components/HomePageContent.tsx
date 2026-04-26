@@ -171,7 +171,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
         {/* Act 2: The Daily Rhythm */}
         <StickyRhythmsSection />
 
-        <section className={clsx("relative overflow-hidden px-6 py-20 md:py-28", variant === "jesus-red" ? "bg-[#f8f1e7]" : isDefault ? "bg-zoe-oat" : "bg-[#FCFAF8]")}>
+        <section className={clsx("relative overflow-hidden px-6 py-24 md:py-32", variant === "jesus-red" ? "bg-[#f8f1e7]" : isDefault ? "bg-zoe-oat" : "bg-[#FCFAF8]")}>
           <div className={clsx(
             "absolute inset-0 pointer-events-none",
             isDefault
@@ -179,14 +179,17 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
               : "bg-[radial-gradient(circle_at_top_left,rgba(217,119,6,0.08),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(29,194,134,0.08),transparent_40%)]"
           )} />
           <div className="mx-auto max-w-7xl relative z-10">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mx-auto mb-12 max-w-3xl text-center">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mx-auto mb-14 max-w-4xl text-center">
               {!isDefault ? (
                 <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6 shadow-sm",
                   variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : "rounded-full border-[#d97706]/20 bg-[#d97706]/10 text-[#d97706]")}>
                   Guided Journeys
                 </div>
               ) : null}
-              <h2 className={clsx("text-4xl md:text-5xl leading-[1.08]", isDefault ? defaultSectionHeading : "text-slate-900 font-bold tracking-tighter-editorial")}>
+              <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
+                Guided journeys
+              </p>
+              <h2 className={clsx("text-[3.2rem] md:text-[5rem] leading-[0.92]", isDefault ? "font-extrabold tracking-[-0.075em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial")}>
                 {isDefault ? (
                   <>
                     Daily journeys tailored to your{" "}
@@ -196,7 +199,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                   "Scripture for the places people actually live."
                 )}
               </h2>
-              <p className={clsx("mt-5 text-lg md:text-xl font-medium leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>
+              <p className={clsx("mx-auto mt-6 max-w-2xl text-lg md:text-xl font-medium leading-8 tracking-normal [word-spacing:0.08em]", isDefault ? "text-zoe-muted" : "text-slate-600")}>
                 Choose a pre-made Daily path on fear, money, marriage, grief, prayer, or have Zoe create a custom one.
               </p>
             </motion.div>
@@ -208,38 +211,36 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
         </section>
 
         {/* Act 3: The Clearing (Unified CTA & Pricing) */}
-        <section ref={waitlistRef} id="waitlist" className={clsx("min-h-[150vh] relative", variant === "jesus-red" ? "bg-[#f5efe6]" : isDefault ? "bg-zoe-surface" : "bg-[#F8FBFA]")}>
-          <div className="sticky top-0 h-[100dvh] w-full flex flex-col justify-center overflow-hidden py-24 md:py-40 px-4">
+        <section ref={waitlistRef} id="waitlist" className={clsx("relative scroll-mt-24 px-4 py-24 md:py-32", variant === "jesus-red" ? "bg-[#f5efe6]" : isDefault ? "bg-[#173A2E]" : "bg-[#F8FBFA]")}>
+          <div className="w-full overflow-hidden">
             {variant !== "jesus-red" && (
               <>
                 <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(251,248,242,0.98),rgba(245,241,232,0.94))]" />
               </>
             )}
 
-            <div className="mx-auto max-w-3xl relative z-10 w-full">
-              <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className={clsx("relative text-center", variant === "jesus-red" ? "overflow-hidden rounded-xl p-6 md:p-16" : "px-6 py-8 md:px-8 md:py-10")}>
+            <div className="mx-auto max-w-5xl relative z-10 w-full">
+              <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className={clsx("relative text-center", variant === "jesus-red" ? "overflow-hidden rounded-xl p-6 md:p-16" : isDefault ? "rounded-[2rem] bg-white/8 px-6 py-10 ring-1 ring-white/12 md:px-10 md:py-12" : "px-6 py-8 md:px-8 md:py-10")}>
                 {variant === "jesus-red" && (
                   <div className="absolute inset-0 bg-[#faf7f0] border border-[#e0d8cd] shadow-lg shadow-black/5" />
                 )}
 
                 <div className="relative z-10 mx-auto max-w-3xl">
-                  {isDefault && (
-                    <div className="mx-auto mb-8 h-1.5 w-16 rounded-full bg-zoe-sap/80" />
-                  )}
+                  {isDefault && null}
                   <div className={clsx("inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
-                    variant === "jesus-red" ? "rounded-md border border-[#e0d8cd] bg-[#f5efe6] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : isDefault ? "rounded-full border border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
+                    variant === "jesus-red" ? "rounded-md border border-[#e0d8cd] bg-[#f5efe6] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : isDefault ? "rounded-full border border-white/12 bg-white/8 text-zoe-sap" : "rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                     Pre-Alpha Waitlist
                   </div>
 
-                  <h2 className={clsx("mx-auto max-w-2xl text-4xl md:text-6xl leading-[1.06]", isDefault ? defaultSectionHeading : "text-slate-900 font-semibold tracking-tight")}>
+                  <h2 className={clsx("mx-auto max-w-3xl text-[3.2rem] md:text-[5.6rem] leading-[0.92]", isDefault ? "font-extrabold tracking-[-0.075em] text-white" : "text-slate-900 font-semibold tracking-tight")}>
                     Be among the first.
                   </h2>
-                  <p className={clsx("mt-5 text-lg font-medium max-w-2xl mx-auto leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>
+                  <p className={clsx("mt-6 text-lg font-medium max-w-2xl mx-auto leading-8 tracking-normal [word-spacing:0.08em]", isDefault ? "text-white/64" : "text-slate-600")}>
                     We're opening Zoe to a small group of early adopters. Join the waitlist and we'll let you know when your spot is ready.
                   </p>
 
                   <div className={clsx("mt-10 max-w-md mx-auto w-full p-5 md:p-6 relative overflow-hidden",
-                    variant === "jesus-red" ? "bg-white border border-[#e0d8cd] shadow-sm rounded-lg" : isDefault ? "rounded-[2rem] border border-zoe-outline/45 bg-white shadow-[0_18px_44px_rgba(28,28,25,0.06)]" : "rounded-2xl bg-slate-50/80 backdrop-blur-xl border border-slate-100 shadow-sm")}>
+                    variant === "jesus-red" ? "bg-white border border-[#e0d8cd] shadow-sm rounded-lg" : isDefault ? "rounded-[1.6rem] border border-white/12 bg-white shadow-[0_24px_70px_rgba(0,0,0,0.16)]" : "rounded-2xl bg-slate-50/80 backdrop-blur-xl border border-slate-100 shadow-sm")}>
                     {status === "sent" ? (
                       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center justify-center py-8 px-4 text-center">
                         <div className="w-16 h-16 bg-zoe-leaf/10 rounded-full flex items-center justify-center mb-6">
@@ -349,7 +350,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
         </section>
 
         {/* Trust & Privacy */}
-        <section className={clsx("py-20 md:py-32 px-6 relative overflow-hidden", isDefault ? "bg-zoe-oat" : "bg-[#FCFAF8]")}>
+        <section className={clsx("py-24 md:py-32 px-6 relative overflow-hidden", isDefault ? "bg-zoe-oat" : "bg-[#FCFAF8]")}>
           <div className={clsx("absolute inset-0 pointer-events-none", isDefault ? "" : "bg-[radial-gradient(circle_at_top_right,rgba(252,211,77,0.05),transparent_50%)]")} />
           <div className={clsx("absolute inset-0 pointer-events-none", isDefault ? "" : "bg-[radial-gradient(circle_at_bottom_left,rgba(29,194,134,0.05),transparent_50%)]")} />
 
@@ -359,7 +360,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                 variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : isDefault ? "rounded-full border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                 Trust & Privacy
               </div>
-              <h2 className={clsx("text-4xl md:text-5xl lg:text-6xl leading-[1.1]", isDefault ? defaultSectionHeading : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>
+              <h2 className={clsx("text-[3.2rem] md:text-[5rem] leading-[0.94]", isDefault ? "font-extrabold tracking-[-0.075em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>
                 {isDefault ? (
                   "How private is this?"
                 ) : (
@@ -368,7 +369,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                   </>
                 )}
               </h2>
-              <p className={clsx("mt-8 text-xl font-medium leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>
+              <p className={clsx("mt-8 text-xl font-medium leading-9 tracking-normal [word-spacing:0.08em]", isDefault ? "text-zoe-muted" : "text-slate-600")}>
                 {isDefault
                   ? "Private by default. If a church uses Zoe, leaders should see patterns, not personal threads. Any deeper sharing is opt-in, narrow, and clearly explained."
                   : "By default, completely private. We offer congregations the ability to anonymously share their data so church leaders can see broad trends but NEVER personal messages. Any kind of data sharing is opt-in and we are completely transparent about how your data gets processed to tailor your experience of Zoe."}
@@ -390,7 +391,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
                       <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
-                    <h4 className={clsx("text-2xl tracking-tight mb-3", isDefault ? "font-semibold text-zoe-ink" : "font-bold text-slate-900")}>Just between you and God.</h4>
+                    <h4 className={clsx("text-3xl tracking-[-0.05em] mb-3", isDefault ? "font-extrabold text-zoe-ink" : "font-bold text-slate-900")}>Just between you and God.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>Your conversations are never shared with your church, your pastor, or anyone else. What you bring to Zoe stays with you.</p>
                   </motion.div>
 
@@ -398,7 +399,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
                       <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
-                    <h4 className={clsx("text-2xl tracking-tight mb-3", isDefault ? "font-semibold text-zoe-ink" : "font-bold text-slate-900")}>Your data, your rules.</h4>
+                    <h4 className={clsx("text-3xl tracking-[-0.05em] mb-3", isDefault ? "font-extrabold text-zoe-ink" : "font-bold text-slate-900")}>Your data, your rules.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>You can take your full history with you if you ever leave, or ask us to erase it completely. No hard feelings, no questions asked.</p>
                   </motion.div>
                 </div>
@@ -416,7 +417,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
                       <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
-                    <h4 className={clsx("text-2xl tracking-tight mb-3", isDefault ? "font-semibold text-zoe-ink" : "font-bold text-slate-900")}>We share trends, not secrets.</h4>
+                    <h4 className={clsx("text-3xl tracking-[-0.05em] mb-3", isDefault ? "font-extrabold text-zoe-ink" : "font-bold text-slate-900")}>We share trends, not secrets.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>Pastors can see how their congregation is doing as a whole — themes that are surfacing, areas where people are struggling — but never individual messages or personal confessions.</p>
                   </motion.div>
 
@@ -424,7 +425,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
                       <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
-                    <h4 className={clsx("text-2xl tracking-tight mb-3", isDefault ? "font-semibold text-zoe-ink" : "font-bold text-slate-900")}>You hold the keys.</h4>
+                    <h4 className={clsx("text-3xl tracking-[-0.05em] mb-3", isDefault ? "font-extrabold text-zoe-ink" : "font-bold text-slate-900")}>You hold the keys.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>Any data sharing at the congregation level is always opt-in. We are fully transparent about what gets shared and what doesn't.</p>
                   </motion.div>
                 </div>
@@ -444,14 +445,14 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
           </div>
         </section>
 
-        <section id="faq" className={clsx("scroll-mt-24 py-20 md:py-32 px-6 relative overflow-hidden", isDefault ? "bg-zoe-surface" : "bg-[#F8FBFA]")}>
+        <section id="faq" className={clsx("scroll-mt-24 py-24 md:py-32 px-6 relative overflow-hidden", isDefault ? "bg-zoe-surface" : "bg-[#F8FBFA]")}>
           <div className="mx-auto max-w-4xl relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-16">
               <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6 shadow-sm",
                 variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : isDefault ? "rounded-full border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                 FAQs
               </div>
-              <h2 className={clsx("text-4xl md:text-5xl", isDefault ? defaultSectionHeading : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>You've got questions. <br className="md:hidden" />We get it.</h2>
+              <h2 className={clsx("text-[3rem] md:text-[5rem] leading-[0.95]", isDefault ? "font-extrabold tracking-[-0.075em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>You've got questions. <br className="md:hidden" />We get it.</h2>
               <p className={clsx("mt-6 text-lg font-medium max-w-2xl mx-auto", isDefault ? "text-zoe-muted" : "text-slate-600")}>
                 We&apos;d be worried if you <span className="italic">didn&apos;t</span>!
               </p>
