@@ -1,119 +1,100 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import Footer from "../../components/Footer";
-import blogBg from "../../public/images/blog-bg.webp";
+import { blogPosts } from "../../lib/blogPosts";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Journal",
   description:
     "Thinking on discipleship, technology, and what it looks like to walk with Jesus in the everyday. From the team at Zoe.",
 };
 
-const posts = [
-  {
-    slug: "why-you-keep-quitting-your-bible-app",
-    title: "Why You Keep Quitting Your Bible App (And What Actually Works)",
-    description: "71% of apps are abandoned within 90 days. Bible apps are no different. The problem is friction — and the fix is simpler than you think.",
-    date: "March 2026",
-    readTime: "8 min read",
-    badge: "Discipleship",
-    badgeColor: "text-zoe-forest border-zoe-sap/20 bg-zoe-sap/10",
-    image: "/blog/why-you-keep-quitting-your-bible-app/hero.jpg",
-  },
-  {
-    slug: "what-is-sms-discipleship",
-    title: "What Is SMS Discipleship?",
-    description: "SMS discipleship is daily spiritual growth that happens through text messages — no app, no login, no friction. Here's why it works when nothing else does.",
-    date: "February 2026",
-    readTime: "7 min read",
-    badge: "Discipleship",
-    badgeColor: "text-zoe-forest border-zoe-sap/20 bg-zoe-sap/10",
-  },
-  {
-    slug: "can-ai-help-you-walk-with-jesus",
-    title: "Can AI Help You Walk With Jesus?",
-    description: "AI can't love you or know God's will — but it can remember what you said on Tuesday and ask about it on Friday. Here's an honest look at what that's worth.",
-    date: "February 2026",
-    readTime: "8 min read",
-    badge: "AI & Faith",
-    badgeColor: "text-zoe-forest border-zoe-sap/20 bg-zoe-sap/10",
-  },
-  {
-    slug: "equip-the-kingdom-to-use-ai-well",
-    title: "I'm a Former Worship Pastor Building an AI Discipleship Tool. Here's What I've Learned.",
-    description: "Building something for the church means wrestling with hard questions — about trust, about replacement anxiety, and about what technology should actually do in a faith context.",
-    date: "March 2026",
-    readTime: "8 min read",
-    badge: "Church & Technology",
-    badgeColor: "text-amber-700 border-amber-200 bg-amber-50",
-  },
-];
-
 export default function BlogIndexPage() {
+  const featured = blogPosts[0];
+  const rest = blogPosts.slice(1);
+
   return (
     <div className="min-h-screen bg-zoe-oat text-zoe-ink">
-      <section className="relative aspect-video w-full overflow-hidden bg-slate-100" style={{ marginTop: "72px" }}>
-        <Image src={blogBg} alt="Blog Background" fill className="object-cover" priority />
+      <main className="px-6 pb-24 pt-36">
+        <section className="mx-auto max-w-7xl border-b border-zoe-outline/60 pb-14">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.46fr] lg:items-end">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
+                Journal · Field notes · Essays
+              </p>
+              <h1 className="mt-5 max-w-4xl text-[4.4rem] font-extrabold leading-[0.88] tracking-[-0.075em] text-zoe-ink md:text-[7.8rem]">
+                Thinking on discipleship.
+              </h1>
+              <p className="mt-7 max-w-2xl font-serif text-[1.55rem] italic leading-9 text-zoe-sap md:text-[2rem] md:leading-10">
+                Tech, faith, and what it looks like to walk with Jesus in the everyday.
+              </p>
+            </div>
 
-        <div className="absolute inset-0 z-10 flex items-center md:w-2/3 lg:w-1/2">
-          <div
-            className="pointer-events-none h-[150%] w-full -ml-[20%] backdrop-blur-md"
-            style={{
-              WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)",
-              maskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)",
-            }}
-          />
-        </div>
-        <div className="absolute inset-0 z-10 flex items-center md:w-2/3 lg:w-1/2">
-          <div className="pointer-events-none h-[150%] w-full -ml-[20%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,0,0,0.5)_0%,_transparent_100%)]" />
-        </div>
-
-        <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-12 lg:px-24">
-          <div className="max-w-4xl">
-            <h1 className="mb-2 text-5xl font-bold leading-[1.05] tracking-tight font-sans text-white md:text-7xl lg:mb-4 lg:text-[80px]">
-              Thinking on discipleship
-            </h1>
-            <p className="text-xl font-medium tracking-tight text-white md:text-3xl lg:text-4xl">
-              Tech, faith, and what it looks like to
-              <br />
-              walk with Jesus in the everyday
+            <p className="max-w-sm text-sm font-semibold leading-7 text-zoe-muted lg:justify-self-end">
+              Essays from the workbench: SMS discipleship, AI and faith, the habit gap between Sundays, and the product choices behind Zoe.
             </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="bg-zoe-surface px-6 py-24">
-        <div className="mx-auto max-w-3xl">
-          <div className="flex flex-col gap-8">
-            {posts.map((post) => (
+        <section className="mx-auto grid max-w-7xl gap-8 py-14 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="rounded-[2rem] bg-zoe-surface p-7 shadow-[0_18px_50px_rgba(45,50,49,0.04)] md:p-9">
+            <p className="font-serif text-[4.5rem] italic leading-none text-zoe-sap">{featured.number}</p>
+            <p className="mt-8 text-[11px] font-bold uppercase tracking-[0.28em] text-zoe-sap">
+              Featured · {featured.category}
+            </p>
+            <h2 className="mt-4 text-[2.6rem] font-extrabold leading-[0.92] tracking-[-0.065em] text-zoe-ink md:text-[4.2rem]">
+              {featured.title}
+            </h2>
+          </div>
+
+          <Link
+            href={`/blog/${featured.slug}`}
+            className="group flex min-h-[29rem] flex-col justify-between rounded-[2rem] bg-white p-7 shadow-[0_18px_50px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/50 transition hover:-translate-y-1 hover:shadow-[0_26px_70px_rgba(45,50,49,0.08)] md:p-9"
+          >
+            <div>
+              <div className="flex flex-wrap gap-3 text-[11px] font-bold uppercase tracking-[0.24em] text-zoe-muted">
+                <span>{featured.date}</span>
+                <span>·</span>
+                <span>{featured.readTime}</span>
+              </div>
+              <p className="mt-10 max-w-2xl text-[1.45rem] font-semibold leading-9 tracking-[-0.035em] text-zoe-ink md:text-[2rem] md:leading-10">
+                {featured.description}
+              </p>
+            </div>
+            <span className="mt-10 inline-flex w-fit items-center gap-2 rounded-full bg-zoe-sap px-5 py-3 text-sm font-bold tracking-normal text-white transition group-hover:bg-zoe-forest [word-spacing:0.16em]">
+              Read article
+              <ArrowRight className="h-4 w-4" />
+            </span>
+          </Link>
+        </section>
+
+        <section className="mx-auto max-w-7xl">
+          <div className="grid gap-5">
+            {rest.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group block rounded-3xl border border-zoe-outline/35 bg-white p-8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(0,0,0,0.08)] md:p-10"
+                className="group grid gap-6 rounded-[2rem] bg-white px-6 py-7 shadow-[0_12px_36px_rgba(45,50,49,0.04)] ring-1 ring-zoe-outline/45 transition hover:-translate-y-0.5 hover:shadow-[0_22px_60px_rgba(45,50,49,0.07)] md:grid-cols-[7rem_1fr_auto] md:items-center md:px-8"
               >
-                <div className="mb-4 flex flex-wrap items-center gap-3">
-                  <span className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-widest ${post.badgeColor}`}>
-                    {post.badge}
-                  </span>
-                  <span className="text-xs font-medium text-zoe-muted">{post.date}</span>
-                  <span className="text-xs text-zoe-outline">·</span>
-                  <span className="text-xs font-medium text-zoe-muted">{post.readTime}</span>
+                <p className="font-serif text-[3.25rem] italic leading-none text-zoe-sap">{post.number}</p>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-zoe-sap">{post.category}</p>
+                  <h2 className="mt-2 text-[1.75rem] font-extrabold leading-[0.98] tracking-[-0.052em] text-zoe-ink md:text-[2.65rem]">
+                    {post.shortTitle}
+                  </h2>
+                  <p className="mt-3 max-w-3xl text-base font-medium leading-7 text-zoe-muted">{post.description}</p>
                 </div>
-                <h2 className="mb-4 text-2xl font-bold leading-snug tracking-tight font-sans text-zoe-ink transition-colors duration-200 group-hover:text-zoe-forest md:text-3xl">
-                  {post.title}
-                </h2>
-                <p className="mb-6 font-medium leading-relaxed text-zoe-muted">{post.description}</p>
-                <div className="flex items-center gap-2 text-sm font-semibold text-zoe-muted transition-colors duration-200 group-hover:text-zoe-forest">
-                  Read article <ArrowRight className="h-4 w-4" />
+                <div className="flex items-center gap-3 text-sm font-bold text-zoe-muted transition group-hover:text-zoe-forest md:justify-self-end">
+                  <span>{post.readTime}</span>
+                  <ArrowRight className="h-4 w-4" />
                 </div>
               </Link>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </div>

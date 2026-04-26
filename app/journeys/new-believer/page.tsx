@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import Footer from "../../../components/Footer";
+import JourneyDetailPage from "../../../components/JourneyDetailPage";
+import type { JourneyContent } from "../../../lib/journeyContent";
 
 export const metadata: Metadata = {
   title: "New Believer — 21-Day First Steps Journey",
@@ -34,78 +32,30 @@ const days = [
   { day: 21, theme: "The Long Walk", passage: "Philippians 1:6; Jude 24–25", prompt: "What's one thing you want to carry forward from these 21 days? What does the next step look like for you?" },
 ];
 
+const journey: JourneyContent = {
+  slug: "new-believer",
+  title: "First Steps: A New Believer Journey",
+  duration: "21 Days",
+  difficulty: "introductory",
+  description:
+    "The first weeks after saying yes to Jesus are some of the most important and most vulnerable. This journey gives you a steady daily path for those first steps.",
+  metaDescription:
+    "A 21-day guided journey for new believers. Learn to pray, read Scripture, and build the habits that make faith stick, one text message at a time.",
+  heroAlt: "First Steps: A New Believer Journey",
+  ctaLabel: "First Steps",
+  stats: [
+    { label: "Duration", value: "21 Days" },
+    { label: "Check-ins", value: "3 per day" },
+    { label: "Topics", value: "21 foundations" },
+  ],
+  body: [
+    "New faith is tender. There are a thousand questions, a lot of excitement, and also a lot of uncertainty. What does it even mean to follow Jesus in an ordinary week?",
+    "This 21-day journey is built for exactly that season. Each day covers one foundational topic, from prayer to doubt to baptism to the long walk ahead. Zoe checks in three times a day with the passage, a reflection question, and space to actually think it through.",
+    "No app. No homework. Just a text message that meets you where you are.",
+  ],
+  days,
+};
+
 export default function NewBelieverPage() {
-  return (
-    <div className="min-h-screen text-zoe-ink">
-      <section className="relative w-full overflow-hidden bg-zoe-ink" style={{ aspectRatio: "16/9" }}>
-        <Image src="/images/journeys/new-believer.jpg" alt="First Steps — 21-Day New Believer Journey" fill className="object-cover" priority />
-      </section>
-
-      <section className="py-16 px-6 bg-white">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-lg text-zoe-muted font-medium leading-relaxed max-w-2xl mx-auto mb-8">
-            The first weeks after saying yes to Jesus are some of the most important and most vulnerable. This journey gives you a steady daily path for those first steps.
-          </p>
-          <div>
-            <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
-              Start This Journey <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-6 bg-zoe-surface">
-        <div className="mx-auto max-w-3xl">
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {[{label:"Duration",value:"21 Days"},{label:"Check-ins",value:"3 per day"},{label:"Topics",value:"21 foundations"}].map((stat) => (
-              <div key={stat.label} className="bg-white rounded-2xl p-6 text-center border border-zoe-outline/20 shadow-sm">
-                <p className="text-3xl font-bold tracking-tight font-sans text-zoe-ink mb-1">{stat.value}</p>
-                <p className="text-sm font-semibold uppercase tracking-widest text-zoe-muted">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-          <div className="text-zoe-muted font-medium leading-relaxed text-lg space-y-6">
-            <p>New faith is tender. There are a thousand questions, a lot of excitement, and also a lot of uncertainty. What does it even mean to follow Jesus in an ordinary week?</p>
-            <p>This 21-day journey is built for exactly that season. Each day covers one foundational topic — from prayer to doubt to baptism to the long walk ahead. Zoe checks in three times a day with the passage, a reflection question, and space to actually think it through.</p>
-            <p>No app. No homework. Just a text message that meets you where you are.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-6 bg-white">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="text-3xl md:text-4xl tracking-tight font-sans text-zoe-ink font-bold mb-10">The 21 Days</h2>
-          <div className="flex flex-col gap-4">
-            {days.map((d) => (
-              <div key={d.day} className="flex gap-5 items-start p-6 rounded-2xl bg-zoe-surface border border-zoe-outline/20">
-                <div className="w-10 h-10 rounded-full bg-zoe-ink flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-sm font-bold">{d.day}</span>
-                </div>
-                <div>
-                  <div className="flex flex-wrap gap-2 items-center mb-1">
-                    <span className="text-zoe-sap font-semibold text-sm">{d.passage}</span>
-                    <span className="text-zoe-outline text-sm">·</span>
-                    <span className="font-bold text-zoe-ink">{d.theme}</span>
-                  </div>
-                  <p className="text-zoe-muted text-sm leading-relaxed font-medium italic">&ldquo;{d.prompt}&rdquo;</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 px-6 bg-zoe-ink">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-6">Every journey starts somewhere.</h2>
-          <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">Join the waitlist and we&apos;ll let you know when this journey is ready to walk with you.</p>
-          <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
-            Join the Waitlist <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  );
+  return <JourneyDetailPage journey={journey} />;
 }
