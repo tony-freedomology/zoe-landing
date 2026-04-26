@@ -19,7 +19,7 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
     <section
       className={clsx(
         "relative border-b px-6 py-24 md:py-32",
-        isDefault ? "border-white/10 bg-[#173A2E] text-white" : "border-zoe-outline/45 bg-zoe-oat text-zoe-ink",
+        isDefault ? "border-zoe-ink bg-zoe-ink text-white" : "border-zoe-outline/45 bg-zoe-oat text-zoe-ink",
       )}
     >
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
@@ -47,18 +47,18 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
           variants={fadeUp}
           className={clsx(
             "rounded-[2rem] p-7 shadow-[0_18px_60px_rgba(45,50,49,0.05)] md:p-10",
-            isDefault ? "bg-white/8 ring-1 ring-white/12" : "bg-white ring-1 ring-zoe-outline/45",
+            isDefault ? "bg-white/[0.055]" : "bg-white ring-1 ring-zoe-outline/45",
           )}
         >
           <p
             className={clsx(
               "font-serif text-3xl italic leading-[1.22] tracking-normal [word-spacing:0.06em] md:text-4xl",
-              isDefault ? "text-white/88" : "text-zoe-forest",
+              isDefault ? "text-white/92" : "text-zoe-forest",
             )}
           >
             The tension
           </p>
-          <div className={clsx("mt-8 h-px", isDefault ? "bg-white/12" : "bg-zoe-outline/55")} />
+          <div className={clsx("mt-8 h-px", isDefault ? "bg-white/14" : "bg-zoe-outline/55")} />
           <div className={clsx("mt-8 space-y-6 text-lg font-medium leading-8 tracking-normal [word-spacing:0.08em]", isDefault ? "text-white/70" : "text-zoe-muted")}>
             <p>
               It sounds obvious, but it really isn&apos;t. How do you make it helpful but not invasive? Proactive but not creepy? How do you make sure it points people <span className="font-extrabold text-zoe-sap">TO</span> Jesus and doesn&apos;t become a substitute <span className="font-extrabold text-zoe-sap">FOR</span> Him?
