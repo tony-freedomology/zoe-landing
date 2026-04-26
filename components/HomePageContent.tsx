@@ -211,36 +211,38 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
         </section>
 
         {/* Act 3: The Clearing (Unified CTA & Pricing) */}
-        <section ref={waitlistRef} id="waitlist" className={clsx("relative scroll-mt-24 px-4 py-24 md:py-32", variant === "jesus-red" ? "bg-[#f5efe6]" : isDefault ? "bg-[#173A2E]" : "bg-[#F8FBFA]")}>
+        <section ref={waitlistRef} id="waitlist" className={clsx("relative scroll-mt-24 px-4 py-24 md:py-32", variant === "jesus-red" ? "bg-[#f5efe6]" : isDefault ? "bg-zoe-surface" : "bg-[#F8FBFA]")}>
           <div className="w-full overflow-hidden">
-            {!isDefault && variant !== "jesus-red" && (
+            {variant !== "jesus-red" && (
               <>
                 <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(251,248,242,0.98),rgba(245,241,232,0.94))]" />
               </>
             )}
 
             <div className="mx-auto max-w-5xl relative z-10 w-full">
-              <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className={clsx("relative text-center", variant === "jesus-red" ? "overflow-hidden rounded-xl p-6 md:p-16" : isDefault ? "rounded-[2rem] bg-white/8 px-6 py-10 ring-1 ring-white/12 md:px-10 md:py-12" : "px-6 py-8 md:px-8 md:py-10")}>
+              <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className={clsx("relative text-center", variant === "jesus-red" ? "overflow-hidden rounded-xl p-6 md:p-16" : "px-6 py-8 md:px-8 md:py-10")}>
                 {variant === "jesus-red" && (
                   <div className="absolute inset-0 bg-[#faf7f0] border border-[#e0d8cd] shadow-lg shadow-black/5" />
                 )}
 
                 <div className="relative z-10 mx-auto max-w-3xl">
-                  {isDefault && null}
+                  {isDefault && (
+                    <div className="mx-auto mb-8 h-1.5 w-16 rounded-full bg-zoe-sap/80" />
+                  )}
                   <div className={clsx("inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
-                    variant === "jesus-red" ? "rounded-md border border-[#e0d8cd] bg-[#f5efe6] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : isDefault ? "rounded-full border border-white/12 bg-white/8 text-zoe-sap" : "rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
+                    variant === "jesus-red" ? "rounded-md border border-[#e0d8cd] bg-[#f5efe6] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : isDefault ? "rounded-full border border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                     Pre-Alpha Waitlist
                   </div>
 
-                  <h2 className={clsx("mx-auto max-w-3xl text-[3.2rem] md:text-[5.6rem] leading-[0.92]", isDefault ? "font-extrabold tracking-[-0.058em] [word-spacing:0.045em] md:tracking-[-0.075em] text-white" : "text-slate-900 font-semibold tracking-tight")}>
+                  <h2 className={clsx("mx-auto max-w-2xl text-4xl leading-[1.06] md:text-6xl", isDefault ? defaultSectionHeading : "text-slate-900 font-semibold tracking-tight")}>
                     Be among the first.
                   </h2>
-                  <p className={clsx("mt-6 text-lg font-medium max-w-2xl mx-auto leading-8 tracking-normal [word-spacing:0.08em]", isDefault ? "text-white/70" : "text-slate-600")}>
+                  <p className={clsx("mt-5 text-lg font-medium max-w-2xl mx-auto leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>
                     We're opening Zoe to a small group of early adopters. Join the waitlist and we'll let you know when your spot is ready.
                   </p>
 
                   <div className={clsx("mt-10 max-w-md mx-auto w-full p-5 md:p-6 relative overflow-hidden",
-                    variant === "jesus-red" ? "bg-white border border-[#e0d8cd] shadow-sm rounded-lg" : isDefault ? "rounded-[1.6rem] border border-white/12 bg-white shadow-[0_24px_70px_rgba(0,0,0,0.16)]" : "rounded-2xl bg-slate-50/80 backdrop-blur-xl border border-slate-100 shadow-sm")}>
+                    variant === "jesus-red" ? "bg-white border border-[#e0d8cd] shadow-sm rounded-lg" : isDefault ? "rounded-[2rem] border border-zoe-outline/45 bg-white shadow-[0_18px_44px_rgba(28,28,25,0.06)]" : "rounded-2xl bg-slate-50/80 backdrop-blur-xl border border-slate-100 shadow-sm")}>
                     {status === "sent" ? (
                       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center justify-center py-8 px-4 text-center">
                         <div className="w-16 h-16 bg-zoe-leaf/10 rounded-full flex items-center justify-center mb-6">
@@ -452,7 +454,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                 variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : isDefault ? "rounded-full border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                 FAQs
               </div>
-              <h2 className={clsx("text-[3rem] md:text-[5rem] leading-[0.95]", isDefault ? "font-extrabold tracking-[-0.058em] [word-spacing:0.045em] md:tracking-[-0.075em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>You've got questions. <br className="md:hidden" />We get it.</h2>
+              <h2 className={clsx("text-4xl md:text-5xl", isDefault ? defaultSectionHeading : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>You've got questions. <br className="md:hidden" />We get it.</h2>
               <p className={clsx("mt-6 text-lg font-medium max-w-2xl mx-auto", isDefault ? "text-zoe-muted" : "text-slate-600")}>
                 We&apos;d be worried if you <span className="italic">didn&apos;t</span>!
               </p>

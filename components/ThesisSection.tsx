@@ -12,21 +12,6 @@ interface ThesisProps {
   variant?: "default" | "jesus-red" | "emerald-uni";
 }
 
-const tenets = [
-  {
-    title: "Not a replacement.",
-    body: "Zoe does not pretend to be a pastor, a friend, or the Holy Spirit. It is a quiet tool for attention and follow-through.",
-  },
-  {
-    title: "Built for the ordinary week.",
-    body: "The work is not a better devotional at 7am. The work is helping scripture stay present at noon, at dinner, and before sleep.",
-  },
-  {
-    title: "Memory serves obedience.",
-    body: "Continuity matters because formation takes time. Zoe remembers what you said so it can help you come back to it.",
-  },
-];
-
 export default function ThesisSection({ variant = "default" }: ThesisProps = {}) {
   const isDefault = variant === "default";
 
@@ -40,7 +25,7 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
           <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
-            The thesis
+            The question
           </p>
           <h2
             className={clsx(
@@ -48,8 +33,11 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
               isDefault ? "text-white" : "text-zoe-ink",
             )}
           >
-            AI that helps attention return to Jesus.
+            AI that helps you walk with Jesus more consistently.
           </h2>
+          <p className={clsx("mt-7 max-w-2xl text-xl font-medium leading-9 tracking-normal [word-spacing:0.08em]", isDefault ? "text-white/70" : "text-zoe-muted")}>
+            Wait...can that be done?...should it? And how?
+          </p>
         </motion.div>
 
         <motion.div
@@ -68,26 +56,29 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
               isDefault ? "text-white/88" : "text-zoe-forest",
             )}
           >
-            The question is not whether AI can make spiritual content. The question is whether it can stay quiet enough to help people practice what they already believe.
+            The tension
           </p>
           <div className={clsx("mt-8 h-px", isDefault ? "bg-white/12" : "bg-zoe-outline/55")} />
-          <div className="mt-8 grid gap-6">
-            {tenets.map((tenet, index) => (
-              <div key={tenet.title} className="grid gap-4 md:grid-cols-[3.5rem_1fr]">
-                <p className="font-serif text-3xl italic leading-none text-zoe-sap">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <div>
-                  <h3 className={clsx("text-xl font-extrabold tracking-[-0.03em]", isDefault ? "text-white" : "text-zoe-ink")}>
-                    {tenet.title}
-                  </h3>
-                  <p className={clsx("mt-2 font-medium leading-7 tracking-normal [word-spacing:0.08em]", isDefault ? "text-white/60" : "text-zoe-muted")}>
-                    {tenet.body}
-                  </p>
-                </div>
-              </div>
-            ))}
+          <div className={clsx("mt-8 space-y-6 text-lg font-medium leading-8 tracking-normal [word-spacing:0.08em]", isDefault ? "text-white/70" : "text-zoe-muted")}>
+            <p>
+              It sounds obvious, but it really isn&apos;t. How do you make it helpful but not invasive? Proactive but not creepy? How do you make sure it points people <span className="font-extrabold text-zoe-sap">TO</span> Jesus and doesn&apos;t become a substitute <span className="font-extrabold text-zoe-sap">FOR</span> Him?
+            </p>
+            <p>
+              Here&apos;s what <span className={clsx("font-extrabold", isDefault ? "text-white" : "text-zoe-ink")}>IS</span> obvious: AI is here, whether we like it or not, and the church (at large) needs to figure out what we&apos;re going to do about it. That&apos;s why we&apos;re building in public, and talking about it in public, and inviting you to join the conversation (and the alpha!)
+            </p>
+            <p>
+              We&apos;re really not interested in AI that tries to replace pastors (we are pastors, so that would be silly), tries to fill the role of the Holy Spirit, or offers fake spiritual certainty.
+            </p>
+            <p>
+              But we are very interested in how AI could be used to help people&apos;s attention turn to Christ more often. We already know AI can make a great morning devotional, but what we need is <span className="font-extrabold text-zoe-sap">day-long devotion.</span>
+            </p>
+            <p>
+              <span className={clsx("font-extrabold", isDefault ? "text-white" : "text-zoe-ink")}>Can it help with that?</span>
+            </p>
           </div>
+          <p className="mt-8 font-serif text-4xl italic leading-none text-zoe-sap md:text-5xl">
+            Meet Zoe.
+          </p>
         </motion.div>
       </div>
     </section>
