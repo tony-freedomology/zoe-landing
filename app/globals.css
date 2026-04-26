@@ -141,6 +141,43 @@ body {
   margin: 2rem 0;
 }
 
+.journey-shelf {
+  scroll-snap-type: x proximity;
+}
+
+.journey-shelf a {
+  scroll-snap-align: start;
+}
+
+.journey-shelf-track {
+  animation: journey-shelf-drift 72s linear infinite;
+  will-change: transform;
+}
+
+.journey-shelf-track-reverse {
+  animation-direction: reverse;
+}
+
+.journey-shelf:hover .journey-shelf-track,
+.journey-shelf:focus-within .journey-shelf-track {
+  animation-play-state: paused;
+}
+
+@keyframes journey-shelf-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(-50% - 0.75rem), 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-shelf-track {
+    animation: none;
+  }
+}
+
 .glass {
   background: rgba(252, 249, 244, 0.95);
   border: 1px solid rgba(187, 202, 193, 0.2);

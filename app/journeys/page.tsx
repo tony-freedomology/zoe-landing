@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+
 import Footer from "../../components/Footer";
-import { journeyCatalog } from "../../lib/journeyCatalog";
+import JourneyCarousel from "../../components/JourneyCarousel";
+import { journeyCatalog, type JourneySummary } from "../../lib/journeyCatalog";
 
 export const metadata: Metadata = {
   title: "Journeys - Zoe",
@@ -11,117 +13,139 @@ export const metadata: Metadata = {
     "Explore guided reading, prayer, and reflection journeys built to help you walk with Jesus in the places real life hits hardest.",
 };
 
-const featured = journeyCatalog.slice(0, 3);
-const rest = journeyCatalog.slice(3);
+const bySlug = Object.fromEntries(journeyCatalog.map((journey) => [journey.slug, journey])) as Record<string, JourneySummary>;
+
+function pick(slugs: string[]) {
+  return slugs.map((slug) => bySlug[slug]).filter(Boolean);
+}
+
+const shelves = [
+  {
+    title: "Begin here.",
+    kicker: "Foundations",
+    description: "Clear starting points for prayer, scripture, and the first few steps of daily rhythm.",
+    journeys: pick(["new-believer", "james-deep", "rooted", "still", "the-examen", "way-of-jesus"]),
+  },
+  {
+    title: "The inner life.",
+    kicker: "Attention and formation",
+    description: "Journeys for the places nobody sees: identity, patience, wisdom, purpose, and the life beneath the work.",
+    journeys: pick(["identity", "purpose", "patience", "wisdom", "gratitude", "rest"]),
+    reverse: true,
+  },
+  {
+    title: "People close to you.",
+    kicker: "Relationships",
+    description: "Practice love where it gets specific: marriage, parenting, friendship, forgiveness, generosity, and anger.",
+    journeys: pick(["love", "marriage", "parenting", "friendship", "forgiveness", "generosity", "anger"]),
+  },
+  {
+    title: "Work, money, and responsibility.",
+    kicker: "Calling",
+    description: "For ambition, leadership, legacy, health, money, and the responsibilities that shape your week.",
+    journeys: pick(["leadership", "work-ambition", "money", "legacy", "health", "courage"]),
+    reverse: true,
+  },
+  {
+    title: "Hard places.",
+    kicker: "When life presses in",
+    description: "Gentle, scripture-shaped paths for anxiety, doubt, grief, suffering, addiction, and courage when the road is not clean.",
+    journeys: pick(["fear-anxiety", "faith-doubt", "grief", "suffering", "addiction", "courage"]),
+  },
+];
+
+const heroJourney = bySlug["way-of-jesus"];
 
 export default function JourneysHubPage() {
   return (
-    <div className="min-h-screen bg-zoe-oat text-zoe-ink">
-      <section className="px-6 pb-20 pt-36 md:pb-28 md:pt-44">
-        <div className="mx-auto max-w-7xl">
-          <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
-            Guided journeys · Scripture rhythms
-          </p>
-          <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_340px] lg:items-end">
-            <div>
-              <h1 className="max-w-5xl text-[4.4rem] font-extrabold leading-[0.88] tracking-[-0.058em] text-zoe-ink [word-spacing:0.045em] md:text-[7.8rem] md:tracking-[-0.075em]">
-                Pick a path for the week ahead.
-              </h1>
-              <p className="mt-7 max-w-3xl font-serif text-[1.7rem] italic leading-9 text-zoe-sap md:text-[2rem] md:leading-10">
-                Guided reading, prayer, and reflection delivered in the thread you already check.
-              </p>
-            </div>
-            <p className="text-base font-medium leading-7 tracking-normal text-zoe-muted [word-spacing:0.08em]">
-              Each journey gives Zoe a simple arc to walk with you through: a passage, a question, a thread of memory, and a next faithful step.
+    <div className="min-h-screen overflow-hidden bg-zoe-oat text-zoe-ink">
+      <section className="px-5 pb-16 pt-32 md:px-8 md:pb-24 md:pt-40">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
+          <div>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.34em] text-zoe-sap">
+              Guided journeys · Scripture rhythms
+            </p>
+            <h1 className="mt-7 max-w-5xl text-[4.3rem] font-extrabold leading-[0.86] tracking-[-0.045em] text-zoe-ink [word-spacing:0.08em] md:text-[8.25rem] md:tracking-[-0.08em] md:[word-spacing:0.02em]">
+              Choose the road under your feet.
+            </h1>
+            <p className="mt-7 max-w-2xl font-serif text-[1.55rem] italic leading-9 tracking-normal text-zoe-sap md:text-[2rem] md:leading-10">
+              Not a giant catalog to sort through. A few shelves for the season you are actually in.
             </p>
           </div>
-        </div>
-      </section>
 
-      <section className="px-6 pb-16">
-        <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-3">
-          {featured.map((journey, index) => (
-            <Link
-              href={`/journeys/${journey.slug}`}
-              key={journey.slug}
-              className="group overflow-hidden rounded-[2rem] bg-white shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/45 transition hover:-translate-y-1"
-            >
-              <div className="relative aspect-[1.08] overflow-hidden bg-zoe-surface">
-                <Image
-                  src={journey.image}
-                  alt={journey.title}
-                  fill
-                  className="object-contain p-3 transition duration-700 group-hover:scale-[1.02]"
-                  sizes="(min-width: 1024px) 33vw, 100vw"
-                  priority={index === 0}
-                />
-              </div>
-              <div className="p-7">
-                <div className="flex items-center justify-between gap-5">
-                  <p className="font-serif text-5xl italic leading-none text-zoe-sap">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <span className="rounded-full bg-zoe-surface px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-zoe-muted">
-                    {journey.duration}
-                  </span>
-                </div>
-                <h2 className="mt-7 text-[2rem] font-extrabold leading-[0.98] tracking-[-0.058em] text-zoe-ink">
-                  {journey.title}
-                </h2>
-                <p className="mt-4 line-clamp-4 text-sm font-medium leading-6 tracking-normal text-zoe-muted [word-spacing:0.06em]">
-                  {journey.description}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="px-6 pb-24">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-zoe-outline/55 bg-zoe-outline/55">
-          {rest.map((journey, index) => (
-            <Link
-              href={`/journeys/${journey.slug}`}
-              key={journey.slug}
-              className="group grid gap-4 bg-zoe-oat p-6 transition hover:bg-white md:grid-cols-[92px_1fr_160px] md:items-center md:p-8"
-            >
-              <p className="font-serif text-4xl italic leading-none text-zoe-sap">
-                {String(index + 4).padStart(2, "0")}
+          <Link
+            href={`/journeys/${heroJourney.slug}`}
+            className="group grid overflow-hidden rounded-[2rem] bg-zoe-ink text-white shadow-[0_30px_90px_rgba(45,50,49,0.14)] md:grid-cols-[0.92fr_1.08fr]"
+          >
+            <div className="relative min-h-[22rem] overflow-hidden bg-zoe-surface md:min-h-[30rem]">
+              <Image
+                src={heroJourney.image}
+                alt={heroJourney.title}
+                fill
+                priority
+                sizes="(min-width: 1024px) 28rem, 100vw"
+                className="object-contain p-3 transition duration-700 group-hover:scale-[1.02]"
+              />
+              <p className="absolute bottom-6 left-6 rounded-full bg-zoe-oat/90 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-zoe-ink backdrop-blur">
+                Featured path
               </p>
+            </div>
+            <div className="flex flex-col justify-between p-7 md:p-10">
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-zoe-sap">
-                  {journey.difficulty}
+                <p className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-zoe-sap">
+                  {heroJourney.duration} · {heroJourney.difficulty}
                 </p>
-                <h2 className="mt-2 text-[1.65rem] font-extrabold leading-[0.98] tracking-[-0.052em] text-zoe-ink md:text-[2.35rem]">
-                  {journey.title}
+                <h2 className="mt-5 text-[2.55rem] font-extrabold leading-[0.94] tracking-[-0.04em] [word-spacing:0.07em] md:text-[4.25rem] md:tracking-[-0.065em] md:[word-spacing:0.02em]">
+                  {heroJourney.title}
                 </h2>
-                <p className="mt-3 max-w-3xl text-sm font-medium leading-6 tracking-normal text-zoe-muted [word-spacing:0.06em] md:text-base md:leading-7">
-                  {journey.description}
+                <p className="mt-6 text-base font-medium leading-7 tracking-normal text-white/72 md:text-lg md:leading-8">
+                  {heroJourney.description}
                 </p>
               </div>
-              <div className="flex items-center justify-between gap-4 md:justify-end">
-                <span className="text-sm font-bold text-zoe-muted">{journey.duration}</span>
-                <ArrowRight className="h-5 w-5 text-zoe-sap transition group-hover:translate-x-1" />
-              </div>
-            </Link>
+              <span className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-zoe-sap px-6 py-3 text-sm font-bold text-white transition [word-spacing:0.12em] group-hover:bg-[#17aa74]">
+                Start here
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      <section className="border-y border-zoe-outline/55 bg-white/45 px-5 py-8 md:px-8">
+        <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
+          {[
+            ["31", "guided paths"],
+            ["5", "shelves by season"],
+            ["10-40", "days per journey"],
+          ].map(([value, label]) => (
+            <div key={label} className="flex items-baseline gap-4">
+              <p className="font-serif text-5xl italic leading-none text-zoe-sap">{value}</p>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-zoe-muted">{label}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-[#173A2E] px-6 py-24 text-white">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-zoe-sap">
-            Start small
-          </p>
-          <h2 className="mt-5 text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.07em] md:text-[5rem]">
-            One passage. One question. One thread.
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/70 [word-spacing:0.08em]">
-            Zoe is in early access. Join the waitlist to be among the first to walk through guided journeys by text.
-          </p>
+      {shelves.map((shelf) => (
+        <JourneyCarousel key={shelf.title} {...shelf} />
+      ))}
+
+      <section className="px-5 py-24 md:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 rounded-[2rem] border border-zoe-outline/50 bg-white p-7 shadow-[0_24px_70px_rgba(45,50,49,0.06)] md:grid-cols-[1fr_auto] md:items-center md:p-10">
+          <div>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-zoe-sap">
+              Start small
+            </p>
+            <h2 className="mt-4 max-w-3xl text-[2.55rem] font-extrabold leading-[0.92] tracking-[-0.04em] text-zoe-ink [word-spacing:0.07em] sm:text-[3rem] md:text-[5rem] md:tracking-[-0.07em] md:[word-spacing:0.02em]">
+              One passage. One question. One thread.
+            </h2>
+            <p className="mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-zoe-muted">
+              Zoe is in early access. Join the waitlist to be among the first to walk through guided journeys by text.
+            </p>
+          </div>
           <Link
             href="/#waitlist"
-            className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold tracking-normal text-white shadow-[0_18px_36px_rgba(29,194,134,0.18)] transition hover:bg-zoe-forest [word-spacing:0.14em]"
+            className="inline-flex w-fit items-center justify-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold tracking-normal text-white shadow-[0_18px_36px_rgba(29,194,134,0.18)] transition [word-spacing:0.12em] hover:bg-[#17aa74]"
           >
             Join the waitlist
             <ArrowRight className="h-4 w-4" />
