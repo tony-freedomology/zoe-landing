@@ -69,7 +69,7 @@ export default function AboutPage() {
                 </span>{" "}
                 to point past itself.
               </h1>
-              <p className="mt-8 max-w-3xl text-xl font-medium leading-8 tracking-normal text-white/68 [word-spacing:0.08em] md:text-2xl md:leading-9">
+              <p className="mt-8 max-w-3xl text-xl font-medium leading-8 tracking-normal text-white/70 [word-spacing:0.08em] md:text-2xl md:leading-9">
                 Six commitments that shape every line of code, every nudge, every word Zoe sends, and every boundary we refuse to blur.
               </p>
             </div>
@@ -121,7 +121,7 @@ export default function AboutPage() {
             <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-zoe-sap">
               Behind it
             </p>
-            <h2 className="mt-5 text-[3.1rem] font-extrabold leading-[0.9] tracking-[-0.07em] text-zoe-ink md:text-[4.7rem]">
+            <h2 className="mt-5 text-[3.1rem] font-extrabold leading-[0.9] tracking-[-0.058em] text-zoe-ink [word-spacing:0.045em] md:text-[4.7rem] md:tracking-[-0.07em]">
               A pastor-builder, talking plainly.
             </h2>
             <p className="mt-6 font-serif text-2xl italic leading-9 tracking-normal text-zoe-forest [word-spacing:0.08em]">

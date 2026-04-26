@@ -52,7 +52,7 @@ export default function FeaturesPage() {
             Features · built for the week
           </p>
           <div className="mt-7 grid gap-10 lg:grid-cols-[1fr_28rem] lg:items-end">
-            <h1 className="max-w-5xl text-[3.8rem] font-extrabold leading-[0.9] tracking-[-0.075em] text-zoe-ink md:text-[6.8rem]">
+            <h1 className="max-w-5xl text-[3.8rem] font-extrabold leading-[0.9] tracking-[-0.058em] text-zoe-ink [word-spacing:0.045em] md:text-[6.8rem] md:tracking-[-0.075em]">
               A discipleship tool with a low center of gravity.
             </h1>
             <p className="text-lg font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em] md:text-xl md:leading-9">
@@ -96,10 +96,10 @@ export default function FeaturesPage() {
             <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
               What it protects
             </p>
-            <h2 className="mt-6 text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.075em] md:text-[5.4rem]">
+            <h2 className="mt-6 text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.066em] [word-spacing:0.025em] md:text-[5.4rem] md:tracking-[-0.075em]">
               Trust is a feature.
             </h2>
-            <p className="mt-7 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/64 [word-spacing:0.08em]">
+            <p className="mt-7 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/70 [word-spacing:0.08em]">
               The product only works if people can be honest. So the system is designed around clarity, consent, privacy, and human handoff.
             </p>
           </div>
@@ -135,7 +135,7 @@ export default function FeaturesPage() {
       <section className="border-t border-zoe-outline/55 px-6 py-24">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">Early access</p>
-          <h2 className="mt-5 text-[3rem] font-extrabold leading-[0.95] tracking-[-0.07em] text-zoe-ink md:text-[5rem]">
+          <h2 className="mt-5 text-[3rem] font-extrabold leading-[0.95] tracking-[-0.066em] text-zoe-ink [word-spacing:0.025em] md:text-[5rem] md:tracking-[-0.07em]">
             See what it feels like.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">

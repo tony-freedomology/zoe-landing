@@ -16,15 +16,15 @@ export default function BlogIndexPage() {
   const rest = blogPosts.slice(1);
 
   return (
-    <div className="min-h-screen bg-zoe-oat text-zoe-ink">
+    <div className="min-h-screen overflow-x-hidden bg-zoe-oat text-zoe-ink">
       <main className="px-6 pb-24 pt-36">
         <section className="mx-auto max-w-7xl border-b border-zoe-outline/60 pb-14">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.46fr] lg:items-end">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
+              <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-zoe-sap md:tracking-[0.34em]">
                 Journal · Field notes · Essays
               </p>
-              <h1 className="mt-5 max-w-4xl text-[4.4rem] font-extrabold leading-[0.88] tracking-[-0.075em] text-zoe-ink md:text-[7.8rem]">
+              <h1 className="mt-5 max-w-4xl text-[4.4rem] font-extrabold leading-[0.88] tracking-[-0.066em] text-zoe-ink [word-spacing:0.025em] md:text-[7.8rem] md:tracking-[-0.075em]">
                 Thinking on discipleship.
               </h1>
               <p className="mt-7 max-w-2xl font-serif text-[1.55rem] italic leading-9 text-zoe-sap md:text-[2rem] md:leading-10">

@@ -44,7 +44,7 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
           </p>
           <h2
             className={clsx(
-              "mt-6 max-w-4xl text-[3.3rem] font-extrabold leading-[0.92] tracking-[-0.075em] md:text-[5.9rem]",
+              "mt-6 max-w-4xl text-[3.3rem] font-extrabold leading-[0.92] tracking-[-0.058em] [word-spacing:0.045em] md:text-[5.9rem] md:tracking-[-0.075em]",
               isDefault ? "text-white" : "text-zoe-ink",
             )}
           >
@@ -81,7 +81,7 @@ export default function ThesisSection({ variant = "default" }: ThesisProps = {})
                   <h3 className={clsx("text-xl font-extrabold tracking-[-0.03em]", isDefault ? "text-white" : "text-zoe-ink")}>
                     {tenet.title}
                   </h3>
-                  <p className={clsx("mt-2 font-medium leading-7 tracking-normal [word-spacing:0.08em]", isDefault ? "text-white/62" : "text-zoe-muted")}>
+                  <p className={clsx("mt-2 font-medium leading-7 tracking-normal [word-spacing:0.08em]", isDefault ? "text-white/60" : "text-zoe-muted")}>
                     {tenet.body}
                   </p>
                 </div>

@@ -103,7 +103,7 @@ export default function ChurchesPage() {
             <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
               For churches · weekday formation
             </p>
-            <h1 className="mt-7 max-w-5xl text-[3.7rem] font-extrabold leading-[0.9] tracking-[-0.075em] md:text-[6.7rem]">
+            <h1 className="mt-7 max-w-5xl text-[3.7rem] font-extrabold leading-[0.9] tracking-[-0.058em] [word-spacing:0.045em] md:text-[6.7rem] md:tracking-[-0.075em]">
               Sunday needs somewhere to go on Monday.
             </h1>
           </div>
@@ -146,7 +146,7 @@ export default function ChurchesPage() {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">Setup</p>
-            <h2 className="mt-6 text-[3.1rem] font-extrabold leading-[0.92] tracking-[-0.075em] text-zoe-ink md:text-[5rem]">
+            <h2 className="mt-6 text-[3.1rem] font-extrabold leading-[0.92] tracking-[-0.066em] text-zoe-ink [word-spacing:0.025em] md:text-[5rem] md:tracking-[-0.075em]">
               About fifteen minutes to a pilot.
             </h2>
           </div>
@@ -165,10 +165,10 @@ export default function ChurchesPage() {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">Trust posture</p>
-            <h2 className="mt-6 text-[3.1rem] font-extrabold leading-[0.92] tracking-[-0.075em] md:text-[5rem]">
+            <h2 className="mt-6 text-[3.1rem] font-extrabold leading-[0.92] tracking-[-0.066em] [word-spacing:0.025em] md:text-[5rem] md:tracking-[-0.075em]">
               Cohort signal. Personal privacy.
             </h2>
-            <p className="mt-7 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/64 [word-spacing:0.08em]">
+            <p className="mt-7 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/70 [word-spacing:0.08em]">
               The dashboard should help leaders care for the church without turning private formation into staff surveillance.
             </p>
           </div>
@@ -182,7 +182,7 @@ export default function ChurchesPage() {
               <div key={item.title} className="rounded-[2rem] bg-white/7 p-7 ring-1 ring-white/12">
                 <item.icon className="h-5 w-5 text-zoe-sap" />
                 <h3 className="mt-5 text-2xl font-extrabold tracking-[-0.04em] text-white">{item.title}</h3>
-                <p className="mt-2 font-medium leading-7 tracking-normal text-white/62 [word-spacing:0.08em]">{item.body}</p>
+                <p className="mt-2 font-medium leading-7 tracking-normal text-white/60 [word-spacing:0.08em]">{item.body}</p>
               </div>
             ))}
           </div>
@@ -192,7 +192,7 @@ export default function ChurchesPage() {
       <section className="px-6 py-24">
         <div className="mx-auto max-w-4xl">
           <p className="text-center text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">FAQs</p>
-          <h2 className="mx-auto mt-5 max-w-3xl text-center text-[3rem] font-extrabold leading-[0.95] tracking-[-0.07em] text-zoe-ink md:text-[5rem]">
+          <h2 className="mx-auto mt-5 max-w-3xl text-center text-[3rem] font-extrabold leading-[0.95] tracking-[-0.066em] text-zoe-ink [word-spacing:0.025em] md:text-[5rem] md:tracking-[-0.07em]">
             Questions pastors should ask.
           </h2>
           <div className="mt-12 grid gap-4">
@@ -210,7 +210,7 @@ export default function ChurchesPage() {
         <div className="mx-auto grid max-w-6xl gap-10 rounded-[2rem] bg-white p-7 shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/45 md:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">Church waitlist</p>
-            <h2 className="mt-5 text-[3rem] font-extrabold leading-[0.95] tracking-[-0.07em] text-zoe-ink md:text-[4.5rem]">
+            <h2 className="mt-5 text-[3rem] font-extrabold leading-[0.95] tracking-[-0.066em] text-zoe-ink [word-spacing:0.025em] md:text-[4.5rem] md:tracking-[-0.07em]">
               Pilot the weekday layer.
             </h2>
             <p className="mt-6 text-lg font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">

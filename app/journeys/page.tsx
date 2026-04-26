@@ -24,7 +24,7 @@ export default function JourneysHubPage() {
           </p>
           <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_340px] lg:items-end">
             <div>
-              <h1 className="max-w-5xl text-[4.4rem] font-extrabold leading-[0.88] tracking-[-0.075em] text-zoe-ink md:text-[7.8rem]">
+              <h1 className="max-w-5xl text-[4.4rem] font-extrabold leading-[0.88] tracking-[-0.058em] text-zoe-ink [word-spacing:0.045em] md:text-[7.8rem] md:tracking-[-0.075em]">
                 Pick a path for the week ahead.
               </h1>
               <p className="mt-7 max-w-3xl font-serif text-[1.7rem] italic leading-9 text-zoe-sap md:text-[2rem] md:leading-10">
@@ -116,7 +116,7 @@ export default function JourneysHubPage() {
           <h2 className="mt-5 text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.07em] md:text-[5rem]">
             One passage. One question. One thread.
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/68 [word-spacing:0.08em]">
+          <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/70 [word-spacing:0.08em]">
             Zoe is in early access. Join the waitlist to be among the first to walk through guided journeys by text.
           </p>
           <Link

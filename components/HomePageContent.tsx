@@ -189,7 +189,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
               <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
                 Guided journeys
               </p>
-              <h2 className={clsx("text-[3.2rem] md:text-[5rem] leading-[0.92]", isDefault ? "font-extrabold tracking-[-0.075em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial")}>
+              <h2 className={clsx("text-[3.2rem] md:text-[5rem] leading-[0.92]", isDefault ? "font-extrabold tracking-[-0.058em] [word-spacing:0.045em] md:tracking-[-0.075em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial")}>
                 {isDefault ? (
                   <>
                     Daily journeys tailored to your{" "}
@@ -213,7 +213,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
         {/* Act 3: The Clearing (Unified CTA & Pricing) */}
         <section ref={waitlistRef} id="waitlist" className={clsx("relative scroll-mt-24 px-4 py-24 md:py-32", variant === "jesus-red" ? "bg-[#f5efe6]" : isDefault ? "bg-[#173A2E]" : "bg-[#F8FBFA]")}>
           <div className="w-full overflow-hidden">
-            {variant !== "jesus-red" && (
+            {!isDefault && variant !== "jesus-red" && (
               <>
                 <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(251,248,242,0.98),rgba(245,241,232,0.94))]" />
               </>
@@ -232,10 +232,10 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     Pre-Alpha Waitlist
                   </div>
 
-                  <h2 className={clsx("mx-auto max-w-3xl text-[3.2rem] md:text-[5.6rem] leading-[0.92]", isDefault ? "font-extrabold tracking-[-0.075em] text-white" : "text-slate-900 font-semibold tracking-tight")}>
+                  <h2 className={clsx("mx-auto max-w-3xl text-[3.2rem] md:text-[5.6rem] leading-[0.92]", isDefault ? "font-extrabold tracking-[-0.058em] [word-spacing:0.045em] md:tracking-[-0.075em] text-white" : "text-slate-900 font-semibold tracking-tight")}>
                     Be among the first.
                   </h2>
-                  <p className={clsx("mt-6 text-lg font-medium max-w-2xl mx-auto leading-8 tracking-normal [word-spacing:0.08em]", isDefault ? "text-white/64" : "text-slate-600")}>
+                  <p className={clsx("mt-6 text-lg font-medium max-w-2xl mx-auto leading-8 tracking-normal [word-spacing:0.08em]", isDefault ? "text-white/70" : "text-slate-600")}>
                     We're opening Zoe to a small group of early adopters. Join the waitlist and we'll let you know when your spot is ready.
                   </p>
 
@@ -360,7 +360,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                 variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : isDefault ? "rounded-full border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                 Trust & Privacy
               </div>
-              <h2 className={clsx("text-[3.2rem] md:text-[5rem] leading-[0.94]", isDefault ? "font-extrabold tracking-[-0.075em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>
+              <h2 className={clsx("text-[3.2rem] md:text-[5rem] leading-[0.94]", isDefault ? "font-extrabold tracking-[-0.058em] [word-spacing:0.045em] md:tracking-[-0.075em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>
                 {isDefault ? (
                   "How private is this?"
                 ) : (
@@ -391,7 +391,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
                       <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
-                    <h4 className={clsx("text-3xl tracking-[-0.05em] mb-3", isDefault ? "font-extrabold text-zoe-ink" : "font-bold text-slate-900")}>Just between you and God.</h4>
+                    <h4 className={clsx("text-3xl tracking-[-0.035em] [word-spacing:0.02em] mb-3", isDefault ? "font-extrabold text-zoe-ink" : "font-bold text-slate-900")}>Just between you and God.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>Your conversations are never shared with your church, your pastor, or anyone else. What you bring to Zoe stays with you.</p>
                   </motion.div>
 
@@ -399,7 +399,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
                       <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
-                    <h4 className={clsx("text-3xl tracking-[-0.05em] mb-3", isDefault ? "font-extrabold text-zoe-ink" : "font-bold text-slate-900")}>Your data, your rules.</h4>
+                    <h4 className={clsx("text-3xl tracking-[-0.035em] [word-spacing:0.02em] mb-3", isDefault ? "font-extrabold text-zoe-ink" : "font-bold text-slate-900")}>Your data, your rules.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>You can take your full history with you if you ever leave, or ask us to erase it completely. No hard feelings, no questions asked.</p>
                   </motion.div>
                 </div>
@@ -417,7 +417,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
                       <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
-                    <h4 className={clsx("text-3xl tracking-[-0.05em] mb-3", isDefault ? "font-extrabold text-zoe-ink" : "font-bold text-slate-900")}>We share trends, not secrets.</h4>
+                    <h4 className={clsx("text-3xl tracking-[-0.035em] [word-spacing:0.02em] mb-3", isDefault ? "font-extrabold text-zoe-ink" : "font-bold text-slate-900")}>We share trends, not secrets.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>Pastors can see how their congregation is doing as a whole — themes that are surfacing, areas where people are struggling — but never individual messages or personal confessions.</p>
                   </motion.div>
 
@@ -425,7 +425,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     <div className={clsx("hidden md:flex absolute -left-[14px] top-0 w-8 h-8 rounded-full flex-col items-center justify-center z-10 transition-colors duration-500", isDefault ? "bg-zoe-oat border border-zoe-outline/60" : "bg-[#FCFAF8] border-2 border-zoe-leaf/30")}>
                       <div className={clsx("w-2 h-2 rounded-full", isDefault ? "bg-zoe-sap" : "bg-zoe-leaf/80")} />
                     </div>
-                    <h4 className={clsx("text-3xl tracking-[-0.05em] mb-3", isDefault ? "font-extrabold text-zoe-ink" : "font-bold text-slate-900")}>You hold the keys.</h4>
+                    <h4 className={clsx("text-3xl tracking-[-0.035em] [word-spacing:0.02em] mb-3", isDefault ? "font-extrabold text-zoe-ink" : "font-bold text-slate-900")}>You hold the keys.</h4>
                     <p className={clsx("text-lg leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>Any data sharing at the congregation level is always opt-in. We are fully transparent about what gets shared and what doesn't.</p>
                   </motion.div>
                 </div>
@@ -452,7 +452,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                 variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : isDefault ? "rounded-full border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                 FAQs
               </div>
-              <h2 className={clsx("text-[3rem] md:text-[5rem] leading-[0.95]", isDefault ? "font-extrabold tracking-[-0.075em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>You've got questions. <br className="md:hidden" />We get it.</h2>
+              <h2 className={clsx("text-[3rem] md:text-[5rem] leading-[0.95]", isDefault ? "font-extrabold tracking-[-0.058em] [word-spacing:0.045em] md:tracking-[-0.075em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>You've got questions. <br className="md:hidden" />We get it.</h2>
               <p className={clsx("mt-6 text-lg font-medium max-w-2xl mx-auto", isDefault ? "text-zoe-muted" : "text-slate-600")}>
                 We&apos;d be worried if you <span className="italic">didn&apos;t</span>!
               </p>

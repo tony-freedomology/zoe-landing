@@ -22,7 +22,7 @@ export default function JourneyDetailPage({ journey, heroImage }: JourneyDetailP
               <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
                 Journey · {journey.duration}
               </p>
-              <h1 className="mt-6 max-w-4xl text-[3.7rem] font-extrabold leading-[0.9] tracking-[-0.075em] text-zoe-ink md:text-[6.4rem]">
+              <h1 className="mt-6 max-w-4xl text-[3.7rem] font-extrabold leading-[0.9] tracking-[-0.058em] text-zoe-ink [word-spacing:0.045em] md:text-[6.4rem] md:tracking-[-0.075em]">
                 {journey.title}
               </h1>
               <p className="mt-7 max-w-2xl text-lg font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em] md:text-xl md:leading-9">
@@ -90,7 +90,7 @@ export default function JourneyDetailPage({ journey, heroImage }: JourneyDetailP
           <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-zoe-sap">
             Daily path
           </p>
-          <h2 className="mt-5 text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.07em] text-zoe-ink md:text-[5rem]">
+          <h2 className="mt-5 text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.066em] text-zoe-ink [word-spacing:0.025em] md:text-[5rem] md:tracking-[-0.07em]">
             The {journey.days.length} days.
           </h2>
 
@@ -118,10 +118,10 @@ export default function JourneyDetailPage({ journey, heroImage }: JourneyDetailP
           <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-zoe-sap">
             Begin the journey
           </p>
-          <h2 className="mt-5 text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.07em] md:text-[5rem]">
+          <h2 className="mt-5 text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.066em] [word-spacing:0.025em] md:text-[5rem] md:tracking-[-0.07em]">
             Let the thread carry it.
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/68 [word-spacing:0.08em]">
+          <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/70 [word-spacing:0.08em]">
             Join the waitlist to be among the first to walk through {journey.ctaLabel} with scripture, reflection, and check-ins in your texts.
           </p>
           <Link
