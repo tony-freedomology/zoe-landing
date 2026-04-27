@@ -1,250 +1,221 @@
-"use client";
-
-import { useState, type FormEvent } from "react";
 import Link from "next/link";
-import { ArrowRight, BarChart3, CheckCircle, FileText, Heart, ShieldCheck } from "lucide-react";
-import Footer from "../../components/Footer";
-import { usePhoneFormatter } from "../hooks/usePhoneFormatter";
 import {
-  isWaitlistEmailValid,
-  isWaitlistNameValid,
-  isWaitlistPhoneValid,
-} from "../../lib/waitlistValidation";
+  ArrowRight,
+  BookOpen,
+  CheckCircle2,
+  Lock,
+  MessageCircle,
+  ShieldCheck,
+  Sparkles,
+  Users,
+} from "lucide-react";
 
-const pillars = [
+const dashboardUrl = process.env.NEXT_PUBLIC_CHURCH_DASHBOARD_URL ?? "https://church.zoe.live";
+
+const journey = [
   {
-    title: "Sermon Echo",
-    body: "Upload the sermon, transcript, or notes. Zoe turns Sunday into a weekday companion your team can review before it sends.",
+    label: "Ask",
+    title: "Start with the real questions",
+    body: "What should AI never do in a church? What could it help with? What needs a pastor, elder, parent, or friend instead? We want those questions on the table first.",
   },
   {
-    title: "Church Profile",
-    body: "Set tradition, tone, theological guardrails, and handoff rules so Zoe sounds aligned without needing prompt engineering.",
+    label: "Pilot",
+    title: "Try it with a small group",
+    body: "Zoe is meant to be tested carefully before a broad rollout. Start with trusted leaders, a ministry team, or a small cohort who can give honest pastoral feedback.",
   },
   {
-    title: "Prayer Circle",
-    body: "Members can opt into prayer support. Requests are privacy-scrubbed and routed to the audience your church chooses.",
-  },
-  {
-    title: "Pastoral Brief",
-    body: "Leaders see cohort patterns, what landed, what confused people, and where someone explicitly asked for human follow-up.",
+    label: "Shape",
+    title: "Make it sound like your church",
+    body: "Your theology, teaching sources, language, and care boundaries should shape the experience before members receive a single text.",
   },
 ];
 
-const setup = [
-  "Choose your tradition and guardrails.",
-  "Upload this Sunday's sermon.",
-  "Preview the weekday companion.",
-  "Run the sandbox questions you actually worry about.",
-  "Invite members by SMS, QR code, or link.",
+const proof = [
+  {
+    icon: BookOpen,
+    title: "Sunday carries into the week",
+    body: "Members often leave encouraged and then step back into Monday without much support. Zoe helps turn sermon themes, scripture, and pastoral emphasis into a simple daily rhythm.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Guardrails come first",
+    body: "Before launch, churches define theological posture, sensitive boundaries, and moments when Zoe should defer to real people. Caution is not a footnote here.",
+  },
+  {
+    icon: Lock,
+    title: "Private by default",
+    body: "Zoe is not a surveillance layer. Leaders need enough signal to shepherd wisely without turning private spiritual formation into a dashboard feed.",
+  },
+  {
+    icon: MessageCircle,
+    title: "No app for members",
+    body: "Members receive Zoe by text. No download, no password, no new tech platform to explain after service.",
+  },
 ];
 
-const faqs = [
-  {
-    q: "Can staff approve what goes out?",
-    a: "Yes. Sermon companions are previewed before they send. Zoe should extend your church's voice, not surprise it.",
-  },
-  {
-    q: "Can pastors read private conversations?",
-    a: "No, not by default. The church view is built around aggregated patterns and explicit hand-raises, not surveillance.",
-  },
-  {
-    q: "Does this replace pastoral care?",
-    a: "No. It catches moments during the week and routes important ones toward real humans instead of pretending the tool can pastor everything.",
-  },
-  {
-    q: "Do members need an app?",
-    a: "No. Zoe lives in text messages because that is where ordinary weekday follow-through is most likely to happen.",
-  },
+const handoffSteps = [
+  "Zoe should strengthen discipleship between Sundays, not outsource pastoral presence.",
+  "A church should be able to inspect theology, tone, and care boundaries before inviting members.",
+  "AI should be honest about what it is, where it is limited, and when a human should step in.",
+  "The first rollout should be small enough for your team to learn from real feedback.",
+  "We are building this with our own local churches in view, so trust has to be earned slowly.",
 ];
 
 export default function ChurchesPage() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "sent">("idle");
-  const [name, setName] = useState("");
-  const [phone, setPhone] = usePhoneFormatter("");
-  const [email, setEmail] = useState("");
-  const [submitError, setSubmitError] = useState<string | null>(null);
-  const formValid =
-    isWaitlistNameValid(name) &&
-    isWaitlistPhoneValid(phone) &&
-    isWaitlistEmailValid(email);
-
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!formValid) {
-      setSubmitError("Enter a valid name, phone number, and email.");
-      return;
-    }
-
-    setStatus("submitting");
-    setSubmitError(null);
-    const payload = { name, phone, email, source: "churches-waitlist", submittedAt: new Date().toISOString() };
-
-    try {
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const data = await response.json().catch(() => null);
-      if (!response.ok || !data?.ok) throw new Error(data?.error || "Unable to submit");
-      setStatus("sent");
-    } catch (error) {
-      console.warn("Church waitlist submission failed:", error);
-      setStatus("idle");
-      setSubmitError("Something went wrong. Please try again.");
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-zoe-oat text-zoe-ink">
-      <section className="bg-[#173A2E] px-6 pb-24 pt-36 text-white md:pb-32 md:pt-44">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_27rem] lg:items-end">
+    <main className="min-h-screen overflow-x-hidden bg-zoe-oat text-zoe-ink">
+      <section className="px-5 pb-20 pt-32 sm:px-8 lg:pb-28 lg:pt-40">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
-              For churches · weekday formation
-            </p>
-            <h1 className="mt-7 max-w-5xl text-[3.7rem] font-extrabold leading-[0.9] tracking-[-0.058em] [word-spacing:0.045em] md:text-[6.7rem] md:tracking-[-0.075em]">
-              Sunday needs somewhere to go on Monday.
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-zoe-surface px-4 py-2 text-[11px] font-bold uppercase tracking-[0.22em] text-zoe-forest">
+              <span className="h-2 w-2 rounded-full bg-zoe-leaf" />
+              For pastors and church teams
+            </div>
+            <h1 className="max-w-4xl text-5xl font-bold leading-[0.95] tracking-tighter-editorial text-zoe-ink sm:text-6xl lg:text-8xl">
+              AI for churches should feel thoughtful before it feels powerful.
             </h1>
-          </div>
-          <div className="rounded-[2rem] bg-white/8 p-7 ring-1 ring-white/12">
-            <p className="font-serif text-3xl italic leading-[1.22] tracking-normal text-white/86 [word-spacing:0.06em]">
-              Zoe gives the sermon a weekday thread without giving leaders a back door into private souls.
+            <p className="mt-8 max-w-2xl text-lg font-medium leading-8 text-zoe-muted sm:text-xl">
+              Zoe helps pastors extend scripture, prayer, and gentle follow-through into the week through SMS. We are building it for churches that are curious about AI, but rightly careful about where it belongs.
             </p>
-            <div className="mt-8 flex flex-col gap-3">
-              <a href="#waitlist" className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-6 py-4 text-sm font-bold text-white transition hover:bg-zoe-forest">
-                Join the church waitlist <ArrowRight className="h-4 w-4" />
-              </a>
-              <Link href="/" className="inline-flex items-center justify-center rounded-full border border-white/18 px-6 py-4 text-sm font-bold text-white/82 transition hover:bg-white/8">
-                See Zoe for individuals
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/churches/start"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-leaf px-7 py-4 text-sm font-bold text-white shadow-[0_18px_44px_rgba(45,50,49,0.08)] transition hover:-translate-y-0.5 hover:brightness-105"
+              >
+                Start a church pilot
+                <ArrowRight className="h-4 w-4" />
               </Link>
+              <a
+                href={`${dashboardUrl}/login`}
+                className="inline-flex items-center justify-center rounded-full bg-white px-7 py-4 text-sm font-bold text-zoe-ink shadow-[0_18px_44px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/45 transition hover:-translate-y-0.5 hover:bg-zoe-surface"
+              >
+                Admin login
+              </a>
             </div>
+          </div>
+
+          <div className="rounded-[2rem] bg-zoe-surface p-5 shadow-zoe-card ring-1 ring-zoe-outline/50 sm:p-7">
+            <div className="rounded-[1.5rem] bg-white p-5 shadow-[0_18px_50px_rgba(45,50,49,0.04)]">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-zoe-forest">Dashboard handoff</p>
+                  <h2 className="mt-2 text-2xl font-bold tracking-tight">Start small. Test carefully.</h2>
+                </div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-zoe-leaf/10 text-zoe-forest">
+                  <Sparkles className="h-5 w-5" />
+                </div>
+              </div>
+              <div className="mt-8 space-y-3">
+                {["Pastoral boundaries", "Theology guardrails", "Tone review", "Pilot invites"].map((item, index) => (
+                  <div key={item} className="flex items-center gap-3 rounded-2xl bg-zoe-surface px-4 py-3">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-xs font-bold text-zoe-forest">
+                      {index + 1}
+                    </span>
+                    <span className="text-sm font-bold text-zoe-ink">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <p className="px-2 pt-5 font-serif text-lg italic leading-7 text-zoe-forest">
+              &ldquo;We are not asking churches to trust AI blindly. We are building a way to examine it, shape it, and start with wisdom.&rdquo;
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-24">
+      <section className="bg-zoe-surface px-5 py-20 sm:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
-          <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">What the church gets</p>
-          <div className="mt-10 grid gap-px overflow-hidden rounded-[2rem] border border-zoe-outline/55 bg-zoe-outline/55 md:grid-cols-2">
-            {pillars.map((pillar, index) => (
-              <article key={pillar.title} className="bg-zoe-oat p-8 md:p-10">
-                <p className="font-serif text-4xl italic leading-none text-zoe-sap">{String(index + 1).padStart(2, "0")}</p>
-                <h2 className="mt-9 text-4xl font-extrabold leading-[0.95] tracking-[-0.06em] text-zoe-ink md:text-5xl">
-                  {pillar.title}
-                </h2>
-                <p className="mt-5 max-w-xl font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">
-                  {pillar.body}
-                </p>
+          <div className="max-w-3xl">
+            <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-zoe-forest">A thoughtful path in</p>
+            <h2 className="mt-4 text-4xl font-bold leading-tight tracking-tighter-editorial sm:text-5xl">
+              You do not need to decide everything before asking better questions.
+            </h2>
+          </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {journey.map((step) => (
+              <article key={step.label} className="rounded-[2rem] bg-white p-7 shadow-zoe-card">
+                <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-zoe-leaf">{step.label}</span>
+                <h3 className="mt-5 text-2xl font-bold tracking-tight">{step.title}</h3>
+                <p className="mt-4 text-sm font-medium leading-7 text-zoe-muted">{step.body}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-zoe-surface px-6 py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+      <section className="px-5 py-20 sm:px-8 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">Setup</p>
-            <h2 className="mt-6 text-[3.1rem] font-extrabold leading-[0.92] tracking-[-0.066em] text-zoe-ink [word-spacing:0.025em] md:text-[5rem] md:tracking-[-0.075em]">
-              About fifteen minutes to a pilot.
+            <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-zoe-forest">Why churches try it</p>
+            <h2 className="mt-4 text-4xl font-bold leading-tight tracking-tighter-editorial sm:text-5xl">
+              The hope is not more tech. The hope is more faithful follow-through.
             </h2>
-          </div>
-          <div className="overflow-hidden rounded-[2rem] border border-zoe-outline/55 bg-zoe-outline/55">
-            {setup.map((step, index) => (
-              <div key={step} className="grid gap-4 bg-zoe-oat p-6 md:grid-cols-[72px_1fr] md:p-7">
-                <p className="font-serif text-4xl italic leading-none text-zoe-sap">{String(index + 1).padStart(2, "0")}</p>
-                <p className="text-2xl font-extrabold leading-8 tracking-[-0.04em] text-zoe-ink">{step}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#173A2E] px-6 py-24 text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">Trust posture</p>
-            <h2 className="mt-6 text-[3.1rem] font-extrabold leading-[0.92] tracking-[-0.066em] [word-spacing:0.025em] md:text-[5rem] md:tracking-[-0.075em]">
-              Cohort signal. Personal privacy.
-            </h2>
-            <p className="mt-7 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/70 [word-spacing:0.08em]">
-              The dashboard should help leaders care for the church without turning private formation into staff surveillance.
+            <p className="mt-6 text-base font-medium leading-8 text-zoe-muted">
+              Pastors already know the gap: people receive truth on Sunday, then carry it into busy homes, workweeks, grief, temptation, and ordinary distraction. Zoe is for those ordinary hours, when a short text can help someone remember, pray, read, or take the next faithful step.
             </p>
           </div>
-          <div className="grid gap-4">
-            {[
-              { icon: BarChart3, title: "Aggregated weekly insight", body: "Themes, engagement, hand-raises, and what stayed with people." },
-              { icon: ShieldCheck, title: "Private by default", body: "Personal threads stay personal unless a member explicitly asks for follow-up." },
-              { icon: FileText, title: "Preview before send", body: "Staff review keeps sermon companions aligned with the church's voice." },
-              { icon: Heart, title: "Prayer without performance", body: "Prayer requests are scrubbed, routed, and reported back gently." },
-            ].map((item) => (
-              <div key={item.title} className="rounded-[2rem] bg-white/7 p-7 ring-1 ring-white/12">
-                <item.icon className="h-5 w-5 text-zoe-sap" />
-                <h3 className="mt-5 text-2xl font-extrabold tracking-[-0.04em] text-white">{item.title}</h3>
-                <p className="mt-2 font-medium leading-7 tracking-normal text-white/60 [word-spacing:0.08em]">{item.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 py-24">
-        <div className="mx-auto max-w-4xl">
-          <p className="text-center text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">FAQs</p>
-          <h2 className="mx-auto mt-5 max-w-3xl text-center text-[3rem] font-extrabold leading-[0.95] tracking-[-0.066em] text-zoe-ink [word-spacing:0.025em] md:text-[5rem] md:tracking-[-0.07em]">
-            Questions pastors should ask.
-          </h2>
-          <div className="mt-12 grid gap-4">
-            {faqs.map((faq) => (
-              <article key={faq.q} className="rounded-[2rem] bg-white p-7 shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/45">
-                <h3 className="text-2xl font-extrabold tracking-[-0.04em] text-zoe-ink">{faq.q}</h3>
-                <p className="mt-3 font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">{faq.a}</p>
+          <div className="grid gap-5 sm:grid-cols-2">
+            {proof.map(({ icon: Icon, title, body }) => (
+              <article key={title} className="rounded-[2rem] bg-white p-6 shadow-zoe-card ring-1 ring-zoe-outline/30">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-zoe-leaf/10 text-zoe-forest">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-6 text-xl font-bold tracking-tight">{title}</h3>
+                <p className="mt-3 text-sm font-medium leading-7 text-zoe-muted">{body}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="waitlist" className="border-t border-zoe-outline/55 px-6 py-24">
-        <div className="mx-auto grid max-w-6xl gap-10 rounded-[2rem] bg-white p-7 shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/45 md:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <section className="px-5 pb-20 sm:px-8 lg:pb-28">
+        <div className="mx-auto grid max-w-7xl gap-8 rounded-[2.25rem] bg-zoe-ink p-7 text-white sm:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:p-14">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">Church waitlist</p>
-            <h2 className="mt-5 text-[3rem] font-extrabold leading-[0.95] tracking-[-0.066em] text-zoe-ink [word-spacing:0.025em] md:text-[4.5rem] md:tracking-[-0.07em]">
-              Pilot the weekday layer.
+            <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-zoe-leaf">Our posture</p>
+            <h2 className="mt-4 text-4xl font-bold leading-tight tracking-tighter-editorial sm:text-5xl">
+              We get the hesitation because we share it.
             </h2>
-            <p className="mt-6 text-lg font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">
-              We are opening church deployments carefully. Join the list and we will reach out when a pilot slot is ready.
-            </p>
           </div>
-
-          {status === "sent" ? (
-            <div className="rounded-[1.6rem] bg-zoe-oat p-8 text-center ring-1 ring-zoe-outline/45">
-              <CheckCircle className="mx-auto h-10 w-10 text-zoe-sap" />
-              <h3 className="mt-5 text-3xl font-extrabold tracking-[-0.05em] text-zoe-ink">You are on the list.</h3>
-              <p className="mt-3 font-medium leading-7 text-zoe-muted">We will reach out when a church pilot slot opens.</p>
-            </div>
-          ) : (
-            <form className="grid gap-4" onSubmit={handleSubmit}>
-              <input type="hidden" name="source" value="churches-waitlist" />
-              <input required type="text" name="name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name / church name" className="rounded-[1.2rem] border border-zoe-outline/45 bg-zoe-oat px-5 py-4 text-base font-medium text-zoe-ink placeholder:text-zoe-muted/60 focus:border-zoe-sap focus:outline-none focus:ring-2 focus:ring-zoe-sap/15" />
-              <input required type="tel" name="phone" autoComplete="tel" inputMode="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone number" className="rounded-[1.2rem] border border-zoe-outline/45 bg-zoe-oat px-5 py-4 text-base font-medium text-zoe-ink placeholder:text-zoe-muted/60 focus:border-zoe-sap focus:outline-none focus:ring-2 focus:ring-zoe-sap/15" />
-              <input required type="email" name="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email address" className="rounded-[1.2rem] border border-zoe-outline/45 bg-zoe-oat px-5 py-4 text-base font-medium text-zoe-ink placeholder:text-zoe-muted/60 focus:border-zoe-sap focus:outline-none focus:ring-2 focus:ring-zoe-sap/15" />
-              <button type="submit" disabled={status === "submitting" || !formValid} className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold text-white shadow-[0_18px_36px_rgba(29,194,134,0.18)] transition hover:bg-zoe-forest disabled:bg-slate-200 disabled:text-slate-500">
-                {status === "submitting" ? "Joining..." : "Join the church waitlist"}
-              </button>
-              {submitError ? <p className="text-center text-sm font-medium text-rose-600">{submitError}</p> : null}
-              <p className="text-center text-xs leading-relaxed text-zoe-muted">
-                By joining, you consent to receive recurring automated SMS messages. Msg &amp; data rates may apply. Reply STOP to opt out.{" "}
-                <a href="/privacy" className="underline">Privacy Policy</a>{" · "}
-                <a href="/terms" className="underline">Terms</a>
-              </p>
-            </form>
-          )}
+          <div className="space-y-3">
+            {handoffSteps.map((step) => (
+              <div key={step} className="flex gap-3 rounded-3xl bg-white/8 p-4">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-zoe-leaf" />
+                <p className="text-sm font-medium leading-7 text-white/78">{step}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <Footer />
-    </div>
+      <section className="bg-zoe-surface px-5 py-20 sm:px-8 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.82fr] lg:items-center">
+          <div>
+            <p className="font-serif text-2xl italic text-zoe-forest">toward Him daily, as a church</p>
+            <h2 className="mt-4 max-w-3xl text-4xl font-bold leading-tight tracking-tighter-editorial sm:text-6xl">
+              Explore it with us. Start with a pilot when your team is ready.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base font-medium leading-8 text-zoe-muted">
+              We publish essays now, and we are preparing a podcast, because the church needs a deeper conversation about AI than a feature list can give. The pilot is for churches ready to move from conversation to careful practice.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+            <Link
+              href="/churches/start"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-leaf px-7 py-4 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:brightness-105"
+            >
+              Start a church pilot
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <a
+              href={`${dashboardUrl}/login`}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-bold text-zoe-ink ring-1 ring-zoe-outline/45 transition hover:-translate-y-0.5"
+            >
+              Already approved? Log in
+              <Users className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

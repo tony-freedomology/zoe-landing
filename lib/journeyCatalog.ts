@@ -66,6 +66,15 @@ export const journeyCatalog: JourneySummary[] = [
       "The first weeks after saying yes to Jesus are some of the most important and most vulnerable. This twenty-one day journey gives you a steady path for those first steps.",
   },
   {
+    slug: "new-believer",
+    title: "First Steps: A New Believer Journey",
+    duration: "21 Days",
+    difficulty: "introductory",
+    image: journeyImagePaths["new-believer"],
+    description:
+      "The first weeks after saying yes to Jesus are some of the most important and most vulnerable. This twenty-one day journey gives you a steady path for those first steps.",
+  },
+  {
     slug: journeyContent.leadership.slug,
     title: journeyContent.leadership.title,
     duration: journeyContent.leadership.duration,
