@@ -141,29 +141,29 @@ body {
   margin: 2rem 0;
 }
 
-.journey-shelf {
+.journey-theme {
   scroll-snap-type: x proximity;
 }
 
-.journey-shelf a {
+.journey-theme a {
   scroll-snap-align: start;
 }
 
-.journey-shelf-track {
-  animation: journey-shelf-drift 72s linear infinite;
+.journey-theme-track {
+  animation: journey-theme-drift 72s linear infinite;
   will-change: transform;
 }
 
-.journey-shelf-track-reverse {
+.journey-theme-track-reverse {
   animation-direction: reverse;
 }
 
-.journey-shelf:hover .journey-shelf-track,
-.journey-shelf:focus-within .journey-shelf-track {
+.journey-theme:hover .journey-theme-track,
+.journey-theme:focus-within .journey-theme-track {
   animation-play-state: paused;
 }
 
-@keyframes journey-shelf-drift {
+@keyframes journey-theme-drift {
   from {
     transform: translate3d(0, 0, 0);
   }
@@ -173,7 +173,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .journey-shelf-track {
+  .journey-theme-track {
     animation: none;
   }
 }

@@ -13,8 +13,8 @@ interface ThesisProps {
 
 export default function ThesisSection(_props: ThesisProps = {}) {
   return (
-    <section className="relative border-b border-zoe-outline/45 bg-zoe-oat px-6 py-24 text-zoe-ink md:py-32">
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+    <section className="relative bg-zoe-oat px-6 pb-24 pt-14 text-zoe-ink md:pb-32 md:pt-16">
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
           <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
             The question
