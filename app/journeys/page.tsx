@@ -19,7 +19,7 @@ function pick(slugs: string[]) {
   return slugs.map((slug) => bySlug[slug]).filter(Boolean);
 }
 
-const shelves = [
+const journeyThemes = [
   {
     title: "Begin here.",
     kicker: "Foundations",
@@ -59,63 +59,52 @@ const heroJourney = bySlug["way-of-jesus"];
 export default function JourneysHubPage() {
   return (
     <div className="min-h-screen overflow-hidden bg-zoe-oat text-zoe-ink">
-      <section className="px-5 pb-16 pt-32 md:px-8 md:pb-24 md:pt-40">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
+      <section className="px-5 pb-10 pt-24 md:px-8 md:pb-14 md:pt-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:gap-12">
           <div>
             <p className="text-[11px] font-extrabold uppercase tracking-[0.34em] text-zoe-sap">
               Guided journeys · Scripture rhythms
             </p>
-            <h1 className="mt-7 max-w-5xl text-[4.3rem] font-extrabold leading-[0.86] tracking-[-0.045em] text-zoe-ink [word-spacing:0.08em] md:text-[8.25rem] md:tracking-[-0.08em] md:[word-spacing:0.02em]">
-              Choose the road under your feet.
+            <h1 className="mt-6 max-w-[10ch] text-6xl font-extrabold leading-[0.94] tracking-tighter-editorial-relaxed text-zoe-ink md:text-7xl xl:text-8xl">
+              Daily paths through scripture.
             </h1>
-            <p className="mt-7 max-w-2xl font-serif text-[1.55rem] italic leading-9 tracking-normal text-zoe-sap md:text-[2rem] md:leading-10">
-              Not a giant catalog to sort through. A few shelves for the season you are actually in.
-            </p>
           </div>
 
           <Link
             href={`/journeys/${heroJourney.slug}`}
-            className="group grid overflow-hidden rounded-[2rem] bg-zoe-ink text-white shadow-[0_30px_90px_rgba(45,50,49,0.14)] md:grid-cols-[0.92fr_1.08fr]"
+            className="group overflow-hidden rounded-[2rem] border border-zoe-outline/35 bg-white p-4 text-zoe-ink shadow-[0_24px_70px_rgba(45,50,49,0.08)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_30px_80px_rgba(45,50,49,0.1)] md:p-5"
           >
-            <div className="relative min-h-[22rem] overflow-hidden bg-zoe-surface md:min-h-[30rem]">
+            <div className="relative aspect-video overflow-hidden rounded-[1.5rem] bg-zoe-surface">
               <Image
                 src={heroJourney.image}
                 alt={heroJourney.title}
                 fill
                 priority
-                sizes="(min-width: 1024px) 28rem, 100vw"
-                className="object-contain p-3 transition duration-700 group-hover:scale-[1.02]"
+                sizes="(min-width: 1024px) 42rem, 100vw"
+                className="object-cover transition duration-700 group-hover:scale-[1.03]"
               />
-              <p className="absolute bottom-6 left-6 rounded-full bg-zoe-oat/90 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-zoe-ink backdrop-blur">
+              <p className="absolute left-5 top-5 rounded-full bg-zoe-oat px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-zoe-ink shadow-[0_12px_28px_rgba(45,50,49,0.12)]">
                 Featured path
               </p>
             </div>
-            <div className="flex flex-col justify-between p-7 md:p-10">
-              <div>
-                <p className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-zoe-sap">
-                  {heroJourney.duration} · {heroJourney.difficulty}
-                </p>
-                <h2 className="mt-5 text-[2.55rem] font-extrabold leading-[0.94] tracking-[-0.04em] [word-spacing:0.07em] md:text-[4.25rem] md:tracking-[-0.065em] md:[word-spacing:0.02em]">
-                  {heroJourney.title}
-                </h2>
-                <p className="mt-6 text-base font-medium leading-7 tracking-normal text-white/72 md:text-lg md:leading-8">
-                  {heroJourney.description}
-                </p>
-              </div>
-              <span className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-zoe-sap px-6 py-3 text-sm font-bold text-white transition [word-spacing:0.12em] group-hover:bg-[#17aa74]">
+            <div className="flex flex-col gap-6 p-4 md:min-h-32 md:flex-row md:items-end md:justify-between md:p-6 lg:p-7">
+              <p className="line-clamp-3 max-w-2xl text-base font-medium leading-7 tracking-normal text-zoe-muted md:text-lg md:leading-8">
+                {heroJourney.description}
+              </p>
+              <span className="inline-flex w-fit shrink-0 items-center gap-2 self-end rounded-full bg-zoe-sap px-6 py-3 text-sm font-bold text-white transition group-hover:bg-[#17aa74]">
                 Start here
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </span>
             </div>
           </Link>
         </div>
       </section>
 
-      <section className="border-y border-zoe-outline/55 bg-white/45 px-5 py-8 md:px-8">
+      <section className="border-y border-zoe-outline/45 bg-white/45 px-5 py-6 md:px-8">
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
           {[
             ["31", "guided paths"],
-            ["5", "shelves by season"],
+            ["5", "journey themes"],
             ["10-40", "days per journey"],
           ].map(([value, label]) => (
             <div key={label} className="flex items-baseline gap-4">
@@ -126,8 +115,8 @@ export default function JourneysHubPage() {
         </div>
       </section>
 
-      {shelves.map((shelf) => (
-        <JourneyCarousel key={shelf.title} {...shelf} />
+      {journeyThemes.map((theme) => (
+        <JourneyCarousel key={theme.title} {...theme} />
       ))}
 
       <section className="px-5 py-24 md:px-8">
@@ -137,7 +126,7 @@ export default function JourneysHubPage() {
               Start small
             </p>
             <h2 className="mt-4 max-w-3xl text-[2.55rem] font-extrabold leading-[0.92] tracking-[-0.04em] text-zoe-ink [word-spacing:0.07em] sm:text-[3rem] md:text-[5rem] md:tracking-[-0.07em] md:[word-spacing:0.02em]">
-              One passage. One question. One thread.
+              One passage. One question. One step.
             </h2>
             <p className="mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-zoe-muted">
               Zoe is in early access. Join the waitlist to be among the first to walk through guided journeys by text.
@@ -145,7 +134,7 @@ export default function JourneysHubPage() {
           </div>
           <Link
             href="/#waitlist"
-            className="inline-flex w-fit items-center justify-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold tracking-normal text-white shadow-[0_18px_36px_rgba(29,194,134,0.18)] transition [word-spacing:0.12em] hover:bg-[#17aa74]"
+            className="inline-flex w-fit items-center justify-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold tracking-normal text-white transition [word-spacing:0.12em] hover:bg-[#17aa74]"
           >
             Join the waitlist
             <ArrowRight className="h-4 w-4" />

@@ -54,7 +54,7 @@ export const journeyCatalog: JourneySummary[] = [
     difficulty: "deep",
     image: journeyImagePaths["way-of-jesus"],
     description:
-      "Forty days walking through the life and teachings of Jesus, from his first sermon to his last words. Each day pairs a Gospel passage with an application challenge. Because understanding what Jesus said without doing what he said is the whole problem.",
+      "Forty days walking through the life and teachings of Jesus, from His first sermon to His last words. Each day pairs a Gospel passage with an application challenge. Because understanding what Jesus said without doing what He said is the whole problem.",
   },
   {
     slug: "new-believer",

@@ -57,7 +57,7 @@ const journey: JourneyContent = {
   duration: "40 Days",
   difficulty: "deep",
   description:
-    "Forty days walking through the life and teachings of Jesus, from his first sermon to his last words. Each day pairs a Gospel passage with an application challenge.",
+    "Forty days walking through the life and teachings of Jesus, from His first sermon to His last words. Each day pairs a Gospel passage with an application challenge.",
   metaDescription:
     "Walk through the core teachings of Jesus. Forty days walking through the life and teachings of Jesus.",
   heroAlt: "The Way of Jesus: 40 Days Through the Gospels",
