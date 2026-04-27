@@ -54,7 +54,16 @@ export const journeyCatalog: JourneySummary[] = [
     difficulty: "deep",
     image: journeyImagePaths["way-of-jesus"],
     description:
-      "Forty days walking through the life and teachings of Jesus, from his first sermon to his last words. Each day pairs a Gospel passage with an application challenge. Because understanding what Jesus said without doing what he said is the whole problem.",
+      "Forty days walking through the life and teachings of Jesus, from His first sermon to His last words. Each day pairs a Gospel passage with an application challenge. Because understanding what Jesus said without doing what He said is the whole problem.",
+  },
+  {
+    slug: "new-believer",
+    title: "First Steps: A New Believer Journey",
+    duration: "21 Days",
+    difficulty: "introductory",
+    image: journeyImagePaths["new-believer"],
+    description:
+      "The first weeks after saying yes to Jesus are some of the most important and most vulnerable. This twenty-one day journey gives you a steady path for those first steps.",
   },
   {
     slug: "new-believer",

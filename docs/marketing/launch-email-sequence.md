@@ -20,9 +20,9 @@ Thanks for joining the waitlist.
 
 I'm Tony. I built Zoe. And I want to tell you what you just signed up for — because Zoe isn't what you're probably expecting.
 
-She's not a Bible reading plan.  
-She's not a daily devotional app.  
-She's not going to send you a verse and a quote every morning.
+Zoe is not a Bible reading plan.
+Zoe is not a daily devotional app.
+Zoe is not going to send you a verse and a quote every morning.
 
 Zoe is an interactive prayer journal.
 
@@ -34,7 +34,7 @@ You share you're struggling with patience at work? Next week when you bring up t
 
 This is what walking with Jesus looks like in real life. Not isolated quiet time moments. Day-long devotion.
 
-Morning. Midday. Evening. She's with you.
+Morning. Midday. Evening. Zoe keeps the rhythm going.
 
 I built Zoe because I'm a pastor, and I've watched people get inspired on Sunday and lose it by Tuesday. And I got tired of it.
 
@@ -141,7 +141,7 @@ You're not filling out a form. You're talking to someone who's tracking with you
 
 **Between touchpoints**
 
-You can text Zoe anytime. Ask a question about Scripture. Process something you're going through. She's there.
+You can text Zoe anytime. Ask a question about Scripture. Process something you're going through. Zoe is there.
 
 This is the difference between Zoe and every other devotional app:
 
@@ -191,7 +191,7 @@ Your church's statement of faith, your theology, your heart — Zoe carries it.
 
 And you get anonymized insights into how your congregation is doing. Not individual confessions (that stays private) — but themes. What are people praying about? Where are they struggling?
 
-Zoe isn't replacing you. She's amplifying you.
+Zoe isn't replacing you. It strengthens what you are already doing.
 
 Made by a pastor, for pastors.
 

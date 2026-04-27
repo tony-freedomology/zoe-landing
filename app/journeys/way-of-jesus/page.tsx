@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import Footer from "../../../components/Footer";
+import JourneyDetailPage from "../../../components/JourneyDetailPage";
+import type { JourneyContent } from "../../../lib/journeyContent";
 
 export const metadata: Metadata = {
   title: "The Way of Jesus: 40 Days Through the Gospels — Zoe",
@@ -53,77 +51,29 @@ const days = [
   { "day": 40, "passage": "Matthew 28:16–20", "theme": "The Great Commission", "prompt": "You've spent 40 days with Jesus. What are you going to do about it?" }
 ];
 
+const journey: JourneyContent = {
+  slug: "way-of-jesus",
+  title: "The Way of Jesus: 40 Days Through the Gospels",
+  duration: "40 Days",
+  difficulty: "deep",
+  description:
+    "Forty days walking through the life and teachings of Jesus, from His first sermon to His last words. Each day pairs a Gospel passage with an application challenge.",
+  metaDescription:
+    "Walk through the core teachings of Jesus. Forty days walking through the life and teachings of Jesus.",
+  heroAlt: "The Way of Jesus: 40 Days Through the Gospels",
+  ctaLabel: "The Way of Jesus",
+  stats: [
+    { label: "Duration", value: "40 Days" },
+    { label: "Check-ins", value: "3 per day" },
+    { label: "Gospels", value: "40 readings" },
+  ],
+  body: [
+    "The Gospels are the heartbeat of the Christian faith. Everything else in Scripture points toward or flows from the story of Jesus. But most of us have read these stories so many times that they have lost their edge. We know the parables but do not live them. We admire the Sermon on the Mount but do not practice it.",
+    "This 40-day journey changes that. Each day, Zoe walks you through a key passage from the life and teachings of Jesus with context you may not have heard, questions that get uncomfortable, and a daily challenge that puts the teaching into practice. By day 40, you will have engaged with the core of Jesus' message and tested it against your actual life.",
+  ],
+  days,
+};
+
 export default function WayOfJesusPage() {
-  return (
-    <div className="min-h-screen text-zoe-ink">
-      <section className="relative w-full overflow-hidden bg-zoe-ink" style={{ aspectRatio: '16/9' }}>
-        <Image src="/images/journeys/way-of-jesus.jpg" alt="The Way of Jesus: 40 Days Through the Gospels" fill className="object-cover" priority />
-      </section>
-
-      <section className="py-16 px-6 bg-white">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-lg text-zoe-muted font-medium leading-relaxed max-w-2xl mx-auto mb-8">
-            Forty days walking through the life and teachings of Jesus — from his first sermon to his last words. Each day pairs a Gospel passage with an application challenge. Because understanding what Jesus said without doing what he said is the whole problem.
-          </p>
-          <div>
-            <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
-              Start This Journey <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-6 bg-zoe-surface">
-        <div className="mx-auto max-w-3xl">
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {[{ label: "Duration", value: "40 Days" }, { label: "Check-ins", value: "3 per day" }, { label: "Gospels", value: "40 readings" }].map((stat) => (
-              <div key={stat.label} className="bg-white rounded-2xl p-6 text-center border border-zoe-outline/20 shadow-sm">
-                <p className="text-3xl font-bold tracking-tight font-sans text-zoe-ink mb-1">{stat.value}</p>
-                <p className="text-sm font-semibold uppercase tracking-widest text-zoe-muted">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-          <div className="text-zoe-muted font-medium leading-relaxed text-lg space-y-6">
-            <p>The Gospels are the heartbeat of the Christian faith. Everything else in Scripture points toward or flows from the story of Jesus. But most of us have read these stories so many times that they've lost their edge. We know the parables but don't live them. We admire the Sermon on the Mount but don't practice it.</p>
-            <p>This 40-day journey changes that. Each day, Zoe walks you through a key passage from the life and teachings of Jesus — with context you've probably never heard, questions that get uncomfortable, and a daily challenge that puts the teaching into practice. By day 40, you'll have engaged with the core of Jesus' message and tested it against your actual life.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-6 bg-white">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="text-3xl md:text-4xl tracking-tight font-sans text-zoe-ink font-bold mb-10">The 40 Days</h2>
-          <div className="flex flex-col gap-4">
-            {days.map((d) => (
-              <div key={d.day} className="flex gap-5 items-start p-6 rounded-2xl bg-zoe-surface border border-zoe-outline/20">
-                <div className="w-10 h-10 rounded-full bg-zoe-ink flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-sm font-bold">{d.day}</span>
-                </div>
-                <div>
-                  <div className="flex flex-wrap gap-2 items-center mb-1">
-                    <span className="text-zoe-leaf font-semibold text-sm">{d.passage}</span>
-                    <span className="text-zoe-outline text-sm">·</span>
-                    <span className="font-bold text-zoe-ink">{d.theme}</span>
-                  </div>
-                  <p className="text-zoe-muted text-sm leading-relaxed font-medium italic">&ldquo;{d.prompt}&rdquo;</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 px-6 bg-zoe-ink">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-6">Begin the journey.</h2>
-          <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">Zoe is currently in early access. Join the waitlist to be among the first to walk through The Way of Jesus with Daily scripture, reflection, and check-ins in your texts.</p>
-          <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
-            Join the Waitlist <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  );
+  return <JourneyDetailPage journey={journey} />;
 }

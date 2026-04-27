@@ -42,7 +42,7 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col gap-2 border-t border-zoe-outline/40 pt-6 md:flex-row md:items-center md:justify-between">
           <div className="font-medium text-[#6c7a73]">
-            &copy; {new Date().getFullYear()} Zoe by Freedomology. All rights reserved.
+            &copy; {new Date().getFullYear()} Zoe. All rights reserved.
           </div>
           <div className="text-[#6c7a73]">
             Built in Cleveland, OH.

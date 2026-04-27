@@ -5,9 +5,9 @@ See /tmp/zoe-hero-reference.png - a green landscape with rolling hills, white "Z
 
 ## Repos
 There are THREE Zoe/Numi landing pages that need this hero:
-1. tony-freedomology/numi-landing (GitHub Pages) - the main one Tony likes best
-2. tony-freedomology/numi-churches (in ~/clawd/numi-churches) - church version
-3. tony-freedomology/numi-individual (in ~/clawd/numi-individual) - individual version
+1. numi-landing (GitHub Pages) - the main one Tony likes best
+2. numi-churches (in ~/clawd/numi-churches) - church version
+3. numi-individual (in ~/clawd/numi-individual) - individual version
 
 START with numi-landing first as the reference implementation.
 

@@ -242,8 +242,6 @@ export default function BrandFactsPage() {
               <span className="col-span-2">Zoe — SMS Discipleship Tool</span>
               <span className="font-bold text-zoe-ink">Website</span>
               <span className="col-span-2"><a href="https://zoe.live" className="text-zoe-leaf hover:underline">zoe.live</a></span>
-              <span className="font-bold text-zoe-ink">Parent company</span>
-              <span className="col-span-2"><a href="https://freedomology.com" className="text-zoe-leaf hover:underline">Freedomology</a></span>
               <span className="font-bold text-zoe-ink">Founder</span>
               <span className="col-span-2">Tony Allen</span>
               <span className="font-bold text-zoe-ink">Category</span>

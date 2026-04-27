@@ -4,7 +4,7 @@ Effective date: February 27, 2026
 Last updated: February 27, 2026
 
 ## 1. Agreement to Terms
-These Terms of Service ("Terms") govern access to and use of Zoe, an SMS-based discipleship companion operated by Freedomology ("Zoe", "we", "us", "our"). By using Zoe, you agree to these Terms.
+These Terms of Service ("Terms") govern access to and use of Zoe, an SMS-based discipleship companion ("Zoe", "we", "us", "our"). By using Zoe, you agree to these Terms.
 
 ## 2. Service Description
 Zoe provides conversational and proactive SMS experiences intended to support spiritual reflection and daily practice. Zoe is not a replacement for pastoral counsel, licensed mental health care, emergency services, or medical/legal advice.
@@ -37,10 +37,10 @@ Use of Zoe is governed by the Zoe Privacy Policy.
 Zoe is provided "as is" and "as available," without warranties of any kind, to the fullest extent permitted by law.
 
 ## 12. Limitation of Liability
-To the fullest extent permitted by law, Freedomology and Zoe are not liable for indirect, incidental, special, consequential, or punitive damages. Aggregate liability is limited to the greater of amounts paid in the previous 12 months or $100.
+To the fullest extent permitted by law, Zoe is not liable for indirect, incidental, special, consequential, or punitive damages. Aggregate liability is limited to the greater of amounts paid in the previous 12 months or $100.
 
 ## 13. Indemnification
-You agree to indemnify and hold harmless Freedomology and Zoe from claims arising from misuse of the service or violation of these Terms.
+You agree to indemnify and hold harmless Zoe from claims arising from misuse of the service or violation of these Terms.
 
 ## 14. Changes and Termination
 We may modify Zoe, these Terms, or discontinue parts of the service. We may suspend or terminate access for violations, legal reasons, or security protection.

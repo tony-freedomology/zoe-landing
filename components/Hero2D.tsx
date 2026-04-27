@@ -309,9 +309,9 @@ export default function Hero2D({ variant = "default", hideOverlayContent = false
                 )}
             </motion.div>
 
-            {/* Gradient fade into the dark ThesisSection */}
+            {/* Fade into the following thesis surface. */}
             {variant !== "jesus-red" && variant !== "emerald-uni" && (
-                <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-misty-green-950 to-transparent z-[60] pointer-events-none" style={gpuLayer} />
+                <div className="absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-zoe-oat via-zoe-oat/85 to-transparent z-[60] pointer-events-none" style={gpuLayer} />
             )}
             {variant === "jesus-red" && (
                 <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1e1c1a] to-transparent z-[60] pointer-events-none" />

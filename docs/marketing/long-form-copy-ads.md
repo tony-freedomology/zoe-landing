@@ -123,9 +123,9 @@ And you get anonymized insights into how your congregation is actually doing. No
 
 You're not invading their privacy. You're getting visibility into the flock you're shepherding.
 
-Zoe isn't replacing you. She's amplifying you.
+Zoe isn't replacing you. It strengthens what you are already doing.
 
-She's the extension of your shepherding heart that can be with 200 people at once.
+Zoe extends your shepherding heart across the week, even when 200 people need follow-up.
 
 Made by a pastor, for pastors.
 
@@ -224,7 +224,7 @@ Let's find out together.
 - **Ad 3 (AI Question)**: Interests: theology, philosophy, AI/technology, Christian thought leadership; exclude anti-tech conspiracy groups
 
 ### Visual Pairings
-- **Ad 1**: Carousel 1 (Sunday to Monday) or Carousel 3 (She Remembers)
+- **Ad 1**: Carousel 1 (Sunday to Monday) or Carousel 3 (Zoe Remembers)
 - **Ad 2**: Carousel 2 (Pastor's Burden) or Carousel 5 (For Your Church)
 - **Ad 3**: Carousel 4 (The Real Question) or video of Tony addressing the AI concern
 

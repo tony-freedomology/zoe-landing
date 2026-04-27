@@ -3,33 +3,29 @@
 Version: 1.0
 Created: 2026-02-27
 Author: Tony Allen + Lloyd (AI Council Synthesis)
-Parent Brand: Freedomology
 Status: Active — move fast
 
 ---
 
 ## The Window
 
-AI discipleship tools are emerging but nobody owns the category yet. Apps like Hallow exist but are Catholic-focused and app-based. Zoe is a Freedomology product — part of the technology branch of the Freedomology ecosystem. Its differentiator: SMS-native (no app download), scripture study nerd energy (not generic devotional), and church-aligned (B2B distribution). The window to define "SMS discipleship" as a category is NOW.
+AI discipleship tools are emerging but nobody owns the category yet. Apps like Hallow exist but are Catholic-focused and app-based. Zoe's differentiator: SMS-native (no app download), scripture study nerd energy (not generic devotional), and church-aligned (B2B distribution). The window to define "SMS discipleship" as a category is NOW.
 
-### Freedomology Ecosystem
+### Zoe Ecosystem
 
-Freedomology is the parent brand — a company built around helping people live at the intersection of health, wealth, and relationships. Zoe is the technology arm focused on faith and discipleship.
+Zoe is focused on faith and discipleship: a simple SMS-native tool that helps people return to scripture, prayer, and daily obedience without adding another app to manage.
 
-**The Freedomology Portfolio:**
-- **Health:** ADAM (metabolic pre-day drink)
-- **Wealth:** Freedomology coaching platform
-- **Faith/Technology:** Zoe (SMS discipleship tool)
-- **Media:** Freedomology Studios
-  - AI + Faith podcast (Tony + Clint) — drives Zoe awareness
-  - Freedomology Life podcast (Greg + guests) — drives broader brand
-  - Short films, documentaries
+**The Zoe growth loop:**
+- **Churches:** pastors pilot Zoe with members and learn what actually helps people keep showing up.
+- **Individuals:** waitlist members test the daily experience outside a church deployment.
+- **Content:** blog posts, podcast transcripts, and guides build trust around AI, discipleship, and scripture-shaped technology.
+- **Stories:** testimonials and case studies show what Zoe helps people practice in real life.
 
 **Why this matters for Zoe GTM:**
-- Freedomology has an existing audience and brand trust
-- Greg is aligned on the vision and likely to support distribution
-- The podcast ecosystem cross-pollinates: someone discovers the AI+faith show → gets into Zoe → discovers Freedomology → tries ADAM
-- Zoe is the proof of concept for the technology branch. Ship it well, and it validates the whole portfolio model.
+- Zoe has a clear category to define: SMS discipleship.
+- Tony's pastor network creates a credible first path into churches.
+- AI + Faith content can educate skeptical leaders before they ever try the product.
+- Real church pilots create the language, proof, and pastoral trust needed for broader rollout.
 
 AI discipleship tools are emerging but nobody owns the category yet. Apps like Hallow exist but are Catholic-focused and app-based. Zoe's differentiator: SMS-native (no app download), scripture study nerd energy (not generic devotional), and church-aligned (B2B distribution). The window to define "SMS discipleship" as a category is NOW — 6-12 months before bigger players catch on.
 
@@ -290,10 +286,8 @@ Nobody owns this phrase yet. Zoe should define it, explain it, and be the first 
 ## The Ecosystem Vision
 
 ```
-Freedomology Studios
-    AI+Faith Podcast (Tony + Clint) → drives Zoe
-  Freedomology Life (Greg + guests) → drives brand
-    → Content (blog posts, transcripts, social clips)
+AI + Faith Content
+  → Blog posts, transcripts, podcast clips, and guides
     → SEO + AI authority (LLMs cite the content)
       → Organic discovery (individuals + pastors find Zoe)
 

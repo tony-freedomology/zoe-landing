@@ -1,178 +1,193 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import Footer from "../../components/Footer";
-import aboutBg from "../../public/images/about-bg.webp";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "We're building something we wish existed — daily discipleship that fits inside real life, built by people who actually believe this stuff matters.",
+    "Zoe is a quiet SMS discipleship tool shaped around six commitments: honesty, attention, memory, privacy, Scripture, and ordinary access.",
 };
 
-const principles = [
+const tenets = [
   {
-    badge: "Church-Aligned",
-    badgeColor: "text-zoe-forest border-zoe-sap/20 bg-zoe-sap/10",
-    title: "Built for the church, not around it.",
-    body: "Zoe is designed to extend pastoral care, not replace it. Every feature is built to reinforce what's coming from the pulpit and the community around you.",
+    title: "Zoe is unmistakably AI.",
+    body: "Not a pastor. Not a friend. Not the Holy Spirit. Honest about its limits, careful with spiritual language, and quick to send people toward humans when text is not enough.",
   },
   {
-    badge: "Privacy-First",
-    badgeColor: "text-zoe-forest border-zoe-sap/20 bg-zoe-sap/10",
-    title: "Your conversations are yours.",
-    body: "Private by default. Church leaders see aggregate trends, never your personal messages. You control what gets remembered and what gets erased.",
+    title: "Attention, not engagement.",
+    body: "No streaks. No badges. No shame for the days someone does not show up. The goal is not more time on a screen. The goal is a more attentive life with God.",
   },
   {
-    badge: "Theologically Grounded",
-    badgeColor: "text-amber-700 border-amber-200 bg-amber-50",
-    title: "Scripture first. Always.",
-    body: "Zoe doesn't give you the 'Christian answer.' It helps you sit with the real questions and engage the actual text. We'd rather help you go deeper than sound impressive.",
+    title: "Memory serves follow-through.",
+    body: "Zoe remembers the thread of a person's real life so it can help them return to what mattered: the promise from Tuesday, the verse from Sunday, the prayer they did not want to lose.",
   },
   {
-    badge: "Accessible",
-    badgeColor: "text-[#6c7a73] border-zoe-outline/60 bg-white",
-    title: "No app. No login. No friction.",
-    body: "SMS because it already works. You don't need a new habit — you just need Zoe in the habit you already have.",
+    title: "Pastors see the cohort, never the person.",
+    body: "Church leaders can see patterns across a congregation, not private confessions. Aggregate insight, never surveillance. No surprise sharing. No pastoral dashboard full of individual messages.",
+  },
+  {
+    title: "Historic Christianity, plainly.",
+    body: "Scripture first. Essentials held firmly. Disputed things held with humility. Hard questions redirected toward pastors, friends, and wise human counsel.",
+  },
+  {
+    title: "In the place people already are.",
+    body: "No app. No login. No dashboard to remember. Zoe lives in SMS because real people already know how to receive a text, read it, and answer honestly.",
+  },
+];
+
+const makerNotes = [
+  {
+    label: "Former worship pastor",
+    body: "Tony spent more than a decade helping people encounter God on Sundays, then watching how quickly the week could bury what happened in the room.",
+  },
+  {
+    label: "Builder by necessity",
+    body: "Zoe is what he wished existed: a quiet structure for the space between sermon and follow-through, built with enough restraint to know what it is not.",
+  },
+  {
+    label: "Built in public",
+    body: "The product is early, opinionated, and changing quickly. The journal is where the team writes about the theology, product choices, and lessons learned along the way.",
   },
 ];
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-zoe-oat text-zoe-ink">
-      <section className="relative aspect-video w-full overflow-hidden bg-slate-100" style={{ marginTop: "72px" }}>
-        <Image src={aboutBg} alt="About Background" fill className="object-cover" priority />
+      <section className="bg-zoe-oat px-6 pb-24 pt-36 text-zoe-ink md:pb-32 md:pt-44">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
+            About · Commitments
+          </p>
+          <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_380px] lg:items-end">
+            <div>
+              <h1 className="max-w-5xl text-[4.1rem] font-extrabold leading-[0.9] tracking-[-0.075em] [word-spacing:0.08em] md:text-[7.7rem]">
+                AI that is{" "}
+                <span className="font-serif italic font-normal tracking-normal text-zoe-sap">
+                  quiet enough
+                </span>{" "}
+                to point past itself.
+              </h1>
+              <p className="mt-8 max-w-3xl text-xl font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em] md:text-2xl md:leading-9">
+                Six commitments that shape every line of code, every nudge, every word Zoe sends, and every boundary we refuse to blur.
+              </p>
+            </div>
 
-        <div className="absolute inset-0 z-10 flex items-center md:w-2/3 lg:w-1/2">
-          <div
-            className="pointer-events-none h-[150%] w-full -ml-[20%] backdrop-blur-md"
-            style={{
-              WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)",
-              maskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)",
-            }}
-          />
+            <div className="rounded-[2rem] bg-white p-7 shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/45">
+              <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-zoe-sap">
+                The posture
+              </p>
+              <p className="mt-5 font-serif text-3xl italic leading-[1.2] tracking-normal text-zoe-sap [word-spacing:0.06em]">
+                Useful technology should get quieter as faith gets more personal.
+              </p>
+              <p className="mt-6 text-sm font-semibold leading-7 tracking-normal text-zoe-muted [word-spacing:0.08em]">
+                Zoe exists to help people return to scripture, prayer, and the next faithful step. The tool should never become the point.
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="absolute inset-0 z-10 flex items-center md:w-2/3 lg:w-1/2">
-          <div className="pointer-events-none h-[150%] w-full -ml-[20%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,0,0,0.5)_0%,_transparent_100%)]" />
-        </div>
+      </section>
 
-        <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-12 lg:px-24">
-          <div className="max-w-4xl">
-            <h1 className="mb-2 text-5xl font-bold leading-[1.05] tracking-tight font-sans text-white md:text-7xl lg:mb-4 lg:text-[80px]">
-              We&apos;re building something
-              <br />
-              we wish existed
-            </h1>
-            <p className="text-xl font-medium tracking-tight text-white md:text-3xl lg:text-4xl">
-              AI that helps you walk with Jesus 24/7.
+      <section className="border-b border-zoe-outline/55 bg-zoe-oat px-6 py-24 md:py-28">
+        <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-[2rem] border border-zoe-outline/55 bg-zoe-outline/55 md:grid-cols-2 lg:grid-cols-3">
+          {tenets.map((tenet, index) => (
+            <article key={tenet.title} className="bg-zoe-oat p-8 md:min-h-[340px] md:p-10">
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-zoe-sap">
+                Tenet {String(index + 1).padStart(2, "0")}
+              </p>
+              <h2 className="mt-8 text-[2.2rem] font-extrabold leading-[0.96] tracking-[-0.062em] text-zoe-ink md:text-[3.15rem]">
+                {tenet.title}
+              </h2>
+              <p className="mt-6 text-base font-medium leading-7 tracking-normal text-zoe-muted [word-spacing:0.08em]">
+                {tenet.body}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-zoe-surface px-6 py-24 md:py-32">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+          <div className="sticky top-28 rounded-[2rem] bg-zoe-oat p-8 shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/50">
+            <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-zoe-sap">
+              Behind it
+            </p>
+            <h2 className="mt-5 text-[3.1rem] font-extrabold leading-[0.9] tracking-[-0.058em] text-zoe-ink [word-spacing:0.045em] md:text-[4.7rem] md:tracking-[-0.07em]">
+              A pastor-builder, talking plainly.
+            </h2>
+            <p className="mt-6 font-serif text-2xl italic leading-9 tracking-normal text-zoe-forest [word-spacing:0.08em]">
+              Zoe is not a replacement for the church. It is a small tool for the space where people usually lose the thread.
             </p>
           </div>
-        </div>
-      </section>
 
-      <section className="bg-zoe-surface px-6 py-24">
-        <div className="mx-auto max-w-3xl">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-zoe-sap/20 bg-zoe-sap/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zoe-forest">
-            The Problem We Saw
-          </div>
-          <h2 className="mb-8 text-4xl font-bold leading-[1.1] tracking-tight font-sans text-zoe-ink md:text-5xl">
-            People want to grow. The structure just isn&apos;t there.
-          </h2>
-          <div className="prose max-w-none space-y-6 text-lg font-medium leading-relaxed text-zoe-muted">
-            <p>Sunday morning, the sermon lands. You feel it. You mean it. You walk out with every intention of living differently this week.</p>
-            <p>Then Monday shows up. The inbox is already full. The commute is already loud. The kids are already asking for something. By Tuesday, you can&apos;t quite remember the passage. By Thursday, the intention is just gone.</p>
-            <p>And that gap is exactly what we built Zoe to close.</p>
-            <p>The data confirms what anyone in ministry already knows: only 31% of regular churchgoers read the Bible every day. Most people who genuinely want to grow spiritually don&apos;t have a daily structure to act on that desire. The desire is real — but the daily scaffolding to act on it mostly isn&apos;t.</p>
-          </div>
-        </div>
-      </section>
+          <div>
+            <div className="rounded-[2rem] bg-white p-7 shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/45 md:p-10">
+              <div className="flex flex-col gap-8 md:flex-row">
+                <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-zoe-sap text-2xl font-extrabold text-white">
+                  TA
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-zoe-sap">
+                    Tony Allen · Founder
+                  </p>
+                  <div className="mt-6 space-y-5 text-[1.05rem] font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">
+                    <p>
+                      For more than a decade, Tony served as a worship pastor. His work was presence: rooms, songs, prayer, scripture, and the moments when people know God is asking something of them.
+                    </p>
+                    <p>
+                      But he kept watching the same thing happen after Sunday. The sermon landed. The note was written. The intention was real. Then Monday came, and the thread disappeared under ordinary life.
+                    </p>
+                    <p>
+                      Zoe is the attempt to build a quiet structure for that gap. Not a spiritual authority. Not a replacement for people. A text thread that remembers, asks, points back to scripture, and helps someone take the next faithful step.
+                    </p>
+                  </div>
+                  <p className="mt-7 text-sm font-semibold tracking-normal text-zoe-muted">
+                    Built in Cleveland, OH.
+                  </p>
+                </div>
+              </div>
+            </div>
 
-      <section className="bg-white px-6 py-24">
-        <div className="mx-auto max-w-3xl">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-zoe-sap/20 bg-zoe-sap/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zoe-forest">
-            Why Text Messages
-          </div>
-          <h2 className="mb-8 text-4xl font-bold leading-[1.1] tracking-tight font-sans text-zoe-ink md:text-5xl">
-            The habit is already there.
-          </h2>
-          <div className="prose max-w-none space-y-6 text-lg font-medium leading-relaxed text-zoe-muted">
-            <p>People check their texts more than 10 times a day. It&apos;s where conversations actually happen — where your spouse sends you something funny, where your friend checks in, where your mom says she&apos;s praying for you.</p>
-            <p>That personal, intimate channel is where Zoe lives. It&apos;s already part of how you communicate — Zoe just shows up inside it.</p>
-            <p>SMS messages are opened at 98%, with most read within three minutes. That tells you where attention actually lives. Zoe doesn&apos;t build a new habit from scratch — it attaches spiritual practice to one people already have.</p>
-            <p>No downloads. No logins. No learning curve. You already know how to reply to a text.</p>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {makerNotes.map((note) => (
+                <div key={note.label} className="rounded-[1.6rem] bg-zoe-oat p-6 ring-1 ring-zoe-outline/45">
+                  <p className="text-sm font-extrabold tracking-[-0.02em] text-zoe-ink">{note.label}</p>
+                  <p className="mt-3 text-sm font-medium leading-6 tracking-normal text-zoe-muted [word-spacing:0.06em]">{note.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section className="bg-zoe-oat px-6 py-24">
-        <div className="mx-auto max-w-3xl">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-zoe-sap/20 bg-zoe-sap/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zoe-forest">
-            Who We Are
-          </div>
-          <h2 className="mb-10 text-4xl font-bold leading-[1.1] tracking-tight font-sans text-zoe-ink md:text-5xl">
-            Built by people who believe this stuff matters.
-          </h2>
-          <div className="rounded-3xl border border-zoe-outline/35 bg-white p-8 shadow-[0_4px_30px_rgba(0,0,0,0.05)] md:p-12">
-            <div className="flex flex-col items-start gap-8 md:flex-row">
-              <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-zoe-sap">
-                <span className="text-xl font-bold tracking-tight text-white">TA</span>
-              </div>
-              <div>
-                <h3 className="mb-1 text-2xl font-bold tracking-tight text-zoe-ink">Tony Allen</h3>
-                <p className="mb-4 text-sm font-semibold text-zoe-forest">Founder, Zoe · Freedomology</p>
-                <div className="space-y-4 font-medium leading-relaxed text-zoe-muted">
-                  <p>I never thought I&apos;d build an AI tool. For over a decade, I served as a worship pastor. My whole thing was presence — the kind that can&apos;t be automated, the kind that happens when a room full of broken people encounter a living God.</p>
-                  <p>But I kept watching what happened after Sunday. People would leave transformed — or at least moved — and then life would close back over the moment like water over a stone. The transformation didn&apos;t stick, not because people didn&apos;t mean it, but because there was nothing to help them carry it through the week.</p>
-                  <p>Zoe is what I wished existed. I&apos;m still very much a pastor at heart, and I want to help people hold onto what God is doing in them.</p>
-                </div>
-                <p className="mt-6 text-sm font-medium text-zoe-muted">Cleveland, OH · Freedomology.com</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-6 py-24">
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-16 text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zoe-sap/20 bg-zoe-sap/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zoe-forest">
-              Our Principles
-            </div>
-            <h2 className="text-4xl font-bold leading-[1.1] tracking-tight font-sans text-zoe-ink md:text-5xl">
-              The values we build by.
-            </h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {principles.map((p) => (
-              <div key={p.badge} className="rounded-3xl border border-zoe-outline/35 bg-zoe-surface p-8">
-                <div className={`mb-5 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-widest ${p.badgeColor}`}>
-                  {p.badge}
-                </div>
-                <h3 className="mb-3 text-xl font-bold tracking-tight text-zoe-ink">{p.title}</h3>
-                <p className="font-medium leading-relaxed text-zoe-muted">{p.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-zoe-outline/35 bg-zoe-surface px-6 py-24">
-        <div className="mx-auto max-w-2xl text-center">
-          <div className="mx-auto mb-8 h-1.5 w-16 rounded-full bg-zoe-sap/80" />
-          <h2 className="mb-6 text-4xl font-bold leading-[1.06] tracking-tight font-sans text-zoe-ink md:text-5xl">
-            We&apos;re just getting started.
-          </h2>
-          <p className="mb-10 text-lg font-medium leading-relaxed text-zoe-muted">
-            Zoe is early, and we&apos;re building it carefully. Join the waitlist to be part of the first group to experience it.
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-zoe-sap">
+            The door is open
           </p>
-          <Link
-            href="/#waitlist"
-            className="inline-flex items-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold text-white shadow-sm transition-all duration-200 hover:brightness-105 active:scale-95"
-          >
-            Join the Waitlist <ArrowRight className="h-4 w-4" />
-          </Link>
+          <h2 className="mt-5 text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.07em] text-zoe-ink md:text-[5rem]">
+            Walk with us while Zoe grows up.
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">
+            Join the waitlist, read the journal, or bring Zoe into a church conversation. We are building carefully, and we want thoughtful people close to the work.
+          </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              href="/#waitlist"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold tracking-normal text-white shadow-[0_18px_36px_rgba(29,194,134,0.18)] transition hover:bg-zoe-forest [word-spacing:0.14em]"
+            >
+              Join the waitlist
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/blog"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold tracking-normal text-zoe-ink shadow-[0_18px_36px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/45 transition hover:-translate-y-0.5"
+            >
+              Read the journal
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
