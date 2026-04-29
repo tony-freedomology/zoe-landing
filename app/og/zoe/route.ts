@@ -4,7 +4,7 @@ import { join } from "node:path";
 export const dynamic = "force-static";
 
 export async function GET() {
-  const image = await readFile(join(process.cwd(), "app/og/zoe.png/zoe-og.png"));
+  const image = await readFile(join(process.cwd(), "app/og/zoe/zoe-og.png"));
 
   return new Response(image, {
     headers: {
