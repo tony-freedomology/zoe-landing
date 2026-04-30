@@ -250,22 +250,45 @@ body {
   display: flex;
   width: max-content;
   gap: 1rem;
-  animation: journey-marquee 42s linear infinite;
+  animation: journey-marquee 84s linear infinite;
   will-change: transform;
 }
 
 .journey-marquee-track-reverse {
   animation-name: journey-marquee-reverse;
-  animation-duration: 46s;
+  animation-duration: 92s;
 }
 
-.journey-marquee-row:hover .journey-marquee-track {
+.journey-marquee-row:hover .journey-marquee-track,
+.journey-marquee-row:focus-within .journey-marquee-track {
   animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .journey-marquee-track,
   .journey-marquee-track-reverse {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .journey-mobile-snap {
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    mask-image: linear-gradient(to right, transparent 0, #000 1.25rem, #000 calc(100% - 1.25rem), transparent 100%);
+  }
+
+  .journey-mobile-snap::-webkit-scrollbar {
+    display: none;
+  }
+
+  .journey-mobile-snap .journey-marquee-track,
+  .journey-mobile-snap .journey-marquee-track-reverse {
     animation: none;
     transform: translateX(0);
   }
