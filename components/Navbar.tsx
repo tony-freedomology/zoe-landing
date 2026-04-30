@@ -13,7 +13,6 @@ const navLinks = [
   { href: "/features", label: "Features" },
   { href: "/about", label: "About" },
   { href: "/#faq", label: "FAQ" },
-  { href: "/blog", label: "Blog" },
 ];
 
 const journeyLinks = [
@@ -207,7 +206,7 @@ export default function Navbar() {
               "rounded-full px-5 py-2 text-sm transition-all duration-200",
               preserveTheme
                 ? "bg-slate-900 font-semibold text-white shadow-sm hover:bg-slate-700"
-                : "bg-zoe-sap font-semibold text-white shadow-sm hover:brightness-105 active:scale-95"
+                : "bg-zoe-sap font-semibold tracking-normal text-white shadow-sm hover:brightness-105 active:scale-95 [word-spacing:0.14em]"
             )}
           >
             Join The Walk

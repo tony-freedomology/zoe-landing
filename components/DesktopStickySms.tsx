@@ -221,7 +221,7 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
 
                 {/* Simulated iPhone Device Frame on Desktop, Full Bleed on Mobile */}
                 <div className={clsx("relative w-full h-full md:w-[400px] md:h-[80vh] md:max-h-[850px] border-zoe-ink md:shadow-2xl overflow-hidden shrink-0 pointer-events-auto z-20",
-                    variant === "jesus-red" ? "bg-[#faf7f0] md:rounded-[32px] md:border-[10px]" : "bg-zoe-oat md:rounded-[48px] md:border-[12px]")}>
+                    variant === "jesus-red" ? "bg-[#faf7f0] md:rounded-[32px] md:border-[10px]" : "bg-white md:rounded-[48px] md:border-[12px]")}>
 
                     {/* CONTINUOUS CHAT THREAD (Grouped into 4 fixed 1/4 height "Pages") */}
                     <motion.div

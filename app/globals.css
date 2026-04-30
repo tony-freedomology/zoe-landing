@@ -56,6 +56,128 @@ body {
   }
 }
 
+.blog-editorial-prose {
+  color: var(--zoe-ink);
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: -0.018em;
+  line-height: 1.9;
+}
+
+.blog-editorial-prose > p:first-child::first-letter {
+  float: left;
+  padding-right: 0.12em;
+  font-family: var(--font-serif);
+  font-size: 5.6rem;
+  font-style: italic;
+  line-height: 0.78;
+  color: var(--zoe-sap);
+}
+
+.blog-editorial-prose p {
+  margin: 1.25rem 0;
+}
+
+.blog-editorial-prose h2 {
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+  color: var(--zoe-ink);
+  font-size: clamp(2rem, 5vw, 3.05rem);
+  font-weight: 800;
+  letter-spacing: -0.058em;
+  line-height: 0.98;
+}
+
+.blog-editorial-prose hr {
+  margin: 3rem 0;
+  border: 0;
+  height: 1px;
+  background: rgba(187, 202, 193, 0.75);
+}
+
+.blog-editorial-prose a {
+  color: var(--zoe-forest);
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-color: rgba(29, 194, 134, 0.35);
+  text-underline-offset: 0.2em;
+}
+
+.blog-editorial-prose strong,
+.blog-editorial-prose .font-bold {
+  color: var(--zoe-ink);
+  font-weight: 800;
+}
+
+.blog-editorial-prose em,
+.blog-editorial-prose .italic {
+  font-family: var(--font-serif);
+  color: var(--zoe-forest);
+}
+
+.blog-editorial-prose ul,
+.blog-editorial-prose ol {
+  margin: 1.5rem 0;
+  padding-left: 1.4rem;
+}
+
+.blog-editorial-prose li {
+  margin: 0.55rem 0;
+  padding-left: 0.25rem;
+}
+
+.blog-editorial-prose blockquote {
+  margin: 3rem 0;
+  border-left: 4px solid var(--zoe-sap);
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.65rem, 5vw, 2.35rem);
+  font-style: italic;
+  line-height: 1.15;
+  color: var(--zoe-forest);
+}
+
+.blog-editorial-prose .not-prose {
+  margin: 2rem 0;
+}
+
+.journey-theme {
+  scroll-snap-type: x proximity;
+}
+
+.journey-theme a {
+  scroll-snap-align: start;
+}
+
+.journey-theme-track {
+  animation: journey-theme-drift 72s linear infinite;
+  will-change: transform;
+}
+
+.journey-theme-track-reverse {
+  animation-direction: reverse;
+}
+
+.journey-theme:hover .journey-theme-track,
+.journey-theme:focus-within .journey-theme-track {
+  animation-play-state: paused;
+}
+
+@keyframes journey-theme-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(-50% - 0.75rem), 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-theme-track {
+    animation: none;
+  }
+}
+
 .glass {
   background: rgba(252, 249, 244, 0.95);
   border: 1px solid rgba(187, 202, 193, 0.2);

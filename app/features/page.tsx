@@ -1,258 +1,152 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { MessageCircle, Users, BookOpen, ShieldCheck, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { ArrowRight, BookOpen, MessageCircle, ShieldCheck, Users } from "lucide-react";
 import Footer from "../../components/Footer";
-import featuresBg from "../../public/images/features-bg.webp";
 
 export const metadata: Metadata = {
   title: "Features",
   description:
-    "Zoe checks in with you three times a day — dawn, noon, and dusk — with two simple questions that build a real discipleship practice.",
+    "Zoe helps scripture, prayer, memory, and follow-through stay present in ordinary life through simple text messages.",
 };
+
+const features = [
+  {
+    eyebrow: "Daily rhythm",
+    title: "Three small returns to attention.",
+    body: "Morning, midday, and evening check-ins help the day stay connected to God without asking someone to open another app.",
+    notes: ["Dawn intention", "Midday check-in", "Evening reflection"],
+  },
+  {
+    eyebrow: "Memory",
+    title: "What you said still matters later.",
+    body: "Zoe can bring back a commitment, a prayer, a verse, or a question days later, because formation depends on continuity.",
+    notes: ["Commitment follow-up", "Prayer memory", "Longer spiritual thread"],
+  },
+  {
+    eyebrow: "Scripture",
+    title: "More than a verse pasted into a chat.",
+    body: "Passages are handled as real texts with context, questions, and a concrete next step instead of generic devotional language.",
+    notes: ["Passage context", "Original-language care", "Application prompts"],
+  },
+  {
+    eyebrow: "Churches",
+    title: "Sunday keeps working on Tuesday.",
+    body: "Church deployments can align Zoe with sermon content while keeping personal member conversations private by default.",
+    notes: ["Sermon echo", "Aggregated insight", "Pastoral hand-raises"],
+  },
+];
+
+const privacy = [
+  "Private by default. Church leaders see cohort patterns, not personal threads.",
+  "No public-model training on personal conversations.",
+  "Export and delete rights stay available.",
+  "Human handoff exists when the moment needs a real person.",
+];
 
 export default function FeaturesPage() {
   return (
     <div className="min-h-screen bg-zoe-oat text-zoe-ink">
-      {/* Hero */}
-      <section className="relative w-full aspect-video overflow-hidden bg-slate-100" style={{ marginTop: '72px' }}>
-        <Image src={featuresBg} alt="Features Background" fill className="object-cover" priority />
-
-        {/* Subtle Text Backdrop */}
-        <div className="absolute inset-0 z-10 md:w-2/3 lg:w-1/2 flex items-center">
-          <div className="w-full h-[150%] -ml-[20%] pointer-events-none backdrop-blur-md"
-            style={{
-              WebkitMaskImage: 'radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)',
-              maskImage: 'radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)'
-            }}
-          />
-        </div>
-        <div className="absolute inset-0 z-10 md:w-2/3 lg:w-1/2 flex items-center">
-          <div className="w-full h-[150%] -ml-[20%] pointer-events-none bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,0,0,0.5)_0%,_transparent_100%)]" />
-        </div>
-
-        {/* Text Overlay */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-12 lg:px-24">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl lg:text-[80px] tracking-tight font-sans text-white leading-[1.05] font-bold mb-2 lg:mb-4">
-              Discipleship that fits<br />inside real life
+      <section className="px-6 pb-16 pt-32 md:pt-40">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
+            Features · built for the week
+          </p>
+          <div className="mt-7 grid gap-10 lg:grid-cols-[1fr_28rem] lg:items-end">
+            <h1 className="max-w-5xl text-[3.8rem] font-extrabold leading-[0.9] tracking-[-0.058em] text-zoe-ink [word-spacing:0.045em] md:text-[6.8rem] md:tracking-[-0.075em]">
+              A discipleship tool with a low center of gravity.
             </h1>
-            <p className="text-xl md:text-3xl lg:text-4xl text-white font-medium tracking-tight">
-              Three check-ins a day. Two questions. No App.
+            <p className="text-lg font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em] md:text-xl md:leading-9">
+              Zoe is not trying to create a new spiritual destination. It lives in the thread people already check, and keeps returning them to scripture, prayer, and the thing they said they would do.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Feature 1: Dawn/Noon/Dusk Rhythms */}
-      <section className="bg-zoe-surface px-6 py-24">
-        <div className="mx-auto max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zoe-outline/45 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#6c7a73] shadow-sm">
-                Daily Rhythms
-              </div>
-              <h2 className="mb-6 text-4xl font-bold leading-[1.08] tracking-tight font-sans text-zoe-ink md:text-5xl">
-                Dawn. Noon. Dusk.
-              </h2>
-              <p className="mb-6 text-lg font-medium leading-relaxed text-zoe-muted">
-                Three times a day, at moments you choose, Zoe sends a short check-in. Not a broadcast. A conversation.
+      <section className="px-6 pb-24">
+        <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-[2rem] border border-zoe-outline/55 bg-zoe-outline/55 md:grid-cols-2">
+          {features.map((feature, index) => (
+            <article key={feature.title} className="bg-zoe-oat p-8 md:p-10">
+              <p className="font-serif text-4xl italic leading-none text-zoe-sap">
+                {String(index + 1).padStart(2, "0")}
               </p>
-              <ul className="flex flex-col gap-4">
-                <li className="flex gap-4 items-start">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-amber-200 bg-amber-50">
-                    <span className="text-amber-500 text-sm font-bold">🌅</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-zoe-ink">Dawn</p>
-                    <p className="text-sm leading-relaxed text-zoe-muted">What are you bringing into today? Set an intention before the noise starts.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4 items-start">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-zoe-sap/20 bg-zoe-sap/10">
-                    <span className="text-sm font-bold text-zoe-forest">☀️</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-zoe-ink">Noon</p>
-                    <p className="text-sm leading-relaxed text-zoe-muted">How&apos;s it actually going? A mid-day anchor to the morning&apos;s intention.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4 items-start">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-zoe-outline/45 bg-white">
-                    <span className="text-sm font-bold text-zoe-forest">🌙</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-zoe-ink">Dusk</p>
-                    <p className="text-sm leading-relaxed text-zoe-muted">What happened today? What are you carrying forward?</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div className="rounded-[2rem] border border-zoe-outline/35 bg-white p-8 shadow-zoe-card">
-              <div className="flex flex-col gap-4">
-                <div className="max-w-xs rounded-2xl rounded-tl-none border border-zoe-outline/25 bg-zoe-surface px-4 py-3">
-                  <p className="text-sm font-medium text-zoe-ink">Good morning. What&apos;s one thing you want to bring before God today?</p>
-                  <p className="mt-1 text-xs text-zoe-muted/70">Zoe · 7:02 AM</p>
-                </div>
-                <div className="max-w-xs self-end rounded-2xl rounded-tr-none border border-zoe-sap/20 bg-zoe-sap/10 px-4 py-3">
-                  <p className="text-sm font-medium text-zoe-ink">I want to actually listen today instead of just reacting.</p>
-                  <p className="mt-1 text-xs text-zoe-muted/70">You · 7:14 AM</p>
-                </div>
-                <div className="max-w-xs rounded-2xl rounded-tl-none border border-zoe-outline/25 bg-zoe-surface px-4 py-3">
-                  <p className="text-sm font-medium text-zoe-ink">That&apos;s a real posture. Checking in at noon to see how it&apos;s going. 🙏</p>
-                  <p className="mt-1 text-xs text-zoe-muted/70">Zoe · 7:15 AM</p>
-                </div>
+              <p className="mt-9 text-[11px] font-bold uppercase tracking-[0.3em] text-zoe-muted">
+                {feature.eyebrow}
+              </p>
+              <h2 className="mt-4 max-w-xl text-4xl font-extrabold leading-[0.95] tracking-[-0.06em] text-zoe-ink md:text-5xl">
+                {feature.title}
+              </h2>
+              <p className="mt-5 max-w-xl font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">
+                {feature.body}
+              </p>
+              <div className="mt-8 flex flex-wrap gap-2">
+                {feature.notes.map((note) => (
+                  <span key={note} className="rounded-full border border-zoe-outline/50 bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-zoe-forest">
+                    {note}
+                  </span>
+                ))}
               </div>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* Feature 2: Memory & Follow-Through */}
-      <section className="bg-white px-6 py-24">
-        <div className="mx-auto max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 rounded-[2rem] border border-zoe-outline/35 bg-zoe-surface p-8 shadow-zoe-card md:order-1">
-              <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-zoe-forest">Two questions. Every time.</p>
-              <div className="flex flex-col gap-6">
-                <div className="border-l-2 border-zoe-sap/45 pl-6">
-                  <p className="text-2xl font-bold leading-snug tracking-tight text-zoe-ink">What is God saying to you?</p>
-                  <p className="mt-2 text-sm leading-relaxed text-zoe-muted">Forces you to pay attention. Articulating it makes it real.</p>
-                </div>
-                <div className="border-l-2 border-zoe-forest/30 pl-6">
-                  <p className="text-2xl font-bold leading-snug tracking-tight text-zoe-ink">What are you going to do about it?</p>
-                  <p className="mt-2 text-sm leading-relaxed text-zoe-muted">Closes the gap between knowing and doing.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="order-1 md:order-2">
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zoe-outline/45 bg-zoe-oat px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#6c7a73] shadow-sm">
-                Memory &amp; Follow-Through
-              </div>
-              <h2 className="mb-6 text-4xl font-bold leading-[1.08] tracking-tight font-sans text-zoe-ink md:text-5xl">
-                It remembers what you said.
-              </h2>
-              <p className="mb-4 text-lg font-medium leading-relaxed text-zoe-muted">
-                When you tell Zoe on Monday that you&apos;re going to have that hard conversation — Zoe brings it back on Thursday.
-              </p>
-              <p className="text-lg font-medium leading-relaxed text-zoe-muted">
-                When you tell Zoe something on Monday, it can bring it back on Thursday. That continuity across days is what actually changes people.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Feature 3: For Churches */}
-      <section className="bg-zoe-oat px-6 py-24">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center mb-16">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zoe-outline/45 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#6c7a73] shadow-sm">
-              For Churches
-            </div>
-            <h2 className="mx-auto max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight font-sans text-zoe-ink md:text-5xl">
-              Extends the pulpit throughout the week.
+      <section className="bg-[#173A2E] px-6 py-24 text-white">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
+              What it protects
+            </p>
+            <h2 className="mt-6 text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.066em] [word-spacing:0.025em] md:text-[5.4rem] md:tracking-[-0.075em]">
+              Trust is a feature.
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-relaxed text-zoe-muted">
-              Church leaders can align Zoe with sermon content, so what lands on Sunday doesn&apos;t evaporate by Tuesday.
+            <p className="mt-7 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/70 [word-spacing:0.08em]">
+              The product only works if people can be honest. So the system is designed around clarity, consent, privacy, and human handoff.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <BookOpen className="h-6 w-6 text-zoe-sap" />,
-                title: "Sermon Alignment",
-                body: "Align Zoe's weekly prompts with your sermon series, so mid-week check-ins reinforce what your congregation heard on Sunday.",
-              },
-              {
-                icon: <Users className="h-6 w-6 text-zoe-forest" />,
-                title: "Aggregate Insights",
-                body: "Pastors see congregation-level trends — not personal messages. Know how your church is doing spiritually, not just who showed up.",
-              },
-              {
-                icon: <MessageCircle className="h-6 w-6 text-amber-500" />,
-                title: "No New Platform",
-                body: "It all happens in SMS. Your congregation doesn't need to download anything. Zoe meets them where they already are.",
-              },
-            ].map((card) => (
-              <div key={card.title} className="rounded-[2rem] border border-zoe-outline/35 bg-white p-8 shadow-zoe-card">
-                <div className="mb-4">{card.icon}</div>
-                <h3 className="mb-3 text-xl font-bold tracking-tight text-zoe-ink">{card.title}</h3>
-                <p className="text-sm font-medium leading-relaxed text-zoe-muted">{card.body}</p>
+          <div className="grid gap-px overflow-hidden rounded-[2rem] border border-white/12 bg-white/12 md:grid-cols-2">
+            {privacy.map((item) => (
+              <div key={item} className="bg-white/7 p-7">
+                <ShieldCheck className="h-5 w-5 text-zoe-sap" />
+                <p className="mt-5 text-xl font-bold leading-7 tracking-[-0.03em] text-white">
+                  {item}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Feature 4: Trust & Privacy */}
-      <section className="bg-white px-6 py-24">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center mb-16">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zoe-outline/45 bg-zoe-oat px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#6c7a73] shadow-sm">
-              Trust &amp; Privacy
+      <section className="px-6 py-24">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
+          {[
+            { icon: MessageCircle, title: "Text-first", body: "No app to install. No login to remember. Zoe meets people in SMS." },
+            { icon: BookOpen, title: "Scripture-shaped", body: "The experience begins with the passage and moves toward practice." },
+            { icon: Users, title: "Church-aware", body: "Built for both individual formation and congregation-level deployments." },
+          ].map((item) => (
+            <div key={item.title} className="rounded-[2rem] bg-white p-8 shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/45">
+              <item.icon className="h-6 w-6 text-zoe-sap" />
+              <h3 className="mt-7 text-2xl font-extrabold tracking-[-0.04em] text-zoe-ink">{item.title}</h3>
+              <p className="mt-3 font-medium leading-7 tracking-normal text-zoe-muted [word-spacing:0.08em]">{item.body}</p>
             </div>
-            <h2 className="text-4xl font-bold leading-[1.08] tracking-tight font-sans text-zoe-ink md:text-5xl">
-              Private by default.
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-relaxed text-zoe-muted">
-              Your conversations are yours. We never share them with your church leaders. Consent controls are yours to set.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                icon: <ShieldCheck className="h-6 w-6 text-zoe-sap" />,
-                title: "Just between you and God",
-                body: "Your one-to-one conversations are not visible to church leaders by default. Ever.",
-              },
-              {
-                icon: <Users className="h-6 w-6 text-zoe-forest" />,
-                title: "Aggregate trends only",
-                body: "Church dashboards show trend-level health — not personal confessions or journal content.",
-              },
-              {
-                icon: <MessageCircle className="h-6 w-6 text-amber-500" />,
-                title: "Consent controls",
-                body: "You control memory depth, support access, and optional data-sharing settings.",
-              },
-              {
-                icon: <ShieldCheck className="h-6 w-6 text-zoe-muted" />,
-                title: "Delete and export rights",
-                body: "Export your full spiritual history or delete everything. No hard feelings, no questions asked.",
-              },
-            ].map((card) => (
-              <div key={card.title} className="flex gap-5 rounded-[1.75rem] border border-zoe-outline/35 bg-zoe-surface p-6">
-                <div className="flex-shrink-0 mt-1">{card.icon}</div>
-                <div>
-                  <h3 className="mb-1 font-bold text-zoe-ink">{card.title}</h3>
-                  <p className="text-sm font-medium leading-relaxed text-zoe-muted">{card.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="border-t border-zoe-outline/35 bg-zoe-surface px-6 py-24">
-        <div className="mx-auto max-w-2xl text-center">
-          <div className="mx-auto mb-8 h-1.5 w-16 rounded-full bg-zoe-sap/80" />
-          <h2 className="mb-6 text-4xl font-bold leading-[1.08] tracking-tight font-sans text-zoe-ink md:text-5xl">
+      <section className="border-t border-zoe-outline/55 px-6 py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">Early access</p>
+          <h2 className="mt-5 text-[3rem] font-extrabold leading-[0.95] tracking-[-0.066em] text-zoe-ink [word-spacing:0.025em] md:text-[5rem] md:tracking-[-0.07em]">
             See what it feels like.
           </h2>
-          <p className="mb-10 text-lg font-medium leading-relaxed text-zoe-muted">
-            Zoe is in early access. Join the waitlist and see what it feels like to close the loop between Sunday and Monday.
+          <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">
+            Join the waitlist and try the text-first rhythm for yourself.
           </p>
           <Link
             href="/#waitlist"
-            className="inline-flex items-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold text-white shadow-sm transition-all duration-200 hover:brightness-105 active:scale-95"
+            className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold text-white shadow-[0_18px_36px_rgba(29,194,134,0.18)] transition hover:bg-zoe-forest"
           >
-            Join the Waitlist <ArrowRight className="h-4 w-4" />
+            Join the waitlist
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

@@ -93,7 +93,7 @@ export async function POST(req: NextRequest) {
     const lastName = parts.slice(1).join(" ") || "";
 
     // Determine tags based on source
-    const typeTag = source === "churches-waitlist" ? "churches" : "individuals";
+    const typeTag = source.startsWith("churches-") ? "churches" : "individuals";
 
     const ghlPayload = {
       locationId: GHL_LOCATION_ID,

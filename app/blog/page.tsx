@@ -1,119 +1,222 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { notFound } from "next/navigation";
 
 import Footer from "../../components/Footer";
-import blogBg from "../../public/images/blog-bg.webp";
+import { blogPosts } from "../../lib/blogPosts";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Journal",
   description:
-    "Thinking on discipleship, technology, and what it looks like to walk with Jesus in the everyday. From the team at Zoe.",
+    "A monthly journal on shepherding, software, and the small ways grace shows up in the long week.",
 };
 
-const posts = [
-  {
-    slug: "why-you-keep-quitting-your-bible-app",
-    title: "Why You Keep Quitting Your Bible App (And What Actually Works)",
-    description: "71% of apps are abandoned within 90 days. Bible apps are no different. The problem is friction — and the fix is simpler than you think.",
-    date: "March 2026",
-    readTime: "8 min read",
-    badge: "Discipleship",
-    badgeColor: "text-zoe-forest border-zoe-sap/20 bg-zoe-sap/10",
-    image: "/blog/why-you-keep-quitting-your-bible-app/hero.jpg",
-  },
-  {
-    slug: "what-is-sms-discipleship",
-    title: "What Is SMS Discipleship?",
-    description: "SMS discipleship is daily spiritual growth that happens through text messages — no app, no login, no friction. Here's why it works when nothing else does.",
-    date: "February 2026",
-    readTime: "7 min read",
-    badge: "Discipleship",
-    badgeColor: "text-zoe-forest border-zoe-sap/20 bg-zoe-sap/10",
-  },
-  {
-    slug: "can-ai-help-you-walk-with-jesus",
-    title: "Can AI Help You Walk With Jesus?",
-    description: "AI can't love you or know God's will — but it can remember what you said on Tuesday and ask about it on Friday. Here's an honest look at what that's worth.",
-    date: "February 2026",
-    readTime: "8 min read",
-    badge: "AI & Faith",
-    badgeColor: "text-zoe-forest border-zoe-sap/20 bg-zoe-sap/10",
-  },
-  {
-    slug: "equip-the-kingdom-to-use-ai-well",
-    title: "I'm a Former Worship Pastor Building an AI Discipleship Tool. Here's What I've Learned.",
-    description: "Building something for the church means wrestling with hard questions — about trust, about replacement anxiety, and about what technology should actually do in a faith context.",
-    date: "March 2026",
-    readTime: "8 min read",
-    badge: "Church & Technology",
-    badgeColor: "text-amber-700 border-amber-200 bg-amber-50",
-  },
-];
+const topics = ["All", "Pastoring", "Discipleship", "Product", "Theology", "Field notes"];
+
+const authorBySlug: Record<string, { name: string; role: string; initials: string }> = {
+  "why-you-keep-quitting-your-bible-app": { name: "Tony Allen", role: "Founder", initials: "T" },
+  "what-is-sms-discipleship": { name: "Tony Allen", role: "Founder", initials: "T" },
+  "can-ai-help-you-walk-with-jesus": { name: "Tony Allen", role: "Founder", initials: "T" },
+  "equip-the-kingdom-to-use-ai-well": { name: "Tony Allen", role: "Founder", initials: "T" },
+};
+
+const displayTitleBySlug: Record<string, ReactNode> = {
+  "why-you-keep-quitting-your-bible-app": (
+    <>
+      Why you keep quitting your Bible <em>app</em>.
+    </>
+  ),
+  "what-is-sms-discipleship": (
+    <>
+      What is <em>SMS</em> discipleship?
+    </>
+  ),
+  "can-ai-help-you-walk-with-jesus": (
+    <>
+      Can AI help you walk with <em>Jesus</em>?
+    </>
+  ),
+  "equip-the-kingdom-to-use-ai-well": (
+    <>
+      Equip the kingdom to use AI <em>well</em>.
+    </>
+  ),
+};
+
+function shortReadTime(readTime: string) {
+  return readTime.replace(" read", "");
+}
+
+function dateLabel(date: string) {
+  return date.replace(" 2026", "");
+}
+
+function ArticleRow({ post }: { post: (typeof blogPosts)[number] }) {
+  const author = authorBySlug[post.slug] ?? { name: "Tony Allen", role: "Zoe", initials: "T" };
+
+  return (
+    <Link
+      href={`/blog/${post.slug}`}
+      className="group grid gap-4 rounded-2xl border border-transparent bg-white px-5 py-6 shadow-[0_10px_34px_rgba(45,50,49,0.035)] transition duration-200 hover:translate-x-1 hover:border-zoe-sap/55 hover:bg-zoe-surface md:grid-cols-[4rem_7rem_1fr_13rem_5rem] md:items-center md:gap-8 md:px-6 md:py-7"
+    >
+      <div className="font-serif text-4xl italic leading-none tracking-[-0.02em] text-zoe-sap">
+        {post.number}
+      </div>
+      <div className="text-[10px] font-extrabold uppercase tracking-[0.28em] text-zoe-sap">
+        {post.category}
+      </div>
+      <div>
+        <h4 className="max-w-2xl text-[1.65rem] font-extrabold leading-[1.08] tracking-[-0.045em] text-zoe-ink md:text-2xl [&_em]:font-serif [&_em]:font-medium [&_em]:italic [&_em]:text-zoe-sap">
+          {displayTitleBySlug[post.slug] ?? post.shortTitle}
+        </h4>
+        <p className="mt-2 max-w-3xl text-sm font-medium leading-6 tracking-normal text-zoe-muted">
+          {post.description}
+        </p>
+      </div>
+      <div className="flex items-center gap-3 text-sm tracking-normal text-zoe-muted">
+        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-zoe-sap text-xs font-extrabold text-white">
+          {author.initials}
+        </span>
+        <span>
+          <strong className="block font-bold leading-tight text-zoe-ink">{author.name}</strong>
+          <small className="text-xs text-zoe-muted/75">{author.role}</small>
+        </span>
+      </div>
+      <div className="text-left text-xs font-medium tracking-normal text-zoe-muted/75 md:text-right">
+        <span className="block text-sm font-bold text-zoe-ink">{shortReadTime(post.readTime)}</span>
+        {dateLabel(post.date)}
+      </div>
+    </Link>
+  );
+}
 
 export default function BlogIndexPage() {
+  notFound();
+
+  const featured = blogPosts[0];
+  const thisMonth = blogPosts.slice(1, 3);
+  const earlier = blogPosts.slice(3);
+
   return (
-    <div className="min-h-screen bg-zoe-oat text-zoe-ink">
-      <section className="relative aspect-video w-full overflow-hidden bg-slate-100" style={{ marginTop: "72px" }}>
-        <Image src={blogBg} alt="Blog Background" fill className="object-cover" priority />
+    <div className="min-h-screen overflow-x-hidden bg-zoe-oat text-zoe-ink">
+      <main className="px-5 pb-24 pt-32 md:px-8 md:pt-40">
+        <header className="mx-auto max-w-7xl pb-12 md:pb-16">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.34em] text-zoe-sap">
+            The Zoe Journal
+          </p>
+          <h1 className="mt-7 max-w-[11ch] text-[4.65rem] font-extrabold leading-[0.84] tracking-[-0.07em] text-zoe-ink md:text-[9.4rem] md:tracking-[-0.08em]">
+            Between the
+            <br />
+            <em className="font-serif font-medium italic text-zoe-sap">Sundays</em>.
+          </h1>
+          <div className="mt-8 flex flex-col gap-7 border-t border-zoe-outline/70 pt-7 lg:flex-row lg:items-end lg:justify-between">
+            <p className="max-w-2xl text-base font-medium leading-7 tracking-normal text-zoe-muted md:text-lg md:leading-8">
+              A monthly journal on shepherding, software, and the small ways grace shows up in the long week, written for pastors, members, and anyone curious how this works.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {topics.map((topic) => (
+                <span
+                  key={topic}
+                  className={
+                    topic === "All"
+                      ? "rounded-full border border-zoe-ink bg-zoe-ink px-4 py-2 text-xs font-bold text-white"
+                      : "rounded-full border border-zoe-outline bg-transparent px-4 py-2 text-xs font-bold text-zoe-muted"
+                  }
+                >
+                  {topic}
+                </span>
+              ))}
+            </div>
+          </div>
+        </header>
 
-        <div className="absolute inset-0 z-10 flex items-center md:w-2/3 lg:w-1/2">
-          <div
-            className="pointer-events-none h-[150%] w-full -ml-[20%] backdrop-blur-md"
-            style={{
-              WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)",
-              maskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 0%, transparent 100%)",
-            }}
-          />
-        </div>
-        <div className="absolute inset-0 z-10 flex items-center md:w-2/3 lg:w-1/2">
-          <div className="pointer-events-none h-[150%] w-full -ml-[20%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,0,0,0.5)_0%,_transparent_100%)]" />
-        </div>
+        <section className="mx-auto max-w-7xl">
+          <Link
+            href={`/blog/${featured.slug}`}
+            className="group grid min-h-[34rem] overflow-hidden rounded-[1.5rem] bg-zoe-ink text-zoe-oat shadow-[0_24px_70px_rgba(45,50,49,0.11)] md:grid-cols-[0.9fr_1.1fr]"
+          >
+            <div className="relative flex min-h-[26rem] flex-col justify-between overflow-hidden p-8 md:min-h-[34rem] md:p-10">
+              <Image
+                src="/images/blog-window-devotion.jpg"
+                alt="Open window with books in morning light"
+                fill
+                priority
+                sizes="(min-width: 768px) 45vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(27,63,53,0.56)_0%,rgba(27,63,53,0)_30%,rgba(27,63,53,0)_58%,rgba(27,63,53,0.78)_100%)]" />
+              <p className="relative z-10 text-[11px] font-extrabold uppercase tracking-[0.32em] text-zoe-oat">
+                - Lead essay
+              </p>
+              <div className="relative z-10 w-fit rounded-2xl bg-zoe-forest/70 px-5 py-4 backdrop-blur-md">
+                <p className="text-[2.65rem] font-extrabold leading-none tracking-[-0.045em] text-white md:text-[4rem]">
+                  Featured essay
+                </p>
+                <p className="mt-1 font-serif text-base italic tracking-normal text-white/80">{featured.date}</p>
+              </div>
+              <p className="relative z-10 text-[10px] font-bold uppercase tracking-[0.22em] text-white/65">
+                - A pastor&apos;s window, between Sundays.
+              </p>
+            </div>
 
-        <div className="absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-12 lg:px-24">
-          <div className="max-w-4xl">
-            <h1 className="mb-2 text-5xl font-bold leading-[1.05] tracking-tight font-sans text-white md:text-7xl lg:mb-4 lg:text-[80px]">
-              Thinking on discipleship
-            </h1>
-            <p className="text-xl font-medium tracking-tight text-white md:text-3xl lg:text-4xl">
-              Tech, faith, and what it looks like to
-              <br />
-              walk with Jesus in the everyday
+            <div className="flex flex-col justify-between p-8 md:p-14">
+              <div>
+                <p className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-zoe-sap">
+                  {featured.category} · {featured.readTime}
+                </p>
+                <h2 className="mt-6 max-w-[14ch] text-[3rem] font-extrabold leading-[0.98] tracking-[-0.06em] text-zoe-oat md:text-[4rem]">
+                  Why you keep quitting your Bible <em className="font-serif font-medium italic text-zoe-sap">app</em>.
+                </h2>
+                <p className="mt-7 max-w-xl text-base font-medium leading-7 tracking-normal text-zoe-oat/72 md:text-lg md:leading-8">
+                  {featured.description}
+                </p>
+              </div>
+              <div className="mt-10">
+                <p className="text-sm font-medium text-zoe-oat/55">
+                  <strong className="font-bold text-zoe-oat">Tony Allen</strong>
+                  <span className="px-3 text-zoe-oat/30">·</span>
+                  {featured.date}
+                </p>
+                <span className="mt-6 inline-flex rounded-full bg-zoe-sap px-6 py-3 text-sm font-bold text-white transition group-hover:bg-[#17aa74]">
+                  Read the essay →
+                </span>
+              </div>
+            </div>
+          </Link>
+
+          <div className="flex flex-col gap-2 px-1 pb-6 pt-16 md:flex-row md:items-baseline md:gap-6 md:px-6 md:pt-20">
+            <h3 className="text-3xl font-extrabold leading-none tracking-[-0.04em]">
+              <em className="mr-2 font-serif font-medium italic text-zoe-sap">This</em>{" "}
+              month.
+            </h3>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zoe-muted/65 md:ml-auto">
+              {thisMonth.length} entries · April 2026
             </p>
           </div>
-        </div>
-      </section>
-
-      <section className="bg-zoe-surface px-6 py-24">
-        <div className="mx-auto max-w-3xl">
-          <div className="flex flex-col gap-8">
-            {posts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group block rounded-3xl border border-zoe-outline/35 bg-white p-8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(0,0,0,0.08)] md:p-10"
-              >
-                <div className="mb-4 flex flex-wrap items-center gap-3">
-                  <span className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-widest ${post.badgeColor}`}>
-                    {post.badge}
-                  </span>
-                  <span className="text-xs font-medium text-zoe-muted">{post.date}</span>
-                  <span className="text-xs text-zoe-outline">·</span>
-                  <span className="text-xs font-medium text-zoe-muted">{post.readTime}</span>
-                </div>
-                <h2 className="mb-4 text-2xl font-bold leading-snug tracking-tight font-sans text-zoe-ink transition-colors duration-200 group-hover:text-zoe-forest md:text-3xl">
-                  {post.title}
-                </h2>
-                <p className="mb-6 font-medium leading-relaxed text-zoe-muted">{post.description}</p>
-                <div className="flex items-center gap-2 text-sm font-semibold text-zoe-muted transition-colors duration-200 group-hover:text-zoe-forest">
-                  Read article <ArrowRight className="h-4 w-4" />
-                </div>
-              </Link>
+          <div className="space-y-3">
+            {thisMonth.map((post) => (
+              <ArticleRow key={post.slug} post={post} />
             ))}
           </div>
-        </div>
-      </section>
+
+          <div className="flex flex-col gap-2 px-1 pb-6 pt-16 md:flex-row md:items-baseline md:gap-6 md:px-6">
+            <h3 className="text-3xl font-extrabold leading-none tracking-[-0.04em]">
+              <em className="mr-2 font-serif font-medium italic text-zoe-sap">Earlier</em>{" "}
+              writing.
+            </h3>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zoe-muted/65 md:ml-auto">
+              From the archive
+            </p>
+          </div>
+          <div className="space-y-3">
+            {earlier.map((post) => (
+              <ArticleRow key={post.slug} post={post} />
+            ))}
+          </div>
+        </section>
+      </main>
 
       <Footer />
     </div>

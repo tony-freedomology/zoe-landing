@@ -8,6 +8,7 @@ import { SITE_URL, toAbsoluteUrl } from "../lib/site";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
 const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-serif", display: "swap", adjustFontFallback: false });
+const OG_IMAGE_URL = "https://cdn.jsdelivr.net/gh/tony-freedomology/zoe-landing@master/public/images/zoe-og.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -32,9 +33,9 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/images/og-default.png",
-        width: 1200,
-        height: 630,
+        url: OG_IMAGE_URL,
+        width: 1731,
+        height: 909,
         alt: "Zoe Discipleship Companion",
       },
     ],
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     title: "Zoe — Walk with Jesus",
     description:
       "Zoe is an AI-powered guide that helps you build daily rhythms, engage Scripture, and connect with your community in a deeper way.",
-    images: ["/images/og-default.png"],
+    images: [OG_IMAGE_URL],
   },
 };
 

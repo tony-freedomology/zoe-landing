@@ -2,7 +2,7 @@ const sections = [
   {
     title: "1. Agreement to Terms",
     body: [
-      "These Terms of Service (\"Terms\") govern your access to and use of Zoe, an SMS-based discipleship tool operated by Freedomology (\"Zoe\", \"we\", \"us\", \"our\").",
+      "These Terms of Service (\"Terms\") govern your access to and use of Zoe, an SMS-based discipleship tool (\"Zoe\", \"we\", \"us\", \"our\").",
       "By using Zoe, you agree to these Terms. If you do not agree, do not use the service."
     ]
   },
@@ -79,14 +79,14 @@ const sections = [
   {
     title: "12. Limitation of Liability",
     body: [
-      "To the fullest extent permitted by law, Freedomology and Zoe are not liable for indirect, incidental, special, consequential, or punitive damages arising from your use of the service.",
+      "To the fullest extent permitted by law, Zoe is not liable for indirect, incidental, special, consequential, or punitive damages arising from your use of the service.",
       "Our aggregate liability for claims related to Zoe will not exceed the greater of the amount you paid to Zoe in the prior 12 months or $100."
     ]
   },
   {
     title: "13. Indemnification",
     body: [
-      "You agree to indemnify and hold harmless Freedomology and Zoe from claims arising from your misuse of the service or violation of these Terms."
+      "You agree to indemnify and hold harmless Zoe from claims arising from your misuse of the service or violation of these Terms."
     ]
   },
   {

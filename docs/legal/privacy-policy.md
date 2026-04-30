@@ -3,7 +3,7 @@
 Effective date: February 27, 2026  
 Last updated: February 27, 2026
 
-Zoe is an SMS-based discipleship companion operated by Freedomology ("Zoe", "we", "us", "our"). This Privacy Policy explains what personal information we collect, how we use it, when we share it, and the choices available to users.
+This Privacy Policy explains what personal information Zoe ("Zoe", "we", "us", "our") collects, how we use it, when we share it, and the choices available to users.
 
 ## 1. Scope
 This policy applies to Zoe's websites, SMS experience, church admin features, and support operations where this policy is posted or linked.

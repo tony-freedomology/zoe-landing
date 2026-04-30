@@ -21,7 +21,7 @@ export const metadata = {
         url: "/images/og-emerald.png",
         width: 1200,
         height: 630,
-        alt: "Zoe by Freedomology",
+        alt: "Zoe",
       },
     ],
   },

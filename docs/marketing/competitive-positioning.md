@@ -189,7 +189,7 @@ Switching from Zoe to another app means:
 ## Key Differentiators (Summary)
 
 1. **Persistent Memory** — Zoe remembers your story across weeks and months
-2. **Proactive Follow-Ups** — She follows up on what you mentioned yesterday without you asking
+2. **Proactive Follow-Ups** — Zoe follows up on what you mentioned yesterday without you asking
 3. **Day-Long Devotion** — Morning, midday, evening (not just a morning devotional)
 4. **Church Integration** — Echoes your pastor's sermon series and theology
 5. **Conversational** — Text anytime, Zoe responds naturally
