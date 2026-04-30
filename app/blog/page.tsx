@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 
 import Footer from "../../components/Footer";
@@ -53,6 +54,8 @@ const posts = [
 ];
 
 export default function BlogIndexPage() {
+  notFound();
+
   return (
     <div className="min-h-screen bg-zoe-oat text-zoe-ink">
       <section className="relative aspect-video w-full overflow-hidden bg-slate-100" style={{ marginTop: "72px" }}>

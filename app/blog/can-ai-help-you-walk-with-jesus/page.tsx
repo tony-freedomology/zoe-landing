@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
 
@@ -11,6 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default function AiWalkWithJesusPost() {
+  notFound();
+
   return (
     <div className="min-h-screen text-zoe-ink">
       <section className="relative overflow-hidden bg-[#141008] py-32 px-6 pt-40">

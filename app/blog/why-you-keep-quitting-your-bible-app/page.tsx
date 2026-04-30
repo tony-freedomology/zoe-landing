@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
 import FaqSchema from "../../../components/FaqSchema";
@@ -42,6 +43,8 @@ const faqs = [
 ];
 
 export default function WhyYouKeepQuittingPage() {
+  notFound();
+
   return (
     <>
     <FaqSchema faqs={faqs} />
