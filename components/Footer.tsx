@@ -30,7 +30,6 @@ export default function Footer() {
               <p className="mb-1 text-xs font-medium uppercase tracking-widest text-[#6c7a73]">Company</p>
               <Link href="/about" className="font-medium transition-colors hover:text-zoe-ink">About</Link>
               <Link href="/churches" className="font-medium transition-colors hover:text-zoe-ink">For Churches</Link>
-              <Link href="/blog" className="font-medium transition-colors hover:text-zoe-ink">Blog</Link>
             </div>
             <div className="flex flex-col gap-2">
               <p className="mb-1 text-xs font-medium uppercase tracking-widest text-[#6c7a73]">Legal</p>

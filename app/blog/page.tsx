@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import Footer from "../../components/Footer";
 import { blogPosts } from "../../lib/blogPosts";
@@ -92,6 +93,8 @@ function ArticleRow({ post }: { post: (typeof blogPosts)[number] }) {
 }
 
 export default function BlogIndexPage() {
+  notFound();
+
   const featured = blogPosts[0];
   const thisMonth = blogPosts.slice(1, 3);
   const earlier = blogPosts.slice(3);

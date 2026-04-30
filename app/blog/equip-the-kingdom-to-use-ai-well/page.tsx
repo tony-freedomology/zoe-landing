@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import BlogArticleShell from "../../../components/BlogArticleShell";
 
 export const metadata: Metadata = {
@@ -16,6 +17,8 @@ const questions = [
 ];
 
 export default function EquipKingdomPost() {
+  notFound();
+
   return (
     <BlogArticleShell
       category="Church & Technology"

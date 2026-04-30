@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import FaqSchema from "../../../components/FaqSchema";
 import BlogArticleShell from "../../../components/BlogArticleShell";
 
@@ -27,6 +28,8 @@ const faqs = [
 ];
 
 export default function WhyYouKeepQuittingPage() {
+  notFound();
+
   return (
     <>
       <FaqSchema faqs={faqs} />
