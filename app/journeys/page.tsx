@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../components/Footer";
-import { journeyCatalog } from "../../lib/journeyCatalog";
+import { journeyCatalog, type JourneySummary } from "../../lib/journeyCatalog";
+import JourneyHubCard from "./JourneyHubCard";
 
 export const metadata: Metadata = {
   title: "Journeys - Zoe",
@@ -11,14 +11,36 @@ export const metadata: Metadata = {
     "Explore guided reading, prayer, and reflection journeys built to help you walk with Jesus in the places real life hits hardest.",
 };
 
+const journeySections = [
+  {
+    title: "Foundations",
+    slugs: ["james-deep", "rooted", "way-of-jesus", "new-believer", "the-examen", "still"],
+  },
+  {
+    title: "Inner Life",
+    slugs: ["identity", "purpose", "prayer", "faith-doubt", "wisdom", "gratitude", "patience", "rest"],
+  },
+  {
+    title: "Relationships",
+    slugs: ["love", "marriage", "parenting", "friendship", "forgiveness", "anger"],
+  },
+  {
+    title: "Work, Money & Calling",
+    slugs: ["leadership", "money", "work-ambition", "generosity", "legacy", "courage"],
+  },
+  {
+    title: "Hard Places",
+    slugs: ["fear-anxiety", "grief", "suffering", "addiction", "health"],
+  },
+];
+
+const journeyBySlug = new Map(journeyCatalog.map((journey) => [journey.slug, journey]));
+
 export default function JourneysHubPage() {
   return (
     <div className="min-h-screen text-zoe-ink bg-zoe-surface">
       <section className="bg-white py-32 px-6 pt-40">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-zoe-leaf/30 bg-zoe-leaf/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-zoe-leaf mb-8">
-            Guided Journeys
-          </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight font-sans text-zoe-ink leading-[1.1] font-bold">Walk the path.</h1>
           <p className="mt-6 text-xl text-zoe-muted font-medium leading-relaxed max-w-2xl mx-auto">
             Daily rhythms of reading, prayer, and reflection delivered directly to your phone. Pick a journey and start building a practice that lasts.
@@ -26,43 +48,42 @@ export default function JourneysHubPage() {
         </div>
       </section>
 
-      <section className="py-24 px-6">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {journeyCatalog.map((journey) => (
-              <Link
-                href={`/journeys/${journey.slug}`}
-                key={journey.slug}
-                className="group flex h-full flex-col rounded-[32px] border border-zoe-outline/20 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
-              >
-                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[24px] bg-zoe-surface">
-                  <Image
-                    src={journey.image}
-                    alt={journey.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+      <section className="space-y-20 overflow-hidden py-24">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-zoe-leaf">Browse by theme</p>
+        </div>
 
-                  <div className="absolute right-4 top-4">
-                    <span className="inline-flex items-center rounded-full border border-[#E7DED0] bg-[#FCF9F4] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-zoe-ink shadow-[0_12px_28px_rgba(45,50,49,0.14)]">
-                      {journey.duration}
-                    </span>
-                  </div>
-                </div>
-                <div className="flex flex-grow flex-col px-3 pb-3 pt-6">
-                  <h2 className="text-2xl tracking-tight font-sans text-zoe-ink font-bold mb-3 group-hover:text-zoe-leaf transition-colors duration-200">
-                    {journey.title}
+        <div className="space-y-16">
+          {journeySections.map((section, index) => {
+            const journeys = section.slugs
+              .map((slug) => journeyBySlug.get(slug))
+              .filter((journey): journey is JourneySummary => Boolean(journey));
+            const marqueeJourneys = Array.from({ length: 4 }, () => journeys).flat();
+
+            return (
+              <div key={section.title} className="space-y-5">
+                <div className="mx-auto flex max-w-7xl items-end justify-between gap-6 px-6">
+                  <h2 className="text-3xl font-bold tracking-tight text-zoe-ink md:text-4xl">
+                    {section.title}
                   </h2>
-                  <p className="text-zoe-muted font-medium leading-relaxed text-sm flex-grow mb-6 line-clamp-4">
-                    {journey.description}
-                  </p>
-                  <div className="inline-flex items-center gap-2 text-sm font-bold text-zoe-ink group-hover:text-zoe-leaf transition-colors duration-200 mt-auto">
-                    View Details <ArrowRight className="h-4 w-4" />
+                  <span className="hidden text-xs font-bold uppercase tracking-[0.18em] text-zoe-muted sm:inline">
+                    {journeys.length} journeys
+                  </span>
+                </div>
+
+                <div className="journey-marquee-row journey-mobile-snap">
+                  <div className={`journey-marquee-track items-start px-5 md:px-0 ${index % 2 === 1 ? "journey-marquee-track-reverse" : ""}`}>
+                    {marqueeJourneys.map((journey, itemIndex) => (
+                      <JourneyHubCard
+                        key={`${section.title}-${journey.slug}-${itemIndex}`}
+                        journey={journey}
+                      />
+                    ))}
                   </div>
                 </div>
-              </Link>
-            ))}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </section>
       <section className="py-24 px-6 bg-zoe-ink">
