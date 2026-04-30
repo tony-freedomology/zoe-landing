@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import BlogArticleShell from "../../../components/BlogArticleShell";
 
 export const metadata: Metadata = {
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function AiWalkWithJesusPost() {
+  notFound();
+
   return (
     <BlogArticleShell
       category="AI & Faith"
