@@ -43,11 +43,15 @@ const faqs = [
   },
   {
     question: "Is this just ChatGPT with a Bible?",
-    answer: "No. Zoe is purpose-built for spiritual accompaniment, which means it's trained specifically to ask the right questions, hold your history, and walk at your pace — not generate generic religious content. The goal is never to give you information. It's to help you hear God and act on what He's saying.",
+    answer: "No. Zoe is built around a simple rhythm of scripture, prayer, practice, reflection, and follow-through. The goal is not generic religious content. It's helping you remember and return in ordinary life.",
   },
   {
     question: "Is Zoe trying to replace the Holy Spirit?",
-    answer: "No tool can do that and we'd never claim otherwise. Zoe's entire job is to help you pay attention — to what you're reading, what God might be saying, and what you're going to do about it. The Holy Spirit does the real work. Zoe just helps you stay in the room.",
+    answer: "No tool can do that and we'd never claim otherwise. Zoe's job is to help you pay attention — to Scripture, prayer, and the next faithful step. The Holy Spirit does the real work.",
+  },
+  {
+    question: "What is a rule of life?",
+    answer: "A rule of life is a simple set of rhythms that helps you arrange ordinary life around Jesus. With Zoe, that might mean scripture in the morning, sabbath prep on Friday, one real-person check-in, and a short weekly review.",
   },
   {
     question: "Is Zoe biblically accurate?",

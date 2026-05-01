@@ -296,8 +296,11 @@ export default function Hero2D({ variant = "default", hideOverlayContent = false
                             style={{ x: variant === "jesus-red" ? 0 : midX, y: variant === "jesus-red" || variant === "emerald-uni" ? 0 : midY, ...gpuLayer }}
                         >
                             <h1 className="mb-2 text-3xl md:text-4xl font-semibold tracking-tighter-editorial-relaxed text-zoe-ink drop-shadow-sm max-w-sm md:max-w-xl leading-snug">
-                                Walk with Jesus.
+                                Build a life that keeps turning toward Jesus.
                             </h1>
+                            <p className="max-w-md text-sm md:text-base font-medium leading-relaxed text-zoe-muted">
+                                A simple rhythm of scripture, prayer, practice, and reflection, carried through your week by text.
+                            </p>
                             <a
                                 href="#waitlist"
                                 className="mt-4 rounded-full bg-white px-8 py-4 md:px-10 md:py-4 text-sm md:text-base font-bold text-zoe-ink shadow-[0_0_30px_-5px_rgba(255,255,255,0.4)] transition-transform hover:scale-105"

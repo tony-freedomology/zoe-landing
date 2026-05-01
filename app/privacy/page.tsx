@@ -9,6 +9,7 @@ const sections = [
     title: "2. Core Commitments",
     bullets: [
       "Private by default: one-to-one message content is private by default.",
+      "Your rhythm is private: personal rules of life, practice responses, reflections, and confessions are not visible to church admins by default.",
       "Church visibility is aggregated: church dashboards are intended for trend-level analytics, not member-level private transcripts.",
       "Restricted human access: internal access to sensitive data is role-based, time-bounded when possible, and logged.",
       "AI-sharing controls: optional data-sharing for AI improvement is opt-in by default unless you explicitly enable it.",
@@ -27,7 +28,7 @@ const sections = [
     title: "4. How We Use Information",
     bullets: [
       "Operate Zoe's conversational SMS experience",
-      "Provide daily devotional touchpoints and follow-ups",
+      "Provide scripture, prayer, practice, rhythm, and follow-up touchpoints",
       "Personalize responses using prior context and configured memory settings",
       "Run safety workflows, including crisis escalation pathways",
       "Support church-level analytics in aggregate form",
@@ -46,7 +47,7 @@ const sections = [
     title: "6. Church Relationship and Data Boundaries",
     body: [
       "If your church offers Zoe, your account may be associated with that church.",
-      "Church leaders may view aggregate trends, while dashboards are not intended to expose private one-to-one conversation transcripts by default.",
+      "Church leaders may view aggregate trends, while dashboards are not intended to expose private one-to-one conversation transcripts, personal rhythms, practice responses, or confessions by default.",
       "Any exception workflow should require explicit consent and audit logging."
     ]
   },
@@ -64,7 +65,7 @@ const sections = [
   {
     title: "8. SMS Messaging Program",
     body: [
-      "Zoe communicates with users via SMS text messages. By opting in to receive messages from Zoe, you agree to receive recurring automated text messages at the phone number you provide. Messages may include daily scripture reflections, spiritual encouragement, check-ins, reading plan content, onboarding conversations, trial and billing notifications, and responses to your questions.",
+      "Zoe communicates with users via SMS text messages. By opting in to receive messages from Zoe, you agree to receive recurring automated text messages at the phone number you provide. Messages may include scripture reflections, prayer and practice prompts, rhythm reminders, check-ins, reading plan content, onboarding conversations, trial and billing notifications, and responses to your questions.",
       "Message frequency varies based on your selected cadence (1 to 3 messages per day), plus conversational replies when you text Zoe. Message and data rates may apply.",
       "You can opt out at any time by replying STOP to any message. After opting out, you will receive a confirmation message and no further messages will be sent. You can opt back in by texting START.",
       "For help, reply HELP to any message or email support@zoe.live. You can also visit https://www.zoe.live for more information."

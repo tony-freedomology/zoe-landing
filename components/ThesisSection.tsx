@@ -20,10 +20,10 @@ export default function ThesisSection(_props: ThesisProps = {}) {
             The question
           </p>
           <h2 className="mt-6 max-w-4xl text-[3.3rem] font-extrabold leading-[0.92] tracking-[-0.058em] text-zoe-ink [word-spacing:0.045em] md:text-[5.9rem] md:tracking-[-0.075em]">
-            AI that helps you walk with Jesus more consistently.
+            A simple rhythm that survives ordinary life.
           </h2>
           <p className="mt-7 max-w-2xl text-xl font-medium leading-9 tracking-normal text-zoe-muted [word-spacing:0.08em]">
-            Wait...can that be done?...should it? And how?
+            Most people do not need more spiritual content first. They need a way to remember and return.
           </p>
         </motion.div>
 
@@ -49,7 +49,10 @@ export default function ThesisSection(_props: ThesisProps = {}) {
               We&apos;re really not interested in AI that tries to replace pastors (we are pastors, so that would be silly), tries to fill the role of the Holy Spirit, or offers fake spiritual certainty.
             </p>
             <p>
-              But we are very interested in how AI could be used to help people&apos;s attention turn to Christ more often. We already know AI can make a great morning devotional, but what we need is <span className="font-extrabold text-zoe-sap">day-long devotion.</span>
+              But we are very interested in how AI could help people&apos;s attention turn to Christ more often. Not by creating a bigger content feed, but by helping a small rhythm survive real mornings, noisy afternoons, and tired evenings.
+            </p>
+            <p>
+              Scripture in the morning. Noise by lunch. Good intentions buried by Thursday. Zoe is meant to be a quiet tool that helps you remember and return.
             </p>
             <p>
               <span className="font-extrabold text-zoe-ink">Can it help with that?</span>

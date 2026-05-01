@@ -13,11 +13,11 @@ const OG_IMAGE_URL = "https://cdn.jsdelivr.net/gh/tony-freedomology/zoe-landing@
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Zoe — Walk with Jesus",
+    default: "Zoe — A simple rhythm with Jesus",
     template: "%s | Zoe",
   },
   description:
-    "Zoe is an AI-powered guide that helps you build daily rhythms, engage Scripture, and connect with your community in a deeper way.",
+    "Zoe helps you build a simple rhythm of scripture, prayer, practice, and reflection, then carries it through your week by text.",
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Zoe — Walk with Jesus",
+    title: "Zoe — A simple rhythm with Jesus",
     description:
-      "Zoe is an AI-powered guide that helps you build daily rhythms, engage Scripture, and connect with your community in a deeper way.",
+      "Zoe helps you build a simple rhythm of scripture, prayer, practice, and reflection, then carries it through your week by text.",
     type: "website",
     url: "/",
     images: [
@@ -36,15 +36,15 @@ export const metadata: Metadata = {
         url: OG_IMAGE_URL,
         width: 1731,
         height: 909,
-        alt: "Zoe Discipleship Companion",
+        alt: "Zoe SMS rhythm with Jesus",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zoe — Walk with Jesus",
+    title: "Zoe — A simple rhythm with Jesus",
     description:
-      "Zoe is an AI-powered guide that helps you build daily rhythms, engage Scripture, and connect with your community in a deeper way.",
+      "Zoe helps you build a simple rhythm of scripture, prayer, practice, and reflection, then carries it through your week by text.",
     images: [OG_IMAGE_URL],
   },
 };
