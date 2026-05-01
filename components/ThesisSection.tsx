@@ -20,10 +20,10 @@ export default function ThesisSection(_props: ThesisProps = {}) {
             The question
           </p>
           <h2 className="mt-6 max-w-4xl text-[3.3rem] font-extrabold leading-[0.92] tracking-[-0.058em] text-zoe-ink [word-spacing:0.045em] md:text-[5.9rem] md:tracking-[-0.075em]">
-            A simple rhythm that survives ordinary life.
+            AI that helps you walk with Jesus more consistently.
           </h2>
           <p className="mt-7 max-w-2xl text-xl font-medium leading-9 tracking-normal text-zoe-muted [word-spacing:0.08em]">
-            Most people do not need more spiritual content first. They need a way to remember and return.
+            Wait...can that be done?...should it? And how?
           </p>
         </motion.div>
 
@@ -40,19 +40,16 @@ export default function ThesisSection(_props: ThesisProps = {}) {
           <div className="mt-8 h-px bg-zoe-outline/55" />
           <div className="mt-8 space-y-6 text-lg font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">
             <p>
-              It sounds obvious, but it really isn&apos;t. How do you make it helpful but not invasive? Proactive but not creepy? How do you make sure it points people <span className="font-extrabold text-zoe-sap">TO</span> Jesus and doesn&apos;t become a substitute <span className="font-extrabold text-zoe-sap">FOR</span> Him?
+              AI is here whether we like it or not, and the church needs to figure out what we&apos;re going to do about it.
             </p>
             <p>
-              Here&apos;s what <span className="font-extrabold text-zoe-ink">IS</span> obvious: AI is here, whether we like it or not, and the church (at large) needs to figure out what we&apos;re going to do about it. That&apos;s why we&apos;re building in public, and talking about it in public, and inviting you to join the conversation (and the alpha!)
+              We think there are better and worse ways to integrate AI and the spiritual life. That&apos;s why we&apos;re building in public and talking about it in public and inviting you to join the conversation (and the alpha!)
             </p>
             <p>
-              We&apos;re really not interested in AI that tries to replace pastors (we are pastors, so that would be silly), tries to fill the role of the Holy Spirit, or offers fake spiritual certainty.
+              Our goal is to build something that helps people turn toward him daily. We&apos;re really not interested in AI that tries to replace pastors (we are pastors, so that would be silly), tries to fill the role of the Holy Spirit, or offers fake spiritual certainty.
             </p>
             <p>
-              But we are very interested in how AI could help people&apos;s attention turn to Christ more often. Not by creating a bigger content feed, but by helping a small rhythm survive real mornings, noisy afternoons, and tired evenings.
-            </p>
-            <p>
-              Scripture in the morning. Noise by lunch. Good intentions buried by Thursday. Zoe is meant to be a quiet tool that helps you remember and return.
+              But we are very interested in how AI could be used to help people&apos;s attention turn to Christ more often. We already know AI can make a great morning devotional, but what we need is <span className="font-extrabold text-zoe-sap">day-long devotion.</span>
             </p>
             <p>
               <span className="font-extrabold text-zoe-ink">Can it help with that?</span>

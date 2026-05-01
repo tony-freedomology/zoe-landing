@@ -263,7 +263,7 @@ export default function StickyRhythmsSection() {
                         <motion.span style={{ color: duskLabelColor }} className="font-semibold tracking-widest uppercase text-sm mb-4">Dusk</motion.span>
                         <motion.h2 style={{ color: duskHeadlineColor }} className="text-5xl md:text-6xl tracking-tighter-editorial-relaxed mb-6 font-bold leading-[1.1]">Notice and<br />release.</motion.h2>
                         <motion.div style={{ color: duskBodyColor }} className="space-y-4 text-[17px] md:text-xl leading-relaxed font-medium max-w-2xl">
-                            <p><strong className="text-white font-semibold">One quiet question. No forced recap.</strong></p>
+                            <p><strong className="text-white font-semibold">One quiet question.</strong></p>
                             <p>What needs to be noticed, repaired, thanked God for, or handed back before sleep?</p>
                         </motion.div>
                     </motion.div>

@@ -195,11 +195,11 @@ export default function MobileStickySms({ variant = "default" }: { variant?: "de
                     {/* ── PHASE 1 CHAT ── */}
                     <motion.div style={{ opacity: c1Opacity, y: c1TranslateY }} className="absolute top-[8vh] left-0 w-full px-4 flex flex-col gap-[6px] z-20 pointer-events-auto">
                         <ScrollTimestamp text="Yesterday, 8:58 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.16, 0.17]} />
-                        <ScrollBubble sender="zoe" variant={variant} text="Hey, I'm Zoe. I'm AI, not a pastor or a person. I can help you build a small rhythm with Jesus. What season are you in right now?" scrollYProgress={scrollYProgress} fadeInRange={[0.165, 0.18]} />
-                        <ScrollBubble sender="user" variant={variant} text="Honestly stretched. mornings are chaos but I need some kind of steady prayer/scripture again." scrollYProgress={scrollYProgress} fadeInRange={[0.18, 0.195]} />
-                        <ScrollBubble sender="zoe" variant={variant} text="Then we're keeping it small. One short prayer before the day gets loud. Want to use James as the scripture path for the next couple weeks?" scrollYProgress={scrollYProgress} fadeInRange={[0.195, 0.215]} />
+                        <ScrollBubble sender="zoe" variant={variant} text="Hey, I'm Zoe 👋 I can help you walk with Jesus in the middle of real life. You know where you wanna start, or want me to take the lead?" scrollYProgress={scrollYProgress} fadeInRange={[0.165, 0.18]} />
+                        <ScrollBubble sender="user" variant={variant} text="Awesome. do you think we could do some kind of study on wisdom and decision making? i've got some pretty big work/family stuff in front of me" scrollYProgress={scrollYProgress} fadeInRange={[0.18, 0.195]} />
+                        <ScrollBubble sender="zoe" variant={variant} text="Yeah sure thing! I can put together a couple of weeks on wisdom - Proverbs, James, Ecclesiastes, and a little Luke. Wanna start tomorrow morning? What time?" scrollYProgress={scrollYProgress} fadeInRange={[0.195, 0.215]} />
                         <ScrollBubble sender="user" variant={variant} text="7am" scrollYProgress={scrollYProgress} fadeInRange={[0.215, 0.23]} />
-                        <ScrollBubble sender="zoe" variant={variant} text="Done. We'll start at 7. Small and real beats impressive and abandoned." scrollYProgress={scrollYProgress} fadeInRange={[0.23, 0.24]} />
+                        <ScrollBubble sender="zoe" variant={variant} text="Sweet, I'll hit you up in the morning 🙂" scrollYProgress={scrollYProgress} fadeInRange={[0.23, 0.24]} />
                     </motion.div>
 
                     {/* ── PHASE 2 TEXT ── */}
@@ -221,7 +221,7 @@ export default function MobileStickySms({ variant = "default" }: { variant?: "de
                         <ScrollBubble
                             sender="zoe"
                             variant={variant}
-                            text="Morning Tony. Your scripture rhythm starts in James today. Read James 1 slowly once. What line pulls your attention?"
+                            text="morning Tony! You ready for Day 1 on Wisdom and decision making? We're starting in Proverbs."
                             scrollYProgress={scrollYProgress}
                             fadeInRange={[0.455, 0.475]}
                         />

@@ -232,11 +232,11 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
                         <div className="h-1/4 w-full flex flex-col justify-end pb-[4vh] md:pb-[8%] relative px-4 pointer-events-auto">
                             <div className="absolute top-[8vh] md:top-[10%] left-0 w-full px-4 flex flex-col gap-[6px]">
                                 <ScrollTimestamp text="Yesterday, 8:58 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.01, 0.03]} />
-                                <ScrollBubble sender="zoe" variant={variant} text="Hey, I'm Zoe. I'm AI, not a pastor or a person. I can help you build a small rhythm with Jesus. What season are you in right now?" scrollYProgress={scrollYProgress} fadeInRange={[0.02, 0.04]} />
-                                <ScrollBubble sender="user" variant={variant} text="Honestly stretched. mornings are chaos but I need some kind of steady prayer/scripture again." scrollYProgress={scrollYProgress} fadeInRange={[0.04, 0.06]} />
-                                <ScrollBubble sender="zoe" variant={variant} text="Then we're keeping it small. One short prayer before the day gets loud. Want to use James as the scripture path for the next couple weeks?" scrollYProgress={scrollYProgress} fadeInRange={[0.06, 0.085]} />
+                                <ScrollBubble sender="zoe" variant={variant} text="Hey, I'm Zoe 👋 I can help you walk with Jesus in the middle of real life. You know where you wanna start, or want me to take the lead?" scrollYProgress={scrollYProgress} fadeInRange={[0.02, 0.04]} />
+                                <ScrollBubble sender="user" variant={variant} text="Awesome. do you think we could do some kind of study on wisdom and decision making? i've got some pretty big work/family stuff in front of me" scrollYProgress={scrollYProgress} fadeInRange={[0.04, 0.06]} />
+                                <ScrollBubble sender="zoe" variant={variant} text="Yeah sure thing! I can put together a couple of weeks on wisdom - Proverbs, James, Ecclesiastes, and a little Luke. Wanna start tomorrow morning? What time?" scrollYProgress={scrollYProgress} fadeInRange={[0.06, 0.085]} />
                                 <ScrollBubble sender="user" variant={variant} text="7am" scrollYProgress={scrollYProgress} fadeInRange={[0.085, 0.105]} />
-                                <ScrollBubble sender="zoe" variant={variant} text="Done. We'll start at 7. Small and real beats impressive and abandoned." scrollYProgress={scrollYProgress} fadeInRange={[0.105, 0.12]} />
+                                <ScrollBubble sender="zoe" variant={variant} text="Sweet, I'll hit you up in the morning 🙂" scrollYProgress={scrollYProgress} fadeInRange={[0.105, 0.12]} />
                             </div>
                         </div>
 
@@ -251,7 +251,7 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
                                 <ScrollBubble
                                     sender="zoe"
                                     variant={variant}
-                                    text="Morning Tony. Your scripture rhythm starts in James today. Read James 1 slowly once. What line pulls your attention?"
+                                    text="morning Tony! You ready for Day 1 on Wisdom and decision making? We're starting in Proverbs."
                                     scrollYProgress={scrollYProgress}
                                     fadeInRange={[0.34, 0.37]}
                                 />
