@@ -242,31 +242,29 @@ export default function StickyRhythmsSection() {
                     {/* 1. Morning Text */}
                     <motion.div style={{ opacity: dawnOpacity, scale: textDawnScale }} className="absolute inset-0 flex flex-col items-center justify-center px-6">
                         <span className="text-amber-700 font-semibold tracking-widest uppercase text-sm mb-4">Dawn</span>
-                        <h2 className="text-5xl md:text-6xl tracking-tighter-editorial-relaxed text-zoe-ink mb-6 font-bold leading-[1.1]">Start with<br />intention.</h2>
+                        <h2 className="text-5xl md:text-6xl tracking-tighter-editorial-relaxed text-zoe-ink mb-6 font-bold leading-[1.1]">Begin with<br />Jesus.</h2>
                         <div className="space-y-4 text-[17px] md:text-xl text-zoe-muted leading-relaxed font-medium max-w-2xl">
-                            <p>Before the emails and the noise, Zoe will check in to remind you what matters most - a passage of scripture and personalized reflection questions to start your day on the right foot.</p>
+                            <p>Before the emails and the noise, start with scripture, prayer, or quiet. Receive before producing.</p>
                         </div>
                     </motion.div>
 
                     {/* 2. Midday Text */}
                     <motion.div style={{ opacity: noonOpacity, scale: textNoonScale }} className="absolute inset-0 flex flex-col items-center justify-center px-6">
                         <span className="text-misty-green-700 font-semibold tracking-widest uppercase text-sm mb-4">Noon</span>
-                        <h2 className="text-5xl md:text-6xl tracking-tighter-editorial-relaxed text-zoe-ink mb-6 font-bold leading-[1.1]">Stay grounded<br />in the middle.</h2>
+                        <h2 className="text-5xl md:text-6xl tracking-tighter-editorial-relaxed text-zoe-ink mb-6 font-bold leading-[1.1]">Return in<br />the middle.</h2>
                         <div className="space-y-4 text-[17px] md:text-xl text-zoe-muted leading-relaxed font-medium max-w-2xl">
-                            <p>If the day gets loud, <strong className="text-zoe-ink font-semibold">Zoe brings you back.</strong></p>
-                            <p>That gentle elbow in the ribs — <strong className="text-misty-green-900 bg-misty-green-100/60 px-1 py-0.5 rounded-sm font-semibold">hey, remember what you said this morning?</strong></p>
-                            <p>God might be in this moment right now. Pay attention.</p>
+                            <p>If the day gets loud, Zoe brings the morning back into the moment you are actually in.</p>
+                            <p><strong className="text-misty-green-900 bg-misty-green-100/60 px-1 py-0.5 rounded-sm font-semibold">What does faithfulness look like right here?</strong></p>
                         </div>
                     </motion.div>
 
                     {/* 3. Evening Text */}
                     <motion.div style={{ opacity: duskOpacity, scale: textDuskScale }} className="absolute inset-0 flex flex-col items-center justify-center px-6">
                         <motion.span style={{ color: duskLabelColor }} className="font-semibold tracking-widest uppercase text-sm mb-4">Dusk</motion.span>
-                        <motion.h2 style={{ color: duskHeadlineColor }} className="text-5xl md:text-6xl tracking-tighter-editorial-relaxed mb-6 font-bold leading-[1.1]">End with<br />reflection.</motion.h2>
+                        <motion.h2 style={{ color: duskHeadlineColor }} className="text-5xl md:text-6xl tracking-tighter-editorial-relaxed mb-6 font-bold leading-[1.1]">Notice and<br />release.</motion.h2>
                         <motion.div style={{ color: duskBodyColor }} className="space-y-4 text-[17px] md:text-xl leading-relaxed font-medium max-w-2xl">
-                            <p><strong className="text-white font-semibold">Where did you see God today? What surprised you?</strong></p>
-                            <p>Zoe helps you close the loop.</p>
-                            <p>Transformation happens <strong className="bg-indigo-900/40 text-indigo-100 px-1 py-0.5 rounded-sm font-semibold">when you build a rhythm and pay attention all day long.</strong></p>
+                            <p><strong className="text-white font-semibold">One quiet question.</strong></p>
+                            <p>What needs to be noticed, repaired, thanked God for, or handed back before sleep?</p>
                         </motion.div>
                     </motion.div>
 

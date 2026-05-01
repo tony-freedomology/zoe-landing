@@ -6,30 +6,30 @@ import { journeyCatalog, type JourneySummary } from "../../lib/journeyCatalog";
 import JourneyHubCard from "./JourneyHubCard";
 
 export const metadata: Metadata = {
-  title: "Journeys - Zoe",
+  title: "Rhythm Paths - Zoe",
   description:
-    "Explore guided reading, prayer, and reflection journeys built to help you walk with Jesus in the places real life hits hardest.",
+    "Explore scripture, practice, and rebuilding paths that can fill your Zoe rhythm for a season.",
 };
 
 const journeySections = [
   {
-    title: "Foundations",
+    title: "Scripture Paths",
     slugs: ["james-deep", "rooted", "way-of-jesus", "new-believer", "the-examen", "still"],
   },
   {
-    title: "Inner Life",
+    title: "Practice Paths",
     slugs: ["identity", "purpose", "prayer", "faith-doubt", "wisdom", "gratitude", "patience", "rest"],
   },
   {
-    title: "Relationships",
+    title: "Relational Paths",
     slugs: ["love", "marriage", "parenting", "friendship", "forgiveness", "anger"],
   },
   {
-    title: "Work, Money & Calling",
+    title: "Calling Paths",
     slugs: ["leadership", "money", "work-ambition", "generosity", "legacy", "courage"],
   },
   {
-    title: "Hard Places",
+    title: "Rebuilding Paths",
     slugs: ["fear-anxiety", "grief", "suffering", "addiction", "health"],
   },
 ];
@@ -41,16 +41,16 @@ export default function JourneysHubPage() {
     <div className="min-h-screen text-zoe-ink bg-zoe-surface">
       <section className="bg-white py-32 px-6 pt-40">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight font-sans text-zoe-ink leading-[1.1] font-bold">Walk the path.</h1>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight font-sans text-zoe-ink leading-[1.1] font-bold">Paths for your rhythm.</h1>
           <p className="mt-6 text-xl text-zoe-muted font-medium leading-relaxed max-w-2xl mx-auto">
-            Daily rhythms of reading, prayer, and reflection delivered directly to your phone. Pick a journey and start building a practice that lasts.
+            Journeys are not a second product. They are scripture, practice, and rebuilding paths that can fill your morning rhythm for a season.
           </p>
         </div>
       </section>
 
       <section className="space-y-20 overflow-hidden py-24">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-zoe-leaf">Browse by theme</p>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-zoe-leaf">Browse paths</p>
         </div>
 
         <div className="space-y-16">
@@ -67,7 +67,7 @@ export default function JourneysHubPage() {
                     {section.title}
                   </h2>
                   <span className="hidden text-xs font-bold uppercase tracking-[0.18em] text-zoe-muted sm:inline">
-                    {journeys.length} journeys
+                    {journeys.length} paths
                   </span>
                 </div>
 
@@ -88,8 +88,8 @@ export default function JourneysHubPage() {
       </section>
       <section className="py-24 px-6 bg-zoe-ink">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-6">Your daily rhythm.</h2>
-          <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">Zoe is currently in early access. Join the waitlist to be among the first to walk through a guided journey with Daily scripture, reflection, and check-ins in your texts.</p>
+          <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-6">Your simple rhythm.</h2>
+          <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">Zoe is currently in early access. Join the waitlist to build a rhythm of scripture, prayer, practice, and reflection by text.</p>
           <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
             Join the Waitlist <ArrowRight className="h-4 w-4" />
           </Link>

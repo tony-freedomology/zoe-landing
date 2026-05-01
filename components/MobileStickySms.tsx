@@ -140,22 +140,22 @@ export default function MobileStickySms({ variant = "default" }: { variant?: "de
     };
 
     const t2 = {
-        title: <>Daily Journeys<br />Personalized.</>,
+        title: <>A Small Rhythm.<br />Then A Path.</>,
         body: (
             <div className="space-y-4 text-[17px] leading-[1.6] text-zoe-muted font-medium tracking-tight mt-6">
-                <p>Pick a book, theme, or practice, set your pace, and Zoe delivers a daily reading enriched with original language, cultural context, and reflection prompts.</p>
+                <p>Start with one daily anchor, one weekly practice, one real-person check-in, and a short review.</p>
             </div>
         )
     };
 
     const t3 = {
-        title: "Two Questions.",
+        title: "Plain English.",
         body: (
             <div className="space-y-4 text-[17px] leading-[1.6] text-zoe-muted font-medium tracking-tight mt-6">
-                <p><strong className="text-zoe-ink font-semibold">Everything Zoe does points you back to two questions:</strong></p>
+                <p><strong className="text-zoe-ink font-semibold">Everything Zoe does points you back to ordinary faithfulness:</strong></p>
                 <ul className="list-none space-y-2 text-zoe-ink">
-                    <li className="bg-emerald-100/60 text-emerald-900 rounded-lg px-4 py-2 w-full mx-auto inline-block font-semibold">What is God saying to you?</li>
-                    <li className="bg-emerald-100/60 text-emerald-900 rounded-lg px-4 py-2 w-full mx-auto inline-block font-semibold">What are you going to do about it?</li>
+                    <li className="bg-emerald-100/60 text-emerald-900 rounded-lg px-4 py-2 w-full mx-auto inline-block font-semibold">What did Jesus put in front of you?</li>
+                    <li className="bg-emerald-100/60 text-emerald-900 rounded-lg px-4 py-2 w-full mx-auto inline-block font-semibold">What is one faithful next step?</li>
                 </ul>
             </div>
         )

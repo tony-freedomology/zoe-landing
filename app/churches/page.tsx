@@ -72,10 +72,10 @@ export default function ChurchesPage() {
               For pastors and church teams
             </div>
             <h1 className="max-w-4xl text-5xl font-bold leading-[0.95] tracking-tighter-editorial text-zoe-ink sm:text-6xl lg:text-8xl">
-              AI for churches should feel thoughtful before it feels powerful.
+              Help your church practice the way of Jesus between Sundays.
             </h1>
             <p className="mt-8 max-w-2xl text-lg font-medium leading-8 text-zoe-muted sm:text-xl">
-              Zoe helps pastors extend scripture, prayer, and gentle follow-through into the week through SMS. We are building it for churches that are curious about AI, but rightly careful about where it belongs.
+              Zoe helps churches turn sermons, scripture, and shared practices into simple weekly rhythms through SMS, private by default, and shaped by your pastoral guardrails.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Link

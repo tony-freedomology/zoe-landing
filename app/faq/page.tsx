@@ -21,12 +21,42 @@ const faqs = [
   {
     question: "Is Zoe trying to replace the Holy Spirit?",
     answer:
-      "No — Zoe reminds you to listen for Him. Think of Zoe as the friend who nudges you and says 'hey, have you thought about what God might be doing here?' Zoe points you back to Jesus, every time. The goal isn't more AI in your life — it's more awareness of God in your life.",
+      "No. Zoe is a tool that helps you slow down, pay attention, and bring things back to prayer, Scripture, and real community. The goal isn't more AI in your life. It's more awareness of God in your life.",
+  },
+  {
+    question: "What is a rule of life?",
+    answer:
+      "A rule of life is a simple set of rhythms that helps you arrange ordinary life around Jesus. With Zoe, that might mean scripture in the morning, sabbath prep on Friday, one real-person check-in, and a short Sunday review.",
+  },
+  {
+    question: "Is this about doing more spiritual stuff?",
+    answer:
+      "No. Often the first move is making things smaller. The goal is not a busier Christian life. The goal is a more attentive one.",
+  },
+  {
+    question: "What if I miss a practice?",
+    answer:
+      "Nothing dramatic. Zoe does not shame you, track streaks, or treat your rhythm like a scoreboard. You can restart, shrink it, pause it, or adjust it.",
+  },
+  {
+    question: "Can I change my rhythm?",
+    answer:
+      "Yes. Your rhythm should fit your season. Just tell Zoe what needs to get lighter, later, simpler, or different.",
+  },
+  {
+    question: "Does my church see my rhythm?",
+    answer:
+      "No, not by default. Churches may see aggregate patterns, not your private messages, personal rhythm, or confessions.",
+  },
+  {
+    question: "What about fasting?",
+    answer:
+      "Zoe treats fasting carefully. Fasting is not punishment or a body challenge. If fasting from food is not wise for your body or history, Zoe will suggest another abstention.",
   },
   {
     question: "Is Zoe biblically accurate?",
     answer:
-      "Zoe is rooted in Scripture and takes the Bible seriously — the history, the context, the original languages. Zoe isn't going to make stuff up or proof-text you with a verse ripped out of context. Think of it like a tool that's done the homework and can help you go deeper.",
+      "Zoe is rooted in Scripture and takes the Bible seriously — the history, the context, the original languages. Zoe should not make things up or proof-text you with a verse ripped out of context.",
   },
   {
     question: "Will this cause people to form unhealthy relationships with AI?",
