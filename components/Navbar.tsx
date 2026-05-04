@@ -12,6 +12,7 @@ import ZoeSVG from "./ZoeSVG";
 const navLinks = [
   { href: "/features", label: "Features" },
   { href: "/about", label: "About" },
+  { href: "/blog", label: "Journal" },
   { href: "/#faq", label: "FAQ" },
 ];
 

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 
 import Footer from "../../components/Footer";
 import { blogPosts } from "../../lib/blogPosts";
@@ -13,34 +12,16 @@ export const metadata: Metadata = {
     "A monthly journal on shepherding, software, and the small ways grace shows up in the long week.",
 };
 
-const topics = ["All", "Pastoring", "Discipleship", "Product", "Theology", "Field notes"];
+const topics = ["All", "Product", "Discipleship", "AI & Faith", "Field notes"];
 
 const authorBySlug: Record<string, { name: string; role: string; initials: string }> = {
-  "why-you-keep-quitting-your-bible-app": { name: "Tony Allen", role: "Founder", initials: "T" },
-  "what-is-sms-discipleship": { name: "Tony Allen", role: "Founder", initials: "T" },
-  "can-ai-help-you-walk-with-jesus": { name: "Tony Allen", role: "Founder", initials: "T" },
-  "equip-the-kingdom-to-use-ai-well": { name: "Tony Allen", role: "Founder", initials: "T" },
+  "rhythm-instead-of-another-devotional-feed": { name: "Tony Allen", role: "Founder", initials: "T" },
 };
 
 const displayTitleBySlug: Record<string, ReactNode> = {
-  "why-you-keep-quitting-your-bible-app": (
+  "rhythm-instead-of-another-devotional-feed": (
     <>
-      Why you keep quitting your Bible <em>app</em>.
-    </>
-  ),
-  "what-is-sms-discipleship": (
-    <>
-      What is <em>SMS</em> discipleship?
-    </>
-  ),
-  "can-ai-help-you-walk-with-jesus": (
-    <>
-      Can AI help you walk with <em>Jesus</em>?
-    </>
-  ),
-  "equip-the-kingdom-to-use-ai-well": (
-    <>
-      Equip the kingdom to use AI <em>well</em>.
+      Why Zoe starts with <em>rhythm</em>.
     </>
   ),
 };
@@ -93,11 +74,8 @@ function ArticleRow({ post }: { post: (typeof blogPosts)[number] }) {
 }
 
 export default function BlogIndexPage() {
-  notFound();
-
   const featured = blogPosts[0];
-  const thisMonth = blogPosts.slice(1, 3);
-  const earlier = blogPosts.slice(3);
+  const remaining = blogPosts.slice(1);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-zoe-oat text-zoe-ink">
@@ -113,7 +91,7 @@ export default function BlogIndexPage() {
           </h1>
           <div className="mt-8 flex flex-col gap-7 border-t border-zoe-outline/70 pt-7 lg:flex-row lg:items-end lg:justify-between">
             <p className="max-w-2xl text-base font-medium leading-7 tracking-normal text-zoe-muted md:text-lg md:leading-8">
-              A monthly journal on shepherding, software, and the small ways grace shows up in the long week, written for pastors, members, and anyone curious how this works.
+              Notes on shepherding, software, and the small ways grace shows up in the long week, written for pastors, members, and anyone curious how this works.
             </p>
             <div className="flex flex-wrap gap-2">
               {topics.map((topic) => (
@@ -139,8 +117,8 @@ export default function BlogIndexPage() {
           >
             <div className="relative flex min-h-[26rem] flex-col justify-between overflow-hidden p-8 md:min-h-[34rem] md:p-10">
               <Image
-                src="/images/blog-window-devotion.jpg"
-                alt="Open window with books in morning light"
+                src={featured.heroImage}
+                alt={featured.heroAlt}
                 fill
                 priority
                 sizes="(min-width: 768px) 45vw, 100vw"
@@ -167,7 +145,7 @@ export default function BlogIndexPage() {
                   {featured.category} · {featured.readTime}
                 </p>
                 <h2 className="mt-6 max-w-[14ch] text-[3rem] font-extrabold leading-[0.98] tracking-[-0.06em] text-zoe-oat md:text-[4rem]">
-                  Why you keep quitting your Bible <em className="font-serif font-medium italic text-zoe-sap">app</em>.
+                  Why Zoe starts with <em className="font-serif font-medium italic text-zoe-sap">rhythm</em>.
                 </h2>
                 <p className="mt-7 max-w-xl text-base font-medium leading-7 tracking-normal text-zoe-oat/72 md:text-lg md:leading-8">
                   {featured.description}
@@ -186,35 +164,24 @@ export default function BlogIndexPage() {
             </div>
           </Link>
 
-          <div className="flex flex-col gap-2 px-1 pb-6 pt-16 md:flex-row md:items-baseline md:gap-6 md:px-6 md:pt-20">
-            <h3 className="text-3xl font-extrabold leading-none tracking-[-0.04em]">
-              <em className="mr-2 font-serif font-medium italic text-zoe-sap">This</em>{" "}
-              month.
-            </h3>
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zoe-muted/65 md:ml-auto">
-              {thisMonth.length} entries · April 2026
-            </p>
-          </div>
-          <div className="space-y-3">
-            {thisMonth.map((post) => (
-              <ArticleRow key={post.slug} post={post} />
-            ))}
-          </div>
-
-          <div className="flex flex-col gap-2 px-1 pb-6 pt-16 md:flex-row md:items-baseline md:gap-6 md:px-6">
-            <h3 className="text-3xl font-extrabold leading-none tracking-[-0.04em]">
-              <em className="mr-2 font-serif font-medium italic text-zoe-sap">Earlier</em>{" "}
-              writing.
-            </h3>
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zoe-muted/65 md:ml-auto">
-              From the archive
-            </p>
-          </div>
-          <div className="space-y-3">
-            {earlier.map((post) => (
-              <ArticleRow key={post.slug} post={post} />
-            ))}
-          </div>
+          {remaining.length > 0 ? (
+            <>
+              <div className="flex flex-col gap-2 px-1 pb-6 pt-16 md:flex-row md:items-baseline md:gap-6 md:px-6 md:pt-20">
+                <h3 className="text-3xl font-extrabold leading-none tracking-[-0.04em]">
+                  <em className="mr-2 font-serif font-medium italic text-zoe-sap">More</em>{" "}
+                  writing.
+                </h3>
+                <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zoe-muted/65 md:ml-auto">
+                  {remaining.length} entries
+                </p>
+              </div>
+              <div className="space-y-3">
+                {remaining.map((post) => (
+                  <ArticleRow key={post.slug} post={post} />
+                ))}
+              </div>
+            </>
+          ) : null}
         </section>
       </main>
 
