@@ -114,23 +114,23 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
     };
 
     const t2 = {
-        title: <>A Small Rhythm.<br />Then A Path.</>,
+        title: <>Daily Journeys<br />Personalized.</>,
         body: (
             <div className="space-y-4 text-[16px] md:text-lg lg:text-xl xl:text-2xl leading-relaxed text-zoe-muted font-medium tracking-tight">
-                <p>Start with one daily anchor, one weekly practice, one real-person check-in, and a short review.</p>
-                <p>Then a study like James or Mark can fill the morning rhythm for a season.</p>
+                <p>Pick a book, theme, or practice, set your pace, and Zoe delivers a daily reading enriched with original language, cultural context, and reflection prompts.</p>
+                <p>Not a generic devotional, but a <strong className="text-zoe-ink font-semibold">guided study built around you.</strong></p>
             </div>
         )
     };
 
     const t3 = {
-        title: "Plain English.",
+        title: "Two Questions.",
         body: (
             <div className="space-y-4 text-[16px] md:text-lg lg:text-xl xl:text-2xl leading-relaxed text-zoe-muted font-medium tracking-tight">
-                <p><strong className="text-zoe-ink font-semibold">Everything Zoe does points you back to ordinary faithfulness:</strong></p>
+                <p><strong className="text-zoe-ink font-semibold">Everything Zoe does points you back to two questions:</strong></p>
                 <ul className="list-none space-y-2 text-zoe-ink block md:-translate-y-1 md:my-0">
-                    <li className="bg-emerald-100/60 text-emerald-900 rounded-lg px-4 py-1.5 w-fit font-semibold">What did Jesus put in front of you?</li>
-                    <li className="bg-emerald-100/60 text-emerald-900 rounded-lg px-4 py-1.5 w-fit font-semibold">What is one faithful next step?</li>
+                    <li className="bg-emerald-100/60 text-emerald-900 rounded-lg px-4 py-1.5 w-fit font-semibold">What is God saying to you?</li>
+                    <li className="bg-emerald-100/60 text-emerald-900 rounded-lg px-4 py-1.5 w-fit font-semibold">What are you going to do about it?</li>
                 </ul>
             </div>
         )

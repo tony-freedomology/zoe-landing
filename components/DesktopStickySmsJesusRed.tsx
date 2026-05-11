@@ -118,8 +118,8 @@ export default function DesktopStickySmsJesusRed() {
             <div className="space-y-4 text-[16px] md:text-lg lg:text-xl xl:text-2xl leading-relaxed text-slate-600 font-medium tracking-tight">
                 <p><strong className="text-slate-900 font-semibold">Everything Zoe does points you back to two questions:</strong></p>
                 <ul className="list-none space-y-2 text-slate-800 block md:-translate-y-1 md:my-0">
-                    <li className="bg-emerald-100/60 text-emerald-900 rounded-lg px-4 py-1.5 w-fit font-semibold">What did Jesus put in front of you?</li>
-                    <li className="bg-emerald-100/60 text-emerald-900 rounded-lg px-4 py-1.5 w-fit font-semibold">What is one faithful next step?</li>
+                    <li className="bg-emerald-100/60 text-emerald-900 rounded-lg px-4 py-1.5 w-fit font-semibold">What is God saying to you?</li>
+                    <li className="bg-emerald-100/60 text-emerald-900 rounded-lg px-4 py-1.5 w-fit font-semibold">What are you going to do about it?</li>
                 </ul>
                 <p>Pick a book, set your pace, and Zoe delivers a daily reading enriched with original language, cultural context, and reflection prompts.</p>
                 <p>Not a generic devotional, but a <strong className="text-slate-900 font-semibold">guided study built around you.</strong></p>
