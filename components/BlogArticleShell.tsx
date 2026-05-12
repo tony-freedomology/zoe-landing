@@ -25,12 +25,12 @@ export default function BlogArticleShell({
       <main className="px-6 pb-24 pt-36">
         <article className="mx-auto max-w-[720px]">
           <Link href="/blog" className="mb-16 inline-flex text-sm font-semibold text-zoe-muted transition hover:text-zoe-forest">
-            Back to journal
+            Back to blog
           </Link>
 
           <header className="border-b border-zoe-outline/60 pb-12">
             <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-zoe-sap">
-              Journal · {category} · {readTime}
+              Blog · {category} · {readTime}
             </p>
             <h1 className="mt-6 text-[3.75rem] font-extrabold leading-[0.91] tracking-[-0.068em] text-zoe-ink md:text-[5.75rem]">
               {title}
