@@ -7,18 +7,24 @@ import Footer from "../../components/Footer";
 import { blogPosts } from "../../lib/blogPosts";
 
 export const metadata: Metadata = {
-  title: "Journal",
+  title: "Blog",
   description:
-    "A monthly journal on shepherding, software, and the small ways grace shows up in the long week.",
+    "Zoe posts on shepherding, software, and the small ways grace shows up in the long week.",
 };
 
 const topics = ["All", "Product", "Discipleship", "AI & Faith", "Field notes"];
 
 const authorBySlug: Record<string, { name: string; role: string; initials: string }> = {
+  "what-should-zoe-do-in-the-morning": { name: "Tony Allen", role: "Founder", initials: "T" },
   "rhythm-instead-of-another-devotional-feed": { name: "Tony Allen", role: "Founder", initials: "T" },
 };
 
 const displayTitleBySlug: Record<string, ReactNode> = {
+  "what-should-zoe-do-in-the-morning": (
+    <>
+      What should Zoe do in the <em>morning</em>?
+    </>
+  ),
   "rhythm-instead-of-another-devotional-feed": (
     <>
       Why Zoe starts with <em>rhythm</em>.
@@ -32,6 +38,10 @@ function shortReadTime(readTime: string) {
 
 function dateLabel(date: string) {
   return date.replace(" 2026", "");
+}
+
+function displayTitle(post: (typeof blogPosts)[number]) {
+  return displayTitleBySlug[post.slug] ?? post.shortTitle;
 }
 
 function ArticleRow({ post }: { post: (typeof blogPosts)[number] }) {
@@ -50,7 +60,7 @@ function ArticleRow({ post }: { post: (typeof blogPosts)[number] }) {
       </div>
       <div>
         <h4 className="max-w-2xl text-[1.65rem] font-extrabold leading-[1.08] tracking-[-0.045em] text-zoe-ink md:text-2xl [&_em]:font-serif [&_em]:font-medium [&_em]:italic [&_em]:text-zoe-sap">
-          {displayTitleBySlug[post.slug] ?? post.shortTitle}
+          {displayTitle(post)}
         </h4>
         <p className="mt-2 max-w-3xl text-sm font-medium leading-6 tracking-normal text-zoe-muted">
           {post.description}
@@ -82,7 +92,7 @@ export default function BlogIndexPage() {
       <main className="px-5 pb-24 pt-32 md:px-8 md:pt-40">
         <header className="mx-auto max-w-7xl pb-12 md:pb-16">
           <p className="text-[11px] font-extrabold uppercase tracking-[0.34em] text-zoe-sap">
-            The Zoe Journal
+            The Zoe Blog
           </p>
           <h1 className="mt-7 max-w-[11ch] text-[4.65rem] font-extrabold leading-[0.84] tracking-[-0.07em] text-zoe-ink md:text-[9.4rem] md:tracking-[-0.08em]">
             Between the
@@ -122,20 +132,13 @@ export default function BlogIndexPage() {
                 fill
                 priority
                 sizes="(min-width: 768px) 45vw, 100vw"
-                className="object-cover"
+                className="object-cover object-[77%_50%]"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(27,63,53,0.56)_0%,rgba(27,63,53,0)_30%,rgba(27,63,53,0)_58%,rgba(27,63,53,0.78)_100%)]" />
               <p className="relative z-10 text-[11px] font-extrabold uppercase tracking-[0.32em] text-zoe-oat">
-                - Lead essay
+                - {featured.date}
               </p>
-              <div className="relative z-10 w-fit rounded-2xl bg-zoe-forest/70 px-5 py-4 backdrop-blur-md">
-                <p className="text-[2.65rem] font-extrabold leading-none tracking-[-0.045em] text-white md:text-[4rem]">
-                  Featured essay
-                </p>
-                <p className="mt-1 font-serif text-base italic tracking-normal text-white/80">{featured.date}</p>
-              </div>
-              <p className="relative z-10 text-[10px] font-bold uppercase tracking-[0.22em] text-white/65">
-                - A pastor&apos;s window, between Sundays.
+              <p className="relative z-10 w-fit rounded-full border border-white/70 bg-zoe-oat px-4 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-zoe-muted shadow-[0_12px_30px_rgba(45,50,49,0.1)]">
+                - Featured article
               </p>
             </div>
 
@@ -144,8 +147,8 @@ export default function BlogIndexPage() {
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-zoe-sap">
                   {featured.category} · {featured.readTime}
                 </p>
-                <h2 className="mt-6 max-w-[14ch] text-[3rem] font-extrabold leading-[0.98] tracking-[-0.06em] text-zoe-oat md:text-[4rem]">
-                  Why Zoe starts with <em className="font-serif font-medium italic text-zoe-sap">rhythm</em>.
+                <h2 className="mt-6 max-w-[14ch] text-[3rem] font-extrabold leading-[0.98] tracking-[-0.06em] text-zoe-oat md:text-[4rem] [&_em]:font-serif [&_em]:font-medium [&_em]:italic [&_em]:text-zoe-sap">
+                  {displayTitle(featured)}
                 </h2>
                 <p className="mt-7 max-w-xl text-base font-medium leading-7 tracking-normal text-zoe-oat/72 md:text-lg md:leading-8">
                   {featured.description}
@@ -158,7 +161,7 @@ export default function BlogIndexPage() {
                   {featured.date}
                 </p>
                 <span className="mt-6 inline-flex rounded-full bg-zoe-sap px-6 py-3 text-sm font-bold text-white transition group-hover:bg-[#17aa74]">
-                  Read the essay →
+                  Read the article →
                 </span>
               </div>
             </div>
