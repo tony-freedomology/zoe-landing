@@ -35,9 +35,11 @@ export default function BlogArticleShell({
             <h1 className="mt-6 text-[3.75rem] font-extrabold leading-[0.91] tracking-[-0.068em] text-zoe-ink md:text-[5.75rem]">
               {title}
             </h1>
-            <p className="mt-7 font-serif text-[1.55rem] italic leading-9 text-zoe-sap md:text-[1.9rem] md:leading-10">
-              {deck}
-            </p>
+            {deck ? (
+              <p className="mt-7 font-serif text-[1.55rem] italic leading-9 text-zoe-sap md:text-[1.9rem] md:leading-10">
+                {deck}
+              </p>
+            ) : null}
             <p className="mt-8 text-sm font-semibold text-zoe-muted">Tony Allen · Founder · {date}</p>
           </header>
 

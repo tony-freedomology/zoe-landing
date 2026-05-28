@@ -15,11 +15,17 @@ export const metadata: Metadata = {
 const topics = ["All", "Product", "Discipleship", "AI & Faith", "Field notes"];
 
 const authorBySlug: Record<string, { name: string; role: string; initials: string }> = {
+  "can-ai-help-you-walk-with-jesus": { name: "Tony Allen", role: "Founder", initials: "T" },
   "what-should-zoe-do-in-the-morning": { name: "Tony Allen", role: "Founder", initials: "T" },
   "rhythm-instead-of-another-devotional-feed": { name: "Tony Allen", role: "Founder", initials: "T" },
 };
 
 const displayTitleBySlug: Record<string, ReactNode> = {
+  "can-ai-help-you-walk-with-jesus": (
+    <>
+      Can AI help you walk with <em>Jesus</em>?
+    </>
+  ),
   "what-should-zoe-do-in-the-morning": (
     <>
       What should Zoe do in the <em>morning</em>?
