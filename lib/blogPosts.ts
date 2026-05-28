@@ -1,5 +1,18 @@
 export const blogPosts = [
   {
+    slug: "can-ai-help-you-walk-with-jesus",
+    title: "Can AI Help You Walk With Jesus?",
+    shortTitle: "Can AI Help You Walk With Jesus?",
+    description:
+      "A plainspoken note on building Zoe carefully, honestly, and in public.",
+    date: "May 2026",
+    readTime: "4 min read",
+    category: "AI & Faith",
+    number: "03",
+    heroImage: "/images/blog/ai-help-walk-with-jesus.png",
+    heroAlt: "A phone, open Bible, notebook, and meeting calendar on a warm morning desk",
+  },
+  {
     slug: "what-should-zoe-do-in-the-morning",
     title: "What Should Zoe Do in the Morning?",
     shortTitle: "What Should Zoe Do in the Morning?",
