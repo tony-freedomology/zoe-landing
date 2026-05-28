@@ -83,10 +83,7 @@ export default function CanAiHelpYouWalkWithJesusPage() {
         the thing you prayed that morning: listen before proving your point. Tell the truth without
         performing. Remember who you belong to.
       </p>
-      <p>
-        That would feel helpful. Maybe even welcome. I&apos;m interested in AI as a quiet attention layer that
-        points past itself.
-      </p>
+      <p>That would feel helpful.</p>
 
       <h2>Life With Jesus</h2>
       <p>
