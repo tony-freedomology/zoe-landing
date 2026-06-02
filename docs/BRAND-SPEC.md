@@ -161,6 +161,10 @@ Bad serif uses:
 - rely on tonal layering and subtle shadows
 - avoid glassmorphism and visible heavy shadowing
 
+### Preserved brand assets
+
+- `public/images/brand/zoe-logo-handwritten-green.png` preserves a handwritten Zoe logo mark for future reference. It is archived as a reusable brand asset and is not wired into the default site UI.
+
 ## 6. Page Guidance
 
 ### Home page
