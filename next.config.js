@@ -5,5 +5,14 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/text',
+        destination: 'https://app.zoe.live/text',
+        permanent: false,
+      },
+    ];
+  },
 }
 module.exports = nextConfig
