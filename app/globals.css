@@ -111,7 +111,6 @@ body {
 
 .blog-editorial-prose em,
 .blog-editorial-prose .italic {
-  font-family: var(--font-serif);
   color: var(--zoe-forest);
 }
 
