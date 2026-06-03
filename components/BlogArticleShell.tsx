@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
@@ -9,6 +10,10 @@ type BlogArticleShellProps = {
   readTime: string;
   title: string;
   deck: string;
+  heroImage?: {
+    src: string;
+    alt: string;
+  };
   children: ReactNode;
 };
 
@@ -18,6 +23,7 @@ export default function BlogArticleShell({
   readTime,
   title,
   deck,
+  heroImage,
   children,
 }: BlogArticleShellProps) {
   return (
@@ -42,6 +48,19 @@ export default function BlogArticleShell({
             ) : null}
             <p className="mt-8 text-sm font-semibold text-zoe-muted">Tony Allen · Founder · {date}</p>
           </header>
+
+          {heroImage ? (
+            <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-[2rem] bg-zoe-surface shadow-[0_22px_60px_rgba(45,50,49,0.06)]">
+              <Image
+                src={heroImage.src}
+                alt={heroImage.alt}
+                fill
+                priority
+                sizes="(min-width: 768px) 720px, calc(100vw - 48px)"
+                className="object-cover"
+              />
+            </div>
+          ) : null}
 
           <div className="blog-editorial-prose mt-12">
             {children}
