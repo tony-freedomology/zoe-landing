@@ -122,7 +122,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
   const handleWaitlistSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!waitlistFormValid) {
-      setSubmitError("Enter a valid name, phone number, and email.");
+      setSubmitError("Choose your phone type and enter a valid name, phone number, and email.");
       return;
     }
 
@@ -177,6 +177,136 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
 
         {/* The Thesis */}
         <ThesisSection variant={variant} />
+
+        <section className={clsx("relative px-4 py-10 md:py-12", isDefault ? "bg-zoe-surface" : "bg-[#F8FBFA]")}>
+          <div className="mx-auto max-w-5xl">
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className={clsx(
+                "border bg-white px-4 py-5 shadow-[0_14px_36px_rgba(28,28,25,0.06)] md:px-6",
+                isDefault ? "rounded-[1.5rem] border-zoe-outline/45" : "rounded-2xl border-slate-100"
+              )}
+            >
+              {status === "sent" ? (
+                <div className="flex flex-col items-start gap-3 text-left md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <p className="text-sm font-bold text-slate-900">You're on the list.</p>
+                    <p className="mt-1 text-sm font-medium leading-relaxed text-slate-600">
+                      We'll text you as soon as your spot opens up.
+                    </p>
+                  </div>
+                  <CheckCircle className="h-6 w-6 text-zoe-leaf" />
+                </div>
+              ) : (
+                <form className="flex flex-col gap-3" onSubmit={handleWaitlistSubmit}>
+                  <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+                    <div className="text-left">
+                      <p className="text-sm font-bold text-slate-900">Want early access?</p>
+                      <p className="text-xs font-medium leading-relaxed text-slate-500">
+                        Join the waitlist now, then keep exploring.
+                      </p>
+                    </div>
+                    <fieldset className="grid grid-cols-2 gap-2 md:w-56">
+                      <legend className="sr-only">Phone type</legend>
+                      {(["iphone", "android"] as const).map((platform) => (
+                        <label
+                          key={`compact-${platform}`}
+                          className={clsx(
+                            "flex cursor-pointer items-center justify-center rounded-full border px-3 py-2 text-xs font-bold transition-all",
+                            phonePlatform === platform
+                              ? platform === "iphone"
+                                ? "border-[#007AFF] bg-[#007AFF] text-white"
+                                : "border-zoe-sap bg-zoe-sap text-white"
+                              : "border-zoe-outline/45 bg-zoe-oat text-slate-600 hover:border-slate-300"
+                          )}
+                        >
+                          <input
+                            type="radio"
+                            name="phonePlatform"
+                            value={platform}
+                            checked={phonePlatform === platform}
+                            onChange={() => setPhonePlatform(platform)}
+                            className="sr-only"
+                            required
+                          />
+                          <span>{platform === "iphone" ? "iPhone" : "Android"}</span>
+                        </label>
+                      ))}
+                    </fieldset>
+                  </div>
+
+                  <div className="grid gap-2 md:grid-cols-[1fr_1fr_1fr_auto]">
+                    <input
+                      required
+                      type="text"
+                      name="name"
+                      autoComplete="name"
+                      value={name}
+                      onChange={(event) => setName(event.target.value)}
+                      placeholder="Your Name"
+                      className="min-w-0 rounded-full border border-zoe-outline/45 bg-zoe-oat px-4 py-3 text-sm text-slate-900 shadow-sm transition-all placeholder:text-slate-400 focus:border-zoe-sap focus:outline-none focus:ring-2 focus:ring-zoe-sap/15"
+                    />
+                    <input
+                      required
+                      type="tel"
+                      name="phone"
+                      autoComplete="tel"
+                      inputMode="tel"
+                      value={phone}
+                      onChange={(event) => setPhone(event.target.value)}
+                      placeholder="Phone Number"
+                      className="min-w-0 rounded-full border border-zoe-outline/45 bg-zoe-oat px-4 py-3 text-sm text-slate-900 shadow-sm transition-all placeholder:text-slate-400 focus:border-zoe-sap focus:outline-none focus:ring-2 focus:ring-zoe-sap/15"
+                    />
+                    <input
+                      required
+                      type="email"
+                      name="email"
+                      autoComplete="email"
+                      value={email}
+                      onChange={(event) => setEmail(event.target.value)}
+                      placeholder="Email Address"
+                      className="min-w-0 rounded-full border border-zoe-outline/45 bg-zoe-oat px-4 py-3 text-sm text-slate-900 shadow-sm transition-all placeholder:text-slate-400 focus:border-zoe-sap focus:outline-none focus:ring-2 focus:ring-zoe-sap/15"
+                    />
+                    <button
+                      className="rounded-full bg-zoe-sap px-5 py-3 text-sm font-bold text-white shadow-sm transition-all hover:brightness-105 active:scale-95 disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none disabled:active:scale-100"
+                      type="submit"
+                      disabled={status === "submitting" || !waitlistFormValid}
+                    >
+                      {status === "submitting" ? "Joining..." : "Join"}
+                    </button>
+                  </div>
+
+                  {submitError ? (
+                    <p className="text-left text-xs font-medium text-rose-600">{submitError}</p>
+                  ) : null}
+                </form>
+              )}
+            </motion.div>
+          </div>
+        </section>
+
+        <div className={clsx("[@media(min-width:768px)]:hidden px-6 pb-8 pt-2 text-center", isDefault ? "bg-zoe-surface" : "bg-[#F8FBFA]")}>
+          <p className="text-sm font-semibold text-zoe-muted">Keep scrolling to see how it works</p>
+          <motion.div
+            className="mx-auto mt-3 h-16 w-8 bg-zoe-sap"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.7, repeat: Infinity, ease: "easeInOut" }}
+            style={{
+              WebkitMaskImage: "url('/assets/illustrations/hand-drawn-arrow-down.svg')",
+              maskImage: "url('/assets/illustrations/hand-drawn-arrow-down.svg')",
+              WebkitMaskRepeat: "no-repeat",
+              maskRepeat: "no-repeat",
+              WebkitMaskPosition: "center",
+              maskPosition: "center",
+              WebkitMaskSize: "contain",
+              maskSize: "contain",
+            }}
+            aria-hidden="true"
+          />
+        </div>
 
         {/* Act 1: The SMS Narrative */}
         <StickySmsSection variant={variant} />

@@ -92,19 +92,19 @@ export default function MobileStickySms({ variant = "default" }: { variant?: "de
     const t1BodyBlur = useTransform(scrollYProgress, [0.03, 0.09, 0.12, 0.15], ["blur(12px)", "blur(0px)", "blur(0px)", "blur(12px)"]);
 
     // --- PHASE 1 CHAT ---
-    const c1Opacity = useTransform(scrollYProgress, [0.15, 0.16, 0.34, 0.38], [0, 1, 1, 0]);
-    const c1TranslateY = useTransform(scrollYProgress, [0.24, 0.34], [0, -180]);
+    const c1Opacity = useTransform(scrollYProgress, [0.15, 0.16, 0.405, 0.425], [0, 1, 1, 0]);
+    const c1TranslateY = useTransform(scrollYProgress, [0.24, 0.405], [0, -760]);
 
     // --- PHASE 2 TEXT ---
-    const t2TitleOpacity = useTransform(scrollYProgress, [0.29, 0.34, 0.42, 0.445], [0, 1, 1, 0]);
-    const t2TitleBlur = useTransform(scrollYProgress, [0.29, 0.34, 0.42, 0.445], ["blur(12px)", "blur(0px)", "blur(0px)", "blur(12px)"]);
-    const t2TitleScale = useTransform(scrollYProgress, [0.29, 0.34, 0.42, 0.445], [0.9, 1, 1, 1.05]);
-    const t2BodyOpacity = useTransform(scrollYProgress, [0.32, 0.36, 0.42, 0.445], [0, 1, 1, 0]);
-    const t2BodyBlur = useTransform(scrollYProgress, [0.32, 0.36, 0.42, 0.445], ["blur(12px)", "blur(0px)", "blur(0px)", "blur(12px)"]);
+    const t2TitleOpacity = useTransform(scrollYProgress, [0.425, 0.455, 0.50, 0.525], [0, 1, 1, 0]);
+    const t2TitleBlur = useTransform(scrollYProgress, [0.425, 0.455, 0.50, 0.525], ["blur(12px)", "blur(0px)", "blur(0px)", "blur(12px)"]);
+    const t2TitleScale = useTransform(scrollYProgress, [0.425, 0.455, 0.50, 0.525], [0.9, 1, 1, 1.05]);
+    const t2BodyOpacity = useTransform(scrollYProgress, [0.445, 0.47, 0.50, 0.525], [0, 1, 1, 0]);
+    const t2BodyBlur = useTransform(scrollYProgress, [0.445, 0.47, 0.50, 0.525], ["blur(12px)", "blur(0px)", "blur(0px)", "blur(12px)"]);
 
     // --- PHASE 2 CHAT ---
-    const c2Opacity = useTransform(scrollYProgress, [0.435, 0.445, 0.625, 0.665], [0, 1, 1, 0]);
-    const c2TranslateY = useTransform(scrollYProgress, [0.56, 0.665], [0, -220]);
+    const c2Opacity = useTransform(scrollYProgress, [0.525, 0.535, 0.66, 0.69], [0, 1, 1, 0]);
+    const c2TranslateY = useTransform(scrollYProgress, [0.60, 0.69], [0, -260]);
 
     // --- PHASE 3 TEXT ---
     const t3TitleOpacity = useTransform(scrollYProgress, [0.66, 0.70, 0.735, 0.76], [0, 1, 1, 0]);

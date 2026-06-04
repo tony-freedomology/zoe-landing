@@ -244,7 +244,7 @@ export default function StickyRhythmsSection() {
                         <span className="text-amber-700 font-semibold tracking-widest uppercase text-sm mb-4">Dawn</span>
                         <h2 className="text-5xl md:text-6xl tracking-tighter-editorial-relaxed text-zoe-ink mb-6 font-bold leading-[1.1]">Begin with<br />Jesus.</h2>
                         <div className="space-y-4 text-[17px] md:text-xl text-zoe-muted leading-relaxed font-medium max-w-2xl">
-                            <p>Before the emails and the noise, start with scripture, prayer, or quiet. Receive before producing.</p>
+                            <p>Before the emails and the noise, start with scripture, prayer, or quiet.</p>
                         </div>
                     </motion.div>
 
@@ -253,8 +253,7 @@ export default function StickyRhythmsSection() {
                         <span className="text-misty-green-700 font-semibold tracking-widest uppercase text-sm mb-4">Noon</span>
                         <h2 className="text-5xl md:text-6xl tracking-tighter-editorial-relaxed text-zoe-ink mb-6 font-bold leading-[1.1]">Return in<br />the middle.</h2>
                         <div className="space-y-4 text-[17px] md:text-xl text-zoe-muted leading-relaxed font-medium max-w-2xl">
-                            <p>If the day gets loud, Zoe brings the morning back into the moment you are actually in.</p>
-                            <p><strong className="text-misty-green-900 bg-misty-green-100/60 px-1 py-0.5 rounded-sm font-semibold">What does faithfulness look like right here?</strong></p>
+                            <p>In the middle of busy life, Zoe will help you remember to see what God's up to.</p>
                         </div>
                     </motion.div>
 
@@ -263,7 +262,6 @@ export default function StickyRhythmsSection() {
                         <motion.span style={{ color: duskLabelColor }} className="font-semibold tracking-widest uppercase text-sm mb-4">Dusk</motion.span>
                         <motion.h2 style={{ color: duskHeadlineColor }} className="text-5xl md:text-6xl tracking-tighter-editorial-relaxed mb-6 font-bold leading-[1.1]">Notice and<br />release.</motion.h2>
                         <motion.div style={{ color: duskBodyColor }} className="space-y-4 text-[17px] md:text-xl leading-relaxed font-medium max-w-2xl">
-                            <p><strong className="text-white font-semibold">One quiet question.</strong></p>
                             <p>What needs to be noticed, repaired, thanked God for, or handed back before sleep?</p>
                         </motion.div>
                     </motion.div>

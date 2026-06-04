@@ -46,7 +46,7 @@ export default function ThesisSection(_props: ThesisProps = {}) {
               We think there are better and worse ways to integrate AI and the spiritual life. That&apos;s why we&apos;re building in public and talking about it in public and inviting you to join the conversation (and the alpha!)
             </p>
             <p>
-              Our goal is to build something that helps people turn toward him daily. We&apos;re really not interested in AI that tries to replace pastors (we are pastors, so that would be silly), tries to fill the role of the Holy Spirit, or offers fake spiritual certainty.
+              Our goal is to build something that helps people turn toward Him daily. We&apos;re really not interested in AI that tries to replace pastors (we are pastors, so that would be silly), tries to fill the role of the Holy Spirit, or offers fake spiritual certainty.
             </p>
             <p>
               But we are very interested in how AI could be used to help people&apos;s attention turn to Christ more often. We already know AI can make a great morning devotional, but what we need is <span className="font-extrabold text-zoe-sap">day-long devotion.</span>
