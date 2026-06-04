@@ -23,6 +23,8 @@ interface HomeProps {
   variant?: "default" | "jesus-red" | "emerald-uni" | "emerald-uni";
 }
 
+type PhonePlatform = "iphone" | "android";
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } },
@@ -94,6 +96,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [name, setName] = useState("");
   const [phone, setPhone] = usePhoneFormatter("");
+  const [phonePlatform, setPhonePlatform] = useState<PhonePlatform | "">("");
 
   const trustRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: trustScroll } = useScroll({
@@ -113,7 +116,8 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
   const waitlistFormValid =
     isWaitlistNameValid(name) &&
     isWaitlistPhoneValid(phone) &&
-    isWaitlistEmailValid(email);
+    isWaitlistEmailValid(email) &&
+    phonePlatform !== "";
 
   const handleWaitlistSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -129,6 +133,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
       name,
       phone,
       email,
+      phonePlatform,
       source: "individuals-waitlist",
       submittedAt: new Date().toISOString(),
     };
@@ -264,6 +269,42 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     ) : (
                       <form className="flex flex-col gap-4" onSubmit={handleWaitlistSubmit}>
                         <input type="hidden" name="source" value="individuals-waitlist" />
+                        <fieldset className="grid grid-cols-2 gap-2 text-left">
+                          <legend className="sr-only">Phone type</legend>
+                          {(["iphone", "android"] as const).map((platform) => (
+                            <label
+                              key={platform}
+                              className={clsx(
+                                "flex cursor-pointer items-center justify-center gap-2 border px-3 py-3 text-sm font-semibold transition-all",
+                                variant === "jesus-red"
+                                  ? "rounded-md border-[#e0d8cd]"
+                                  : isDefault
+                                    ? "rounded-[1.2rem] border-zoe-outline/45"
+                                    : "rounded-xl border-slate-200",
+                                phonePlatform === platform
+                                  ? platform === "iphone"
+                                    ? "border-[#007AFF] bg-[#007AFF] text-white"
+                                    : variant === "jesus-red"
+                                      ? "bg-[#7a2332] text-white"
+                                      : isDefault
+                                        ? "bg-zoe-sap text-white"
+                                        : "bg-slate-900 text-white"
+                                  : "bg-white text-slate-600 hover:border-slate-300"
+                              )}
+                            >
+                              <input
+                                type="radio"
+                                name="phonePlatform"
+                                value={platform}
+                                checked={phonePlatform === platform}
+                                onChange={() => setPhonePlatform(platform)}
+                                className="sr-only"
+                                required
+                              />
+                              <span>{platform === "iphone" ? "iPhone" : "Android"}</span>
+                            </label>
+                          ))}
+                        </fieldset>
                         <input
                           required
                           type="text"

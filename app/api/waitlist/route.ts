@@ -8,7 +8,10 @@ type WaitlistBody = {
   phone?: string;
   email?: string;
   source?: string;
+  phonePlatform?: string;
 };
+
+type PhonePlatform = "iphone" | "android";
 
 function normalizePhone(rawPhone: string): string | null {
   const digits = rawPhone.replace(/\D/g, "");
@@ -23,6 +26,20 @@ function normalizePhone(rawPhone: string): string | null {
 
   if (digits.length >= 8 && digits.length <= 15) {
     return `+${digits}`;
+  }
+
+  return null;
+}
+
+function normalizePhonePlatform(rawPlatform?: string): PhonePlatform | null {
+  const platform = rawPlatform?.trim().toLowerCase();
+
+  if (platform === "iphone" || platform === "ios") {
+    return "iphone";
+  }
+
+  if (platform === "android") {
+    return "android";
   }
 
   return null;
@@ -56,6 +73,7 @@ export async function POST(req: NextRequest) {
     const email = body.email?.trim().toLowerCase() || "";
     const phone = body.phone?.trim() || "";
     const source = body.source?.trim() || "Zoe Landing Page";
+    const phonePlatform = normalizePhonePlatform(body.phonePlatform);
 
     if (!name || !phone || !email) {
       return NextResponse.json(
@@ -94,6 +112,11 @@ export async function POST(req: NextRequest) {
 
     // Determine tags based on source
     const typeTag = source.startsWith("churches-") ? "churches" : "individuals";
+    const tags = ["zoe-waitlist", typeTag];
+
+    if (phonePlatform) {
+      tags.push(phonePlatform);
+    }
 
     const ghlPayload = {
       locationId: GHL_LOCATION_ID,
@@ -101,7 +124,7 @@ export async function POST(req: NextRequest) {
       lastName,
       phone: normalizedPhone,
       email,
-      tags: ["zoe-waitlist", typeTag],
+      tags,
       source,
     };
 

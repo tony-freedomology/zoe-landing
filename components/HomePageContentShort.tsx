@@ -19,16 +19,20 @@ interface ShortProps {
   variant?: "default" | "jesus-red" | "emerald-uni";
 }
 
+type PhonePlatform = "iphone" | "android";
+
 export default function HomePageContentShort({ variant = "default" }: ShortProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "sent">("idle");
   const [name, setName] = useState("");
   const [phone, setPhone] = usePhoneFormatter("");
   const [email, setEmail] = useState("");
+  const [phonePlatform, setPhonePlatform] = useState<PhonePlatform | "">("");
   const [submitError, setSubmitError] = useState<string | null>(null);
   const waitlistFormValid =
     isWaitlistNameValid(name) &&
     isWaitlistPhoneValid(phone) &&
-    isWaitlistEmailValid(email);
+    isWaitlistEmailValid(email) &&
+    phonePlatform !== "";
 
   const isJR = variant === "jesus-red";
   const isEM = variant === "emerald-uni";
@@ -52,6 +56,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       name,
       phone,
       email,
+      phonePlatform,
       type: "individual",
       source: `short-landing-${variant}`,
       submittedAt: new Date().toISOString()
@@ -263,6 +268,33 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                 <motion.div key="form" exit={{ opacity: 0, x: -20 }}>
                   {/* Compelling Opt-in */}
                   <form onSubmit={handleWaitlistSubmit} className="flex flex-col gap-3 mb-10 w-full">
+                    <fieldset className="grid grid-cols-2 gap-2">
+                      <legend className="sr-only">Phone type</legend>
+                      {(["iphone", "android"] as const).map((platform) => (
+                        <label
+                          key={platform}
+                          className={clsx(
+                            "flex cursor-pointer items-center justify-center rounded-xl border px-3 py-3 text-sm font-bold transition-all",
+                            phonePlatform === platform
+                              ? platform === "iphone"
+                                ? "border-[#007AFF] bg-[#007AFF] text-white"
+                                : clsx(primaryBg, "border-transparent text-white")
+                              : "border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300"
+                          )}
+                        >
+                          <input
+                            type="radio"
+                            name="phonePlatform"
+                            value={platform}
+                            checked={phonePlatform === platform}
+                            onChange={() => setPhonePlatform(platform)}
+                            className="sr-only"
+                            required
+                          />
+                          <span>{platform === "iphone" ? "iPhone" : "Android"}</span>
+                        </label>
+                      ))}
+                    </fieldset>
                     <input
                       type="text"
                       placeholder="Your First Name"
