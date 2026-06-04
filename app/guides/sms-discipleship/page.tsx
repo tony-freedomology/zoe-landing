@@ -3,11 +3,16 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
 import FaqSchema from "../../../components/FaqSchema";
+import StructuredData from "../../../components/StructuredData";
+import { breadcrumbSchema } from "../../../lib/site";
 
 export const metadata: Metadata = {
   title: "SMS Discipleship: Bible Study Without Downloading Another App",
   description:
     "SMS discipleship delivers daily scripture, original-language context, and guided reflection via text message — no download, no login, no friction. Here's how it works and why it builds habits that apps don't.",
+  alternates: {
+    canonical: "/guides/sms-discipleship",
+  },
 };
 
 const comparison = [
@@ -55,6 +60,14 @@ export default function SmsDiscipleshipGuidePage() {
   return (
     <>
     <FaqSchema faqs={faqs} />
+    <StructuredData
+      id="breadcrumb-schema"
+      data={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Guides", path: "/guides" },
+        { name: "SMS Discipleship", path: "/guides/sms-discipleship" },
+      ])}
+    />
     <div className="min-h-screen text-zoe-ink">
       {/* Hero */}
       <section className="bg-zoe-ink py-32 px-6 pt-40">

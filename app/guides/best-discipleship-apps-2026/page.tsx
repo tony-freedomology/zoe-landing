@@ -3,11 +3,16 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
 import FaqSchema from "../../../components/FaqSchema";
+import StructuredData from "../../../components/StructuredData";
+import { breadcrumbSchema } from "../../../lib/site";
 
 export const metadata: Metadata = {
   title: "Best Discipleship Apps 2026",
   description:
     "The honest comparison of discipleship apps in 2026: YouVersion, Hallow, Zoe, and more. Which tools actually build lasting Bible habits — and why most people stop using them within 90 days.",
+  alternates: {
+    canonical: "/guides/best-discipleship-apps-2026",
+  },
 };
 
 const apps = [
@@ -104,6 +109,14 @@ export default function BestDiscipleshipAppsPage() {
   return (
     <>
     <FaqSchema faqs={faqs} />
+    <StructuredData
+      id="breadcrumb-schema"
+      data={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Guides", path: "/guides" },
+        { name: "Best Discipleship Apps 2026", path: "/guides/best-discipleship-apps-2026" },
+      ])}
+    />
     <div className="min-h-screen text-zoe-ink">
       {/* Hero */}
       <section className="bg-zoe-ink py-32 px-6 pt-40">

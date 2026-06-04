@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Brand Facts",
   description:
     "Structured brand information about Zoe — an SMS-based AI discipleship tool for Protestant and non-denominational Christians. No app required.",
+  alternates: {
+    canonical: "/brand-facts",
+  },
 };
 
 const features = [

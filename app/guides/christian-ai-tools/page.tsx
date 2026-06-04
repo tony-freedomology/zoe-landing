@@ -3,11 +3,16 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
 import FaqSchema from "../../../components/FaqSchema";
+import StructuredData from "../../../components/StructuredData";
+import { breadcrumbSchema } from "../../../lib/site";
 
 export const metadata: Metadata = {
   title: "Christian AI Tools: What's Actually Worth Using in 2026",
   description:
     "AI tools for Christians, Bible study, discipleship, and spiritual growth — what's genuinely useful, what's gimmicky, and what to avoid. Includes Zoe, YouVersion AI features, Bible chatbots, and more.",
+  alternates: {
+    canonical: "/guides/christian-ai-tools",
+  },
 };
 
 const tools = [
@@ -88,6 +93,14 @@ export default function ChristianAiToolsPage() {
   return (
     <>
     <FaqSchema faqs={faqs} />
+    <StructuredData
+      id="breadcrumb-schema"
+      data={breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Guides", path: "/guides" },
+        { name: "Christian AI Tools", path: "/guides/christian-ai-tools" },
+      ])}
+    />
     <div className="min-h-screen text-zoe-ink">
       {/* Hero */}
       <section className="bg-zoe-ink py-32 px-6 pt-40">

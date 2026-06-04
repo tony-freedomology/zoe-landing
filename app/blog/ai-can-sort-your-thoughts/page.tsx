@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "AI Can Sort Your Thoughts, but it Can’t Receive Your Prayers",
   description:
     "A look at what happens when our instinct for prayer gets hijacked.",
+  alternates: {
+    canonical: "/blog/ai-can-sort-your-thoughts",
+  },
 };
 
 export default function AiPrayerReflexPost() {
@@ -15,6 +18,7 @@ export default function AiPrayerReflexPost() {
       readTime="7 min read"
       title="AI Can Sort Your Thoughts, but it Can’t Receive Your Prayers"
       deck="A look at what happens when our instinct for prayer gets hijacked."
+      path="/blog/ai-can-sort-your-thoughts"
       heroImage={{
         src: "/images/blog-ai-prayer-reflex.png",
         alt: "A warm desk with a Bible, journal, candle, coffee, and laptop, suggesting the difference between reflection and prayer.",

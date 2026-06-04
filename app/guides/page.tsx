@@ -6,6 +6,9 @@ import Footer from "../../components/Footer";
 export const metadata: Metadata = {
   title: "Guides",
   description: "In-depth guides on discipleship, SMS Bible study, Christian AI tools, and how to build a daily faith habit that actually sticks.",
+  alternates: {
+    canonical: "/guides",
+  },
 };
 
 const guides = [

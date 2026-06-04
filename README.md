@@ -7,3 +7,4 @@ Run
 Notes
 - Tailwind + Framer Motion enabled
 - Waitlist form is a placeholder. Wire to Supabase or email capture per notes in zoe-landing-doc.md
+- Search/LLM discoverability conventions live in docs/discoverability.md

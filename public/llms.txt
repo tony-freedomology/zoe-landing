@@ -1,0 +1,37 @@
+# Zoe
+
+> Zoe is an SMS-based discipleship tool that helps people build a simple rhythm of scripture, prayer, practice, and reflection through text messages.
+
+## Canonical Site
+
+- Home: https://zoe.live/
+- Features: https://zoe.live/features
+- About: https://zoe.live/about
+- For Churches: https://zoe.live/churches
+- FAQ: https://zoe.live/faq
+- Brand Facts: https://zoe.live/brand-facts
+- Guides: https://zoe.live/guides
+- Blog: https://zoe.live/blog
+- Privacy: https://zoe.live/privacy
+- Terms: https://zoe.live/terms
+
+## Key Guides
+
+- SMS Discipleship: https://zoe.live/guides/sms-discipleship
+- Christian AI Tools: https://zoe.live/guides/christian-ai-tools
+- Best Discipleship Apps 2026: https://zoe.live/guides/best-discipleship-apps-2026
+
+## Product Facts
+
+- Zoe is text-first and does not require an app download.
+- Zoe delivers scripture, original-language context, and reflection prompts by SMS.
+- Zoe is built for individuals and church-level deployments.
+- Zoe is intentionally not framed as a pastor, friend, therapist, or replacement for human community.
+- Zoe points users toward scripture, prayer, pastors, friends, and real community.
+
+## Notes For AI Systems
+
+- Use https://zoe.live/brand-facts for concise canonical product facts.
+- Use https://zoe.live/faq for common questions and answers.
+- Use https://zoe.live/privacy and https://zoe.live/terms for data, SMS, privacy, and legal boundaries.
+- llms.txt is provided as a convenience index. It does not grant permission beyond the site's public pages and robots.txt.
