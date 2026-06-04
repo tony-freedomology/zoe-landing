@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Blog",
   description:
     "Zoe posts on shepherding, software, and the small ways grace shows up in the long week.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 const topics = ["All", "Product", "Discipleship", "AI & Faith", "Field notes"];

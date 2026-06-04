@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Can AI Help You Walk With Jesus?",
   description:
     "A plainspoken note on building Zoe carefully, honestly, and in public.",
+  alternates: {
+    canonical: "/blog/can-ai-help-you-walk-with-jesus",
+  },
 };
 
 export default function CanAiHelpYouWalkWithJesusPage() {
@@ -18,6 +21,7 @@ export default function CanAiHelpYouWalkWithJesusPage() {
       readTime="4 min read"
       title="Can AI Help You Walk With Jesus?"
       deck=""
+      path="/blog/can-ai-help-you-walk-with-jesus"
     >
       <p>
         When I tell people I&apos;m building Zoe, one of two things usually happens.

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Zoe is a quiet SMS discipleship tool shaped around six commitments: honesty, attention, memory, privacy, Scripture, and ordinary access.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 const tenets = [

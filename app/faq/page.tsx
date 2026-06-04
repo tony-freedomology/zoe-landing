@@ -6,6 +6,7 @@ import { ChevronDown, ArrowRight } from "lucide-react";
 import clsx from "clsx";
 import Link from "next/link";
 import Footer from "../../components/Footer";
+import FaqSchema from "../../components/FaqSchema";
 
 const faqs = [
   {
@@ -102,6 +103,8 @@ export default function FAQPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
+    <>
+    <FaqSchema faqs={faqs.map((faq) => ({ q: faq.question, a: faq.answer }))} />
     <div className="min-h-screen text-zoe-ink">
       <section className="bg-gradient-to-b from-[#1a1308] to-[#141008] py-32 px-6 pt-40">
         <div className="mx-auto max-w-3xl text-center">
@@ -198,5 +201,6 @@ export default function FAQPage() {
 
       <Footer />
     </div>
+    </>
   );
 }

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "What Should Zoe Do in the Morning?",
   description:
     "A question about mornings, Scripture, and what kind of help is actually helpful.",
+  alternates: {
+    canonical: "/blog/what-should-zoe-do-in-the-morning",
+  },
 };
 
 export default function WhatShouldZoeDoInTheMorningPage() {
@@ -18,6 +21,7 @@ export default function WhatShouldZoeDoInTheMorningPage() {
       readTime="4 min read"
       title="What Should Zoe Do in the Morning?"
       deck="A question about mornings, Scripture, and what kind of help is actually helpful."
+      path="/blog/what-should-zoe-do-in-the-morning"
     >
       <p>Hey friends,</p>
       <p>

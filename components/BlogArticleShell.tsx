@@ -3,6 +3,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import Footer from "./Footer";
+import StructuredData from "./StructuredData";
+import { breadcrumbSchema, toAbsoluteUrl } from "../lib/site";
 
 type BlogArticleShellProps = {
   category: string;
@@ -10,6 +12,7 @@ type BlogArticleShellProps = {
   readTime: string;
   title: string;
   deck: string;
+  path: string;
   heroImage?: {
     src: string;
     alt: string;
@@ -23,11 +26,39 @@ export default function BlogArticleShell({
   readTime,
   title,
   deck,
+  path,
   heroImage,
   children,
 }: BlogArticleShellProps) {
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description: deck,
+    author: {
+      "@type": "Person",
+      name: "Tony Allen",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Zoe",
+      url: toAbsoluteUrl("/"),
+    },
+    mainEntityOfPage: toAbsoluteUrl(path),
+    image: heroImage ? toAbsoluteUrl(heroImage.src) : undefined,
+  };
+
   return (
     <div className="min-h-screen bg-zoe-oat text-zoe-ink">
+      <StructuredData id="article-schema" data={articleSchema} />
+      <StructuredData
+        id="breadcrumb-schema"
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: title, path },
+        ])}
+      />
       <main className="px-6 pb-24 pt-36">
         <article className="mx-auto max-w-[720px]">
           <Link href="/blog" className="mb-16 inline-flex text-sm font-semibold text-zoe-muted transition hover:text-zoe-forest">

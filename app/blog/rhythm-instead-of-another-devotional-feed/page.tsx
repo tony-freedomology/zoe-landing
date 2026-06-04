@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Why Zoe Starts With Rhythm Instead of Another Devotional Feed",
   description:
     "The interesting question is whether AI can help us pay attention to Jesus when the day gets loud.",
+  alternates: {
+    canonical: "/blog/rhythm-instead-of-another-devotional-feed",
+  },
 };
 
 export default function RhythmInsteadOfAnotherDevotionalFeedPage() {
@@ -18,6 +21,7 @@ export default function RhythmInsteadOfAnotherDevotionalFeedPage() {
       readTime="7 min read"
       title="Why Zoe Starts With Rhythm Instead of Another Devotional Feed"
       deck="The interesting question is whether AI can help us pay attention to Jesus when the day gets loud."
+      path="/blog/rhythm-instead-of-another-devotional-feed"
     >
       <p>We've been working through a deceptively important product question lately.</p>
       <p>What should Zoe feel like when your day starts with Scripture?</p>

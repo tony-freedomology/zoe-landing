@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Features",
   description:
     "Zoe helps scripture, prayer, memory, and follow-through stay present in ordinary life through simple text messages.",
+  alternates: {
+    canonical: "/features",
+  },
 };
 
 const features = [

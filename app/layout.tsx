@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   },
   description:
     "Zoe helps you build a simple rhythm of scripture, prayer, practice, and reflection, then carries it through your week by text.",
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -83,6 +86,20 @@ const softwareSchema = {
   aggregateRating: undefined,
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Zoe",
+  url: SITE_URL,
+  description:
+    "Zoe helps you build a simple rhythm of scripture, prayer, practice, and reflection, then carries it through your week by text.",
+  publisher: {
+    "@type": "Organization",
+    name: "Zoe",
+    url: SITE_URL,
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -101,6 +118,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(softwareSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
           }}
         />
       </head>
