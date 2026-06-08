@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { sendMetaLeadEvent } from "../../../lib/metaConversions";
 
 const GHL_BASE = "https://services.leadconnectorhq.com";
 const GHL_VERSION = "2021-07-28";
@@ -9,6 +10,8 @@ type WaitlistBody = {
   email?: string;
   source?: string;
   phonePlatform?: string;
+  eventId?: string;
+  eventSourceUrl?: string;
 };
 
 type PhonePlatform = "iphone" | "android";
@@ -45,6 +48,15 @@ function normalizePhonePlatform(rawPlatform?: string): PhonePlatform | null {
   return null;
 }
 
+function getClientIp(req: NextRequest): string | null {
+  const forwardedFor = req.headers.get("x-forwarded-for");
+  if (forwardedFor) {
+    return forwardedFor.split(",")[0]?.trim() || null;
+  }
+
+  return req.headers.get("x-real-ip");
+}
+
 async function callGHL(
   url: string,
   options: RequestInit,
@@ -74,6 +86,7 @@ export async function POST(req: NextRequest) {
     const phone = body.phone?.trim() || "";
     const source = body.source?.trim() || "Zoe Landing Page";
     const phonePlatform = normalizePhonePlatform(body.phonePlatform);
+    const eventId = body.eventId?.trim() || crypto.randomUUID();
 
     if (!name || !phone || !email) {
       return NextResponse.json(
@@ -170,8 +183,30 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    try {
+      await sendMetaLeadEvent({
+        email,
+        phone: normalizedPhone,
+        firstName,
+        lastName,
+        eventId,
+        eventSourceUrl: body.eventSourceUrl,
+        source,
+        userAgent: req.headers.get("user-agent"),
+        ipAddress: getClientIp(req),
+        fbp: req.cookies.get("_fbp")?.value,
+        fbc: req.cookies.get("_fbc")?.value,
+      });
+    } catch (metaError) {
+      console.warn("Meta CAPI Lead event failed", {
+        error: metaError instanceof Error ? metaError.message : String(metaError),
+        source,
+      });
+    }
+
     return NextResponse.json({
       ok: true,
+      eventId,
       contactId:
         (data.contact as { id?: string } | undefined)?.id ?? null,
     });

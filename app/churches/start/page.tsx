@@ -9,6 +9,7 @@ import {
   isWaitlistPhoneValid,
 } from "../../../lib/waitlistValidation";
 import { usePhoneFormatter } from "../../hooks/usePhoneFormatter";
+import { createMetaEventId, trackMetaLead } from "../../../lib/metaPixel";
 
 const dashboardUrl = process.env.NEXT_PUBLIC_CHURCH_DASHBOARD_URL ?? "https://church.zoe.live";
 
@@ -64,6 +65,8 @@ export default function ChurchPilotStartPage() {
       phone: fullPayload.phone,
       email: fullPayload.email,
       source: `churches-pilot:${readiness}:${size}:${role}`,
+      eventId: createMetaEventId(),
+      eventSourceUrl: window.location.href,
     };
 
     try {
@@ -76,6 +79,7 @@ export default function ChurchPilotStartPage() {
       if (!response.ok || !data?.ok) {
         throw new Error(data?.details || data?.error || "Unable to save pilot request.");
       }
+      trackMetaLead(crmPayload.eventId, crmPayload.source);
       setStatus("sent");
     } catch (err) {
       setStatus("idle");

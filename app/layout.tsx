@@ -4,6 +4,7 @@ import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
 import clsx from "clsx";
 import Navbar from "../components/Navbar";
 import ImagePrefetcher from "../components/ImagePrefetcher";
+import MetaPixel from "../components/MetaPixel";
 import { SITE_URL, toAbsoluteUrl } from "../lib/site";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
@@ -128,6 +129,7 @@ export default function RootLayout({
         />
       </head>
       <body className={clsx(jakarta.variable, newsreader.variable, "font-sans tracking-tight-fine")}>
+        <MetaPixel />
         <Navbar />
         <ImagePrefetcher />
         {children}

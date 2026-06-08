@@ -14,6 +14,7 @@ import {
   isWaitlistNameValid,
   isWaitlistPhoneValid,
 } from "../lib/waitlistValidation";
+import { createMetaEventId, trackMetaLead } from "../lib/metaPixel";
 
 interface ShortProps {
   variant?: "default" | "jesus-red" | "emerald-uni";
@@ -65,6 +66,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     setStatus("submitting");
     setSubmitError(null);
 
+    const eventId = createMetaEventId();
     const payload = {
       name,
       phone,
@@ -72,6 +74,8 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       phonePlatform,
       type: "individual",
       source: variant === "default" ? "beta-signup" : `short-landing-${variant}`,
+      eventId,
+      eventSourceUrl: window.location.href,
       submittedAt: new Date().toISOString()
     };
 
@@ -88,11 +92,13 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
 
     try {
       await attempt();
+      trackMetaLead(eventId, payload.source);
       setStatus("sent");
     } catch (firstError) {
       try {
         await new Promise((r) => setTimeout(r, 1000));
         await attempt();
+        trackMetaLead(eventId, payload.source);
         setStatus("sent");
       } catch (retryError) {
         console.warn("Waitlist submission failed after retry:", retryError);
