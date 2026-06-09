@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendMetaLeadEvent } from "../../../lib/metaConversions";
+import { saveResendWaitlistContact } from "../../../lib/resendWaitlistContact";
 import { sendWaitlistConfirmationEmail } from "../../../lib/waitlistConfirmationEmail";
-
-const GHL_BASE = "https://services.leadconnectorhq.com";
-const GHL_VERSION = "2021-07-28";
 
 type WaitlistBody = {
   name?: string;
@@ -58,27 +56,6 @@ function getClientIp(req: NextRequest): string | null {
   return req.headers.get("x-real-ip");
 }
 
-async function callGHL(
-  url: string,
-  options: RequestInit,
-  retries = 1
-): Promise<Response> {
-  try {
-    const resp = await fetch(url, options);
-    return resp;
-  } catch (err) {
-    if (retries > 0) {
-      console.warn("GHL fetch failed, retrying in 1s...", {
-        error: err instanceof Error ? err.message : String(err),
-        retriesLeft: retries,
-      });
-      await new Promise((r) => setTimeout(r, 1000));
-      return callGHL(url, options, retries - 1);
-    }
-    throw err;
-  }
-}
-
 export async function POST(req: NextRequest) {
   try {
     const body = (await req.json()) as WaitlistBody;
@@ -104,82 +81,40 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const GHL_API_KEY = process.env.GHL_API_KEY;
-    const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID;
-
-    if (!GHL_API_KEY || !GHL_LOCATION_ID) {
-      console.error("GHL credentials not configured", {
-        hasApiKey: !!GHL_API_KEY,
-        hasLocationId: !!GHL_LOCATION_ID,
-        source,
-      });
-      return NextResponse.json(
-        { ok: false, error: "CRM integration is not configured" },
-        { status: 500 }
-      );
-    }
-
-    // Split name into first/last
     const parts = name.trim().split(/\s+/);
     const firstName = parts[0] || "";
     const lastName = parts.slice(1).join(" ") || "";
 
-    // Determine tags based on source
     const typeTag = source.startsWith("churches-") ? "churches" : "individuals";
-    const tags = ["zoe-waitlist", typeTag];
 
-    if (phonePlatform) {
-      tags.push(phonePlatform);
-    }
-
-    const ghlPayload = {
-      locationId: GHL_LOCATION_ID,
-      firstName,
-      lastName,
-      phone: normalizedPhone,
-      email,
-      tags,
-      source,
-    };
-
-    const resp = await callGHL(`${GHL_BASE}/contacts/upsert`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${GHL_API_KEY}`,
-        Version: GHL_VERSION,
-      },
-      body: JSON.stringify(ghlPayload),
-    });
-
-    const raw = await resp.text();
-    let data: Record<string, unknown> = {};
-    if (raw) {
-      try {
-        data = JSON.parse(raw) as Record<string, unknown>;
-      } catch {
-        data = { raw };
-      }
-    }
-
-    if (!resp.ok) {
-      console.error("GHL upsert failed", {
-        status: resp.status,
+    let contactId: string | null = null;
+    let contactDuplicate = false;
+    let contactUpdated = false;
+    try {
+      const contact = await saveResendWaitlistContact({
+        email,
+        firstName,
+        lastName,
+        phone: normalizedPhone,
+        source,
+        phonePlatform,
+        typeTag,
+        eventId,
+      });
+      contactId = contact.id;
+      contactDuplicate = contact.duplicate;
+      contactUpdated = contact.updated;
+    } catch (contactError) {
+      console.error("Resend waitlist contact failed", {
+        error:
+          contactError instanceof Error
+            ? contactError.message
+            : String(contactError),
         source,
         email,
-        message: data?.message,
-        traceId: data?.traceId,
       });
-
       return NextResponse.json(
-        {
-          ok: false,
-          error: "Failed to save contact — please try again",
-          details:
-            typeof data?.message === "string"
-              ? data.message
-              : "Unknown GoHighLevel error",
-        },
+        { ok: false, error: "Failed to save contact — please try again" },
         { status: 502 }
       );
     }
@@ -240,8 +175,9 @@ export async function POST(req: NextRequest) {
       eventId,
       emailSent,
       confirmationEmailId,
-      contactId:
-        (data.contact as { id?: string } | undefined)?.id ?? null,
+      contactId,
+      contactDuplicate,
+      contactUpdated,
     });
   } catch (err) {
     console.error("Waitlist error:", {
