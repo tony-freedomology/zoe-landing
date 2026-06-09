@@ -21,6 +21,18 @@ type ResendContactResponse = {
   message?: string;
 };
 
+const WAITLIST_CONTACT_PROPERTIES = [
+  "phone",
+  "source",
+  "phone_platform",
+  "waitlist_type",
+  "signup_event_id",
+  "signup_path",
+  "joined_at",
+];
+
+let waitlistContactPropertiesReady: Promise<void> | null = null;
+
 function buildSegments() {
   const segmentId = process.env.RESEND_WAITLIST_SEGMENT_ID?.trim();
   return segmentId ? [{ id: segmentId }] : undefined;
@@ -61,6 +73,8 @@ async function updateExistingContact(
   apiKey: string,
   input: ResendContactInput
 ): Promise<ResendContactResult> {
+  await ensureWaitlistContactProperties(apiKey);
+
   const response = await fetch(
     `https://api.resend.com/contacts/${encodeURIComponent(input.email)}`,
     {
@@ -92,6 +106,48 @@ async function updateExistingContact(
     duplicate: true,
     updated: true,
   };
+}
+
+async function ensureWaitlistContactProperties(apiKey: string) {
+  waitlistContactPropertiesReady ??= Promise.all(
+    WAITLIST_CONTACT_PROPERTIES.map(async (key) => {
+      const response = await fetch("https://api.resend.com/contact-properties", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          key,
+          type: "string",
+          fallback_value: "",
+        }),
+      });
+
+      if (response.ok || response.status === 409) {
+        return;
+      }
+
+      const data = await readResendResponse(response);
+      const message = data.message || "";
+      if (/already exists/i.test(message)) {
+        return;
+      }
+
+      throw new Error(
+        `Resend contact property ${key} failed (${response.status}): ${
+          message || "Unknown error"
+        }`
+      );
+    })
+  ).then(() => undefined);
+
+  try {
+    await waitlistContactPropertiesReady;
+  } catch (error) {
+    waitlistContactPropertiesReady = null;
+    throw error;
+  }
 }
 
 async function addContactToSegment(apiKey: string, input: ResendContactInput) {
@@ -134,6 +190,8 @@ export async function saveResendWaitlistContact(
   if (!apiKey) {
     throw new Error("RESEND_API_KEY is not configured");
   }
+
+  await ensureWaitlistContactProperties(apiKey);
 
   const response = await fetch("https://api.resend.com/contacts", {
     method: "POST",
