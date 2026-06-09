@@ -18,10 +18,15 @@ Set these environment variables in the deployed site:
 NEXT_PUBLIC_META_PIXEL_ID=
 META_PIXEL_ID=
 META_CONVERSIONS_API_ACCESS_TOKEN=
+RESEND_API_KEY=
+WAITLIST_CONFIRMATION_FROM=
+WAITLIST_CONFIRMATION_REPLY_TO=
 ```
 
 Use the same Pixel ID for `NEXT_PUBLIC_META_PIXEL_ID` and `META_PIXEL_ID`.
 The current production Pixel ID is `338259380940184`.
+Use `WAITLIST_CONFIRMATION_FROM` for the Resend sender identity, for example
+`Tony at Zoe <tony@zoe.live>`, and `WAITLIST_CONFIRMATION_REPLY_TO` for replies.
 
 For Events Manager testing, optionally set:
 
@@ -52,6 +57,23 @@ The browser Pixel loads globally and sends `PageView`.
 After `/api/waitlist` successfully saves a contact to GoHighLevel, Zoe sends a server-side `Lead` event to Meta CAPI. The successful client form submit also sends a browser `Lead` event with the same `eventID`, so Meta can deduplicate the browser and server events.
 
 Meta CAPI failures are logged but do not block the user signup.
+
+The same successful waitlist API call sends a Resend confirmation email to the
+new lead. Email failures are logged and returned as `emailSent: false`, but they
+do not block CRM lead capture.
+
+For Meta ads, use the short paid-social route:
+
+```text
+https://zoe.live/s?utm_source=meta&utm_medium=paid_social&utm_campaign=zoe_waitlist_creative_test&utm_content=<creative_slug>
+```
+
+Before publishing ads, submit a test lead on `/s` and verify:
+
+- GoHighLevel received/updated the contact.
+- The API returned `emailSent: true`.
+- Resend shows the confirmation email as sent.
+- Meta Events Manager receives browser and server `Lead` events with deduplication.
 
 ## Event Sources
 

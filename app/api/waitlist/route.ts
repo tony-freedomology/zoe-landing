@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendMetaLeadEvent } from "../../../lib/metaConversions";
+import { sendWaitlistConfirmationEmail } from "../../../lib/waitlistConfirmationEmail";
 
 const GHL_BASE = "https://services.leadconnectorhq.com";
 const GHL_VERSION = "2021-07-28";
@@ -183,6 +184,34 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    let emailSent = false;
+    let confirmationEmailId: string | null = null;
+
+    try {
+      const confirmationEmail = await sendWaitlistConfirmationEmail({
+        email,
+        firstName,
+        eventId,
+        source,
+      });
+      emailSent = confirmationEmail.sent;
+      confirmationEmailId = confirmationEmail.id ?? null;
+
+      if (!confirmationEmail.sent) {
+        console.warn("Waitlist confirmation email skipped", {
+          source,
+          email,
+          reason: confirmationEmail.skippedReason,
+        });
+      }
+    } catch (emailError) {
+      console.warn("Waitlist confirmation email failed", {
+        error: emailError instanceof Error ? emailError.message : String(emailError),
+        source,
+        email,
+      });
+    }
+
     try {
       await sendMetaLeadEvent({
         email,
@@ -207,6 +236,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       ok: true,
       eventId,
+      emailSent,
+      confirmationEmailId,
       contactId:
         (data.contact as { id?: string } | undefined)?.id ?? null,
     });
