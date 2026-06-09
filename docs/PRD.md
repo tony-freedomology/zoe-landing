@@ -605,7 +605,7 @@ SCHEDULED:
 - [x] Sermon upload scaffolding
 - [x] Scheduler (jobs + worker + timezone handling)
 - [x] Landing page (Next.js, individual + churches pages)
-- [x] GHL waitlist integration (/api/waitlist route)
+- [x] Resend waitlist contact capture and confirmation email (`/api/waitlist` route)
 
 ### Needs Building
 - [ ] **Database migrations** — create all tables above (currently scaffolded but not migrated)

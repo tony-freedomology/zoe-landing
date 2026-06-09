@@ -19,6 +19,7 @@ NEXT_PUBLIC_META_PIXEL_ID=
 META_PIXEL_ID=
 META_CONVERSIONS_API_ACCESS_TOKEN=
 RESEND_API_KEY=
+RESEND_WAITLIST_SEGMENT_ID=
 WAITLIST_CONFIRMATION_FROM=
 WAITLIST_CONFIRMATION_REPLY_TO=
 ```
@@ -54,7 +55,7 @@ Do not set `META_CONVERSIONS_API_TEST_EVENT_CODE` for live ad traffic.
 
 The browser Pixel loads globally and sends `PageView`.
 
-After `/api/waitlist` successfully saves a contact to GoHighLevel, Zoe sends a server-side `Lead` event to Meta CAPI. The successful client form submit also sends a browser `Lead` event with the same `eventID`, so Meta can deduplicate the browser and server events.
+After `/api/waitlist` successfully saves a contact to Resend Contacts, Zoe sends a server-side `Lead` event to Meta CAPI. The successful client form submit also sends a browser `Lead` event with the same `eventID`, so Meta can deduplicate the browser and server events.
 
 Meta CAPI failures are logged but do not block the user signup.
 
@@ -70,7 +71,7 @@ https://zoe.live/s?utm_source=meta&utm_medium=paid_social&utm_campaign=zoe_waitl
 
 Before publishing ads, submit a test lead on `/s` and verify:
 
-- GoHighLevel received/updated the contact.
+- Resend Contacts received the contact.
 - The API returned `emailSent: true`.
 - Resend shows the confirmation email as sent.
 - Meta Events Manager receives browser and server `Lead` events with deduplication.

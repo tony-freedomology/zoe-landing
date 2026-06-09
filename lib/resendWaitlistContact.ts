@@ -1,0 +1,167 @@
+type ResendContactInput = {
+  email: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  source: string;
+  phonePlatform?: string | null;
+  typeTag: string;
+  eventId: string;
+};
+
+type ResendContactResult = {
+  id: string | null;
+  created: boolean;
+  duplicate: boolean;
+  updated: boolean;
+};
+
+type ResendContactResponse = {
+  id?: string;
+  message?: string;
+};
+
+function buildSegments() {
+  const segmentId = process.env.RESEND_WAITLIST_SEGMENT_ID?.trim();
+  return segmentId ? [{ id: segmentId }] : undefined;
+}
+
+function buildContactPayload(input: ResendContactInput) {
+  return {
+    email: input.email,
+    first_name: input.firstName,
+    last_name: input.lastName,
+    unsubscribed: false,
+    properties: {
+      phone: input.phone,
+      source: input.source,
+      phone_platform: input.phonePlatform ?? "",
+      waitlist_type: input.typeTag,
+      signup_event_id: input.eventId,
+      signup_path: input.source.startsWith("churches-") ? "churches" : "individuals",
+      joined_at: new Date().toISOString(),
+    },
+  };
+}
+
+async function readResendResponse(response: Response): Promise<ResendContactResponse> {
+  const raw = await response.text();
+  if (!raw) {
+    return {};
+  }
+
+  try {
+    return JSON.parse(raw) as ResendContactResponse;
+  } catch {
+    return { message: raw };
+  }
+}
+
+async function updateExistingContact(
+  apiKey: string,
+  input: ResendContactInput
+): Promise<ResendContactResult> {
+  const response = await fetch(
+    `https://api.resend.com/contacts/${encodeURIComponent(input.email)}`,
+    {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+        "Idempotency-Key": `zoe-waitlist-contact-update-${input.eventId}`,
+      },
+      body: JSON.stringify(buildContactPayload(input)),
+    }
+  );
+
+  const data = await readResendResponse(response);
+
+  if (!response.ok) {
+    throw new Error(
+      `Resend waitlist contact update failed (${response.status}): ${
+        data.message || "Unknown error"
+      }`
+    );
+  }
+
+  await addContactToSegment(apiKey, input);
+
+  return {
+    id: data.id ?? null,
+    created: false,
+    duplicate: true,
+    updated: true,
+  };
+}
+
+async function addContactToSegment(apiKey: string, input: ResendContactInput) {
+  const segmentId = process.env.RESEND_WAITLIST_SEGMENT_ID?.trim();
+  if (!segmentId) {
+    return;
+  }
+
+  const response = await fetch(
+    `https://api.resend.com/contacts/${encodeURIComponent(
+      input.email
+    )}/segments/${encodeURIComponent(segmentId)}`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+        "Idempotency-Key": `zoe-waitlist-contact-segment-${input.eventId}`,
+      },
+    }
+  );
+
+  if (response.ok || response.status === 409) {
+    return;
+  }
+
+  const data = await readResendResponse(response);
+  throw new Error(
+    `Resend waitlist segment add failed (${response.status}): ${
+      data.message || "Unknown error"
+    }`
+  );
+}
+
+export async function saveResendWaitlistContact(
+  input: ResendContactInput
+): Promise<ResendContactResult> {
+  const apiKey = process.env.RESEND_API_KEY;
+
+  if (!apiKey) {
+    throw new Error("RESEND_API_KEY is not configured");
+  }
+
+  const response = await fetch("https://api.resend.com/contacts", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+      "Idempotency-Key": `zoe-waitlist-contact-${input.eventId}`,
+    },
+    body: JSON.stringify({
+      ...buildContactPayload(input),
+      segments: buildSegments(),
+    }),
+  });
+
+  const data = await readResendResponse(response);
+
+  if (response.ok) {
+    return { id: data.id ?? null, created: true, duplicate: false, updated: false };
+  }
+
+  const message = data.message || "";
+  if (response.status === 409 || /already exists/i.test(message)) {
+    return updateExistingContact(apiKey, input);
+  }
+
+  throw new Error(
+    `Resend waitlist contact failed (${response.status}): ${
+      message || "Unknown error"
+    }`
+  );
+}
