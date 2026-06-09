@@ -187,29 +187,31 @@ export async function POST(req: NextRequest) {
     let emailSent = false;
     let confirmationEmailId: string | null = null;
 
-    try {
-      const confirmationEmail = await sendWaitlistConfirmationEmail({
-        email,
-        firstName,
-        eventId,
-        source,
-      });
-      emailSent = confirmationEmail.sent;
-      confirmationEmailId = confirmationEmail.id ?? null;
+    if (typeTag === "individuals") {
+      try {
+        const confirmationEmail = await sendWaitlistConfirmationEmail({
+          email,
+          firstName,
+          eventId,
+          source,
+        });
+        emailSent = confirmationEmail.sent;
+        confirmationEmailId = confirmationEmail.id ?? null;
 
-      if (!confirmationEmail.sent) {
-        console.warn("Waitlist confirmation email skipped", {
+        if (!confirmationEmail.sent) {
+          console.warn("Waitlist confirmation email skipped", {
+            source,
+            email,
+            reason: confirmationEmail.skippedReason,
+          });
+        }
+      } catch (emailError) {
+        console.warn("Waitlist confirmation email failed", {
+          error: emailError instanceof Error ? emailError.message : String(emailError),
           source,
           email,
-          reason: confirmationEmail.skippedReason,
         });
       }
-    } catch (emailError) {
-      console.warn("Waitlist confirmation email failed", {
-        error: emailError instanceof Error ? emailError.message : String(emailError),
-        source,
-        email,
-      });
     }
 
     try {
