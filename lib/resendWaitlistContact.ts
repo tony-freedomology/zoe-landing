@@ -41,8 +41,8 @@ function buildSegments() {
 function buildContactPayload(input: ResendContactInput) {
   return {
     email: input.email,
-    first_name: input.firstName,
-    last_name: input.lastName,
+    firstName: input.firstName,
+    lastName: input.lastName,
     unsubscribed: false,
     properties: {
       phone: input.phone,
@@ -120,7 +120,7 @@ async function ensureWaitlistContactProperties(apiKey: string) {
         body: JSON.stringify({
           key,
           type: "string",
-          fallback_value: "",
+          fallbackValue: "",
         }),
       });
 
