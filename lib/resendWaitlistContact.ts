@@ -14,6 +14,7 @@ type ResendContactResult = {
   created: boolean;
   duplicate: boolean;
   updated: boolean;
+  savedWithProperties: boolean;
 };
 
 type ResendContactResponse = {
@@ -56,6 +57,15 @@ function buildContactPayload(input: ResendContactInput) {
   };
 }
 
+function buildMinimalContactPayload(input: ResendContactInput) {
+  return {
+    email: input.email,
+    firstName: input.firstName,
+    lastName: input.lastName,
+    unsubscribed: false,
+  };
+}
+
 async function readResendResponse(response: Response): Promise<ResendContactResponse> {
   const raw = await response.text();
   if (!raw) {
@@ -71,10 +81,9 @@ async function readResendResponse(response: Response): Promise<ResendContactResp
 
 async function updateExistingContact(
   apiKey: string,
-  input: ResendContactInput
+  input: ResendContactInput,
+  includeProperties = true
 ): Promise<ResendContactResult> {
-  await ensureWaitlistContactProperties(apiKey);
-
   const response = await fetch(
     `https://api.resend.com/contacts/${encodeURIComponent(input.email)}`,
     {
@@ -84,7 +93,9 @@ async function updateExistingContact(
         "Content-Type": "application/json",
         "Idempotency-Key": `zoe-waitlist-contact-update-${input.eventId}`,
       },
-      body: JSON.stringify(buildContactPayload(input)),
+      body: JSON.stringify(
+        includeProperties ? buildContactPayload(input) : buildMinimalContactPayload(input)
+      ),
     }
   );
 
@@ -105,6 +116,7 @@ async function updateExistingContact(
     created: false,
     duplicate: true,
     updated: true,
+    savedWithProperties: includeProperties,
   };
 }
 
@@ -191,17 +203,51 @@ export async function saveResendWaitlistContact(
     throw new Error("RESEND_API_KEY is not configured");
   }
 
-  await ensureWaitlistContactProperties(apiKey);
+  try {
+    await ensureWaitlistContactProperties(apiKey);
+  } catch (error) {
+    console.warn("Resend waitlist contact property bootstrap skipped", {
+      error: error instanceof Error ? error.message : String(error),
+      source: input.source,
+    });
+  }
 
+  const contact = await createResendContact(apiKey, input, true);
+  if (contact) {
+    return contact;
+  }
+
+  console.warn("Resend waitlist contact properties skipped for fallback save", {
+    source: input.source,
+    email: input.email,
+  });
+
+  const fallbackContact = await createResendContact(apiKey, input, false);
+  if (fallbackContact) {
+    return fallbackContact;
+  }
+
+  throw new Error("Resend waitlist contact failed after full and fallback saves");
+}
+
+async function createResendContact(
+  apiKey: string,
+  input: ResendContactInput,
+  includeProperties: boolean
+): Promise<ResendContactResult | null> {
   const response = await fetch("https://api.resend.com/contacts", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
-      "Idempotency-Key": `zoe-waitlist-contact-${input.eventId}`,
+      "Idempotency-Key": `zoe-waitlist-contact-${
+        includeProperties ? "full" : "minimal"
+      }-${input.eventId}`,
     },
     body: JSON.stringify({
-      ...buildContactPayload(input),
+      ...(includeProperties
+        ? buildContactPayload(input)
+        : buildMinimalContactPayload(input)),
       segments: buildSegments(),
     }),
   });
@@ -209,12 +255,28 @@ export async function saveResendWaitlistContact(
   const data = await readResendResponse(response);
 
   if (response.ok) {
-    return { id: data.id ?? null, created: true, duplicate: false, updated: false };
+    return {
+      id: data.id ?? null,
+      created: true,
+      duplicate: false,
+      updated: false,
+      savedWithProperties: includeProperties,
+    };
   }
 
   const message = data.message || "";
   if (response.status === 409 || /already exists/i.test(message)) {
-    return updateExistingContact(apiKey, input);
+    return updateExistingContact(apiKey, input, includeProperties);
+  }
+
+  if (includeProperties) {
+    console.warn("Resend waitlist contact full save failed", {
+      status: response.status,
+      message,
+      source: input.source,
+      email: input.email,
+    });
+    return null;
   }
 
   throw new Error(
