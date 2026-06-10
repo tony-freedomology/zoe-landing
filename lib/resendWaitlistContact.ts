@@ -22,18 +22,6 @@ type ResendContactResponse = {
   message?: string;
 };
 
-const WAITLIST_CONTACT_PROPERTIES = [
-  "phone",
-  "source",
-  "phone_platform",
-  "waitlist_type",
-  "signup_event_id",
-  "signup_path",
-  "joined_at",
-];
-
-let waitlistContactPropertiesReady: Promise<void> | null = null;
-
 function buildSegments() {
   const segmentId = process.env.RESEND_WAITLIST_SEGMENT_ID?.trim();
   return segmentId ? [{ id: segmentId }] : undefined;
@@ -120,48 +108,6 @@ async function updateExistingContact(
   };
 }
 
-async function ensureWaitlistContactProperties(apiKey: string) {
-  waitlistContactPropertiesReady ??= Promise.all(
-    WAITLIST_CONTACT_PROPERTIES.map(async (key) => {
-      const response = await fetch("https://api.resend.com/contact-properties", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          key,
-          type: "string",
-          fallbackValue: "",
-        }),
-      });
-
-      if (response.ok || response.status === 409) {
-        return;
-      }
-
-      const data = await readResendResponse(response);
-      const message = data.message || "";
-      if (/already exists/i.test(message)) {
-        return;
-      }
-
-      throw new Error(
-        `Resend contact property ${key} failed (${response.status}): ${
-          message || "Unknown error"
-        }`
-      );
-    })
-  ).then(() => undefined);
-
-  try {
-    await waitlistContactPropertiesReady;
-  } catch (error) {
-    waitlistContactPropertiesReady = null;
-    throw error;
-  }
-}
-
 async function addContactToSegment(apiKey: string, input: ResendContactInput) {
   const segmentId = process.env.RESEND_WAITLIST_SEGMENT_ID?.trim();
   if (!segmentId) {
@@ -201,15 +147,6 @@ export async function saveResendWaitlistContact(
 
   if (!apiKey) {
     throw new Error("RESEND_API_KEY is not configured");
-  }
-
-  try {
-    await ensureWaitlistContactProperties(apiKey);
-  } catch (error) {
-    console.warn("Resend waitlist contact property bootstrap skipped", {
-      error: error instanceof Error ? error.message : String(error),
-      source: input.source,
-    });
   }
 
   const contact = await createResendContact(apiKey, input, true);
