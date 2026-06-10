@@ -90,6 +90,7 @@ export async function POST(req: NextRequest) {
     let contactId: string | null = null;
     let contactDuplicate = false;
     let contactUpdated = false;
+    let contactSavedWithProperties = false;
     try {
       const contact = await saveResendWaitlistContact({
         email,
@@ -104,6 +105,7 @@ export async function POST(req: NextRequest) {
       contactId = contact.id;
       contactDuplicate = contact.duplicate;
       contactUpdated = contact.updated;
+      contactSavedWithProperties = contact.savedWithProperties;
     } catch (contactError) {
       console.error("Resend waitlist contact failed", {
         error:
@@ -178,6 +180,7 @@ export async function POST(req: NextRequest) {
       contactId,
       contactDuplicate,
       contactUpdated,
+      contactSavedWithProperties,
     });
   } catch (err) {
     console.error("Waitlist error:", {
