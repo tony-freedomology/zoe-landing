@@ -28,14 +28,14 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
   const [phone, setPhone] = usePhoneFormatter("");
   const [email, setEmail] = useState("");
   const [phonePlatform, setPhonePlatform] = useState<PhonePlatform | "">("");
-  const [feedbackAgreed, setFeedbackAgreed] = useState(false);
+  const [smsConsentAgreed, setSmsConsentAgreed] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [showStickyBetaCta, setShowStickyBetaCta] = useState(false);
+  const phoneValid = isWaitlistPhoneValid(phone);
   const waitlistFormValid =
     isWaitlistNameValid(name) &&
-    isWaitlistPhoneValid(phone) &&
-    isWaitlistEmailValid(email) &&
-    phonePlatform !== "";
+    phoneValid &&
+    isWaitlistEmailValid(email);
 
   const isJR = variant === "jesus-red";
   const isEM = variant === "emerald-uni";
@@ -58,8 +58,8 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       return;
     }
 
-    if (variant === "default" && !feedbackAgreed) {
-      setSubmitError("Check the feedback box so we know you're up for the beta.");
+    if (variant === "default" && !smsConsentAgreed) {
+      setSubmitError("Check the SMS consent box so we can text you about the beta.");
       return;
     }
 
@@ -74,6 +74,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       phonePlatform,
       type: "individual",
       source: variant === "default" ? "beta-signup" : `short-landing-${variant}`,
+      smsConsent: variant === "default" ? smsConsentAgreed : false,
       eventId,
       eventSourceUrl: window.location.href,
       submittedAt: new Date().toISOString()
@@ -125,33 +126,34 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
   ];
 
   if (variant === "default") {
-    const betaFormValid = waitlistFormValid && feedbackAgreed;
+    const betaFormValid = waitlistFormValid && smsConsentAgreed;
+    const showFounderSection = false;
     const betaPoints = [
       { icon: Compass, title: "Test it early", desc: "Explore the core experience while we're still shaping it." },
       { icon: MessageCircle, title: "Give honest feedback", desc: "The good, the bad, and the ideas in between." },
       { icon: Heart, title: "Help the Church", desc: "Your input helps us build something that serves well." },
     ];
     const betaExpectations = [
-      { icon: "/assets/icons/beta/ordinary-life.svg", title: "Use it in ordinary life", desc: "Morning, midday, or night. We want to learn where Zoe is actually helpful." },
-      { icon: "/assets/icons/beta/honest-feedback.svg", title: "Tell us the good and the bad", desc: "Your honest notes will shape the product more than polite compliments." },
-      { icon: "/assets/icons/beta/build-carefully.svg", title: "Help us build carefully", desc: "We're trying to build something useful for the Church with humility and patience." },
+      { icon: "/assets/icons/beta/ordinary-life.svg", title: "Zoe will get to know you", desc: "Zoe aims to help you see what God is up to in your life, and is more useful the more it gets to know you." },
+      { icon: "/assets/icons/beta/bible.svg", title: "Zoe helps you engage with scripture", desc: "Choose a book or topic, and Zoe turns it into a guided morning study plan." },
+      { icon: "/assets/icons/beta/follow-through.svg", title: "Zoe helps you follow through", desc: "Zoe points you to Jesus, reminds you what God's been saying to you, and what you've been praying for." },
     ];
     const betaFaqs = [
       {
         question: "What does joining the beta mean?",
-        answer: "You'll be considered for early access to Zoe, use it in your normal week, and tell us what's helpful, confusing, missing, or worth changing.",
+        answer: "At some point you'll get an invitation to start texting with Zoe. Zoe will text you back just like any other contact in your phone, except it's AI.\n\nAfter some initial getting to know you, Zoe will act as a kind of daily partner in your walk with Jesus, helping you engage with scripture and see God at work in your day.\n\nI can already hear some of you protesting.\n\n\"Partner in my walk with Jesus!? Helper!? Don't you mean the Holy Spirit?\"\n\nWhich leads us to the next question.",
       },
       {
-        question: "Do I need to be technical?",
-        answer: "Nope. We're looking for thoughtful Christ followers who will actually use Zoe and give plainspoken feedback.",
+        question: "Are you trying to replace the Holy Spirit?",
+        answer: "We think there is a huge, enormous difference between the Holy Spirit, third person of the Trinity, living and active God of the universe, presently indwelling in every believer and... code.\n\nAI is code. It's cool code. It's useful code. But it's not alive, and Zoe will never pretend to be.\n\nWe DON'T want to build something that tries to fill the role of the Holy Spirit in anyone's life.\n\nFar from it.\n\nWe want to see if we can leverage the latest tech to help people pay MORE attention to how God is active in their lives, and what the Holy Spirit is doing in and through them.\n\nWe get the concern though, and it's something we try to build carefully for.",
       },
       {
-        question: "Is feedback really part of the deal?",
-        answer: "Yes. Good, bad, and in-between feedback is the precondition. That's how we build slowly and serve well.",
+        question: "What is Zoe's doctrine?",
+        answer: "Right now, Zoe is broadly Christian orthodox. Think C.S. Lewis-style Mere Christianity.\n\nOn topics that are divisive, Zoe acknowledges a range of views, but in general Zoe's design is to ask more questions than teach theology.\n\nThat said, the church-facing side of Zoe allows churches to set up their own statements of faith, theological guardrails, and other boundaries, then extend their teaching beyond Sunday morning to each day of the week.\n\nSo it'll depend a bit on which Zoe you mean. But this broad beta version of Zoe has a kind of C.S. Lewisian theological base that hopefully nobody in mainstream Christian circles will find heretical.\n\nIf you find Zoe spouting some heresy, that's a perfect bug report candidate!",
       },
       {
-        question: "Is Zoe trying to replace pastors or the Church?",
-        answer: "No. Zoe is meant to be a quiet tool that helps people turn their attention toward Him daily, not a replacement for pastors, Scripture, community, or the Holy Spirit.",
+        question: "What does it cost?",
+        answer: "The beta is free. The only thing we ask is that you honestly consider what would make a tool like Zoe useful to you in your walk with Jesus and give us the feedback we need to build something awesome.",
       },
     ];
 
@@ -166,14 +168,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
         `}</style>
 
         <section className="lg:hidden">
-          <div className="flex items-center justify-between px-5 pb-3 pt-5">
-            <div className="w-24 text-zoe-sap">
-              <ZoeSVG color="#1dc286" fast={true} />
-            </div>
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-zoe-forest">Zoe Beta</p>
-          </div>
-
-          <div className="mx-5 overflow-hidden rounded-[1.1rem] bg-slate-900">
+          <div className="mx-5 mt-5 overflow-hidden rounded-[1.1rem] bg-slate-900">
             <div className="relative h-32">
               <img
                 src="/assets/hero/beta-mountains.jpg"
@@ -184,7 +179,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
                 <div className="absolute left-1/2 top-1/2 z-0 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.08)_46%,rgba(0,0,0,0)_76%)] blur-xl" />
                 <div className="relative z-10 w-56 max-w-[70vw] drop-shadow-[0_16px_30px_rgba(0,0,0,0.28)]">
-                  <ZoeSVG color="white" fast={true} />
+                  <ZoeSVG color="white" staticOnly />
                 </div>
                 <p className="relative z-10 -mt-1 text-xs font-semibold tracking-tight text-white drop-shadow">
                   Toward <span className="font-serif italic">Him</span>. Daily.
@@ -196,35 +191,21 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
           <div className="px-5 pb-8 pt-5">
             <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: "easeOut" }}>
               <h1 className="text-[2.72rem] font-extrabold leading-[0.88] tracking-[-0.055em] text-zoe-ink">
-                Help us build Zoe for the Church<span className="text-zoe-sap">.</span>
+                We want your input<span className="text-zoe-sap">.</span>
               </h1>
-              <p className="mt-3 text-[0.97rem] font-medium leading-6 text-zoe-muted">
-                We're inviting thoughtful Christ followers to test Zoe in real life and tell us what's helpful, what's not, and what's missing.
-              </p>
+              <div className="mt-3 space-y-2 text-[0.97rem] font-medium leading-6 text-zoe-muted">
+                <p>We're building Zoe, an iMessage/SMS agent that helps you walk with Jesus, engage with scripture, and build the rhythms of a life with God.</p>
+              </div>
             </motion.div>
 
-            <div className="mt-4 rounded-[0.95rem] border border-zoe-outline/35 bg-white/75 p-3 shadow-[0_14px_36px_rgba(45,50,49,0.05)]">
-              <div className="flex gap-3">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-zoe-sap/10 text-zoe-sap">
-                  <Users className="h-4 w-4" />
-                </div>
-                <div>
-                  <p className="text-sm font-extrabold text-zoe-ink">This beta is built on honesty.</p>
-                  <p className="mt-0.5 text-[0.82rem] font-medium leading-5 text-zoe-muted">
-                    We want real feedback so we can build something that truly helps turn our attention <span className="font-serif italic text-zoe-sap">Toward Him Daily.</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div id="beta-form-mobile" className="mt-5">
+            <div id="beta-form-mobile" className="mt-4 rounded-[1.15rem] border border-zoe-outline/35 bg-white p-4 shadow-[0_18px_46px_rgba(45,50,49,0.08)]">
               <AnimatePresence mode="wait">
                 {status === "sent" ? (
                   <motion.div
                     key="success-mobile"
                     initial={{ opacity: 0, scale: 0.97 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="rounded-[1rem] border border-zoe-outline/35 bg-white p-5 shadow-[0_14px_36px_rgba(45,50,49,0.05)]"
+                    className="p-1"
                   >
                     <CheckCircle className="h-8 w-8 text-zoe-sap" />
                     <h2 className="mt-4 text-2xl font-extrabold text-zoe-ink">You're on the beta list.</h2>
@@ -233,57 +214,8 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                 ) : (
                   <motion.form key="form-mobile" onSubmit={handleWaitlistSubmit} className="space-y-3" exit={{ opacity: 0, y: 8 }}>
                     <div>
-                      <h2 className="text-[1.45rem] font-extrabold tracking-tight text-zoe-ink">Join the beta</h2>
-                      <p className="text-sm font-medium text-zoe-muted">Sign up to be considered for early access.</p>
-                    </div>
-
-                    <fieldset className="grid grid-cols-2 gap-2 pt-1">
-                      <legend className="sr-only">Phone type</legend>
-                      {(["iphone", "android"] as const).map((platform) => (
-                        <label
-                          key={platform}
-                          className={clsx(
-                            "flex cursor-pointer items-center justify-center rounded-[0.85rem] border px-3 py-2.5 text-sm font-bold transition-all",
-                            phonePlatform === platform
-                              ? platform === "iphone"
-                                ? "border-[#007AFF] bg-[#007AFF] text-white"
-                                : "border-zoe-sap bg-zoe-sap text-white"
-                              : "border-zoe-outline/45 bg-white text-slate-600 hover:border-zoe-outline"
-                          )}
-                        >
-                          <input
-                            type="radio"
-                            name="phonePlatform"
-                            value={platform}
-                            checked={phonePlatform === platform}
-                            onChange={() => setPhonePlatform(platform)}
-                            className="sr-only"
-                            required
-                          />
-                          <span>{platform === "iphone" ? "iPhone" : "Android"}</span>
-                        </label>
-                      ))}
-                    </fieldset>
-
-                    <div className="grid grid-cols-2 gap-2">
-                      <input
-                        type="text"
-                        placeholder="First name"
-                        autoComplete="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                        className="min-w-0 rounded-[0.85rem] border border-zoe-outline/45 bg-white px-4 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-zoe-sap focus:outline-none focus:ring-2 focus:ring-zoe-sap/15"
-                      />
-                      <input
-                        type="email"
-                        autoComplete="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        className="min-w-0 rounded-[0.85rem] border border-zoe-outline/45 bg-white px-4 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-zoe-sap focus:outline-none focus:ring-2 focus:ring-zoe-sap/15"
-                      />
+                      <h2 className="text-[1.45rem] font-extrabold tracking-tight text-zoe-ink">Where should Zoe text you?</h2>
+                      <p className="mt-1 text-sm font-medium leading-5 text-zoe-muted">Sign up to be considered for early access. Phone is the main thing.</p>
                     </div>
 
                     <input
@@ -294,19 +226,81 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       required
-                      className="w-full rounded-[0.85rem] border border-zoe-outline/45 bg-white px-4 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-zoe-sap focus:outline-none focus:ring-2 focus:ring-zoe-sap/15"
+                      className="w-full rounded-[0.95rem] border border-zoe-outline/45 bg-[#fffdfa] px-4 py-3.5 text-[1.05rem] font-semibold text-slate-900 placeholder:text-slate-400 focus:border-zoe-sap focus:outline-none focus:ring-2 focus:ring-zoe-sap/15"
                     />
 
-                    <label className="flex items-start gap-2.5 rounded-[0.85rem] bg-white/75 p-2.5 text-[0.8rem] font-semibold leading-5 text-zoe-ink">
+                    <div className="grid grid-cols-2 gap-2">
                       <input
-                        type="checkbox"
-                        checked={feedbackAgreed}
-                        onChange={(event) => setFeedbackAgreed(event.target.checked)}
-                        className="mt-0.5 h-4 w-4 rounded border-zoe-outline text-zoe-sap accent-zoe-sap"
+                        type="text"
+                        placeholder="First name"
+                        autoComplete="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         required
+                        className="min-w-0 rounded-[0.85rem] border border-zoe-outline/45 bg-[#fffdfa] px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-zoe-sap focus:outline-none focus:ring-2 focus:ring-zoe-sap/15"
                       />
-                      <span>I'm willing to give honest feedback: the good, the bad, and the in-between.</span>
-                    </label>
+                      <input
+                        type="email"
+                        autoComplete="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="min-w-0 rounded-[0.85rem] border border-zoe-outline/45 bg-[#fffdfa] px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-zoe-sap focus:outline-none focus:ring-2 focus:ring-zoe-sap/15"
+                      />
+                    </div>
+
+                    <fieldset className="grid grid-cols-2 gap-2 pt-1">
+                      <legend className="col-span-2 mb-2 text-xs font-extrabold uppercase tracking-[0.16em] text-zoe-muted">Phone type <span className="normal-case tracking-normal text-slate-400">(optional)</span></legend>
+                      {(["iphone", "android"] as const).map((platform) => (
+                        <label
+                          key={platform}
+                          className={clsx(
+                            "flex cursor-pointer items-center justify-center rounded-[0.85rem] border px-3 py-2.5 text-sm font-bold transition-all",
+                            phonePlatform === platform
+                              ? platform === "iphone"
+                                ? "border-[#007AFF] bg-[#007AFF] text-white"
+                                : "border-zoe-sap bg-zoe-sap text-white"
+                              : "border-zoe-outline/40 bg-[#fffdfa] text-slate-600 hover:border-zoe-outline"
+                          )}
+                        >
+                          <input
+                            type="radio"
+                            name="phonePlatform"
+                            value={platform}
+                            checked={phonePlatform === platform}
+                            onChange={() => setPhonePlatform(platform)}
+                            className="sr-only"
+                          />
+                          <span>{platform === "iphone" ? "iPhone" : "Android"}</span>
+                        </label>
+                      ))}
+                    </fieldset>
+
+                    <AnimatePresence>
+                      {phoneValid ? (
+                        <motion.label
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -4 }}
+                          className="flex items-start gap-2.5 rounded-[0.85rem] bg-white/75 p-2.5 text-[0.8rem] font-semibold leading-5 text-zoe-ink"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={smsConsentAgreed}
+                            onChange={(event) => setSmsConsentAgreed(event.target.checked)}
+                            className="mt-0.5 h-4 w-4 rounded border-zoe-outline text-zoe-sap accent-zoe-sap"
+                            required
+                          />
+                          <span>
+                            I agree to receive recurring texts from Zoe about beta access and the Zoe experience. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. See{" "}
+                            <a href="/terms" className="font-extrabold text-zoe-forest underline decoration-zoe-sap/30 underline-offset-2">Terms</a>
+                            {" "}and{" "}
+                            <a href="/privacy" className="font-extrabold text-zoe-forest underline decoration-zoe-sap/30 underline-offset-2">Privacy Policy</a>.
+                          </span>
+                        </motion.label>
+                      ) : null}
+                    </AnimatePresence>
 
                     <button
                       type="submit"
@@ -317,10 +311,28 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                     </button>
 
                     {submitError ? <p className="text-sm font-semibold text-rose-600">{submitError}</p> : null}
-                    <p className="text-center text-xs font-medium text-zoe-muted">Spots are limited. Feedback is part of the deal.</p>
+                    <p className="text-center text-xs font-medium text-zoe-muted">Spots are limited.</p>
                   </motion.form>
                 )}
               </AnimatePresence>
+            </div>
+
+            <div className="mt-4 text-[0.97rem] font-medium leading-6 text-zoe-muted">
+              <p>We're at the stage where we are inviting thoughtful Christ followers to test Zoe in real life and tell us what's helpful, what's not, and what's missing.</p>
+            </div>
+
+            <div className="mt-4 rounded-[0.95rem] border border-zoe-outline/35 bg-white/75 p-3 shadow-[0_14px_36px_rgba(45,50,49,0.05)]">
+              <div className="flex gap-3">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-zoe-sap/10 text-zoe-sap">
+                  <Users className="h-4 w-4" />
+                </div>
+                <div>
+                  <p className="text-sm font-extrabold text-zoe-ink">Don't worry about hurting our feelings.</p>
+                  <p className="mt-0.5 text-[0.82rem] font-medium leading-5 text-zoe-muted">
+                    We want real feedback so we can build something genuinely useful for the Church. We want to know what you'd find useful.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -352,7 +364,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
             <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
               <div className="absolute left-1/2 top-1/2 z-0 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.24)_0%,rgba(0,0,0,0.12)_42%,rgba(0,0,0,0)_76%)] blur-2xl md:h-[38rem] md:w-[38rem]" />
               <div className="relative z-10 w-[28rem] max-w-[86vw] drop-shadow-[0_18px_36px_rgba(0,0,0,0.28)] md:w-[36rem]">
-                <ZoeSVG color="white" fast={true} />
+                <ZoeSVG color="white" staticOnly />
               </div>
               <p className="relative z-10 mt-4 text-lg font-semibold tracking-tight text-white drop-shadow-md">
                 Toward <span className="font-serif italic text-white">Him</span>. Daily.
@@ -373,11 +385,12 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
 
               <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }}>
                 <h1 className="max-w-2xl text-[3.4rem] font-extrabold leading-[0.93] tracking-[-0.058em] text-zoe-ink sm:text-[4.6rem] lg:text-[5.35rem]">
-                  Help us build Zoe for the Church<span className="text-zoe-sap">.</span>
+                  We want your input<span className="text-zoe-sap">.</span>
                 </h1>
-                <p className="mt-7 max-w-2xl text-lg font-medium leading-8 text-zoe-muted sm:text-xl">
-                  Zoe is in beta, and we're inviting a small group of thoughtful Christ followers to test it, use it in ordinary life, and help shape what comes next.
-                </p>
+                <div className="mt-7 max-w-2xl space-y-4 text-lg font-medium leading-8 text-zoe-muted sm:text-xl">
+                  <p>We're building Zoe, an iMessage/SMS agent that helps you walk with Jesus, engage with scripture, and build the rhythms of a life with God.</p>
+                  <p>We're at the stage where we are inviting thoughtful Christ followers to test Zoe in real life and tell us what's helpful, what's not, and what's missing.</p>
+                </div>
               </motion.div>
 
               <div className="mt-10 grid gap-5 sm:grid-cols-3">
@@ -397,9 +410,9 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                   <Users className="h-6 w-6" />
                 </div>
                 <div>
-                  <p className="text-base font-extrabold text-zoe-ink">This beta is built on honesty.</p>
+                  <p className="text-base font-extrabold text-zoe-ink">Don't worry about hurting our feelings.</p>
                   <p className="mt-1 text-sm font-medium leading-6 text-zoe-muted">
-                    We're not looking for compliments. We want real feedback so we can build something that truly helps turn our attention <span className="font-serif italic text-zoe-sap">Toward Him Daily.</span>
+                    We want real feedback so we can build something genuinely useful for the Church. We want to know what you'd find useful.
                   </p>
                 </div>
               </div>
@@ -422,7 +435,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                   ) : (
                     <motion.form key="form" onSubmit={handleWaitlistSubmit} className="space-y-3" exit={{ opacity: 0, y: 8 }}>
                       <div>
-                        <h2 className="text-2xl font-extrabold tracking-tight text-zoe-ink">Join the beta</h2>
+                        <h2 className="text-2xl font-extrabold tracking-tight text-zoe-ink">Where should Zoe text you?</h2>
                         <p className="mt-1 text-sm font-medium text-zoe-muted">Sign up to be considered for early access.</p>
                       </div>
 
@@ -447,7 +460,6 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                               checked={phonePlatform === platform}
                               onChange={() => setPhonePlatform(platform)}
                               className="sr-only"
-                              required
                             />
                             <span>{platform === "iphone" ? "iPhone" : "Android"}</span>
                           </label>
@@ -483,16 +495,29 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                         className="w-full rounded-[0.9rem] border border-zoe-outline/45 bg-white px-4 py-3.5 text-slate-900 placeholder:text-slate-400 focus:border-zoe-sap focus:outline-none focus:ring-2 focus:ring-zoe-sap/15"
                       />
 
-                      <label className="flex items-start gap-3 rounded-[0.9rem] bg-white/65 p-3 text-sm font-semibold leading-6 text-zoe-ink">
-                        <input
-                          type="checkbox"
-                          checked={feedbackAgreed}
-                          onChange={(event) => setFeedbackAgreed(event.target.checked)}
-                          className="mt-1 h-4 w-4 rounded border-zoe-outline text-zoe-sap accent-zoe-sap"
-                          required
-                        />
-                        <span>I'm a follower of Jesus and I'm willing to give honest feedback: the good, the bad, and the in-between.</span>
-                      </label>
+                      <AnimatePresence>
+                        {phoneValid ? (
+                          <motion.label
+                            initial={{ opacity: 0, y: 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -4 }}
+                            className="flex items-start gap-3 rounded-[0.9rem] bg-white/65 p-3 text-sm font-semibold leading-6 text-zoe-ink"
+                          >
+                            <input
+                              type="checkbox"
+                              checked={smsConsentAgreed}
+                              onChange={(event) => setSmsConsentAgreed(event.target.checked)}
+                              className="mt-1 h-4 w-4 rounded border-zoe-outline text-zoe-sap accent-zoe-sap"
+                            />
+                            <span>
+                              I agree to receive recurring texts from Zoe about beta access and the Zoe experience. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. See{" "}
+                              <a href="/terms" className="font-extrabold text-zoe-forest underline decoration-zoe-sap/30 underline-offset-2">Terms</a>
+                              {" "}and{" "}
+                              <a href="/privacy" className="font-extrabold text-zoe-forest underline decoration-zoe-sap/30 underline-offset-2">Privacy Policy</a>.
+                            </span>
+                          </motion.label>
+                        ) : null}
+                      </AnimatePresence>
 
                       <button
                         type="submit"
@@ -503,7 +528,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                       </button>
 
                       {submitError ? <p className="text-sm font-semibold text-rose-600">{submitError}</p> : null}
-                      <p className="text-center text-xs font-medium text-zoe-muted">Spots are limited. Feedback is part of the deal.</p>
+                      <p className="text-center text-xs font-medium text-zoe-muted">Spots are limited.</p>
                     </motion.form>
                   )}
                 </AnimatePresence>
@@ -514,7 +539,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
 
         <section className="border-t border-zoe-outline/25 bg-[#fffdfa] px-5 py-12 lg:px-14 lg:py-20">
           <div className="mx-auto max-w-6xl">
-            <p className="text-center text-[11px] font-extrabold uppercase tracking-[0.32em] text-zoe-sap">What beta testers can expect</p>
+            <p className="text-center text-[11px] font-extrabold uppercase tracking-[0.22em] text-zoe-sap">What beta testers can expect</p>
             <div className="mt-7 grid gap-3 lg:grid-cols-3 lg:gap-5">
               {betaExpectations.map((item) => (
                 <div key={item.title} className="rounded-[1rem] border border-zoe-outline/35 bg-white p-5 shadow-[0_14px_40px_rgba(45,50,49,0.04)]">
@@ -530,15 +555,15 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
           </div>
         </section>
 
-        <section className="bg-zoe-oat px-5 pb-16 pt-4 lg:px-14 lg:pb-24 lg:pt-8">
+        <section className="bg-zoe-oat px-5 pb-28 pt-4 lg:px-14 lg:pb-24 lg:pt-8">
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:gap-14">
             <div>
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-zoe-sap">FAQ</p>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-zoe-sap">FAQ</p>
               <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-[-0.035em] text-zoe-ink lg:text-5xl">
-                A few honest answers.
+                You've got questions. We get it.
               </h2>
               <p className="mt-4 text-base font-medium leading-7 text-zoe-muted">
-                The beta is small on purpose. We want people who will help us build carefully, not just a bigger list.
+                This is a weird new kind of technology. It comes with lots of questions, which is why we want to build it carefully, thoughtfully, and transparently.
               </p>
             </div>
             <div className="space-y-3">
@@ -548,12 +573,58 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                     <span>{faq.question}</span>
                     <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-zoe-sap/10 text-lg leading-none text-zoe-sap transition group-open:rotate-45">+</span>
                   </summary>
-                  <p className="mt-3 text-sm font-medium leading-6 text-zoe-muted lg:text-base lg:leading-7">{faq.answer}</p>
+                  <div className="mt-3 space-y-3 text-sm font-medium leading-6 text-zoe-muted lg:text-base lg:leading-7">
+                    {faq.answer.split("\n\n").map((paragraph) => {
+                      const isQuotedAside = paragraph.includes("Partner in my walk with Jesus!?");
+
+                      return (
+                        <p key={paragraph} className={isQuotedAside ? "italic" : undefined}>
+                          {paragraph}
+                        </p>
+                      );
+                    })}
+                  </div>
                 </details>
               ))}
             </div>
           </div>
         </section>
+
+        {showFounderSection ? (
+          <section className="border-t border-zoe-outline/25 bg-[#fffdfa] px-5 pb-28 pt-14 lg:px-14 lg:py-24">
+            <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.44fr_0.56fr] lg:items-center lg:gap-14">
+              <div className="overflow-hidden rounded-[1.35rem] bg-zoe-surface shadow-[0_18px_48px_rgba(45,50,49,0.06)]">
+                <picture>
+                  <source media="(max-width: 767px)" srcSet="/assets/founder/tony-founder-mobile.jpg" />
+                  <img
+                    src="/assets/founder/tony-founder.jpg"
+                    alt="Tony Allen, founder of Zoe"
+                    className="h-full min-h-[19rem] w-full scale-[1.16] object-cover object-[50%_62%] grayscale lg:scale-100 lg:object-[48%_45%]"
+                    loading="lazy"
+                  />
+                </picture>
+              </div>
+
+              <div>
+                <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-zoe-sap">Meet the founder</p>
+                <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-[-0.035em] text-zoe-ink lg:text-5xl">
+                  I'm Tony. I'm building Zoe carefully, in public.
+                </h2>
+                <div className="mt-5 space-y-4 text-base font-medium leading-7 text-zoe-muted lg:text-lg lg:leading-8">
+                  <p>
+                    I care a lot about the Church, and I care about tech being used with honesty and restraint. Zoe started with a question I couldn't shake: could AI help me and my brothers and sisters pay more attention to Jesus in ordinary life?
+                  </p>
+                  <p>
+                    That question deserves care, not hype. Zoe isn't a pastor. It isn't a person. It definitely isn't the Holy Spirit. It's code. Useful code, hopefully. But still code. If it can help someone remember what they prayed, come back to scripture, or follow through on what God is already stirring, I think it's worth testing.
+                  </p>
+                  <p>
+                    That's why this beta exists. I want real people to use Zoe in real weeks, ask hard questions, laugh at the weird parts, and tell me where it helps, where it doesn't, and where it needs to slow way down.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
       </main>
     );
   }
@@ -727,7 +798,6 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                             checked={phonePlatform === platform}
                             onChange={() => setPhonePlatform(platform)}
                             className="sr-only"
-                            required
                           />
                           <span>{platform === "iphone" ? "iPhone" : "Android"}</span>
                         </label>
