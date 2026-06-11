@@ -60,6 +60,20 @@ async function withFakeResendServer(fn) {
       return;
     }
 
+    if (request.url.startsWith("/contacts?") || request.url === "/contacts") {
+      response.end(
+        JSON.stringify({
+          data: Array.from(detailContacts.values()).map(({ id, email, created_at }) => ({
+            id,
+            email,
+            created_at,
+          })),
+          has_more: false,
+        })
+      );
+      return;
+    }
+
     if (request.url.startsWith("/contacts/")) {
       const id = decodeURIComponent(request.url.split("/contacts/")[1]);
       const contact = detailContacts.get(id);
@@ -94,10 +108,10 @@ const fakeContacts = [
     id: "contact_1",
     created_at: "2026-06-11T14:00:00Z",
     properties: {
-      source: "beta-signup",
-      phone_platform: "iphone",
-      signup_event_id: "evt_1",
-      joined_at: "2026-06-11T14:00:00Z",
+      source: { value: "beta-signup", type: "string" },
+      phone_platform: { value: "iphone", type: "string" },
+      signup_event_id: { value: "evt_1", type: "string" },
+      joined_at: { value: "2026-06-11T14:00:00Z", type: "string" },
     },
   },
   {
@@ -213,6 +227,28 @@ await withFakeResendServer(async (baseUrl) => {
   assert.equal(report.resend.uniqueSignupEventIds, 2);
   assert.deepEqual(report.resend.bySource, { "beta-signup": 3 });
   assert.ok(!stdout.includes("@"));
+});
+
+await withFakeResendServer(async (baseUrl) => {
+  const { stdout } = await runReport(
+    [
+      "--all-contacts",
+      "true",
+      "--from",
+      "2026-06-11T00:00:00Z",
+      "--to",
+      "2026-06-12T00:00:00Z",
+    ],
+    {
+      RESEND_API_KEY: "test_key",
+      RESEND_BASE_URL: baseUrl,
+    }
+  );
+  const report = JSON.parse(stdout);
+
+  assert.equal(report.filters.contactScope, "all_contacts");
+  assert.equal(report.resend.confirmedContacts, 3);
+  assert.equal(report.resend.uniqueSignupEventIds, 2);
 });
 
 try {

@@ -14,6 +14,7 @@ Optional flags:
 --source beta-signup
 --source all
 --segment <resend-segment-id>
+--all-contacts true
 --limit 100
 ```
 
@@ -25,6 +26,8 @@ RESEND_WAITLIST_SEGMENT_ID=...
 ```
 
 The output intentionally contains aggregate counts only. It should not print names, emails, or phone numbers.
+
+By default, the helper reports from the configured waitlist segment. Use `--all-contacts true` only as a fallback when segment membership is missing or being investigated; it still filters by `source` unless `--source all` is supplied.
 
 ## Output
 
@@ -64,6 +67,12 @@ npm run test:waitlist-report
 The tests use fake contacts only. They verify date/source filtering, event ID dedupe, phone-platform buckets, aggregate-only output, and the missing-env failure path.
 
 They also run against a local fake Resend server to verify that live-mode reporting hydrates contact detail records before reading custom properties. This matters because Resend list endpoints return only basic contact fields.
+
+Resend may return custom properties as typed values such as `{ "value": "beta-signup", "type": "string" }`; the helper unwraps those values before date/source/event-id filtering.
+
+## Segment Membership
+
+The waitlist signup path explicitly adds new contacts to `RESEND_WAITLIST_SEGMENT_ID` after a successful contact create or update. This keeps future daily reports segment-scoped instead of relying on all-contact scans.
 
 ## CMO Brief Use
 

@@ -34,13 +34,14 @@ function readOptions() {
   const from = args.from ? new Date(args.from) : startOfToday();
   const to = args.to ? new Date(args.to) : new Date();
   const includeAllSources = args.source === "all";
+  const allContacts = args["all-contacts"] === "true";
 
   if (!apiKey && !args.fixture) {
     throw new Error("RESEND_API_KEY is required");
   }
 
-  if (!segmentId && !args.fixture) {
-    throw new Error("RESEND_WAITLIST_SEGMENT_ID or --segment is required");
+  if (!segmentId && !allContacts && !args.fixture) {
+    throw new Error("RESEND_WAITLIST_SEGMENT_ID, --segment, or --all-contacts true is required");
   }
 
   if (Number.isNaN(from.getTime())) {
@@ -60,6 +61,7 @@ function readOptions() {
     segmentId,
     source,
     includeAllSources,
+    allContacts,
     from,
     to,
     limit: Number(args.limit || DEFAULT_LIMIT),
@@ -112,6 +114,14 @@ function getContactProperties(contact) {
   return contact?.properties || contact?.custom_properties || {};
 }
 
+function unwrapPropertyValue(value) {
+  if (value && typeof value === "object" && "value" in value) {
+    return value.value;
+  }
+
+  return value;
+}
+
 function hasContactProperties(contact) {
   const properties = getContactProperties(contact);
   return Object.keys(properties).length > 0;
@@ -120,8 +130,8 @@ function hasContactProperties(contact) {
 function getJoinedAt(contact) {
   const properties = getContactProperties(contact);
   return (
-    properties.joined_at ||
-    properties.joinedAt ||
+    unwrapPropertyValue(properties.joined_at) ||
+    unwrapPropertyValue(properties.joinedAt) ||
     contact.created_at ||
     contact.createdAt ||
     null
@@ -130,19 +140,27 @@ function getJoinedAt(contact) {
 
 function getSource(contact) {
   const properties = getContactProperties(contact);
-  return properties.source || contact.source || "unknown";
+  return unwrapPropertyValue(properties.source) || contact.source || "unknown";
 }
 
 function getPhonePlatform(contact) {
   const properties = getContactProperties(contact);
-  const value = String(properties.phone_platform || properties.phonePlatform || "").toLowerCase();
+  const value = String(
+    unwrapPropertyValue(properties.phone_platform) ||
+      unwrapPropertyValue(properties.phonePlatform) ||
+      ""
+  ).toLowerCase();
   if (value === "iphone" || value === "android") return value;
   return "unknown";
 }
 
 function getSignupEventId(contact) {
   const properties = getContactProperties(contact);
-  return properties.signup_event_id || properties.signupEventId || null;
+  return (
+    unwrapPropertyValue(properties.signup_event_id) ||
+    unwrapPropertyValue(properties.signupEventId) ||
+    null
+  );
 }
 
 function normalizeListResponse(data) {
@@ -168,6 +186,10 @@ function normalizeListResponse(data) {
 function lastId(items) {
   const last = items[items.length - 1];
   return last?.id || null;
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 async function listSegmentContacts(options) {
@@ -222,7 +244,36 @@ async function listContactsFallback(options) {
   return contacts;
 }
 
+async function listAllContacts(options) {
+  const contacts = [];
+  let after = null;
+  let page = 0;
+  const maxPages = 100;
+
+  while (page < maxPages) {
+    page += 1;
+    const data = await resendGet("/contacts", options.apiKey, {
+      limit: options.limit,
+      after,
+    });
+    const normalized = normalizeListResponse(data);
+    contacts.push(...normalized.contacts);
+
+    if (!normalized.hasMore || !normalized.cursor || normalized.cursor === after) {
+      break;
+    }
+
+    after = normalized.cursor;
+  }
+
+  return contacts;
+}
+
 async function listWaitlistContacts(options) {
+  if (options.allContacts) {
+    return listAllContacts(options);
+  }
+
   try {
     return await listSegmentContacts(options);
   } catch (error) {
@@ -256,7 +307,15 @@ async function hydrateContacts(contacts, options) {
       alreadyDetailed += 1;
     }
 
-    hydrated.push(await hydrateContact(contact, options));
+    try {
+      hydrated.push(await hydrateContact(contact, options));
+    } catch (error) {
+      if (error.status !== 429) throw error;
+
+      await sleep(1200);
+      hydrated.push(await hydrateContact(contact, options));
+    }
+    await sleep(250);
   }
 
   return {
@@ -330,7 +389,8 @@ function buildReport(options, contacts, hydrationStats = null) {
     },
     filters: {
       source: options.includeAllSources ? "all" : options.source,
-      segment: options.segmentId,
+      segment: options.segmentId || null,
+      contactScope: options.allContacts ? "all_contacts" : "segment",
     },
     hydration: hydrationStats,
     resend,
