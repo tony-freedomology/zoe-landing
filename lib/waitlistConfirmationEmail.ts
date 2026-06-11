@@ -35,18 +35,21 @@ function toResendTagValue(value: string): string {
 function buildText(firstName: string): string {
   return `Hey ${firstName},
 
-I'm Tony, the founder of Zoe.
+You're on the Zoe beta list! Nice.
 
-You're on the beta waitlist.
+Thanks for signing up. We're inviting people in small waves because Zoe is still early, and we don't want to go faster than we can actually get useful feedback.
 
-We're opening Zoe in waves as we learn what actually helps and what needs work. The honest version: AI + faith is a strange thing to build around. We're not pretending it is simple. We're trying to build something genuinely useful for ordinary Christians and, eventually, the church at large.
+Zoe is AI that helps you walk with Jesus through scripture, prayer, reflection, and small moments of follow-through. It's not trying to be a pastor, therapist, or another app to manage. It's just trying to help you turn your attention toward Him.
 
-There will be rough edges. That's the point of a beta. I'm excited to have you in the loop, and I'll be asking for real feedback as we keep going.
+Quick question: what made you want to try Zoe?
 
-Toward Him daily,
-Tony
+Just hit reply and tell me in a sentence or two. I'm reading every email that comes in, because YOU are who we're building this for.
 
-P.S. Zoe is AI, which means it can make mistakes. The goal is to point people toward Jesus, Scripture, prayer, and real people, not replace them.`;
+When we open your wave, we'll send the next step. Until then, thanks for being willing to test weird early stuff with us.
+
+- Tony
+
+P.S. Zoe is AI, which means it can make mistakes. The goal is to point you toward Jesus, scripture, prayer, and real people, not replace them.`;
 }
 
 function buildHtml(firstName: string): string {
@@ -58,11 +61,11 @@ function buildHtml(firstName: string): string {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="x-apple-disable-message-reformatting">
-    <title>You're on the Zoe beta waitlist</title>
+    <title>You're on the Zoe beta list</title>
   </head>
   <body style="margin:0; padding:0; background:#fcf9f4; color:#1f2827; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
     <div style="display:none; max-height:0; overflow:hidden; opacity:0;">
-      You are on the Zoe beta waitlist. We are opening in waves as we build carefully.
+      Thanks for signing up. Quick question: what made you want to try Zoe?
     </div>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fcf9f4; border-collapse:collapse;">
       <tr>
@@ -76,16 +79,18 @@ function buildHtml(firstName: string): string {
             <tr>
               <td style="background:#fffdfa; border:1px solid #ded8cc; border-radius:18px; padding:32px 28px;">
                 <p style="margin:0 0 18px; font-size:16px; line-height:26px;">Hey ${safeFirstName},</p>
-                <p style="margin:0 0 18px; font-size:16px; line-height:26px;">I'm Tony, the founder of Zoe.</p>
-                <h1 style="margin:0 0 20px; color:#1f2827; font-size:30px; line-height:34px; letter-spacing:-0.02em; font-weight:800;">You're on the beta waitlist.</h1>
-                <p style="margin:0 0 18px; font-size:16px; line-height:26px;">We're opening Zoe in waves as we learn what actually helps and what needs work. The honest version: <strong>AI + faith is a strange thing to build around.</strong> We're not pretending it is simple. We're trying to build something genuinely useful for ordinary Christians and, eventually, the church at large.</p>
-                <p style="margin:0 0 22px; font-size:16px; line-height:26px;">There will be rough edges. That's the point of a beta. I'm excited to have you in the loop, and I'll be asking for real feedback as we keep going.</p>
-                <p style="margin:0; font-size:16px; line-height:26px;">Toward Him daily,<br><strong>Tony</strong></p>
+                <h1 style="margin:0 0 20px; color:#1f2827; font-size:30px; line-height:34px; letter-spacing:-0.02em; font-weight:800;">You're on the Zoe beta list! Nice.</h1>
+                <p style="margin:0 0 18px; font-size:16px; line-height:26px;">Thanks for signing up. We're inviting people in small waves because Zoe is still early, and we don't want to go faster than we can actually get useful feedback.</p>
+                <p style="margin:0 0 18px; font-size:16px; line-height:26px;">Zoe is AI that helps you walk with Jesus through scripture, prayer, reflection, and small moments of follow-through. It's not trying to be a pastor, therapist, or another app to manage. It's just trying to help you turn your attention toward Him.</p>
+                <p style="margin:0 0 18px; font-size:16px; line-height:26px;"><strong>Quick question: what made you want to try Zoe?</strong></p>
+                <p style="margin:0 0 18px; font-size:16px; line-height:26px;">Just hit reply and tell me in a sentence or two. I'm reading every email that comes in, because <strong>YOU</strong> are who we're building this for.</p>
+                <p style="margin:0 0 22px; font-size:16px; line-height:26px;">When we open your wave, we'll send the next step. Until then, thanks for being willing to test weird early stuff with us.</p>
+                <p style="margin:0; font-size:16px; line-height:26px;">- Tony</p>
               </td>
             </tr>
             <tr>
               <td style="padding:18px 4px 0; color:#65706f; font-size:13px; line-height:20px;">
-                P.S. Zoe is AI, which means it can make mistakes. The goal is to point people toward Jesus, Scripture, prayer, and real people, not replace them.
+                P.S. Zoe is AI, which means it can make mistakes. The goal is to point you toward Jesus, scripture, prayer, and real people, not replace them.
               </td>
             </tr>
             <tr>
@@ -137,7 +142,7 @@ export async function sendWaitlistConfirmationEmail(
       from,
       to: [input.email],
       reply_to: replyTo,
-      subject: "You're on the Zoe beta waitlist",
+      subject: "You're on the Zoe beta list",
       html: buildHtml(firstName),
       text: buildText(firstName),
       tags: [
