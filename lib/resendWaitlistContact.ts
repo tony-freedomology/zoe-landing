@@ -192,6 +192,8 @@ async function createResendContact(
   const data = await readResendResponse(response);
 
   if (response.ok) {
+    await addContactToSegment(apiKey, input);
+
     return {
       id: data.id ?? null,
       created: true,

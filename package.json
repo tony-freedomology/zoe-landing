@@ -7,7 +7,9 @@
     "build": "next build",
     "export": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "report:waitlist": "node scripts/report-waitlist-aggregates.mjs",
+    "test:waitlist-report": "node scripts/report-waitlist-aggregates.test.mjs"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^3.10.0",
