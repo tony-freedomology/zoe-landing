@@ -37,7 +37,7 @@ export default function SubscribePage({ searchParams }: SubscribePageProps) {
   const heading = initialMode === "reactivate" ? "Welcome back." : "Keep walking.";
   const subheading =
     initialPlan === "beta"
-      ? "Your grandfathered beta rate is $7/month."
+      ? "Your beta-tester thank-you price is $7/month."
       : initialMode === "reactivate"
       ? "Pick up right where you left off."
       : "$10/month. Cancel anytime.";

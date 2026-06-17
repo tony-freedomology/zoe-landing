@@ -107,7 +107,7 @@ const PLAN_OPTIONS: Array<{
 ];
 
 const BETA_PLAN_OPTIONS: typeof PLAN_OPTIONS = [
-  { id: "beta", label: "Beta", price: "$7", cadence: "/month", badge: "Grandfathered" },
+  { id: "beta", label: "Beta", price: "$7", cadence: "/month", badge: "30% off for life" },
 ];
 
 const revealTransition = {
@@ -162,7 +162,7 @@ export default function SubscribeExperience({
         : "Use the number you text Zoe from.";
   const reassuranceCopy =
     isBetaRate
-      ? "Your beta rate stays with this subscription. Cancel anytime via text."
+      ? "Your beta-tester thank-you discount stays with this subscription. Cancel anytime via text."
       : flowMode === "reactivate"
       ? "Cancel anytime via text. Your same thread will keep going."
       : "Cancel anytime via text. Secure and encrypted.";
