@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendMetaLeadEvent } from "../../../lib/metaConversions";
-import { saveResendWaitlistContact } from "../../../lib/resendWaitlistContact";
-import { sendWaitlistConfirmationEmail } from "../../../lib/waitlistConfirmationEmail";
+import { saveZoeMarketingWaitlistContact } from "../../../lib/zoeMarketingWaitlist";
 
 type WaitlistBody = {
   name?: string;
@@ -11,6 +10,8 @@ type WaitlistBody = {
   phonePlatform?: string;
   eventId?: string;
   eventSourceUrl?: string;
+  submittedAt?: string;
+  smsConsent?: boolean;
 };
 
 type PhonePlatform = "iphone" | "android";
@@ -88,26 +89,23 @@ export async function POST(req: NextRequest) {
     const typeTag = source.startsWith("churches-") ? "churches" : "individuals";
 
     let contactId: string | null = null;
-    let contactDuplicate = false;
-    let contactUpdated = false;
-    let contactSavedWithProperties = false;
+    let resendSyncStatus: string | null = null;
     try {
-      const contact = await saveResendWaitlistContact({
+      const contact = await saveZoeMarketingWaitlistContact({
+        name,
         email,
-        firstName,
-        lastName,
         phone: normalizedPhone,
         source,
         phonePlatform,
-        typeTag,
         eventId,
+        eventSourceUrl: body.eventSourceUrl,
+        submittedAt: body.submittedAt ?? new Date().toISOString(),
+        smsConsent: body.smsConsent ?? typeTag === "individuals",
       });
-      contactId = contact.id;
-      contactDuplicate = contact.duplicate;
-      contactUpdated = contact.updated;
-      contactSavedWithProperties = contact.savedWithProperties;
+      contactId = contact.contactId;
+      resendSyncStatus = contact.resendSyncStatus;
     } catch (contactError) {
-      console.error("Resend waitlist contact failed", {
+      console.error("Zoe marketing waitlist contact failed", {
         error:
           contactError instanceof Error
             ? contactError.message
@@ -119,36 +117,6 @@ export async function POST(req: NextRequest) {
         { ok: false, error: "Failed to save contact — please try again" },
         { status: 502 }
       );
-    }
-
-    let emailSent = false;
-    let confirmationEmailId: string | null = null;
-
-    if (typeTag === "individuals") {
-      try {
-        const confirmationEmail = await sendWaitlistConfirmationEmail({
-          email,
-          firstName,
-          eventId,
-          source,
-        });
-        emailSent = confirmationEmail.sent;
-        confirmationEmailId = confirmationEmail.id ?? null;
-
-        if (!confirmationEmail.sent) {
-          console.warn("Waitlist confirmation email skipped", {
-            source,
-            email,
-            reason: confirmationEmail.skippedReason,
-          });
-        }
-      } catch (emailError) {
-        console.warn("Waitlist confirmation email failed", {
-          error: emailError instanceof Error ? emailError.message : String(emailError),
-          source,
-          email,
-        });
-      }
     }
 
     try {
@@ -175,12 +143,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       ok: true,
       eventId,
-      emailSent,
-      confirmationEmailId,
       contactId,
-      contactDuplicate,
-      contactUpdated,
-      contactSavedWithProperties,
+      resendSyncStatus,
     });
   } catch (err) {
     console.error("Waitlist error:", {

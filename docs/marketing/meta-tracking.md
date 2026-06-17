@@ -55,13 +55,11 @@ Do not set `META_CONVERSIONS_API_TEST_EVENT_CODE` for live ad traffic.
 
 The browser Pixel loads globally and sends `PageView`.
 
-After `/api/waitlist` successfully saves a contact to Resend Contacts, Zoe sends a server-side `Lead` event to Meta CAPI. The successful client form submit also sends a browser `Lead` event with the same `eventID`, so Meta can deduplicate the browser and server events.
+After `/api/waitlist` successfully saves a contact to the Zoe marketing CRM in Railway/Postgres, Zoe sends a server-side `Lead` event to Meta CAPI. The successful client form submit also sends a browser `Lead` event with the same `eventID`, so Meta can deduplicate the browser and server events.
 
 Meta CAPI failures are logged but do not block the user signup.
 
-The same successful waitlist API call sends a Resend confirmation email to the
-new lead. Email failures are logged and returned as `emailSent: false`, but they
-do not block CRM lead capture.
+The same successful CRM write mirrors the contact to Resend and sends a Resend confirmation email from the backend to the new lead. Email failures are logged in the backend, but they do not block CRM lead capture.
 
 For Meta ads, use the short paid-social route:
 
@@ -72,7 +70,7 @@ https://zoe.live/s?utm_source=meta&utm_medium=paid_social&utm_campaign=zoe_waitl
 Before publishing ads, submit a test lead on `/s` and verify:
 
 - Resend Contacts received the contact.
-- The API returned `emailSent: true`.
+- The API returned a Railway `contactId`.
 - Resend shows the confirmation email as sent.
 - Meta Events Manager receives browser and server `Lead` events with deduplication.
 
