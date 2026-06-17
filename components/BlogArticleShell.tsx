@@ -60,7 +60,7 @@ export default function BlogArticleShell({
         ])}
       />
       <main className="px-6 pb-24 pt-36">
-        <article className="mx-auto max-w-[720px]">
+        <article className="mx-auto max-w-6xl">
           <Link href="/blog" className="mb-16 inline-flex text-sm font-semibold text-zoe-muted transition hover:text-zoe-forest">
             Back to blog
           </Link>
@@ -69,7 +69,7 @@ export default function BlogArticleShell({
             <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-zoe-sap">
               Blog · {category} · {readTime}
             </p>
-            <h1 className="mt-6 text-[3.75rem] font-extrabold leading-[0.91] tracking-[-0.068em] text-zoe-ink md:text-[5.75rem]">
+            <h1 className="mt-6 max-w-[19ch] text-[3.75rem] font-extrabold leading-[0.91] tracking-[-0.068em] text-zoe-ink md:text-[4.6rem] lg:text-[5rem]">
               {title}
             </h1>
             {deck ? (
@@ -81,7 +81,7 @@ export default function BlogArticleShell({
           </header>
 
           {heroImage ? (
-            <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-[2rem] bg-zoe-surface shadow-[0_22px_60px_rgba(45,50,49,0.06)]">
+            <div className="relative mx-auto mt-10 aspect-[16/9] max-w-[720px] overflow-hidden rounded-[2rem] bg-zoe-surface shadow-[0_22px_60px_rgba(45,50,49,0.06)]">
               <Image
                 src={heroImage.src}
                 alt={heroImage.alt}
@@ -93,11 +93,11 @@ export default function BlogArticleShell({
             </div>
           ) : null}
 
-          <div className="blog-editorial-prose mt-12">
+          <div className="blog-editorial-prose mx-auto mt-12 max-w-[720px]">
             {children}
           </div>
 
-          <aside className="mt-16 rounded-[2rem] bg-zoe-surface px-7 py-8 text-center shadow-[0_18px_50px_rgba(45,50,49,0.05)] md:px-10">
+          <aside className="mx-auto mt-16 max-w-[720px] rounded-[2rem] bg-zoe-surface px-7 py-8 text-center shadow-[0_18px_50px_rgba(45,50,49,0.05)] md:px-10">
             <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-zoe-sap">Try the morning thread</p>
             <h2 className="mt-4 text-3xl font-extrabold leading-[0.98] tracking-[-0.05em] text-zoe-ink md:text-4xl">
               Scripture in the place you already check.
