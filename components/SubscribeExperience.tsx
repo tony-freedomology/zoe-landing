@@ -103,8 +103,11 @@ const PLAN_OPTIONS: Array<{
   cadence: string;
   badge?: string;
 }> = [
-  { id: "month", label: "Monthly", price: "$7", cadence: "/month" },
-  { id: "year", label: "Annual", price: "$70", cadence: "/year", badge: "Save 17%" },
+  { id: "month", label: "Monthly", price: "$10", cadence: "/month" },
+];
+
+const BETA_PLAN_OPTIONS: typeof PLAN_OPTIONS = [
+  { id: "beta", label: "Beta", price: "$7", cadence: "/month", badge: "Grandfathered" },
 ];
 
 const revealTransition = {
@@ -122,6 +125,7 @@ export default function SubscribeExperience({
   const initialNormalizedPhone = normalizeUsPhoneInput(initialPhone);
   const initialBillingPlan = normalizeIndividualBillingPlan(initialPlan);
   const flowMode = normalizeSubscribeFlowMode(initialMode);
+  const isBetaRate = initialBillingPlan === "beta";
   const [phoneInput, setPhoneInput] = useState(() => formatUsPhoneInput(initialPhone));
   const [selectedPlan, setSelectedPlan] = useState<IndividualBillingPlan>(initialBillingPlan);
   const [session, setSession] = useState<SubscribeSession | null>(null);
@@ -157,9 +161,12 @@ export default function SubscribeExperience({
         ? "Use the same number you used with Zoe before."
         : "Use the number you text Zoe from.";
   const reassuranceCopy =
-    flowMode === "reactivate"
+    isBetaRate
+      ? "Your beta rate stays with this subscription. Cancel anytime via text."
+      : flowMode === "reactivate"
       ? "Cancel anytime via text. Your same thread will keep going."
       : "Cancel anytime via text. Secure and encrypted.";
+  const planOptions = isBetaRate ? BETA_PLAN_OPTIONS : PLAN_OPTIONS;
 
   useEffect(() => {
     if (!hasSmsLinkedPhone || canceled || autoStartedRef.current) return;
@@ -306,6 +313,7 @@ export default function SubscribeExperience({
               transition={revealTransition}
             >
               <PlanToggle
+                options={planOptions}
                 selectedPlan={activePlan}
                 isPreparing={isPreparing}
                 onSelect={handlePlanChange}
@@ -365,6 +373,7 @@ export default function SubscribeExperience({
               transition={revealTransition}
             >
               <PlanToggle
+                options={planOptions}
                 selectedPlan={activePlan}
                 isPreparing={isPreparing}
                 onSelect={handlePlanChange}
@@ -480,17 +489,19 @@ function EmbeddedPaymentForm({
 }
 
 function PlanToggle({
+  options,
   selectedPlan,
   isPreparing,
   onSelect,
 }: {
+  options: typeof PLAN_OPTIONS;
   selectedPlan: IndividualBillingPlan;
   isPreparing: boolean;
   onSelect: (plan: IndividualBillingPlan) => void;
 }) {
   return (
-    <div className="grid grid-cols-2 gap-2">
-      {PLAN_OPTIONS.map((option) => {
+    <div className={clsx("grid gap-2", options.length === 1 ? "grid-cols-1" : "grid-cols-2")}>
+      {options.map((option) => {
         const selected = option.id === selectedPlan;
 
         return (
