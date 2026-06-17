@@ -1,5 +1,19 @@
 export const blogPosts = [
   {
+    slug: "ai-can-sort-your-thoughts",
+    title: "AI Can Sort Your Thoughts, but it Can’t Receive Your Prayers",
+    shortTitle: "AI Can Sort Your Thoughts",
+    description:
+      "A look at what happens when our instinct for prayer gets hijacked.",
+    date: "June 2026",
+    readTime: "7 min read",
+    category: "AI & Faith",
+    number: "04",
+    heroImage: "/images/blog-ai-prayer-reflex.png",
+    heroAlt:
+      "A warm desk with a Bible, journal, candle, coffee, and laptop, suggesting the difference between reflection and prayer.",
+  },
+  {
     slug: "can-ai-help-you-walk-with-jesus",
     title: "Can AI Help You Walk With Jesus?",
     shortTitle: "Can AI Help You Walk With Jesus?",

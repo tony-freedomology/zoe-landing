@@ -14,7 +14,7 @@ export default function AiPrayerReflexPost() {
   return (
     <BlogArticleShell
       category="AI & Faith"
-      date="May 2026"
+      date="June 2026"
       readTime="7 min read"
       title="AI Can Sort Your Thoughts, but it Can’t Receive Your Prayers"
       deck="A look at what happens when our instinct for prayer gets hijacked."
