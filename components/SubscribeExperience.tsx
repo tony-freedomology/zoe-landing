@@ -104,6 +104,7 @@ const PLAN_OPTIONS: Array<{
   badge?: string;
 }> = [
   { id: "month", label: "Monthly", price: "$10", cadence: "/month" },
+  { id: "year", label: "Annual", price: "$99", cadence: "/year", badge: "Save $21" },
 ];
 
 const BETA_PLAN_OPTIONS: typeof PLAN_OPTIONS = [
@@ -208,6 +209,9 @@ export default function SubscribeExperience({
       const resolvedPlan = payload.plan ?? plan;
       if (plan === "beta" && resolvedPlan !== "beta") {
         throw new Error("This beta discount link is not available yet. Please try again shortly or text Zoe for help.");
+      }
+      if (plan === "year" && resolvedPlan !== "year") {
+        throw new Error("Annual checkout is not available yet. Please try again shortly or choose monthly.");
       }
 
       window.history.replaceState(
@@ -385,6 +389,7 @@ export default function SubscribeExperience({
               />
 
               <Elements
+                key={session.clientSecret}
                 stripe={stripePromise}
                 options={{
                   clientSecret: session.clientSecret,
