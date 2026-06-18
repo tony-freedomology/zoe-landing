@@ -36,9 +36,11 @@ export default function SubscribePage({ searchParams }: SubscribePageProps) {
   );
   const heading = initialMode === "reactivate" ? "Welcome back." : "Keep walking.";
   const subheading =
-    initialMode === "reactivate"
+    initialPlan === "beta"
+      ? "Your beta-tester thank-you price is $7/month."
+      : initialMode === "reactivate"
       ? "Pick up right where you left off."
-      : "$7/month. Cancel anytime.";
+      : "$10/month. Cancel anytime.";
 
   return (
     <main className="relative h-[100svh] overflow-y-auto overflow-x-hidden bg-[#f5f4f0] text-[#1c2433] sm:min-h-screen sm:h-auto sm:overflow-visible">
