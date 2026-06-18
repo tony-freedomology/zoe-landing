@@ -205,6 +205,11 @@ export default function SubscribeExperience({
         throw new Error(payload.error ?? "Unable to start checkout right now.");
       }
 
+      const resolvedPlan = payload.plan ?? plan;
+      if (plan === "beta" && resolvedPlan !== "beta") {
+        throw new Error("This beta discount link is not available yet. Please try again shortly or text Zoe for help.");
+      }
+
       window.history.replaceState(
         {},
         "",
@@ -212,7 +217,7 @@ export default function SubscribeExperience({
       );
 
       startTransition(() => {
-        setSelectedPlan((payload.plan as IndividualBillingPlan | undefined) ?? plan);
+        setSelectedPlan(resolvedPlan);
         setSession(payload as SubscribeSession);
       });
     } catch (err) {
