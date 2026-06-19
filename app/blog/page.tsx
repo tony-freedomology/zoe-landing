@@ -65,16 +65,13 @@ function ArticleRow({ post }: { post: (typeof blogPosts)[number] }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group grid gap-4 rounded-2xl border border-transparent bg-white px-5 py-6 shadow-[0_10px_34px_rgba(45,50,49,0.035)] transition duration-200 hover:translate-x-1 hover:border-zoe-sap/55 hover:bg-zoe-surface md:grid-cols-[4rem_7rem_1fr_13rem_5rem] md:items-center md:gap-8 md:px-6 md:py-7"
+      className="group grid gap-4 rounded-2xl border border-transparent bg-white px-5 py-6 shadow-[0_10px_34px_rgba(45,50,49,0.035)] transition duration-200 hover:translate-x-1 hover:border-zoe-sap/55 hover:bg-zoe-surface md:grid-cols-[4rem_1fr_13rem_5rem] md:items-center md:gap-8 md:px-6 md:py-7"
     >
       <div className="font-serif text-4xl italic leading-none tracking-[-0.02em] text-zoe-sap">
         {post.number}
       </div>
-      <div className="text-[10px] font-extrabold uppercase tracking-[0.28em] text-zoe-sap">
-        {post.category}
-      </div>
       <div>
-        <h4 className="max-w-2xl text-[1.65rem] font-extrabold leading-[1.08] tracking-[-0.045em] text-zoe-ink md:text-2xl [&_em]:font-serif [&_em]:font-medium [&_em]:italic [&_em]:text-zoe-sap">
+        <h4 className="max-w-2xl text-[1.65rem] font-extrabold leading-[1.08] tracking-[-0.032em] text-zoe-ink md:text-2xl [&_em]:font-serif [&_em]:font-medium [&_em]:italic [&_em]:tracking-normal [&_em]:text-zoe-sap">
           {displayTitle(post)}
         </h4>
         <p className="mt-2 max-w-3xl text-sm font-medium leading-6 tracking-normal text-zoe-muted">
@@ -106,13 +103,10 @@ export default function BlogIndexPage() {
     <div className="min-h-screen overflow-x-hidden bg-zoe-oat text-zoe-ink">
       <main className="px-5 pb-24 pt-32 md:px-8 md:pt-40">
         <header className="mx-auto max-w-7xl pb-12 md:pb-16">
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.34em] text-zoe-sap">
-            The Zoe Blog
-          </p>
-          <h1 className="mt-7 max-w-[11ch] text-[4.65rem] font-extrabold leading-[0.84] tracking-[-0.07em] text-zoe-ink md:text-[9.4rem] md:tracking-[-0.08em]">
+          <h1 className="max-w-[11ch] text-[4.65rem] font-extrabold leading-[0.84] tracking-[-0.045em] text-zoe-ink md:text-[9.4rem] md:tracking-[-0.052em]">
             Between the
             <br />
-            <em className="font-serif font-medium italic text-zoe-sap">Sundays</em>.
+            <em className="font-serif font-medium italic tracking-normal text-zoe-sap">Sundays</em>.
           </h1>
           <div className="mt-8 flex flex-col gap-7 border-t border-zoe-outline/70 pt-7 lg:flex-row lg:items-end lg:justify-between">
             <p className="max-w-2xl text-base font-medium leading-7 tracking-normal text-zoe-muted md:text-lg md:leading-8">
@@ -149,20 +143,11 @@ export default function BlogIndexPage() {
                 sizes="(min-width: 768px) 45vw, 100vw"
                 className="object-cover object-[77%_50%]"
               />
-              <p className="relative z-10 text-[11px] font-extrabold uppercase tracking-[0.32em] text-zoe-oat">
-                - {featured.date}
-              </p>
-              <p className="relative z-10 w-fit rounded-full border border-white/70 bg-zoe-oat px-4 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-zoe-muted shadow-[0_12px_30px_rgba(45,50,49,0.1)]">
-                - Featured article
-              </p>
             </div>
 
             <div className="flex flex-col justify-between p-8 md:p-14">
               <div>
-                <p className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-zoe-sap">
-                  {featured.category} · {featured.readTime}
-                </p>
-                <h2 className="mt-6 max-w-[14ch] text-[3rem] font-extrabold leading-[0.98] tracking-[-0.06em] text-zoe-oat md:text-[4rem] [&_em]:font-serif [&_em]:font-medium [&_em]:italic [&_em]:text-zoe-sap">
+                <h2 className="max-w-[14ch] text-[3rem] font-extrabold leading-[0.98] tracking-[-0.04em] text-zoe-oat md:text-[4rem] [&_em]:font-serif [&_em]:font-medium [&_em]:italic [&_em]:tracking-normal [&_em]:text-zoe-sap">
                   {displayTitle(featured)}
                 </h2>
                 <p className="mt-7 max-w-xl text-base font-medium leading-7 tracking-normal text-zoe-oat/72 md:text-lg md:leading-8">
@@ -174,6 +159,8 @@ export default function BlogIndexPage() {
                   <strong className="font-bold text-zoe-oat">Tony Allen</strong>
                   <span className="px-3 text-zoe-oat/30">·</span>
                   {featured.date}
+                  <span className="px-3 text-zoe-oat/30">·</span>
+                  {featured.readTime}
                 </p>
                 <span className="mt-6 inline-flex rounded-full bg-zoe-sap px-6 py-3 text-sm font-bold text-white transition group-hover:bg-[#17aa74]">
                   Read the article →
@@ -189,9 +176,6 @@ export default function BlogIndexPage() {
                   <em className="mr-2 font-serif font-medium italic text-zoe-sap">More</em>{" "}
                   writing.
                 </h3>
-                <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zoe-muted/65 md:ml-auto">
-                  {remaining.length} entries
-                </p>
               </div>
               <div className="space-y-3">
                 {remaining.map((post) => (

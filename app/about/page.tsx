@@ -60,12 +60,9 @@ export default function AboutPage() {
     <div className="min-h-screen bg-zoe-oat text-zoe-ink">
       <section className="bg-zoe-oat px-6 pb-24 pt-36 text-zoe-ink md:pb-32 md:pt-44">
         <div className="mx-auto max-w-7xl">
-          <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
-            About · Commitments
-          </p>
-          <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_380px] lg:items-end">
+          <div className="grid gap-12 lg:grid-cols-[1fr_380px] lg:items-end">
             <div>
-              <h1 className="max-w-5xl text-[4.1rem] font-extrabold leading-[0.9] tracking-[-0.075em] [word-spacing:0.08em] md:text-[7.7rem]">
+              <h1 className="max-w-5xl text-[4.1rem] font-extrabold leading-[0.9] tracking-[-0.048em] [word-spacing:0.08em] md:text-[7.7rem]">
                 AI that is{" "}
                 <span className="font-serif italic font-normal tracking-normal text-zoe-sap">
                   quiet enough
@@ -78,10 +75,7 @@ export default function AboutPage() {
             </div>
 
             <div className="rounded-[2rem] bg-white p-7 shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/45">
-              <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-zoe-sap">
-                The posture
-              </p>
-              <p className="mt-5 font-serif text-3xl italic leading-[1.2] tracking-normal text-zoe-sap [word-spacing:0.06em]">
+              <p className="font-serif text-3xl italic leading-[1.2] tracking-normal text-zoe-sap [word-spacing:0.06em]">
                 Useful technology should get quieter as faith gets more personal.
               </p>
               <p className="mt-6 text-sm font-semibold leading-7 tracking-normal text-zoe-muted [word-spacing:0.08em]">
@@ -113,10 +107,7 @@ export default function AboutPage() {
       <section className="bg-zoe-surface px-6 py-24 md:py-32">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div className="sticky top-28 rounded-[2rem] bg-zoe-oat p-8 shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/50">
-            <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-zoe-sap">
-              Behind it
-            </p>
-            <h2 className="mt-5 text-[3.1rem] font-extrabold leading-[0.9] tracking-[-0.058em] text-zoe-ink [word-spacing:0.045em] md:text-[4.7rem] md:tracking-[-0.07em]">
+            <h2 className="text-[3.1rem] font-extrabold leading-[0.9] tracking-[-0.04em] text-zoe-ink [word-spacing:0.045em] md:text-[4.7rem] md:tracking-[-0.048em]">
               A pastor-builder, talking plainly.
             </h2>
             <p className="mt-6 font-serif text-2xl italic leading-9 tracking-normal text-zoe-forest [word-spacing:0.08em]">
@@ -131,7 +122,7 @@ export default function AboutPage() {
                   TA
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-zoe-sap">
+                  <p className="text-sm font-bold tracking-normal text-zoe-forest">
                     Tony Allen · Founder
                   </p>
                   <div className="mt-6 space-y-5 text-[1.05rem] font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">
@@ -166,10 +157,7 @@ export default function AboutPage() {
 
       <section className="bg-zoe-oat px-6 py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-zoe-sap">
-            The door is open
-          </p>
-          <h2 className="mt-5 text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.07em] text-zoe-ink md:text-[5rem]">
+          <h2 className="text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.045em] text-zoe-ink md:text-[5rem]">
             Walk with us while Zoe grows up.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">

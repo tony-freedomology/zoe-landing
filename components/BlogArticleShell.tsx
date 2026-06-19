@@ -66,10 +66,7 @@ export default function BlogArticleShell({
           </Link>
 
           <header className="border-b border-zoe-outline/60 pb-12">
-            <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-zoe-sap">
-              Blog · {category} · {readTime}
-            </p>
-            <h1 className="mt-6 max-w-[19ch] text-[3.75rem] font-extrabold leading-[0.91] tracking-[-0.068em] text-zoe-ink md:text-[4.6rem] lg:text-[5rem]">
+            <h1 className="max-w-[19ch] text-[3.75rem] font-extrabold leading-[0.91] tracking-[-0.042em] text-zoe-ink md:text-[4.6rem] md:tracking-[-0.048em] lg:text-[5rem]">
               {title}
             </h1>
             {deck ? (
@@ -77,7 +74,7 @@ export default function BlogArticleShell({
                 {deck}
               </p>
             ) : null}
-            <p className="mt-8 text-sm font-semibold text-zoe-muted">Tony Allen · Founder · {date}</p>
+            <p className="mt-8 text-sm font-semibold text-zoe-muted">Tony Allen · Founder · {date} · {category} · {readTime}</p>
           </header>
 
           {heroImage ? (
@@ -98,8 +95,7 @@ export default function BlogArticleShell({
           </div>
 
           <aside className="mx-auto mt-16 max-w-[720px] rounded-[2rem] bg-zoe-surface px-7 py-8 text-center shadow-[0_18px_50px_rgba(45,50,49,0.05)] md:px-10">
-            <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-zoe-sap">Try the morning thread</p>
-            <h2 className="mt-4 text-3xl font-extrabold leading-[0.98] tracking-[-0.05em] text-zoe-ink md:text-4xl">
+            <h2 className="text-3xl font-extrabold leading-[0.98] tracking-[-0.035em] text-zoe-ink md:text-4xl">
               Scripture in the place you already check.
             </h2>
             <p className="mx-auto mt-4 max-w-md text-base font-medium leading-7 text-zoe-muted">

@@ -10,10 +10,10 @@ const config: Config = {
         serif: ["var(--font-serif)", ...fontFamily.serif],
       },
       letterSpacing: {
-        "tight-fine": "-0.035em",
-        "tighter-editorial": "-0.065em",
-        "tighter-editorial-relaxed": "-0.055em",
-        "tighter-sans": "-0.05em",
+        "tight-fine": "-0.006em",
+        "tighter-editorial": "-0.045em",
+        "tighter-editorial-relaxed": "-0.034em",
+        "tighter-sans": "-0.034em",
       },
       colors: {
         ink: "#2d3231",

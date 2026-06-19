@@ -335,10 +335,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                   Guided Journeys
                 </div>
               ) : null}
-              <p className="mb-6 text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
-                Guided journeys
-              </p>
-              <h2 className={clsx("text-[3.2rem] md:text-[5rem] leading-[0.92]", isDefault ? "font-extrabold tracking-[-0.058em] [word-spacing:0.045em] md:tracking-[-0.075em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial")}>
+              <h2 className={clsx("text-[3.2rem] md:text-[5rem] leading-[0.92]", isDefault ? "font-extrabold tracking-[-0.042em] [word-spacing:0.045em] md:tracking-[-0.05em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial")}>
                 {isDefault ? (
                   <>
                     Daily journeys tailored to your{" "}
@@ -378,10 +375,12 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                   {isDefault && (
                     <div className="mx-auto mb-8 h-1.5 w-16 rounded-full bg-zoe-sap/80" />
                   )}
-                  <div className={clsx("inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
-                    variant === "jesus-red" ? "rounded-md border border-[#e0d8cd] bg-[#f5efe6] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : isDefault ? "rounded-full border border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
-                    Pre-Alpha Waitlist
-                  </div>
+                  {!isDefault ? (
+                    <div className={clsx("inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
+                      variant === "jesus-red" ? "rounded-md border border-[#e0d8cd] bg-[#f5efe6] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : "rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
+                      Pre-Alpha Waitlist
+                    </div>
+                  ) : null}
 
                   <h2 className={clsx("mx-auto max-w-2xl text-4xl leading-[1.06] md:text-6xl", isDefault ? defaultSectionHeading : "text-slate-900 font-semibold tracking-tight")}>
                     Be among the first.
@@ -543,11 +542,13 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
 
           <div className="mx-auto max-w-3xl relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-20">
-              <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
-                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : isDefault ? "rounded-full border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
-                Trust & Privacy
-              </div>
-              <h2 className={clsx("text-[3.2rem] md:text-[5rem] leading-[0.94]", isDefault ? "font-extrabold tracking-[-0.058em] [word-spacing:0.045em] md:tracking-[-0.075em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>
+              {!isDefault ? (
+                <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
+                  variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
+                  Trust & Privacy
+                </div>
+              ) : null}
+              <h2 className={clsx("text-[3.2rem] md:text-[5rem] leading-[0.94]", isDefault ? "font-extrabold tracking-[-0.042em] [word-spacing:0.045em] md:tracking-[-0.05em] font-sans text-zoe-ink" : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>
                 {isDefault ? (
                   "How private is this?"
                 ) : (
@@ -635,10 +636,12 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
         <section id="faq" className={clsx("scroll-mt-24 py-24 md:py-32 px-6 relative overflow-hidden", isDefault ? "bg-zoe-surface" : "bg-[#F8FBFA]")}>
           <div className="mx-auto max-w-4xl relative z-10">
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-16">
-              <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6 shadow-sm",
-                variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : isDefault ? "rounded-full border-zoe-outline/50 bg-white text-[#6c7a73]" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
-                FAQs
-              </div>
+              {!isDefault ? (
+                <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6 shadow-sm",
+                  variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
+                  FAQs
+                </div>
+              ) : null}
               <h2 className={clsx("text-4xl md:text-5xl", isDefault ? defaultSectionHeading : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>You've got questions. <br className="md:hidden" />We get it.</h2>
               <p className={clsx("mt-6 text-lg font-medium max-w-2xl mx-auto", isDefault ? "text-zoe-muted" : "text-slate-600")}>
                 We&apos;d be worried if you <span className="italic">didn&apos;t</span>!

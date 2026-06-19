@@ -26,6 +26,8 @@ Zoe is a brand built on the intersection of ancient wisdom and modern vitality. 
 
 - **Headlines:** Use **Bold** weight with tight-but-controlled tracking. It should feel authoritative, geometric, and anchored.
 - **Interface Labels:** Use Bold or SemiBold for clarity and a modern, high-end feel.
+- **Default page labels:** Avoid decorative uppercase eyebrow labels above headings on the default `zoe.live` pages. If metadata is needed, keep it quieter in the supporting text instead of making it a pre-title badge.
+- **Tracking:** Keep headline tracking tight, not compressed. Italic accents should use normal letter spacing so emphasized words never visually collide with the next word.
 
 ### Trust Accent: Newsreader Italic
 

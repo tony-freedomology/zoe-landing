@@ -51,11 +51,8 @@ export default function FeaturesPage() {
     <div className="min-h-screen bg-zoe-oat text-zoe-ink">
       <section className="px-6 pb-16 pt-32 md:pt-40">
         <div className="mx-auto max-w-7xl">
-          <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
-            Features · built for the week
-          </p>
-          <div className="mt-7 grid gap-10 lg:grid-cols-[1fr_28rem] lg:items-end">
-            <h1 className="max-w-5xl text-[3.8rem] font-extrabold leading-[0.9] tracking-[-0.058em] text-zoe-ink [word-spacing:0.045em] md:text-[6.8rem] md:tracking-[-0.075em]">
+          <div className="grid gap-10 lg:grid-cols-[1fr_28rem] lg:items-end">
+            <h1 className="max-w-5xl text-[3.8rem] font-extrabold leading-[0.9] tracking-[-0.042em] text-zoe-ink [word-spacing:0.045em] md:text-[6.8rem] md:tracking-[-0.05em]">
               A discipleship tool with a low center of gravity.
             </h1>
             <p className="text-lg font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em] md:text-xl md:leading-9">
@@ -72,10 +69,7 @@ export default function FeaturesPage() {
               <p className="font-serif text-4xl italic leading-none text-zoe-sap">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <p className="mt-9 text-[11px] font-bold uppercase tracking-[0.3em] text-zoe-muted">
-                {feature.eyebrow}
-              </p>
-              <h2 className="mt-4 max-w-xl text-4xl font-extrabold leading-[0.95] tracking-[-0.06em] text-zoe-ink md:text-5xl">
+              <h2 className="mt-9 max-w-xl text-4xl font-extrabold leading-[0.95] tracking-[-0.04em] text-zoe-ink md:text-5xl">
                 {feature.title}
               </h2>
               <p className="mt-5 max-w-xl font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">
@@ -96,10 +90,7 @@ export default function FeaturesPage() {
       <section className="bg-[#173A2E] px-6 py-24 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
-              What it protects
-            </p>
-            <h2 className="mt-6 text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.066em] [word-spacing:0.025em] md:text-[5.4rem] md:tracking-[-0.075em]">
+            <h2 className="text-[3.2rem] font-extrabold leading-[0.92] tracking-[-0.044em] [word-spacing:0.025em] md:text-[5.4rem] md:tracking-[-0.052em]">
               Trust is a feature.
             </h2>
             <p className="mt-7 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/70 [word-spacing:0.08em]">
@@ -137,8 +128,7 @@ export default function FeaturesPage() {
 
       <section className="border-t border-zoe-outline/55 px-6 py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">Early access</p>
-          <h2 className="mt-5 text-[3rem] font-extrabold leading-[0.95] tracking-[-0.066em] text-zoe-ink [word-spacing:0.025em] md:text-[5rem] md:tracking-[-0.07em]">
+          <h2 className="text-[3rem] font-extrabold leading-[0.95] tracking-[-0.044em] text-zoe-ink [word-spacing:0.025em] md:text-[5rem] md:tracking-[-0.052em]">
             See what it feels like.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">

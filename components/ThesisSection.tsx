@@ -16,10 +16,7 @@ export default function ThesisSection(_props: ThesisProps = {}) {
     <section className="relative bg-zoe-oat px-6 pb-24 pt-14 text-zoe-ink md:pb-32 md:pt-16">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }} variants={fadeUp}>
-          <p className="text-[11px] font-bold uppercase tracking-[0.34em] text-zoe-sap">
-            The question
-          </p>
-          <h2 className="mt-6 max-w-4xl text-[3.3rem] font-extrabold leading-[0.92] tracking-[-0.058em] text-zoe-ink [word-spacing:0.045em] md:text-[5.9rem] md:tracking-[-0.075em]">
+          <h2 className="max-w-4xl text-[3.3rem] font-extrabold leading-[0.92] tracking-[-0.042em] text-zoe-ink [word-spacing:0.045em] md:text-[5.9rem] md:tracking-[-0.05em]">
             AI that helps you walk with Jesus more consistently.
           </h2>
           <p className="mt-7 max-w-2xl text-xl font-medium leading-9 tracking-normal text-zoe-muted [word-spacing:0.08em]">

@@ -65,10 +65,7 @@ export default function JourneyCarousel({ title, kicker, description, journeys, 
     <section className="py-12 md:py-16">
       <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 md:flex-row md:items-end md:justify-between md:px-8">
         <div>
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-zoe-sap">
-            {kicker}
-          </p>
-          <h2 className="mt-3 text-[2.75rem] font-extrabold leading-[0.92] tracking-[-0.04em] text-zoe-ink [word-spacing:0.06em] md:text-[4.5rem] md:tracking-[-0.065em] md:[word-spacing:0.02em]">
+          <h2 className="text-[2.75rem] font-extrabold leading-[0.92] tracking-[-0.034em] text-zoe-ink [word-spacing:0.06em] md:text-[4.5rem] md:tracking-[-0.044em] md:[word-spacing:0.02em]">
             {title}
           </h2>
         </div>
