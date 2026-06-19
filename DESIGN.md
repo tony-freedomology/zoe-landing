@@ -59,3 +59,9 @@ The UI should feel like stacked sheets of premium cardstock. Use subtle, soft sh
 - **Signature CTA:** Pill-shaped, Jade (#1DC286) background with White text.
 - **Tonal Card Layering:** Use slightly darker background shifts for structural division instead of heavy borders.
 - **Minimalist Forms:** Clean, simple inputs with subtle Jade markers to guide the user.
+
+## 6. Favicon
+
+- **Default Icon:** Use the hand-drawn Jade Z on an Oat circular field from `public/images/brand/zoe-favicon-generated-z.png`.
+- **Derived Assets:** Keep `public/favicon-16x16.png`, `public/favicon-32x32.png`, `public/favicon.ico`, `public/apple-touch-icon.png`, `app/favicon.ico`, `app/icon.png`, and `app/apple-icon.png` in sync with the source mark.
+- **Avoid:** Do not use the older blue square Z for the default `zoe.live` favicon.
