@@ -18,11 +18,18 @@ import { createMetaEventId, trackMetaLead } from "../lib/metaPixel";
 
 interface ShortProps {
   variant?: "default" | "jesus-red" | "emerald-uni";
+  inviteCode?: string;
 }
 
 type PhonePlatform = "iphone" | "android";
 
-export default function HomePageContentShort({ variant = "default" }: ShortProps) {
+function normalizeInviteCode(value?: string): string | null {
+  const normalized = value?.trim().toLowerCase();
+  if (!normalized) return null;
+  return normalized.replace(/[^a-z0-9-]/g, "").slice(0, 48) || null;
+}
+
+export default function HomePageContentShort({ variant = "default", inviteCode }: ShortProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "sent">("idle");
   const [name, setName] = useState("");
   const [phone, setPhone] = usePhoneFormatter("");
@@ -39,6 +46,13 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
 
   const isJR = variant === "jesus-red";
   const isEM = variant === "emerald-uni";
+  const normalizedInviteCode = normalizeInviteCode(inviteCode);
+  const isChurchPilotInvite = normalizedInviteCode === "church-pilot";
+  const signupSource = isChurchPilotInvite
+    ? "churches-pilot:church-pilot"
+    : variant === "default"
+      ? "beta-signup"
+      : `short-landing-${variant}`;
 
   useEffect(() => {
     document.body.classList.add("hide-navbar");
@@ -73,7 +87,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       email,
       phonePlatform,
       type: "individual",
-      source: variant === "default" ? "beta-signup" : `short-landing-${variant}`,
+      source: signupSource,
       smsConsent: variant === "default" ? smsConsentAgreed : false,
       eventId,
       eventSourceUrl: window.location.href,
@@ -191,10 +205,14 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
           <div className="px-5 pb-8 pt-5">
             <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: "easeOut" }}>
               <h1 className="text-[2.72rem] font-extrabold leading-[0.88] tracking-[-0.055em] text-zoe-ink">
-                We want your input<span className="text-zoe-sap">.</span>
+                {isChurchPilotInvite ? "Church friends, I'd love your help" : "We want your input"}<span className="text-zoe-sap">.</span>
               </h1>
               <div className="mt-3 space-y-2 text-[0.97rem] font-medium leading-6 text-zoe-muted">
-                <p>We're building Zoe, an iMessage/SMS agent that helps you walk with Jesus, engage with scripture, and build the rhythms of a life with God.</p>
+                <p>
+                  {isChurchPilotInvite
+                    ? "I'm opening a small first group from church to try Zoe with me."
+                    : "We're building Zoe, an iMessage/SMS agent that helps you walk with Jesus, engage with scripture, and build the rhythms of a life with God."}
+                </p>
               </div>
             </motion.div>
 
@@ -215,7 +233,11 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                   <motion.form key="form-mobile" onSubmit={handleWaitlistSubmit} className="space-y-3" exit={{ opacity: 0, y: 8 }}>
                     <div>
                       <h2 className="text-[1.45rem] font-extrabold tracking-tight text-zoe-ink">Where should Zoe text you?</h2>
-                      <p className="mt-1 text-sm font-medium leading-5 text-zoe-muted">Sign up to be considered for early access. Phone is the main thing.</p>
+                      <p className="mt-1 text-sm font-medium leading-5 text-zoe-muted">
+                        {isChurchPilotInvite
+                          ? "Drop your info here so I can text you the beta invite."
+                          : "Sign up to be considered for early access. Phone is the main thing."}
+                      </p>
                     </div>
 
                     <input
@@ -311,14 +333,20 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                     </button>
 
                     {submitError ? <p className="text-sm font-semibold text-rose-600">{submitError}</p> : null}
-                    <p className="text-center text-xs font-medium text-zoe-muted">Spots are limited.</p>
+                    <p className="text-center text-xs font-medium text-zoe-muted">
+                      {isChurchPilotInvite ? "This keeps the church group tagged separately." : "Spots are limited."}
+                    </p>
                   </motion.form>
                 )}
               </AnimatePresence>
             </div>
 
             <div className="mt-4 text-[0.97rem] font-medium leading-6 text-zoe-muted">
-              <p>We're at the stage where we are inviting thoughtful Christ followers to test Zoe in real life and tell us what's helpful, what's not, and what's missing.</p>
+              <p>
+                {isChurchPilotInvite
+                  ? "I'm keeping this group small and personal so we can learn from real people close to home before we open the doors wider."
+                  : "We're at the stage where we are inviting thoughtful Christ followers to test Zoe in real life and tell us what's helpful, what's not, and what's missing."}
+              </p>
             </div>
 
             <div className="mt-4 rounded-[0.95rem] border border-zoe-outline/35 bg-white/75 p-3 shadow-[0_14px_36px_rgba(45,50,49,0.05)]">
@@ -329,7 +357,9 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                 <div>
                   <p className="text-sm font-extrabold text-zoe-ink">Don't worry about hurting our feelings.</p>
                   <p className="mt-0.5 text-[0.82rem] font-medium leading-5 text-zoe-muted">
-                    We want real feedback so we can build something genuinely useful for the Church. We want to know what you'd find useful.
+                    {isChurchPilotInvite
+                      ? "Try it, tell me where it helps, where it feels off, and what you wish it did."
+                      : "We want real feedback so we can build something genuinely useful for the Church. We want to know what you'd find useful."}
                   </p>
                 </div>
               </div>
@@ -379,17 +409,25 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                   <ZoeSVG color="#1dc286" fast={true} />
                 </div>
                 <p className="ml-auto text-[12px] font-extrabold uppercase tracking-[0.32em] text-zoe-forest">
-                  Zoe Beta
+                  {isChurchPilotInvite ? "Church Pilot" : "Zoe Beta"}
                 </p>
               </div>
 
               <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }}>
                 <h1 className="max-w-2xl text-[3.4rem] font-extrabold leading-[0.93] tracking-[-0.058em] text-zoe-ink sm:text-[4.6rem] lg:text-[5.35rem]">
-                  We want your input<span className="text-zoe-sap">.</span>
+                  {isChurchPilotInvite ? "Church friends, I'd love your help" : "We want your input"}<span className="text-zoe-sap">.</span>
                 </h1>
                 <div className="mt-7 max-w-2xl space-y-4 text-lg font-medium leading-8 text-zoe-muted sm:text-xl">
-                  <p>We're building Zoe, an iMessage/SMS agent that helps you walk with Jesus, engage with scripture, and build the rhythms of a life with God.</p>
-                  <p>We're at the stage where we are inviting thoughtful Christ followers to test Zoe in real life and tell us what's helpful, what's not, and what's missing.</p>
+                  <p>
+                    {isChurchPilotInvite
+                      ? "I'm opening a small first group from church to try Zoe with me."
+                      : "We're building Zoe, an iMessage/SMS agent that helps you walk with Jesus, engage with scripture, and build the rhythms of a life with God."}
+                  </p>
+                  <p>
+                    {isChurchPilotInvite
+                      ? "If you're willing, sign up here and I'll make sure you stay tagged separately from the broader ad waitlist."
+                      : "We're at the stage where we are inviting thoughtful Christ followers to test Zoe in real life and tell us what's helpful, what's not, and what's missing."}
+                  </p>
                 </div>
               </motion.div>
 
@@ -412,7 +450,9 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                 <div>
                   <p className="text-base font-extrabold text-zoe-ink">Don't worry about hurting our feelings.</p>
                   <p className="mt-1 text-sm font-medium leading-6 text-zoe-muted">
-                    We want real feedback so we can build something genuinely useful for the Church. We want to know what you'd find useful.
+                    {isChurchPilotInvite
+                      ? "Try it, tell me where it helps, where it feels off, and what you wish it did."
+                      : "We want real feedback so we can build something genuinely useful for the Church. We want to know what you'd find useful."}
                   </p>
                 </div>
               </div>
@@ -436,7 +476,11 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                     <motion.form key="form" onSubmit={handleWaitlistSubmit} className="space-y-3" exit={{ opacity: 0, y: 8 }}>
                       <div>
                         <h2 className="text-2xl font-extrabold tracking-tight text-zoe-ink">Where should Zoe text you?</h2>
-                        <p className="mt-1 text-sm font-medium text-zoe-muted">Sign up to be considered for early access.</p>
+                        <p className="mt-1 text-sm font-medium text-zoe-muted">
+                          {isChurchPilotInvite
+                            ? "Drop your info here so I can text you the beta invite."
+                            : "Sign up to be considered for early access."}
+                        </p>
                       </div>
 
                       <fieldset className="grid grid-cols-2 gap-2 pt-2">
@@ -528,7 +572,9 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                       </button>
 
                       {submitError ? <p className="text-sm font-semibold text-rose-600">{submitError}</p> : null}
-                      <p className="text-center text-xs font-medium text-zoe-muted">Spots are limited.</p>
+                      <p className="text-center text-xs font-medium text-zoe-muted">
+                        {isChurchPilotInvite ? "This keeps the church group tagged separately." : "Spots are limited."}
+                      </p>
                     </motion.form>
                   )}
                 </AnimatePresence>
