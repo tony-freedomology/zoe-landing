@@ -8,7 +8,7 @@ const fadeUp = {
 };
 
 interface ThesisProps {
-  variant?: "default" | "jesus-red" | "emerald-uni";
+  variant?: "default" | "emerald-uni";
 }
 
 export default function ThesisSection(_props: ThesisProps = {}) {
@@ -60,3 +60,4 @@ export default function ThesisSection(_props: ThesisProps = {}) {
     </section>
   );
 }
+

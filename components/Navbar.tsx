@@ -35,8 +35,6 @@ export default function Navbar() {
     pathname === "/thanks" ||
     pathname.startsWith("/journeys/lesson-preview");
   const preserveTheme =
-    pathname.startsWith("/jesus-red") ||
-    pathname.startsWith("/s/jesus-red") ||
     pathname.startsWith("/emerald-uni") ||
     pathname.startsWith("/s/emerald-uni");
   const isHomePage = pathname === "/";
@@ -315,3 +313,5 @@ export default function Navbar() {
     </motion.header>
   );
 }
+
+

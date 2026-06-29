@@ -82,7 +82,7 @@ The tone should never make users feel managed, optimized, or spiritually markete
 
 There is one canonical default Zoe brand identity.
 
-Do not use older prototype directions as the source of truth for new default-brand work. `jesus-red` may remain as a campaign-specific surface, but it is not the default brand system.
+Do not use older prototype directions as the source of truth for new default-brand work. The retired red prototype is not a default, campaign, or routing surface.
 
 ### Core feeling
 
@@ -219,3 +219,4 @@ Should still feel warm and modern, not institutional or enterprise-admin.
 7. The interface should feel like warm premium paper, not digital glass.
 8. If a page feels too corporate, remove dark slabs, navy support colors, and hard borders.
 9. If a page feels too editorial, reduce serif and flourish before changing the structure.
+

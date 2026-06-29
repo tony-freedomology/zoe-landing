@@ -4,7 +4,7 @@ This is the official agent-facing design system for Zoe's default brand.
 
 Use this document when designing or editing Zoe marketing pages, supporting pages, waitlist flows, church-facing pages, and shared UI. This is the handoff doc for other agents.
 
-`jesus-red` is explicitly excluded from this system unless a task says otherwise.
+Retired prototype systems are explicitly excluded from this system unless a task says otherwise.
 
 ## 1. Brand Intent
 
@@ -257,6 +257,7 @@ When editing default Zoe pages:
 1. Start from existing Zoe tokens before inventing new colors.
 2. Prefer updating surfaces and accents over redesigning page structure.
 3. If you need a serif moment, use one trust accent, not a new typography system.
-4. Keep `jesus-red` untouched unless the task explicitly includes it.
+4. Keep retired prototype systems untouched unless the task explicitly includes them.
 5. If a page feels too editorial, remove flourish before changing layout.
 6. If a page feels too corporate, check for dark panels, navy text systems, or hard contrast sections.
+

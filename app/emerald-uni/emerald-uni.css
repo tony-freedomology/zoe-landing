@@ -165,7 +165,7 @@
 }
 
 /* ── Cards → white with subtle shadow ──────────────────── */
-/* Removed aggressive bg-white override (same lesson as jesus-red). */
+/* Removed aggressive bg-white override from an older prototype lesson. */
 
 /* ── Buttons (dark buttons → emerald) ──────────────────── */
 .theme-emerald-uni button[class*="bg-slate-900"],

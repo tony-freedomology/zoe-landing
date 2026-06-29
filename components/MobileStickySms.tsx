@@ -24,7 +24,7 @@ function ScrollBubble({
     text: React.ReactNode,
     scrollYProgress: MotionValue<number>,
     fadeInRange: [number, number],
-    variant?: "default" | "jesus-red" | "emerald-uni"
+    variant?: "default" | "emerald-uni"
 }) {
     const isUser = sender === "user";
     const opacity = useTransform(scrollYProgress, fadeInRange, [0, 1]);
@@ -35,8 +35,8 @@ function ScrollBubble({
             className={clsx(
                 "max-w-[85%] px-4 py-3 text-[16px] font-medium leading-[1.4] shadow-sm tracking-tight",
                 isUser
-                    ? clsx("bg-[#007AFF] text-white self-end", variant === "jesus-red" ? "rounded-md" : "rounded-[20px] rounded-br-[4px]")
-                    : clsx("bg-[#E9E9EB] text-[#111] self-start", variant === "jesus-red" ? "rounded-md" : "rounded-[20px] rounded-bl-[4px]")
+                    ? "bg-[#007AFF] text-white self-end rounded-[20px] rounded-br-[4px]"
+                    : "bg-[#E9E9EB] text-[#111] self-start rounded-[20px] rounded-bl-[4px]"
             )}
         >
             {text}
@@ -64,7 +64,7 @@ function ScrollTimestamp({
     );
 }
 
-export default function MobileStickySms({ variant = "default" }: { variant?: "default" | "jesus-red" | "emerald-uni" } = {}) {
+export default function MobileStickySms({ variant = "default" }: { variant?: "default" | "emerald-uni" } = {}) {
     const containerRef = useRef<HTMLElement>(null);
     const [isInView, setIsInView] = useState(false);
 
@@ -174,7 +174,7 @@ export default function MobileStickySms({ variant = "default" }: { variant?: "de
     };
 
     return (
-        <section ref={containerRef} className={clsx("relative w-full h-[1500vh] z-20 block overflow-x-clip", variant === "jesus-red" ? "bg-[#f5efe6]" : "bg-zoe-oat")}>
+        <section ref={containerRef} className="relative w-full h-[1500vh] z-20 block overflow-x-clip bg-zoe-oat">
 
             {isInView && (
                 <div className="fixed top-0 left-0 w-full h-[100dvh] flex items-center justify-center overflow-hidden pointer-events-none z-20">
@@ -342,12 +342,11 @@ export default function MobileStickySms({ variant = "default" }: { variant?: "de
             <div
                 className="absolute bottom-0 left-0 right-0 h-[25vh] pointer-events-none z-10"
                 style={{
-                    background: variant === "jesus-red"
-                        ? "linear-gradient(to bottom, #f5efe6 0%, #fecdd3 100%)"
-                        : "linear-gradient(to bottom, #FCF9F4 0%, #fecdd3 100%)"
+                    background: "linear-gradient(to bottom, #FCF9F4 0%, #fecdd3 100%)"
                 }}
             />
             <div className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-rose-200 pointer-events-none z-10" />
         </section>
     );
 }
+

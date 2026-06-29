@@ -4,10 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, type FormEvent } from "react";
 import clsx from "clsx";
 import { CheckCircle, MessageCircle, BookOpen, ShieldCheck, Compass, Heart, Users } from "lucide-react";
-import Hero2D from './Hero2D';
 import ZoeSVG from "./ZoeSVG";
-import LeftHeroSvg from "./LeftHeroSvg";
-import RightHeroSvg from "./RightHeroSvg";
 import { usePhoneFormatter } from "../app/hooks/usePhoneFormatter";
 import {
   isWaitlistEmailValid,
@@ -17,7 +14,7 @@ import {
 import { createMetaEventId, trackMetaLead } from "../lib/metaPixel";
 
 interface ShortProps {
-  variant?: "default" | "jesus-red" | "emerald-uni";
+  variant?: "default" | "emerald-uni";
 }
 
 type PhonePlatform = "iphone" | "android";
@@ -37,7 +34,6 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     phoneValid &&
     isWaitlistEmailValid(email);
 
-  const isJR = variant === "jesus-red";
   const isEM = variant === "emerald-uni";
 
   useEffect(() => {
@@ -110,14 +106,14 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
   };
 
   // Theme values Let's keep the focus ring conditional on the actual variant color
-  const primaryColor = isJR ? "text-[#7a2332]" : isEM ? "text-[#1dc286]" : "text-zoe-leaf";
-  const primaryBg = isJR ? "bg-[#7a2332]" : isEM ? "bg-[#1dc286]" : "bg-zoe-leaf";
-  const primaryBgLight = isJR ? "bg-[#7a2332]/10" : isEM ? "bg-[#1dc286]/10" : "bg-zoe-leaf/10";
-  const focusRing = isJR ? "focus:ring-[#7a2332]/30" : isEM ? "focus:ring-[#1dc286]/30" : "focus:ring-zoe-leaf/30";
+  const primaryColor = isEM ? "text-[#1dc286]" : "text-zoe-leaf";
+  const primaryBg = isEM ? "bg-[#1dc286]" : "bg-zoe-leaf";
+  const primaryBgLight = isEM ? "bg-[#1dc286]/10" : "bg-zoe-leaf/10";
+  const focusRing = isEM ? "focus:ring-[#1dc286]/30" : "focus:ring-zoe-leaf/30";
 
-  const mainBg = isJR ? "bg-[#f5efe6]" : "bg-white";
-  const cardBg = isJR ? "bg-[#f5efe6]" : "bg-white"; // Bottom sheet on mobile matches theme
-  const headlineFont = (isJR || isEM) ? "font-serif tracking-tighter-editorial-relaxed" : "font-sans tracking-tighter-sans";
+  const mainBg = "bg-white";
+  const cardBg = "bg-white";
+  const headlineFont = isEM ? "font-serif tracking-tighter-editorial-relaxed" : "font-sans tracking-tighter-sans";
 
   const proofPoints = [
     { icon: MessageCircle, title: "Meets you where you are", desc: "No new apps or logins. Just a daily text message in your natural rhythm." },
@@ -633,7 +629,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     <main className={clsx("fixed inset-0 w-full h-full overflow-hidden flex flex-col md:flex-row", mainBg)}>
       <style jsx global>{`
         html, body {
-          background-color: ${isJR ? "#f5efe6" : "white"} !important;
+          background-color: white !important;
           margin: 0;
           padding: 0;
           height: 100%;
@@ -643,9 +639,6 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
 
       {/* Mobile Visual (Background) */}
       <div className="md:hidden absolute inset-0 z-0 bg-slate-900 pointer-events-none flex flex-col">
-        {variant === "jesus-red" && (
-          <img src="/assets/hero/parchment-bg.png" className="absolute inset-0 w-full h-full object-cover" alt="" />
-        )}
         {variant === "emerald-uni" && (
           <div className="absolute inset-x-0 top-0 w-full h-[50dvh] overflow-hidden">
             <img src="/assets/hero/emerald-campus.jpg" className="absolute inset-0 w-full h-full object-cover object-[50%_30%]" alt="" />
@@ -657,21 +650,6 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
 
       {/* Left Column (Desktop Visual) */}
       <div className="hidden md:flex w-full md:w-[50%] lg:w-[55%] relative h-full md:h-screen bg-slate-900 z-0 flex-col items-center justify-center p-12">
-        {variant === "jesus-red" && (
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <img src="/assets/hero/parchment-bg.png" className="absolute inset-0 w-full h-full object-cover" alt="" />
-
-            {/* Jesus Red Specific SVGs (Cross & Man) */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-40">
-              <div className="absolute left-[-10%] bottom-0 w-[60%] h-[70%]">
-                <LeftHeroSvg className="w-full h-full object-contain object-bottom-left" />
-              </div>
-              <div className="absolute right-[5%] bottom-0 w-[60%] h-[70%]">
-                <RightHeroSvg className="w-full h-full object-contain object-bottom-right" />
-              </div>
-            </div>
-          </div>
-        )}
         {variant === "emerald-uni" && (
           <div className="absolute inset-0 overflow-hidden">
             <img src="/assets/hero/emerald-campus-wide.jpg" className="absolute inset-0 w-full h-full object-cover object-center" alt="" />
@@ -696,9 +674,9 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
             </motion.div>
           )}
           <div className="mb-8 w-64 md:w-80 lg:w-96 drop-shadow-2xl relative z-10">
-            <ZoeSVG variant={variant} color={isJR ? "#3c2a21" : "white"} fast={true} />
+            <ZoeSVG variant={variant} color="white" fast={true} />
           </div>
-          <h1 className={clsx("text-4xl md:text-5xl lg:text-6xl font-medium drop-shadow-md relative z-10", headlineFont, isJR ? "text-[#3c2a21]" : "text-white")}>
+          <h1 className={clsx("text-4xl md:text-5xl lg:text-6xl font-medium drop-shadow-md relative z-10", headlineFont, "text-white")}>
             Walk with Jesus.
           </h1>
         </div>
@@ -718,9 +696,9 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
           </motion.div>
         )}
         <div className="mb-4 w-48 drop-shadow-2xl relative z-10">
-          <ZoeSVG variant={variant} color={isJR ? "#3c2a21" : "white"} fast={true} />
+          <ZoeSVG variant={variant} color="white" fast={true} />
         </div>
-        <h1 className={clsx("text-3xl font-medium drop-shadow-md text-center relative z-10", headlineFont, isJR ? "text-[#3c2a21]" : "text-white")}>
+        <h1 className={clsx("text-3xl font-medium drop-shadow-md text-center relative z-10", headlineFont, "text-white")}>
           Walk with Jesus.
         </h1>
       </div>
@@ -741,7 +719,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
           >
             {/* Logo */}
             {/* <div className="mb-6 w-36 md:w-44">
-              <ZoeSVG variant={variant} color={!isJR ? "#1e293b" : undefined} />
+              <ZoeSVG variant={variant} color="#1e293b" />
             </div> */}
 
             {/* Warm, Winsome Copy */}
@@ -900,3 +878,5 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     </main>
   );
 }
+
+
