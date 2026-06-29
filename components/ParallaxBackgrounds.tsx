@@ -5,7 +5,7 @@ import { useRef } from "react";
 import Image from "next/image";
 
 interface ParallaxProps {
-    variant?: "default" | "jesus-red" | "emerald-uni" | "emerald-uni";
+    variant?: "default" | "emerald-uni";
 }
 
 export default function ParallaxBackgrounds({ variant = "default" }: ParallaxProps = {}) {
@@ -22,9 +22,6 @@ export default function ParallaxBackgrounds({ variant = "default" }: ParallaxPro
     // Slowly scale down the background over the whole page scroll
     const forestScale = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
 
-    if (variant === "jesus-red") {
-        return null; // Return null so we don't render expensive layers for the variant
-    }
 
     return (
         <div ref={containerRef} className="absolute inset-0 pointer-events-none -z-10 h-full w-full">
@@ -41,3 +38,5 @@ export default function ParallaxBackgrounds({ variant = "default" }: ParallaxPro
         </div>
     );
 }
+
+

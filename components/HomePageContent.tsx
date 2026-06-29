@@ -21,7 +21,7 @@ import {
 import { createMetaEventId, trackMetaLead } from "../lib/metaPixel";
 
 interface HomeProps {
-  variant?: "default" | "jesus-red" | "emerald-uni" | "emerald-uni";
+  variant?: "default" | "emerald-uni";
 }
 
 type PhonePlatform = "iphone" | "android";
@@ -320,7 +320,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
         {/* Act 2: The Daily Rhythm */}
         <StickyRhythmsSection />
 
-        <section className={clsx("relative overflow-hidden px-6 py-24 md:py-32", variant === "jesus-red" ? "bg-[#f8f1e7]" : isDefault ? "bg-zoe-oat" : "bg-[#FCFAF8]")}>
+        <section className={clsx("relative overflow-hidden px-6 py-24 md:py-32", isDefault ? "bg-zoe-oat" : "bg-[#FCFAF8]")}>
           <div className={clsx(
             "absolute inset-0 pointer-events-none",
             isDefault
@@ -331,7 +331,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mx-auto mb-14 max-w-4xl text-center">
               {!isDefault ? (
                 <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6 shadow-sm",
-                  variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : "rounded-full border-[#d97706]/20 bg-[#d97706]/10 text-[#d97706]")}>
+                  variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : "rounded-full border-[#d97706]/20 bg-[#d97706]/10 text-[#d97706]")}>
                   Guided Journeys
                 </div>
               ) : null}
@@ -357,19 +357,12 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
         </section>
 
         {/* Act 3: The Clearing (Unified CTA & Pricing) */}
-        <section ref={waitlistRef} id="waitlist" className={clsx("relative scroll-mt-24 px-4 py-24 md:py-32", variant === "jesus-red" ? "bg-[#f5efe6]" : isDefault ? "bg-zoe-surface" : "bg-[#F8FBFA]")}>
+        <section ref={waitlistRef} id="waitlist" className={clsx("relative scroll-mt-24 px-4 py-24 md:py-32", isDefault ? "bg-zoe-surface" : "bg-[#F8FBFA]")}>
           <div className="w-full overflow-hidden">
-            {variant !== "jesus-red" && (
-              <>
-                <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(251,248,242,0.98),rgba(245,241,232,0.94))]" />
-              </>
-            )}
+            <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(251,248,242,0.98),rgba(245,241,232,0.94))]" />
 
             <div className="mx-auto max-w-5xl relative z-10 w-full">
-              <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className={clsx("relative text-center", variant === "jesus-red" ? "overflow-hidden rounded-xl p-6 md:p-16" : "px-6 py-8 md:px-8 md:py-10")}>
-                {variant === "jesus-red" && (
-                  <div className="absolute inset-0 bg-[#faf7f0] border border-[#e0d8cd] shadow-lg shadow-black/5" />
-                )}
+              <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="relative px-6 py-8 text-center md:px-8 md:py-10">
 
                 <div className="relative z-10 mx-auto max-w-3xl">
                   {isDefault && (
@@ -377,7 +370,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                   )}
                   {!isDefault ? (
                     <div className={clsx("inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
-                      variant === "jesus-red" ? "rounded-md border border-[#e0d8cd] bg-[#f5efe6] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : "rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
+                      variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : "rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                       Pre-Alpha Waitlist
                     </div>
                   ) : null}
@@ -390,7 +383,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                   </p>
 
                   <div className={clsx("mt-10 max-w-md mx-auto w-full p-5 md:p-6 relative overflow-hidden",
-                    variant === "jesus-red" ? "bg-white border border-[#e0d8cd] shadow-sm rounded-lg" : isDefault ? "rounded-[2rem] border border-zoe-outline/45 bg-white shadow-[0_18px_44px_rgba(28,28,25,0.06)]" : "rounded-2xl bg-slate-50/80 backdrop-blur-xl border border-slate-100 shadow-sm")}>
+                    isDefault ? "rounded-[2rem] border border-zoe-outline/45 bg-white shadow-[0_18px_44px_rgba(28,28,25,0.06)]" : "rounded-2xl bg-slate-50/80 backdrop-blur-xl border border-slate-100 shadow-sm")}>
                     {status === "sent" ? (
                       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center justify-center py-8 px-4 text-center">
                         <div className="w-16 h-16 bg-zoe-leaf/10 rounded-full flex items-center justify-center mb-6">
@@ -411,19 +404,11 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                               key={platform}
                               className={clsx(
                                 "flex cursor-pointer items-center justify-center gap-2 border px-3 py-3 text-sm font-semibold transition-all",
-                                variant === "jesus-red"
-                                  ? "rounded-md border-[#e0d8cd]"
-                                  : isDefault
-                                    ? "rounded-[1.2rem] border-zoe-outline/45"
-                                    : "rounded-xl border-slate-200",
+                                isDefault ? "rounded-[1.2rem] border-zoe-outline/45" : "rounded-xl border-slate-200",
                                 phonePlatform === platform
                                   ? platform === "iphone"
                                     ? "border-[#007AFF] bg-[#007AFF] text-white"
-                                    : variant === "jesus-red"
-                                      ? "bg-[#7a2332] text-white"
-                                      : isDefault
-                                        ? "bg-zoe-sap text-white"
-                                        : "bg-slate-900 text-white"
+                                    : isDefault ? "bg-zoe-sap text-white" : "bg-slate-900 text-white"
                                   : "bg-white text-slate-600 hover:border-slate-300"
                               )}
                             >
@@ -450,11 +435,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                           placeholder="Your Name"
                           className={clsx(
                             "border px-4 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all shadow-sm",
-                            variant === "jesus-red"
-                              ? "rounded-md focus:ring-2 focus:ring-[#7a2332]/50 focus:border-[#7a2332]/50"
-                              : isDefault
-                                ? "rounded-[1.2rem] border-zoe-outline/45 bg-zoe-oat focus:border-zoe-sap focus:ring-2 focus:ring-zoe-sap/15"
-                                : "rounded-xl focus:ring-2 focus:ring-zoe-leaf/50 focus:border-zoe-leaf/50"
+                            isDefault ? "rounded-[1.2rem] border-zoe-outline/45 bg-zoe-oat focus:border-zoe-sap focus:ring-2 focus:ring-zoe-sap/15" : "rounded-xl focus:ring-2 focus:ring-zoe-leaf/50 focus:border-zoe-leaf/50"
                           )}
                         />
                         <input
@@ -468,11 +449,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                           placeholder="Phone Number"
                           className={clsx(
                             "border px-4 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all shadow-sm",
-                            variant === "jesus-red"
-                              ? "rounded-md focus:ring-2 focus:ring-[#7a2332]/50 focus:border-[#7a2332]/50"
-                              : isDefault
-                                ? "rounded-[1.2rem] border-zoe-outline/45 bg-zoe-oat focus:border-zoe-sap focus:ring-2 focus:ring-zoe-sap/15"
-                                : "rounded-xl focus:ring-2 focus:ring-zoe-leaf/50 focus:border-zoe-leaf/50"
+                            isDefault ? "rounded-[1.2rem] border-zoe-outline/45 bg-zoe-oat focus:border-zoe-sap focus:ring-2 focus:ring-zoe-sap/15" : "rounded-xl focus:ring-2 focus:ring-zoe-leaf/50 focus:border-zoe-leaf/50"
                           )}
                         />
                         <input
@@ -485,20 +462,12 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                           placeholder="Email Address"
                           className={clsx(
                             "border px-4 py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all shadow-sm",
-                            variant === "jesus-red"
-                              ? "rounded-md focus:ring-2 focus:ring-[#7a2332]/50 focus:border-[#7a2332]/50"
-                              : isDefault
-                                ? "rounded-[1.2rem] border-zoe-outline/45 bg-zoe-oat focus:border-zoe-sap focus:ring-2 focus:ring-zoe-sap/15"
-                                : "rounded-xl focus:ring-2 focus:ring-zoe-leaf/50 focus:border-zoe-leaf/50"
+                            isDefault ? "rounded-[1.2rem] border-zoe-outline/45 bg-zoe-oat focus:border-zoe-sap focus:ring-2 focus:ring-zoe-sap/15" : "rounded-xl focus:ring-2 focus:ring-zoe-leaf/50 focus:border-zoe-leaf/50"
                           )}
                         />
                         <button
                           className={clsx("mt-2 px-4 py-4 text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-white shadow-lg",
-                            variant === "jesus-red"
-                              ? "rounded-md bg-[#7a2332] shadow-[#7a2332]/20 hover:bg-[#5c1624] hover:-translate-y-0.5 disabled:bg-[#7a2332]/45 disabled:shadow-none disabled:hover:translate-y-0"
-                              : isDefault
-                                ? "rounded-full bg-zoe-sap shadow-sm hover:brightness-105 active:scale-95 disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none disabled:active:scale-100"
-                                : "rounded-xl bg-slate-900 shadow-slate-900/10 hover:bg-slate-800 hover:-translate-y-0.5 disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none disabled:hover:translate-y-0")}
+                            isDefault ? "rounded-full bg-zoe-sap shadow-sm hover:brightness-105 active:scale-95 disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none disabled:active:scale-100" : "rounded-xl bg-slate-900 shadow-slate-900/10 hover:bg-slate-800 hover:-translate-y-0.5 disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none disabled:hover:translate-y-0")}
                           type="submit"
                           disabled={status === "submitting" || !waitlistFormValid}
                         >
@@ -544,7 +513,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-20">
               {!isDefault ? (
                 <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
-                  variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
+                  variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                   Trust & Privacy
                 </div>
               ) : null}
@@ -638,7 +607,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-16">
               {!isDefault ? (
                 <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6 shadow-sm",
-                  variant === "jesus-red" ? "rounded-md border-[#7a2332]/20 bg-[rgba(122,35,50,0.06)] text-[#7a2332]" : variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
+                  variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                   FAQs
                 </div>
               ) : null}
@@ -649,7 +618,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
             </motion.div>
             <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="flex flex-col gap-4">
               {faqs.map((faq, i) => (
-                <motion.div variants={fadeUp} key={i} className={clsx("overflow-hidden transition-all duration-300", variant === "jesus-red" ? "rounded-lg bg-[#faf7f0] border border-[#e0d8cd] shadow-[0_4px_20px_rgb(0,0,0,0.03)]" : isDefault ? "rounded-[1.75rem] bg-white border border-zoe-outline/35 shadow-zoe-card" : "rounded-3xl bg-white shadow-[0_4px_20px_rgb(0,0,0,0.03)]")}>
+                <motion.div variants={fadeUp} key={i} className={clsx("overflow-hidden transition-all duration-300", isDefault ? "rounded-[1.75rem] bg-white border border-zoe-outline/35 shadow-zoe-card" : "rounded-3xl bg-white shadow-[0_4px_20px_rgb(0,0,0,0.03)]")}>
                   <button
                     type="button"
                     aria-expanded={openFaq === i}
@@ -657,7 +626,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="flex w-full items-center justify-between gap-6 p-6 text-left md:p-8"
                   >
-                    <span className={clsx("font-semibold text-xl pr-2", variant === "jesus-red" ? "text-slate-900" : isDefault ? "text-zoe-ink" : "text-zoe-leaf")}>
+                    <span className={clsx("font-semibold text-xl pr-2", isDefault ? "text-zoe-ink" : "text-zoe-leaf")}>
                       {faq.question}
                     </span>
                     <motion.span
@@ -665,11 +634,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                       transition={{ duration: 0.2, ease: "easeOut" }}
                       className={clsx(
                         "flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border",
-                        variant === "jesus-red"
-                          ? "border-[#7a2332]/20 bg-[#7a2332]/10 text-[#7a2332]"
-                          : isDefault
-                            ? "border-zoe-sap/20 bg-zoe-sap/10 text-zoe-sap"
-                            : "border-zoe-leaf/20 bg-zoe-leaf/10 text-zoe-leaf"
+                        isDefault ? "border-zoe-sap/20 bg-zoe-sap/10 text-zoe-sap" : "border-zoe-leaf/20 bg-zoe-leaf/10 text-zoe-leaf"
                       )}
                     >
                       <ChevronDown className="h-5 w-5" />
@@ -708,7 +673,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
           <button
             onClick={() => window.scrollTo({ top: waitlistRef.current?.offsetTop, behavior: 'smooth' })}
             className={clsx("px-6 py-4 text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-white shadow-xl shadow-slate-900/20 hover:-translate-y-0.5",
-              variant === "jesus-red" ? "rounded-md bg-[#7a2332] hover:bg-[#5c1624]" : isDefault ? "rounded-full bg-zoe-sap shadow-sm hover:brightness-105 active:scale-95" : "rounded-full bg-slate-900 hover:bg-slate-800")}
+              isDefault ? "rounded-full bg-zoe-sap shadow-sm hover:brightness-105 active:scale-95" : "rounded-full bg-slate-900 hover:bg-slate-800")}
           >
             Join The Walk
           </button>
@@ -717,3 +682,6 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
     </div>
   );
 }
+
+
+

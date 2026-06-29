@@ -15,7 +15,7 @@ function ScrollBubble({
     text: React.ReactNode,
     scrollYProgress: MotionValue<number>,
     fadeInRange: [number, number],
-    variant?: "default" | "jesus-red" | "emerald-uni"
+    variant?: "default" | "emerald-uni"
 }) {
     const isUser = sender === "user";
     // Bubble fades in and slides up seamlessly precisely as the user scrubs through its designated scroll range
@@ -28,8 +28,8 @@ function ScrollBubble({
             className={clsx(
                 "max-w-[80%] md:max-w-[85%] px-4 py-3 text-[15px] font-medium leading-[1.4] shadow-sm tracking-tight",
                 isUser
-                    ? clsx("bg-[#007AFF] text-white self-end", variant === "jesus-red" ? "rounded-md" : "rounded-[18px] rounded-br-[4px]")
-                    : clsx("bg-[#E9E9EB] text-[#111] self-start", variant === "jesus-red" ? "rounded-md" : "rounded-[18px] rounded-bl-[4px]")
+                    ? "bg-[#007AFF] text-white self-end rounded-[18px] rounded-br-[4px]"
+                    : "bg-[#E9E9EB] text-[#111] self-start rounded-[18px] rounded-bl-[4px]"
             )}
         >
             {text}
@@ -57,7 +57,7 @@ function ScrollTimestamp({
     );
 }
 
-export default function DesktopStickySms({ variant = "default" }: { variant?: "default" | "jesus-red" | "emerald-uni" } = {}) {
+export default function DesktopStickySms({ variant = "default" }: { variant?: "default" | "emerald-uni" } = {}) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const { scrollYProgress } = useScroll({
@@ -149,7 +149,7 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
     };
 
     return (
-        <section ref={containerRef} className={clsx("relative w-full h-[650vh] z-20 block", variant === "jesus-red" ? "bg-[#f5efe6]" : "bg-zoe-oat")}>
+        <section ref={containerRef} className="relative w-full h-[650vh] z-20 block bg-zoe-oat">
 
             {/* Sticky Container locks viewport to coordinate cinematic scroll physics for BOTH Desktop and Mobile */}
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden pointer-events-none z-20 px-0 md:px-4">
@@ -220,8 +220,7 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
                 </div>
 
                 {/* Simulated iPhone Device Frame on Desktop, Full Bleed on Mobile */}
-                <div className={clsx("relative w-full h-full md:w-[400px] md:h-[80vh] md:max-h-[850px] border-zoe-ink md:shadow-2xl overflow-hidden shrink-0 pointer-events-auto z-20",
-                    variant === "jesus-red" ? "bg-[#faf7f0] md:rounded-[32px] md:border-[10px]" : "bg-white md:rounded-[48px] md:border-[12px]")}>
+                <div className="relative w-full h-full md:w-[400px] md:h-[80vh] md:max-h-[850px] border-zoe-ink md:shadow-2xl overflow-hidden shrink-0 pointer-events-auto z-20 bg-white md:rounded-[48px] md:border-[12px]">
 
                     {/* CONTINUOUS CHAT THREAD (Grouped into 4 fixed 1/4 height "Pages") */}
                     <motion.div
@@ -340,12 +339,12 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
             <div
                 className="absolute bottom-0 left-0 right-0 h-[30vh] pointer-events-none z-10"
                 style={{
-                    background: variant === "jesus-red"
-                        ? "linear-gradient(to bottom, #f5efe6 0%, #fecdd3 100%)"
-                        : "linear-gradient(to bottom, #FCF9F4 0%, #fecdd3 100%)"
+                    background: "linear-gradient(to bottom, #FCF9F4 0%, #fecdd3 100%)"
                 }}
             />
             <div className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-rose-200 pointer-events-none z-10" />
         </section>
     );
 }
+
+

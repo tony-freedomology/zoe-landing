@@ -13,7 +13,7 @@ const gpuLayer: React.CSSProperties = {
 };
 
 interface Hero2DProps {
-    variant?: "default" | "jesus-red" | "emerald-uni" | "emerald-uni";
+    variant?: "default" | "emerald-uni";
     hideOverlayContent?: boolean;
     fullHeight?: boolean;
     layout?: "full" | "split";
@@ -94,7 +94,7 @@ export default function Hero2D({ variant = "default", hideOverlayContent = false
     return (
         <section
             ref={containerRef}
-            className={`relative w-full overflow-hidden ${variant === "emerald-uni" ? "bg-white min-h-[100vh]" : variant === "jesus-red" ? "bg-[#e0f2fe] min-h-[100vh]" : `bg-[#e0f2fe] ${fullHeight ? "h-full min-h-full max-h-none" : "h-[85vh] min-h-[600px] max-h-[900px]"}`}`}
+            className={`relative w-full overflow-hidden ${variant === "emerald-uni" ? "bg-white min-h-[100vh]" : `bg-[#e0f2fe] ${fullHeight ? "h-full min-h-full max-h-none" : "h-[85vh] min-h-[600px] max-h-[900px]"}`}`}
         >
             {variant === "emerald-uni" ? (
                 // 1. Photographic campus background for emerald-uni variant
@@ -121,19 +121,6 @@ export default function Hero2D({ variant = "default", hideOverlayContent = false
                     {/* Radial vignette to darken the center where text/SVG sit */}
                     <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 55%, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.05) 100%)' }} />
                 </div>
-            ) : variant === "jesus-red" ? (
-                // 1. Elegant Parchment Background for jesus-red variant
-                <div className="absolute inset-0 z-0 bg-[#f5efe6]" style={gpuLayer}>
-                    <Image
-                        src="/assets/hero/parchment-bg.png"
-                        alt="Vintage Parchment Background"
-                        fill
-                        priority
-                        className="object-cover opacity-60 mix-blend-multiply"
-                        quality={90}
-                    />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.25)_0%,transparent_100%)]" />
-                </div>
             ) : (
                 // 1. Base Sky — static, loads instantly
                 <div className="absolute inset-0 z-0" style={gpuLayer}>
@@ -153,9 +140,9 @@ export default function Hero2D({ variant = "default", hideOverlayContent = false
                 initial="hidden"
                 animate="show"
                 className="absolute inset-0 w-full h-full"
-                style={variant === "jesus-red" || variant === "emerald-uni" ? undefined : gpuLayer}
+                style={variant === "emerald-uni" ? undefined : gpuLayer}
             >
-                {variant !== "jesus-red" && variant !== "emerald-uni" && (
+                {variant !== "emerald-uni" && (
                     <>
                         {/* 2. Clouds ───────────────────────────────────────────── */}
                         <div className="absolute inset-0 z-10 select-none pointer-events-none overflow-hidden" style={gpuLayer}>
@@ -282,9 +269,9 @@ export default function Hero2D({ variant = "default", hideOverlayContent = false
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5, duration: 1 }}
                         className="absolute inset-0 z-50 flex flex-col items-center justify-center select-none pb-0 md:pb-8 lg:pb-12"
-                        style={variant === "jesus-red" || variant === "emerald-uni" ? undefined : gpuLayer}
+                        style={variant === "emerald-uni" ? undefined : gpuLayer}
                     >
-                        <motion.div style={{ x: variant === "jesus-red" || variant === "emerald-uni" ? 0 : midX, y: variant === "jesus-red" || variant === "emerald-uni" ? 0 : midY, ...gpuLayer }} className="w-full max-w-[280px] md:max-w-[450px] px-4 md:px-6 flex flex-col items-center pointer-events-none drop-shadow-xl mt-12 md:mt-0">
+                        <motion.div style={{ x: variant === "emerald-uni" ? 0 : midX, y: variant === "emerald-uni" ? 0 : midY, ...gpuLayer }} className="w-full max-w-[280px] md:max-w-[450px] px-4 md:px-6 flex flex-col items-center pointer-events-none drop-shadow-xl mt-12 md:mt-0">
                             <ZoeSVG variant={variant} />
                         </motion.div>
 
@@ -293,7 +280,7 @@ export default function Hero2D({ variant = "default", hideOverlayContent = false
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 2.5, duration: 1 }}
                             className="mt-6 flex flex-col items-center pointer-events-auto text-center px-4"
-                            style={{ x: variant === "jesus-red" ? 0 : midX, y: variant === "jesus-red" || variant === "emerald-uni" ? 0 : midY, ...gpuLayer }}
+                            style={{ x: midX, y: variant === "emerald-uni" ? 0 : midY, ...gpuLayer }}
                         >
                             <h1 className="mb-2 text-3xl md:text-4xl font-semibold tracking-tighter-editorial-relaxed text-zoe-ink drop-shadow-sm max-w-sm md:max-w-xl leading-snug">
                                 Walk with Jesus.
@@ -310,11 +297,8 @@ export default function Hero2D({ variant = "default", hideOverlayContent = false
             </motion.div>
 
             {/* Fade into the following thesis surface. */}
-            {variant !== "jesus-red" && variant !== "emerald-uni" && (
+            {variant !== "emerald-uni" && (
                 <div className="absolute -bottom-0.5 left-0 right-0 h-56 bg-gradient-to-t from-zoe-oat via-zoe-oat/85 to-transparent z-[60] pointer-events-none" style={gpuLayer} />
-            )}
-            {variant === "jesus-red" && (
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1e1c1a] to-transparent z-[60] pointer-events-none" />
             )}
             {variant === "emerald-uni" && (
                 <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0f1f1a] to-transparent z-[60] pointer-events-none" style={gpuLayer} />
@@ -322,3 +306,8 @@ export default function Hero2D({ variant = "default", hideOverlayContent = false
         </section>
     );
 }
+
+
+
+
+

@@ -16,7 +16,7 @@ There is one canonical Zoe brand identity for default `zoe.live` work.
 Do not use older prototype directions as default brand guidance.
 In particular:
 - do not treat `emerald-uni` as the active default visual system
-- do not treat `jesus-red` as the active default visual system
+- do not treat the retired red prototype as an active default, campaign, or routing surface
 
 Those may remain as legacy or campaign-specific surfaces, but they are not the source of truth for new default-brand work.
 
@@ -50,3 +50,4 @@ When restyling the default home page:
 - The visual rules for this page family live in `DESIGN.md`, section `8. Page Family Guidance`.
 - Preserve the scenic hero overlap, quiet lesson-sheet feel, and intimate mobile-first structure.
 - Do not reintroduce scrapbook motifs, sparkle icons, or generic SaaS dashboard patterns for journey lesson pages.
+
