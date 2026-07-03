@@ -9,7 +9,7 @@ const nextConfig = {
     return [
       {
         source: '/text',
-        destination: 'https://app.zoe.live/text',
+        destination: '/beta-welcome',
         permanent: false,
       },
     ];

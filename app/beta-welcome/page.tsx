@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { ArrowRight, MessageCircle, ShieldCheck } from "lucide-react";
+import { ArrowRight, MessageCircle, ShieldCheck, UserRound } from "lucide-react";
 
 import Footer from "../../components/Footer";
+import {
+  buildTextStartHref,
+  ZOE_CONTACT_CARD_HREF,
+  ZOE_TEXT_SUPPORT_LINE,
+} from "./text-start";
 
 export const metadata: Metadata = {
   title: "Zoe Beta Welcome",
@@ -17,16 +22,23 @@ type BetaWelcomePageProps = {
 
 export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) {
   const surveyUrl = normalizeExternalUrl(searchParams?.survey);
+  const textZoeHref = buildTextStartHref();
 
   return (
     <main className="min-h-screen bg-zoe-oat text-zoe-ink">
-      <section className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-5 pb-16 pt-28 md:px-8 lg:px-10">
-        <div className="grid flex-1 items-center gap-8 lg:grid-cols-[minmax(0,1.02fr)_minmax(340px,0.72fr)]">
+      <section className="relative overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[url('/images/text/zoe-text-path-bg.png')] bg-cover bg-center"
+        />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-zoe-oat/72" />
+
+        <div className="relative mx-auto grid min-h-screen w-full max-w-7xl items-center gap-8 px-5 pb-16 pt-24 md:px-8 md:pt-28 lg:grid-cols-[minmax(0,1.02fr)_minmax(340px,0.72fr)] lg:px-10">
           <div className="max-w-4xl">
-            <p className="mb-8 max-w-lg text-sm font-extrabold uppercase tracking-[0.18em] text-zoe-forest">
+            <p className="mb-8 max-w-lg text-sm font-extrabold text-zoe-forest">
               Zoe July beta
             </p>
-            <h1 className="max-w-4xl text-[clamp(4.25rem,11vw,10rem)] font-black leading-[0.86] tracking-[-0.07em] text-zoe-ink">
+            <h1 className="max-w-4xl text-[clamp(4rem,10.5vw,9rem)] font-black leading-[0.88] tracking-[-0.055em] text-zoe-ink">
               Welcome to Zoe.
             </h1>
             <p className="mt-8 max-w-2xl text-xl font-semibold leading-8 text-zoe-muted md:text-2xl md:leading-9">
@@ -35,10 +47,10 @@ export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) 
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <a
-                href="https://app.zoe.live/text"
+                href={textZoeHref}
                 className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-zoe-sap px-7 text-base font-extrabold text-white shadow-[0_18px_40px_rgba(29,194,134,0.22)] transition hover:brightness-105 active:scale-95"
               >
-                Start texting Zoe
+                Text Zoe
                 <ArrowRight className="h-5 w-5" />
               </a>
               {surveyUrl ? (
@@ -50,6 +62,9 @@ export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) 
                 </a>
               ) : null}
             </div>
+            <p className="mt-4 max-w-lg text-sm font-semibold leading-6 text-zoe-muted">
+              {ZOE_TEXT_SUPPORT_LINE}
+            </p>
           </div>
 
           <aside className="rounded-[2rem] bg-zoe-surface p-4 shadow-zoe-card md:p-5">
@@ -79,14 +94,26 @@ export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) 
             </div>
 
             <div className="mt-5 grid gap-3">
-              <InfoRow icon={<MessageCircle className="h-5 w-5" />} title="Zoe lives in your texts" body="No app to manage. The start page opens the right channel for your phone." />
+              <InfoRow icon={<MessageCircle className="h-5 w-5" />} title="Zoe lives in your texts" body="No app to manage. This page opens the right thread with a message ready to send." />
               <InfoRow icon={<ShieldCheck className="h-5 w-5" />} title="July is free" body="This beta is for learning what actually helps before we make bigger product decisions." />
+              <a
+                href={ZOE_CONTACT_CARD_HREF}
+                className="flex min-h-14 items-center justify-between gap-3 rounded-[1.5rem] bg-white px-4 py-3 text-sm font-extrabold text-zoe-ink shadow-[0_16px_40px_rgba(45,50,49,0.035)] transition hover:bg-zoe-oat active:scale-[0.99]"
+              >
+                <span className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EAF7F1] text-zoe-forest">
+                    <UserRound className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  Save Zoe as a contact
+                </span>
+                <ArrowRight className="h-5 w-5 text-zoe-muted" aria-hidden="true" />
+              </a>
             </div>
           </aside>
         </div>
       </section>
 
-      <section className="bg-zoe-surface px-5 py-20 md:px-8">
+      <section className="relative bg-zoe-surface px-5 py-20 md:px-8">
         <div className={`mx-auto grid max-w-7xl gap-5 ${surveyUrl ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
           <Step title="1. Watch the welcome" body="You will hear what Zoe is, what it is not, and what kind of feedback is most useful." />
           {surveyUrl ? (

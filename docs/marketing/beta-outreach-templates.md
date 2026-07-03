@@ -38,7 +38,7 @@ No pressure. Just want to share what I'm building.
 
 — Tony
 
-**P.S.** You can see more at zoe.live. Or if you want to try Zoe yourself first, text START to 833-283-1080.
+**P.S.** You can see more at zoe.live. Or if you want to try Zoe yourself first, start at https://zoe.live/text.
 
 ---
 
@@ -71,7 +71,7 @@ Great — happy to.
 A few ways we could do this:
 
 1. **15-min call** — I'll walk you through how it works, show you the dashboard, answer questions.
-2. **Try it yourself first** — Text START to 833-283-1080 and use Zoe for a week. See what your people would experience.
+2. **Try it yourself first** — Start at https://zoe.live/text and use Zoe for a week. See what your people would experience.
 3. **Pilot with a small group** — Pick 10-20 people from your church. We'll onboard them, run it for 4 weeks, see what happens.
 
 What feels best for you?
@@ -138,7 +138,7 @@ Want to explore this?
 
 — Tony
 
-**P.S.** If you want to try Zoe yourself first, text START to 833-283-1080. Experience it as a user before you decide.
+**P.S.** If you want to try Zoe yourself first, start at https://zoe.live/text. Experience it as a user before you decide.
 
 ---
 
@@ -220,7 +220,7 @@ Welcome to the Zoe pilot. Here's what's going to happen over the next 4 weeks.
 
 4. **Invite your pilot group**
    - We'll give you a QR code and/or bulk SMS invite
-   - They text START to 833-283-1080
+   - They start at https://zoe.live/text
    - They'll go through a 5-minute onboarding
 
 **What your people experience:**
