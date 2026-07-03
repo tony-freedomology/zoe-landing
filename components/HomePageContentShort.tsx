@@ -137,20 +137,41 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     const betaFaqs = [
       {
         question: "What does joining the beta mean?",
-        answer: "At some point you'll get an invitation to start texting with Zoe. Zoe will text you back just like any other contact in your phone, except it's AI.\n\nAfter some initial getting to know you, Zoe will act as a kind of daily partner in your walk with Jesus, helping you engage with scripture and see God at work in your day.\n\nI can already hear some of you protesting.\n\n\"Partner in my walk with Jesus!? Helper!? Don't you mean the Holy Spirit?\"\n\nWhich leads us to the next question.",
+        answer: "It means you're raising your hand to test something early, while we're still shaping it.\n\nIf you're invited in, you'll start texting Zoe like a normal contact. Zoe can help you engage scripture, pray honestly, remember what you asked it to remember, and follow through in small ordinary ways.\n\nIt will also be rough sometimes. That's the beta part. If something feels off, weird, too much, too generic, or surprisingly helpful, I want to hear about it.",
       },
       {
         question: "Are you trying to replace the Holy Spirit?",
-        answer: "We think there is a huge, enormous difference between the Holy Spirit, third person of the Trinity, living and active God of the universe, presently indwelling in every believer and... code.\n\nAI is code. It's cool code. It's useful code. But it's not alive, and Zoe will never pretend to be.\n\nWe DON'T want to build something that tries to fill the role of the Holy Spirit in anyone's life.\n\nFar from it.\n\nWe want to see if we can leverage the latest tech to help people pay MORE attention to how God is active in their lives, and what the Holy Spirit is doing in and through them.\n\nWe get the concern though, and it's something we try to build carefully for.",
+        answer: "No. Deeply no.\n\nThe Holy Spirit is God. Zoe is code. Useful code, hopefully, but still code.\n\nThe hope is that Zoe can help you pay attention: to scripture, prayer, conviction, gratitude, confession, follow-through, and real people. If Zoe ever starts becoming the center of anyone's spiritual life, we've built it wrong.",
       },
       {
-        question: "What is Zoe's doctrine?",
-        answer: "Right now, Zoe is broadly Christian orthodox. Think C.S. Lewis-style Mere Christianity.\n\nOn topics that are divisive, Zoe acknowledges a range of views, but in general Zoe's design is to ask more questions than teach theology.\n\nThat said, the church-facing side of Zoe allows churches to set up their own statements of faith, theological guardrails, and other boundaries, then extend their teaching beyond Sunday morning to each day of the week.\n\nSo it'll depend a bit on which Zoe you mean. But this broad beta version of Zoe has a kind of C.S. Lewisian theological base that hopefully nobody in mainstream Christian circles will find heretical.\n\nIf you find Zoe spouting some heresy, that's a perfect bug report candidate!",
+        question: "What can Zoe actually do right now?",
+        answer: "Right now Zoe is mostly a text thread for scripture, prayer, reflection, and follow-through.\n\nYou can ask for a guided study on a book of the Bible or a topic you're wrestling with. You can ask Bible questions. You can ask Zoe to remember something you're praying about. You can ask it to text less, pause, or change timing.\n\nYou can also start a message with BUG: or FEEDBACK: if something breaks or feels off. I genuinely read that stuff.",
+      },
+      {
+        question: "What about rhythm and rule of life?",
+        answer: "I care a lot about that language, but I don't want to oversell what exists today.\n\nA deeper rule-of-life arc is on the roadmap. It is not the main thing we're testing in this beta.\n\nFor now, judge Zoe on the actual experience: a morning scripture rhythm, prayer and reflection over text, reminders when you ask for them, and small follow-through during normal life.",
       },
       {
         question: "What does it cost?",
-        answer: "The beta is free. The only thing we ask is that you honestly consider what would make a tool like Zoe useful to you in your walk with Jesus and give us the feedback we need to build something awesome.",
+        answer: "The July beta is free.\n\nAfter that, Zoe will probably need to be paid because AI messages, phone delivery, and infrastructure all cost real money. But I'm still figuring out the right pricing by watching how people actually use it and what it actually costs to offer responsibly.\n\nNobody will be surprised with a charge. We'll be clear before anything paid begins.",
       },
+      {
+        question: "Is Zoe biblically accurate?",
+        answer: "That's one of the big things we're testing carefully.\n\nZoe is built to work from scripture, admit uncertainty, and avoid pretending it has the final word. But AI can still get things wrong, especially around theology, nuance, and context.\n\nSo please bring your brain, your Bible, and your church with you. If Zoe says something weird, that's not a scandal. That's a bug report.",
+      },
+      {
+        question: "What about privacy?",
+        answer: "We don't want Zoe to feel creepy.\n\nZoe stores enough context to be useful, like what you're praying about or what study you're in. Humans on the Zoe team may review messages for support, safety, bug fixing, and beta learning, but your private conversations are not being handed to churches or turned into some weird spiritual surveillance dashboard.\n\nIf you want something forgotten or deleted, ask.",
+      },
+      {
+        question: "Can I stop the texts?",
+        answer: "Yep. Text STOP anytime.\n\nThat unsubscribe handling is deterministic, meaning it doesn't depend on the AI feeling clever that day. If you want less instead of done-done, you can also tell Zoe to text less or pause.",
+      },
+    ];
+    const faqTrustNotes = [
+      { icon: ShieldCheck, title: "You're in control.", desc: "Text STOP anytime. No hard feelings." },
+      { icon: MessageCircle, title: "Feedback matters.", desc: "Start with BUG: or FEEDBACK: and it gets routed to us." },
+      { icon: Heart, title: "Real human here.", desc: "I read replies, especially during beta." },
     ];
 
     return (
@@ -551,37 +572,86 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
           </div>
         </section>
 
-        <section className="bg-zoe-oat px-5 pb-28 pt-4 lg:px-14 lg:pb-24 lg:pt-8">
-          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:gap-14">
-            <div>
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-zoe-sap">FAQ</p>
-              <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-[-0.035em] text-zoe-ink lg:text-5xl">
-                You've got questions. We get it.
-              </h2>
-              <p className="mt-4 text-base font-medium leading-7 text-zoe-muted">
-                This is a weird new kind of technology. It comes with lots of questions, which is why we want to build it carefully, thoughtfully, and transparently.
-              </p>
-            </div>
-            <div className="space-y-3">
-              {betaFaqs.map((faq) => (
-                <details key={faq.question} className="group rounded-[1rem] border border-zoe-outline/35 bg-white px-5 py-4 shadow-[0_12px_34px_rgba(45,50,49,0.035)]">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-extrabold text-zoe-ink">
-                    <span>{faq.question}</span>
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-zoe-sap/10 text-lg leading-none text-zoe-sap transition group-open:rotate-45">+</span>
-                  </summary>
-                  <div className="mt-3 space-y-3 text-sm font-medium leading-6 text-zoe-muted lg:text-base lg:leading-7">
-                    {faq.answer.split("\n\n").map((paragraph) => {
-                      const isQuotedAside = paragraph.includes("Partner in my walk with Jesus!?");
-
-                      return (
-                        <p key={paragraph} className={isQuotedAside ? "italic" : undefined}>
-                          {paragraph}
-                        </p>
-                      );
-                    })}
+        <section className="relative overflow-hidden bg-zoe-oat px-5 pb-28 pt-12 lg:px-14 lg:pb-28 lg:pt-16">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[#fffdfa]" />
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-zoe-surface p-3 shadow-[0_28px_90px_rgba(45,50,49,0.08)] ring-1 ring-zoe-outline/30 sm:p-4 lg:rounded-[2.5rem] lg:p-6">
+            <div className="grid gap-4 lg:grid-cols-[0.42fr_0.58fr] lg:gap-6">
+              <div className="relative overflow-hidden rounded-[1.65rem] bg-[#fffdfa] p-6 shadow-[0_18px_50px_rgba(45,50,49,0.045)] ring-1 ring-white/70 sm:p-8 lg:min-h-[44rem] lg:p-10">
+                <img
+                  src="/images/faq/beta-signup-faq-note.jpg"
+                  alt=""
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-[30%] w-full object-cover object-[38%_100%] opacity-70 sm:h-[34%] lg:h-[36%]"
+                  loading="lazy"
+                />
+                <div className="relative">
+                  <p className="inline-flex rounded-full bg-zoe-sap/10 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.18em] text-zoe-forest">
+                    FAQ
+                  </p>
+                  <h2 className="mt-6 text-[2.65rem] font-black leading-[0.9] tracking-[-0.06em] text-zoe-ink sm:text-5xl lg:text-6xl">
+                    Good questions are welcome here.
+                  </h2>
+                  <div className="mt-6 space-y-4 text-base font-semibold leading-7 text-[#565B58]">
+                    <p>
+                      This is a weird new kind of thing. I get why people have questions.
+                    </p>
+                    <p>
+                      I'm trying to build Zoe carefully, in public, with enough humility to say when something is still early.
+                    </p>
+                    <p>
+                      So yeah, ask the awkward stuff. That's kind of the point of the beta.
+                    </p>
                   </div>
-                </details>
-              ))}
+                </div>
+                <div className="relative mt-9 rounded-[1.35rem] bg-white p-4 shadow-[0_16px_45px_rgba(45,50,49,0.055)] ring-1 ring-zoe-outline/25">
+                  <p className="text-sm font-extrabold text-zoe-ink">The short version:</p>
+                  <p className="mt-2 text-sm font-semibold leading-6 text-zoe-muted">
+                    Zoe is AI that helps you walk with Jesus through scripture, prayer, reflection, and small moments of follow-through.
+                  </p>
+                </div>
+              </div>
+
+              <div className="rounded-[1.65rem] bg-[#FCF9F4] p-3 shadow-[inset_0_0_0_1px_rgba(187,202,193,0.28)] sm:p-4 lg:p-5">
+                <div className="mb-4 px-2 pt-2 sm:px-3 lg:px-4">
+                  <h3 className="text-2xl font-black tracking-[-0.05em] text-zoe-ink sm:text-3xl">
+                    The stuff people usually ask first.
+                  </h3>
+                  <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-zoe-muted sm:text-base sm:leading-7">
+                    Plain answers, no launch hype. If something changes during beta, we'll say so.
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  {betaFaqs.map((faq) => (
+                    <details key={faq.question} className="group rounded-[1.35rem] bg-white px-5 py-4 shadow-[0_12px_34px_rgba(45,50,49,0.045)] ring-1 ring-zoe-outline/30 transition open:shadow-[0_18px_55px_rgba(45,50,49,0.07)]">
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-extrabold leading-6 text-zoe-ink">
+                        <span className="flex items-start gap-3">
+                          <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-zoe-sap" aria-hidden="true" />
+                          <span>{faq.question}</span>
+                        </span>
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-zoe-sap/10 text-xl leading-none text-zoe-sap transition group-open:rotate-45">+</span>
+                      </summary>
+                      <div className="mt-4 space-y-3 border-t border-zoe-outline/25 pt-4 text-sm font-semibold leading-6 text-zoe-muted sm:pl-5 lg:text-base lg:leading-7">
+                        {faq.answer.split("\n\n").map((paragraph) => (
+                          <p key={paragraph}>{paragraph}</p>
+                        ))}
+                      </div>
+                    </details>
+                  ))}
+                </div>
+                <div className="mt-5 grid gap-3 lg:grid-cols-3">
+                  {faqTrustNotes.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={item.title} className="rounded-[1.2rem] bg-white p-4 shadow-[0_10px_28px_rgba(45,50,49,0.035)] ring-1 ring-zoe-outline/25">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-zoe-sap/10 text-zoe-forest">
+                          <Icon className="h-5 w-5" aria-hidden="true" />
+                        </div>
+                        <p className="mt-3 text-sm font-extrabold text-zoe-ink">{item.title}</p>
+                        <p className="mt-1 text-xs font-semibold leading-5 text-zoe-muted">{item.desc}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -878,5 +948,3 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     </main>
   );
 }
-
-
