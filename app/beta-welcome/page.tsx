@@ -25,7 +25,7 @@ export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) 
   const textZoeHref = buildTextStartHref();
 
   return (
-    <main className="min-h-screen bg-zoe-oat text-zoe-ink">
+    <main className="min-h-screen bg-zoe-oat pb-[calc(6rem+env(safe-area-inset-bottom))] text-zoe-ink lg:pb-0">
       <section className="relative overflow-hidden">
         <div
           aria-hidden="true"
@@ -33,41 +33,8 @@ export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) 
         />
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-zoe-oat/72" />
 
-        <div className="relative mx-auto grid min-h-screen w-full max-w-7xl items-center gap-8 px-5 pb-16 pt-24 md:px-8 md:pt-28 lg:grid-cols-[minmax(0,1.02fr)_minmax(340px,0.72fr)] lg:px-10">
-          <div className="max-w-4xl">
-            <p className="mb-8 max-w-lg text-sm font-extrabold text-zoe-forest">
-              Zoe July beta
-            </p>
-            <h1 className="max-w-4xl text-[clamp(4rem,10.5vw,9rem)] font-black leading-[0.88] tracking-[-0.055em] text-zoe-ink">
-              Welcome to Zoe.
-            </h1>
-            <p className="mt-8 max-w-2xl text-xl font-semibold leading-8 text-zoe-muted md:text-2xl md:leading-9">
-              Thanks for helping us test something early. Use Zoe like a normal part of your actual life, then tell us where it helps, where it feels off, and what you wish it did.
-            </p>
-
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={textZoeHref}
-                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-zoe-sap px-7 text-base font-extrabold text-white shadow-[0_18px_40px_rgba(29,194,134,0.22)] transition hover:brightness-105 active:scale-95"
-              >
-                Text Zoe
-                <ArrowRight className="h-5 w-5" />
-              </a>
-              {surveyUrl ? (
-                <a
-                  href={surveyUrl}
-                  className="inline-flex min-h-14 items-center justify-center rounded-full bg-white px-7 text-base font-extrabold text-zoe-ink shadow-[inset_0_0_0_1px_rgba(187,202,193,0.55)] transition hover:bg-zoe-surface active:scale-95"
-                >
-                  Take the 2-minute baseline
-                </a>
-              ) : null}
-            </div>
-            <p className="mt-4 max-w-lg text-sm font-semibold leading-6 text-zoe-muted">
-              {ZOE_TEXT_SUPPORT_LINE}
-            </p>
-          </div>
-
-          <aside className="rounded-[2rem] bg-zoe-surface p-4 shadow-zoe-card md:p-5">
+        <div className="relative mx-auto grid min-h-screen w-full max-w-7xl items-start gap-8 px-5 pb-16 pt-20 md:px-8 md:pt-28 lg:grid-cols-[minmax(0,1.02fr)_minmax(340px,0.72fr)] lg:items-center lg:px-10">
+          <aside className="rounded-[2rem] bg-zoe-surface p-4 shadow-zoe-card md:p-5 lg:order-2">
             <div className="overflow-hidden rounded-[1.6rem] bg-zoe-ink">
               <video
                 className="aspect-video h-full w-full bg-zoe-ink object-cover"
@@ -110,6 +77,39 @@ export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) 
               </a>
             </div>
           </aside>
+
+          <div className="max-w-4xl lg:order-1">
+            <p className="mb-5 max-w-lg text-sm font-extrabold text-zoe-forest md:mb-8">
+              Zoe July beta
+            </p>
+            <h1 className="max-w-4xl text-[clamp(3.35rem,10.5vw,9rem)] font-black leading-[0.88] tracking-[-0.055em] text-zoe-ink">
+              Welcome to Zoe.
+            </h1>
+            <p className="mt-8 max-w-2xl text-xl font-semibold leading-8 text-zoe-muted md:text-2xl md:leading-9">
+              Thanks for helping us test something early. Use Zoe like a normal part of your actual life, then tell us where it helps, where it feels off, and what you wish it did.
+            </p>
+
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={textZoeHref}
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-zoe-sap px-7 text-base font-extrabold text-white shadow-[0_18px_40px_rgba(29,194,134,0.22)] transition hover:brightness-105 active:scale-95"
+              >
+                Text Zoe
+                <ArrowRight className="h-5 w-5" />
+              </a>
+              {surveyUrl ? (
+                <a
+                  href={surveyUrl}
+                  className="inline-flex min-h-14 items-center justify-center rounded-full bg-white px-7 text-base font-extrabold text-zoe-ink shadow-[inset_0_0_0_1px_rgba(187,202,193,0.55)] transition hover:bg-zoe-surface active:scale-95"
+                >
+                  Take the 2-minute intro survey
+                </a>
+              ) : null}
+            </div>
+            <p className="mt-4 max-w-lg text-sm font-semibold leading-6 text-zoe-muted">
+              {ZOE_TEXT_SUPPORT_LINE}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -117,11 +117,21 @@ export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) 
         <div className={`mx-auto grid max-w-7xl gap-5 ${surveyUrl ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
           <Step title="1. Watch the welcome" body="You will hear what Zoe is, what it is not, and what kind of feedback is most useful." />
           {surveyUrl ? (
-            <Step title="2. Take the baseline" body="Two minutes before you start gives us something concrete to compare against later." />
+            <Step title="2. Take the intro survey" body="Two minutes before you start gives us something concrete to compare against later." />
           ) : null}
           <Step title={surveyUrl ? "3. Text Zoe naturally" : "2. Text Zoe naturally"} body="Use it in ordinary life. Scripture, prayer, reflection, reminders, confusion, feedback, all of it." />
         </div>
       </section>
+
+      <div className="beta-welcome-sticky-cta fixed inset-x-0 bottom-0 z-40 border-t border-zoe-outline/45 bg-zoe-oat/94 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 shadow-[0_-18px_50px_rgba(45,50,49,0.10)] backdrop-blur lg:hidden">
+        <a
+          href={textZoeHref}
+          className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-zoe-sap px-7 text-base font-extrabold text-white shadow-[0_18px_40px_rgba(29,194,134,0.22)] transition active:scale-[0.98]"
+        >
+          Text Zoe
+          <ArrowRight className="h-5 w-5" />
+        </a>
+      </div>
 
       <Footer />
     </main>

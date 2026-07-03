@@ -56,6 +56,11 @@ export default function Navbar() {
     setJourneysOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    document.body.toggleAttribute("data-mobile-menu-open", mobileOpen);
+    return () => document.body.removeAttribute("data-mobile-menu-open");
+  }, [mobileOpen]);
+
   const opaque = preserveTheme ? !isHomePage || scrolled : true;
   const introInitial =
     reduceMotion || !isHomePage ? { opacity: 1, y: 0 } : { opacity: 1, y: "-115%" };
@@ -313,5 +318,4 @@ export default function Navbar() {
     </motion.header>
   );
 }
-
 
