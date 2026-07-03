@@ -11,7 +11,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Zoe Beta Welcome",
-  description: "A short welcome for Zoe July beta testers before starting the text experience.",
+  description: "A short welcome for Zoe beta testers before starting the text experience.",
 };
 
 type BetaWelcomePageProps = {
@@ -78,37 +78,42 @@ export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) 
             </div>
           </aside>
 
-          <div className="max-w-4xl lg:order-1">
-            <p className="mb-5 max-w-lg text-sm font-extrabold text-zoe-forest md:mb-8">
-              Zoe July beta
-            </p>
-            <h1 className="max-w-4xl text-[clamp(3.35rem,10.5vw,9rem)] font-black leading-[0.88] tracking-[-0.055em] text-zoe-ink">
-              Welcome to Zoe.
-            </h1>
-            <p className="mt-8 max-w-2xl text-xl font-semibold leading-8 text-zoe-muted md:text-2xl md:leading-9">
-              Thanks for helping us test something early. Use Zoe like a normal part of your actual life, then tell us where it helps, where it feels off, and what you wish it did.
-            </p>
+          <div className="relative max-w-4xl overflow-hidden rounded-[2.35rem] bg-[#F7EEDF] p-7 shadow-[0_24px_70px_rgba(45,50,49,0.12)] ring-1 ring-white/70 md:p-10 lg:order-1 xl:p-12">
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-[url('/images/beta/beta-welcome-journey-card.jpg')] bg-cover bg-center"
+            />
+            <div aria-hidden="true" className="absolute inset-0 bg-[#FCF9F4]/20" />
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={textZoeHref}
-                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-zoe-sap px-7 text-base font-extrabold text-white shadow-[0_18px_40px_rgba(29,194,134,0.22)] transition hover:brightness-105 active:scale-95"
-              >
-                Text Zoe
-                <ArrowRight className="h-5 w-5" />
-              </a>
-              {surveyUrl ? (
+            <div className="relative max-w-3xl">
+              <h1 className="max-w-4xl text-[clamp(3.35rem,10.5vw,8.4rem)] font-black leading-[0.88] tracking-[-0.055em] text-zoe-ink">
+                Welcome to Zoe.
+              </h1>
+              <p className="mt-7 max-w-2xl text-lg font-bold leading-8 text-[#565B58] md:mt-8 md:text-2xl md:leading-9">
+                Thanks for helping us test something early. Use Zoe like a normal part of your actual life, then tell us where it helps, where it feels off, and what you wish it did.
+              </p>
+
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href={surveyUrl}
-                  className="inline-flex min-h-14 items-center justify-center rounded-full bg-white px-7 text-base font-extrabold text-zoe-ink shadow-[inset_0_0_0_1px_rgba(187,202,193,0.55)] transition hover:bg-zoe-surface active:scale-95"
+                  href={textZoeHref}
+                  className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-zoe-sap px-7 text-base font-extrabold text-white shadow-[0_18px_40px_rgba(29,194,134,0.22)] transition hover:brightness-105 active:scale-95"
                 >
-                  Take the 2-minute intro survey
+                  Text Zoe
+                  <ArrowRight className="h-5 w-5" />
                 </a>
-              ) : null}
+                {surveyUrl ? (
+                  <a
+                    href={surveyUrl}
+                    className="inline-flex min-h-14 items-center justify-center rounded-full bg-white px-7 text-base font-extrabold text-zoe-ink shadow-[inset_0_0_0_1px_rgba(187,202,193,0.55)] transition hover:bg-zoe-surface active:scale-95"
+                  >
+                    Take the 2-minute intro survey
+                  </a>
+                ) : null}
+              </div>
+              <p className="mt-4 max-w-lg rounded-2xl bg-[#FCF9F4]/90 px-4 py-3 text-sm font-bold leading-6 text-[#565B58] shadow-[0_12px_30px_rgba(45,50,49,0.05)]">
+                {ZOE_TEXT_SUPPORT_LINE}
+              </p>
             </div>
-            <p className="mt-4 max-w-lg text-sm font-semibold leading-6 text-zoe-muted">
-              {ZOE_TEXT_SUPPORT_LINE}
-            </p>
           </div>
         </div>
       </section>
