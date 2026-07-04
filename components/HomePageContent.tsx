@@ -12,6 +12,7 @@ import JourneyMarquee from './JourneyMarquee';
 import ThesisSection from './ThesisSection';
 import Footer from "./Footer";
 import { Highlight } from './Highlight';
+import MainFaqPanel from "./MainFaqPanel";
 import { usePhoneFormatter } from '../app/hooks/usePhoneFormatter';
 import {
   isWaitlistEmailValid,
@@ -39,7 +40,7 @@ const stagger = {
   },
 };
 
-const faqs = [
+const legacyFaqs = [
   {
     question: "Is Zoe replacing my pastor or my church?",
     answer: "Not even close. Zoe is built for the space between Sundays — the Monday through Saturday when your pastor isn't available and your small group isn't meeting. It's designed to point you toward God, not away from community. Think of it as the thing that helps you show up to church more engaged, not less.",
@@ -602,62 +603,61 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
           </div>
         </section>
 
-        <section id="faq" className={clsx("scroll-mt-24 py-24 md:py-32 px-6 relative overflow-hidden", isDefault ? "bg-zoe-surface" : "bg-[#F8FBFA]")}>
-          <div className="mx-auto max-w-4xl relative z-10">
-            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-16">
-              {!isDefault ? (
+        <section id="faq" className={clsx("scroll-mt-24 relative overflow-hidden", isDefault ? "bg-zoe-surface px-4 py-24 sm:px-6 md:py-32" : "bg-[#F8FBFA] px-6 py-24 md:py-32")}>
+          {isDefault ? (
+            <MainFaqPanel context="home" headingLevel="h2" isDefault />
+          ) : (
+            <div className="mx-auto max-w-4xl relative z-10">
+              <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-16">
                 <div className={clsx("inline-flex items-center gap-2 border px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6 shadow-sm",
                   variant === "emerald-uni" ? "rounded-full bg-[#009f52] text-white border-transparent" : "rounded-full border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
                   FAQs
                 </div>
-              ) : null}
-              <h2 className={clsx("text-4xl md:text-5xl", isDefault ? defaultSectionHeading : "text-slate-900 font-bold tracking-tighter-editorial-relaxed")}>You've got questions. <br className="md:hidden" />We get it.</h2>
-              <p className={clsx("mt-6 text-lg font-medium max-w-2xl mx-auto", isDefault ? "text-zoe-muted" : "text-slate-600")}>
-                We&apos;d be worried if you <span className="italic">didn&apos;t</span>!
-              </p>
-            </motion.div>
-            <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="flex flex-col gap-4">
-              {faqs.map((faq, i) => (
-                <motion.div variants={fadeUp} key={i} className={clsx("overflow-hidden transition-all duration-300", isDefault ? "rounded-[1.75rem] bg-white border border-zoe-outline/35 shadow-zoe-card" : "rounded-3xl bg-white shadow-[0_4px_20px_rgb(0,0,0,0.03)]")}>
-                  <button
-                    type="button"
-                    aria-expanded={openFaq === i}
-                    aria-controls={`faq-answer-${i}`}
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="flex w-full items-center justify-between gap-6 p-6 text-left md:p-8"
-                  >
-                    <span className={clsx("font-semibold text-xl pr-2", isDefault ? "text-zoe-ink" : "text-zoe-leaf")}>
-                      {faq.question}
-                    </span>
-                    <motion.span
-                      animate={{ rotate: openFaq === i ? 180 : 0 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className={clsx(
-                        "flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border",
-                        isDefault ? "border-zoe-sap/20 bg-zoe-sap/10 text-zoe-sap" : "border-zoe-leaf/20 bg-zoe-leaf/10 text-zoe-leaf"
-                      )}
+                <h2 className="text-4xl md:text-5xl text-slate-900 font-bold tracking-tighter-editorial-relaxed">You've got questions. <br className="md:hidden" />We get it.</h2>
+                <p className="mt-6 text-lg font-medium max-w-2xl mx-auto text-slate-600">
+                  We&apos;d be worried if you <span className="italic">didn&apos;t</span>!
+                </p>
+              </motion.div>
+              <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="flex flex-col gap-4">
+                {legacyFaqs.map((faq, i) => (
+                  <motion.div variants={fadeUp} key={i} className="overflow-hidden transition-all duration-300 rounded-3xl bg-white shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
+                    <button
+                      type="button"
+                      aria-expanded={openFaq === i}
+                      aria-controls={`faq-answer-${i}`}
+                      onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                      className="flex w-full items-center justify-between gap-6 p-6 text-left md:p-8"
                     >
-                      <ChevronDown className="h-5 w-5" />
-                    </motion.span>
-                  </button>
-                  <motion.div
-                    id={`faq-answer-${i}`}
-                    initial={false}
-                    animate={{
-                      height: openFaq === i ? "auto" : 0,
-                      opacity: openFaq === i ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-6 pb-6 pt-0 md:px-8 md:pb-8">
-                      <p className={clsx("leading-relaxed font-medium md:text-lg", isDefault ? "text-zoe-muted" : "text-slate-600")}>{faq.answer}</p>
-                    </div>
+                      <span className="font-semibold text-xl pr-2 text-zoe-leaf">
+                        {faq.question}
+                      </span>
+                      <motion.span
+                        animate={{ rotate: openFaq === i ? 180 : 0 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-zoe-leaf/20 bg-zoe-leaf/10 text-zoe-leaf"
+                      >
+                        <ChevronDown className="h-5 w-5" />
+                      </motion.span>
+                    </button>
+                    <motion.div
+                      id={`faq-answer-${i}`}
+                      initial={false}
+                      animate={{
+                        height: openFaq === i ? "auto" : 0,
+                        opacity: openFaq === i ? 1 : 0,
+                      }}
+                      transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6 pt-0 md:px-8 md:pb-8">
+                        <p className="leading-relaxed font-medium md:text-lg text-slate-600">{faq.answer}</p>
+                      </div>
+                    </motion.div>
                   </motion.div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+                ))}
+              </motion.div>
+            </div>
+          )}
         </section>
 
         <Footer />
@@ -682,6 +682,3 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
     </div>
   );
 }
-
-
-
