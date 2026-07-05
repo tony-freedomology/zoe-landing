@@ -20,6 +20,7 @@ import {
   isWaitlistPhoneValid,
 } from "../lib/waitlistValidation";
 import { createMetaEventId, trackMetaLead } from "../lib/metaPixel";
+import { buildAttributedSourceUrl } from "../lib/attribution";
 
 interface HomeProps {
   variant?: "default" | "emerald-uni";
@@ -139,7 +140,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
       phonePlatform,
       source: "individuals-waitlist",
       eventId,
-      eventSourceUrl: window.location.href,
+      eventSourceUrl: buildAttributedSourceUrl(window.location.href),
       submittedAt: new Date().toISOString(),
     };
 
