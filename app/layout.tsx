@@ -4,6 +4,7 @@ import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
 import clsx from "clsx";
 import Navbar from "../components/Navbar";
 import ImagePrefetcher from "../components/ImagePrefetcher";
+import AttributionCapture from "../components/AttributionCapture";
 import MetaPixel from "../components/MetaPixel";
 import { SITE_URL, toAbsoluteUrl } from "../lib/site";
 
@@ -129,6 +130,7 @@ export default function RootLayout({
         />
       </head>
       <body className={clsx(jakarta.variable, newsreader.variable, "font-sans tracking-tight-fine")}>
+        <AttributionCapture />
         <MetaPixel />
         <Navbar />
         <ImagePrefetcher />

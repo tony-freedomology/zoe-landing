@@ -12,6 +12,7 @@ import {
   isWaitlistPhoneValid,
 } from "../lib/waitlistValidation";
 import { createMetaEventId, trackMetaLead } from "../lib/metaPixel";
+import { buildAttributedSourceUrl } from "../lib/attribution";
 
 interface ShortProps {
   variant?: "default" | "emerald-uni";
@@ -72,7 +73,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       source: variant === "default" ? "beta-signup" : `short-landing-${variant}`,
       smsConsent: variant === "default" ? smsConsentAgreed : false,
       eventId,
-      eventSourceUrl: window.location.href,
+      eventSourceUrl: buildAttributedSourceUrl(window.location.href),
       submittedAt: new Date().toISOString()
     };
 
@@ -878,5 +879,4 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     </main>
   );
 }
-
 

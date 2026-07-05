@@ -19,6 +19,7 @@ import {
 } from "../../../lib/waitlistValidation";
 import { usePhoneFormatter } from "../../hooks/usePhoneFormatter";
 import { createMetaEventId, trackMetaLead } from "../../../lib/metaPixel";
+import { buildAttributedSourceUrl } from "../../../lib/attribution";
 
 type Status = "idle" | "submitting" | "sent";
 
@@ -91,7 +92,7 @@ export default function ChurchPilotStartPage() {
       email: fullPayload.email,
       source: `churches-pilot:${readiness}:${size}:${role}`,
       eventId: createMetaEventId(),
-      eventSourceUrl: window.location.href,
+      eventSourceUrl: buildAttributedSourceUrl(window.location.href),
     };
 
     try {
