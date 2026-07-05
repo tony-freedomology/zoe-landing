@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../components/Footer";
+import JourneyHeroSection from "../../components/JourneyHeroSection";
 import { journeyCatalog, type JourneySummary } from "../../lib/journeyCatalog";
 import JourneyHubCard from "./JourneyHubCard";
 
 export const metadata: Metadata = {
-  title: "Rhythm Paths - Zoe",
+  title: "Journeys - Zoe",
   description:
-    "Explore scripture, practice, and rebuilding paths that can fill your Zoe rhythm for a season.",
+    "Choose a Journey and let Zoe gently guide you through Scripture, prayer, reflection, and small daily practices focused on one area of your life.",
 };
 
 const journeySections = [
@@ -39,16 +40,9 @@ const journeyBySlug = new Map(journeyCatalog.map((journey) => [journey.slug, jou
 export default function JourneysHubPage() {
   return (
     <div className="min-h-screen text-zoe-ink bg-zoe-surface">
-      <section className="bg-white py-32 px-6 pt-40">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight font-sans text-zoe-ink leading-[1.1] font-bold">Paths for your rhythm.</h1>
-          <p className="mt-6 text-xl text-zoe-muted font-medium leading-relaxed max-w-2xl mx-auto">
-            Journeys are not a second product. They are scripture, practice, and rebuilding paths that can fill your morning rhythm for a season.
-          </p>
-        </div>
-      </section>
+      <JourneyHeroSection />
 
-      <section className="space-y-20 overflow-hidden py-24">
+      <section id="browse-paths" className="scroll-mt-28 space-y-20 overflow-hidden py-24">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-zoe-leaf">Browse paths</p>
         </div>
@@ -86,6 +80,7 @@ export default function JourneysHubPage() {
           })}
         </div>
       </section>
+
       <section className="py-24 px-6 bg-zoe-ink">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-6">Your simple rhythm.</h2>

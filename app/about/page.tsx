@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -16,15 +17,15 @@ export const metadata: Metadata = {
 const tenets = [
   {
     title: "Zoe is unmistakably AI.",
-    body: "Not a pastor. Not a friend. Not the Holy Spirit. Honest about its limits, careful with spiritual language, and quick to send people toward humans when text is not enough.",
+    body: "Not a pastor. Not a friend. Not the Holy Spirit. Honest about its limits, careful with spiritual language, and quick to send people toward humans when text isn't enough.",
   },
   {
     title: "Attention, not engagement.",
-    body: "No streaks. No badges. No shame for the days someone does not show up. The goal is not more time on a screen. The goal is a more attentive life with God.",
+    body: "No streaks. No badges. No shame for the days someone doesn't show up. The goal isn't more time on a screen. The goal is a more attentive life with God.",
   },
   {
     title: "Memory serves follow-through.",
-    body: "Zoe remembers the thread of a person's real life so it can help them return to what mattered: the promise from Tuesday, the verse from Sunday, the prayer they did not want to lose.",
+    body: "Zoe remembers the thread of a person's real life so it can help them return to what mattered: the promise from Tuesday, the verse from Sunday, the prayer they didn't want to lose.",
   },
   {
     title: "Pastors see the cohort, never the person.",
@@ -47,7 +48,7 @@ const makerNotes = [
   },
   {
     label: "Builder by necessity",
-    body: "Zoe is what he wished existed: a quiet structure for the space between sermon and follow-through, built with enough restraint to know what it is not.",
+    body: "Zoe is what he wished existed: a quiet structure for the space between sermon and follow-through, built with enough restraint to know what it isn't.",
   },
   {
     label: "Built in public",
@@ -58,28 +59,28 @@ const makerNotes = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-zoe-oat text-zoe-ink">
-      <section className="bg-zoe-oat px-6 pb-24 pt-36 text-zoe-ink md:pb-32 md:pt-44">
+      <section className="bg-zoe-oat px-6 pb-20 pt-32 text-zoe-ink md:pb-28 md:pt-40">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-[1fr_380px] lg:items-end">
+          <div className="grid gap-10 lg:grid-cols-[1fr_340px] lg:items-end">
             <div>
-              <h1 className="max-w-5xl text-[4.1rem] font-extrabold leading-[0.9] tracking-[-0.048em] [word-spacing:0.08em] md:text-[7.7rem]">
-                AI that is{" "}
+              <h1 className="max-w-3xl text-[2.5rem] font-extrabold leading-[1.04] tracking-[-0.04em] sm:text-[2.85rem] lg:text-[3.25rem]">
+                AI that's{" "}
                 <span className="font-serif italic font-normal tracking-normal text-zoe-sap">
                   quiet enough
                 </span>{" "}
                 to point past itself.
               </h1>
-              <p className="mt-8 max-w-3xl text-xl font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em] md:text-2xl md:leading-9">
+              <p className="mt-6 max-w-2xl text-lg font-medium leading-8 text-zoe-muted md:text-xl md:leading-8">
                 Six commitments that shape every line of code, every nudge, every word Zoe sends, and every boundary we refuse to blur.
               </p>
             </div>
 
             <div className="rounded-[2rem] bg-white p-7 shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/45">
-              <p className="font-serif text-3xl italic leading-[1.2] tracking-normal text-zoe-sap [word-spacing:0.06em]">
+              <p className="font-serif text-2xl italic leading-[1.25] tracking-normal text-zoe-sap">
                 Useful technology should get quieter as faith gets more personal.
               </p>
-              <p className="mt-6 text-sm font-semibold leading-7 tracking-normal text-zoe-muted [word-spacing:0.08em]">
-                Zoe exists to help people return to scripture, prayer, and the next faithful step. The tool should never become the point.
+              <p className="mt-5 text-sm font-semibold leading-7 text-zoe-muted">
+                Zoe exists to help people return to scripture, prayer, and the next faithful step. The tool shouldn't become the point.
               </p>
             </div>
           </div>
@@ -110,16 +111,23 @@ export default function AboutPage() {
             <h2 className="text-[3.1rem] font-extrabold leading-[0.9] tracking-[-0.04em] text-zoe-ink [word-spacing:0.045em] md:text-[4.7rem] md:tracking-[-0.048em]">
               A pastor-builder, talking plainly.
             </h2>
-            <p className="mt-6 font-serif text-2xl italic leading-9 tracking-normal text-zoe-forest [word-spacing:0.08em]">
-              Zoe is not a replacement for the church. It is a small tool for the space where people usually lose the thread.
+            <p className="mt-6 font-serif text-2xl italic leading-9 tracking-normal text-zoe-forest">
+              Zoe isn't a replacement for the church. It's a small tool for the space where people usually lose the thread.
             </p>
           </div>
 
           <div>
             <div className="rounded-[2rem] bg-white p-7 shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/45 md:p-10">
               <div className="flex flex-col gap-8 md:flex-row">
-                <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-zoe-sap text-2xl font-extrabold text-white">
-                  TA
+                <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full ring-2 ring-zoe-outline/35 md:h-28 md:w-28">
+                  <Image
+                    src="/assets/founder/tony-headshot.jpg"
+                    alt="Tony Allen, founder of Zoe"
+                    fill
+                    className="object-cover object-[center_18%]"
+                    sizes="112px"
+                    priority
+                  />
                 </div>
                 <div>
                   <p className="text-sm font-bold tracking-normal text-zoe-forest">
@@ -161,7 +169,7 @@ export default function AboutPage() {
             Walk with us while Zoe grows up.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-zoe-muted [word-spacing:0.08em]">
-            Join the waitlist, read the journal, or bring Zoe into a church conversation. We are building carefully, and we want thoughtful people close to the work.
+            Join the waitlist, read the journal, or bring Zoe into a church conversation. We're building carefully, and we want thoughtful people close to the work.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link

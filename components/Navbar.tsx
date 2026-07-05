@@ -10,7 +10,6 @@ import clsx from "clsx";
 import ZoeSVG from "./ZoeSVG";
 
 const navLinks = [
-  { href: "/features", label: "Features" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/#faq", label: "FAQ" },

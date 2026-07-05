@@ -12,8 +12,6 @@ import { useEffect } from "react";
  */
 
 const HERO_IMAGES = [
-    "/images/features-bg.webp",
-    "/images/about-bg.webp",
     "/images/blog-bg.webp",
 ];
 

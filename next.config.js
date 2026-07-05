@@ -12,6 +12,11 @@ const nextConfig = {
         destination: '/beta-welcome',
         permanent: false,
       },
+      {
+        source: '/features',
+        destination: '/faq',
+        permanent: true,
+      },
     ];
   },
 }

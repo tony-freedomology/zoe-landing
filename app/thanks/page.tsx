@@ -105,10 +105,10 @@ export default function ThanksPage({ searchParams }: ThanksPageProps) {
                 Back to Zoe.live
               </Link>
               <Link
-                href="/features"
+                href="/faq"
                 className="inline-flex items-center justify-center rounded-full border border-zoe-outline/40 px-6 py-4 text-base font-semibold text-zoe-muted transition hover:border-slate-300 hover:text-zoe-ink"
               >
-                See what continues
+                Read the FAQ
               </Link>
             </div>
           </div>

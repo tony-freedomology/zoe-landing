@@ -22,10 +22,9 @@ const blogRoutes: SitemapEntry[] = [
 // Exclude utility, checkout, and campaign-variant routes from indexing.
 const routes: SitemapEntry[] = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
-  { path: "/features", changeFrequency: "weekly", priority: 0.9 },
-  { path: "/about", changeFrequency: "monthly", priority: 0.8 },
   ...blogRoutes,
   { path: "/churches", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/about", changeFrequency: "monthly", priority: 0.8 },
   { path: "/faq", changeFrequency: "monthly", priority: 0.7 },
   { path: "/brand-facts", changeFrequency: "monthly", priority: 0.7 },
   { path: "/guides", changeFrequency: "weekly", priority: 0.8 },
