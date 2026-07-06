@@ -12,6 +12,14 @@ import {
 export const metadata: Metadata = {
   title: "Zoe Beta Welcome",
   description: "A short welcome for Zoe beta testers before starting the text experience.",
+  openGraph: {
+    title: "You're in - welcome to the Zoe beta",
+    description: "60 seconds from Tony on what Zoe is and why he built it.",
+    images: ["/videos/beta/zoe-beta-welcome-poster.jpg"],
+  },
+  alternates: {
+    canonical: "/beta-welcome",
+  },
 };
 
 type BetaWelcomePageProps = {
