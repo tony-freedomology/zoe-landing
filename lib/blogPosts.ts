@@ -1,5 +1,19 @@
 export const blogPosts = [
   {
+    slug: "the-same-tree-every-morning",
+    title: "The Same Tree, Every Morning",
+    shortTitle: "The Same Tree, Every Morning",
+    description:
+      "Why Zoe's mornings now open in one place, and what that place is for.",
+    date: "July 2026",
+    readTime: "6 min read",
+    category: "Product",
+    number: "05",
+    heroImage: "/images/blog/same-tree/the-scene-wide.jpg",
+    heroAlt:
+      "A dirt path on a grassy hillside leading to a single tree, mountains and a river valley behind it.",
+  },
+  {
     slug: "ai-can-sort-your-thoughts",
     title: "AI Can Sort Your Thoughts, but it Can’t Receive Your Prayers",
     shortTitle: "AI Can Sort Your Thoughts",

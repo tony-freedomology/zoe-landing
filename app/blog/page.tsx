@@ -25,6 +25,11 @@ const authorBySlug: Record<string, { name: string; role: string; initials: strin
 };
 
 const displayTitleBySlug: Record<string, ReactNode> = {
+  "the-same-tree-every-morning": (
+    <>
+      The same tree, every <em>morning</em>.
+    </>
+  ),
   "ai-can-sort-your-thoughts": (
     <>
       AI can sort your thoughts, but it can&apos;t receive your <em>prayers</em>.
