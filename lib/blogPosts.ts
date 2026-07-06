@@ -6,7 +6,7 @@ export const blogPosts = [
     description:
       "Why Zoe's mornings now open in one place, and what that place is for.",
     date: "July 2026",
-    readTime: "6 min read",
+    readTime: "4 min read",
     category: "Product",
     number: "05",
     heroImage: "/images/blog/same-tree/the-scene-wide.jpg",

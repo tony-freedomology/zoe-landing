@@ -30,7 +30,7 @@ export default function TheSameTreeEveryMorningPage() {
     <BlogArticleShell
       category="Product"
       date="July 2026"
-      readTime="6 min read"
+      readTime="4 min read"
       title="The Same Tree, Every Morning"
       deck="Why Zoe's mornings now open in one place, and what that place is for."
       path="/blog/the-same-tree-every-morning"
@@ -91,31 +91,6 @@ export default function TheSameTreeEveryMorningPage() {
         So Zoe&apos;s mornings don&apos;t open with a streak counter. They open with a door.
       </p>
 
-      <h2>Behind the scenes: choosing the frame by eye</h2>
-      <p>
-        Okay, now the fun part. The scene was born widescreen, made for a laptop login page. Your phone is
-        the opposite shape. So we had to crop a horizontal world into a vertical window, and the obvious
-        move, just take the middle, fails in the funniest possible way.
-      </p>
-      <p>The tree lives in the right third of the frame. Crop the center and the tree is gone.</p>
-      <div className="my-8 grid grid-cols-2 gap-4">
-        <LightFigure
-          src="/images/blog/same-tree/crop-center.jpg"
-          alt="Center crop of the scene: the path is visible but the tree is cut out of frame"
-          caption="Center crop: a path to nothing"
-        />
-        <LightFigure
-          src="/images/blog/same-tree/crop-kept.jpg"
-          alt="Right-shifted crop of the scene: the path leads up to the tree"
-          caption="The crop we shipped"
-        />
-      </div>
-      <p>
-        A path leading to nothing is kind of a sermon on its own, I guess. Just not the one we wanted to
-        preach. So we slid the window to the right until the path and the tree fit together again, and then
-        we checked every version of the scene by eye before shipping it.
-      </p>
-
       <h2>One place, four lights</h2>
       <p>
         Here&apos;s the scene the way your phone will actually meet it, at four different hours of the same
@@ -159,19 +134,6 @@ export default function TheSameTreeEveryMorningPage() {
         to welcome you, and then to step aside.
       </p>
 
-      <h2>Where this might go</h2>
-      <p>
-        I&apos;m trying to hold this loosely, but a few threads feel worth pulling. What if the same place
-        moved through the church year with you, candlelight in Advent, bare branches in Lent, dawn light
-        through Eastertide? What if your evening reflection returned you to the morning&apos;s hill at dusk,
-        so the day gets bookended in one place? What if each finished morning left you a small keepsake, and
-        a month in you could scroll back through your season with God like a contact sheet?
-      </p>
-      <p>
-        We&apos;ll see. The question I keep asking about every one of these is the same: does it help you
-        pay attention to Jesus, or does it just decorate the app? The tree stays as long as the answer is
-        the first one.
-      </p>
       <p>
         If you&apos;re in the beta, open your morning tomorrow and tell me what it feels like to arrive.
         I read everything you send.
