@@ -64,7 +64,7 @@ export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) 
                 Watch this first.
               </p>
               <p className="mt-4 text-base font-semibold leading-7 text-zoe-muted">
-                A short hello, what we are testing, and how to help us learn without making this weird.
+                A short hello, what we&apos;re testing, and how you can help us learn.
               </p>
             </div>
 
