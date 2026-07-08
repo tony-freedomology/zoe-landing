@@ -17,6 +17,11 @@ const nextConfig = {
         destination: '/faq',
         permanent: true,
       },
+      {
+        source: '/quote',
+        destination: '/why-zoe',
+        permanent: true,
+      },
     ];
   },
 }

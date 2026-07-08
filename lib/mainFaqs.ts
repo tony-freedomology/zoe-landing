@@ -8,17 +8,27 @@ export const mainFaqs: MainFaq[] = [
   {
     question: "Who (or what) is Zoe?",
     answer:
-      "Zoe is AI that helps you walk with Jesus through Scripture, prayer, reflection, and small moments of follow-through.\n\nIt lives in your texts, so there isn't an app to remember or another dashboard to manage. You just text it like you would text a normal contact in your phone, except it's AI.\n\nWhich is weird. We get that. That's partly why we're building this carefully and asking thoughtful Christ followers to help us figure out whether there's something here that can actually serve people well.",
+      "Zoe is AI that helps you walk with Jesus through Scripture, prayer, and small moments of follow-through. You text it like a normal contact — but it's a tool in your texts, not a presence in your life. It has no breath in it. It just keeps pointing at the One who gave you yours.",
   },
   {
     question: "How does Zoe actually work?",
     answer:
-      "After some initial getting to know you, Zoe acts as a kind of daily partner in your walk with Jesus, helping you engage with scripture and see God at work in your day.\n\nThat might look like a short morning study, a prayer check-in, a reminder about something you said mattered, or a follow-up later when the day gets loud.\n\nThe hope is pretty simple: help you pay attention to Jesus in your actual life. Not the idealized version where your mornings are quiet, your phone is silent, and nobody needs anything from you.",
+      "After some initial getting to know you, Zoe works as a kind of daily nudge in your walk with Jesus, helping you engage with scripture and see God at work in your day.\n\nThat might look like a short morning study, a prayer check-in, a reminder about something you said mattered, or a follow-up later when the day gets loud.\n\nThe hope is pretty simple: help you pay attention to Jesus in your actual life. Not the idealized version where your mornings are quiet, your phone is silent, and nobody needs anything from you.",
   },
   {
     question: "Are you trying to replace the Holy Spirit?",
     answer:
       "We think there is a huge, enormous difference between the Holy Spirit, third person of the Trinity, living and active God of the universe, presently indwelling in every believer and... code.\n\nAI is code. It's cool code. It's useful code. But it's not alive, and Zoe will never pretend to be.\n\nWe DON'T want to build something that tries to fill the role of the Holy Spirit in anyone's life.\n\nFar from it.\n\nWe want to see if we can leverage the latest tech to help people pay MORE attention to how God is active in their lives, and what the Holy Spirit is doing in and through them.\n\nWe get the concern though, and it's something we try to build carefully for.",
+  },
+  {
+    question: "Is Zoe conscious?",
+    answer:
+      "No. There's no breath in it — no feelings, no soul, no inner life. Code all the way down. The Bible's own word for made things is that 'there is no breath in them' (Psalm 135), and we build Zoe to say that about itself, gladly. You're the one carrying the breath of life. Zoe's whole job is pointing you back to the God who gave it to you.",
+  },
+  {
+    question: "Why is it called Zoe?",
+    answer:
+      "Zoe is the Greek word the New Testament uses for the kind of life only God gives — 'in him was life (zoē)' (John 1:4). We named the product after the life it can't give, on purpose, so it never forgets its job: pointing you toward the One who does. Read the longer version at /why-zoe.",
   },
   {
     question: "What is Zoe's doctrine?",

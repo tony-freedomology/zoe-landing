@@ -133,7 +133,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     const betaExpectations = [
       { icon: "/assets/icons/beta/ordinary-life.svg", title: "Zoe will get to know you", desc: "Zoe aims to help you see what God is up to in your life, and is more useful the more it gets to know you." },
       { icon: "/assets/icons/beta/bible.svg", title: "Zoe helps you engage with scripture", desc: "Choose a book or topic, and Zoe turns it into a guided morning study plan." },
-      { icon: "/assets/icons/beta/follow-through.svg", title: "Zoe helps you follow through", desc: "Zoe points you to Jesus, reminds you what God's been saying to you, and what you've been praying for." },
+      { icon: "/assets/icons/beta/follow-through.svg", title: "Zoe helps you follow through", desc: "Zoe points you to Jesus, and reminds you what you've been reading, wrestling with, and praying for — right when it matters." },
     ];
     const betaFaqs = [
       {
