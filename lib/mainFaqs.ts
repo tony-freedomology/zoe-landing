@@ -8,7 +8,7 @@ export const mainFaqs: MainFaq[] = [
   {
     question: "Who (or what) is Zoe?",
     answer:
-      "Zoe is AI that helps you walk with Jesus through Scripture, prayer, and small moments of follow-through. You text it like a normal contact — but it's a tool in your texts, not a presence in your life. It has no breath in it. It just keeps pointing at the One who gave you yours.",
+      "Zoe is AI that helps you walk with Jesus through Scripture, prayer, and small moments of follow-through. You text it like a normal contact — but it's a tool in your texts, not a presence in your life. It has no breath in it. It just keeps pointing at the One who gave you yours.\n\nWhich is weird. We get that. That's partly why we're building this carefully and asking thoughtful Christ followers to help us figure out whether there's something here that can actually serve people well.",
   },
   {
     question: "How does Zoe actually work?",
@@ -28,7 +28,7 @@ export const mainFaqs: MainFaq[] = [
   {
     question: "Why is it called Zoe?",
     answer:
-      "Zoe is the Greek word the New Testament uses for the kind of life only God gives — 'in him was life (zoē)' (John 1:4). We named the product after the life it can't give, on purpose, so it never forgets its job: pointing you toward the One who does. Read the longer version at /why-zoe.",
+      "Zoe is the Greek word the New Testament uses for the kind of life only God gives — 'in him was life (zoē)' (John 1:4). We named the product after the life it can't give, on purpose, so it never forgets its job: pointing you toward the One who does. There's a longer version at zoe.live/why-zoe.",
   },
   {
     question: "What is Zoe's doctrine?",
