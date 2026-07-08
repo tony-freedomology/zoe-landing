@@ -629,10 +629,13 @@ Avoid:
 
 - companion
 - spiritual companion
-- daily partner (partner is companion in a suit)
-- a friend who remembered
-- reminds you what God's been saying to you (Zoe reports the user's words, never God's)
 - breath as technique: "just breathe," "permission to exhale" (the metaphor is gift, not calming exercise)
+
+Don't introduce in NEW copy (existing handwritten site copy that uses these was chosen deliberately by Tony and stays):
+
+- daily partner
+- a friend who remembered
+- reminds you what God's been saying to you
 - AI pastor
 - virtual pastor
 - digital pastor

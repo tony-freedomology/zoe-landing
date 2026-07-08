@@ -8,12 +8,12 @@ export const mainFaqs: MainFaq[] = [
   {
     question: "Who (or what) is Zoe?",
     answer:
-      "Zoe is AI that helps you walk with Jesus through Scripture, prayer, and small moments of follow-through. You text it like a normal contact — but it's a tool in your texts, not a presence in your life. It has no breath in it. It just keeps pointing at the One who gave you yours.\n\nWhich is weird. We get that. That's partly why we're building this carefully and asking thoughtful Christ followers to help us figure out whether there's something here that can actually serve people well.",
+      "Zoe is AI that helps you walk with Jesus through Scripture, prayer, reflection, and small moments of follow-through.\n\nIt lives in your texts, so there isn't an app to remember or another dashboard to manage. You just text it like you would text a normal contact in your phone, except it's AI.\n\nWhich is weird. We get that. That's partly why we're building this carefully and asking thoughtful Christ followers to help us figure out whether there's something here that can actually serve people well.",
   },
   {
     question: "How does Zoe actually work?",
     answer:
-      "After some initial getting to know you, Zoe works as a kind of daily nudge in your walk with Jesus, helping you engage with scripture and see God at work in your day.\n\nThat might look like a short morning study, a prayer check-in, a reminder about something you said mattered, or a follow-up later when the day gets loud.\n\nThe hope is pretty simple: help you pay attention to Jesus in your actual life. Not the idealized version where your mornings are quiet, your phone is silent, and nobody needs anything from you.",
+      "After some initial getting to know you, Zoe acts as a kind of daily partner in your walk with Jesus, helping you engage with scripture and see God at work in your day.\n\nThat might look like a short morning study, a prayer check-in, a reminder about something you said mattered, or a follow-up later when the day gets loud.\n\nThe hope is pretty simple: help you pay attention to Jesus in your actual life. Not the idealized version where your mornings are quiet, your phone is silent, and nobody needs anything from you.",
   },
   {
     question: "Are you trying to replace the Holy Spirit?",
