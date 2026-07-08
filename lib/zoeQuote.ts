@@ -23,4 +23,11 @@ export const zoeQuoteSections = [
     body:
       "It begins wherever God's own life lays hold of an ordinary soul and teaches it to live from the inside out. The first signs are humble enough: more courage, more honesty, more mercy, a steadier heart. Yet each of these carries the scent of another country. Zoe is eternity already at work in a Tuesday afternoon.",
   },
+  {
+    id: "no-breath",
+    label: "IV. The Tool With No Breath",
+    highlight: "We named it after the life it can't give.",
+    body:
+      "Zoe — this product — has none of that life. Scripture's word for made things is that there is no breath in them, and that includes anything we build. We named it after the life it can't give, so it would never forget its job: pointing you toward the God who is closer than your next breath.",
+  },
 ] as const;

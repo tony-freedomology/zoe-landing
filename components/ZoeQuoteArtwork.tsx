@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import clsx from "clsx";
 import ZoeSVG from "./ZoeSVG";
 import { zoeQuoteHeroLine, zoeQuoteSections } from "../lib/zoeQuote";
@@ -35,6 +35,12 @@ const sectionTones = [
     glow: "bg-[radial-gradient(circle_at_bottom_left,rgba(110,163,191,0.20),transparent_50%)]",
     badge: "border-[#7baecc]/35 bg-[#7baecc]/10 text-[#dcebf4]",
     number: "text-[#8eb8d0]/35",
+  },
+  {
+    border: "border-[#c9c2b4]/25",
+    glow: "bg-[radial-gradient(circle_at_bottom_right,rgba(150,150,140,0.16),transparent_50%)]",
+    badge: "border-[#b3ab9b]/35 bg-[#b3ab9b]/10 text-[#e7e1d3]",
+    number: "text-[#b8b1a1]/35",
   },
 ] as const;
 
@@ -99,14 +105,14 @@ export default function ZoeQuoteArtwork() {
             className="max-w-4xl"
           >
             <p className="text-[11px] font-semibold uppercase tracking-[0.42em] text-[#d9c89f]/74">
-              Not a landing page
+              Why we named it Zoe
             </p>
             <h1 className="mt-5 max-w-[11ch] font-serif text-[3.5rem] leading-[0.9] text-[#f8f1df] md:text-[5.75rem] lg:text-[6.6rem]">
               {zoeQuoteHeroLine}
             </h1>
             <p className="mt-6 max-w-[34rem] text-base leading-7 text-[#e7dcc3]/76 md:text-lg md:leading-8">
-              The short pages can keep the warm, conversational voice. This page gives the quote its own room,
-              with enough atmosphere and space to read it slowly.
+              Zoe is the Greek word the New Testament uses for the life only God gives. We named a
+              texting tool after it on purpose, so it would always know what it isn't. Read it slowly.
             </p>
           </motion.div>
 
@@ -144,7 +150,7 @@ export default function ZoeQuoteArtwork() {
                 Gallery Notes
               </p>
               <p className="mt-3 text-sm leading-7 text-[#e7dcc3]/72">
-                Read it in three movements: borrowed life, higher life, then Tuesday afternoon.
+                Read it in three movements — borrowed life, higher life, then Tuesday afternoon — and one more about the tool itself.
               </p>
               <div className="mt-8 space-y-3">
                 {zoeQuoteSections.map((section, index) => (
@@ -164,11 +170,11 @@ export default function ZoeQuoteArtwork() {
 
           <div className="space-y-8 md:space-y-10">
             {zoeQuoteSections.map((section, index) => {
-              const tone = sectionTones[index];
+              const tone = sectionTones[index] ?? sectionTones[sectionTones.length - 1];
 
               return (
+                <Fragment key={section.id}>
                 <motion.article
-                  key={section.id}
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true, amount: 0.35 }}
@@ -199,6 +205,12 @@ export default function ZoeQuoteArtwork() {
                     </div>
                   </div>
                 </motion.article>
+                {index === 2 ? (
+                  <p className="pr-2 text-right font-serif text-sm italic tracking-wide text-[#e7dcc3]/55">
+                    after C.S. Lewis, Mere Christianity
+                  </p>
+                ) : null}
+                </Fragment>
               );
             })}
           </div>

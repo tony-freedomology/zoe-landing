@@ -21,6 +21,16 @@ export const mainFaqs: MainFaq[] = [
       "We think there is a huge, enormous difference between the Holy Spirit, third person of the Trinity, living and active God of the universe, presently indwelling in every believer and... code.\n\nAI is code. It's cool code. It's useful code. But it's not alive, and Zoe will never pretend to be.\n\nWe DON'T want to build something that tries to fill the role of the Holy Spirit in anyone's life.\n\nFar from it.\n\nWe want to see if we can leverage the latest tech to help people pay MORE attention to how God is active in their lives, and what the Holy Spirit is doing in and through them.\n\nWe get the concern though, and it's something we try to build carefully for.",
   },
   {
+    question: "Is Zoe conscious?",
+    answer:
+      "No. There's no breath in it — no feelings, no soul, no inner life. Code all the way down. The Bible's own word for made things is that 'there is no breath in them' (Psalm 135), and we build Zoe to say that about itself, gladly. You're the one carrying the breath of life. Zoe's whole job is pointing you back to the God who gave it to you.",
+  },
+  {
+    question: "Why is it called Zoe?",
+    answer:
+      "Zoe is the Greek word the New Testament uses for the kind of life only God gives — 'in him was life (zoē)' (John 1:4). We named the product after the life it can't give, on purpose, so it never forgets its job: pointing you toward the One who does. There's a longer version at zoe.live/why-zoe.",
+  },
+  {
     question: "What is Zoe's doctrine?",
     answer:
       "Right now, Zoe is broadly Christian orthodox. Think C.S. Lewis-style Mere Christianity.\n\nOn topics that are divisive, Zoe acknowledges a range of views, but in general Zoe's design is to ask more questions than teach theology.\n\nThat said, the church-facing side of Zoe allows churches to set up their own statements of faith, theological guardrails, and other boundaries, then extend their teaching beyond Sunday morning to each day of the week.\n\nSo it'll depend a bit on which Zoe you mean. But this broad beta version of Zoe has a kind of C.S. Lewisian theological base that hopefully nobody in mainstream Christian circles will find heretical.\n\nIf you find Zoe spouting some heresy, that's a perfect bug report candidate!",

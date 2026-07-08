@@ -61,7 +61,7 @@ const routes: SitemapEntry[] = [
   { path: "/journeys/patience", changeFrequency: "monthly", priority: 0.7 },
   { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
   { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
-  { path: "/quote", changeFrequency: "yearly", priority: 0.4 },
+  { path: "/why-zoe", changeFrequency: "yearly", priority: 0.4 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

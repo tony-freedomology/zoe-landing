@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const tenets = [
   {
     title: "Zoe is unmistakably AI.",
-    body: "Not a pastor. Not a friend. Not the Holy Spirit. Honest about its limits, careful with spiritual language, and quick to send people toward humans when text isn't enough.",
+    body: "Not a pastor. Not a friend. Not the Holy Spirit. Zoe can schedule a text. It can't schedule the wind (John 3:8). Honest about its limits, careful with spiritual language, and quick to send people toward humans when text isn't enough.",
   },
   {
     title: "Attention, not engagement.",
