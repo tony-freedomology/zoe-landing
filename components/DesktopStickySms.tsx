@@ -231,9 +231,9 @@ export default function DesktopStickySms({ variant = "default" }: { variant?: "d
                         <div className="h-1/4 w-full flex flex-col justify-end pb-[4vh] md:pb-[8%] relative px-4 pointer-events-auto">
                             <div className="absolute top-[8vh] md:top-[10%] left-0 w-full px-4 flex flex-col gap-[6px]">
                                 <ScrollTimestamp text="Yesterday, 8:58 PM" scrollYProgress={scrollYProgress} fadeInRange={[0.01, 0.03]} />
-                                <ScrollBubble sender="zoe" variant={variant} text="Hey, I'm Zoe 👋 I can help you walk with Jesus in the middle of real life. You know where you wanna start, or want me to take the lead?" scrollYProgress={scrollYProgress} fadeInRange={[0.02, 0.04]} />
+                                <ScrollBubble sender="zoe" variant={variant} text="Hey, I'm Zoe 👋 I can help you walk with Jesus in the middle of real life. You know where you want to start, or want me to take the lead?" scrollYProgress={scrollYProgress} fadeInRange={[0.02, 0.04]} />
                                 <ScrollBubble sender="user" variant={variant} text="Awesome. do you think we could do some kind of study on wisdom and decision making? i've got some pretty big work/family stuff in front of me" scrollYProgress={scrollYProgress} fadeInRange={[0.04, 0.06]} />
-                                <ScrollBubble sender="zoe" variant={variant} text="Yeah sure thing! I can put together a couple of weeks on wisdom - Proverbs, James, Ecclesiastes, and a little Luke. Wanna start tomorrow morning? What time?" scrollYProgress={scrollYProgress} fadeInRange={[0.06, 0.085]} />
+                                <ScrollBubble sender="zoe" variant={variant} text="Yeah sure thing! I can put together a couple of weeks on wisdom - Proverbs, James, Ecclesiastes, and a little Luke. Want to start tomorrow morning? What time?" scrollYProgress={scrollYProgress} fadeInRange={[0.06, 0.085]} />
                                 <ScrollBubble sender="user" variant={variant} text="7am" scrollYProgress={scrollYProgress} fadeInRange={[0.085, 0.105]} />
                                 <ScrollBubble sender="zoe" variant={variant} text="Sweet, I'll hit you up in the morning 🙂" scrollYProgress={scrollYProgress} fadeInRange={[0.105, 0.12]} />
                             </div>
