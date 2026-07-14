@@ -1,4 +1,4 @@
-export const blogPosts = [
+export const draftBlogPosts = [
   {
     slug: "the-same-tree-every-morning",
     title: "The Same Tree, Every Morning",
@@ -13,6 +13,9 @@ export const blogPosts = [
     heroAlt:
       "A dirt path on a grassy hillside leading to a single tree, mountains and a river valley behind it.",
   },
+] as const;
+
+export const blogPosts = [
   {
     slug: "ai-can-sort-your-thoughts",
     title: "AI Can Sort Your Thoughts, but it Can’t Receive Your Prayers",

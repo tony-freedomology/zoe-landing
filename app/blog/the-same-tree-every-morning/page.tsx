@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import BlogArticleShell from "../../../components/BlogArticleShell";
+
+const isDraft = true;
 
 export const metadata: Metadata = {
   openGraph: {
@@ -26,6 +29,10 @@ function LightFigure({ src, alt, caption }: { src: string; alt: string; caption:
 }
 
 export default function TheSameTreeEveryMorningPage() {
+  if (isDraft) {
+    notFound();
+  }
+
   return (
     <BlogArticleShell
       category="Product"
