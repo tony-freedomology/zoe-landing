@@ -1,6 +1,10 @@
 import Link from "next/link";
 
-export default function Footer() {
+type FooterProps = {
+  hideWhyZoe?: boolean;
+};
+
+export default function Footer({ hideWhyZoe = false }: FooterProps) {
   return (
     <footer className="border-t border-zoe-outline/40 bg-zoe-oat px-6 py-14 text-sm text-zoe-muted">
       <div className="mx-auto max-w-7xl">
@@ -28,7 +32,9 @@ export default function Footer() {
             <div className="flex flex-col gap-2">
               <p className="mb-1 text-xs font-medium uppercase tracking-widest text-[#6c7a73]">Company</p>
               <Link href="/about" className="font-medium transition-colors hover:text-zoe-ink">About</Link>
-              <Link href="/why-zoe" className="font-medium transition-colors hover:text-zoe-ink">Why &ldquo;Zoe&rdquo;?</Link>
+              {!hideWhyZoe ? (
+                <Link href="/why-zoe" className="font-medium transition-colors hover:text-zoe-ink">Why &ldquo;Zoe&rdquo;?</Link>
+              ) : null}
               <Link href="/churches" className="font-medium transition-colors hover:text-zoe-ink">For Churches</Link>
             </div>
             <div className="flex flex-col gap-2">
