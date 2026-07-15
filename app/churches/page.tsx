@@ -69,18 +69,10 @@ const privacy = [
   ["Sharing is a choice.", "A private conversation is not automatically turned into a message for the church."],
 ];
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-zoe-forest">
-      {children}
-    </p>
-  );
-}
-
 function PhoneThread() {
   return (
     <div
-      className="mx-auto w-full max-w-[354px] rounded-[3.15rem] bg-[#202423] p-[11px] shadow-[0_30px_75px_rgba(45,50,49,0.18)]"
+      className="mx-auto w-full max-w-[354px] rounded-[3.15rem] bg-[#202423] p-[11px] shadow-[0_30px_75px_rgba(45,50,49,0.04)]"
       aria-label="Example text conversation with Zoe"
     >
       <div className="min-h-[668px] overflow-hidden rounded-[2.55rem] bg-[#f7f5f0]">
@@ -127,8 +119,7 @@ export default function ChurchesPage() {
       <section className="px-5 pb-24 pt-32 sm:px-8 lg:pb-28 lg:pt-40">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_0.85fr] lg:gap-20">
           <div>
-            <SectionLabel>Zoe for churches</SectionLabel>
-            <h1 className="mt-5 max-w-[11ch] text-[3.25rem] font-bold leading-[0.97] tracking-[-0.06em] sm:text-6xl lg:text-[5.35rem]">
+            <h1 className="max-w-[11ch] text-[3.25rem] font-bold leading-[0.97] tracking-[-0.06em] sm:text-6xl lg:text-[5.35rem]">
               Sunday can keep helping on Tuesday.
             </h1>
             <p className="mt-7 max-w-2xl text-lg font-medium leading-8 text-zoe-muted sm:text-xl">
@@ -137,7 +128,7 @@ export default function ChurchesPage() {
             <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Link
                 href="/churches/start"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-leaf px-7 py-4 text-sm font-bold text-white shadow-[0_18px_44px_rgba(45,50,49,0.08)] transition hover:-translate-y-0.5 hover:brightness-105"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-leaf px-7 py-4 text-sm font-bold text-white shadow-[0_18px_44px_rgba(45,50,49,0.04)] transition hover:-translate-y-0.5 hover:brightness-105"
               >
                 Try a pilot at your church
                 <ArrowRight className="h-4 w-4" />
@@ -148,7 +139,7 @@ export default function ChurchesPage() {
             </div>
           </div>
 
-          <div className="relative min-h-[500px] overflow-hidden rounded-[2.25rem] bg-[#16352f] shadow-[0_24px_70px_rgba(45,50,49,0.1)] lg:min-h-[610px]">
+          <div className="relative min-h-[500px] overflow-hidden rounded-[2.25rem] bg-[#16352f] shadow-[0_24px_70px_rgba(45,50,49,0.04)] lg:min-h-[610px]">
             <Image
               src="/assets/hero/beta-mountains.jpg"
               alt="Morning light across a mountain valley"
@@ -184,8 +175,7 @@ export default function ChurchesPage() {
 
       <section className="px-5 py-20 sm:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
-          <SectionLabel>A simple weekly rhythm</SectionLabel>
-          <h2 className="mt-4 max-w-[14ch] text-4xl font-bold leading-tight tracking-[-0.05em] sm:text-6xl">
+          <h2 className="max-w-[14ch] text-4xl font-bold leading-tight tracking-[-0.05em] sm:text-6xl">
             The sermon meets ordinary life.
           </h2>
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -205,14 +195,13 @@ export default function ChurchesPage() {
 
       <section className="bg-zoe-surface px-5 py-20 sm:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
-          <SectionLabel>Inside a church pilot</SectionLabel>
-          <h2 className="mt-4 max-w-[16ch] text-4xl font-bold leading-tight tracking-[-0.05em] sm:text-6xl">
+          <h2 className="max-w-[16ch] text-4xl font-bold leading-tight tracking-[-0.05em] sm:text-6xl">
             One clear thing to notice. One useful next step.
           </h2>
           <p className="mt-5 max-w-2xl text-lg font-medium leading-8 text-zoe-muted">
             We are shaping the pastor experience as a brief, not a control room: see what matters, respond if needed, and get back to people.
           </p>
-          <div className="mt-12 grid gap-4 rounded-[2.25rem] bg-[#efede7] p-3 shadow-[0_20px_55px_rgba(45,50,49,0.07)] lg:grid-cols-[1.15fr_0.7fr] lg:p-4">
+          <div className="mt-12 grid gap-4 rounded-[2.25rem] bg-[#efede7] p-3 shadow-[0_20px_55px_rgba(45,50,49,0.04)] lg:grid-cols-[1.15fr_0.7fr] lg:p-4">
             <article className="rounded-[1.55rem] bg-white p-7 sm:p-10">
               <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#9d533b]">May need your attention</p>
               <h3 className="mt-4 max-w-[18ch] text-3xl font-bold leading-[1.05] tracking-[-0.04em] sm:text-5xl">
@@ -237,8 +226,7 @@ export default function ChurchesPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[0.8fr_1fr] lg:gap-28">
           <PhoneThread />
           <div>
-            <SectionLabel>More than sending a text</SectionLabel>
-            <h2 className="mt-4 max-w-[14ch] text-4xl font-bold leading-tight tracking-[-0.05em] sm:text-6xl">
+            <h2 className="max-w-[14ch] text-4xl font-bold leading-tight tracking-[-0.05em] sm:text-6xl">
               Zoe remembers what the message was for.
             </h2>
             <p className="mt-6 text-lg font-medium leading-8 text-zoe-muted">
@@ -262,15 +250,14 @@ export default function ChurchesPage() {
       <section className="bg-zoe-surface px-5 py-20 sm:px-8 lg:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-24">
           <div>
-            <SectionLabel>Privacy by design</SectionLabel>
-            <h2 className="mt-4 max-w-[14ch] text-4xl font-bold leading-tight tracking-[-0.05em] sm:text-6xl">
+            <h2 className="max-w-[14ch] text-4xl font-bold leading-tight tracking-[-0.05em] sm:text-6xl">
               Pastors see shared patterns, not private text threads.
             </h2>
             <p className="mt-6 max-w-xl text-lg font-medium leading-8 text-zoe-muted">
               People need room to be honest. Pastors need information they can use without turning care into surveillance. Zoe keeps that line clear.
             </p>
           </div>
-          <div className="rounded-[2rem] bg-white p-7 shadow-[0_18px_55px_rgba(45,50,49,0.06)] sm:p-9">
+          <div className="rounded-[2rem] bg-white p-7 shadow-[0_18px_55px_rgba(45,50,49,0.04)] sm:p-9">
             {privacy.map(([title, body]) => (
               <div key={title} className="flex gap-4 py-5 first:pt-1 last:pb-1">
                 <LockKeyhole className="mt-0.5 h-5 w-5 shrink-0 text-zoe-forest" />
@@ -299,8 +286,7 @@ export default function ChurchesPage() {
             </p>
           </div>
           <div>
-            <SectionLabel>Human connection</SectionLabel>
-            <h2 className="mt-4 max-w-[14ch] text-4xl font-bold leading-tight tracking-[-0.05em] sm:text-6xl">
+            <h2 className="max-w-[14ch] text-4xl font-bold leading-tight tracking-[-0.05em] sm:text-6xl">
               Sometimes the next step is a real person.
             </h2>
             <p className="mt-6 text-lg font-medium leading-8 text-zoe-muted">
