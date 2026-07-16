@@ -26,7 +26,7 @@ export default function MainFaqPanel({
   headingLevel,
   isDefault = true,
 }: MainFaqPanelProps) {
-  const [openFaq, setOpenFaq] = useState<number | null>(2);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const baseId = useId();
   const isPage = context === "page";
   const Heading = headingLevel;
