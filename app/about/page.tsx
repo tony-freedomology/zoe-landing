@@ -15,7 +15,8 @@ export const metadata: Metadata = {
 };
 
 const bioBeforeQuote = [
-  "I bet you have questions. I do too. The big one I'm asking is how can (and should) technology be used to help experience the life of God more fully. Is technology ALWAYS a barrier? Does it have to be?",
+  "I bet you have questions. I do too.",
+  "The big one I'm asking is how can (and should) technology be used to help experience the life of God more fully. Is technology ALWAYS a barrier? Does it have to be?",
   "For the last 15 years, I've been a pastor, and the thing I keep hearing is that people feel scattered. Like everything is competing for our attention. We're addicted to our phones, scrolling endlessly, looking for... what exactly?",
   "There's a kind of life we are invited to with God, and I'm convinced it starts with where you're placing your attention. The eternal God, I believe, stands ready at every moment, inviting us to return, remember, and relate to Him. We are just so often somewhere else.",
   "So I wondered: could we build a tool that met people where they already were? Not one more app or content stream, but something that reminds us of that invitation? Of where real life is to be found?",
@@ -50,15 +51,13 @@ export default function AboutPage() {
     <div className="min-h-screen bg-zoe-oat text-zoe-ink">
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden px-5 pb-6 pt-24 sm:px-6 md:pb-8 md:pt-32">
-        {/* Soft ambient wash behind the hero */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-[34rem] bg-[radial-gradient(ellipse_at_20%_0%,rgba(29,194,134,0.09),transparent_55%),radial-gradient(ellipse_at_90%_10%,rgba(0,115,84,0.05),transparent_45%)]"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[34rem] bg-[radial-gradient(ellipse_at_18%_0%,rgba(29,194,134,0.12),transparent_55%),radial-gradient(ellipse_at_88%_8%,rgba(29,194,134,0.06),transparent_48%)]"
         />
 
         <div className="relative mx-auto max-w-6xl">
           <div className="grid items-stretch gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
-            {/* Portrait — crop biased lower so torso shows, not empty tree canopy */}
             <div className="relative order-1">
               <div className="relative mx-auto max-w-md overflow-hidden rounded-[2rem] bg-[#1a1f1e] shadow-[0_32px_90px_rgba(45,50,49,0.14)] ring-1 ring-black/10 lg:mx-0 lg:max-w-none">
                 <div className="relative aspect-[4/5] w-full sm:aspect-[5/6] lg:aspect-[4/5]">
@@ -70,7 +69,6 @@ export default function AboutPage() {
                     sizes="(max-width: 1024px) 92vw, 560px"
                     className="object-cover object-[50%_72%] scale-[1.04]"
                   />
-                  {/* Soft bottom vignette for depth */}
                   <div
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/25 to-transparent"
@@ -78,7 +76,6 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Floating meta chip on photo (desktop) */}
               <div className="absolute -bottom-4 left-4 right-4 mx-auto hidden max-w-sm rounded-2xl bg-white/95 px-5 py-3.5 shadow-[0_16px_40px_rgba(45,50,49,0.1)] ring-1 ring-zoe-outline/40 backdrop-blur-sm lg:left-6 lg:right-auto lg:mx-0 lg:block lg:max-w-[15.5rem]">
                 <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.16em] text-zoe-sap">
                   Building in public
@@ -89,16 +86,12 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Intro copy */}
             <div className="order-2 flex flex-col justify-center pb-2 pt-2 lg:pb-8 lg:pl-2 lg:pt-6">
-              <p className="text-sm font-bold tracking-normal text-zoe-forest">
+              <p className="text-sm font-bold tracking-normal text-zoe-sap">
                 Pastor + builder · Cleveland, OH
               </p>
               <h1 className="mt-4 text-[3rem] font-extrabold leading-[0.92] tracking-[-0.05em] text-zoe-ink sm:text-[3.75rem] lg:text-[4.6rem]">
-                Hi, I&apos;m{" "}
-                <span className="font-serif italic font-normal tracking-normal text-zoe-sap">
-                  Tony.
-                </span>
+                Hi, I&apos;m Tony.
               </h1>
               <p className="mt-6 max-w-md text-lg font-medium leading-8 text-zoe-muted sm:text-[1.2rem] sm:leading-8">
                 I&apos;m building Zoe carefully, in public, because I want to know whether technology can help us turn toward Jesus more often in ordinary life.
@@ -107,7 +100,7 @@ export default function AboutPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="mailto:tony@zoe.live"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-7 py-3.5 text-sm font-bold text-white shadow-[0_16px_32px_rgba(29,194,134,0.2)] transition hover:bg-zoe-forest active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-7 py-3.5 text-sm font-bold text-white shadow-[0_16px_32px_rgba(29,194,134,0.2)] transition hover:bg-[#19b078] active:scale-[0.98]"
                 >
                   <Mail className="h-4 w-4" strokeWidth={2} />
                   Email me
@@ -133,14 +126,12 @@ export default function AboutPage() {
       <section className="relative px-5 pb-16 pt-10 sm:px-6 md:pb-24 md:pt-16">
         <div className="mx-auto max-w-6xl">
           <div className="relative overflow-hidden rounded-[2rem] bg-white shadow-[0_28px_80px_rgba(45,50,49,0.06)] ring-1 ring-zoe-outline/40">
-            {/* Subtle paper edge stripe */}
             <div
               aria-hidden="true"
               className="absolute inset-y-0 left-0 hidden w-1.5 bg-gradient-to-b from-zoe-sap/0 via-zoe-sap/55 to-zoe-sap/0 md:block"
             />
 
             <div className="grid lg:grid-cols-[0.34fr_0.66fr]">
-              {/* Side rail — desktop only */}
               <aside className="hidden border-r border-zoe-outline/30 bg-zoe-oat/70 px-8 py-12 lg:block lg:px-10 lg:py-14">
                 <div className="sticky top-32">
                   <div className="relative h-20 w-20 overflow-hidden rounded-full ring-2 ring-white shadow-[0_10px_28px_rgba(45,50,49,0.1)]">
@@ -159,12 +150,12 @@ export default function AboutPage() {
                     Founder of Zoe
                   </p>
                   <div className="mt-8 space-y-4 border-t border-zoe-outline/40 pt-8">
-                    <p className="font-serif text-[1.2rem] italic leading-7 text-zoe-forest">
+                    <p className="text-base font-semibold leading-7 text-zoe-ink/80">
                       Useful technology should get quieter as faith gets more personal.
                     </p>
                     <a
                       href="mailto:tony@zoe.live"
-                      className="inline-flex items-center gap-2 text-sm font-bold text-zoe-ink transition hover:text-zoe-sap"
+                      className="inline-flex items-center gap-2 text-sm font-bold text-zoe-sap transition hover:text-[#19b078]"
                     >
                       <Mail className="h-3.5 w-3.5" />
                       tony@zoe.live
@@ -173,10 +164,8 @@ export default function AboutPage() {
                 </div>
               </aside>
 
-              {/* Body */}
               <article className="px-6 py-10 sm:px-10 sm:py-12 md:px-12 md:py-14 lg:px-14 lg:py-16">
                 <div className="mx-auto max-w-[36.5rem]">
-                  {/* Mobile letterhead */}
                   <div className="mb-9 flex items-center gap-4 lg:hidden">
                     <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-zoe-outline/30">
                       <Image
@@ -199,7 +188,7 @@ export default function AboutPage() {
                         key={paragraph}
                         className={
                           i === 0
-                            ? "text-[1.2rem] leading-[1.7] text-zoe-ink sm:text-[1.28rem] sm:leading-[1.72]"
+                            ? "text-[1.22rem] font-semibold leading-[1.65] text-zoe-ink sm:text-[1.3rem] sm:leading-[1.68]"
                             : undefined
                         }
                       >
@@ -209,8 +198,9 @@ export default function AboutPage() {
                   </div>
 
                   <blockquote className="my-11 rounded-[1.35rem] bg-zoe-oat px-6 py-7 ring-1 ring-zoe-outline/35 sm:px-8 sm:py-8">
-                    <p className="font-serif text-[1.4rem] italic leading-[1.3] tracking-normal text-zoe-forest sm:text-[1.65rem] sm:leading-[1.28]">
-                      Could our phones actually turn our attention back to Jesus? Proactively?
+                    <p className="text-[1.25rem] font-extrabold leading-[1.35] tracking-[-0.02em] text-zoe-ink sm:text-[1.4rem] sm:leading-[1.32]">
+                      Could our phones actually turn our attention back to Jesus?{" "}
+                      <span className="text-zoe-sap">Proactively?</span>
                     </p>
                   </blockquote>
 
@@ -229,7 +219,7 @@ export default function AboutPage() {
                     </div>
                     <a
                       href="mailto:tony@zoe.live"
-                      className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-zoe-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-zoe-forest"
+                      className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-zoe-sap px-5 py-3 text-sm font-bold text-white transition hover:bg-[#19b078]"
                     >
                       <Mail className="h-4 w-4" />
                       tony@zoe.live
@@ -246,16 +236,12 @@ export default function AboutPage() {
       <section className="bg-zoe-surface px-5 py-16 sm:px-6 md:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-2xl">
-            <p className="text-sm font-bold text-zoe-forest">What Zoe is trying to be</p>
+            <p className="text-sm font-bold text-zoe-sap">What Zoe is trying to be</p>
             <h2 className="mt-3 text-[2rem] font-extrabold leading-[1.05] tracking-[-0.04em] text-zoe-ink sm:text-[2.55rem]">
-              A small experiment in attention,{" "}
-              <span className="font-serif italic font-normal tracking-normal text-zoe-forest">
-                not another feed.
-              </span>
+              A small experiment in attention, not another feed.
             </h2>
           </div>
 
-          {/* Asymmetric stack: first full-width, then two */}
           <div className="mt-10 grid gap-4 lg:grid-cols-12 lg:gap-5">
             <div className="rounded-[1.5rem] bg-white p-7 shadow-[0_14px_40px_rgba(45,50,49,0.04)] ring-1 ring-zoe-outline/40 lg:col-span-5 lg:p-8">
               <p className="font-mono text-[0.7rem] font-bold tracking-[0.18em] text-zoe-sap">
@@ -293,7 +279,7 @@ export default function AboutPage() {
               </div>
               <Link
                 href="/faq"
-                className="mt-6 inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-zoe-ink transition hover:bg-zoe-oat lg:mt-0"
+                className="mt-6 inline-flex shrink-0 items-center gap-2 rounded-full bg-zoe-sap px-5 py-3 text-sm font-bold text-white transition hover:bg-[#19b078] lg:mt-0"
               >
                 Read the FAQ
                 <ArrowRight className="h-4 w-4" />
@@ -307,18 +293,15 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-zoe-ink px-5 py-20 sm:px-6 md:py-28">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-20 top-0 h-72 w-72 rounded-full bg-zoe-sap/10 blur-3xl"
+          className="pointer-events-none absolute -right-20 top-0 h-72 w-72 rounded-full bg-zoe-sap/15 blur-3xl"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-zoe-forest/20 blur-3xl"
+          className="pointer-events-none absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-zoe-sap/10 blur-3xl"
         />
         <div className="relative mx-auto max-w-3xl text-center">
           <h2 className="text-[2.5rem] font-extrabold leading-[0.96] tracking-[-0.045em] text-white sm:text-[3.5rem]">
-            Walk with us while{" "}
-            <span className="font-serif italic font-normal tracking-normal text-zoe-sap">
-              Zoe grows up.
-            </span>
+            Walk with us while Zoe grows up.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-7 text-white/70 sm:text-lg sm:leading-8">
             Join the waitlist, read the journal, or just email me. We&apos;re building carefully, and thoughtful people make that better.
