@@ -59,20 +59,26 @@ export default function AboutPage() {
         <div className="relative mx-auto max-w-6xl">
           <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
             {/*
-              Source photo is landscape (~4:3). A tall 4:5 crop cut the sides and
-              made the canopy feel huge. Match the frame to the photo so we show
-              nearly the full image as shot.
+              Explicit crop of the landscape founder shot:
+              - 15% off left and right
+              - 15% off the top
+              - bottom stays (full lower edge of the source)
+              Visible region aspect ≈ 1.098 on a 4:3 source.
             */}
             <div className="relative order-1 mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
               <div className="relative overflow-hidden rounded-[1.75rem] bg-[#1a1f1e] shadow-[0_28px_70px_rgba(45,50,49,0.13)] ring-1 ring-black/10">
-                <div className="relative aspect-[4/3] w-full">
+                {/* Crop window: 15% L/R, 15% top; preserve source aspect inside the window */}
+                <div
+                  className="relative w-full"
+                  style={{ aspectRatio: "980 / 892.5" }}
+                >
                   <Image
                     src="/assets/founder/tony-founder.jpg"
                     alt="Tony Allen, pastor and founder of Zoe"
                     fill
                     priority
                     sizes="(max-width: 1024px) 90vw, 560px"
-                    className="object-cover object-center"
+                    className="!left-[-21.4286%] !top-[-17.6471%] !h-[117.6471%] !w-[142.8571%] !max-w-none"
                   />
                 </div>
               </div>
