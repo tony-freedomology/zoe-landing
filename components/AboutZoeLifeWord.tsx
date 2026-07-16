@@ -6,8 +6,62 @@ import { X } from "lucide-react";
 
 /**
  * Clickable "life" in the about letter — opens a modal on Lewis's bios / zoe distinction.
- * Quote from Mere Christianity, Book IV, "Making and Begetting."
+ * Passages from Mere Christianity, Book IV (Beyond Personality).
  */
+const LEWIS_PASSAGES = [
+  {
+    id: "names",
+    chapter: "Making and Begetting",
+    body: (
+      <>
+        <p>
+          In reality, the difference between Biological life and Spiritual life is so important that I am going to give them two distinct names. The Biological sort which comes to us through Nature, and which (like everything else in Nature) is always tending to run down and decay so that it can only be kept up by perpetual subsidies from Nature in the form of air, water, food, etc., is{" "}
+          <span className="font-extrabold text-zoe-ink">Bios</span>. The Spiritual life which is in God from all eternity, and which made the whole natural universe, is{" "}
+          <span className="font-extrabold text-zoe-sap">Zoe</span>.
+        </p>
+        <p>
+          Bios has, to be sure, a certain shadowy or symbolic resemblance to Zoe: but only the sort of resemblance there is between a photo and a place, or a statue and a man. A man who changed from having Bios to having Zoe would have gone through as big a change as a statue which changed from being a carved stone to being a real man.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "statues",
+    chapter: "Good Infection",
+    body: (
+      <>
+        <p>
+          We are not begotten by God, we are only made by Him: in our natural state we are not sons of God, only (so to speak) statues. We have not got{" "}
+          <span className="font-extrabold text-zoe-sap">Zoe</span> or spiritual life: only{" "}
+          <span className="font-extrabold text-zoe-ink">Bios</span> or biological life which is presently going to run down and die.
+        </p>
+        <p>
+          He came to this world and became a man in order to spread to other men the kind of life He has — by what I call &lsquo;good infection.&rsquo; Every Christian is to become a little Christ. The whole purpose of becoming a Christian is simply nothing else.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "open",
+    chapter: "Good Infection",
+    body: (
+      <p>
+        We have not got to try to climb up into spiritual life by our own efforts; it has already come down into the human race. If we will only lay ourselves open to the one Man in whom it was fully present, and who, in spite of being God, is also a real man, He will do it in us and for us.
+      </p>
+    ),
+  },
+  {
+    id: "contact",
+    chapter: "The New Men",
+    body: (
+      <p>
+        He came into the created universe, of His own will, bringing with Him the{" "}
+        <span className="font-extrabold text-zoe-sap">Zoe</span>, the new life. (I mean new to us, of course: in its own place Zoe has existed for ever and ever.) And He transmits it not by heredity but by what I have called &lsquo;good infection.&rsquo; Everyone who gets it gets it by personal contact with Him.
+      </p>
+    ),
+  },
+] as const;
+
 export default function AboutZoeLifeWord() {
   const [open, setOpen] = useState(false);
   const reduceMotion = useReducedMotion();
@@ -17,7 +71,6 @@ export default function AboutZoeLifeWord() {
 
   const close = useCallback(() => {
     setOpen(false);
-    // Return focus to the word that opened the modal
     requestAnimationFrame(() => triggerRef.current?.focus());
   }, []);
 
@@ -79,7 +132,7 @@ export default function AboutZoeLifeWord() {
               role="dialog"
               aria-modal="true"
               aria-labelledby={titleId}
-              className="relative z-[1] max-h-[min(88dvh,720px)] w-full overflow-y-auto rounded-t-[1.75rem] bg-zoe-oat shadow-[0_40px_120px_rgba(26,31,30,0.35)] ring-1 ring-white/30 sm:max-w-[34rem] sm:rounded-[1.75rem]"
+              className="relative z-[1] max-h-[min(90dvh,820px)] w-full overflow-y-auto rounded-t-[1.75rem] bg-zoe-oat shadow-[0_40px_120px_rgba(26,31,30,0.35)] ring-1 ring-white/30 sm:max-w-[36rem] sm:rounded-[1.75rem]"
               initial={reduceMotion ? false : { opacity: 0, y: 28, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={reduceMotion ? undefined : { opacity: 0, y: 16, scale: 0.98 }}
@@ -90,8 +143,8 @@ export default function AboutZoeLifeWord() {
               }
             >
               <div className="relative px-6 pb-8 pt-6 sm:px-9 sm:pb-10 sm:pt-8">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
+                <div className="sticky top-0 z-[2] -mx-6 mb-2 flex items-start justify-between gap-4 bg-zoe-oat/95 px-6 pb-4 pt-0 backdrop-blur-sm sm:-mx-9 sm:px-9">
+                  <div className="pt-1">
                     <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-zoe-sap">
                       Why the name Zoe
                     </p>
@@ -101,32 +154,40 @@ export default function AboutZoeLifeWord() {
                     >
                       Life, but not the kind that runs down.
                     </h2>
+                    <p className="mt-2 text-sm font-medium text-zoe-muted">
+                      C.S. Lewis · <em className="not-italic font-semibold text-zoe-ink/70">Mere Christianity</em>, Book IV
+                    </p>
                   </div>
                   <button
                     ref={closeRef}
                     type="button"
                     onClick={close}
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-zoe-ink shadow-sm ring-1 ring-zoe-outline/40 transition hover:bg-zoe-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zoe-sap/40"
+                    className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-zoe-ink shadow-sm ring-1 ring-zoe-outline/40 transition hover:bg-zoe-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zoe-sap/40"
                     aria-label="Close"
                   >
                     <X className="h-4 w-4" strokeWidth={2.25} />
                   </button>
                 </div>
 
-                <div className="mt-7 rounded-[1.35rem] bg-white px-5 py-6 shadow-[0_12px_40px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/35 sm:px-7 sm:py-7">
-                  <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.16em] text-zoe-muted">
-                    C.S. Lewis · Mere Christianity
-                  </p>
-                  <blockquote className="mt-4 space-y-5 text-[1.05rem] font-medium leading-[1.75] text-zoe-ink/88 sm:text-[1.1rem] sm:leading-[1.8]">
-                    <p>
-                      In reality, the difference between Biological life and Spiritual life is so important that I am going to give them two distinct names. The Biological sort which comes to us through Nature, and which (like everything else in Nature) is always tending to run down and decay so that it can only be kept up by perpetual subsidies from Nature in the form of air, water, food, etc., is{" "}
-                      <span className="font-extrabold text-zoe-ink">Bios</span>. The Spiritual life which is in God from all eternity, and which made the whole natural universe, is{" "}
-                      <span className="font-extrabold text-zoe-sap">Zoe</span>.
-                    </p>
-                    <p>
-                      Bios has, to be sure, a certain shadowy or symbolic resemblance to Zoe: but only the sort of resemblance there is between a photo and a place, or a statue and a man. A man who changed from having Bios to having Zoe would have gone through as big a change as a statue which changed from being a carved stone to being a real man.
-                    </p>
-                  </blockquote>
+                <div className="mt-4 space-y-4">
+                  {LEWIS_PASSAGES.map((passage, index) => (
+                    <figure
+                      key={passage.id}
+                      className="rounded-[1.25rem] bg-white px-5 py-5 shadow-[0_10px_32px_rgba(45,50,49,0.04)] ring-1 ring-zoe-outline/35 sm:px-6 sm:py-6"
+                    >
+                      <figcaption className="flex items-center gap-2.5">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-zoe-sap/12 text-[0.65rem] font-extrabold text-zoe-sap">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <span className="text-[0.7rem] font-extrabold uppercase tracking-[0.14em] text-zoe-muted">
+                          {passage.chapter}
+                        </span>
+                      </figcaption>
+                      <blockquote className="mt-3.5 space-y-4 text-[1.02rem] font-medium leading-[1.72] text-zoe-ink/88 sm:text-[1.06rem] sm:leading-[1.76]">
+                        {passage.body}
+                      </blockquote>
+                    </figure>
+                  ))}
                 </div>
 
                 <p className="mt-6 text-sm font-medium leading-6 text-zoe-muted">
