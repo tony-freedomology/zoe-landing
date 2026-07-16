@@ -109,7 +109,7 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div className="lg:sticky lg:top-28 rounded-[2rem] bg-zoe-oat p-8 shadow-[0_18px_60px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/50">
             <h2 className="text-[3.1rem] font-extrabold leading-[0.9] tracking-[-0.04em] text-zoe-ink [word-spacing:0.045em] md:text-[4.7rem] md:tracking-[-0.048em]">
-              A pastor-builder, talking plainly.
+              Hi, I&apos;m Tony.
             </h2>
             <p className="mt-6 font-serif text-2xl italic leading-9 tracking-normal text-zoe-forest">
               Zoe isn't a replacement for the church. It's a small tool for the space where people usually lose the thread.
