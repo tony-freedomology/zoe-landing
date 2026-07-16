@@ -145,14 +145,11 @@ export default function AboutZoeLifeWord() {
               <div className="relative px-6 pb-8 pt-6 sm:px-9 sm:pb-10 sm:pt-8">
                 <div className="sticky top-0 z-[2] -mx-6 mb-2 flex items-start justify-between gap-4 bg-zoe-oat/95 px-6 pb-4 pt-0 backdrop-blur-sm sm:-mx-9 sm:px-9">
                   <div className="pt-1">
-                    <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-zoe-sap">
-                      Why the name Zoe
-                    </p>
                     <h2
                       id={titleId}
-                      className="mt-2 text-[1.55rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-zoe-ink sm:text-[1.75rem]"
+                      className="text-[1.55rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-zoe-ink sm:text-[1.75rem]"
                     >
-                      Life, but not the kind that runs down.
+                      Why the name Zoe
                     </h2>
                     <p className="mt-2 text-sm font-medium text-zoe-muted">
                       C.S. Lewis · <em className="not-italic font-semibold text-zoe-ink/70">Mere Christianity</em>, Book IV
