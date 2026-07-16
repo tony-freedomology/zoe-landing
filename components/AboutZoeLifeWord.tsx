@@ -89,12 +89,6 @@ export default function AboutZoeLifeWord() {
                   : { type: "spring", stiffness: 380, damping: 32 }
               }
             >
-              {/* Top wash */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(ellipse_at_50%_0%,rgba(29,194,134,0.16),transparent_70%)]"
-              />
-
               <div className="relative px-6 pb-8 pt-6 sm:px-9 sm:pb-10 sm:pt-8">
                 <div className="flex items-start justify-between gap-4">
                   <div>
