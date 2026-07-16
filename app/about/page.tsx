@@ -147,10 +147,7 @@ export default function AboutPage() {
                   <p className="mt-1 text-sm font-medium text-zoe-muted">
                     Founder of Zoe
                   </p>
-                  <div className="mt-8 space-y-4 border-t border-zoe-outline/40 pt-8">
-                    <p className="text-base font-semibold leading-7 text-zoe-ink/80">
-                      Useful technology should get quieter as faith gets more personal.
-                    </p>
+                  <div className="mt-8 border-t border-zoe-outline/40 pt-8">
                     <a
                       href="mailto:tony@zoe.live"
                       className="inline-flex items-center gap-2 text-sm font-bold text-zoe-sap transition hover:text-[#19b078]"
