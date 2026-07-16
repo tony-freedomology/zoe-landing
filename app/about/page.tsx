@@ -57,27 +57,28 @@ export default function AboutPage() {
         />
 
         <div className="relative mx-auto max-w-6xl">
-          <div className="grid items-center gap-7 lg:grid-cols-[minmax(0,240px)_minmax(0,1fr)] lg:gap-12">
-            <div className="relative order-1 mx-auto w-full max-w-[180px] sm:max-w-[200px] lg:mx-0 lg:max-w-[240px]">
-              <div className="relative overflow-hidden rounded-[1.35rem] bg-[#1a1f1e] shadow-[0_20px_50px_rgba(45,50,49,0.12)] ring-1 ring-black/10">
-                <div className="relative aspect-[4/5] w-full">
+          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
+            {/*
+              Source photo is landscape (~4:3). A tall 4:5 crop cut the sides and
+              made the canopy feel huge. Match the frame to the photo so we show
+              nearly the full image as shot.
+            */}
+            <div className="relative order-1 mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
+              <div className="relative overflow-hidden rounded-[1.75rem] bg-[#1a1f1e] shadow-[0_28px_70px_rgba(45,50,49,0.13)] ring-1 ring-black/10">
+                <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/assets/founder/tony-founder.jpg"
                     alt="Tony Allen, pastor and founder of Zoe"
                     fill
                     priority
-                    sizes="(max-width: 1024px) 200px, 240px"
-                    className="object-cover object-[50%_72%] scale-[1.04]"
-                  />
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/25 to-transparent"
+                    sizes="(max-width: 1024px) 90vw, 560px"
+                    className="object-cover object-center"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="order-2 flex flex-col justify-center pb-1 pt-1 lg:pl-1">
+            <div className="order-2 flex flex-col justify-center pb-1 pt-1 lg:pl-2">
               <p className="text-sm font-bold tracking-normal text-zoe-sap">
                 Pastor + builder · Cleveland, OH
               </p>
