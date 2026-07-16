@@ -292,16 +292,8 @@ export default function AboutPage() {
       </section>
 
       {/* ── Close ────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-zoe-ink px-5 py-20 sm:px-6 md:py-28">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-20 top-0 h-72 w-72 rounded-full bg-zoe-sap/15 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-zoe-sap/10 blur-3xl"
-        />
-        <div className="relative mx-auto max-w-3xl text-center">
+      <section className="bg-zoe-ink px-5 py-20 sm:px-6 md:py-28">
+        <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-[2.5rem] font-extrabold leading-[0.96] tracking-[-0.045em] text-white sm:text-[3.5rem]">
             Walk with us while Zoe grows up.
           </h2>
