@@ -57,16 +57,16 @@ export default function AboutPage() {
         />
 
         <div className="relative mx-auto max-w-6xl">
-          <div className="grid items-stretch gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
-            <div className="relative order-1">
-              <div className="relative mx-auto max-w-md overflow-hidden rounded-[2rem] bg-[#1a1f1e] shadow-[0_32px_90px_rgba(45,50,49,0.14)] ring-1 ring-black/10 lg:mx-0 lg:max-w-none">
-                <div className="relative aspect-[4/5] w-full sm:aspect-[5/6] lg:aspect-[4/5]">
+          <div className="grid items-center gap-7 lg:grid-cols-[minmax(0,240px)_minmax(0,1fr)] lg:gap-12">
+            <div className="relative order-1 mx-auto w-full max-w-[180px] sm:max-w-[200px] lg:mx-0 lg:max-w-[240px]">
+              <div className="relative overflow-hidden rounded-[1.35rem] bg-[#1a1f1e] shadow-[0_20px_50px_rgba(45,50,49,0.12)] ring-1 ring-black/10">
+                <div className="relative aspect-[4/5] w-full">
                   <Image
                     src="/assets/founder/tony-founder.jpg"
                     alt="Tony Allen, pastor and founder of Zoe"
                     fill
                     priority
-                    sizes="(max-width: 1024px) 92vw, 560px"
+                    sizes="(max-width: 1024px) 200px, 240px"
                     className="object-cover object-[50%_72%] scale-[1.04]"
                   />
                   <div
@@ -75,18 +75,9 @@ export default function AboutPage() {
                   />
                 </div>
               </div>
-
-              <div className="absolute -bottom-4 left-4 right-4 mx-auto hidden max-w-sm rounded-2xl bg-white/95 px-5 py-3.5 shadow-[0_16px_40px_rgba(45,50,49,0.1)] ring-1 ring-zoe-outline/40 backdrop-blur-sm lg:left-6 lg:right-auto lg:mx-0 lg:block lg:max-w-[15.5rem]">
-                <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.16em] text-zoe-sap">
-                  Building in public
-                </p>
-                <p className="mt-1 text-sm font-semibold leading-5 text-zoe-ink">
-                  Still pastoring locally. Still asking hard questions.
-                </p>
-              </div>
             </div>
 
-            <div className="order-2 flex flex-col justify-center pb-2 pt-2 lg:pb-8 lg:pl-2 lg:pt-6">
+            <div className="order-2 flex flex-col justify-center pb-1 pt-1 lg:pl-1">
               <p className="text-sm font-bold tracking-normal text-zoe-sap">
                 Pastor + builder · Cleveland, OH
               </p>
