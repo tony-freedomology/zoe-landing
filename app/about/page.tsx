@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Mail } from "lucide-react";
 
+import AboutZoeLifeWord from "../../components/AboutZoeLifeWord";
 import Footer from "../../components/Footer";
 
 export const metadata: Metadata = {
@@ -18,7 +19,9 @@ const bioBeforeQuote = [
   "I bet you have questions. I do too.",
   "The big one I'm asking is how can (and should) technology be used to help experience the life of God more fully. Is technology ALWAYS a barrier? Does it have to be?",
   "For the last 15 years, I've been a pastor, and the thing I keep hearing is that people feel scattered. Like everything is competing for our attention. We're addicted to our phones, scrolling endlessly, looking for... what exactly?",
-  "There's a kind of life we are invited to with God, and I'm convinced it starts with where you're placing your attention. The eternal God, I believe, stands ready at every moment, inviting us to return, remember, and relate to Him. We are just so often somewhere else.",
+];
+
+const bioAfterLifeParagraph = [
   "So I wondered: could we build a tool that met people where they already were? Not one more app or content stream, but something that reminds us of that invitation? Of where real life is to be found?",
 ];
 
@@ -189,6 +192,10 @@ export default function AboutPage() {
                       >
                         {paragraph}
                       </p>
+                    ))}
+                    <AboutZoeLifeWord />
+                    {bioAfterLifeParagraph.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
                     ))}
                   </div>
 

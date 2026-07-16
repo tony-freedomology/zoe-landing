@@ -1,0 +1,156 @@
+"use client";
+
+import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { X } from "lucide-react";
+
+/**
+ * Clickable "life" in the about letter — opens a modal on Lewis's bios / zoe distinction.
+ * Quote from Mere Christianity, Book IV, "Making and Begetting."
+ */
+export default function AboutZoeLifeWord() {
+  const [open, setOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const titleId = useId();
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const close = useCallback(() => {
+    setOpen(false);
+    // Return focus to the word that opened the modal
+    requestAnimationFrame(() => triggerRef.current?.focus());
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") close();
+    };
+    document.addEventListener("keydown", onKey);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    requestAnimationFrame(() => closeRef.current?.focus());
+
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open, close]);
+
+  return (
+    <>
+      <p className="text-[1.1rem] font-medium leading-[1.78] text-zoe-ink/84 sm:text-[1.14rem] sm:leading-[1.82]">
+        There&apos;s a kind of{" "}
+        <button
+          ref={triggerRef}
+          type="button"
+          onClick={() => setOpen(true)}
+          className="group relative inline font-extrabold text-zoe-sap underline decoration-zoe-sap/35 decoration-2 underline-offset-[0.18em] transition hover:decoration-zoe-sap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zoe-sap/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+          aria-haspopup="dialog"
+          aria-expanded={open}
+        >
+          life
+          <span className="ml-1 inline-flex h-4 w-4 translate-y-[-0.05em] items-center justify-center rounded-full bg-zoe-sap/12 text-[0.65rem] font-bold text-zoe-sap transition group-hover:bg-zoe-sap/20">
+            ?
+          </span>
+        </button>{" "}
+        we are invited to with God, and I&apos;m convinced it starts with where you&apos;re placing your attention. The eternal God, I believe, stands ready at every moment, inviting us to return, remember, and relate to Him. We are just so often somewhere else.
+      </p>
+
+      <AnimatePresence>
+        {open ? (
+          <motion.div
+            className="fixed inset-0 z-[80] flex items-end justify-center p-0 sm:items-center sm:p-6"
+            role="presentation"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduceMotion ? 0 : 0.22 }}
+          >
+            <button
+              type="button"
+              aria-label="Close quote"
+              className="absolute inset-0 bg-[#1a1f1e]/55 backdrop-blur-[3px]"
+              onClick={close}
+            />
+
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={titleId}
+              className="relative z-[1] max-h-[min(88dvh,720px)] w-full overflow-y-auto rounded-t-[1.75rem] bg-zoe-oat shadow-[0_40px_120px_rgba(26,31,30,0.35)] ring-1 ring-white/30 sm:max-w-[34rem] sm:rounded-[1.75rem]"
+              initial={reduceMotion ? false : { opacity: 0, y: 28, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={reduceMotion ? undefined : { opacity: 0, y: 16, scale: 0.98 }}
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { type: "spring", stiffness: 380, damping: 32 }
+              }
+            >
+              {/* Top wash */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(ellipse_at_50%_0%,rgba(29,194,134,0.16),transparent_70%)]"
+              />
+
+              <div className="relative px-6 pb-8 pt-6 sm:px-9 sm:pb-10 sm:pt-8">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-zoe-sap">
+                      Why the name Zoe
+                    </p>
+                    <h2
+                      id={titleId}
+                      className="mt-2 text-[1.55rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-zoe-ink sm:text-[1.75rem]"
+                    >
+                      Life, but not the kind that runs down.
+                    </h2>
+                  </div>
+                  <button
+                    ref={closeRef}
+                    type="button"
+                    onClick={close}
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-zoe-ink shadow-sm ring-1 ring-zoe-outline/40 transition hover:bg-zoe-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zoe-sap/40"
+                    aria-label="Close"
+                  >
+                    <X className="h-4 w-4" strokeWidth={2.25} />
+                  </button>
+                </div>
+
+                <div className="mt-7 rounded-[1.35rem] bg-white px-5 py-6 shadow-[0_12px_40px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/35 sm:px-7 sm:py-7">
+                  <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.16em] text-zoe-muted">
+                    C.S. Lewis · Mere Christianity
+                  </p>
+                  <blockquote className="mt-4 space-y-5 text-[1.05rem] font-medium leading-[1.75] text-zoe-ink/88 sm:text-[1.1rem] sm:leading-[1.8]">
+                    <p>
+                      In reality, the difference between Biological life and Spiritual life is so important that I am going to give them two distinct names. The Biological sort which comes to us through Nature, and which (like everything else in Nature) is always tending to run down and decay so that it can only be kept up by perpetual subsidies from Nature in the form of air, water, food, etc., is{" "}
+                      <span className="font-extrabold text-zoe-ink">Bios</span>. The Spiritual life which is in God from all eternity, and which made the whole natural universe, is{" "}
+                      <span className="font-extrabold text-zoe-sap">Zoe</span>.
+                    </p>
+                    <p>
+                      Bios has, to be sure, a certain shadowy or symbolic resemblance to Zoe: but only the sort of resemblance there is between a photo and a place, or a statue and a man. A man who changed from having Bios to having Zoe would have gone through as big a change as a statue which changed from being a carved stone to being a real man.
+                    </p>
+                  </blockquote>
+                </div>
+
+                <p className="mt-6 text-sm font-medium leading-6 text-zoe-muted">
+                  That&apos;s the kind of life this product is named after — not more screen time, but the life of God breaking into ordinary days.
+                </p>
+
+                <button
+                  type="button"
+                  onClick={close}
+                  className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-zoe-sap px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#19b078] active:scale-[0.99] sm:w-auto sm:px-8"
+                >
+                  Got it
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </>
+  );
+}
