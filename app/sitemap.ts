@@ -25,6 +25,7 @@ const routes: SitemapEntry[] = [
   ...blogRoutes,
   { path: "/churches", changeFrequency: "monthly", priority: 0.8 },
   { path: "/about", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/philosophy", changeFrequency: "monthly", priority: 0.8 },
   { path: "/faq", changeFrequency: "monthly", priority: 0.7 },
   { path: "/brand-facts", changeFrequency: "monthly", priority: 0.7 },
   { path: "/guides", changeFrequency: "weekly", priority: 0.8 },
