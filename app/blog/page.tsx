@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 const topics = ["All", "Product", "Discipleship", "AI & Faith", "Field notes"];
 
 const authorBySlug: Record<string, { name: string; role: string; initials: string }> = {
+  "can-god-speak-through-ai": { name: "Tony Allen", role: "Founder", initials: "T" },
   "ai-can-sort-your-thoughts": { name: "Tony Allen", role: "Founder", initials: "T" },
   "can-ai-help-you-walk-with-jesus": { name: "Tony Allen", role: "Founder", initials: "T" },
   "what-should-zoe-do-in-the-morning": { name: "Tony Allen", role: "Founder", initials: "T" },
@@ -28,6 +29,11 @@ const displayTitleBySlug: Record<string, ReactNode> = {
   "the-same-tree-every-morning": (
     <>
       The same tree, every <em>morning</em>.
+    </>
+  ),
+  "can-god-speak-through-ai": (
+    <>
+      Can God speak through <em>AI</em>?
     </>
   ),
   "ai-can-sort-your-thoughts": (

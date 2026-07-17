@@ -32,6 +32,7 @@ const routes: SitemapEntry[] = [
   { path: "/guides/best-discipleship-apps-2026", changeFrequency: "monthly", priority: 0.7 },
   { path: "/guides/christian-ai-tools", changeFrequency: "monthly", priority: 0.7 },
   { path: "/guides/sms-discipleship", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/blog/can-god-speak-through-ai", changeFrequency: "monthly", priority: 0.7 },
   { path: "/blog/ai-can-sort-your-thoughts", changeFrequency: "monthly", priority: 0.7 },
   { path: "/journeys", changeFrequency: "weekly", priority: 0.8 },
   { path: "/journeys/james-deep", changeFrequency: "monthly", priority: 0.7 },
