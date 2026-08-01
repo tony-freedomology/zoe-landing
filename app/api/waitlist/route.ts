@@ -12,7 +12,6 @@ type WaitlistBody = {
   eventSourceUrl?: string;
   submittedAt?: string;
   smsConsent?: boolean;
-  requestedPath?: string;
 };
 
 type PhonePlatform = "iphone" | "android";
@@ -102,7 +101,6 @@ export async function POST(req: NextRequest) {
         eventSourceUrl: body.eventSourceUrl,
         submittedAt: body.submittedAt ?? new Date().toISOString(),
         smsConsent: body.smsConsent ?? typeTag === "individuals",
-        requestedPath: body.requestedPath?.trim() || undefined,
       });
       contactId = contact.contactId;
       resendSyncStatus = contact.resendSyncStatus;
