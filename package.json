@@ -8,6 +8,7 @@
     "export": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test:path-access": "node scripts/path-access.test.mjs",
     "report:waitlist": "node scripts/report-waitlist-aggregates.mjs",
     "test:waitlist-report": "node scripts/report-waitlist-aggregates.test.mjs"
   },
