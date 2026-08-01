@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useState, useRef, type FormEvent } from "react";
+import { useState, useRef, type FormEvent } from "react";
 import clsx from "clsx";
 import { CheckCircle, ChevronDown } from "lucide-react";
 import ParallaxBackgrounds from './ParallaxBackgrounds';
@@ -21,7 +21,6 @@ import {
 } from "../lib/waitlistValidation";
 import { createMetaEventId, trackMetaLead } from "../lib/metaPixel";
 import { buildAttributedSourceUrl } from "../lib/attribution";
-import { journeyCatalog, type JourneySummary } from "../lib/journeyCatalog";
 
 interface HomeProps {
   variant?: "default" | "emerald-uni";
@@ -116,20 +115,12 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
   });
 
   const [email, setEmail] = useState("");
-  const [requestedPath, setRequestedPath] = useState<JourneySummary | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const waitlistFormValid =
     isWaitlistNameValid(name) &&
     isWaitlistPhoneValid(phone) &&
     isWaitlistEmailValid(email) &&
     phonePlatform !== "";
-
-  useEffect(() => {
-    const requestedSlug = new URLSearchParams(window.location.search).get("path")?.trim();
-    if (!requestedSlug) return;
-
-    setRequestedPath(journeyCatalog.find((journey) => journey.slug === requestedSlug) ?? null);
-  }, []);
 
   const handleWaitlistSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -148,7 +139,6 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
       email,
       phonePlatform,
       source: "individuals-waitlist",
-      requestedPath: requestedPath?.slug,
       eventId,
       eventSourceUrl: buildAttributedSourceUrl(window.location.href),
       submittedAt: new Date().toISOString(),
@@ -388,12 +378,10 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                   ) : null}
 
                   <h2 className={clsx("mx-auto max-w-2xl text-4xl leading-[1.06] md:text-6xl", isDefault ? defaultSectionHeading : "text-slate-900 font-semibold tracking-tight")}>
-                    {requestedPath ? `Want to start ${requestedPath.title}?` : "Be among the first."}
+                    Be among the first.
                   </h2>
                   <p className={clsx("mt-5 text-lg font-medium max-w-2xl mx-auto leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>
-                    {requestedPath
-                      ? "That Path is not open from the public site yet. Join the waitlist and we'll save your choice for when your spot is ready."
-                      : "We're opening Zoe to a small group of early adopters. Join the waitlist and we'll let you know when your spot is ready."}
+                    We're opening Zoe to a small group of early adopters. Join the waitlist and we'll let you know when your spot is ready.
                   </p>
 
                   <div className={clsx("mt-10 max-w-md mx-auto w-full p-5 md:p-6 relative overflow-hidden",
@@ -405,9 +393,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                         </div>
                         <h3 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">You're on the list!</h3>
                         <p className="text-slate-600 font-medium leading-relaxed">
-                          {requestedPath
-                            ? `We saved ${requestedPath.title}. We'll send your invite when your spot is ready - you don't need to sign up again.`
-                            : "We've received your request. We'll be in touch as soon as spots open up."}
+                          We've received your request. We'll be in touch as soon as spots open up.
                         </p>
                       </motion.div>
                     ) : (

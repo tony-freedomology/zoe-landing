@@ -12,7 +12,6 @@ interface JourneyDetailPageProps {
 
 export default function JourneyDetailPage({ journey, heroImage }: JourneyDetailPageProps) {
   const resolvedHeroImage = heroImage ?? getJourneyImagePath(journey.slug as JourneyImageSlug);
-  const waitlistHref = `/?path=${encodeURIComponent(journey.slug)}#waitlist`;
 
   return (
     <div className="min-h-screen bg-zoe-oat text-zoe-ink">
@@ -76,13 +75,13 @@ export default function JourneyDetailPage({ journey, heroImage }: JourneyDetailP
               ))}
             </div>
             <p className="mt-7 text-sm font-medium leading-6 text-zoe-muted">
-              Zoe is still in early access. Saving this Path adds it to your waitlist request; it does not start the Path today.
+              Zoe is still in early access. These Path pages are previews; Paths start inside Zoe after you get access.
             </p>
             <Link
-              href={waitlistHref}
+              href="/#waitlist"
               className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-zoe-sap px-6 py-4 text-sm font-bold tracking-normal text-white shadow-[0_18px_36px_rgba(29,194,134,0.18)] transition hover:bg-zoe-forest [word-spacing:0.14em]"
             >
-              Save this Path for early access
+              Join the waitlist
               <ArrowRight className="h-4 w-4" />
             </Link>
             <a
@@ -135,10 +134,10 @@ export default function JourneyDetailPage({ journey, heroImage }: JourneyDetailP
             Join the waitlist to be among the first to walk through {journey.ctaLabel} with scripture, reflection, and check-ins in your texts.
           </p>
           <Link
-            href={waitlistHref}
+            href="/#waitlist"
             className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold tracking-normal text-white shadow-[0_18px_36px_rgba(29,194,134,0.18)] transition hover:bg-zoe-forest [word-spacing:0.14em]"
           >
-            Save this Path for early access
+            Join the waitlist
             <ArrowRight className="h-4 w-4" />
           </Link>
           <a
