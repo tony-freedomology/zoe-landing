@@ -93,6 +93,7 @@ export default function ChurchPilotStartPage() {
       source: `churches-pilot:${readiness}:${size}:${role}`,
       eventId: createMetaEventId(),
       eventSourceUrl: buildAttributedSourceUrl(window.location.href),
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     };
 
     try {

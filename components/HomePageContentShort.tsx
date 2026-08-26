@@ -74,7 +74,8 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       smsConsent: variant === "default" ? smsConsentAgreed : false,
       eventId,
       eventSourceUrl: buildAttributedSourceUrl(window.location.href),
-      submittedAt: new Date().toISOString()
+      submittedAt: new Date().toISOString(),
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     };
 
     const attempt = async () => {
