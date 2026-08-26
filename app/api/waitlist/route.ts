@@ -12,6 +12,7 @@ type WaitlistBody = {
   eventSourceUrl?: string;
   submittedAt?: string;
   smsConsent?: boolean;
+  timezone?: string;
 };
 
 type PhonePlatform = "iphone" | "android";
@@ -48,6 +49,17 @@ function normalizePhonePlatform(rawPlatform?: string): PhonePlatform | null {
   return null;
 }
 
+function normalizeTimezone(rawTimezone?: string): string | null {
+  const timezone = rawTimezone?.trim();
+  if (!timezone || timezone.length > 100) return null;
+  try {
+    new Intl.DateTimeFormat("en-US", { timeZone: timezone }).format();
+    return timezone;
+  } catch {
+    return null;
+  }
+}
+
 function getClientIp(req: NextRequest): string | null {
   const forwardedFor = req.headers.get("x-forwarded-for");
   if (forwardedFor) {
@@ -65,6 +77,7 @@ export async function POST(req: NextRequest) {
     const phone = body.phone?.trim() || "";
     const source = body.source?.trim() || "Zoe Landing Page";
     const phonePlatform = normalizePhonePlatform(body.phonePlatform);
+    const timezone = normalizeTimezone(body.timezone);
     const eventId = body.eventId?.trim() || crypto.randomUUID();
 
     if (!name || !phone || !email) {
@@ -101,6 +114,7 @@ export async function POST(req: NextRequest) {
         eventSourceUrl: body.eventSourceUrl,
         submittedAt: body.submittedAt ?? new Date().toISOString(),
         smsConsent: body.smsConsent ?? typeTag === "individuals",
+        timezone,
       });
       contactId = contact.contactId;
       resendSyncStatus = contact.resendSyncStatus;

@@ -8,6 +8,7 @@ type ZoeMarketingWaitlistInput = {
   eventSourceUrl?: string;
   submittedAt: string;
   smsConsent?: boolean;
+  timezone?: string | null;
 };
 
 type ZoeMarketingWaitlistResult = {
@@ -55,6 +56,7 @@ export async function saveZoeMarketingWaitlistContact(
         smsConsent: input.smsConsent,
         signupPath: isChurchLead ? "churches" : "individuals",
         landingSource: input.source,
+        timezone: input.timezone ?? undefined,
       },
     }),
   });
