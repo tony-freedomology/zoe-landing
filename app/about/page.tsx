@@ -107,10 +107,10 @@ export default function AboutPage() {
                   Email me
                 </a>
                 <Link
-                  href="/#waitlist"
+                  href="/s"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-zoe-ink shadow-[0_12px_28px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/50 transition hover:-translate-y-0.5 active:scale-[0.98]"
                 >
-                  Join the waitlist
+                  Start with Zoe
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -298,14 +298,14 @@ export default function AboutPage() {
             Walk with us while Zoe grows up.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-7 text-white/70 sm:text-lg sm:leading-8">
-            Join the waitlist, read the journal, or just email me. We&apos;re building carefully, and thoughtful people make that better.
+            Join the beta, read the journal, or just email me. We&apos;re building carefully, and thoughtful people make that better.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
-              href="/#waitlist"
+              href="/s"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold text-white shadow-[0_18px_36px_rgba(29,194,134,0.28)] transition hover:bg-[#19b078] active:scale-[0.98]"
             >
-              Join the waitlist
+              Start with Zoe
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link

@@ -19,9 +19,9 @@ export default function FAQPage() {
       <section className="py-24 px-6 bg-zoe-ink">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-6">Ready to try it?</h2>
-          <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">Join the waitlist. No app, no login — just your phone and a daily text.</p>
-          <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
-            Join the Waitlist <ArrowRight className="h-4 w-4" />
+          <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">Join the beta. No app, no login — just your phone and a daily text.</p>
+          <Link href="/s" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
+            Start with Zoe <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

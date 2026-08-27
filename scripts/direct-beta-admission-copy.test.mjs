@@ -8,6 +8,20 @@ const footer = readFileSync(new URL("../components/Footer.tsx", import.meta.url)
 const landingRoute = readFileSync(new URL("../app/api/waitlist/route.ts", import.meta.url), "utf8");
 const backendClient = readFileSync(new URL("../lib/zoeMarketingWaitlist.ts", import.meta.url), "utf8");
 const defaultShortSurface = short.slice(short.indexOf('if (variant === "default")'), short.lastIndexOf("\n  return ("));
+const currentAccessSurfaces = [
+  "../app/about/page.tsx",
+  "../app/blog/can-ai-help-you-walk-with-jesus/page.tsx",
+  "../app/brand-facts/page.tsx",
+  "../app/faq/page.tsx",
+  "../app/guides/best-discipleship-apps-2026/page.tsx",
+  "../app/guides/christian-ai-tools/page.tsx",
+  "../app/guides/sms-discipleship/page.tsx",
+  "../app/journeys/page.tsx",
+  "../components/BlogArticleShell.tsx",
+  "../components/HomePageContent.tsx",
+  "../components/HomePageContentShort.tsx",
+  "../components/JourneyDetailPage.tsx",
+].map((path) => readFileSync(new URL(path, import.meta.url), "utf8"));
 
 test("default signup surfaces promise direct beta admission without waitlist copy", () => {
   for (const source of [primary, short]) {
@@ -37,4 +51,10 @@ test("direct admission keeps the canonical consent-safe signup ingress", () => {
   assert.doesNotMatch(landingRoute, /body\.smsConsent \?\?/);
   assert.match(primary, /status === "admitted" \? "You're in\." : "We got your details\."/);
   assert.match(short, /status === "admitted" \? "You're in\." : "We got your details\."/);
+});
+
+test("current public access copy no longer asks people to wait for an invite wave", () => {
+  for (const source of currentAccessSurfaces) {
+    assert.doesNotMatch(source, /join the waitlist|pre-alpha waitlist|spots open up|expanding the alpha in waves/i);
+  }
 });

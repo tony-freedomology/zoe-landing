@@ -390,7 +390,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                   {!isDefault ? (
                     <div className={clsx("inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
                       variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : "rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
-                      Pre-Alpha Waitlist
+                      Join the beta
                     </div>
                   ) : null}
 

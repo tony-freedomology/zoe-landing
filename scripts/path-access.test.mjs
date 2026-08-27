@@ -7,13 +7,13 @@ const homeSource = await readFile(new URL("../components/HomePageContent.tsx", i
 const apiSource = await readFile(new URL("../app/api/waitlist/route.ts", import.meta.url), "utf8");
 const persistenceSource = await readFile(new URL("../lib/zoeMarketingWaitlist.ts", import.meta.url), "utf8");
 
-test("Path detail pages do not promise an immediate start before access exists", () => {
+test("Path detail pages start beta admission without claiming the Path already started", () => {
   assert.doesNotMatch(detailSource, />\s*Start this journey\s*</);
   assert.doesNotMatch(detailSource, /Save this Path for early access/);
   assert.match(detailSource, /These Path pages are previews/);
   assert.match(detailSource, /Paths start inside Zoe after you get access/);
-  assert.match(detailSource, /href="\/#waitlist"/);
-  assert.match(detailSource, />\s*Join the waitlist\s*</);
+  assert.match(detailSource, /href="\/s"/);
+  assert.match(detailSource, />\s*Start with Zoe\s*</);
 });
 
 test("existing beta users get a direct route to the real Path library", () => {
@@ -21,7 +21,7 @@ test("existing beta users get a direct route to the real Path library", () => {
   assert.match(detailSource, /Already have beta access\? Open your Path library\./);
 });
 
-test("waitlist handoff stays generic and does not reserve a Path", () => {
+test("beta admission handoff stays generic and does not reserve a Path", () => {
   assert.doesNotMatch(detailSource, /\?path=/);
   assert.doesNotMatch(homeSource, /requestedPath/);
   assert.doesNotMatch(homeSource, /We saved/);
