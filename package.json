@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "test:path-access": "node scripts/path-access.test.mjs",
+    "test:direct-beta-copy": "node scripts/direct-beta-admission-copy.test.mjs",
     "report:waitlist": "node scripts/report-waitlist-aggregates.mjs",
     "test:waitlist-report": "node scripts/report-waitlist-aggregates.test.mjs"
   },

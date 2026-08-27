@@ -100,9 +100,16 @@ export async function POST(req: NextRequest) {
     const lastName = parts.slice(1).join(" ") || "";
 
     const typeTag = source.startsWith("churches-") ? "churches" : "individuals";
+    if (typeTag === "individuals" && typeof body.smsConsent !== "boolean") {
+      return NextResponse.json(
+        { ok: false, error: "SMS consent choice is required" },
+        { status: 400 }
+      );
+    }
 
     let contactId: string | null = null;
     let resendSyncStatus: string | null = null;
+    let admissionStatus: "claimed" | "follow_up_required" = "follow_up_required";
     try {
       const contact = await saveZoeMarketingWaitlistContact({
         name,
@@ -113,11 +120,12 @@ export async function POST(req: NextRequest) {
         eventId,
         eventSourceUrl: body.eventSourceUrl,
         submittedAt: body.submittedAt ?? new Date().toISOString(),
-        smsConsent: body.smsConsent ?? typeTag === "individuals",
+        smsConsent: body.smsConsent,
         timezone,
       });
       contactId = contact.contactId;
       resendSyncStatus = contact.resendSyncStatus;
+      admissionStatus = contact.admissionStatus;
     } catch (contactError) {
       console.error("Zoe marketing waitlist contact failed", {
         error:
@@ -159,6 +167,7 @@ export async function POST(req: NextRequest) {
       eventId,
       contactId,
       resendSyncStatus,
+      admissionStatus,
     });
   } catch (err) {
     console.error("Waitlist error:", {
