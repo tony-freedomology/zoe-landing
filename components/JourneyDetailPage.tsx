@@ -78,10 +78,10 @@ export default function JourneyDetailPage({ journey, heroImage }: JourneyDetailP
               Zoe is still in early access. These Path pages are previews; Paths start inside Zoe after you get access.
             </p>
             <Link
-              href="/#waitlist"
+              href="/s"
               className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-zoe-sap px-6 py-4 text-sm font-bold tracking-normal text-white shadow-[0_18px_36px_rgba(29,194,134,0.18)] transition hover:bg-zoe-forest [word-spacing:0.14em]"
             >
-              Join the waitlist
+              Start with Zoe
               <ArrowRight className="h-4 w-4" />
             </Link>
             <a
@@ -131,13 +131,13 @@ export default function JourneyDetailPage({ journey, heroImage }: JourneyDetailP
             Let the thread carry it.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/70 [word-spacing:0.08em]">
-            Join the waitlist to be among the first to walk through {journey.ctaLabel} with scripture, reflection, and check-ins in your texts.
+            Join the beta to walk through {journey.ctaLabel} with scripture, reflection, and check-ins in your texts.
           </p>
           <Link
-            href="/#waitlist"
+            href="/s"
             className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold tracking-normal text-white shadow-[0_18px_36px_rgba(29,194,134,0.18)] transition hover:bg-zoe-forest [word-spacing:0.14em]"
           >
-            Join the waitlist
+            Start with Zoe
             <ArrowRight className="h-4 w-4" />
           </Link>
           <a

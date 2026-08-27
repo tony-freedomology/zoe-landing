@@ -99,13 +99,13 @@ export default function BlogArticleShell({
               Scripture in the place you already check.
             </h2>
             <p className="mx-auto mt-4 max-w-md text-base font-medium leading-7 text-zoe-muted">
-              Join the Zoe waitlist and start with a rhythm that fits inside your actual day.
+              Join the Zoe beta and start with a rhythm that fits inside your actual day.
             </p>
             <Link
-              href="/#waitlist"
+              href="/s"
               className="mt-7 inline-flex items-center gap-2 rounded-full bg-zoe-sap px-7 py-4 text-sm font-bold text-white shadow-[0_18px_36px_rgba(29,194,134,0.18)] transition hover:-translate-y-0.5 hover:bg-zoe-forest"
             >
-              Join the waitlist
+              Start with Zoe
               <ArrowRight className="h-4 w-4" />
             </Link>
           </aside>

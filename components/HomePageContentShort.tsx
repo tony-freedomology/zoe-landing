@@ -34,6 +34,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     isWaitlistNameValid(name) &&
     phoneValid &&
     isWaitlistEmailValid(email);
+  const betaFormValid = waitlistFormValid && smsConsentAgreed;
 
   const isEM = variant === "emerald-uni";
 
@@ -55,7 +56,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       return;
     }
 
-    if (variant === "default" && !smsConsentAgreed) {
+    if (!smsConsentAgreed) {
       setSubmitError("Check the SMS consent box so Zoe can text you to start the beta.");
       return;
     }
@@ -71,7 +72,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
       phonePlatform,
       type: "individual",
       source: variant === "default" ? "beta-signup" : `short-landing-${variant}`,
-      smsConsent: variant === "default" ? smsConsentAgreed : false,
+      smsConsent: smsConsentAgreed,
       eventId,
       eventSourceUrl: buildAttributedSourceUrl(window.location.href),
       submittedAt: new Date().toISOString(),
@@ -124,7 +125,6 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
   ];
 
   if (variant === "default") {
-    const betaFormValid = waitlistFormValid && smsConsentAgreed;
     const showFounderSection = false;
     const betaPoints = [
       { icon: Compass, title: "Test it early", desc: "Explore the core experience while we're still shaping it." },
@@ -735,10 +735,10 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
               Walk with Jesus.
             </h1> */}
             <h2 className={clsx("text-2xl md:text-3xl font-medium mb-3 text-slate-800", headlineFont)}>
-              Be among the first.
+              Start with Zoe.
             </h2>
             <p className="text-slate-600 text-[15px] md:text-base font-medium mb-8 leading-relaxed">
-              We're opening Zoe to a small group of early adopters. Join the waitlist and we'll let you know when your spot is ready.
+              Join the beta and Zoe will text during daytime hours so you can start right away.
             </p>
 
             <AnimatePresence mode="wait">
@@ -753,9 +753,13 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                     <CheckCircle className={clsx("w-7 h-7", primaryColor)} />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-slate-900 mb-2">You&apos;re on the list.</h2>
+                    <h2 className="text-2xl font-bold text-slate-900 mb-2">
+                      {status === "admitted" ? "You're in." : "We got your details."}
+                    </h2>
                     <p className="text-slate-600 font-medium leading-relaxed max-w-xs">
-                      We&apos;re preparing something special. We&apos;ll text you as soon as your spot opens up.
+                      {status === "admitted"
+                        ? "Zoe will text you during daytime hours so you can start. There's nothing to download."
+                        : "Zoe couldn't start automatically, so we'll follow up instead."}
                     </p>
                   </div>
                 </motion.div>
@@ -829,22 +833,46 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                         focusRing
                       )}
                     />
+                    <AnimatePresence>
+                      {phoneValid ? (
+                        <motion.label
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -4 }}
+                          className="flex items-start gap-2.5 rounded-xl bg-slate-50 p-3 text-xs font-semibold leading-5 text-slate-700"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={smsConsentAgreed}
+                            onChange={(event) => setSmsConsentAgreed(event.target.checked)}
+                            className="mt-0.5 h-4 w-4 rounded border-slate-300 accent-emerald-500"
+                            required
+                          />
+                          <span>
+                            I agree to receive recurring texts from Zoe about beta access and the Zoe experience. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. See{" "}
+                            <a href="/terms" className="font-bold underline">Terms</a>
+                            {" "}and{" "}
+                            <a href="/privacy" className="font-bold underline">Privacy Policy</a>.
+                          </span>
+                        </motion.label>
+                      ) : null}
+                    </AnimatePresence>
                     <button
                       type="submit"
-                      disabled={status === "submitting" || !waitlistFormValid}
+                      disabled={status === "submitting" || !betaFormValid}
                       className={clsx(
                         "w-full rounded-xl px-6 py-4 font-bold text-white transition-all duration-200 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed mt-1 shadow-lg shadow-black/5",
                         primaryBg
                       )}
                     >
-                      {status === "submitting" ? "Joining..." : "Join The Walk"}
+                      {status === "submitting" ? "Joining..." : "Join the beta"}
                     </button>
                     {submitError && (
                       <div className="mt-1 pl-1">
                         <p className="text-red-500 text-sm font-medium">{submitError}</p>
                         <button
                           type="submit"
-                          disabled={status === "submitting" || !waitlistFormValid}
+                          disabled={status === "submitting" || !betaFormValid}
                           className={clsx(
                             "text-sm font-semibold underline mt-1 transition-colors disabled:text-slate-400 disabled:no-underline disabled:cursor-not-allowed",
                             primaryColor

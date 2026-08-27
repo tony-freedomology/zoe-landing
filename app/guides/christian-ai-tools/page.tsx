@@ -209,8 +209,8 @@ export default function ChristianAiToolsPage() {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-4xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-4">AI for depth. Not a chatbot.</h2>
           <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">Zoe uses AI to surface original-language context and reflection prompts — delivered to your texts each morning. No download. No spiritual theater.</p>
-          <Link href="/#waitlist" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
-            Join the Waitlist <ArrowRight className="h-4 w-4" />
+          <Link href="/s" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
+            Start with Zoe <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

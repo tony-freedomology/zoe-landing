@@ -293,13 +293,13 @@ export default function BrandFactsPage() {
             See it for yourself.
           </h2>
           <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">
-            Zoe is in early access. Join the waitlist to be among the first to experience discipleship that lives in your texts.
+            Join the beta and experience discipleship that lives in your texts.
           </p>
           <Link
-            href="/#waitlist"
+            href="/s"
             className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200"
           >
-            Join the Waitlist
+            Start with Zoe
           </Link>
         </div>
       </section>
