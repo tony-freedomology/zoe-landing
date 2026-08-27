@@ -88,14 +88,14 @@ const legacyFaqs = [
   },
   {
     question: "What does it cost?",
-    answer: "We'll share pricing details when we open the waitlist. Join now and you'll be among the first to know — and the first in line for early adopter rates.",
+    answer: "The beta is free. Join now and Zoe will text you during daytime hours so you can start.",
   },
 ];
 
 export default function HomePageContent({ variant = "default" }: HomeProps) {
   const isDefault = variant === "default";
   const defaultSectionHeading = "font-extrabold tracking-tight font-sans text-zoe-ink";
-  const [status, setStatus] = useState<"idle" | "submitting" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "admitted" | "follow_up_required">("idle");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [name, setName] = useState("");
   const [phone, setPhone] = usePhoneFormatter("");
@@ -115,17 +115,19 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
   });
 
   const [email, setEmail] = useState("");
+  const [smsConsentAgreed, setSmsConsentAgreed] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const waitlistFormValid =
     isWaitlistNameValid(name) &&
     isWaitlistPhoneValid(phone) &&
     isWaitlistEmailValid(email) &&
-    phonePlatform !== "";
+    phonePlatform !== "" &&
+    smsConsentAgreed;
 
   const handleWaitlistSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!waitlistFormValid) {
-      setSubmitError("Choose your phone type and enter a valid name, phone number, and email.");
+      setSubmitError("Complete the form and check the SMS consent box so Zoe can text you.");
       return;
     }
 
@@ -138,6 +140,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
       phone,
       email,
       phonePlatform,
+      smsConsent: smsConsentAgreed,
       source: "individuals-waitlist",
       eventId,
       eventSourceUrl: buildAttributedSourceUrl(window.location.href),
@@ -159,15 +162,15 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
     };
 
     try {
-      await attempt();
+      const result = await attempt();
       trackMetaLead(eventId, payload.source);
-      setStatus("sent");
+      setStatus(result.admissionStatus === "claimed" ? "admitted" : "follow_up_required");
     } catch (firstError) {
       try {
         await new Promise((r) => setTimeout(r, 1000));
-        await attempt();
+        const result = await attempt();
         trackMetaLead(eventId, payload.source);
-        setStatus("sent");
+        setStatus(result.admissionStatus === "claimed" ? "admitted" : "follow_up_required");
       } catch (retryError) {
         console.warn("Waitlist submission failed after retry:", retryError);
         setStatus("idle");
@@ -199,12 +202,14 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                 isDefault ? "rounded-[1.5rem] border-zoe-outline/45" : "rounded-2xl border-slate-100"
               )}
             >
-              {status === "sent" ? (
+              {status === "admitted" || status === "follow_up_required" ? (
                 <div className="flex flex-col items-start gap-3 text-left md:flex-row md:items-center md:justify-between">
                   <div>
-                    <p className="text-sm font-bold text-slate-900">You're on the list.</p>
+                    <p className="text-sm font-bold text-slate-900">{status === "admitted" ? "You're in." : "We got your details."}</p>
                     <p className="mt-1 text-sm font-medium leading-relaxed text-slate-600">
-                      We'll text you as soon as your spot opens up.
+                      {status === "admitted"
+                        ? "Zoe will text you during daytime hours so you can start. There's nothing to download."
+                        : "Zoe couldn't start automatically, so we'll follow up instead."}
                     </p>
                   </div>
                   <CheckCircle className="h-6 w-6 text-zoe-leaf" />
@@ -213,9 +218,9 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                 <form className="flex flex-col gap-3" onSubmit={handleWaitlistSubmit}>
                   <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
                     <div className="text-left">
-                      <p className="text-sm font-bold text-slate-900">Want early access?</p>
+                      <p className="text-sm font-bold text-slate-900">Want to try Zoe?</p>
                       <p className="text-xs font-medium leading-relaxed text-slate-500">
-                        Join the waitlist now, then keep exploring.
+                        Join the beta now, then keep exploring.
                       </p>
                     </div>
                     <fieldset className="grid grid-cols-2 gap-2 md:w-56">
@@ -287,6 +292,17 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                       {status === "submitting" ? "Joining..." : "Join"}
                     </button>
                   </div>
+
+                  <label className="flex items-start gap-2 text-left text-xs font-medium leading-relaxed text-slate-500">
+                    <input
+                      type="checkbox"
+                      checked={smsConsentAgreed}
+                      onChange={(event) => setSmsConsentAgreed(event.target.checked)}
+                      className="mt-0.5 h-4 w-4 shrink-0 rounded border-zoe-outline accent-zoe-sap"
+                      required
+                    />
+                    <span>I agree to receive recurring automated texts from Zoe. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help.</span>
+                  </label>
 
                   {submitError ? (
                     <p className="text-left text-xs font-medium text-rose-600">{submitError}</p>
@@ -379,22 +395,24 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                   ) : null}
 
                   <h2 className={clsx("mx-auto max-w-2xl text-4xl leading-[1.06] md:text-6xl", isDefault ? defaultSectionHeading : "text-slate-900 font-semibold tracking-tight")}>
-                    Be among the first.
+                    Start with Zoe.
                   </h2>
                   <p className={clsx("mt-5 text-lg font-medium max-w-2xl mx-auto leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>
-                    We're opening Zoe to a small group of early adopters. Join the waitlist and we'll let you know when your spot is ready.
+                    Join the beta and Zoe will text you during daytime hours so you can begin. There's no app to download.
                   </p>
 
                   <div className={clsx("mt-10 max-w-md mx-auto w-full p-5 md:p-6 relative overflow-hidden",
                     isDefault ? "rounded-[2rem] border border-zoe-outline/45 bg-white shadow-[0_18px_44px_rgba(28,28,25,0.06)]" : "rounded-2xl bg-slate-50/80 backdrop-blur-xl border border-slate-100 shadow-sm")}>
-                    {status === "sent" ? (
+                    {status === "admitted" || status === "follow_up_required" ? (
                       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center justify-center py-8 px-4 text-center">
                         <div className="w-16 h-16 bg-zoe-leaf/10 rounded-full flex items-center justify-center mb-6">
                           <CheckCircle className="w-8 h-8 text-zoe-leaf" />
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">You're on the list!</h3>
+                        <h3 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">{status === "admitted" ? "You're in." : "We got your details."}</h3>
                         <p className="text-slate-600 font-medium leading-relaxed">
-                          We've received your request. We'll be in touch as soon as spots open up.
+                          {status === "admitted"
+                            ? "Zoe will text you during daytime hours so you can start. There's nothing to download."
+                            : "Zoe couldn't start automatically, so we'll follow up instead."}
                         </p>
                       </motion.div>
                     ) : (
@@ -468,6 +486,20 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                             isDefault ? "rounded-[1.2rem] border-zoe-outline/45 bg-zoe-oat focus:border-zoe-sap focus:ring-2 focus:ring-zoe-sap/15" : "rounded-xl focus:ring-2 focus:ring-zoe-leaf/50 focus:border-zoe-leaf/50"
                           )}
                         />
+                        <label className="flex items-start gap-3 rounded-[1.2rem] bg-zoe-oat p-3 text-left text-xs font-medium leading-relaxed text-slate-500">
+                          <input
+                            type="checkbox"
+                            checked={smsConsentAgreed}
+                            onChange={(event) => setSmsConsentAgreed(event.target.checked)}
+                            className="mt-0.5 h-4 w-4 shrink-0 rounded border-zoe-outline accent-zoe-sap"
+                            required
+                          />
+                          <span>
+                            I agree to receive recurring automated texts from Zoe. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help.{" "}
+                            <a href="/privacy" className="underline hover:text-slate-600 transition-colors">Privacy Policy</a>{" · "}
+                            <a href="/terms" className="underline hover:text-slate-600 transition-colors">Terms of Service</a>
+                          </span>
+                        </label>
                         <button
                           className={clsx("mt-2 px-4 py-4 text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-white shadow-lg",
                             isDefault ? "rounded-full bg-zoe-sap shadow-sm hover:brightness-105 active:scale-95 disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none disabled:active:scale-100" : "rounded-xl bg-slate-900 shadow-slate-900/10 hover:bg-slate-800 hover:-translate-y-0.5 disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none disabled:hover:translate-y-0")}
@@ -476,7 +508,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                         >
                           {status === "submitting" ? (
                             <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          ) : "Join The Walk"}
+                          ) : "Join the beta"}
                         </button>
                         {submitError ? (
                           <div className="text-center">
@@ -493,11 +525,6 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                           </button>
                           </div>
                         ) : null}
-                        <p className="mt-3 text-xs leading-relaxed text-slate-400 text-center">
-                          By joining, you consent to receive recurring automated SMS messages from Zoe at the phone number provided. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out or HELP for help.{" "}
-                          <a href="/privacy" className="underline hover:text-slate-600 transition-colors">Privacy Policy</a>{" · "}
-                          <a href="/terms" className="underline hover:text-slate-600 transition-colors">Terms of Service</a>
-                        </p>
                       </form>
                     )}
                   </div>

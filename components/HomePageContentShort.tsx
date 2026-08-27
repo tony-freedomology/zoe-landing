@@ -21,7 +21,7 @@ interface ShortProps {
 type PhonePlatform = "iphone" | "android";
 
 export default function HomePageContentShort({ variant = "default" }: ShortProps) {
-  const [status, setStatus] = useState<"idle" | "submitting" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "admitted" | "follow_up_required">("idle");
   const [name, setName] = useState("");
   const [phone, setPhone] = usePhoneFormatter("");
   const [email, setEmail] = useState("");
@@ -56,7 +56,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     }
 
     if (variant === "default" && !smsConsentAgreed) {
-      setSubmitError("Check the SMS consent box so we can text you about the beta.");
+      setSubmitError("Check the SMS consent box so Zoe can text you to start the beta.");
       return;
     }
 
@@ -90,15 +90,15 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     };
 
     try {
-      await attempt();
+      const result = await attempt();
       trackMetaLead(eventId, payload.source);
-      setStatus("sent");
+      setStatus(result.admissionStatus === "claimed" ? "admitted" : "follow_up_required");
     } catch (firstError) {
       try {
         await new Promise((r) => setTimeout(r, 1000));
-        await attempt();
+        const result = await attempt();
         trackMetaLead(eventId, payload.source);
-        setStatus("sent");
+        setStatus(result.admissionStatus === "claimed" ? "admitted" : "follow_up_required");
       } catch (retryError) {
         console.warn("Waitlist submission failed after retry:", retryError);
         setStatus("idle");
@@ -139,7 +139,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     const betaFaqs = [
       {
         question: "What does joining the beta mean?",
-        answer: "At some point you'll get an invitation to start texting with Zoe. Zoe will text you back just like any other contact in your phone, except it's AI.\n\nAfter some initial getting to know you, Zoe will act as a kind of daily partner in your walk with Jesus, helping you engage with scripture and see God at work in your day.\n\nI can already hear some of you protesting.\n\n\"Partner in my walk with Jesus!? Helper!? Don't you mean the Holy Spirit?\"\n\nWhich leads us to the next question.",
+        answer: "Once you sign up, Zoe will text you during daytime hours so you can start the beta right away. Zoe will text you back just like any other contact in your phone, except it's AI.\n\nAfter some initial getting to know you, Zoe will act as a kind of daily partner in your walk with Jesus, helping you engage with scripture and see God at work in your day.\n\nI can already hear some of you protesting.\n\n\"Partner in my walk with Jesus!? Helper!? Don't you mean the Holy Spirit?\"\n\nWhich leads us to the next question.",
       },
       {
         question: "Are you trying to replace the Holy Spirit?",
@@ -198,7 +198,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
 
             <div id="beta-form-mobile" className="mt-4 rounded-[1.15rem] border border-zoe-outline/35 bg-white p-4 shadow-[0_18px_46px_rgba(45,50,49,0.08)]">
               <AnimatePresence mode="wait">
-                {status === "sent" ? (
+                {status === "admitted" || status === "follow_up_required" ? (
                   <motion.div
                     key="success-mobile"
                     initial={{ opacity: 0, scale: 0.97 }}
@@ -206,14 +206,18 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                     className="p-1"
                   >
                     <CheckCircle className="h-8 w-8 text-zoe-sap" />
-                    <h2 className="mt-4 text-2xl font-extrabold text-zoe-ink">You're on the beta list.</h2>
-                    <p className="mt-2 text-sm font-medium leading-6 text-zoe-muted">Thank you. We'll be in touch soon with next steps.</p>
+                    <h2 className="mt-4 text-2xl font-extrabold text-zoe-ink">{status === "admitted" ? "You're in." : "We got your details."}</h2>
+                    <p className="mt-2 text-sm font-medium leading-6 text-zoe-muted">
+                      {status === "admitted"
+                        ? "Zoe will text you during daytime hours so you can start. There's nothing to download."
+                        : "Zoe couldn't start automatically, so we'll follow up instead."}
+                    </p>
                   </motion.div>
                 ) : (
                   <motion.form key="form-mobile" onSubmit={handleWaitlistSubmit} className="space-y-3" exit={{ opacity: 0, y: 8 }}>
                     <div>
                       <h2 className="text-[1.45rem] font-extrabold tracking-tight text-zoe-ink">Where should Zoe text you?</h2>
-                      <p className="mt-1 text-sm font-medium leading-5 text-zoe-muted">Sign up to be considered for early access. Phone is the main thing.</p>
+                      <p className="mt-1 text-sm font-medium leading-5 text-zoe-muted">Join the beta and start with Zoe by text. There's nothing to download.</p>
                     </div>
 
                     <input
@@ -305,11 +309,11 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                       disabled={status === "submitting" || !betaFormValid}
                       className="w-full rounded-full bg-zoe-sap px-6 py-3.5 text-base font-extrabold text-white shadow-[0_14px_35px_rgba(29,194,134,0.22)] transition hover:brightness-105 disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none"
                     >
-                      {status === "submitting" ? "Applying..." : "Apply for the beta"}
+                      {status === "submitting" ? "Joining..." : "Join the beta"}
                     </button>
 
                     {submitError ? <p className="text-sm font-semibold text-rose-600">{submitError}</p> : null}
-                    <p className="text-center text-xs font-medium text-zoe-muted">Spots are limited.</p>
+                    <p className="text-center text-xs font-medium text-zoe-muted">Zoe texts new members during daytime hours.</p>
                   </motion.form>
                 )}
               </AnimatePresence>
@@ -336,7 +340,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
         </section>
 
         <AnimatePresence>
-          {showStickyBetaCta && status !== "sent" ? (
+          {showStickyBetaCta && status !== "admitted" && status !== "follow_up_required" ? (
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -417,7 +421,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
 
               <div className="mt-9">
                 <AnimatePresence mode="wait">
-                  {status === "sent" ? (
+                  {status === "admitted" || status === "follow_up_required" ? (
                     <motion.div
                       key="success"
                       initial={{ opacity: 0, scale: 0.97 }}
@@ -425,16 +429,18 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                       className="rounded-[1.35rem] border border-zoe-outline/35 bg-white p-6 shadow-[0_16px_45px_rgba(45,50,49,0.05)]"
                     >
                       <CheckCircle className="h-8 w-8 text-zoe-sap" />
-                      <h2 className="mt-4 text-2xl font-extrabold text-zoe-ink">You're on the beta list.</h2>
+                      <h2 className="mt-4 text-2xl font-extrabold text-zoe-ink">{status === "admitted" ? "You're in." : "We got your details."}</h2>
                       <p className="mt-2 max-w-md text-sm font-medium leading-6 text-zoe-muted">
-                        Thank you. We'll be in touch soon with next steps.
+                        {status === "admitted"
+                          ? "Zoe will text you during daytime hours so you can start. There's nothing to download."
+                          : "Zoe couldn't start automatically, so we'll follow up instead."}
                       </p>
                     </motion.div>
                   ) : (
                     <motion.form key="form" onSubmit={handleWaitlistSubmit} className="space-y-3" exit={{ opacity: 0, y: 8 }}>
                       <div>
                         <h2 className="text-2xl font-extrabold tracking-tight text-zoe-ink">Where should Zoe text you?</h2>
-                        <p className="mt-1 text-sm font-medium text-zoe-muted">Sign up to be considered for early access.</p>
+                        <p className="mt-1 text-sm font-medium text-zoe-muted">Join the beta and start with Zoe by text. There's nothing to download.</p>
                       </div>
 
                       <fieldset className="grid grid-cols-2 gap-2 pt-2">
@@ -522,11 +528,11 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                         disabled={status === "submitting" || !betaFormValid}
                         className="w-full rounded-full bg-zoe-sap px-6 py-4 text-base font-extrabold text-white shadow-[0_14px_35px_rgba(29,194,134,0.22)] transition hover:brightness-105 disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none"
                       >
-                        {status === "submitting" ? "Applying..." : "Apply for the beta"}
+                        {status === "submitting" ? "Joining..." : "Join the beta"}
                       </button>
 
                       {submitError ? <p className="text-sm font-semibold text-rose-600">{submitError}</p> : null}
-                      <p className="text-center text-xs font-medium text-zoe-muted">Spots are limited.</p>
+                      <p className="text-center text-xs font-medium text-zoe-muted">Zoe texts new members during daytime hours.</p>
                     </motion.form>
                   )}
                 </AnimatePresence>
@@ -736,7 +742,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
             </p>
 
             <AnimatePresence mode="wait">
-              {status === "sent" ? (
+              {status === "admitted" || status === "follow_up_required" ? (
                 <motion.div
                   key="success"
                   initial={{ opacity: 0, scale: 0.95 }}

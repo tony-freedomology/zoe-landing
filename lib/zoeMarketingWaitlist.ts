@@ -14,6 +14,7 @@ type ZoeMarketingWaitlistInput = {
 type ZoeMarketingWaitlistResult = {
   contactId: string | null;
   resendSyncStatus: string | null;
+  admissionStatus: "claimed" | "follow_up_required";
 };
 
 function getZoeApiBaseUrl() {
@@ -82,5 +83,6 @@ export async function saveZoeMarketingWaitlistContact(
   return {
     contactId: typeof data.contactId === "string" ? data.contactId : null,
     resendSyncStatus: typeof data.resendSyncStatus === "string" ? data.resendSyncStatus : null,
+    admissionStatus: data.admissionStatus === "claimed" ? "claimed" : "follow_up_required",
   };
 }
