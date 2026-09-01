@@ -38,6 +38,8 @@ export default function SubscribePage({ searchParams }: SubscribePageProps) {
   const subheading =
     initialPlan === "beta"
       ? "Your beta-tester thank-you price is $7/month."
+      : initialPlan === "year"
+      ? "$99/year. Cancel anytime."
       : initialMode === "reactivate"
       ? "Pick up right where you left off."
       : "$10/month. Cancel anytime.";

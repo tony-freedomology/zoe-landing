@@ -4,12 +4,13 @@ type PublicPrice = {
   interval: string;
 };
 
-export type IndividualBillingPlan = "month" | "beta";
+export type IndividualBillingPlan = "month" | "year" | "beta";
 export type SubscribeFlowMode = "subscribe" | "reactivate";
 
 export function normalizeIndividualBillingPlan(
   value: string | undefined | null
 ): IndividualBillingPlan {
+  if (value === "year") return "year";
   return value === "beta" ? "beta" : "month";
 }
 
