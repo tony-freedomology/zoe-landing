@@ -17,6 +17,20 @@ export const draftBlogPosts = [
 
 export const blogPosts = [
   {
+    slug: "can-god-speak-through-ai",
+    title: "Can God Speak Through AI?",
+    shortTitle: "Can God Speak Through AI?",
+    description:
+      "AI is not alive, spiritual, or a substitute for the Holy Spirit. But can God still use it?",
+    date: "July 2026",
+    readTime: "12 min read",
+    category: "AI & Faith",
+    number: "05",
+    heroImage: "/images/blog-ai-prayer-reflex.png",
+    heroAlt:
+      "A warm desk with a Bible, journal, candle, coffee, and laptop, suggesting reflection and prayer.",
+  },
+  {
     slug: "ai-can-sort-your-thoughts",
     title: "AI Can Sort Your Thoughts, but it Can’t Receive Your Prayers",
     shortTitle: "AI Can Sort Your Thoughts",
