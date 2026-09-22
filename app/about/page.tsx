@@ -298,7 +298,7 @@ export default function AboutPage() {
             Walk with us while Zoe grows up.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-7 text-white/70 sm:text-lg sm:leading-8">
-            Join the beta, read the journal, or just email me. We&apos;re building carefully, and thoughtful people make that better.
+            Join the waitlist, read the journal, or just email me. We&apos;re building carefully, and thoughtful people make that better.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link

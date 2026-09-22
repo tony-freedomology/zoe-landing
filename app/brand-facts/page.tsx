@@ -293,7 +293,7 @@ export default function BrandFactsPage() {
             See it for yourself.
           </h2>
           <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">
-            Join the beta and experience discipleship that lives in your texts.
+            Join the waitlist and experience discipleship that lives in your texts.
           </p>
           <Link
             href="/s"
