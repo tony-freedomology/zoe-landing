@@ -83,7 +83,7 @@ const softwareSchema = {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
-    description: "Free beta — start with Zoe by text",
+    description: "Free beta waitlist — invitations in small groups",
   },
   aggregateRating: undefined,
 };

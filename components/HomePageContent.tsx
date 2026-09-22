@@ -1,5 +1,6 @@
 "use client";
 
+import { signupStatus, signupConfirmation, type SignupStatus } from "../lib/signupAdmission";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useRef, type FormEvent } from "react";
 import clsx from "clsx";
@@ -88,14 +89,14 @@ const legacyFaqs = [
   },
   {
     question: "What does it cost?",
-    answer: "The beta is free. Join now and Zoe will text you during daytime hours so you can start.",
+    answer: "The beta is free. Join the waitlist and we’ll text you when your spot is ready.",
   },
 ];
 
 export default function HomePageContent({ variant = "default" }: HomeProps) {
   const isDefault = variant === "default";
   const defaultSectionHeading = "font-extrabold tracking-tight font-sans text-zoe-ink";
-  const [status, setStatus] = useState<"idle" | "submitting" | "admitted" | "follow_up_required">("idle");
+  const [status, setStatus] = useState<SignupStatus>("idle");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [name, setName] = useState("");
   const [phone, setPhone] = usePhoneFormatter("");
@@ -164,13 +165,13 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
     try {
       const result = await attempt();
       trackMetaLead(eventId, payload.source);
-      setStatus(result.admissionStatus === "claimed" ? "admitted" : "follow_up_required");
+      setStatus(signupStatus(result.admissionStatus));
     } catch (firstError) {
       try {
         await new Promise((r) => setTimeout(r, 1000));
         const result = await attempt();
         trackMetaLead(eventId, payload.source);
-        setStatus(result.admissionStatus === "claimed" ? "admitted" : "follow_up_required");
+        setStatus(signupStatus(result.admissionStatus));
       } catch (retryError) {
         console.warn("Waitlist submission failed after retry:", retryError);
         setStatus("idle");
@@ -202,14 +203,12 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                 isDefault ? "rounded-[1.5rem] border-zoe-outline/45" : "rounded-2xl border-slate-100"
               )}
             >
-              {status === "admitted" || status === "follow_up_required" ? (
+              {status === "admitted" || status === "waitlisted" || status === "follow_up_required" ? (
                 <div className="flex flex-col items-start gap-3 text-left md:flex-row md:items-center md:justify-between">
                   <div>
-                    <p className="text-sm font-bold text-slate-900">{status === "admitted" ? "You're in." : "We got your details."}</p>
+                    <p className="text-sm font-bold text-slate-900">{signupConfirmation(status).title}</p>
                     <p className="mt-1 text-sm font-medium leading-relaxed text-slate-600">
-                      {status === "admitted"
-                        ? "Zoe will text you during daytime hours so you can start. There's nothing to download."
-                        : "Zoe couldn't start automatically, so we'll follow up instead."}
+                      {signupConfirmation(status).body}
                     </p>
                   </div>
                   <CheckCircle className="h-6 w-6 text-zoe-leaf" />
@@ -220,7 +219,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                     <div className="text-left">
                       <p className="text-sm font-bold text-slate-900">Want to try Zoe?</p>
                       <p className="text-xs font-medium leading-relaxed text-slate-500">
-                        Join the beta now, then keep exploring.
+                        Join the waitlist, then keep exploring.
                       </p>
                     </div>
                     <fieldset className="grid grid-cols-2 gap-2 md:w-56">
@@ -390,29 +389,27 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                   {!isDefault ? (
                     <div className={clsx("inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest mb-8 shadow-sm",
                       variant === "emerald-uni" ? "rounded-full bg-[#1dc286] text-white border-transparent" : "rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 text-zoe-leaf")}>
-                      Join the beta
+                      Join the waitlist
                     </div>
                   ) : null}
 
                   <h2 className={clsx("mx-auto max-w-2xl text-4xl leading-[1.06] md:text-6xl", isDefault ? defaultSectionHeading : "text-slate-900 font-semibold tracking-tight")}>
-                    Start with Zoe.
+                    Try Zoe with us.
                   </h2>
                   <p className={clsx("mt-5 text-lg font-medium max-w-2xl mx-auto leading-relaxed", isDefault ? "text-zoe-muted" : "text-slate-600")}>
-                    Join the beta and Zoe will text you during daytime hours so you can begin. There's no app to download.
+                    We’re inviting people in small groups while we improve Zoe. Join the waitlist and we’ll text you when your spot is ready.
                   </p>
 
                   <div className={clsx("mt-10 max-w-md mx-auto w-full p-5 md:p-6 relative overflow-hidden",
                     isDefault ? "rounded-[2rem] border border-zoe-outline/45 bg-white shadow-[0_18px_44px_rgba(28,28,25,0.06)]" : "rounded-2xl bg-slate-50/80 backdrop-blur-xl border border-slate-100 shadow-sm")}>
-                    {status === "admitted" || status === "follow_up_required" ? (
+                    {status === "admitted" || status === "waitlisted" || status === "follow_up_required" ? (
                       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center justify-center py-8 px-4 text-center">
                         <div className="w-16 h-16 bg-zoe-leaf/10 rounded-full flex items-center justify-center mb-6">
                           <CheckCircle className="w-8 h-8 text-zoe-leaf" />
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">{status === "admitted" ? "You're in." : "We got your details."}</h3>
+                        <h3 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">{signupConfirmation(status).title}</h3>
                         <p className="text-slate-600 font-medium leading-relaxed">
-                          {status === "admitted"
-                            ? "Zoe will text you during daytime hours so you can start. There's nothing to download."
-                            : "Zoe couldn't start automatically, so we'll follow up instead."}
+                          {signupConfirmation(status).body}
                         </p>
                       </motion.div>
                     ) : (
@@ -508,7 +505,7 @@ export default function HomePageContent({ variant = "default" }: HomeProps) {
                         >
                           {status === "submitting" ? (
                             <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          ) : "Join the beta"}
+                          ) : "Join the waitlist"}
                         </button>
                         {submitError ? (
                           <div className="text-center">

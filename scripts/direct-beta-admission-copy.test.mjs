@@ -23,15 +23,13 @@ const currentAccessSurfaces = [
   "../components/JourneyDetailPage.tsx",
 ].map((path) => readFileSync(new URL(path, import.meta.url), "utf8"));
 
-test("default signup surfaces promise direct beta admission without waitlist copy", () => {
+test("signup surfaces describe the waitlist and share receipt-based confirmation copy", () => {
   for (const source of [primary, short]) {
-    assert.match(source, /Join the beta/);
-    assert.match(source, /Zoe will text you during daytime hours/);
+    assert.match(source, /Join the waitlist/);
+    assert.match(source, /signupConfirmation\(status\)\.body/);
+    assert.doesNotMatch(source, /couldn't start automatically|start right away/);
   }
-
-  assert.doesNotMatch(primary, /Join the waitlist|spots open up|You're on the list/);
-  assert.doesNotMatch(defaultShortSurface, /Apply for the beta|Spots are limited|You're on the beta list/);
-  assert.match(footer, />Join the beta</);
+  assert.match(footer, />Join the waitlist</);
 });
 
 test("direct admission keeps the canonical consent-safe signup ingress", () => {
@@ -44,17 +42,17 @@ test("direct admission keeps the canonical consent-safe signup ingress", () => {
   assert.match(primary, /smsConsent: smsConsentAgreed/);
   assert.match(primary, /phonePlatform !== "" &&\s+smsConsentAgreed/);
   assert.match(short, /I agree to receive recurring texts from Zoe/);
-  assert.match(backendClient, /data\.admissionStatus === "claimed" \? "claimed" : "follow_up_required"/);
+  assert.match(backendClient, /data\.admissionStatus === "waitlisted"/);
   assert.match(landingRoute, /admissionStatus = contact\.admissionStatus/);
   assert.match(landingRoute, /typeTag === "individuals" && typeof body\.smsConsent !== "boolean"/);
   assert.match(landingRoute, /smsConsent: body\.smsConsent/);
   assert.doesNotMatch(landingRoute, /body\.smsConsent \?\?/);
-  assert.match(primary, /status === "admitted" \? "You're in\." : "We got your details\."/);
-  assert.match(short, /status === "admitted" \? "You're in\." : "We got your details\."/);
+
+
 });
 
-test("current public access copy no longer asks people to wait for an invite wave", () => {
+test("current public access copy does not promise immediate admission", () => {
   for (const source of currentAccessSurfaces) {
-    assert.doesNotMatch(source, /join the waitlist|pre-alpha waitlist|spots open up|expanding the alpha in waves/i);
+    assert.doesNotMatch(source, /start right away|Join now and Zoe will text/i);
   }
 });

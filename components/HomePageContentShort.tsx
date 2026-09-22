@@ -1,5 +1,6 @@
 "use client";
 
+import { signupStatus, signupConfirmation, type SignupStatus } from "../lib/signupAdmission";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, type FormEvent } from "react";
 import clsx from "clsx";
@@ -21,7 +22,7 @@ interface ShortProps {
 type PhonePlatform = "iphone" | "android";
 
 export default function HomePageContentShort({ variant = "default" }: ShortProps) {
-  const [status, setStatus] = useState<"idle" | "submitting" | "admitted" | "follow_up_required">("idle");
+  const [status, setStatus] = useState<SignupStatus>("idle");
   const [name, setName] = useState("");
   const [phone, setPhone] = usePhoneFormatter("");
   const [email, setEmail] = useState("");
@@ -93,13 +94,13 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     try {
       const result = await attempt();
       trackMetaLead(eventId, payload.source);
-      setStatus(result.admissionStatus === "claimed" ? "admitted" : "follow_up_required");
+      setStatus(signupStatus(result.admissionStatus));
     } catch (firstError) {
       try {
         await new Promise((r) => setTimeout(r, 1000));
         const result = await attempt();
         trackMetaLead(eventId, payload.source);
-        setStatus(result.admissionStatus === "claimed" ? "admitted" : "follow_up_required");
+        setStatus(signupStatus(result.admissionStatus));
       } catch (retryError) {
         console.warn("Waitlist submission failed after retry:", retryError);
         setStatus("idle");
@@ -139,7 +140,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
     const betaFaqs = [
       {
         question: "What does joining the beta mean?",
-        answer: "Once you sign up, Zoe will text you during daytime hours so you can start the beta right away. Zoe will text you back just like any other contact in your phone, except it's AI.\n\nAfter some initial getting to know you, Zoe will act as a kind of daily partner in your walk with Jesus, helping you engage with scripture and see God at work in your day.\n\nI can already hear some of you protesting.\n\n\"Partner in my walk with Jesus!? Helper!? Don't you mean the Holy Spirit?\"\n\nWhich leads us to the next question.",
+        answer: "We’re inviting people in small groups while we improve Zoe. Sign up for the waitlist and we’ll text you when your spot is ready. Zoe will text you back just like any other contact in your phone, except it's AI.\n\nAfter some initial getting to know you, Zoe will act as a kind of daily partner in your walk with Jesus, helping you engage with scripture and see God at work in your day.\n\nI can already hear some of you protesting.\n\n\"Partner in my walk with Jesus!? Helper!? Don't you mean the Holy Spirit?\"\n\nWhich leads us to the next question.",
       },
       {
         question: "Are you trying to replace the Holy Spirit?",
@@ -198,7 +199,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
 
             <div id="beta-form-mobile" className="mt-4 rounded-[1.15rem] border border-zoe-outline/35 bg-white p-4 shadow-[0_18px_46px_rgba(45,50,49,0.08)]">
               <AnimatePresence mode="wait">
-                {status === "admitted" || status === "follow_up_required" ? (
+                {status === "admitted" || status === "waitlisted" || status === "follow_up_required" ? (
                   <motion.div
                     key="success-mobile"
                     initial={{ opacity: 0, scale: 0.97 }}
@@ -206,18 +207,16 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                     className="p-1"
                   >
                     <CheckCircle className="h-8 w-8 text-zoe-sap" />
-                    <h2 className="mt-4 text-2xl font-extrabold text-zoe-ink">{status === "admitted" ? "You're in." : "We got your details."}</h2>
+                    <h2 className="mt-4 text-2xl font-extrabold text-zoe-ink">{signupConfirmation(status).title}</h2>
                     <p className="mt-2 text-sm font-medium leading-6 text-zoe-muted">
-                      {status === "admitted"
-                        ? "Zoe will text you during daytime hours so you can start. There's nothing to download."
-                        : "Zoe couldn't start automatically, so we'll follow up instead."}
+                      {signupConfirmation(status).body}
                     </p>
                   </motion.div>
                 ) : (
                   <motion.form key="form-mobile" onSubmit={handleWaitlistSubmit} className="space-y-3" exit={{ opacity: 0, y: 8 }}>
                     <div>
                       <h2 className="text-[1.45rem] font-extrabold tracking-tight text-zoe-ink">Where should Zoe text you?</h2>
-                      <p className="mt-1 text-sm font-medium leading-5 text-zoe-muted">Join the beta and start with Zoe by text. There's nothing to download.</p>
+                      <p className="mt-1 text-sm font-medium leading-5 text-zoe-muted">Join the waitlist. We’ll text you when your spot is ready. There’s nothing to download.</p>
                     </div>
 
                     <input
@@ -309,11 +308,11 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                       disabled={status === "submitting" || !betaFormValid}
                       className="w-full rounded-full bg-zoe-sap px-6 py-3.5 text-base font-extrabold text-white shadow-[0_14px_35px_rgba(29,194,134,0.22)] transition hover:brightness-105 disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none"
                     >
-                      {status === "submitting" ? "Joining..." : "Join the beta"}
+                      {status === "submitting" ? "Joining..." : "Join the waitlist"}
                     </button>
 
                     {submitError ? <p className="text-sm font-semibold text-rose-600">{submitError}</p> : null}
-                    <p className="text-center text-xs font-medium text-zoe-muted">Zoe texts new members during daytime hours.</p>
+                    <p className="text-center text-xs font-medium text-zoe-muted">Invitations go out in small groups during daytime hours.</p>
                   </motion.form>
                 )}
               </AnimatePresence>
@@ -340,7 +339,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
         </section>
 
         <AnimatePresence>
-          {showStickyBetaCta && status !== "admitted" && status !== "follow_up_required" ? (
+          {showStickyBetaCta && status !== "admitted" && status !== "waitlisted" && status !== "follow_up_required" ? (
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -421,7 +420,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
 
               <div className="mt-9">
                 <AnimatePresence mode="wait">
-                  {status === "admitted" || status === "follow_up_required" ? (
+                  {status === "admitted" || status === "waitlisted" || status === "follow_up_required" ? (
                     <motion.div
                       key="success"
                       initial={{ opacity: 0, scale: 0.97 }}
@@ -429,18 +428,16 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                       className="rounded-[1.35rem] border border-zoe-outline/35 bg-white p-6 shadow-[0_16px_45px_rgba(45,50,49,0.05)]"
                     >
                       <CheckCircle className="h-8 w-8 text-zoe-sap" />
-                      <h2 className="mt-4 text-2xl font-extrabold text-zoe-ink">{status === "admitted" ? "You're in." : "We got your details."}</h2>
+                      <h2 className="mt-4 text-2xl font-extrabold text-zoe-ink">{signupConfirmation(status).title}</h2>
                       <p className="mt-2 max-w-md text-sm font-medium leading-6 text-zoe-muted">
-                        {status === "admitted"
-                          ? "Zoe will text you during daytime hours so you can start. There's nothing to download."
-                          : "Zoe couldn't start automatically, so we'll follow up instead."}
+                        {signupConfirmation(status).body}
                       </p>
                     </motion.div>
                   ) : (
                     <motion.form key="form" onSubmit={handleWaitlistSubmit} className="space-y-3" exit={{ opacity: 0, y: 8 }}>
                       <div>
                         <h2 className="text-2xl font-extrabold tracking-tight text-zoe-ink">Where should Zoe text you?</h2>
-                        <p className="mt-1 text-sm font-medium text-zoe-muted">Join the beta and start with Zoe by text. There's nothing to download.</p>
+                        <p className="mt-1 text-sm font-medium text-zoe-muted">Join the waitlist. We’ll text you when your spot is ready. There’s nothing to download.</p>
                       </div>
 
                       <fieldset className="grid grid-cols-2 gap-2 pt-2">
@@ -528,11 +525,11 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                         disabled={status === "submitting" || !betaFormValid}
                         className="w-full rounded-full bg-zoe-sap px-6 py-4 text-base font-extrabold text-white shadow-[0_14px_35px_rgba(29,194,134,0.22)] transition hover:brightness-105 disabled:bg-slate-200 disabled:text-slate-500 disabled:shadow-none"
                       >
-                        {status === "submitting" ? "Joining..." : "Join the beta"}
+                        {status === "submitting" ? "Joining..." : "Join the waitlist"}
                       </button>
 
                       {submitError ? <p className="text-sm font-semibold text-rose-600">{submitError}</p> : null}
-                      <p className="text-center text-xs font-medium text-zoe-muted">Zoe texts new members during daytime hours.</p>
+                      <p className="text-center text-xs font-medium text-zoe-muted">Invitations go out in small groups during daytime hours.</p>
                     </motion.form>
                   )}
                 </AnimatePresence>
@@ -735,14 +732,14 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
               Walk with Jesus.
             </h1> */}
             <h2 className={clsx("text-2xl md:text-3xl font-medium mb-3 text-slate-800", headlineFont)}>
-              Start with Zoe.
+              Try Zoe with us.
             </h2>
             <p className="text-slate-600 text-[15px] md:text-base font-medium mb-8 leading-relaxed">
-              Join the beta and Zoe will text during daytime hours so you can start right away.
+              We’re inviting people in small groups. Join the waitlist and we’ll text you when your spot is ready.
             </p>
 
             <AnimatePresence mode="wait">
-              {status === "admitted" || status === "follow_up_required" ? (
+              {status === "admitted" || status === "waitlisted" || status === "follow_up_required" ? (
                 <motion.div
                   key="success"
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -754,12 +751,10 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold text-slate-900 mb-2">
-                      {status === "admitted" ? "You're in." : "We got your details."}
+                      {signupConfirmation(status).title}
                     </h2>
                     <p className="text-slate-600 font-medium leading-relaxed max-w-xs">
-                      {status === "admitted"
-                        ? "Zoe will text you during daytime hours so you can start. There's nothing to download."
-                        : "Zoe couldn't start automatically, so we'll follow up instead."}
+                      {signupConfirmation(status).body}
                     </p>
                   </div>
                 </motion.div>
@@ -865,7 +860,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                         primaryBg
                       )}
                     >
-                      {status === "submitting" ? "Joining..." : "Join the beta"}
+                      {status === "submitting" ? "Joining..." : "Join the waitlist"}
                     </button>
                     {submitError && (
                       <div className="mt-1 pl-1">

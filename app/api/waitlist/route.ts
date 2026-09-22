@@ -109,7 +109,7 @@ export async function POST(req: NextRequest) {
 
     let contactId: string | null = null;
     let resendSyncStatus: string | null = null;
-    let admissionStatus: "claimed" | "follow_up_required" = "follow_up_required";
+    let admissionStatus: "claimed" | "waitlisted" | "follow_up_required" = "follow_up_required";
     try {
       const contact = await saveZoeMarketingWaitlistContact({
         name,

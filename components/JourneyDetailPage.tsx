@@ -131,7 +131,7 @@ export default function JourneyDetailPage({ journey, heroImage }: JourneyDetailP
             Let the thread carry it.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg font-medium leading-8 tracking-normal text-white/70 [word-spacing:0.08em]">
-            Join the beta to walk through {journey.ctaLabel} with scripture, reflection, and check-ins in your texts.
+            Join the waitlist to walk through {journey.ctaLabel} with scripture, reflection, and check-ins in your texts.
           </p>
           <Link
             href="/s"

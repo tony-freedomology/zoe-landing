@@ -129,7 +129,7 @@ export default function CanAiHelpYouWalkWithJesusPage() {
         That&apos;s why I want your feedback.
       </p>
       <p>
-        If you haven&apos;t yet, join the beta. Zoe will text during daytime hours so you can start right away.
+        If you haven&apos;t yet, join the waitlist. We’re inviting people in small groups and will text you when your spot is ready.
       </p>
       <p>
         Next on the punch list is giving Zoe iMessage, which I am very excited about.
