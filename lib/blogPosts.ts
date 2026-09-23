@@ -103,7 +103,7 @@ export const blogPosts: BlogPost[] = [
       ],
     },
     relatedJourney: "still",
-    relatedJourneyNote: "Tony mentions it in the post: less talking at God, more turning to gaze at Him.",
+    relatedJourneyNote: "The practice from the post: less talking at God, more turning to gaze at Him.",
   },
   {
     slug: "can-ai-help-you-walk-with-jesus",
