@@ -26,7 +26,7 @@ export const blogPosts = [
     readTime: "7 min read",
     category: "AI & Faith",
     number: "04",
-    heroImage: "/images/blog-ai-prayer-reflex.png",
+    heroImage: "/images/blog-ai-prayer-reflex.webp",
     heroAlt:
       "A warm desk with a Bible, journal, candle, coffee, and laptop, suggesting the difference between reflection and prayer.",
   },

@@ -11,7 +11,7 @@ import {
 } from "./text-start";
 
 export const metadata: Metadata = withSocial({
-  title: "Zoe Beta Welcome",
+  title: "Beta Welcome",
   description: "A short welcome for Zoe beta testers before starting the text experience.",
   openGraph: {
     title: "You're in - welcome to the Zoe beta",
@@ -38,7 +38,7 @@ export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) 
       <section className="relative overflow-hidden">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[url('/images/text/zoe-text-path-bg.png')] bg-cover bg-center"
+          className="pointer-events-none absolute inset-0 bg-[url('/images/text/zoe-text-path-bg.webp')] bg-cover bg-center"
         />
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-zoe-oat/72" />
 
@@ -159,7 +159,7 @@ function InfoRow({ icon, title, body }: { icon: ReactNode; title: string; body: 
         {icon}
       </div>
       <div>
-        <h2 className="text-sm font-extrabold text-zoe-ink">{title}</h2>
+        <p className="text-sm font-extrabold text-zoe-ink">{title}</p>
         <p className="mt-1 text-sm font-medium leading-6 text-zoe-muted">{body}</p>
       </div>
     </div>
