@@ -31,6 +31,12 @@ const journeyLinks = [
   { href: "/journeys/way-of-jesus", label: "The Way of Jesus" },
 ];
 
+// Per-page primary CTA. Default: the individual waitlist on the home page.
+const DEFAULT_CTA = { href: "/#waitlist", label: "Join the walk" };
+const PAGE_CTAS: Record<string, { href: string; label: string }> = {
+  "/churches": { href: "/churches/start", label: "Start a pilot" },
+};
+
 const desktopLink =
   "rounded-full px-3 py-2 text-sm font-semibold text-zoe-ink/[0.82] no-underline transition-colors hover:bg-zoe-surface hover:text-zoe-ink";
 const mobileLink =
@@ -43,6 +49,8 @@ export default function Navbar() {
   const reduceMotion = useReducedMotion();
   const hideOnPath =
     pathname === "/subscribe" || pathname === "/thanks" || pathname.startsWith("/journeys/lesson-preview");
+
+  const cta = PAGE_CTAS[pathname] ?? DEFAULT_CTA;
 
   const [scrolled, setScrolled] = useState(false);
   const [journeysOpen, setJourneysOpen] = useState(false);
@@ -162,7 +170,12 @@ export default function Navbar() {
           </div>
 
           {trailLinks.map((link) => (
-            <Link key={link.href} href={link.href} className={desktopLink}>
+            <Link
+              key={link.href}
+              href={link.href}
+              aria-current={pathname === link.href ? "page" : undefined}
+              className={clsx(desktopLink, "aria-[current=page]:text-zoe-forest")}
+            >
               {link.label}
             </Link>
           ))}
@@ -170,10 +183,10 @@ export default function Navbar() {
 
         <div className="ml-auto flex items-center gap-1.5 min-[861px]:gap-3.5">
           <Link
-            href="/#waitlist"
+            href={cta.href}
             className={clsx(ctaClass, "px-3.5 py-2.5 text-sm min-[421px]:px-[18px] min-[421px]:py-[11px]")}
           >
-            Join the walk
+            {cta.label}
           </Link>
           <button
             type="button"
@@ -224,11 +237,11 @@ export default function Navbar() {
             </div>
             <div className="mt-1 border-t border-zoe-outline/40 p-2 pt-3">
               <Link
-                href="/#waitlist"
+                href={cta.href}
                 onClick={() => setMobileOpen(false)}
                 className={clsx(ctaClass, "w-full px-5 py-3.5 text-[15px]")}
               >
-                Join the walk
+                {cta.label}
               </Link>
             </div>
           </motion.nav>
