@@ -177,7 +177,9 @@ export default function BlogArticleShell({ slug, deck, children }: BlogArticleSh
                 <div>
                   <b className="block text-[15px] font-bold text-zoe-ink">Tony Allen</b>
                   <span className="text-[13.5px] font-medium text-zoe-muted">
-                    Pastor, building Zoe · {post.date} · {post.readTime}
+                    <span className="whitespace-nowrap">Pastor, building Zoe</span> ·{" "}
+                    <span className="whitespace-nowrap">{post.date}</span> ·{" "}
+                    <span className="whitespace-nowrap">{post.readTime}</span>
                   </span>
                 </div>
               </div>
@@ -204,7 +206,7 @@ export default function BlogArticleShell({ slug, deck, children }: BlogArticleSh
           </div>
 
           <section aria-label="About the author and next steps" className="mx-auto mt-[clamp(56px,7vw,88px)] grid max-w-[680px] gap-[18px]">
-            <div className="grid grid-cols-[56px_1fr] items-center gap-4 rounded-[26px] bg-white px-5 py-5 outline outline-1 outline-zoe-outline/45 min-[480px]:grid-cols-[72px_1fr] min-[480px]:gap-[18px] min-[480px]:px-6 min-[480px]:py-[22px]">
+            <div className="grid grid-cols-[56px_1fr] items-start gap-4 min-[480px]:items-center rounded-[26px] bg-white px-5 py-5 outline outline-1 outline-zoe-outline/45 min-[480px]:grid-cols-[72px_1fr] min-[480px]:gap-[18px] min-[480px]:px-6 min-[480px]:py-[22px]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={HEADSHOT}

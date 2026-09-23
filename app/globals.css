@@ -107,10 +107,6 @@ body {
   letter-spacing: normal;
 }
 
-.blog-prose p:has(> strong:only-child) {
-  font-size: 1.12em;
-}
-
 .blog-prose a {
   color: var(--zoe-forest);
   font-weight: 700;
