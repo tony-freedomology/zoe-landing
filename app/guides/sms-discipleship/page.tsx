@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
 import FaqSchema from "../../../components/FaqSchema";
 import StructuredData from "../../../components/StructuredData";
 import { breadcrumbSchema } from "../../../lib/site";
+import { CloseCta, CompareTable, FaqList, GuideHero, ShortAnswer, h2Class, proseClass } from "../_components/GuideParts";
 
 export const metadata: Metadata = {
   title: "SMS Discipleship: Bible Study Without Downloading Another App",
@@ -16,43 +15,69 @@ export const metadata: Metadata = {
 };
 
 const comparison = [
-  { label: "How you access it", sms: "It arrives automatically in your texts", app: "You must remember to open the app" },
-  { label: "Download required", sms: "No", app: "Yes" },
-  { label: "Works on any phone", sms: "Yes (including non-smartphones)", app: "Smartphone required" },
-  { label: "Notification dependency", sms: "None", app: "Requires push notifications" },
-  { label: "Steps to read today's content", sms: "1 — it's already there", app: "4–6 steps minimum" },
-  { label: "Open rate", sms: "~95%+ (SMS industry average)", app: "Varies — most users inactive" },
-  { label: "Abandonment at 90 days", sms: "Significantly lower", app: "71% abandon within 90 days" },
+  ["How you get to it", "It shows up in your texts", "You open the app"],
+  ["Download", "None", "Required"],
+  ["Who starts the conversation", "Either of you. It can text first and follow up", "Mostly you"],
+  ["Best at", "Short moments through the day; follow-through", "Reading longer passages; plans, translations, audio"],
+  ["Weak at", "Long reading, study tools, anything visual", "Reaching you in the middle of the day"],
+  ["Phone time", "A few short texts", "Depends on you"],
+];
+
+const day = [
+  {
+    time: "Morning",
+    title: "An anchor",
+    body: "A short passage, a little context when it helps, and one question to carry into the day.",
+  },
+  {
+    time: "Midday",
+    title: "A nudge",
+    body: "A short text that brings the morning back. \"Remember James 1:19 before that 2pm meeting.\"",
+  },
+  {
+    time: "Evening",
+    title: "A reflection",
+    body: "Where did you notice God today? Where did you drift? Who do you need to talk to?",
+  },
+  {
+    time: "Any time",
+    title: "A conversation",
+    body: "Reply, ask a question about the passage, or ask Zoe to remind you about something later.",
+  },
 ];
 
 const faqs = [
   {
     q: "What is SMS discipleship?",
-    a: "SMS discipleship is a method of daily spiritual growth delivered via text message rather than an app. Daily scripture passages, original-language context, and reflection prompts arrive in your existing text thread automatically — no download, no login, and no friction. It's designed for people who want a consistent Bible habit but have struggled to maintain one using apps.",
+    a: "It's spiritual practice that happens by text message instead of in an app: scripture, prayer prompts, reflection questions, and follow-up that show up in the messages app you already use. The idea is simple. Meet people where their attention already is, then point that attention toward Jesus.",
   },
   {
-    q: "How is SMS discipleship different from a Bible app?",
-    a: "A Bible app requires you to remember to open it, find it on your phone, and get to your reading plan. SMS discipleship arrives automatically in your text messages — the same channel you already check dozens of times per day. The core difference is activation energy: apps require effort; SMS requires none.",
+    q: "How is it different from a Bible app?",
+    a: "A Bible app is a great place to read, and it waits for you to open it. A text can come to you in the middle of the day, when the morning's passage suddenly matters. Many people use both: an app for reading, texts for carrying it into the day.",
   },
   {
     q: "Is Zoe an app?",
-    a: "No. Zoe is SMS-based. You don't download anything. Daily scripture and reflection prompts are delivered to your existing text messages. It works on any phone capable of receiving SMS.",
+    a: "No. Zoe works over SMS and iMessage. There's nothing to download and no login.",
   },
   {
-    q: "What content does Zoe send each day?",
-    a: "Each day Zoe sends: the day's scripture passage, relevant original-language context (Greek or Hebrew word studies where applicable), historical or cultural background for the passage, and a reflection prompt. The content is structured to be read in 90 seconds or less.",
+    q: "What does Zoe send each day?",
+    a: "A morning anchor (a passage, useful context when it helps, and a question), a short midday nudge, and an evening reflection. You can text it any time in between. You choose the timing, and you can ask for less, pause, or text STOP whenever you want.",
   },
   {
-    q: "Can pastors use SMS discipleship with their entire congregation?",
-    a: "Yes. Zoe is specifically built for church-level deployment. Pastors can deploy Zoe across their congregation as a daily discipleship layer that extends Sunday teaching into the rest of the week — without requiring congregation members to download anything.",
+    q: "Can Zoe help me remember to pray for people?",
+    a: "Yes. Tell Zoe who you're praying for and it will remind you to bring them back to God, then follow up to ask how things are going. Zoe doesn't pray for you. It helps you remember to pray.",
   },
   {
-    q: "What reading pace options are available?",
-    a: "Zoe offers multiple journey tracks at different paces — typically 30, 60, or 90 days through a book of the Bible. You select your journey and pace; Zoe handles the daily delivery.",
+    q: "Can I choose what to read?",
+    a: "Yes. Pick a pre-made Journey (James, anxiety, marriage, grief, rest, and more) or ask for your own, like reading Philippians over two weeks. Zoe sets the pace with you and brings the next part each morning.",
   },
   {
-    q: "Why does SMS work better than apps for habit formation?",
-    a: "Habit research is consistent: the more friction between a person and a behavior, the more likely they are to skip it. SMS messages are already part of how people communicate daily — opening rates exceed 95%, and most texts are read within 3 minutes. You don't build a new habit; you attach the practice to a habit that's already there.",
+    q: "Can churches use SMS discipleship?",
+    a: "Yes. Zoe's church version helps people carry Sunday's sermon into the rest of the week by text. It can be shaped by the church's teaching. Pastors see shared, aggregate patterns, not anyone's private messages. Church pilots are starting now.",
+  },
+  {
+    q: "Isn't this just more time on my phone?",
+    a: "It's a fair worry. The goal is a few short texts that turn your attention toward Jesus and the people around you, not more screen time. If it starts pulling you deeper into your phone, ask for less or pause it.",
   },
 ];
 
@@ -68,128 +93,115 @@ export default function SmsDiscipleshipGuidePage() {
         { name: "SMS Discipleship", path: "/guides/sms-discipleship" },
       ])}
     />
-    <div className="min-h-screen text-zoe-ink">
-      {/* Hero */}
-      <section className="bg-zoe-ink py-32 px-6 pt-40">
-        <div className="mx-auto max-w-3xl">
-          <div className="mb-6">
-            <Link href="/guides" className="text-sm font-semibold text-zoe-muted hover:text-white transition-colors">← Guides</Link>
-          </div>
-          <div className="flex flex-wrap gap-3 items-center mb-6">
-            <span className="inline-flex items-center rounded-full border border-zoe-sap/30 bg-zoe-sap/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zoe-sap">SMS & Habits</span>
-            <span className="text-zoe-muted text-xs font-medium">Updated March 2026</span>
-            <span className="text-zoe-muted text-xs">·</span>
-            <span className="text-zoe-muted text-xs font-medium">5 min read</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl tracking-tight font-sans text-white leading-[1.1] font-bold mb-6">
-            SMS Discipleship: Bible Study Without Downloading Another App
-          </h1>
-          <p className="text-xl text-zoe-outline font-medium leading-relaxed">
-            Daily scripture, original-language context, and guided reflection — delivered to your texts automatically. No download. No login. No friction.
+    <div className="min-h-screen bg-zoe-oat text-zoe-ink">
+      <GuideHero
+        title="SMS Discipleship: Bible Study Without Downloading Another App"
+        lead={
+          <p>
+            What it looks like to let scripture, prayer, and follow-through show up in your text messages, and when
+            that&apos;s actually a good idea.
           </p>
-        </div>
-      </section>
+        }
+        meta="Updated September 2026 · 5 min read"
+      />
 
-      {/* TL;DR */}
-      <section className="py-12 px-6 bg-zoe-sap/5 border-y border-zoe-sap/10">
-        <div className="mx-auto max-w-3xl">
-          <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 inline-flex items-center rounded-full border border-zoe-sap/30 bg-zoe-sap/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-zoe-sap mt-1">
-              TL;DR
+      <ShortAnswer>
+        <p>
+          <strong>SMS discipleship</strong> means scripture, prayer, and reflection that come to you by text, in the
+          messages app you already check all day. No download.
+        </p>
+        <p>
+          <strong>Zoe</strong> is AI that does this: a morning anchor, a midday nudge, an evening reflection, and
+          conversation any time. It remembers what you&apos;re reading and praying about, and follows up.
+        </p>
+      </ShortAnswer>
+
+      <article className="px-5 py-20 sm:px-6 md:py-24">
+        <div className="mx-auto max-w-3xl space-y-16">
+          <div className={proseClass}>
+            <h2 className={h2Class}>The problem it&apos;s trying to solve</h2>
+            <p>
+              You read something good in the morning. By 2pm the day has gotten loud, and it&apos;s gone. Sunday&apos;s
+              sermon was great. By Tuesday you can&apos;t quite remember the point.
+            </p>
+            <p>
+              That&apos;s not a willpower problem. It&apos;s an attention problem. Most tools are built for the quiet moment
+              when you sit down to read. Very few help in the middle of the day, when what you read actually matters.
+            </p>
+            <p>
+              Texting is where a lot of our attention already goes. SMS discipleship tries to use that on purpose: a short
+              text at the right moment that turns you back toward Jesus.
+            </p>
+          </div>
+
+          <div>
+            <h2 className={h2Class}>What a day looks like with Zoe</h2>
+            <ol className="mt-8 grid gap-4 sm:grid-cols-2">
+              {day.map((item) => (
+                <li key={item.time} className="rounded-[1.75rem] bg-white p-7 shadow-zoe-card ring-1 ring-zoe-outline/40">
+                  <p className="text-sm font-bold text-zoe-forest">{item.time}</p>
+                  <h3 className="mt-2 text-xl font-bold tracking-[-0.02em] text-zoe-ink">{item.title}</h3>
+                  <p className="mt-2 text-base font-medium leading-7 text-zoe-muted">{item.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className={proseClass}>
+            <h2 className={h2Class}>Where the texts actually help</h2>
+            <p>
+              The part that surprises people isn&apos;t the morning text. It&apos;s the follow-through. Zoe remembers what
+              you said mattered and brings it back at the right time.
+            </p>
+            <p>
+              Say you mention you&apos;re nervous about a job interview. Zoe checks in afterward to ask how it went. Tell it
+              you&apos;re praying for your sister, and it will remind you to keep bringing her to God, and later ask how
+              she&apos;s doing. Want to read Philippians over two weeks? It sets the pace with you and brings the next part
+              each morning.
+            </p>
+            <p>
+              You can also build a simple rule of life: one daily practice, one weekly practice, one relational rhythm, and a
+              weekly review. Zoe helps you keep it quietly. No streaks, no badges, no guilt.
+            </p>
+          </div>
+
+          <div>
+            <h2 className={h2Class}>Texts vs. Bible apps</h2>
+            <p className="mt-4 text-lg font-medium leading-8 text-zoe-muted">
+              They&apos;re good at different things, and plenty of people use both.
+            </p>
+            <div className="mt-8">
+              <CompareTable columns={["", "By text (Zoe)", "Bible apps"]} rows={comparison} minWidth={580} />
             </div>
-            <p className="text-zoe-muted font-medium leading-relaxed">
-              <strong className="text-zoe-ink">SMS discipleship</strong> delivers daily Bible content via text message — no app required. It works because SMS open rates exceed 95% and texts require zero activation effort. <strong className="text-zoe-ink">Zoe</strong> is the leading SMS discipleship tool: scripture + original Greek/Hebrew context + reflection prompts delivered daily to your phone. Works on any phone. Built for both individuals and church-level deployment.
+          </div>
+
+          <div className={proseClass}>
+            <h2 className={h2Class}>For pastors</h2>
+            <p>
+              Sunday matters, but most formation happens Monday through Saturday. And no pastor can personally follow up with
+              everyone.
+            </p>
+            <p>
+              Zoe&apos;s church version helps your people carry Sunday&apos;s sermon into the week by text. It can be shaped
+              by your teaching and guardrails. You see shared patterns, like where people are getting stuck or which
+              practices they&apos;re trying, not anyone&apos;s private thread. Zoe supports your work. It doesn&apos;t
+              replace you.
+            </p>
+            <p>
+              <a href="/churches" className="font-bold text-zoe-forest underline decoration-zoe-outline underline-offset-4 hover:text-zoe-ink">
+                See how Zoe works for churches
+              </a>
             </p>
           </div>
         </div>
-      </section>
-
-      <article className="py-16 px-6 bg-white">
-        <div className="mx-auto max-w-3xl space-y-12">
-
-          <div className="prose prose-slate max-w-none text-zoe-muted font-medium leading-relaxed text-lg space-y-6">
-            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold">The problem SMS discipleship solves</h2>
-            <p>71% of users abandon apps within 90 days of downloading them. For Bible apps, the number is likely higher — the motivation to install a Bible app often peaks at a Sunday morning feeling and drops steeply by Thursday.</p>
-            <p>The friction model is the problem. Every time you want to use a Bible app, you need to: remember it exists, find it on your phone, open it, and get to your content. That's multiple decisions per day, every day. Habits that require repeated decisions tend not to last.</p>
-            <p>SMS discipleship eliminates the decision. Daily content arrives in your existing text thread — the same place you're already checking throughout the day. You don't go to it. It comes to you.</p>
-
-            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold mt-10">How it works</h2>
-            <p>Here's what SMS discipleship looks like in practice with Zoe:</p>
-            <ol className="list-decimal pl-6 space-y-3">
-              <li>You join Zoe and select a Bible journey — a book and a reading pace (30, 60, or 90 days).</li>
-              <li>Each morning, Zoe sends a text message with the day's scripture passage.</li>
-              <li>The message includes original-language context — Greek or Hebrew word studies embedded directly in the message, where relevant to that day's passage.</li>
-              <li>A short reflection prompt closes the message — one question designed to take the passage into your actual day.</li>
-              <li>You read it, respond if you want, and continue your morning.</li>
-            </ol>
-            <p>Total time: 90 seconds. Zero friction. No app to open.</p>
-
-            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold mt-10">Why SMS specifically</h2>
-            <p>SMS messages are opened at over 95%, with most read within three minutes of delivery. That's not a marketing metric — it's a description of behavior that's already happening. People check their texts. It's where real communication lives.</p>
-            <p>Attaching a daily scripture habit to an already-existing behavior (checking texts) is how habits actually form. You don't need willpower. You need a system that works with your existing patterns.</p>
-            <p>Additionally: SMS works on any phone. No smartphone required. For churches trying to reach older congregation members or communities with limited smartphone adoption, this matters significantly.</p>
-          </div>
-
-          {/* Comparison table */}
-          <div>
-            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold mb-6">SMS discipleship vs. Bible apps</h2>
-            <div className="overflow-x-auto rounded-2xl border border-zoe-outline/20 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
-              <table className="w-full text-sm min-w-[560px]">
-                <thead>
-                  <tr className="bg-zoe-ink text-white">
-                    <th className="text-left px-5 py-4 font-semibold"></th>
-                    <th className="text-left px-5 py-4 font-semibold text-zoe-sap">SMS (Zoe)</th>
-                    <th className="text-left px-5 py-4 font-semibold text-zoe-muted">Bible Apps</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparison.map((row, i) => (
-                    <tr key={row.label} className={i % 2 === 0 ? "bg-white" : "bg-zoe-surface"}>
-                      <td className="px-5 py-4 font-semibold text-zoe-muted text-xs uppercase tracking-wide">{row.label}</td>
-                      <td className="px-5 py-4 text-zoe-muted font-medium">{row.sms}</td>
-                      <td className="px-5 py-4 text-zoe-muted">{row.app}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div className="prose prose-slate max-w-none text-zoe-muted font-medium leading-relaxed text-lg space-y-6">
-            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold">For pastors: SMS discipleship at scale</h2>
-            <p>The same friction problem that affects individuals affects congregations. Pastors want their people growing in scripture between Sundays — but the tools available either require individual initiative (apps people download and forget) or significant church infrastructure (small group programs, weeknight gatherings).</p>
-            <p>SMS discipleship works for churches because it requires nothing from congregation members except a phone number. No download, no account creation, no passwords. The pastor deploys it; the congregation receives it.</p>
-            <p>Zoe is specifically designed for this: pastors can deploy the same journey track across their entire congregation, creating a shared daily experience that reinforces Sunday teaching and keeps scripture present throughout the week.</p>
-          </div>
-
-        </div>
       </article>
 
-      {/* FAQ */}
-      <section className="py-24 px-6 bg-zoe-surface">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="text-3xl md:text-4xl tracking-tight font-sans text-zoe-ink font-bold mb-10">Frequently asked questions</h2>
-          <div className="space-y-5">
-            {faqs.map((item) => (
-              <div key={item.q} className="bg-white rounded-2xl p-7 border border-zoe-outline/20">
-                <h3 className="text-base font-bold text-zoe-ink mb-2">{item.q}</h3>
-                <p className="text-zoe-muted font-medium leading-relaxed text-sm">{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqList faqs={faqs} />
 
-      {/* CTA */}
-      <section className="py-24 px-6 bg-zoe-ink">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-4">Daily scripture. No app required.</h2>
-          <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">Zoe delivers daily scripture and original-language context to your text messages. Any phone. Nothing to download.</p>
-          <Link href="/s" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
-            Start with Zoe <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
+      <CloseCta
+        title="Scripture that shows up at 2pm."
+        body="Zoe texts you a morning anchor, a midday nudge, and an evening reflection. It's in beta and inviting people in small groups."
+      />
 
       <Footer />
     </div>

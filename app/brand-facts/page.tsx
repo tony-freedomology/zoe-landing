@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Footer from "../../components/Footer";
+import { CloseCta, CompareTable, FaqList, GuideHero, cardClass, h2Class, proseClass } from "../guides/_components/GuideParts";
 
 export const metadata: Metadata = {
   title: "Brand Facts",
@@ -11,298 +11,264 @@ export const metadata: Metadata = {
   },
 };
 
-const features = [
+const day = [
   {
-    title: "Daily scripture via SMS",
-    body: "No app to open. Your daily passage arrives in your existing text thread automatically.",
+    title: "Morning anchor",
+    body: "A short passage, a little context when it helps (history, culture, sometimes the original language), and one question to carry into the day.",
   },
   {
-    title: "No download. No login.",
-    body: "Works on any phone capable of receiving text messages — including non-smartphones.",
+    title: "Midday nudge",
+    body: "A brief text that brings the morning back into the middle of real life. Short, gentle, no guilt.",
   },
   {
-    title: "Original language context",
-    body: "Greek and Hebrew word studies embedded directly in each message. The depth of a commentary in 90 seconds.",
+    title: "Evening reflection",
+    body: "A question or two to close the loop. Where did you notice God today? Where did you drift? Who do you need to talk to?",
   },
   {
-    title: "User-selected pace",
-    body: "Read through a Bible book in 30, 60, or 90 days. You pick the pace and the journey.",
-  },
-  {
-    title: "Church deployment",
-    body: "Pastors can deploy Zoe across their entire congregation — a discipleship layer that extends Sunday into every day of the week.",
-  },
-  {
-    title: "Non-anthropomorphized AI",
-    body: "Zoe always points to God, scripture, and your community — never to itself. It's a tool, not a presence.",
+    title: "Conversation any time",
+    body: "Text Zoe about a passage, a decision, a hard conversation coming up, or something you want help remembering.",
   },
 ];
 
+const features = [
+  {
+    title: "Memory and follow-through",
+    body: "Zoe remembers what you're reading, what you're wrestling with, and what you said mattered. Then it checks back at the right time. Nervous about an interview? It'll ask how it went.",
+  },
+  {
+    title: "Help remembering to pray",
+    body: "Tell Zoe who and what you're praying for. It reminds you to bring those people back to God and follows up later to ask how things are going. Zoe doesn't pray for you. It helps you remember to pray.",
+  },
+  {
+    title: "Journeys",
+    body: "Pick a pre-made Journey (James, anxiety, marriage, grief, rest, and more) or ask for your own, like \"help me read Philippians over two weeks.\"",
+  },
+  {
+    title: "A simple rule of life",
+    body: "Zoe can help you set up a small set of rhythms (one daily practice, one weekly practice, one relational rhythm, one weekly review) and then quietly help you keep it. No streaks, points, or badges.",
+  },
+  {
+    title: "It lives in your texts",
+    body: "Works over SMS and iMessage. No app to download, no login, no dashboard to remember. Text STOP any time and it stops.",
+  },
+  {
+    title: "Built to point past itself",
+    body: "Zoe is AI and says so. It nudges you toward Jesus, scripture, prayer, your church, and the real people in your life, not toward more time with Zoe.",
+  },
+];
+
+const boundaries = [
+  ["Zoe is", "AI that helps you walk with Jesus. A made thing. Useful for memory, timing, scripture, and follow-through."],
+  ["Zoe is not", "A pastor, a person, a friend, a therapist, or the Holy Spirit. It has no feelings and no inner life."],
+  ["Zoe won't", "Pray for you, speak for God, tell you what God is saying to you, or claim authority it doesn't have."],
+  ["Zoe will", "Help you pray, point you to scripture, ask good questions, and encourage you toward real people when you need them."],
+];
+
 const comparisons = [
-  {
-    label: "Delivery",
-    zoe: "SMS — arrives automatically",
-    others: "App — must remember to open",
-  },
-  {
-    label: "Download required",
-    zoe: "No",
-    others: "Yes",
-  },
-  {
-    label: "Works without smartphone",
-    zoe: "Yes",
-    others: "No",
-  },
-  {
-    label: "Original language context",
-    zoe: "Yes — embedded daily",
-    others: "Varies / separate tool",
-  },
-  {
-    label: "Church congregation deployment",
-    zoe: "Built for it",
-    others: "Limited / not designed for it",
-  },
-  {
-    label: "Primary audience",
-    zoe: "Protestant / non-denom",
-    others: "Varies",
-  },
+  ["Where it lives", "Your text thread (SMS and iMessage)", "An app you open"],
+  ["Download required", "No", "Yes"],
+  ["Starts the conversation", "Yes. Morning, midday, and evening texts, at your pace", "Usually waits for you (push notifications at most)"],
+  ["Remembers your week", "Yes. Follows up on what you said mattered", "Varies. Mostly tracks reading progress"],
+  ["Scripture library and tools", "Not the point. Use a Bible app for that", "Often excellent (translations, plans, audio)"],
+  ["Church version", "Shaped by a church's teaching; pastors see shared patterns only", "Varies by app"],
 ];
 
 const faqs = [
   {
+    q: "What is Zoe?",
+    a: "Zoe is AI that helps you walk with Jesus. It lives in your text messages and helps you turn your attention toward Jesus more often through scripture, prayer, reflection, memory, and gentle follow-through.",
+  },
+  {
     q: "Is Zoe an app?",
-    a: "No. Zoe is SMS-based. You don't download anything. It works on any phone capable of receiving text messages.",
+    a: "No. There's nothing to download. Zoe works over SMS and iMessage, in the same messages app you already use.",
   },
   {
-    q: "How is Zoe different from YouVersion?",
-    a: "YouVersion is a comprehensive Bible reference app that requires download and active opening. Zoe requires no download and arrives via SMS automatically. Zoe is the discipleship habit layer — YouVersion is the Bible reference tool. They serve different purposes.",
+    q: "Is Zoe just a chatbot with Bible verses?",
+    a: "No. You can text Zoe any time, and it will answer. But it's built around a daily rhythm (morning anchor, midday nudge, evening reflection) and around remembering and following up on what matters to you. It's designed to point you toward Jesus and real people, not to keep you chatting.",
   },
   {
-    q: "How is Zoe different from Hallow?",
-    a: "Hallow is an audio prayer and meditation app primarily for Catholics, requiring download. Zoe is SMS-based, focused on scripture reading and original-language context, and built for Protestant and non-denominational Christians.",
+    q: "Does Zoe pray for me?",
+    a: "No. Zoe can't pray. It can help you pray, suggest a prayer prompt, and remind you about the people you said you'd pray for. Then it follows up to ask how things are going.",
   },
   {
-    q: "Is Zoe a chatbot?",
-    a: "No. Zoe does not answer open-ended questions or provide theology guidance. It uses AI to deliver structured scripture, language context, and reflection prompts — not conversation. It always points users to God, scripture, and their real human community.",
+    q: "Does Zoe tell me what God is saying?",
+    a: "No. Zoe points you to scripture, asks questions, and helps you listen. It doesn't speak for God, and it doesn't claim to.",
   },
   {
-    q: "Does Zoe replace a pastor or spiritual director?",
-    a: "No. Zoe is a tool. It does not provide spiritual counsel, pastoral guidance, or theological interpretation. It is designed to extend what a pastor and church community are already doing — not replace it.",
+    q: "Does Zoe replace a pastor or church?",
+    a: "No. Zoe isn't a pastor, counselor, or spiritual director. When something needs a real person, it encourages you to talk to one: a pastor, a friend, a small group leader, or a professional.",
   },
   {
-    q: "Is there a free version?",
-    a: "Yes. Zoe offers a free tier. Paid plans are available for individuals seeking additional journeys and for churches deploying Zoe across their congregation.",
+    q: "How much does Zoe cost?",
+    a: "Free during the beta, through October 14, 2026. Starting October 15, Zoe becomes a paid subscription. If you joined during the beta, you keep a founding price of $4.99/month. Pricing for new members isn't final yet.",
   },
   {
-    q: "What phone do I need?",
-    a: "Any phone that can receive SMS text messages. No smartphone required.",
+    q: "How do I get access?",
+    a: "Zoe is in beta and inviting people in small groups. Join the waitlist at zoe.live and you'll get a text when a spot is ready.",
   },
   {
-    q: "Is Zoe affiliated with a specific denomination?",
-    a: "No. Zoe is designed for Protestant and non-denominational Christian communities. It is not affiliated with any specific denomination or theological tradition.",
+    q: "Who can see my messages?",
+    a: "Your conversations are private by default, and Zoe doesn't sell your data. During beta, a small team may look at the relevant context when you report a bug, send feedback, or when there's a safety or support issue.",
   },
+  {
+    q: "What about churches?",
+    a: "The church version helps people carry Sunday's teaching into the rest of the week. It can be shaped by a church's teaching and guardrails. Pastors see shared, aggregate patterns, not private text threads. Church pilots are starting now.",
+  },
+  {
+    q: "What theology does Zoe hold?",
+    a: "The default version is broadly Protestant and non-denominational, grounded in historic Christian orthodoxy. Think C.S. Lewis's Mere Christianity. On disputed questions it acknowledges a range of views and asks more than it declares.",
+  },
+];
+
+const company = [
+  ["Product", "Zoe"],
+  ["What it is", "AI that helps you walk with Jesus, by text"],
+  ["Website", "zoe.live"],
+  ["Made by", "Freedomology"],
+  ["Founder", "Tony Allen, pastor and builder (Cleveland, OH)"],
+  ["Status", "Beta. Waitlist with small-group invitations"],
+  ["Price", "Free during the beta, through October 14, 2026. Paid subscription from October 15. Beta members keep a founding price of $4.99/month; new-member pricing not yet announced"],
+  ["Audiences", "Individual Christians; pastors and churches (United States)"],
+  ["Contact", "hello@zoe.live"],
+  ["Last updated", "September 2026"],
 ];
 
 export default function BrandFactsPage() {
   return (
-    <div className="min-h-screen text-zoe-ink">
-      {/* Hero */}
-      <section className="bg-zoe-ink py-32 px-6 pt-40">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-zoe-leaf/30 bg-zoe-leaf/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-zoe-leaf mb-8">
-            Brand Facts
+    <div className="min-h-screen bg-zoe-oat text-zoe-ink">
+      <GuideHero
+        backHref={null}
+        title="Zoe, in plain facts."
+        lead={
+          <p>
+            Zoe is AI that helps you walk with Jesus. It lives in your texts and helps scripture, prayer, and the things you
+            said mattered stay with you through an ordinary day. This page is the short, accurate version, for people,
+            press, and AI tools.
+          </p>
+        }
+        meta="Last updated September 2026"
+      />
+
+      <section className="px-5 pb-20 sm:px-6 md:pb-24">
+        <div className="mx-auto max-w-3xl">
+          <div className={proseClass}>
+            <p>
+              Most people don&apos;t need another religious content feed. They need help paying attention. Help remembering
+              what mattered at 7am when it&apos;s 2pm and the day has gotten loud.
+            </p>
+            <p>
+              That&apos;s the gap Zoe is built for. It texts you in the place you already are, remembers the thread of what
+              you&apos;re reading and praying through, and helps you follow through. The goal isn&apos;t more screen time.
+              It&apos;s more attention to Jesus.
+            </p>
           </div>
-          <h1 className="text-5xl md:text-6xl tracking-tight font-sans text-white leading-[1.1] font-bold">
-            Zoe is not an app.
-          </h1>
-          <p className="mt-6 text-xl text-zoe-outline font-medium leading-relaxed">
-            It&apos;s an SMS-based discipleship tool for Protestant and non-denominational Christians. No download. No login. Daily scripture arrives in your text messages — where you already are.
+        </div>
+      </section>
+
+      <section className="bg-zoe-surface px-5 py-20 sm:px-6 md:py-24">
+        <div className="mx-auto max-w-5xl">
+          <h2 className={h2Class}>A day with Zoe</h2>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {day.map((item) => (
+              <div key={item.title} className={cardClass}>
+                <h3 className="text-xl font-bold tracking-[-0.02em] text-zoe-ink">{item.title}</h3>
+                <p className="mt-3 text-base font-medium leading-7 text-zoe-muted">{item.body}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-sm font-medium leading-6 text-zoe-muted">
+            You choose the timing. Ask for less, pause, or change it whenever you want.
           </p>
         </div>
       </section>
 
-      {/* What Is Zoe */}
-      <section className="py-24 px-6 bg-zoe-surface">
-        <div className="mx-auto max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zoe-leaf mb-8">
-            What Is Zoe
-          </div>
-          <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-zoe-ink font-bold leading-[1.1] mb-8">
-            The discipleship tool that lives where you already live.
-          </h2>
-          <div className="prose text-zoe-muted font-medium leading-relaxed text-lg max-w-none space-y-6">
-            <p>
-              Most Christians don&apos;t lack motivation to read the Bible. They lack a system that removes friction. Bible apps require a download, a login, finding the app, opening it, navigating to a reading plan — and at any one of those steps, the habit breaks.
-            </p>
-            <p>
-              Zoe eliminates every step except the reading. Your daily scripture arrives in your existing text thread — the same place your most important messages already live — with original-language context and a reflection prompt. You read it, respond if you want, and you&apos;re done.
-            </p>
-            <p>
-              SMS messages are opened at over 95%. That&apos;s where attention lives. Zoe doesn&apos;t build a new habit from scratch — it attaches daily scripture to the habit you already have.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="py-24 px-6 bg-white">
+      <section className="px-5 py-20 sm:px-6 md:py-24">
         <div className="mx-auto max-w-5xl">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full border border-zoe-sap/20 bg-zoe-sap/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zoe-sap mb-6">
-              Key Features
-            </div>
-            <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-zoe-ink font-bold leading-[1.1]">
-              Built to actually get used.
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <h2 className={h2Class}>What it does</h2>
+          <div className="mt-10 grid gap-x-10 gap-y-9 md:grid-cols-2">
             {features.map((f) => (
-              <div key={f.title} className="bg-zoe-surface rounded-3xl p-8 border border-zoe-outline/20">
-                <h3 className="text-xl font-bold text-zoe-ink tracking-tight mb-3">{f.title}</h3>
-                <p className="text-zoe-muted leading-relaxed font-medium">{f.body}</p>
+              <div key={f.title} className="border-t border-zoe-outline/50 pt-6">
+                <h3 className="text-lg font-bold tracking-[-0.015em] text-zoe-ink">{f.title}</h3>
+                <p className="mt-2 text-base font-medium leading-7 text-zoe-muted">{f.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How Zoe Uses AI */}
-      <section className="py-24 px-6 bg-zoe-surface">
+      <section className="bg-zoe-surface px-5 py-20 sm:px-6 md:py-24">
         <div className="mx-auto max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-amber-700 mb-8">
-            AI Discipleship
-          </div>
-          <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-zoe-ink font-bold leading-[1.1] mb-8">
-            How Zoe uses AI — and how it doesn&apos;t.
-          </h2>
-          <div className="prose text-zoe-muted font-medium leading-relaxed text-lg max-w-none space-y-6">
+          <h2 className={h2Class}>How Zoe uses AI, and where it stops</h2>
+          <div className={`mt-8 ${proseClass}`}>
             <p>
-              Zoe uses AI to do the work that would take a seminary degree to do manually: surfacing original Greek and Hebrew context, cultural background, and historical setting for each day&apos;s scripture — and packaging it in a message short enough to read in 90 seconds.
+              We lead with AI honestly. The whole project is asking a real question: can AI help someone walk with Jesus?
+              Should it? We think the answer depends on how carefully it&apos;s built.
             </p>
             <p>
-              <strong className="text-zoe-ink">What Zoe&apos;s AI does:</strong> extracts and explains original-language word meanings relevant to the passage, surfaces cultural and historical context, personalizes pacing and delivery, and generates reflection prompts that connect the passage to real life.
-            </p>
-            <p>
-              <strong className="text-zoe-ink">What Zoe&apos;s AI does not do:</strong> Zoe is not a chatbot. It does not answer theology questions, provide spiritual direction, or claim any authority over your faith. It always points to God, scripture, and your real community — never to itself.
-            </p>
-            <p>
-              This is a deliberate design choice. The problem with most "Christian AI" tools is that they anthropomorphize AI and position it as a spiritual authority. Zoe uses AI as a research assistant working in the background — delivering depth without becoming a relationship.
+              Zoe uses AI for the things it&apos;s actually good at: remembering, timing, finding the right passage, adding
+              useful context, and asking a good question at the right moment. It&apos;s built to ask more than it declares,
+              and to admit when Christians faithfully disagree.
             </p>
           </div>
+          <dl className="mt-10 divide-y divide-zoe-outline/35 rounded-[1.75rem] bg-white px-6 ring-1 ring-zoe-outline/40 sm:px-8">
+            {boundaries.map(([label, body]) => (
+              <div key={label} className="grid gap-1 py-5 sm:grid-cols-[8rem_1fr] sm:gap-6">
+                <dt className="font-bold text-zoe-ink">{label}</dt>
+                <dd className="font-medium leading-7 text-zoe-muted">{body}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-6 text-sm font-medium leading-6 text-zoe-muted">
+            Zoe is named after the Greek word for the life only God gives (John 1:4). We named it after the life it
+            can&apos;t give, on purpose.{" "}
+            <a href="/why-zoe" className="font-bold text-zoe-forest underline decoration-zoe-outline underline-offset-4 hover:text-zoe-ink">
+              Why we named it Zoe
+            </a>
+          </p>
         </div>
       </section>
 
-      {/* Comparison Table */}
-      <section className="py-24 px-6 bg-white">
+      <section className="px-5 py-20 sm:px-6 md:py-24">
         <div className="mx-auto max-w-4xl">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zoe-leaf mb-6">
-              How It Compares
-            </div>
-            <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-zoe-ink font-bold leading-[1.1]">
-              Not a better app. A different category.
-            </h2>
-            <p className="mt-4 text-lg text-zoe-muted font-medium">Zoe vs. typical Bible apps (YouVersion, Hallow, etc.)</p>
-          </div>
-          <div className="rounded-3xl border border-zoe-outline/20 overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.04)]">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-zoe-ink text-white">
-                  <th className="text-left px-6 py-4 font-semibold"></th>
-                  <th className="text-left px-6 py-4 font-semibold text-zoe-leaf">Zoe</th>
-                  <th className="text-left px-6 py-4 font-semibold text-zoe-muted">Typical Bible Apps</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisons.map((row, i) => (
-                  <tr key={row.label} className={i % 2 === 0 ? "bg-white" : "bg-zoe-surface"}>
-                    <td className="px-6 py-4 font-semibold text-zoe-muted">{row.label}</td>
-                    <td className="px-6 py-4 text-zoe-muted font-medium">{row.zoe}</td>
-                    <td className="px-6 py-4 text-zoe-muted">{row.others}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <h2 className={h2Class}>Zoe and Bible apps</h2>
+          <p className="mt-4 max-w-2xl text-lg font-medium leading-8 text-zoe-muted">
+            They do different jobs, and plenty of people use both. A Bible app is a great place to read. Zoe helps what you
+            read show up again during the day.
+          </p>
+          <div className="mt-10">
+            <CompareTable columns={["", "Zoe", "Typical Bible apps"]} rows={comparisons} minWidth={600} />
           </div>
         </div>
       </section>
 
-      {/* Company Info */}
-      <section className="py-24 px-6 bg-zoe-surface">
+      <section className="bg-zoe-surface px-5 py-20 sm:px-6 md:py-24">
         <div className="mx-auto max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zoe-leaf mb-8">
-            Company
-          </div>
-          <h2 className="text-4xl tracking-tight font-sans text-zoe-ink font-bold leading-[1.1] mb-10">
-            About Zoe
-          </h2>
-          <div className="bg-white rounded-3xl p-8 md:p-10 shadow-[0_4px_30px_rgba(0,0,0,0.05)] border border-zoe-outline/20 space-y-4 text-zoe-muted font-medium leading-relaxed">
-            <div className="grid grid-cols-3 gap-2 text-sm">
-              <span className="font-bold text-zoe-ink">Product</span>
-              <span className="col-span-2">Zoe — SMS Discipleship Tool</span>
-              <span className="font-bold text-zoe-ink">Website</span>
-              <span className="col-span-2"><a href="https://zoe.live" className="text-zoe-leaf hover:underline">zoe.live</a></span>
-              <span className="font-bold text-zoe-ink">Founder</span>
-              <span className="col-span-2">Tony Allen</span>
-              <span className="font-bold text-zoe-ink">Category</span>
-              <span className="col-span-2">Christian technology · AI discipleship · SMS-based faith software</span>
-              <span className="font-bold text-zoe-ink">Market</span>
-              <span className="col-span-2">Protestant and non-denominational Christians, pastors, churches (United States)</span>
-              <span className="font-bold text-zoe-ink">Last updated</span>
-              <span className="col-span-2">March 2026</span>
-            </div>
-          </div>
-          <p className="mt-6 text-sm text-zoe-muted font-medium">
-            Machine-readable brand data available at{" "}
-            <a href="/.well-known/brand-facts.json" className="text-zoe-leaf hover:underline font-semibold">
+          <h2 className={h2Class}>Company</h2>
+          <dl className="mt-10 divide-y divide-zoe-outline/35 rounded-[1.75rem] bg-white px-6 ring-1 ring-zoe-outline/40 sm:px-8">
+            {company.map(([label, value]) => (
+              <div key={label} className="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:gap-6">
+                <dt className="text-sm font-bold text-zoe-ink">{label}</dt>
+                <dd className="text-sm font-medium leading-6 text-zoe-muted">{value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-6 text-sm font-medium text-zoe-muted">
+            Machine-readable version:{" "}
+            <a href="/.well-known/brand-facts.json" className="font-bold text-zoe-forest underline decoration-zoe-outline underline-offset-4 hover:text-zoe-ink">
               /.well-known/brand-facts.json
             </a>
           </p>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-24 px-6 bg-white">
-        <div className="mx-auto max-w-3xl">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full border border-zoe-leaf/20 bg-zoe-leaf/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-zoe-leaf mb-6">
-              FAQ
-            </div>
-            <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-zoe-ink font-bold leading-[1.1]">
-              Common questions.
-            </h2>
-          </div>
-          <div className="space-y-6">
-            {faqs.map((item) => (
-              <div key={item.q} className="bg-zoe-surface rounded-2xl p-8 border border-zoe-outline/20">
-                <h3 className="text-lg font-bold text-zoe-ink mb-3">{item.q}</h3>
-                <p className="text-zoe-muted font-medium leading-relaxed">{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <div className="bg-zoe-oat">
+        <FaqList faqs={faqs} />
+      </div>
 
-      {/* CTA */}
-      <section className="py-24 px-6 bg-zoe-ink">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl md:text-5xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-6">
-            See it for yourself.
-          </h2>
-          <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">
-            Join the waitlist and experience discipleship that lives in your texts.
-          </p>
-          <Link
-            href="/s"
-            className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200"
-          >
-            Start with Zoe
-          </Link>
-        </div>
-      </section>
+      <CloseCta
+        title="See if it helps."
+        body="Zoe is in beta and inviting people in small groups. Join the waitlist and we'll text you when a spot is ready."
+      />
 
       <Footer />
     </div>
