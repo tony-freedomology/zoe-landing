@@ -1,5 +1,6 @@
 import AboutZoeLifeWord from "../AboutZoeLifeWord";
 import { sectionPad, sheet, wrap } from "../home/styles";
+import { serifItalic } from "./fonts";
 
 // Tony's letter. The words are his; do not edit them. Only the salutation and
 // signature block were added in the September 2026 redesign.
@@ -35,7 +36,7 @@ export default function AboutLetter() {
             decoding="async"
             className="pointer-events-none absolute -bottom-[60px] -right-[70px] w-[300px] max-w-none rotate-[-8deg] opacity-[0.36]"
           />
-          <p className="relative font-serif text-[clamp(28px,3vw,36px)] italic leading-[1.1] text-zoe-forest">Dear friend,</p>
+          <p className={`${serifItalic} relative text-[clamp(28px,3vw,36px)] leading-[1.1] text-zoe-forest`}>Dear friend,</p>
 
           <div className="relative mt-[26px] grid gap-[22px] text-[clamp(17.5px,1.4vw,19.5px)] font-medium leading-[1.8] text-zoe-ink/[0.86]">
             {bioBeforeQuote.map((paragraph, i) => (
@@ -65,7 +66,7 @@ export default function AboutLetter() {
 
           <div className="relative mt-9 flex items-center gap-[18px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/faq/tony-signature.svg" alt="Tony" width={130} height={60} loading="lazy" className="h-auto w-[130px]" />
+            <img src="/images/faq/tony-signature.svg" alt="Tony" width={130} height={60} loading="lazy" className="h-[60px] w-[130px] flex-none" />
             <p className="text-sm leading-[1.45] text-zoe-muted">
               <strong className="block text-[15px] text-zoe-ink">Tony Allen</strong>
               Pastor, and building Zoe

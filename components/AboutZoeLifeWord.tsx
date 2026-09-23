@@ -103,9 +103,11 @@ export default function AboutZoeLifeWord() {
           aria-expanded={open}
         >
           life
-          <sup className="ml-[3px] inline-grid h-[17px] w-[17px] place-items-center rounded-full bg-[#E4F6EE] align-[0.35em] text-[11px] font-extrabold leading-none text-zoe-forest">
+          <span
+            className="ml-[3px] inline-grid h-[17px] w-[17px] place-items-center rounded-full bg-[#E4F6EE] align-[0.35em] text-[11px] font-extrabold leading-none text-zoe-forest"
+          >
             ?
-          </sup>
+          </span>
         </button>{" "}
         we are invited to with God, and I&apos;m convinced it starts with where you&apos;re placing your attention. The eternal God, I believe, stands ready at every moment, inviting us to return, remember, and relate to Him. We are just so often somewhere else.
       </p>

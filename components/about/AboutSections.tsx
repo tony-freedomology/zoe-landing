@@ -1,7 +1,13 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { btnJade, sectionPad, sheet, wrap } from "../home/styles";
+import { serifItalic } from "./fonts";
 import { aboutH2, aboutLede, btnGhost } from "./styles";
+
+/** Newsreader Italic accent inside a heading. */
+function Accent({ children }: { children: ReactNode }) {
+  return <em className={`${serifItalic} font-normal tracking-[-0.01em] text-zoe-sap`}>{children}</em>;
+}
 
 function Icon({ children, size = 22, stroke = 2 }: { children: ReactNode; size?: number; stroke?: number }) {
   return (
@@ -50,7 +56,7 @@ export function AboutBoundaries() {
     <section aria-labelledby="bd-h" className={`${sheet} ${sectionPad} bg-zoe-oat`}>
       <div className={wrap}>
         <h2 id="bd-h" className={`${aboutH2} max-w-[15ch]`}>
-          A small experiment in attention, <em>not another feed.</em>
+          A small experiment in attention, <Accent>not another feed.</Accent>
         </h2>
         <p className={aboutLede}>Three lines we&apos;re building around, and won&apos;t cross.</p>
         <div className="mt-[clamp(40px,5vw,60px)] grid gap-4 min-[901px]:grid-cols-3">
@@ -141,7 +147,7 @@ export function AboutHelp() {
       <div className={`${wrap} grid items-start gap-[clamp(32px,6vw,88px)] min-[901px]:grid-cols-[0.85fr_1.15fr]`}>
         <div>
           <h2 id="help-h" className={aboutH2}>
-            Help us build it <em>well.</em>
+            Help us build it <Accent>well.</Accent>
           </h2>
           <p className={aboutLede}>
             Zoe gets better because thoughtful people use it and tell us the truth. Here&apos;s how you can be part of that.
@@ -178,9 +184,9 @@ export function AboutClose() {
       <div className={wrap}>
         <h2
           id="about-close-h"
-          className="mx-auto max-w-[13ch] text-[clamp(44px,7vw,96px)] font-extrabold leading-[0.95] tracking-[-0.052em] text-zoe-ink [&_em]:font-serif [&_em]:font-normal [&_em]:tracking-[-0.01em] [&_em]:text-zoe-sap"
+          className="mx-auto max-w-[13ch] text-[clamp(44px,7vw,96px)] font-extrabold leading-[0.95] tracking-[-0.052em] text-zoe-ink [text-wrap:balance]"
         >
-          Walk with us while Zoe <em>grows up.</em>
+          Walk with us while Zoe <Accent>grows up.</Accent>
         </h2>
         <p className="mx-auto mb-[30px] mt-[22px] max-w-[48ch] text-[clamp(17px,1.5vw,19px)] font-medium text-zoe-muted">
           Join the waitlist, read the journal, or just email me. We&apos;re building carefully, and thoughtful people make that

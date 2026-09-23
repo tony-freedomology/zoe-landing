@@ -6,6 +6,6 @@ export const btnGhost =
 
 /** Section heading with a Newsreader italic accent (<em>). */
 export const aboutH2 =
-  "text-[clamp(38px,5.2vw,68px)] font-extrabold leading-[0.97] tracking-[-0.048em] text-zoe-ink [&_em]:font-serif [&_em]:font-normal [&_em]:tracking-[-0.01em] [&_em]:text-zoe-sap";
+  "text-[clamp(38px,5.2vw,68px)] font-extrabold leading-[0.97] tracking-[-0.048em] text-zoe-ink [text-wrap:balance]";
 
 export const aboutLede = "mt-[18px] max-w-[52ch] text-[clamp(17px,1.5vw,19px)] font-medium leading-[1.55] text-zoe-muted";
