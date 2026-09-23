@@ -3,26 +3,23 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
 import clsx from "clsx";
 import Navbar from "../components/Navbar";
-import ImagePrefetcher from "../components/ImagePrefetcher";
 import AttributionCapture from "../components/AttributionCapture";
 import MetaPixel from "../components/MetaPixel";
 import { SITE_URL, toAbsoluteUrl } from "../lib/site";
+import { DEFAULT_OG_IMAGE } from "../lib/seo";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
 const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-serif", display: "swap", adjustFontFallback: false });
-const OG_IMAGE_URL = "https://cdn.jsdelivr.net/gh/tony-freedomology/zoe-landing@master/public/images/zoe-og.png";
+const SITE_DESCRIPTION =
+  "Zoe is AI that helps you walk with Jesus by text: scripture, prayer, and reflection woven through your morning, midday, and evening. No app to download.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Zoe — A simple rhythm with Jesus",
+    default: "Zoe — AI that helps you walk with Jesus, by text",
     template: "%s | Zoe",
   },
-  description:
-    "Zoe helps you build a simple rhythm of scripture, prayer, practice, and reflection, then carries it through your week by text.",
-  alternates: {
-    canonical: "/",
-  },
+  description: SITE_DESCRIPTION,
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -30,27 +27,20 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
+  // Pages supply their own canonical + og:url (see lib/seo.ts). These are
+  // fallbacks for routes that do not define social metadata.
   openGraph: {
-    title: "Zoe — A simple rhythm with Jesus",
-    description:
-      "Zoe helps you build a simple rhythm of scripture, prayer, practice, and reflection, then carries it through your week by text.",
+    title: "Zoe — AI that helps you walk with Jesus, by text",
+    description: SITE_DESCRIPTION,
+    siteName: "Zoe",
     type: "website",
-    url: "/",
-    images: [
-      {
-        url: OG_IMAGE_URL,
-        width: 1731,
-        height: 909,
-        alt: "Zoe SMS rhythm with Jesus",
-      },
-    ],
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zoe — A simple rhythm with Jesus",
-    description:
-      "Zoe helps you build a simple rhythm of scripture, prayer, practice, and reflection, then carries it through your week by text.",
-    images: [OG_IMAGE_URL],
+    title: "Zoe — AI that helps you walk with Jesus, by text",
+    description: SITE_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE.url],
   },
 };
 
@@ -59,9 +49,9 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Zoe",
   url: SITE_URL,
-  logo: toAbsoluteUrl("/images/og-hero-v2.png"),
+  logo: toAbsoluteUrl("/images/brand/zoe-logo-512.png"),
   description:
-    "Zoe is an SMS-based AI discipleship tool that delivers daily scripture with original Greek and Hebrew context. No app to download — just text messages that help you build a real Bible habit.",
+    "Zoe is AI that helps you walk with Jesus. It lives in SMS and helps people turn their attention toward Jesus through scripture, prayer, reflection, and gentle follow-through: a simple rule of life, carried through the week by text.",
   sameAs: [],
   foundingDate: "2025",
   founder: {
@@ -74,18 +64,17 @@ const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Zoe",
-  applicationCategory: "ReligiousApp",
+  applicationCategory: "LifestyleApplication",
   operatingSystem: "SMS (any phone)",
   description:
-    "SMS-based AI discipleship tool. Daily scripture with original language context delivered via text message. No download required.",
+    "AI that helps you walk with Jesus by text. Zoe carries scripture, prayer, and reflection through your morning, midday, and evening by SMS. No download required.",
   url: SITE_URL,
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
-    description: "Free beta waitlist — invitations in small groups",
+    description: "Free during beta",
   },
-  aggregateRating: undefined,
 };
 
 const websiteSchema = {
@@ -93,8 +82,7 @@ const websiteSchema = {
   "@type": "WebSite",
   name: "Zoe",
   url: SITE_URL,
-  description:
-    "Zoe helps you build a simple rhythm of scripture, prayer, practice, and reflection, then carries it through your week by text.",
+  description: SITE_DESCRIPTION,
   publisher: {
     "@type": "Organization",
     name: "Zoe",
@@ -133,7 +121,6 @@ export default function RootLayout({
         <AttributionCapture />
         <MetaPixel />
         <Navbar />
-        <ImagePrefetcher />
         {children}
       </body>
     </html>

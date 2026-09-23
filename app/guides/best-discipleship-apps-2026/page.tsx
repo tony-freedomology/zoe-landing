@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../../lib/seo";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
@@ -6,14 +7,14 @@ import FaqSchema from "../../../components/FaqSchema";
 import StructuredData from "../../../components/StructuredData";
 import { breadcrumbSchema } from "../../../lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Best Discipleship Apps 2026",
   description:
-    "The honest comparison of discipleship apps in 2026: YouVersion, Hallow, Zoe, and more. Which tools actually build lasting Bible habits — and why most people stop using them within 90 days.",
+    "An honest look at discipleship apps in 2026, from YouVersion and Hallow to Zoe, which texts you a morning anchor, midday nudge, and evening reflection.",
   alternates: {
     canonical: "/guides/best-discipleship-apps-2026",
   },
-};
+}, { type: "article" });
 
 const apps = [
   {

@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../../lib/seo";
 import BlogArticleShell from "../../../components/BlogArticleShell";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "AI Can Sort Your Thoughts, but it Can’t Receive Your Prayers",
   description:
-    "A look at what happens when our instinct for prayer gets hijacked.",
+    "AI is good at untangling our thoughts. But moments that once sent us to prayer now send us to a chat window. Why that matters, and what AI can’t do.",
   alternates: {
     canonical: "/blog/ai-can-sort-your-thoughts",
   },
-};
+}, { type: "article", image: "/images/blog-ai-prayer-reflex-og.jpg" });
 
 export default function AiPrayerReflexPost() {
   return (
@@ -20,7 +21,7 @@ export default function AiPrayerReflexPost() {
       deck="A look at what happens when our instinct for prayer gets hijacked."
       path="/blog/ai-can-sort-your-thoughts"
       heroImage={{
-        src: "/images/blog-ai-prayer-reflex.png",
+        src: "/images/blog-ai-prayer-reflex.webp",
         alt: "A warm desk with a Bible, journal, candle, coffee, and laptop, suggesting the difference between reflection and prayer.",
       }}
     >

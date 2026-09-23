@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Mail } from "lucide-react";
@@ -6,14 +7,14 @@ import { ArrowRight, Mail } from "lucide-react";
 import AboutZoeLifeWord from "../../components/AboutZoeLifeWord";
 import Footer from "../../components/Footer";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "About",
   description:
     "Hi, I'm Tony. Pastor and builder of Zoe — an experiment in whether phones can turn attention back to Jesus instead of away from Him.",
   alternates: {
     canonical: "/about",
   },
-};
+});
 
 const bioBeforeQuote = [
   "I bet you have questions. I do too.",

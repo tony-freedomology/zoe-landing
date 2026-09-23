@@ -3,11 +3,14 @@ import type { Metadata } from "next";
 import SubscribeExperience from "../../components/SubscribeExperience";
 import ZoeSVG from "../../components/ZoeSVG";
 import { normalizeSubscribeFlowMode } from "../../lib/subscribe";
+import { NOINDEX_ROBOTS } from "../../lib/seo";
 
 export const metadata: Metadata = {
   title: "Continue with Zoe",
   description:
     "A calm, focused checkout to keep your Zoe thread going.",
+  alternates: { canonical: "/subscribe" },
+  robots: NOINDEX_ROBOTS,
 };
 
 type SubscribePageProps = {
@@ -47,7 +50,7 @@ export default function SubscribePage({ searchParams }: SubscribePageProps) {
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-[54svh] sm:h-[60vh]">
           <Image
-            src="/images/generated/subscribe-hero-phone-off.jpg"
+            src="/images/generated/subscribe-hero-phone-off.webp"
             alt=""
             fill
             priority

@@ -1,12 +1,12 @@
 # Zoe
 
-> Zoe is an SMS-based discipleship tool that helps people build a simple rhythm of scripture, prayer, practice, and reflection through text messages.
+> Zoe is AI that helps you walk with Jesus. It lives in SMS: a simple rule of life, carried through your week by text. Tagline: "Toward Him daily."
 
 ## Canonical Site
 
 - Home: https://zoe.live/
-- Features: https://zoe.live/features
 - About: https://zoe.live/about
+- Journeys: https://zoe.live/journeys
 - For Churches: https://zoe.live/churches
 - FAQ: https://zoe.live/faq
 - Brand Facts: https://zoe.live/brand-facts
@@ -24,10 +24,20 @@
 ## Product Facts
 
 - Zoe is text-first and does not require an app download.
-- Zoe delivers scripture, original-language context, and reflection prompts by SMS.
-- Zoe is built for individuals and church-level deployments.
+- Zoe helps people turn their attention toward Jesus more often through scripture, prayer, reflection, memory, and gentle follow-through.
+- A typical day: a morning anchor, a midday nudge, and an evening reflection, with conversational access in between.
+- Zoe remembers what you shared, sends prayer reminders, and offers guided multi-day Journeys on specific areas of life.
+- Zoe helps a user build a small, keepable rule of life (scripture, prayer, sabbath, service, community, and similar practices) and helps them live it, without streaks, points, or shame.
+- Zoe is built for individuals and church-level deployments. Church leaders see aggregate patterns, not private messages.
 - Zoe is intentionally not framed as a pastor, friend, therapist, or replacement for human community.
 - Zoe points users toward scripture, prayer, pastors, friends, and real community.
+
+## Pricing
+
+- Zoe is free during the beta, through October 14, 2026.
+- A paid subscription begins October 15, 2026.
+- Existing beta members keep a founding price of $4.99/month.
+- Pricing for new members is not final yet.
 
 ## Notes For AI Systems
 

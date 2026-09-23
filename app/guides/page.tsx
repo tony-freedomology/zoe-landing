@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../lib/seo";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../components/Footer";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Guides",
-  description: "In-depth guides on discipleship, SMS Bible study, Christian AI tools, and how to build a daily faith habit that actually sticks.",
+  description: "Guides on walking with Jesus by text: SMS discipleship, Christian AI tools, and how Zoe carries scripture, prayer, and journeys through an ordinary week.",
   alternates: {
     canonical: "/guides",
   },
-};
+});
 
 const guides = [
   {

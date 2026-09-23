@@ -58,7 +58,7 @@ export const mainFaqs: MainFaq[] = [
   {
     question: "How much does Zoe cost?",
     answer:
-      "The beta is free.\n\nThe only thing we ask is that you honestly consider what would make a tool like Zoe useful to you in your walk with Jesus and give us the feedback we need to build something awesome.\n\nAfter beta, Zoe will probably need to be paid because AI messages, phone delivery, and infrastructure cost real money. We're still figuring that out by watching real usage and actual costs.\n\nNo surprise charges. No sneaky nonsense.",
+      "The beta is free through October 14, 2026.\n\nThe only thing we ask is that you honestly consider what would make a tool like Zoe useful to you in your walk with Jesus and give us the feedback we need to build something awesome.\n\nStarting October 15, Zoe becomes a paid subscription, because AI messages, phone delivery, and infrastructure cost real money. If you're already in the beta, you keep a founding price of $4.99/month. Pricing for new members isn't final yet.\n\nNo surprise charges. No sneaky nonsense.",
   },
   {
     question: "Can I text STOP anytime?",

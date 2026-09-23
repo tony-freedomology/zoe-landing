@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 import JourneyDetailPage from "../../../components/JourneyDetailPage";
+import JourneyJsonLd from "../../../components/JourneyJsonLd";
+import { journeyMetadata } from "../../../lib/journeyMetadata";
 import type { JourneyContent } from "../../../lib/journeyContent";
-
-export const metadata: Metadata = {
-  title: "The Way of Jesus: 40 Days Through the Gospels — Zoe",
-  description:
-    "Walk through the core teachings of Jesus. Forty days walking through the life and teachings of Jesus.",
-};
 
 const days = [
   { "day": 1, "passage": "Luke 4:16–21", "theme": "The Mission Statement", "prompt": "Jesus announces his mission. If you had to summarize what God is doing through your life in one sentence, what would it be?" },
@@ -59,7 +55,7 @@ const journey: JourneyContent = {
   description:
     "Forty days walking through the life and teachings of Jesus, from His first sermon to His last words. Each day pairs a Gospel passage with an application challenge.",
   metaDescription:
-    "Walk through the core teachings of Jesus. Forty days walking through the life and teachings of Jesus.",
+    "Forty days through the Gospels: the life and teachings of Jesus, one passage and one application challenge a day, delivered by text.",
   heroAlt: "The Way of Jesus: 40 Days Through the Gospels",
   ctaLabel: "The Way of Jesus",
   stats: [
@@ -74,6 +70,13 @@ const journey: JourneyContent = {
   days,
 };
 
+export const metadata: Metadata = journeyMetadata(journey);
+
 export default function WayOfJesusPage() {
-  return <JourneyDetailPage journey={journey} />;
+  return (
+    <>
+      <JourneyJsonLd journey={journey} />
+      <JourneyDetailPage journey={journey} />
+    </>
+  );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../lib/seo";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,14 +7,14 @@ import Link from "next/link";
 import Footer from "../../components/Footer";
 import { blogPosts } from "../../lib/blogPosts";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Blog",
   description:
-    "Zoe posts on shepherding, software, and the small ways grace shows up in the long week.",
+    "Notes from Zoe on shepherding, software, AI and faith, and the small ways grace shows up in the long week, for pastors, members, and the curious.",
   alternates: {
     canonical: "/blog",
   },
-};
+});
 
 const topics = ["All", "Product", "Discipleship", "AI & Faith", "Field notes"];
 

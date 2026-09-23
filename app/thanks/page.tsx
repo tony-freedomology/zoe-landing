@@ -5,11 +5,13 @@ import {
   formatUsPhoneDisplay,
   normalizeSubscribeFlowMode,
 } from "../../lib/subscribe";
+import { NOINDEX_ROBOTS } from "../../lib/seo";
 
 export const metadata: Metadata = {
   title: "You're Set",
   description:
     "Your Zoe subscription is active. Keep the conversation going in the same text thread you already use.",
+  robots: NOINDEX_ROBOTS,
 };
 
 type ThanksPageProps = {

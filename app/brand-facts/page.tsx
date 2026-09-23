@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../lib/seo";
 import Link from "next/link";
 import Footer from "../../components/Footer";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Brand Facts",
   description:
-    "Structured brand information about Zoe — an SMS-based AI discipleship tool for Protestant and non-denominational Christians. No app required.",
+    "Plain facts about Zoe: AI that helps you walk with Jesus by text, with a morning anchor, a midday nudge, an evening reflection, and gentle follow-through.",
   alternates: {
     canonical: "/brand-facts",
   },
-};
+});
 
 const features = [
   {

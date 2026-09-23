@@ -110,8 +110,17 @@ const sections = [
   }
 ];
 
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { pageMetadata } from "../../lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  path: "/terms",
+  title: "Terms of Service",
+  description:
+    "The terms for using Zoe, AI that helps you walk with Jesus by text: messaging and fees, AI-generated content, church boundaries, billing, and your rights.",
+});
 
 export default function TermsPage() {
   return (
