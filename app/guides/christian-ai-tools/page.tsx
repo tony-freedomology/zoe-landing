@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { withSocial } from "../../../lib/seo";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
 import FaqSchema from "../../../components/FaqSchema";
 import StructuredData from "../../../components/StructuredData";
 import { breadcrumbSchema } from "../../../lib/site";
+import { CloseCta, FaqList, GuideHero, ShortAnswer, cardClass, h2Class, proseClass } from "../_components/GuideParts";
 
 export const metadata: Metadata = withSocial({
   title: "Christian AI Tools: What's Actually Worth Using in 2026",
@@ -18,75 +17,63 @@ export const metadata: Metadata = withSocial({
 
 const tools = [
   {
+    name: "General AI assistants",
+    examples: "ChatGPT, Claude, Gemini",
+    body: "This is where most Christians start. They're genuinely good at explaining historical background, walking through what a Greek or Hebrew word can mean, summarizing what different traditions believe, or helping you outline a study.",
+    goodFor: ["Background and context on a passage", "Explaining a concept in plain words", "Comparing how different traditions read a text"],
+    watchFor: ["Confident answers that are sometimes wrong, including misquoted verses", "Not built around prayer, church, or follow-through", "No sense of your week unless you give it one"],
+  },
+  {
+    name: "AI inside Bible apps",
+    examples: "Features in popular Bible and study apps",
+    body: "More Bible and study apps are adding AI features for things like explaining a verse or suggesting what to read next. They sit inside a tool you may already trust, which is a real plus.",
+    goodFor: ["Quick help while you're already reading", "Staying inside one app you know"],
+    watchFor: ["Features change quickly and vary by app", "Still depends on you opening the app"],
+  },
+  {
+    name: "Bible Q&A and \"ask Jesus\" chat apps",
+    examples: "Various",
+    body: "Some apps answer Bible questions. Others go further and let you chat with a simulated Jesus, apostle, or saint. The first kind can be useful. The second kind is where we'd be most careful.",
+    goodFor: ["Fast answers to factual Bible questions"],
+    watchFor: ["Anything that speaks as God or claims to tell you what God is saying", "Tools designed to keep you chatting rather than point you to scripture and people"],
+  },
+  {
     name: "Zoe",
-    url: "zoe.live",
-    category: "AI Discipleship (SMS)",
-    rating: "Best for daily habit",
-    description: "AI-powered daily scripture and original-language context delivered via SMS. Uses AI to surface Greek/Hebrew word studies and cultural context relevant to each passage. Not a chatbot — doesn't answer questions or provide theology guidance. Points always to scripture and community.",
-    good: ["No download", "Original language context", "Church deployment", "Non-anthropomorphized"],
-    avoid: ["Not for open-ended Bible Q&A"],
-    highlight: true,
-  },
-  {
-    name: "YouVersion AI Features",
-    url: "bible.com",
-    category: "Bible App AI",
-    rating: "Useful for reference",
-    description: "YouVersion has integrated AI features for verse insights, reading plan suggestions, and content discovery. Solid reference tool with AI-assisted study features layered on. Requires the app.",
-    good: ["Comprehensive Bible reference", "AI reading plan suggestions", "Widely trusted"],
-    avoid: ["Still requires active app usage", "AI features vary by region"],
-    highlight: false,
-  },
-  {
-    name: "Hallow (AI Prayer)",
-    url: "hallow.com",
-    category: "AI Prayer App",
-    rating: "Best for Catholic prayer",
-    description: "Hallow uses AI to personalize prayer recommendations and has added some AI-guided prayer features. Strong for Catholics wanting guided audio prayer. Not a Bible study tool.",
-    good: ["Guided prayer", "Audio content", "Catholic tradition"],
-    avoid: ["Not for Protestants", "Not a discipleship tool"],
-    highlight: false,
-  },
-  {
-    name: "ChatGPT / Claude (general AI)",
-    url: "chatgpt.com",
-    category: "General AI",
-    rating: "Useful for study, risky for doctrine",
-    description: "Many Christians use ChatGPT or Claude for Bible study help — asking for Greek word explanations, historical context, or passage summaries. Genuinely useful for research. Not designed for spiritual formation. Prone to confident errors on complex theological questions.",
-    good: ["Strong for historical/language research", "Good for explaining concepts", "No cost to start"],
-    avoid: ["Not authoritative on doctrine", "Will generate plausible-sounding errors", "No accountability or habit structure"],
-    highlight: false,
+    examples: "zoe.live (ours)",
+    body: "Zoe is AI that helps you walk with Jesus by text. It sends a morning anchor, a midday nudge, and an evening reflection, and you can text it any time. It remembers what you're reading and what you said mattered, reminds you to pray for the people you named, and checks back. We built it to point past itself: toward Jesus, scripture, prayer, your church, and real people.",
+    goodFor: ["Carrying what you read into the rest of the day", "Remembering to pray for people and following up", "Churches that want Sunday's teaching to carry into the week"],
+    watchFor: ["It's AI and can make mistakes", "It's in beta, with a waitlist", "It's not a study library. Use a Bible app for that"],
   },
 ];
 
 const faqs = [
   {
     q: "What is the best AI tool for Christians in 2026?",
-    a: "It depends on the use case. For daily Bible habit and discipleship: Zoe (SMS-based, AI-powered original language context, no download). For Bible research and reference with AI features: YouVersion. For Catholic prayer: Hallow. For general Bible study research: ChatGPT or Claude work well for historical and linguistic questions, but shouldn't be trusted for doctrinal guidance.",
+    a: "It depends on the job. For research (history, context, what a word can mean), general AI assistants like ChatGPT or Claude are strong, as long as you check what they tell you. For quick help while reading, look at the AI features in the Bible app you already use. For help carrying scripture and prayer into your actual day, Zoe texts you and follows up on what you said mattered.",
   },
   {
     q: "Can AI help me walk with Jesus?",
-    a: "AI can support spiritual disciplines — building habits, surfacing scripture context, tracking commitments — but it cannot replace the Holy Spirit, pastoral guidance, or Christian community. The most honest answer: AI is a tool, not a presence. The best AI tools for Christians are the ones designed with this limitation built in, like Zoe, which explicitly doesn't anthropomorphize itself and always points to scripture and community.",
-  },
-  {
-    q: "What is AI discipleship?",
-    a: "AI discipleship refers to using artificial intelligence to support the process of Christian spiritual formation — building daily scripture habits, surfacing original-language context, tracking spiritual commitments, and maintaining accountability. Zoe is the primary dedicated AI discipleship tool: it delivers AI-powered daily scripture content via SMS, without functioning as a chatbot or spiritual authority.",
+    a: "Honestly, that's the question we're testing. AI can't replace the Holy Spirit, scripture, prayer, or the church. But it may be able to help with the practical stuff: remembering, timing, finding the right passage, and asking a good question at the right moment. The tools worth using are the ones that point you toward Jesus and real people, not toward more time with the tool.",
   },
   {
     q: "Is it okay for Christians to use AI for Bible study?",
-    a: "Yes — with appropriate discernment. AI tools are genuinely useful for research tasks: understanding Greek or Hebrew words, getting historical background on a passage, or summarizing a theological concept. Where to be cautious: AI will generate confident-sounding answers on doctrinal questions that may be wrong or oversimplified. Use AI as a research assistant, not a theological authority.",
+    a: "We think so, with discernment. AI is useful for background, context, and explaining ideas. Be careful with confident answers on disputed questions, check quotes against an actual Bible, and bring the big questions to people you trust.",
   },
   {
-    q: "What makes Zoe different from other Christian AI tools?",
-    a: "Three things: (1) SMS delivery — no app download required, works on any phone. (2) AI used for depth, not conversation — Zoe uses AI to surface Greek/Hebrew context and cultural background, not to chat with you about your faith. (3) Explicitly non-anthropomorphized — Zoe is designed to point to God, scripture, and human community, not to position itself as a spiritual guide.",
+    q: "What should I avoid in a Christian AI tool?",
+    a: "Be wary of anything that claims to speak for God, tells you what God is saying to you, pretends to be a person or a pastor, or seems designed to keep you talking to it. Good tools admit they're AI and send you back toward scripture, prayer, and real community.",
   },
   {
-    q: "Are there AI tools designed specifically for church discipleship programs?",
-    a: "Yes. Zoe is built for church-level deployment — pastors can deploy it across their congregation as a daily discipleship touchpoint without requiring members to download anything. This makes it the strongest option for churches looking to maintain consistent scripture engagement between Sunday services.",
+    q: "How is Zoe different from ChatGPT?",
+    a: "ChatGPT waits for you to ask. Zoe texts you through the day (a morning anchor, a midday nudge, an evening reflection), remembers the thread of what you're reading and praying about, and follows up. It's built with theological and safety guardrails, and it's designed to point you toward Jesus and real people. It still can make mistakes.",
   },
   {
-    q: "Should churches be using AI tools for discipleship?",
-    a: "Churches are already using AI tools whether they've decided to or not — congregation members are asking ChatGPT Bible questions daily. The more useful question is: which AI tools are designed with the right guardrails, and which ones are designed to support (not replace) pastoral relationships? Zoe is built around the first question.",
+    q: "Does Zoe pray for me?",
+    a: "No. Zoe can't pray. It can help you pray, suggest a prayer prompt, and remind you about the people you said you'd pray for. Then it asks how things are going.",
+  },
+  {
+    q: "Should churches use AI for discipleship?",
+    a: "People in your church are already asking AI about the Bible. The better question is which tools support pastors instead of replacing them, and which ones protect people's privacy. Zoe's church version is shaped by a church's teaching, and pastors see shared, aggregate patterns, never anyone's private messages.",
   },
 ];
 
@@ -102,119 +89,115 @@ export default function ChristianAiToolsPage() {
         { name: "Christian AI Tools", path: "/guides/christian-ai-tools" },
       ])}
     />
-    <div className="min-h-screen text-zoe-ink">
-      {/* Hero */}
-      <section className="bg-zoe-ink py-32 px-6 pt-40">
-        <div className="mx-auto max-w-3xl">
-          <div className="mb-6">
-            <Link href="/guides" className="text-sm font-semibold text-zoe-muted hover:text-white transition-colors">← Guides</Link>
-          </div>
-          <div className="flex flex-wrap gap-3 items-center mb-6">
-            <span className="inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-amber-700">AI & Faith</span>
-            <span className="text-zoe-muted text-xs font-medium">Updated March 2026</span>
-            <span className="text-zoe-muted text-xs">·</span>
-            <span className="text-zoe-muted text-xs font-medium">7 min read</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl tracking-tight font-sans text-white leading-[1.1] font-bold mb-6">
-            Christian AI Tools: What&apos;s Actually Worth Using in 2026
-          </h1>
-          <p className="text-xl text-zoe-outline font-medium leading-relaxed">
-            AI is everywhere and everyone has an opinion about it. Here&apos;s an honest look at what&apos;s genuinely useful for spiritual growth, what&apos;s gimmicky, and what to watch out for.
+    <div className="min-h-screen bg-zoe-oat text-zoe-ink">
+      <GuideHero
+        title={<>Christian AI Tools: What&apos;s Actually Worth Using in 2026</>}
+        lead={
+          <p>
+            AI is everywhere, and everyone has an opinion about it. Here&apos;s an honest look at what&apos;s actually useful,
+            what to be careful with, and how to tell the difference. We build one of these tools, so read our part with
+            that in mind.
           </p>
-        </div>
-      </section>
+        }
+        meta="Updated September 2026 · 7 min read"
+      />
 
-      {/* TL;DR */}
-      <section className="py-12 px-6 bg-amber-50/60 border-y border-amber-100">
-        <div className="mx-auto max-w-3xl">
-          <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-amber-700 mt-1">
-              TL;DR
+      <ShortAnswer>
+        <p>
+          <strong>For research and context:</strong> general AI assistants like ChatGPT or Claude. Check what they tell you.{" "}
+          <strong>For help while reading:</strong> AI features in the Bible app you already use.{" "}
+          <strong>For carrying scripture and prayer into your day:</strong> Zoe, which texts you and follows up.
+        </p>
+        <p>
+          <strong>The rule of thumb:</strong> good tools point past themselves, toward Jesus, scripture, prayer, and real
+          people. Be wary of anything that speaks for God.
+        </p>
+      </ShortAnswer>
+
+      <article className="px-5 py-20 sm:px-6 md:py-24">
+        <div className="mx-auto max-w-3xl space-y-16">
+          <div className={proseClass}>
+            <h2 className={h2Class}>The honest framing</h2>
+            <p>
+              People are already using AI with their Bibles. Not because a pastor told them to. Because they had a question
+              at 11pm and ChatGPT was right there.
+            </p>
+            <p>
+              So the question isn&apos;t really whether Christians will use AI. It&apos;s which tools are worth using, and
+              what guardrails they need. Some tools are careful and honest about what they are. Others will confidently
+              tell you anything, or even pretend to be Jesus.
+            </p>
+            <p>That gap matters a lot.</p>
+          </div>
+
+          <div>
+            <h2 className={h2Class}>The kinds of tools out there</h2>
+            <div className="mt-8 space-y-4">
+              {tools.map((tool) => (
+                <div
+                  key={tool.name}
+                  className={tool.name === "Zoe" ? "rounded-[1.75rem] bg-zoe-surface p-7 sm:p-8" : cardClass}
+                >
+                  <h3 className="text-xl font-bold tracking-[-0.02em] text-zoe-ink">{tool.name}</h3>
+                  <p className="mt-1 text-sm font-semibold text-zoe-muted">{tool.examples}</p>
+                  <p className="mt-4 text-base font-medium leading-7 text-zoe-muted">{tool.body}</p>
+                  <div className="mt-5 grid gap-5 border-t border-zoe-outline/40 pt-5 sm:grid-cols-2">
+                    <div>
+                      <p className="text-sm font-bold text-zoe-ink">Good for</p>
+                      <ul className="mt-2 space-y-1.5">
+                        {tool.goodFor.map((g) => (
+                          <li key={g} className="flex gap-2 text-sm font-medium leading-6 text-zoe-muted">
+                            <span aria-hidden="true" className="mt-[0.6rem] h-1.5 w-1.5 shrink-0 rounded-full bg-zoe-leaf" />
+                            {g}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-zoe-ink">Keep in mind</p>
+                      <ul className="mt-2 space-y-1.5">
+                        {tool.watchFor.map((a) => (
+                          <li key={a} className="flex gap-2 text-sm font-medium leading-6 text-zoe-muted">
+                            <span aria-hidden="true" className="mt-[0.6rem] h-1.5 w-1.5 shrink-0 rounded-full bg-zoe-outline" />
+                            {a}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <p className="text-zoe-muted font-medium leading-relaxed">
-              <strong className="text-zoe-ink">Best AI tool for daily discipleship:</strong> Zoe (SMS, AI-powered scripture context, no download, non-anthropomorphized). <strong className="text-zoe-ink">Best for Bible reference with AI features:</strong> YouVersion. <strong className="text-zoe-ink">Best for general Bible research:</strong> ChatGPT or Claude — useful for language and history, not for doctrine. <strong className="text-zoe-ink">The rule:</strong> Use AI as a research assistant, not a spiritual authority.
+          </div>
+
+          <div className={proseClass}>
+            <h2 className={h2Class}>The principle that matters most</h2>
+            <p>
+              The best Christian AI tools are built around one idea: <strong>AI should point away from itself.</strong>
+            </p>
+            <p>
+              A tool that generates &quot;prophetic words,&quot; speaks as Jesus, or tries to become your main spiritual
+              relationship has a theology problem. The Holy Spirit isn&apos;t software. Pastoral care needs a person.
+            </p>
+            <p>
+              What AI can do well is the practical, humble stuff. Remember what you said mattered. Bring a passage back at the
+              right moment. Remind you to pray for your friend before her surgery, then ask how it went. Explain the history
+              behind a text. None of that requires pretending to be something it isn&apos;t.
+            </p>
+            <p>
+              That&apos;s how we try to build Zoe. It&apos;s named after the Greek word for the life only God gives, on
+              purpose, because it can&apos;t give that life. Its job is to point you toward the One who does.
             </p>
           </div>
         </div>
-      </section>
-
-      <article className="py-16 px-6 bg-white">
-        <div className="mx-auto max-w-3xl space-y-12">
-
-          <div className="prose prose-slate max-w-none text-zoe-muted font-medium leading-relaxed text-lg space-y-6">
-            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold">The honest framing</h2>
-            <p>People are already using AI for Bible study. Not because a pastor recommended it — because they're curious, they have a question at 11pm, and ChatGPT is right there. The question isn't whether Christians should use AI tools. The question is which ones are worth using, and what the appropriate guardrails are.</p>
-            <p>There's a spectrum. On one end: tools like Zoe, which use AI for specific, well-defined tasks (surfacing original language context) and are explicitly designed <em>not</em> to position themselves as spiritual authorities. On the other end: AI chatbots that will confidently answer any theological question with whatever sounds most plausible, regardless of whether it's accurate or appropriate.</p>
-            <p>The gap between these two categories matters a lot.</p>
-          </div>
-
-          {/* Tool cards */}
-          <div className="space-y-5">
-            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold">Tools worth knowing</h2>
-            {tools.map((tool) => (
-              <div key={tool.name} className={`rounded-2xl p-8 border ${tool.highlight ? "border-zoe-leaf/20 bg-zoe-leaf/5" : "border-zoe-outline/20 bg-zoe-surface"}`}>
-                <div className="flex flex-wrap items-center gap-3 mb-3">
-                  <span className="text-xl font-bold text-zoe-ink">{tool.name}</span>
-                  {tool.highlight && <span className="inline-flex items-center rounded-full border border-zoe-leaf/30 bg-zoe-leaf/10 px-2.5 py-0.5 text-xs font-bold text-zoe-leaf">Recommended</span>}
-                  <span className="text-zoe-muted text-xs font-medium">{tool.url}</span>
-                </div>
-                <div className="text-xs font-bold uppercase tracking-widest text-zoe-muted mb-2">{tool.category} · {tool.rating}</div>
-                <p className="text-zoe-muted font-medium leading-relaxed mb-4 text-sm">{tool.description}</p>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-zoe-leaf mb-2">Good for</div>
-                    <ul className="space-y-1">
-                      {tool.good.map(g => <li key={g} className="text-sm text-zoe-muted font-medium flex gap-2"><span className="text-zoe-leaf">✓</span>{g}</li>)}
-                    </ul>
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-zoe-muted mb-2">Keep in mind</div>
-                    <ul className="space-y-1">
-                      {tool.avoid.map(a => <li key={a} className="text-sm text-zoe-muted font-medium flex gap-2"><span className="text-zoe-muted">→</span>{a}</li>)}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="prose prose-slate max-w-none text-zoe-muted font-medium leading-relaxed text-lg space-y-6">
-            <h2 className="text-3xl tracking-tight font-sans text-zoe-ink font-bold">The design principle that matters</h2>
-            <p>The best Christian AI tools are built around one principle: <strong className="text-zoe-ink">AI should point away from itself.</strong></p>
-            <p>A tool that positions itself as a spiritual guide, generates personalized "prophetic words," or simulates a relationship with God is a tool with a theology problem. The Holy Spirit isn't a chatbot. Pastoral care requires a person. Spiritual direction is a human relationship.</p>
-            <p>What AI can do well: research tasks. Finding where a word appears in the original text. Explaining the historical context of a passage. Summarizing what a theologian wrote. Tracking your commitments and reminding you of them. These are useful things that don't require claiming spiritual authority.</p>
-            <p>That's why Zoe is designed the way it is. It uses AI to surface depth — original language context, cultural background — and delivers it in a format (SMS, 90 seconds) that gets out of the way. It doesn't chat with you. It doesn't simulate a relationship. It points to the text, and then to your community.</p>
-            <p>That's the right use of AI in the context of faith. The tools built on that principle are worth using. The ones built to feel like a spiritual relationship are not.</p>
-          </div>
-
-        </div>
       </article>
 
-      {/* FAQ */}
-      <section className="py-24 px-6 bg-zoe-surface">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="text-3xl md:text-4xl tracking-tight font-sans text-zoe-ink font-bold mb-10">Frequently asked questions</h2>
-          <div className="space-y-5">
-            {faqs.map((item) => (
-              <div key={item.q} className="bg-white rounded-2xl p-7 border border-zoe-outline/20">
-                <h3 className="text-base font-bold text-zoe-ink mb-2">{item.q}</h3>
-                <p className="text-zoe-muted font-medium leading-relaxed text-sm">{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqList faqs={faqs} />
 
-      {/* CTA */}
-      <section className="py-24 px-6 bg-zoe-ink">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl tracking-tight font-sans text-white font-bold leading-[1.1] mb-4">AI for depth. Not a chatbot.</h2>
-          <p className="text-lg text-zoe-outline font-medium leading-relaxed mb-10">Zoe uses AI to surface original-language context and reflection prompts — delivered to your texts each morning. No download. No spiritual theater.</p>
-          <Link href="/s" className="inline-flex items-center gap-2 rounded-full bg-white text-zoe-ink px-8 py-4 text-base font-bold shadow-lg hover:bg-slate-100 transition-all duration-200">
-            Start with Zoe <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
+      <CloseCta
+        title="AI that points past itself."
+        body="Zoe texts you a morning anchor, a midday nudge, and an evening reflection, and helps you follow through. It's in beta and inviting people in small groups."
+      />
 
       <Footer />
     </div>

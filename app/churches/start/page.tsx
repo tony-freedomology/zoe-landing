@@ -5,12 +5,12 @@ import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
+  BookOpen,
   CheckCircle2,
-  Heart,
-  LineChart,
+  HeartHandshake,
   Loader2,
+  LockKeyhole,
   MessageCircle,
-  Sparkles,
 } from "lucide-react";
 import {
   isWaitlistEmailValid,
@@ -25,19 +25,19 @@ type Status = "idle" | "submitting" | "sent";
 
 const benefits = [
   {
-    icon: Sparkles,
-    title: "A pastoral assistant for your ministry",
-    body: "Extend your teaching, prayers, and care throughout the week.",
+    icon: BookOpen,
+    title: "Take Sunday’s sermon into Monday through Saturday",
+    body: "Your people get a few texts each day to reflect on the teaching, pray, and try the practice you preached.",
   },
   {
-    icon: LineChart,
-    title: "Stay connected to what matters",
-    body: "Understand where your people are growing and where they need support.",
+    icon: LockKeyhole,
+    title: "Shared patterns, not private threads",
+    body: "You see themes across the church, like where people are getting stuck. Private conversations stay private.",
   },
   {
-    icon: Heart,
-    title: "Care for every soul entrusted to you",
-    body: "Reach people with timely encouragement and prayer—when they need it most.",
+    icon: HeartHandshake,
+    title: "Support for your work, not a replacement",
+    body: "Zoe points people back to you, their small group, and real care. It never pretends to be the pastor.",
   },
 ];
 
@@ -115,7 +115,7 @@ export default function ChurchPilotStartPage() {
   }
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-white px-5 pb-20 pt-28 text-zoe-ink sm:px-8 lg:pb-24 lg:pt-32">
+    <main className="min-h-screen overflow-x-hidden bg-zoe-oat px-5 pb-20 pt-28 text-zoe-ink sm:px-8 lg:pb-24 lg:pt-32">
       <div className="mx-auto max-w-6xl">
           <Link
             href="/churches"
@@ -125,7 +125,7 @@ export default function ChurchPilotStartPage() {
             For Churches
           </Link>
 
-          <div className="mt-8 overflow-hidden rounded-[2rem] bg-white shadow-[0_28px_80px_rgba(45,50,49,0.12)] ring-1 ring-zoe-outline/30 sm:mt-10">
+          <div className="mt-8 overflow-hidden rounded-[2rem] bg-white shadow-[0_24px_70px_rgba(45,50,49,0.05)] ring-1 ring-zoe-outline/30 sm:mt-10">
             {status === "sent" ? (
               <div className="flex min-h-[520px] flex-col items-center justify-center px-6 py-16 text-center sm:px-10">
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-zoe-leaf text-white">
@@ -147,20 +147,19 @@ export default function ChurchPilotStartPage() {
             ) : (
               <div className="grid lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)]">
                 <aside className="flex flex-col border-b border-zoe-outline/25 px-6 py-8 sm:px-8 sm:py-10 lg:border-b-0 lg:border-r lg:py-10">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-zoe-forest">Church pilot</p>
-                  <h1 className="mt-4 max-w-md text-[2.2rem] font-bold leading-[1.06] tracking-tighter-editorial text-zoe-ink sm:text-[2.45rem]">
+                  <h1 className="max-w-md text-[2.2rem] font-bold leading-[1.06] tracking-tighter-editorial text-zoe-ink sm:text-[2.45rem]">
                     Want to bring Zoe to your church?
                   </h1>
                   <div className="mt-5 h-[3px] w-14 rounded-full bg-zoe-leaf" />
                   <p className="mt-6 max-w-md text-base font-medium leading-8 text-zoe-muted">
-                    Tell us about your church and your goals. We&apos;ll follow up to explore how Zoe can support your ministry and your people.
+                    Tell us about your church and what you&apos;re hoping for. Someone on our team will follow up, and we&apos;ll figure out together whether a small pilot makes sense.
                   </p>
 
                   <div className="mt-8 space-y-6">
                     {benefits.map(({ icon: Icon, title, body }) => (
                       <div key={title} className="flex gap-4">
                         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-zoe-surface ring-1 ring-zoe-outline/30">
-                          <Icon className="h-5 w-5 text-zoe-forest" strokeWidth={2.2} />
+                          <Icon className="h-5 w-5 text-zoe-forest" strokeWidth={2} />
                         </div>
                         <div>
                           <p className="text-sm font-bold leading-6 text-zoe-ink">{title}</p>
@@ -292,7 +291,7 @@ export default function ChurchPilotStartPage() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="grid gap-2.5">
-      <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-zoe-forest">{label}</span>
+      <span className="text-sm font-bold text-zoe-ink">{label}</span>
       {children}
     </label>
   );

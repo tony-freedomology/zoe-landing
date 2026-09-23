@@ -31,11 +31,10 @@ export default function ThanksPage({ searchParams }: ThanksPageProps) {
       : searchParams?.mode
   );
   const displayPhone = formatUsPhoneDisplay(rawPhone);
-  const eyebrow = mode === "reactivate" ? "Welcome Back" : "Subscription Active";
   const headline =
     mode === "reactivate"
-      ? "You're back in. Zoe can keep walking with you."
-      : "You're set. Zoe can keep walking with you.";
+      ? "You're back. Pick up right where you left off."
+      : "You're set. Your rhythm keeps going.";
   const summary = displayPhone
     ? mode === "reactivate"
       ? `Your subscription is active again for ${displayPhone}.`
@@ -43,72 +42,54 @@ export default function ThanksPage({ searchParams }: ThanksPageProps) {
     : "Your subscription is active.";
 
   return (
-    <main className="min-h-screen bg-[#f6f1e7] text-zoe-ink">
-      <section className="relative overflow-hidden px-6 pb-24 pt-28 md:px-8 md:pt-36">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,#f8f3ea_0%,#f6f1e7_48%,#f1e7d6_100%)]" />
-          <div className="absolute left-[10%] top-[5%] h-[18rem] w-[18rem] rounded-full bg-zoe-leaf/10 blur-[110px]" />
-          <div className="absolute right-[8%] top-[18%] h-[18rem] w-[18rem] rounded-full bg-gold-300/18 blur-[110px]" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-4xl">
-          <div className="rounded-[2.4rem] border border-white/70 bg-white/75 p-8 shadow-[0_30px_90px_rgba(28,32,40,0.08)] backdrop-blur md:p-12">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.38em] text-zoe-leaf">
-              {eyebrow}
-            </p>
-            <h1 className="mt-5 max-w-[11ch] text-[3.2rem] font-bold leading-[0.92] tracking-[-0.06em] text-zoe-ink md:text-[5rem] font-sans">
+    <main className="min-h-screen bg-zoe-oat text-zoe-ink">
+      <section className="px-5 pb-24 pt-28 sm:px-6 md:px-8 md:pt-36">
+        <div className="mx-auto max-w-4xl">
+          <div className="rounded-[2.25rem] bg-white p-7 shadow-zoe-card ring-1 ring-zoe-outline/40 sm:p-10 md:p-12">
+            <h1 className="max-w-[14ch] text-[2.75rem] font-bold leading-[1] tracking-[-0.05em] text-zoe-ink sm:text-[3.5rem] md:text-[4.25rem]">
               {headline}
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-medium leading-8 text-zoe-muted">
-              {summary} Keep replying in your existing Zoe text thread and the conversation will continue at your normal rhythm.
+              {summary} Keep replying in your existing Zoe text thread, and your texts will keep coming at the rhythm
+              you&apos;ve set.
             </p>
 
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              <div className="rounded-[1.6rem] border border-zoe-outline/40 bg-white/85 p-5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-zoe-muted">
-                  01
+            <ol className="mt-10 grid gap-4 md:grid-cols-3">
+              <li className="rounded-[1.5rem] bg-zoe-surface p-6">
+                <p className="text-sm font-bold text-zoe-forest">1</p>
+                <h2 className="mt-2 text-lg font-bold leading-snug text-zoe-ink">Keep texting in the same thread</h2>
+                <p className="mt-2 text-sm font-medium leading-6 text-zoe-muted">
+                  No new inbox, no password, no app. Just pick up where you left off.
                 </p>
-                <h2 className="mt-3 text-lg font-bold text-zoe-ink">
-                  Keep texting in the same thread
+              </li>
+              <li className="rounded-[1.5rem] bg-zoe-surface p-6">
+                <p className="text-sm font-bold text-zoe-forest">2</p>
+                <h2 className="mt-2 text-lg font-bold leading-snug text-zoe-ink">
+                  Text <span className="rounded-md bg-zoe-ink px-2 py-0.5 text-white">START</span> if you had stopped messages
                 </h2>
                 <p className="mt-2 text-sm font-medium leading-6 text-zoe-muted">
-                  No new inbox, no new password, no app install. Just pick up where you left off.
+                  If you texted STOP at some point, START turns messages back on with your carrier.
                 </p>
-              </div>
-              <div className="rounded-[1.6rem] border border-zoe-outline/40 bg-white/85 p-5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-zoe-muted">
-                  02
-                </p>
-                <h2 className="mt-3 text-lg font-bold text-zoe-ink">
-                  Text <span className="rounded bg-zoe-ink px-2 py-1 text-white">START</span> if you had stopped messages
-                </h2>
+              </li>
+              <li className="rounded-[1.5rem] bg-zoe-surface p-6">
+                <p className="text-sm font-bold text-zoe-forest">3</p>
+                <h2 className="mt-2 text-lg font-bold leading-snug text-zoe-ink">Give it a minute</h2>
                 <p className="mt-2 text-sm font-medium leading-6 text-zoe-muted">
-                  That reopens the carrier-level SMS thread if you had previously muted it with STOP.
+                  Activation is usually quick. If you text right after paying and nothing happens, wait a minute and try again.
                 </p>
-              </div>
-              <div className="rounded-[1.6rem] border border-zoe-outline/40 bg-white/85 p-5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-zoe-muted">
-                  03
-                </p>
-                <h2 className="mt-3 text-lg font-bold text-zoe-ink">
-                  Give the webhook a moment
-                </h2>
-                <p className="mt-2 text-sm font-medium leading-6 text-zoe-muted">
-                  Activation is usually fast, but if you text immediately after paying, give it a minute and try again.
-                </p>
-              </div>
-            </div>
+              </li>
+            </ol>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/"
-                className="inline-flex items-center justify-center rounded-full bg-zoe-ink px-6 py-4 text-base font-bold text-white transition hover:bg-zoe-ink"
+                className="inline-flex items-center justify-center rounded-full bg-zoe-leaf px-7 py-4 text-base font-bold text-white transition hover:brightness-105"
               >
-                Back to Zoe.live
+                Back to zoe.live
               </Link>
               <Link
                 href="/faq"
-                className="inline-flex items-center justify-center rounded-full border border-zoe-outline/40 px-6 py-4 text-base font-semibold text-zoe-muted transition hover:border-slate-300 hover:text-zoe-ink"
+                className="inline-flex items-center justify-center rounded-full bg-white px-7 py-4 text-base font-bold text-zoe-ink ring-1 ring-zoe-outline/50 transition hover:bg-zoe-surface"
               >
                 Read the FAQ
               </Link>
