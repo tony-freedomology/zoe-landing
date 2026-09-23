@@ -83,7 +83,7 @@ export default function AboutPage() {
             </div>
 
             <div className="order-2 flex flex-col justify-center pb-1 pt-1 lg:pl-2">
-              <p className="text-sm font-bold tracking-normal text-zoe-sap">
+              <p className="text-sm font-bold tracking-normal text-zoe-forest">
                 Pastor + builder · Cleveland, OH
               </p>
               <h1 className="mt-4 text-[3rem] font-extrabold leading-[0.92] tracking-[-0.05em] text-zoe-ink sm:text-[3.75rem] lg:text-[4.6rem]">
@@ -228,7 +228,7 @@ export default function AboutPage() {
       <section className="bg-zoe-surface px-5 py-16 sm:px-6 md:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-2xl">
-            <p className="text-sm font-bold text-zoe-sap">What Zoe is trying to be</p>
+            <p className="text-sm font-bold text-zoe-forest">What Zoe is trying to be</p>
             <h2 className="mt-3 text-[2rem] font-extrabold leading-[1.05] tracking-[-0.04em] text-zoe-ink sm:text-[2.55rem]">
               A small experiment in attention, not another feed.
             </h2>

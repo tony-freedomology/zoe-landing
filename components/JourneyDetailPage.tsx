@@ -25,9 +25,6 @@ export default function JourneyDetailPage({ journey, heroImage }: JourneyDetailP
               <p className="mt-7 max-w-2xl text-lg font-medium leading-8 text-zoe-muted md:text-xl md:leading-9">
                 {journey.description}
               </p>
-              <p className="mt-6 text-sm font-bold text-zoe-forest">
-                {journey.duration} · {journey.days.length} readings
-              </p>
             </div>
             <div className="order-1 lg:order-2">
               <div className="relative mx-auto aspect-[4/3] w-full max-w-[560px] overflow-hidden rounded-[2rem] bg-zoe-surface shadow-zoe-card ring-1 ring-zoe-outline/45">
