@@ -33,7 +33,7 @@ export const journeyContent = {
     description:
       "Leadership is less about charisma and more about formation. Twenty-one days on leading people, teams, and families without losing your soul in the process.",
     metaDescription:
-      "Twenty-one days on servant leadership, wisdom, courage, and integrity for the people God has entrusted to you.",
+      "Twenty-one days on servant leadership, wisdom, courage, and integrity for the people God has entrusted to you, with scripture and prayer by text.",
     heroAlt: "Leadership: Leading from the Inside Out",
     ctaLabel: "Leadership",
     stats: [
@@ -77,7 +77,7 @@ export const journeyContent = {
     description:
       "Love is more than chemistry or niceness. Fourteen days on romantic love, sacrificial love, and loving difficult people without becoming fake or sentimental.",
     metaDescription:
-      "Fourteen days on romantic love, sacrificial love, mercy, and learning to love difficult people like Jesus does.",
+      "Fourteen days on romantic love, sacrificial love, mercy, and loving difficult people like Jesus does. Scripture and reflection, delivered by text.",
     heroAlt: "Love: The Most Excellent Way",
     ctaLabel: "Love",
     stats: [
@@ -114,7 +114,7 @@ export const journeyContent = {
     description:
       "Money reveals discipleship faster than most of us want to admit. Twenty-one days on stewardship, generosity, contentment, and building wealth without being owned by it.",
     metaDescription:
-      "Twenty-one days on stewardship, generosity, contentment, and building wealth God's way without becoming captive to money.",
+      "Twenty-one days on stewardship, generosity, and contentment: building wealth God's way without becoming captive to money. Guided by text.",
     heroAlt: "Money & Wealth: Kingdom Economics",
     ctaLabel: "Money & Wealth",
     stats: [
@@ -158,7 +158,7 @@ export const journeyContent = {
     description:
       "Your body is not an inconvenience to your spiritual life. Fourteen days on honoring the temple through discipline, rest, nourishment, and wise limits.",
     metaDescription:
-      "Fourteen days on honoring your body as God's temple through discipline, rest, nourishment, and wise rhythms.",
+      "Fourteen days on honoring your body as God's temple through discipline, rest, nourishment, and wise rhythms. Scripture and prayer, by text.",
     heroAlt: "Health & The Body: Honoring the Temple",
     ctaLabel: "Health & The Body",
     stats: [
@@ -195,7 +195,7 @@ export const journeyContent = {
     description:
       "Fear can run your life quietly or loudly. Fourteen days on naming worry honestly and learning a slower, sturdier trust in God.",
     metaDescription:
-      "Fourteen days on replacing worry with trust, naming fear honestly, and practicing peace under pressure.",
+      "Fourteen days on replacing worry with trust, naming fear honestly, and practicing peace under pressure. Scripture, prayer, and reflection by text.",
     heroAlt: "Fear & Anxiety: From Worry to Trust",
     ctaLabel: "Fear & Anxiety",
     stats: [
@@ -232,7 +232,7 @@ export const journeyContent = {
     description:
       "Marriage drifts when closeness gets replaced by logistics. Twenty-one days on covenant, conflict, intimacy, repair, and staying tender on purpose.",
     metaDescription:
-      "Twenty-one days on covenant, conflict, intimacy, tenderness, and staying close in marriage.",
+      "Twenty-one days on covenant, conflict, intimacy, and tenderness: a guided path for staying close in marriage, with scripture and prayer by text.",
     heroAlt: "Marriage: Covenant & Closeness",
     ctaLabel: "Marriage",
     stats: [
@@ -276,7 +276,7 @@ export const journeyContent = {
     description:
       "Parenting can feel equal parts holy and exhausting. Twenty-one days on raising kids with intention, grace, boundaries, and a calmer soul.",
     metaDescription:
-      "Twenty-one days on parenting with intention, grace, discipline, gentleness, and trust in God.",
+      "Twenty-one days on parenting with intention, grace, discipline, and gentleness while trusting God with your kids. Scripture and prayer by text.",
     heroAlt: "Parenting: Raising Humans on Purpose",
     ctaLabel: "Parenting",
     stats: [
@@ -320,7 +320,7 @@ export const journeyContent = {
     description:
       "Calling usually gets discovered in faithfulness, not fantasy. Fourteen days on finding your assignment and living it without comparing your path to somebody else's.",
     metaDescription:
-      "Fourteen days on purpose, calling, gifts, faithfulness, and learning to live your actual assignment.",
+      "Fourteen days on purpose, calling, gifts, and faithfulness: learning to live your actual assignment. Scripture and reflection, delivered by text.",
     heroAlt: "Purpose & Calling: Your Assignment",
     ctaLabel: "Purpose & Calling",
     stats: [
@@ -357,7 +357,7 @@ export const journeyContent = {
     description:
       "Most people live from a stack of roles, wounds, and performance metrics. Fourteen days on receiving your truest identity in God and letting false selves lose their grip.",
     metaDescription:
-      "Fourteen days on belovedness, adoption, truth, and learning to live from who God says you are.",
+      "Fourteen days on belovedness, adoption, and truth: learning to live from who God says you are. Scripture, prayer, and reflection by text.",
     heroAlt: "Identity: Who God Made You to Be",
     ctaLabel: "Identity",
     stats: [
@@ -394,7 +394,7 @@ export const journeyContent = {
     description:
       "Forgiveness is not pretending the wound was small. Fourteen days on releasing others, receiving mercy yourself, and refusing to let bitterness become your identity.",
     metaDescription:
-      "Fourteen days on forgiveness, releasing bitterness, receiving mercy, and learning to let go without minimizing harm.",
+      "Fourteen days on forgiveness: releasing bitterness, receiving mercy, and letting go without minimizing harm. Scripture and prayer by text.",
     heroAlt: "Forgiveness: The Art of Letting Go",
     ctaLabel: "Forgiveness",
     stats: [
@@ -431,7 +431,7 @@ export const journeyContent = {
     description:
       "Prayer is more than sending requests upward. Twenty-one days on talking to God honestly, listening well, and building a life that makes room for his voice.",
     metaDescription:
-      "Twenty-one days on prayer, listening, intercession, honesty, and learning to speak with God in a real relationship.",
+      "Twenty-one days on prayer, listening, intercession, and honesty: learning to speak with God in a real relationship. Guided by text.",
     heroAlt: "Prayer: Learning to Listen",
     ctaLabel: "Prayer",
     stats: [
@@ -475,7 +475,7 @@ export const journeyContent = {
     description:
       "Faith is not the absence of questions. Fourteen days on bringing your doubts into the light and learning a more honest, resilient trust in God.",
     metaDescription:
-      "Fourteen days on honest questions, doubt, trust, and building real belief without pretending certainty.",
+      "Fourteen days on honest questions, doubt, and trust: building real belief without pretending certainty. Scripture, prayer, and reflection by text.",
     heroAlt: "Faith & Doubt: Honest Questions",
     ctaLabel: "Faith & Doubt",
     stats: [
@@ -512,7 +512,7 @@ export const journeyContent = {
     description:
       "Work can become worship, avoidance, service, or addiction. Fourteen days on ambition, vocation, hustle, rest, and staying spiritually awake while you build.",
     metaDescription:
-      "Fourteen days on work, ambition, vocation, rest, and building without losing your soul.",
+      "Fourteen days on work, ambition, vocation, and rest: learning to build without losing your soul. Scripture and reflection, delivered by text.",
     heroAlt: "Work & Ambition: Grinding Without Losing Your Soul",
     ctaLabel: "Work & Ambition",
     stats: [
@@ -549,7 +549,7 @@ export const journeyContent = {
     description:
       "Grief does not get healed by pretending you are okay. Fourteen days on loss, lament, hope, and learning to carry pain without letting it freeze your life.",
     metaDescription:
-      "Fourteen days on grief, lament, loss, hope, and processing pain without getting stuck.",
+      "Fourteen days on grief, lament, loss, and hope: a gentle path for processing pain without getting stuck. Scripture and prayer, by text.",
     heroAlt: "Grief & Loss: Walking Through Pain",
     ctaLabel: "Grief & Loss",
     stats: [
@@ -586,7 +586,7 @@ export const journeyContent = {
     description:
       "Deep friendship does not happen by accident. Fourteen days on community, honesty, loyalty, confession, and building relationships that can actually hold your life.",
     metaDescription:
-      "Fourteen days on friendship, community, honesty, support, and building deep relationships.",
+      "Fourteen days on friendship, community, honesty, and support: building deep relationships the way Jesus did. Scripture and reflection by text.",
     heroAlt: "Friendship & Community: Iron Sharpening Iron",
     ctaLabel: "Friendship & Community",
     stats: [
@@ -623,7 +623,7 @@ export const journeyContent = {
     description:
       "Anger can tell the truth or torch the room. Fourteen days on righteous anger, destructive anger, repair, confrontation, and learning to fight fair.",
     metaDescription:
-      "Fourteen days on anger, conflict, repair, confrontation, and learning to fight fair.",
+      "Fourteen days on anger, conflict, repair, and confrontation: learning to fight fair and make peace. Scripture, prayer, and reflection by text.",
     heroAlt: "Anger & Conflict: Fighting Fair",
     ctaLabel: "Anger & Conflict",
     stats: [
@@ -660,7 +660,7 @@ export const journeyContent = {
     description:
       "Discernment is more than choosing between good and bad. Twenty-one days on decisions, timing, counsel, peace, and learning how wisdom actually works.",
     metaDescription:
-      "Twenty-one days on discernment, decisions, counsel, timing, and learning the wise life.",
+      "Twenty-one days on discernment, decisions, counsel, and timing: learning the wise life from scripture. Guided prayer and reflection by text.",
     heroAlt: "Wisdom & Decision-Making: The Discerning Life",
     ctaLabel: "Wisdom & Decision-Making",
     stats: [
@@ -704,7 +704,7 @@ export const journeyContent = {
     description:
       "Freedom usually starts with truth, not willpower. Twenty-one days on breaking destructive cycles, bringing hidden things into the light, and learning to live free.",
     metaDescription:
-      "Twenty-one days on addiction, freedom, honesty, accountability, and breaking destructive cycles.",
+      "Twenty-one days on addiction and freedom: honesty, accountability, and breaking destructive cycles with God's help. Scripture and prayer by text.",
     heroAlt: "Addiction & Freedom: Breaking Chains",
     ctaLabel: "Addiction & Freedom",
     stats: [
@@ -748,7 +748,7 @@ export const journeyContent = {
     description:
       "Gratitude is not denial. It is attention. Fourteen days on joy, contentment, abundance, and learning to notice God's goodness without pretending life is easy.",
     metaDescription:
-      "Fourteen days on gratitude, joy, contentment, and choosing abundance over scarcity.",
+      "Fourteen days on gratitude, joy, and contentment: learning to choose abundance over scarcity. Scripture, prayer, and reflection by text.",
     heroAlt: "Gratitude & Joy: The Abundance Mindset",
     ctaLabel: "Gratitude & Joy",
     stats: [
@@ -785,7 +785,7 @@ export const journeyContent = {
     description:
       "Waiting can expose everything you would rather not see. Fourteen days on patience, delay, hope, and learning to trust God's timing when nothing seems to move.",
     metaDescription:
-      "Fourteen days on patience, delay, waiting, and learning to trust God's timing.",
+      "Fourteen days on patience, delay, and waiting: learning to trust God's timing when life feels stuck. Scripture, prayer, and reflection by text.",
     heroAlt: "Patience & Waiting: Trusting God's Timing",
     ctaLabel: "Patience & Waiting",
     stats: [
@@ -820,7 +820,7 @@ export const journeyContent = {
     duration: "14 Days",
     difficulty: "intermediate",
     description: "Fear is not the opposite of faith — avoidance is. Fourteen days on stepping into the unknown with a God who has already gone ahead.",
-    metaDescription: "A 14-day journey on biblical courage, risk-taking, and trusting God in the unknown.",
+    metaDescription: "A 14-day journey on biblical courage, risk, and trusting God in the unknown. Scripture, prayer, and one brave next step, delivered by text.",
     heroAlt: "Courage & Risk: Stepping Into the Unknown",
     ctaLabel: "Courage & Risk",
     stats: [
@@ -855,7 +855,7 @@ export const journeyContent = {
     duration: "14 Days",
     difficulty: "introductory",
     description: "Generosity is not a financial strategy — it is a trust exercise. Fourteen days on learning to hold everything with open hands.",
-    metaDescription: "A 14-day journey on biblical generosity, giving, and the spiritual mechanics of open-handedness.",
+    metaDescription: "A 14-day journey on biblical generosity and giving: the spiritual practice of open-handed living. Scripture, prayer, and reflection by text.",
     heroAlt: "Generosity & Giving: Open-Handed Living",
     ctaLabel: "Generosity",
     stats: [
@@ -890,7 +890,7 @@ export const journeyContent = {
     duration: "14 Days",
     difficulty: "introductory",
     description: "Rest is not laziness — it is resistance. Fourteen days on the countercultural discipline of stopping in a world that will not.",
-    metaDescription: "A 14-day journey on Sabbath, rest, and the spiritual discipline of stopping.",
+    metaDescription: "A 14-day journey on Sabbath, rest, and the spiritual discipline of stopping, for weary people. Scripture, prayer, and reflection by text.",
     heroAlt: "Rest & Sabbath: The Discipline of Stopping",
     ctaLabel: "Rest & Sabbath",
     stats: [
@@ -925,7 +925,7 @@ export const journeyContent = {
     duration: "14 Days",
     difficulty: "deep",
     description: "Suffering does not always have a lesson — but it always has a Companion. Fourteen days on making sense of hard seasons without cheap answers.",
-    metaDescription: "A 14-day journey on suffering, trials, and finding God in the hardest seasons of life.",
+    metaDescription: "A 14-day journey on suffering and trials: finding God in the hardest seasons of life. Scripture, prayer, and honest reflection by text.",
     heroAlt: "Suffering & Trials: Making Sense of Hard Seasons",
     ctaLabel: "Suffering & Trials",
     stats: [
@@ -960,7 +960,7 @@ export const journeyContent = {
     duration: "14 Days",
     difficulty: "deep",
     description: "You are building something that will outlive you — whether you intend to or not. Fourteen days on multi-generational thinking and living for what lasts.",
-    metaDescription: "A 14-day journey on legacy, eternity, and living for what lasts beyond your lifetime.",
+    metaDescription: "A 14-day journey on legacy, eternity, and living for what lasts beyond your lifetime. Scripture, prayer, and reflection, delivered by text.",
     heroAlt: "Legacy & Eternity: Living for What Lasts",
     ctaLabel: "Legacy & Eternity",
     stats: [

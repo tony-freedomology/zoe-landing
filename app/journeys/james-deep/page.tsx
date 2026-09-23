@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 import JourneyDetailPage from "../../../components/JourneyDetailPage";
+import JourneyJsonLd from "../../../components/JourneyJsonLd";
+import { journeyMetadata } from "../../../lib/journeyMetadata";
 import type { JourneyContent } from "../../../lib/journeyContent";
-
-export const metadata: Metadata = {
-  title: "James: 10 Days Deep — Zoe",
-  description:
-    "An intensive single-book study. Faith in action. Wisdom from above.",
-};
 
 const days = [
   { "day": 1, "passage": "James 1:1–4", "theme": "Trials as Teachers", "prompt": "What challenge in your life right now might actually be producing something good in you?" },
@@ -29,7 +25,7 @@ const journey: JourneyContent = {
   description:
     "James writes to a scattered church, people who claimed faith but lived differently from Monday to Saturday. His letter is less a theology lecture and more a direct conversation: you say you believe. Does your life show it?",
   metaDescription:
-    "An intensive single-book study through James. Faith in action. Wisdom from above.",
+    "A 10-day study through the whole Book of James: faith in action, wisdom from above, and taming the tongue. One passage a day, by text.",
   heroAlt: "James: 10 Days Deep",
   ctaLabel: "James",
   stats: [
@@ -44,6 +40,13 @@ const journey: JourneyContent = {
   days,
 };
 
+export const metadata: Metadata = journeyMetadata(journey);
+
 export default function JamesDeepPage() {
-  return <JourneyDetailPage journey={journey} />;
+  return (
+    <>
+      <JourneyJsonLd journey={journey} />
+      <JourneyDetailPage journey={journey} />
+    </>
+  );
 }

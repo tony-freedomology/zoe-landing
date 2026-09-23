@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 import JourneyDetailPage from "../../../components/JourneyDetailPage";
+import JourneyJsonLd from "../../../components/JourneyJsonLd";
+import { journeyMetadata } from "../../../lib/journeyMetadata";
 import type { JourneyContent } from "../../../lib/journeyContent";
-
-export const metadata: Metadata = {
-  title: "The Examen: 14 Days of Evening Reflection — Zoe",
-  description:
-    "Build a nightly habit of noticing God. Fourteen days to build the habit of paying attention at the end of each day.",
-};
 
 const days = [
   { "day": 1, "passage": "Psalm 139:23–24", "theme": "Search Me", "prompt": "Review your day. What's one moment you felt most alive today? What's one moment you felt most drained?" },
@@ -33,7 +29,7 @@ const journey: JourneyContent = {
   description:
     "The Examen is a five-hundred-year-old prayer practice from Ignatius of Loyola. It is simple: at the end of each day, look back and notice where God showed up, and where you missed it.",
   metaDescription:
-    "Build a nightly habit of noticing God. Fourteen days to build the habit of paying attention at the end of each day.",
+    "Fourteen days of the Examen, Ignatius's evening prayer: look back on each day and notice where God showed up. A nightly rhythm by text.",
   heroAlt: "The Examen: 14 Days of Evening Reflection",
   ctaLabel: "The Examen",
   stats: [
@@ -48,6 +44,13 @@ const journey: JourneyContent = {
   days,
 };
 
+export const metadata: Metadata = journeyMetadata(journey);
+
 export default function TheExamenPage() {
-  return <JourneyDetailPage journey={journey} />;
+  return (
+    <>
+      <JourneyJsonLd journey={journey} />
+      <JourneyDetailPage journey={journey} />
+    </>
+  );
 }

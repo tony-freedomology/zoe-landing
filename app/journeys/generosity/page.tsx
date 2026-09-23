@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
 import JourneyDetailPage from "../../../components/JourneyDetailPage";
+import JourneyJsonLd from "../../../components/JourneyJsonLd";
+import { journeyMetadata } from "../../../lib/journeyMetadata";
 import { journeyContent } from "../../../lib/journeyContent";
 
 const journey = journeyContent.generosity;
 const days = journey.days;
 
-export const metadata: Metadata = {
-  title: `${journey.title} - Zoe`,
-  description: journey.metaDescription,
-};
+export const metadata: Metadata = journeyMetadata(journey);
 
 export default function UgenerosityPage() {
-  return <JourneyDetailPage journey={{ ...journey, days }} />;
+  return (
+    <>
+      <JourneyJsonLd journey={journey} />
+      <JourneyDetailPage journey={{ ...journey, days }} />
+    </>
+  );
 }
