@@ -350,7 +350,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: var(--journey-hero-image, url('/images/journeys/journeys-hero-poster.jpg'));
+  background-image: var(--journey-hero-image, url('/images/journeys/journeys-hero-poster.webp'));
   background-size: var(--journey-hero-size);
   background-position: var(--journey-hero-position);
   background-repeat: no-repeat;

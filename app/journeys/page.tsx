@@ -74,6 +74,7 @@ export default function JourneysHubPage() {
                       <JourneyHubCard
                         key={`${section.title}-${journey.slug}-${itemIndex}`}
                         journey={journey}
+                        decorative={itemIndex >= journeys.length}
                       />
                     ))}
                   </div>
