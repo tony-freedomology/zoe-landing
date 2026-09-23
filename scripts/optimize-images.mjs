@@ -18,6 +18,8 @@ const jobs = [
   { src: "images/blog-ai-prayer-reflex.png", out: "images/blog-ai-prayer-reflex-og.jpg", width: 1200, format: "jpeg", quality: 78 },
   // /beta-welcome background texture.
   { src: "images/text/zoe-text-path-bg.png", out: "images/text/zoe-text-path-bg.webp", format: "webp", quality: 70 },
+  // /beta-welcome hero card background.
+  { src: "images/beta/beta-welcome-journey-card.jpg", out: "images/beta/beta-welcome-journey-card.webp", width: 1400, format: "webp", quality: 72 },
   // /journeys full-bleed hero poster (the JPEG stays as the OG image).
   { src: "images/journeys/journeys-hero-poster.jpg", out: "images/journeys/journeys-hero-poster.webp", format: "webp", quality: 70 },
   // /subscribe hero.

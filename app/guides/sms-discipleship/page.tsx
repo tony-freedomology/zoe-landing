@@ -10,7 +10,7 @@ import { breadcrumbSchema } from "../../../lib/site";
 export const metadata: Metadata = withSocial({
   title: "SMS Discipleship: Bible Study Without Downloading Another App",
   description:
-    "SMS discipleship delivers daily scripture, original-language context, and guided reflection via text message — no download, no login, no friction. Here's how it works and why it builds habits that apps don't.",
+    "How SMS discipleship works: a morning anchor, a midday nudge, and an evening reflection by text, plus prayer reminders and journeys. No app to download.",
   alternates: {
     canonical: "/guides/sms-discipleship",
   },

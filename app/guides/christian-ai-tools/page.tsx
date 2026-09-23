@@ -10,7 +10,7 @@ import { breadcrumbSchema } from "../../../lib/site";
 export const metadata: Metadata = withSocial({
   title: "Christian AI Tools: What's Actually Worth Using in 2026",
   description:
-    "AI tools for Christians, Bible study, discipleship, and spiritual growth — what's genuinely useful, what's gimmicky, and what to avoid. Includes Zoe, YouVersion AI features, Bible chatbots, and more.",
+    "Which AI tools actually help Christians walk with Jesus? What is useful, what is gimmicky, and how Zoe uses memory and follow-through to point past itself.",
   alternates: {
     canonical: "/guides/christian-ai-tools",
   },

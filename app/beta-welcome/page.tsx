@@ -90,7 +90,7 @@ export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) 
           <div className="relative max-w-4xl overflow-hidden rounded-[2.35rem] bg-[#F7EEDF] p-7 shadow-[0_24px_70px_rgba(45,50,49,0.12)] ring-1 ring-white/70 md:p-10 lg:order-1 xl:p-12">
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-[url('/images/beta/beta-welcome-journey-card.jpg')] bg-cover bg-center"
+              className="absolute inset-0 bg-[url('/images/beta/beta-welcome-journey-card.webp')] bg-cover bg-center"
             />
             <div aria-hidden="true" className="absolute inset-0 bg-[#FCF9F4]/20" />
 
