@@ -110,9 +110,9 @@ const linkedWays = {
     icon: <path d="M3 21h18M5 21V10l7-5 7 5v11M10 21v-5h4v5" />,
   },
   read: {
-    href: "/blog",
-    title: "Read along",
-    body: "The journal is where we think out loud about AI and faith.",
+    href: "/philosophy",
+    title: "Read our philosophy",
+    body: "How we think about AI, Scripture, the Holy Spirit, and real people.",
     icon: (
       <>
         <path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2Z" />

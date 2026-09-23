@@ -28,6 +28,7 @@ const routes: SitemapEntry[] = [
   { path: "/about", changeFrequency: "monthly", priority: 0.8 },
   { path: "/faq", changeFrequency: "monthly", priority: 0.7 },
   { path: "/brand-facts", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/philosophy", changeFrequency: "monthly", priority: 0.7 },
   { path: "/guides", changeFrequency: "weekly", priority: 0.8 },
   { path: "/guides/best-discipleship-apps-2026", changeFrequency: "monthly", priority: 0.7 },
   { path: "/guides/christian-ai-tools", changeFrequency: "monthly", priority: 0.7 },

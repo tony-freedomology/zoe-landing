@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { withSocial } from "../../../lib/seo";
+import Link from "next/link";
 import BlogArticleShell from "../../../components/BlogArticleShell";
 
 export const metadata: Metadata = withSocial(
@@ -374,6 +375,10 @@ export default function CanGodSpeakThroughAiPage() {
       </p>
       <p>
         If Zoe ever becomes the destination instead of the signpost, we have failed.
+      </p>
+      <p>
+        These convictions shape more than this one question. Read{" "}
+        <Link href="/philosophy">Our Philosophy</Link> to learn how we&apos;re thinking about AI, spiritual formation, Scripture, attention, and the kind of product we believe Zoe should become.
       </p>
     </BlogArticleShell>
   );
