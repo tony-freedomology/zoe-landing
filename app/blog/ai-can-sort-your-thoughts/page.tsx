@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { withSocial } from "../../../lib/seo";
 import BlogArticleShell from "../../../components/BlogArticleShell";
+import BlogAside from "../../../components/blog/BlogAside";
 
 export const metadata: Metadata = withSocial({
   title: "AI Can Sort Your Thoughts, but it Can’t Receive Your Prayers",
@@ -13,18 +14,7 @@ export const metadata: Metadata = withSocial({
 
 export default function AiPrayerReflexPost() {
   return (
-    <BlogArticleShell
-      category="AI & Faith"
-      date="June 2026"
-      readTime="7 min read"
-      title="AI Can Sort Your Thoughts, but it Can’t Receive Your Prayers"
-      deck="A look at what happens when our instinct for prayer gets hijacked."
-      path="/blog/ai-can-sort-your-thoughts"
-      heroImage={{
-        src: "/images/blog-ai-prayer-reflex.webp",
-        alt: "A warm desk with a Bible, journal, candle, coffee, and laptop, suggesting the difference between reflection and prayer.",
-      }}
-    >
+    <BlogArticleShell slug="ai-can-sort-your-thoughts">
       <p>I’ve been using AI a lot.</p>
 
       <p>
@@ -199,9 +189,9 @@ export default function AiPrayerReflexPost() {
 
       <p>Prayer is less me talking at God, and more me turning to gaze at Him.</p>
 
-      <p>
+      <BlogAside>
         <em>(btw, if contemplative prayer is new for you, maybe ask Zoe to guide you through it for a few weeks!)</em>
-      </p>
+      </BlogAside>
 
       <p>
         If we compare prayer to AI on AI’s terms, prayer will often feel inefficient. The model is fast, fluent, and endlessly responsive.
