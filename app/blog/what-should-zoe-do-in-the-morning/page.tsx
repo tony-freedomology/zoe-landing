@@ -16,14 +16,7 @@ export const metadata: Metadata = withSocial({
 
 export default function WhatShouldZoeDoInTheMorningPage() {
   return (
-    <BlogArticleShell
-      category="Product"
-      date="May 2026"
-      readTime="4 min read"
-      title="What Should Zoe Do in the Morning?"
-      deck="A question about mornings, Scripture, and what kind of help is actually helpful."
-      path="/blog/what-should-zoe-do-in-the-morning"
-    >
+    <BlogArticleShell slug="what-should-zoe-do-in-the-morning">
       <p>Hey friends,</p>
       <p>
         Zoe continues to develop and improve, and your feedback has been extremely helpful in shaping that.

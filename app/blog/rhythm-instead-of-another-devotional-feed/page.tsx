@@ -16,14 +16,7 @@ export const metadata: Metadata = withSocial({
 
 export default function RhythmInsteadOfAnotherDevotionalFeedPage() {
   return (
-    <BlogArticleShell
-      category="Product"
-      date="May 2026"
-      readTime="7 min read"
-      title="Why Zoe Starts With Rhythm Instead of Another Devotional Feed"
-      deck="The interesting question is whether AI can help us pay attention to Jesus when the day gets loud."
-      path="/blog/rhythm-instead-of-another-devotional-feed"
-    >
+    <BlogArticleShell slug="rhythm-instead-of-another-devotional-feed">
       <p>We've been working through a deceptively important product question lately.</p>
       <p>What should Zoe feel like when your day starts with Scripture?</p>
       <p>

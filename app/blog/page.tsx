@@ -19,6 +19,7 @@ export const metadata: Metadata = withSocial({
 const topics = ["All", "Product", "Discipleship", "AI & Faith", "Field notes"];
 
 const authorBySlug: Record<string, { name: string; role: string; initials: string }> = {
+  "can-god-speak-through-ai": { name: "Tony Allen", role: "Founder", initials: "T" },
   "ai-can-sort-your-thoughts": { name: "Tony Allen", role: "Founder", initials: "T" },
   "can-ai-help-you-walk-with-jesus": { name: "Tony Allen", role: "Founder", initials: "T" },
   "what-should-zoe-do-in-the-morning": { name: "Tony Allen", role: "Founder", initials: "T" },
@@ -26,9 +27,9 @@ const authorBySlug: Record<string, { name: string; role: string; initials: strin
 };
 
 const displayTitleBySlug: Record<string, ReactNode> = {
-  "the-same-tree-every-morning": (
+  "can-god-speak-through-ai": (
     <>
-      The same tree, every <em>morning</em>.
+      Can God speak through <em>AI</em>?
     </>
   ),
   "ai-can-sort-your-thoughts": (
@@ -138,18 +139,22 @@ export default function BlogIndexPage() {
         <section className="mx-auto max-w-7xl">
           <Link
             href={`/blog/${featured.slug}`}
-            className="group grid min-h-[34rem] overflow-hidden rounded-[1.5rem] bg-zoe-ink text-zoe-oat shadow-[0_24px_70px_rgba(45,50,49,0.11)] md:grid-cols-[0.9fr_1.1fr]"
+            className={`group grid overflow-hidden rounded-[1.5rem] bg-zoe-ink text-zoe-oat shadow-[0_24px_70px_rgba(45,50,49,0.11)] ${
+              featured.heroImage ? "min-h-[34rem] md:grid-cols-[0.9fr_1.1fr]" : ""
+            }`}
           >
-            <div className="relative flex min-h-[26rem] flex-col justify-between overflow-hidden p-8 md:min-h-[34rem] md:p-10">
-              <Image
-                src={featured.heroImage}
-                alt={featured.heroAlt}
-                fill
-                priority
-                sizes="(min-width: 768px) 45vw, 100vw"
-                className="object-cover object-[77%_50%]"
-              />
-            </div>
+            {featured.heroImage ? (
+              <div className="relative flex min-h-[26rem] flex-col justify-between overflow-hidden p-8 md:min-h-[34rem] md:p-10">
+                <Image
+                  src={featured.heroImage}
+                  alt={featured.heroAlt ?? ""}
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 45vw, 100vw"
+                  className="object-cover object-[77%_50%]"
+                />
+              </div>
+            ) : null}
 
             <div className="flex flex-col justify-between p-8 md:p-14">
               <div>

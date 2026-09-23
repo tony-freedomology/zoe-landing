@@ -16,14 +16,7 @@ export const metadata: Metadata = withSocial({
 
 export default function CanAiHelpYouWalkWithJesusPage() {
   return (
-    <BlogArticleShell
-      category="AI & Faith"
-      date="May 2026"
-      readTime="4 min read"
-      title="Can AI Help You Walk With Jesus?"
-      deck=""
-      path="/blog/can-ai-help-you-walk-with-jesus"
-    >
+    <BlogArticleShell slug="can-ai-help-you-walk-with-jesus">
       <p>
         When I tell people I&apos;m building Zoe, one of two things usually happens.
       </p>

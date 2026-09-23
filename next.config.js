@@ -22,6 +22,12 @@ const nextConfig = {
         destination: '/why-zoe',
         permanent: true,
       },
+      {
+        // Post retired in September 2026.
+        source: '/blog/the-same-tree-every-morning',
+        destination: '/blog',
+        permanent: true,
+      },
     ];
   },
 }
