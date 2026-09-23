@@ -4,6 +4,7 @@ import test from "node:test";
 
 const detailSource = await readFile(new URL("../components/JourneyDetailPage.tsx", import.meta.url), "utf8");
 const homeSource = await readFile(new URL("../components/HomePageContent.tsx", import.meta.url), "utf8");
+const homeWaitlistSource = await readFile(new URL("../components/home/HomeWaitlist.tsx", import.meta.url), "utf8");
 const apiSource = await readFile(new URL("../app/api/waitlist/route.ts", import.meta.url), "utf8");
 const persistenceSource = await readFile(new URL("../lib/zoeMarketingWaitlist.ts", import.meta.url), "utf8");
 
@@ -25,6 +26,8 @@ test("beta admission handoff stays generic and does not reserve a Path", () => {
   assert.doesNotMatch(detailSource, /\?path=/);
   assert.doesNotMatch(homeSource, /requestedPath/);
   assert.doesNotMatch(homeSource, /We saved/);
+  assert.doesNotMatch(homeWaitlistSource, /requestedPath/);
+  assert.doesNotMatch(homeWaitlistSource, /We saved/);
   assert.doesNotMatch(apiSource, /requestedPath/);
   assert.doesNotMatch(persistenceSource, /requestedPath/);
 });

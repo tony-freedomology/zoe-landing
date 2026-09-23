@@ -1,5 +1,5 @@
-import HomePageContent from "../components/HomePageContent";
+import HomeDefault from "../components/home/HomeDefault";
 
 export default function Home() {
-  return <HomePageContent variant="default" />;
+  return <HomeDefault />;
 }
