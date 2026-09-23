@@ -1,57 +1,94 @@
 import Link from "next/link";
+import ZoeMark from "./ZoeMark";
 
 type FooterProps = {
   hideWhyZoe?: boolean;
 };
 
-export default function Footer({ hideWhyZoe = false }: FooterProps) {
+type FooterLink = { href: string; label: string };
+
+const linkClass = "block py-1 font-medium no-underline transition-colors hover:text-zoe-ink";
+
+function Column({ title, links }: { title: string; links: FooterLink[] }) {
   return (
-    <footer className="border-t border-zoe-outline/40 bg-zoe-oat px-6 py-14 text-sm text-zoe-muted">
-      <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-          <div className="flex flex-col gap-2">
-            <Link href="/" className="text-xl font-semibold tracking-tight text-zoe-ink">
-              Zoe
+    <div>
+      <h2 className="mb-3 mt-1 text-[13px] font-bold text-zoe-ink">{title}</h2>
+      <ul className="m-0 list-none p-0">
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link href={link.href} className={linkClass}>
+              {link.label}
             </Link>
-            <p className="max-w-xs text-xs leading-relaxed text-[#6c7a73]">
-              A quiet tool that lives in your texts. No app. No login. Just a clearer way to stay attentive through the week.
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default function Footer({ hideWhyZoe = false }: FooterProps) {
+  const read: FooterLink[] = [
+    { href: "/blog", label: "Blog" },
+    { href: "/guides", label: "Guides" },
+    ...(hideWhyZoe ? [] : [{ href: "/why-zoe", label: "Why “Zoe”?" }]),
+  ];
+
+  return (
+    <footer className="zoe-site-footer border-t border-zoe-outline/45 bg-zoe-oat pb-10 pt-14 text-sm text-zoe-muted">
+      <div className="mx-auto w-full max-w-[1200px] px-[clamp(16px,4vw,40px)]">
+        <div className="grid grid-cols-2 gap-8 min-[861px]:grid-cols-[1.3fr_repeat(4,minmax(0,1fr))]">
+          <div className="col-span-2 min-[861px]:col-span-1">
+            <Link href="/" aria-label="Zoe home" className="inline-block leading-none">
+              <ZoeMark className="h-8 w-auto text-zoe-sap" />
+            </Link>
+            <p className="mt-3 max-w-[30ch] text-[13.5px]">
+              AI that helps you walk with Jesus. It lives in your texts. No app, no login.
             </p>
           </div>
-
-          <div className="flex flex-wrap gap-8 text-sm">
-            <div className="flex flex-col gap-2">
-              <p className="mb-1 text-xs font-medium uppercase tracking-widest text-[#6c7a73]">Product</p>
-              <Link href="/faq" className="font-medium transition-colors hover:text-zoe-ink">FAQ</Link>
-              <Link href="/#waitlist" className="font-medium transition-colors hover:text-zoe-ink">Join the waitlist</Link>
-            </div>
-            <div className="flex flex-col gap-2">
-              <p className="mb-1 text-xs font-medium uppercase tracking-widest text-[#6c7a73]">Journeys</p>
-              <Link href="/journeys/james-deep" className="font-medium transition-colors hover:text-zoe-ink">James: 10 Days Deep</Link>
-              <Link href="/journeys/new-believer" className="font-medium transition-colors hover:text-zoe-ink">New Believer</Link>
-            </div>
-            <div className="flex flex-col gap-2">
-              <p className="mb-1 text-xs font-medium uppercase tracking-widest text-[#6c7a73]">Company</p>
-              <Link href="/about" className="font-medium transition-colors hover:text-zoe-ink">About</Link>
-              {!hideWhyZoe ? (
-                <Link href="/why-zoe" className="font-medium transition-colors hover:text-zoe-ink">Why &ldquo;Zoe&rdquo;?</Link>
-              ) : null}
-              <Link href="/churches" className="font-medium transition-colors hover:text-zoe-ink">For Churches</Link>
-            </div>
-            <div className="flex flex-col gap-2">
-              <p className="mb-1 text-xs font-medium uppercase tracking-widest text-[#6c7a73]">Legal</p>
-              <Link href="/privacy" className="font-medium transition-colors hover:text-zoe-ink">Privacy</Link>
-              <Link href="/terms" className="font-medium transition-colors hover:text-zoe-ink">Terms</Link>
-            </div>
+          <div>
+            <h2 className="mb-3 mt-1 text-[13px] font-bold text-zoe-ink">Product</h2>
+            <ul className="m-0 list-none p-0">
+              <li>
+                <Link href="/#day" className={linkClass}>
+                  How it works
+                </Link>
+              </li>
+              <li>
+                <Link href="/journeys" className={linkClass}>
+                  Journeys
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className={linkClass}>
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link href="/#waitlist" className={linkClass}>Join the waitlist</Link>
+              </li>
+            </ul>
           </div>
+          <Column title="Read" links={read} />
+          <Column
+            title="Company"
+            links={[
+              { href: "/about", label: "About" },
+              { href: "/churches", label: "For churches" },
+              { href: "/brand-facts", label: "Brand facts" },
+            ]}
+          />
+          <Column
+            title="Legal"
+            links={[
+              { href: "/privacy", label: "Privacy" },
+              { href: "/terms", label: "Terms" },
+            ]}
+          />
         </div>
 
-        <div className="mt-10 flex flex-col gap-2 border-t border-zoe-outline/40 pt-6 md:flex-row md:items-center md:justify-between">
-          <div className="font-medium text-[#6c7a73]">
-            &copy; {new Date().getFullYear()} Zoe. All rights reserved.
-          </div>
-          <div className="text-[#6c7a73]">
-            Built in Cleveland, OH.
-          </div>
+        <div className="mt-10 flex flex-wrap justify-between gap-x-6 gap-y-2 border-t border-zoe-outline/45 pt-[22px] text-[13px]">
+          <span>&copy; {new Date().getFullYear()} Zoe. All rights reserved.</span>
+          <span>Built in Cleveland, OH.</span>
         </div>
       </div>
     </footer>

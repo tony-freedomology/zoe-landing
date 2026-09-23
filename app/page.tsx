@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import HomePageContent from "../components/HomePageContent";
+import HomeDefault from "../components/home/HomeDefault";
 import { pageMetadata } from "../lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -11,5 +11,5 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function Home() {
-  return <HomePageContent variant="default" />;
+  return <HomeDefault />;
 }
