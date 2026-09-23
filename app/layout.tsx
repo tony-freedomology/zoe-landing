@@ -9,7 +9,14 @@ import { SITE_URL, toAbsoluteUrl } from "../lib/site";
 import { DEFAULT_OG_IMAGE } from "../lib/seo";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
-const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-serif", display: "swap", adjustFontFallback: false });
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  variable: "--font-serif",
+  display: "swap",
+  adjustFontFallback: false,
+});
 const SITE_DESCRIPTION =
   "Zoe is AI that helps you walk with Jesus by text: scripture, prayer, and reflection woven through your morning, midday, and evening. No app to download.";
 

@@ -73,6 +73,7 @@ export default function Footer({ hideWhyZoe = false }: FooterProps) {
             title="Company"
             links={[
               { href: "/about", label: "About" },
+              { href: "/philosophy", label: "Our philosophy" },
               { href: "/churches", label: "For churches" },
               { href: "/brand-facts", label: "Brand facts" },
             ]}
