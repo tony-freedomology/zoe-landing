@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Check, HeartHandshake, LockKeyhole, MessageCircle } from "lucide-react";
 import Footer from "../../components/Footer";
 
-const socialImage = "https://cdn.jsdelivr.net/gh/tony-freedomology/zoe-landing@master/public/images/zoe-og.png";
+const socialImage = "/images/zoe-og.jpg";
 
 export const metadata: Metadata = {
   title: "Zoe for Churches — Help Sunday carry into the week",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
       "Help people carry Sunday’s teaching into ordinary life, with a privacy-minded brief for pastors.",
     url: "/churches",
     type: "website",
-    images: [{ url: socialImage, width: 1731, height: 909, alt: "Zoe SMS rhythm with Jesus" }],
+    images: [{ url: socialImage, width: 1200, height: 630, alt: "Zoe SMS rhythm with Jesus" }],
   },
   twitter: {
     card: "summary_large_image",

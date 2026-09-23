@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../lib/seo";
 import type { ReactNode } from "react";
 import { ArrowRight, MessageCircle, ShieldCheck, UserRound } from "lucide-react";
 
@@ -9,7 +10,7 @@ import {
   ZOE_TEXT_SUPPORT_LINE,
 } from "./text-start";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Zoe Beta Welcome",
   description: "A short welcome for Zoe beta testers before starting the text experience.",
   openGraph: {
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/beta-welcome",
   },
-};
+});
 
 type BetaWelcomePageProps = {
   searchParams?: {

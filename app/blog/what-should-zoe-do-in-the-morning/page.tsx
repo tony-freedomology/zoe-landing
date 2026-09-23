@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../../lib/seo";
 import BlogArticleShell from "../../../components/BlogArticleShell";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   openGraph: {
     images: ["/images/blog/morning-scripture-tabletop.png"],
   },
   title: "What Should Zoe Do in the Morning?",
   description:
-    "A question about mornings, Scripture, and what kind of help is actually helpful.",
+    "What should Zoe do when your day starts with scripture? Two possible morning experiences, their tradeoffs, and an invitation to weigh in.",
   alternates: {
     canonical: "/blog/what-should-zoe-do-in-the-morning",
   },
-};
+}, { type: "article" });
 
 export default function WhatShouldZoeDoInTheMorningPage() {
   return (

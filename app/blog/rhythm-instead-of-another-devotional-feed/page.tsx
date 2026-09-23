@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../../lib/seo";
 import BlogArticleShell from "../../../components/BlogArticleShell";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   openGraph: {
     images: ["/images/blog-window-devotion.jpg"],
   },
   title: "Why Zoe Starts With Rhythm Instead of Another Devotional Feed",
   description:
-    "The interesting question is whether AI can help us pay attention to Jesus when the day gets loud.",
+    "Most of us don’t drift for lack of things to read. Why Zoe starts with a simple rhythm of scripture and attention instead of another devotional feed.",
   alternates: {
     canonical: "/blog/rhythm-instead-of-another-devotional-feed",
   },
-};
+}, { type: "article" });
 
 export default function RhythmInsteadOfAnotherDevotionalFeedPage() {
   return (

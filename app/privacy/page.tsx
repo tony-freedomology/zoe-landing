@@ -158,8 +158,17 @@ const faqs = [
   }
 ];
 
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { pageMetadata } from "../../lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  path: "/privacy",
+  title: "Privacy Policy",
+  description:
+    "How Zoe handles your information: private-by-default messages, aggregate-only church views, opt-in AI data sharing, and your export and deletion rights.",
+});
 
 export default function PrivacyPage() {
   return (
@@ -188,7 +197,7 @@ export default function PrivacyPage() {
             <p>Updated: February 27, 2026</p>
           </div>
           <p className="mt-8 text-xl text-zoe-muted leading-relaxed font-medium">
-            Zoe is designed as an interactive prayer journal with proactive support. <span className="text-zoe-ink">Privacy is part of the product, not a footnote.</span>
+            Zoe is AI that helps you walk with Jesus by text, including messages it sends proactively through your day. <span className="text-zoe-ink">Privacy is part of the product, not a footnote.</span>
           </p>
           <p className="mt-4 text-lg text-zoe-muted leading-relaxed">
             This policy explains what personal information Zoe collects, how we use it, when we share it, and the choices available to users.

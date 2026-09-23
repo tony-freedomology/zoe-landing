@@ -2,6 +2,7 @@ import "./emerald-uni.css";
 
 export const metadata = {
   title: "Zoe — Walk with Jesus",
+  alternates: { canonical: "/" },
   description:
     "A Scripture-rooted tool for walking with Jesus, built for depth.",
   icons: {

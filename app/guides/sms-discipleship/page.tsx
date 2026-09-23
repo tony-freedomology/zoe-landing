@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../../lib/seo";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Footer from "../../../components/Footer";
@@ -6,14 +7,14 @@ import FaqSchema from "../../../components/FaqSchema";
 import StructuredData from "../../../components/StructuredData";
 import { breadcrumbSchema } from "../../../lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "SMS Discipleship: Bible Study Without Downloading Another App",
   description:
     "SMS discipleship delivers daily scripture, original-language context, and guided reflection via text message — no download, no login, no friction. Here's how it works and why it builds habits that apps don't.",
   alternates: {
     canonical: "/guides/sms-discipleship",
   },
-};
+}, { type: "article" });
 
 const comparison = [
   { label: "How you access it", sms: "It arrives automatically in your texts", app: "You must remember to open the app" },
