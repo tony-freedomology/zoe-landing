@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../../lib/seo";
 import BlogArticleShell from "../../../components/BlogArticleShell";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   openGraph: {
     images: ["/images/blog/ai-help-walk-with-jesus.png"],
   },
   title: "Can AI Help You Walk With Jesus?",
   description:
-    "A plainspoken note on building Zoe carefully, honestly, and in public.",
+    "Tony on the hesitation around AI and faith, why robotic reminders fall short, and how Zoe is being built carefully, honestly, and in public.",
   alternates: {
     canonical: "/blog/can-ai-help-you-walk-with-jesus",
   },
-};
+}, { type: "article" });
 
 export default function CanAiHelpYouWalkWithJesusPage() {
   return (

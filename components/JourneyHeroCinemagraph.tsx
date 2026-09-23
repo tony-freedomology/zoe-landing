@@ -5,8 +5,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 const LOOP_CROSSFADE_MS = 3500;
 const LOOP_CROSSFADE_SEC = LOOP_CROSSFADE_MS / 1000;
 
-export const JOURNEY_HERO_POSTER_SRC = "/images/journeys/journeys-hero-poster.jpg";
+export const JOURNEY_HERO_POSTER_SRC = "/images/journeys/journeys-hero-poster.webp";
 const VIDEO_SRC = "/images/journeys/journeys-hero-loop.mp4";
+const VIDEO_MIN_WIDTH_PX = 768;
 
 function isBenignPlaybackError(error: unknown): boolean {
   return error instanceof DOMException && error.name === "AbortError";
@@ -37,10 +38,17 @@ export default function JourneyHeroCinemagraph({ onReady }: JourneyHeroCinemagra
     onReadyRef.current?.();
   }, []);
 
+  // Start on the poster; only mount the (multi-MB) loop video once we know the
+  // viewport is wide enough and motion is allowed. Small screens keep the still.
+  const [videoAllowed, setVideoAllowed] = useState(false);
+
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
+    const isSmallScreen = window.matchMedia(`(max-width: ${VIDEO_MIN_WIDTH_PX - 1}px)`).matches;
+    if (prefersReducedMotion || isSmallScreen) {
       setUseStill(true);
+    } else {
+      setVideoAllowed(true);
     }
   }, []);
 
@@ -66,7 +74,7 @@ export default function JourneyHeroCinemagraph({ onReady }: JourneyHeroCinemagra
   );
 
   useEffect(() => {
-    if (useStill) return;
+    if (useStill || !videoAllowed) return;
 
     const a = videoARef.current;
     const b = videoBRef.current;
@@ -141,7 +149,7 @@ export default function JourneyHeroCinemagraph({ onReady }: JourneyHeroCinemagra
       a.pause();
       b.pause();
     };
-  }, [useStill]);
+  }, [useStill, videoAllowed]);
 
   const handleVideoReady = useCallback(() => {
     notifyReady();
@@ -151,7 +159,7 @@ export default function JourneyHeroCinemagraph({ onReady }: JourneyHeroCinemagra
     setUseStill(true);
   }, []);
 
-  if (useStill) {
+  if (useStill || !videoAllowed) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
@@ -176,7 +184,7 @@ export default function JourneyHeroCinemagraph({ onReady }: JourneyHeroCinemagra
         autoPlay
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
         aria-hidden="true"
         onCanPlayThrough={handleVideoReady}
         onLoadedData={handleVideoReady}
@@ -188,7 +196,7 @@ export default function JourneyHeroCinemagraph({ onReady }: JourneyHeroCinemagra
         className={getLoopVideoClass("b")}
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
         aria-hidden="true"
       />
     </div>

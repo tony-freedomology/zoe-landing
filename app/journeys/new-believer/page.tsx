@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 import JourneyDetailPage from "../../../components/JourneyDetailPage";
+import JourneyJsonLd from "../../../components/JourneyJsonLd";
+import { journeyMetadata } from "../../../lib/journeyMetadata";
 import type { JourneyContent } from "../../../lib/journeyContent";
-
-export const metadata: Metadata = {
-  title: "New Believer — 21-Day First Steps Journey",
-  description:
-    "A 21-day guided journey for new believers. Learn to pray, read Scripture, and build the habits that make faith stick — one text message at a time.",
-};
 
 const days = [
   { day: 1, theme: "You Are Known", passage: "Psalm 139:1–16", prompt: "How does it feel to know that God has known you fully — before you knew anything about him?" },
@@ -56,6 +52,13 @@ const journey: JourneyContent = {
   days,
 };
 
+export const metadata: Metadata = journeyMetadata(journey);
+
 export default function NewBelieverPage() {
-  return <JourneyDetailPage journey={journey} />;
+  return (
+    <>
+      <JourneyJsonLd journey={journey} />
+      <JourneyDetailPage journey={journey} />
+    </>
+  );
 }

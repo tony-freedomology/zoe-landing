@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 import JourneyDetailPage from "../../../components/JourneyDetailPage";
+import JourneyJsonLd from "../../../components/JourneyJsonLd";
+import { journeyMetadata } from "../../../lib/journeyMetadata";
 import type { JourneyContent } from "../../../lib/journeyContent";
-
-export const metadata: Metadata = {
-  title: "Still: 21 Days of Contemplative Prayer — Zoe",
-  description:
-    "Learn to be present with God in silence. Twenty-one days of building a contemplative prayer practice.",
-};
 
 const days = [
   { "day": 1, "passage": "Psalm 46:10", "theme": "Be Still", "prompt": "Sit in silence for 2 minutes. Don't try to think about anything. Just breathe and be present." },
@@ -40,7 +36,7 @@ const journey: JourneyContent = {
   description:
     "Most of us talk at God. This journey teaches you to sit with God. Twenty-one days of building a contemplative prayer practice, starting with just two minutes of silence.",
   metaDescription:
-    "Learn to be present with God in silence. Twenty-one days of building a contemplative prayer practice.",
+    "Twenty-one days of contemplative prayer, starting with two minutes of silence and deepening into a rhythm of being present with God. By text.",
   heroAlt: "Still: 21 Days of Contemplative Prayer",
   ctaLabel: "Still",
   stats: [
@@ -55,6 +51,13 @@ const journey: JourneyContent = {
   days,
 };
 
+export const metadata: Metadata = journeyMetadata(journey);
+
 export default function StillPage() {
-  return <JourneyDetailPage journey={journey} />;
+  return (
+    <>
+      <JourneyJsonLd journey={journey} />
+      <JourneyDetailPage journey={journey} />
+    </>
+  );
 }

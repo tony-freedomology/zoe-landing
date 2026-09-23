@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../../lib/seo";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import BlogArticleShell from "../../../components/BlogArticleShell";
 
 const isDraft = true;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   openGraph: {
     images: ["/images/blog/same-tree/the-scene-wide.jpg"],
   },
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/blog/the-same-tree-every-morning",
   },
-};
+}, { type: "article" });
 
 function LightFigure({ src, alt, caption }: { src: string; alt: string; caption: string }) {
   return (

@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 import JourneyDetailPage from "../../../components/JourneyDetailPage";
+import JourneyJsonLd from "../../../components/JourneyJsonLd";
+import { journeyMetadata } from "../../../lib/journeyMetadata";
 import type { JourneyContent } from "../../../lib/journeyContent";
-
-export const metadata: Metadata = {
-  title: "Rooted: 30 Days in the Psalms — Zoe",
-  description:
-    "Daily psalm + contemplative reading practice. Thirty days of praying the Psalms.",
-};
 
 const days = [
   { "day": 1, "passage": "Psalm 1", "theme": "Two Paths", "prompt": "What does it mean to be 'planted by streams of water' in your life right now?" },
@@ -49,7 +45,7 @@ const journey: JourneyContent = {
   description:
     "The Psalms are the prayer book of the Bible, raw, honest, and deeply human. This thirty-day journey pairs one psalm per day with a contemplative reading practice.",
   metaDescription:
-    "Daily psalm and contemplative reading practice. Thirty days of praying the Psalms.",
+    "Thirty days praying the Psalms: one psalm a day with a contemplative reading practice, for days of praise and days of doubt. Guided by text.",
   heroAlt: "Rooted: 30 Days in the Psalms",
   ctaLabel: "Rooted",
   stats: [
@@ -64,6 +60,13 @@ const journey: JourneyContent = {
   days,
 };
 
+export const metadata: Metadata = journeyMetadata(journey);
+
 export default function RootedPage() {
-  return <JourneyDetailPage journey={journey} />;
+  return (
+    <>
+      <JourneyJsonLd journey={journey} />
+      <JourneyDetailPage journey={journey} />
+    </>
+  );
 }

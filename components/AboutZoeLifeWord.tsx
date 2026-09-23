@@ -124,7 +124,7 @@ export default function AboutZoeLifeWord() {
             <button
               type="button"
               aria-label="Close quote"
-              className="absolute inset-0 bg-[#1a1f1e]/55 backdrop-blur-[3px]"
+              className="absolute inset-0 bg-[#1a1f1e]/55"
               onClick={close}
             />
 
@@ -132,7 +132,7 @@ export default function AboutZoeLifeWord() {
               role="dialog"
               aria-modal="true"
               aria-labelledby={titleId}
-              className="relative z-[1] max-h-[min(90dvh,820px)] w-full overflow-y-auto rounded-t-[1.75rem] bg-zoe-oat shadow-[0_40px_120px_rgba(26,31,30,0.35)] ring-1 ring-white/30 sm:max-w-[36rem] sm:rounded-[1.75rem]"
+              className="relative z-[1] max-h-[min(90dvh,820px)] w-full overflow-y-auto rounded-t-[1.75rem] bg-zoe-oat shadow-[0_30px_80px_rgba(26,31,30,0.12)] ring-1 ring-white/30 sm:max-w-[36rem] sm:rounded-[1.75rem]"
               initial={reduceMotion ? false : { opacity: 0, y: 28, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={reduceMotion ? undefined : { opacity: 0, y: 16, scale: 0.98 }}
@@ -143,7 +143,7 @@ export default function AboutZoeLifeWord() {
               }
             >
               <div className="relative px-6 pb-8 pt-6 sm:px-9 sm:pb-10 sm:pt-8">
-                <div className="sticky top-0 z-[2] -mx-6 mb-2 flex items-start justify-between gap-4 bg-zoe-oat/95 px-6 pb-4 pt-0 backdrop-blur-sm sm:-mx-9 sm:px-9">
+                <div className="sticky top-0 z-[2] -mx-6 mb-2 flex items-start justify-between gap-4 bg-zoe-oat px-6 pb-4 pt-0 sm:-mx-9 sm:px-9">
                   <div className="pt-1">
                     <h2
                       id={titleId}
@@ -176,7 +176,7 @@ export default function AboutZoeLifeWord() {
                         <span className="flex h-6 w-6 items-center justify-center rounded-full bg-zoe-sap/12 text-[0.65rem] font-extrabold text-zoe-sap">
                           {String(index + 1).padStart(2, "0")}
                         </span>
-                        <span className="text-[0.7rem] font-extrabold uppercase tracking-[0.14em] text-zoe-muted">
+                        <span className="text-sm font-bold text-zoe-muted">
                           {passage.chapter}
                         </span>
                       </figcaption>

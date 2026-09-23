@@ -8,8 +8,6 @@ type SitemapEntry = {
   priority: number;
 };
 
-const lastModified = new Date();
-
 const blogRoutes: SitemapEntry[] = [
   { path: "/blog", changeFrequency: "monthly", priority: 0.7 },
   ...blogPosts.map((post) => ({
@@ -19,7 +17,10 @@ const blogRoutes: SitemapEntry[] = [
   })),
 ];
 
-// Exclude utility, checkout, and campaign-variant routes from indexing.
+// Exclude utility, checkout, and campaign-variant routes from indexing
+// (/subscribe, /thanks, /journeys/lesson-preview are also noindex).
+// lastModified is omitted on purpose: we do not track per-page edit dates,
+// and stamping every URL with the build time misleads crawlers.
 const routes: SitemapEntry[] = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
   ...blogRoutes,
@@ -31,7 +32,6 @@ const routes: SitemapEntry[] = [
   { path: "/guides/best-discipleship-apps-2026", changeFrequency: "monthly", priority: 0.7 },
   { path: "/guides/christian-ai-tools", changeFrequency: "monthly", priority: 0.7 },
   { path: "/guides/sms-discipleship", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/blog/ai-can-sort-your-thoughts", changeFrequency: "monthly", priority: 0.7 },
   { path: "/journeys", changeFrequency: "weekly", priority: 0.8 },
   { path: "/journeys/james-deep", changeFrequency: "monthly", priority: 0.7 },
   { path: "/journeys/new-believer", changeFrequency: "monthly", priority: 0.7 },
@@ -59,6 +59,11 @@ const routes: SitemapEntry[] = [
   { path: "/journeys/addiction", changeFrequency: "monthly", priority: 0.7 },
   { path: "/journeys/gratitude", changeFrequency: "monthly", priority: 0.7 },
   { path: "/journeys/patience", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/journeys/courage", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/journeys/generosity", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/journeys/rest", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/journeys/suffering", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/journeys/legacy", changeFrequency: "monthly", priority: 0.7 },
   { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
   { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
   { path: "/why-zoe", changeFrequency: "yearly", priority: 0.4 },
@@ -67,7 +72,6 @@ const routes: SitemapEntry[] = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map(({ path, changeFrequency, priority }) => ({
     url: toAbsoluteUrl(path),
-    lastModified,
     changeFrequency,
     priority,
   }));

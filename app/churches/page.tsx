@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Check, HeartHandshake, LockKeyhole, MessageCircle } from "lucide-react";
 import Footer from "../../components/Footer";
 
-const socialImage = "https://cdn.jsdelivr.net/gh/tony-freedomology/zoe-landing@master/public/images/zoe-og.png";
+const socialImage = "/images/zoe-og.jpg";
 
 export const metadata: Metadata = {
   title: "Zoe for Churches — Help Sunday carry into the week",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
       "Help people carry Sunday’s teaching into ordinary life, with a privacy-minded brief for pastors.",
     url: "/churches",
     type: "website",
-    images: [{ url: socialImage, width: 1731, height: 909, alt: "Zoe SMS rhythm with Jesus" }],
+    images: [{ url: socialImage, width: 1200, height: 630, alt: "Zoe SMS rhythm with Jesus" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -53,7 +53,7 @@ const rhythm = [
     number: "04",
     day: "Before Sunday",
     title: "The pastor sees what matters",
-    body: "Shared patterns, possible confusion, practices people are trying, and places where a personal follow-up may help.",
+    body: "Shared patterns, possible confusion, practices people are trying, and requests from anyone who asked for a follow-up.",
   },
 ];
 
@@ -203,7 +203,7 @@ export default function ChurchesPage() {
           </p>
           <div className="mt-12 grid gap-4 rounded-[2.25rem] bg-[#efede7] p-3 shadow-[0_20px_55px_rgba(45,50,49,0.04)] lg:grid-cols-[1.15fr_0.7fr] lg:p-4">
             <article className="rounded-[1.55rem] bg-white p-7 sm:p-10">
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#9d533b]">May need your attention</p>
+              <p className="text-sm font-bold text-[#9d533b]">May need your attention</p>
               <h3 className="mt-4 max-w-[18ch] text-3xl font-bold leading-[1.05] tracking-[-0.04em] sm:text-5xl">
                 Some people are hearing anxiety as weak faith.
               </h3>
@@ -213,7 +213,7 @@ export default function ChurchesPage() {
               <p className="mt-8 text-sm font-extrabold text-zoe-forest">A shared pattern. No names. No private messages.</p>
             </article>
             <article className="rounded-[1.55rem] bg-[#e5f5ed] p-7 sm:p-10">
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-zoe-forest">A simple response</p>
+              <p className="text-sm font-bold text-zoe-forest">A simple response</p>
               <h3 className="mt-10 text-3xl font-bold leading-tight tracking-[-0.04em]">Clarify the teaching in your own words.</h3>
               <p className="mt-4 text-base font-medium leading-7 text-zoe-muted">A pilot can explore how your clarification shapes Zoe’s support that week—or simply helps you prepare the next message.</p>
               <p className="mt-7 border-l-[3px] border-zoe-leaf pl-4 text-sm font-extrabold text-zoe-forest">Built with pastors, not handed to them finished.</p>
@@ -276,7 +276,7 @@ export default function ChurchesPage() {
           <div className="rounded-[2rem] bg-[#f3e7dc] p-7 sm:p-10">
             <div className="flex items-center gap-3 text-[#915039]">
               <HeartHandshake className="h-5 w-5" />
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.14em]">A person asks for care</p>
+              <p className="text-sm font-bold">A person asks for care</p>
             </div>
             <blockquote className="mt-6 text-2xl font-bold leading-snug tracking-[-0.03em]">
               “I’d like someone from church to call. Tuesday afternoon is best.”

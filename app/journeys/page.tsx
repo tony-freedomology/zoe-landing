@@ -5,12 +5,15 @@ import Footer from "../../components/Footer";
 import JourneyHeroSection from "../../components/JourneyHeroSection";
 import { journeyCatalog, type JourneySummary } from "../../lib/journeyCatalog";
 import JourneyHubCard from "./JourneyHubCard";
+import { pageMetadata } from "../../lib/seo";
 
-export const metadata: Metadata = {
-  title: "Journeys - Zoe",
+export const metadata: Metadata = pageMetadata({
+  path: "/journeys",
+  title: "Journeys",
   description:
-    "Choose a Journey and let Zoe gently guide you through Scripture, prayer, reflection, and small daily practices focused on one area of your life.",
-};
+    "Choose a Journey and let Zoe guide you by text through scripture, prayer, reflection, and small daily practices focused on one area of your life.",
+  image: { url: "/images/journeys/journeys-hero-poster.jpg", alt: "Zoe Journeys" },
+});
 
 const journeySections = [
   {
@@ -71,6 +74,7 @@ export default function JourneysHubPage() {
                       <JourneyHubCard
                         key={`${section.title}-${journey.slug}-${itemIndex}`}
                         journey={journey}
+                        decorative={itemIndex >= journeys.length}
                       />
                     ))}
                   </div>

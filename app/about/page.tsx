@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Mail } from "lucide-react";
@@ -6,14 +7,14 @@ import { ArrowRight, Mail } from "lucide-react";
 import AboutZoeLifeWord from "../../components/AboutZoeLifeWord";
 import Footer from "../../components/Footer";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "About",
   description:
     "Hi, I'm Tony. Pastor and builder of Zoe — an experiment in whether phones can turn attention back to Jesus instead of away from Him.",
   alternates: {
     canonical: "/about",
   },
-};
+});
 
 const bioBeforeQuote = [
   "I bet you have questions. I do too.",
@@ -54,11 +55,6 @@ export default function AboutPage() {
     <div className="min-h-screen bg-zoe-oat text-zoe-ink">
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden px-5 pb-6 pt-24 sm:px-6 md:pb-8 md:pt-32">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-[34rem] bg-[radial-gradient(ellipse_at_18%_0%,rgba(29,194,134,0.12),transparent_55%),radial-gradient(ellipse_at_88%_8%,rgba(29,194,134,0.06),transparent_48%)]"
-        />
-
         <div className="relative mx-auto max-w-6xl">
           <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
             {/*
@@ -69,7 +65,7 @@ export default function AboutPage() {
               Visible region aspect ≈ 1.098 on a 4:3 source.
             */}
             <div className="relative order-1 mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
-              <div className="relative overflow-hidden rounded-[1.75rem] bg-[#1a1f1e] shadow-[0_28px_70px_rgba(45,50,49,0.13)] ring-1 ring-black/10">
+              <div className="relative overflow-hidden rounded-[1.75rem] bg-[#1a1f1e] shadow-[0_24px_60px_rgba(45,50,49,0.06)] ring-1 ring-black/5">
                 {/* Crop window: 15% L/R, 15% top; preserve source aspect inside the window */}
                 <div
                   className="relative w-full"
@@ -88,7 +84,7 @@ export default function AboutPage() {
             </div>
 
             <div className="order-2 flex flex-col justify-center pb-1 pt-1 lg:pl-2">
-              <p className="text-sm font-bold tracking-normal text-zoe-sap">
+              <p className="text-sm font-bold tracking-normal text-zoe-forest">
                 Pastor + builder · Cleveland, OH
               </p>
               <h1 className="mt-4 text-[3rem] font-extrabold leading-[0.92] tracking-[-0.05em] text-zoe-ink sm:text-[3.75rem] lg:text-[4.6rem]">
@@ -101,7 +97,7 @@ export default function AboutPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="mailto:tony@zoe.live"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-7 py-3.5 text-sm font-bold text-white shadow-[0_16px_32px_rgba(29,194,134,0.2)] transition hover:bg-[#19b078] active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-7 py-3.5 text-sm font-bold text-white transition hover:bg-[#19b078] active:scale-[0.98]"
                 >
                   <Mail className="h-4 w-4" strokeWidth={2} />
                   Email me
@@ -126,18 +122,13 @@ export default function AboutPage() {
       {/* ── Letter ───────────────────────────────────────────── */}
       <section className="relative px-5 pb-16 pt-10 sm:px-6 md:pb-24 md:pt-16">
         <div className="mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-white shadow-[0_28px_80px_rgba(45,50,49,0.06)] ring-1 ring-zoe-outline/40">
-            <div
-              aria-hidden="true"
-              className="absolute inset-y-0 left-0 hidden w-1.5 bg-gradient-to-b from-zoe-sap/0 via-zoe-sap/55 to-zoe-sap/0 md:block"
-            />
-
+          <div className="relative overflow-hidden rounded-[2rem] bg-white shadow-zoe-card ring-1 ring-zoe-outline/40">
             <div className="grid lg:grid-cols-[0.34fr_0.66fr]">
               <aside className="hidden border-r border-zoe-outline/30 bg-zoe-oat/70 px-8 py-12 lg:block lg:px-10 lg:py-14">
                 <div className="sticky top-32">
                   <div className="relative h-20 w-20 overflow-hidden rounded-full ring-2 ring-white shadow-[0_10px_28px_rgba(45,50,49,0.1)]">
                     <Image
-                      src="/assets/founder/tony-headshot.jpg"
+                      src="/assets/founder/tony-headshot.webp"
                       alt=""
                       fill
                       sizes="80px"
@@ -167,7 +158,7 @@ export default function AboutPage() {
                   <div className="mb-9 flex items-center gap-4 lg:hidden">
                     <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-zoe-outline/30">
                       <Image
-                        src="/assets/founder/tony-headshot.jpg"
+                        src="/assets/founder/tony-headshot.webp"
                         alt=""
                         fill
                         sizes="56px"
@@ -212,7 +203,7 @@ export default function AboutPage() {
                     ))}
                   </div>
 
-                  <div className="mt-11 flex flex-col gap-4 rounded-[1.35rem] border border-zoe-outline/40 bg-gradient-to-br from-white to-zoe-oat/80 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+                  <div className="mt-11 flex flex-col gap-4 rounded-[1.35rem] border border-zoe-outline/40 bg-zoe-oat p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
                     <div>
                       <p className="text-sm font-extrabold text-zoe-ink">Want to talk?</p>
                       <p className="mt-1 text-sm font-medium leading-6 text-zoe-muted">
@@ -238,7 +229,7 @@ export default function AboutPage() {
       <section className="bg-zoe-surface px-5 py-16 sm:px-6 md:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-2xl">
-            <p className="text-sm font-bold text-zoe-sap">What Zoe is trying to be</p>
+            <p className="text-sm font-bold text-zoe-forest">What Zoe is trying to be</p>
             <h2 className="mt-3 text-[2rem] font-extrabold leading-[1.05] tracking-[-0.04em] text-zoe-ink sm:text-[2.55rem]">
               A small experiment in attention, not another feed.
             </h2>
@@ -267,7 +258,7 @@ export default function AboutPage() {
                 {boundaries[1].body}
               </p>
             </div>
-            <div className="rounded-[1.5rem] bg-zoe-ink p-7 text-white shadow-[0_18px_50px_rgba(45,50,49,0.18)] lg:col-span-12 lg:flex lg:items-end lg:justify-between lg:gap-10 lg:p-9">
+            <div className="rounded-[1.5rem] bg-zoe-ink p-7 text-white shadow-zoe-card lg:col-span-12 lg:flex lg:items-end lg:justify-between lg:gap-10 lg:p-9">
               <div className="max-w-2xl">
                 <p className="font-mono text-[0.7rem] font-bold tracking-[0.18em] text-zoe-sap">
                   {boundaries[2].n}
@@ -303,7 +294,7 @@ export default function AboutPage() {
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href="/s"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold text-white shadow-[0_18px_36px_rgba(29,194,134,0.28)] transition hover:bg-[#19b078] active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-zoe-sap px-8 py-4 text-base font-bold text-white transition hover:bg-[#19b078] active:scale-[0.98]"
             >
               Start with Zoe
               <ArrowRight className="h-4 w-4" />

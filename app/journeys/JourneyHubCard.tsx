@@ -5,21 +5,34 @@ import Image from "next/image";
 import { useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import type { JourneySummary } from "../../lib/journeyCatalog";
+import { getJourneyCardImagePath } from "../../lib/journeyImages";
 
-export default function JourneyHubCard({ journey }: { journey: JourneySummary }) {
+type JourneyHubCardProps = {
+  journey: JourneySummary;
+  /** Marquee duplicate: hidden from assistive tech and the tab order. */
+  decorative?: boolean;
+};
+
+export default function JourneyHubCard({ journey, decorative = false }: JourneyHubCardProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const tabIndex = decorative ? -1 : undefined;
 
   return (
-    <article className="group w-[86vw] max-w-[420px] shrink-0 snap-center overflow-hidden rounded-[28px] border border-zoe-outline/20 bg-white p-3 shadow-sm transition-[box-shadow,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform hover:-translate-y-0.5 hover:shadow-md active:scale-[0.985] sm:w-[380px] md:snap-none">
+    <article
+      aria-hidden={decorative || undefined}
+      className="group w-[86vw] max-w-[420px] shrink-0 snap-center overflow-hidden rounded-[28px] border border-zoe-outline/20 bg-white p-3 shadow-sm transition-[box-shadow,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform hover:-translate-y-0.5 hover:shadow-md active:scale-[0.985] sm:w-[380px] md:snap-none">
       <Link
         href={`/journeys/${journey.slug}`}
         className="relative block aspect-video w-full overflow-hidden rounded-[22px] bg-zoe-surface"
         aria-label={`Open ${journey.title}`}
+        tabIndex={tabIndex}
       >
         <Image
-          src={journey.image}
+          src={getJourneyCardImagePath(journey.image)}
           alt={journey.title}
           fill
+          loading="lazy"
+          sizes="(min-width: 640px) 380px, 86vw"
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
 
@@ -34,6 +47,7 @@ export default function JourneyHubCard({ journey }: { journey: JourneySummary })
         <div className="rounded-[24px] bg-zoe-surface/80">
           <button
             type="button"
+            tabIndex={tabIndex}
             aria-expanded={isOpen}
             onClick={() => setIsOpen((open) => !open)}
             className="flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.14em] text-zoe-muted transition-colors duration-200 hover:text-zoe-ink"
@@ -55,6 +69,7 @@ export default function JourneyHubCard({ journey }: { journey: JourneySummary })
                 </p>
                 <Link
                   href={`/journeys/${journey.slug}`}
+                  tabIndex={isOpen ? tabIndex : -1}
                   className="mt-5 inline-flex items-center gap-2 rounded-full bg-zoe-leaf px-5 py-3 text-sm font-bold text-white shadow-[0_12px_28px_rgba(29,194,134,0.18)] transition-all duration-200 hover:brightness-105"
                 >
                   Open Journey <ArrowRight className="h-4 w-4" />

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "../../lib/seo";
 import type { ReactNode } from "react";
 import { ArrowRight, MessageCircle, ShieldCheck, UserRound } from "lucide-react";
 
@@ -9,8 +10,8 @@ import {
   ZOE_TEXT_SUPPORT_LINE,
 } from "./text-start";
 
-export const metadata: Metadata = {
-  title: "Zoe Beta Welcome",
+export const metadata: Metadata = withSocial({
+  title: "Beta Welcome",
   description: "A short welcome for Zoe beta testers before starting the text experience.",
   openGraph: {
     title: "You're in - welcome to the Zoe beta",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/beta-welcome",
   },
-};
+});
 
 type BetaWelcomePageProps = {
   searchParams?: {
@@ -37,7 +38,7 @@ export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) 
       <section className="relative overflow-hidden">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[url('/images/text/zoe-text-path-bg.png')] bg-cover bg-center"
+          className="pointer-events-none absolute inset-0 bg-[url('/images/text/zoe-text-path-bg.webp')] bg-cover bg-center"
         />
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-zoe-oat/72" />
 
@@ -89,7 +90,7 @@ export default function BetaWelcomePage({ searchParams }: BetaWelcomePageProps) 
           <div className="relative max-w-4xl overflow-hidden rounded-[2.35rem] bg-[#F7EEDF] p-7 shadow-[0_24px_70px_rgba(45,50,49,0.12)] ring-1 ring-white/70 md:p-10 lg:order-1 xl:p-12">
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-[url('/images/beta/beta-welcome-journey-card.jpg')] bg-cover bg-center"
+              className="absolute inset-0 bg-[url('/images/beta/beta-welcome-journey-card.webp')] bg-cover bg-center"
             />
             <div aria-hidden="true" className="absolute inset-0 bg-[#FCF9F4]/20" />
 
@@ -158,7 +159,7 @@ function InfoRow({ icon, title, body }: { icon: ReactNode; title: string; body: 
         {icon}
       </div>
       <div>
-        <h2 className="text-sm font-extrabold text-zoe-ink">{title}</h2>
+        <p className="text-sm font-extrabold text-zoe-ink">{title}</p>
         <p className="mt-1 text-sm font-medium leading-6 text-zoe-muted">{body}</p>
       </div>
     </div>
