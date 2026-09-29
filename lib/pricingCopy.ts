@@ -9,7 +9,11 @@
 // admitted later, also get the $4.99 founding price. Until then the copy only
 // promises the founding price to "beta members".
 
-export const FOUNDING_PRICE = "$4.99/month";
+export const FOUNDING_PRICE_AMOUNT = "$4.99";
+export const FOUNDING_PRICE = `${FOUNDING_PRICE_AMOUNT}/month`;
+
+/** /subscribe?plan=beta headline. */
+export const subscribeBetaLine = `Your founding beta price is ${FOUNDING_PRICE}.`;
 
 /** Short trust line under the waitlist steps. */
 export const waitlistPricingLine = "Free through Oct 14 · Beta members keep $4.99/mo";

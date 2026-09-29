@@ -4,6 +4,7 @@ import SubscribeExperience from "../../components/SubscribeExperience";
 import ZoeSVG from "../../components/ZoeSVG";
 import { normalizeSubscribeFlowMode } from "../../lib/subscribe";
 import { NOINDEX_ROBOTS } from "../../lib/seo";
+import { subscribeBetaLine } from "../../lib/pricingCopy";
 
 export const metadata: Metadata = {
   title: "Continue with Zoe",
@@ -40,10 +41,10 @@ export default function SubscribePage({ searchParams }: SubscribePageProps) {
   const heading = initialMode === "reactivate" ? "Welcome back." : "Keep walking.";
   const subheading =
     initialPlan === "beta"
-      ? "Your beta-tester thank-you price is $7/month."
+      ? subscribeBetaLine
       : initialMode === "reactivate"
       ? "Pick up right where you left off."
-      : "$10/month. Cancel anytime.";
+      : "Cancel anytime. Same thread, no app.";
 
   return (
     <main className="relative h-[100svh] overflow-y-auto overflow-x-hidden bg-[#f5f4f0] text-[#1c2433] sm:min-h-screen sm:h-auto sm:overflow-visible">

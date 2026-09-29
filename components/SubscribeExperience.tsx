@@ -17,9 +17,11 @@ import {
   normalizeIndividualBillingPlan,
   normalizeSubscribeFlowMode,
   normalizeUsPhoneInput,
+  splitRecurringPrice,
   type IndividualBillingPlan,
   type SubscribeFlowMode,
 } from "../lib/subscribe";
+import { FOUNDING_PRICE_AMOUNT } from "../lib/pricingCopy";
 
 const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
   ? loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
@@ -103,11 +105,13 @@ const PLAN_OPTIONS: Array<{
   cadence: string;
   badge?: string;
 }> = [
-  { id: "month", label: "Monthly", price: "$10", cadence: "/month" },
+  // New-member pricing isn't final, so no hardcoded amount: the real Stripe
+  // price fills in from the checkout session.
+  { id: "month", label: "Monthly", price: "", cadence: "Cancel anytime" },
 ];
 
 const BETA_PLAN_OPTIONS: typeof PLAN_OPTIONS = [
-  { id: "beta", label: "Beta", price: "$7", cadence: "/month", badge: "30% off for life" },
+  { id: "beta", label: "Beta member", price: FOUNDING_PRICE_AMOUNT, cadence: "/month", badge: "Founding price" },
 ];
 
 const revealTransition = {
@@ -162,11 +166,15 @@ export default function SubscribeExperience({
         : "Use the number you text Zoe from.";
   const reassuranceCopy =
     isBetaRate
-      ? "Your beta-tester thank-you discount stays with this subscription. Cancel anytime via text."
+      ? "Your founding price stays with this subscription. Cancel anytime via text."
       : flowMode === "reactivate"
       ? "Cancel anytime via text. Your same thread will keep going."
       : "Cancel anytime via text. Secure and encrypted.";
-  const planOptions = isBetaRate ? BETA_PLAN_OPTIONS : PLAN_OPTIONS;
+  // Once checkout is prepared, show the price Stripe will actually charge.
+  const sessionPrice = session ? splitRecurringPrice(session.price) : null;
+  const planOptions = (isBetaRate ? BETA_PLAN_OPTIONS : PLAN_OPTIONS).map((option) =>
+    sessionPrice && session?.plan === option.id ? { ...option, ...sessionPrice } : option
+  );
 
   useEffect(() => {
     if (!hasSmsLinkedPhone || canceled || autoStartedRef.current) return;
@@ -533,9 +541,11 @@ function PlanToggle({
               {option.label}
             </p>
             <div className="mt-1.5 flex items-end gap-1 text-[#2d3231] sm:mt-2">
-              <span className="text-[1.52rem] font-semibold tracking-[-0.05em] sm:text-[1.65rem]">
-                {option.price}
-              </span>
+              {option.price ? (
+                <span className="text-[1.52rem] font-semibold tracking-[-0.05em] sm:text-[1.65rem]">
+                  {option.price}
+                </span>
+              ) : null}
               <span className="pb-0.5 text-[13px] font-medium text-[#2d3231]/56 sm:pb-1 sm:text-sm">
                 {option.cadence}
               </span>

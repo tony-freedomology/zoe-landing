@@ -48,6 +48,20 @@ export function formatUsPhoneDisplay(value: string | undefined | null): string {
   return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
 }
 
+/** Splits a Stripe price into the big amount and the "/month" cadence for display. */
+export function splitRecurringPrice(
+  price: PublicPrice | null | undefined
+): { price: string; cadence: string } | null {
+  if (!price || price.amountCents === null) return null;
+
+  const amount = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: price.currency.toUpperCase()
+  }).format(price.amountCents / 100);
+
+  return { price: amount, cadence: `/${price.interval}` };
+}
+
 export function formatRecurringPrice(price: PublicPrice | null | undefined): string | null {
   if (!price || price.amountCents === null) return null;
 
