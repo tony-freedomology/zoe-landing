@@ -128,7 +128,7 @@ const company = [
   ["Made by", "Freedomology"],
   ["Founder", "Tony Allen, pastor and builder (Cleveland, OH)"],
   ["Status", "Beta. Waitlist with small-group invitations"],
-  ["Price", "Free during the beta, through October 14, 2026. Paid subscription from October 15. Beta members keep a founding price of $4.99/month; new-member pricing not yet announced"],
+  ["Price", "Free during the beta, through October 14, 2026. Paid subscription from October 15. Beta and waitlist members keep a founding price of $4.99/month; pricing for others not yet announced"],
   ["Audiences", "Individual Christians; pastors and churches (United States)"],
   ["Contact", "hello@zoe.live"],
   ["Last updated", "September 2026"],
