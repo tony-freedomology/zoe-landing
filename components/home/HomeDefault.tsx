@@ -7,6 +7,7 @@ import HomeHero from "./HomeHero";
 import HomeThesis from "./HomeThesis";
 import HomeWaitlist from "./HomeWaitlist";
 import JourneysSection from "./JourneysSection";
+import NotesSection from "./NotesSection";
 import PrayerSection from "./PrayerSection";
 import PrivacySection from "./PrivacySection";
 
@@ -21,6 +22,7 @@ export default function HomeDefault() {
         <DayScene />
         <PrayerSection />
         <JourneysSection />
+        <NotesSection />
         <HomeWaitlist />
         <PrivacySection />
         <HomeFaq />
