@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
+import AccentPreview from "../components/dev/AccentPreview";
 import clsx from "clsx";
 import Navbar from "../components/Navbar";
 import AttributionCapture from "../components/AttributionCapture";
@@ -103,7 +104,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-accent="combo">
       <head>
         <script
           type="application/ld+json"
@@ -128,6 +129,7 @@ export default function RootLayout({
         <AttributionCapture />
         <MetaPixel />
         <Navbar />
+        {process.env.NODE_ENV !== "production" ? <AccentPreview /> : null}
         {children}
       </body>
     </html>

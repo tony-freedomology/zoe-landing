@@ -10,6 +10,7 @@ import JourneysSection from "./JourneysSection";
 import NotesSection from "./NotesSection";
 import PrayerSection from "./PrayerSection";
 import PrivacySection from "./PrivacySection";
+import ScriptureSection from "./ScriptureSection";
 
 // The default zoe.live home page. Section order and behavior are documented in
 // AGENTS.md ("Home Page Guidance"); keep them in sync.
@@ -22,6 +23,7 @@ export default function HomeDefault() {
         <DayScene />
         <PrayerSection />
         <JourneysSection />
+        <ScriptureSection />
         <NotesSection />
         <HomeWaitlist />
         <PrivacySection />

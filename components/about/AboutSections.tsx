@@ -94,7 +94,6 @@ const wayIcon =
 const wayTitle = "block text-[17.5px] font-extrabold tracking-[-0.015em]";
 const wayBody = "text-[14.5px] text-zoe-muted";
 const wayGo = "hidden text-zoe-forest min-[521px]:block";
-const cmd = "rounded-md bg-zoe-surface px-1.5 py-px font-sans font-extrabold text-zoe-ink";
 
 const linkedWays = {
   beta: {
@@ -108,6 +107,17 @@ const linkedWays = {
     title: "Bring it to your church",
     body: "Pilots start with a small group. Take Sunday into the week.",
     icon: <path d="M3 21h18M5 21V10l7-5 7 5v11M10 21v-5h4v5" />,
+  },
+  teaches: {
+    href: "/how-zoe-teaches",
+    title: "See how Zoe handles the Bible",
+    body: "Where the verses come from, what it believes, and the lines it won't cross.",
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="4" />
+      </>
+    ),
   },
   read: {
     href: "/philosophy",
@@ -165,12 +175,13 @@ export function AboutHelp() {
             <div>
               <b className={wayTitle}>Tell us what&apos;s off</b>
               <span className={wayBody}>
-                Start a text to Zoe with <code className={cmd}>BUG:</code> or <code className={cmd}>FEEDBACK:</code> and it
-                comes straight to us. I read it.
+                Just tell Zoe to pass it on to the team, and it comes straight to us. No special words needed. I read
+                it.
               </span>
             </div>
           </div>
           <WayLink way={linkedWays.church} />
+          <WayLink way={linkedWays.teaches} />
           <WayLink way={linkedWays.read} />
         </div>
       </div>

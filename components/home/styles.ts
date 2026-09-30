@@ -26,7 +26,7 @@ export const displayHeading =
 export const lede = "text-[clamp(17px,1.5vw,19px)] font-medium leading-[1.55] text-zoe-muted";
 
 /** Newsreader italic accent inside a heading. */
-export const headingAccent = "font-serif font-normal italic tracking-[-0.01em] text-zoe-sap";
+export const headingAccent = "zoe-accent font-serif font-normal italic tracking-[-0.01em] text-zoe-sap";
 
 /** iMessage-style bubbles used in the phone and inline chat demos. */
 export const bubbleBase =

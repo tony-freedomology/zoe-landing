@@ -26,7 +26,8 @@ Default Zoe is `The Modern Apothecary (Bold Edition)` with a `Living Editorial` 
 
 Non-negotiables:
 - `Plus Jakarta Sans` is the dominant typeface
-- `Newsreader Italic` is only a rare trust-bearing accent
+- Heading accents (Sept 30, 2026, Tony's pick "E"): `<html data-accent="combo">` restyles every `.zoe-accent` (from `headingAccent`) as Plus Jakarta. The one page headline (an `h1` accent, or `.zoe-accent-primary`) gets the hand-drawn Jade stroke, and every other accent gets a Mint (#BFEBD8) marker band that draws in on scroll. Use one stroke per page and a handful of markers; not every heading needs one. Styles live in `app/globals.css`; the local-only toggle (`components/dev/AccentPreview.tsx`, never rendered in production) switches between the explored options for comparison.
+- `Newsreader Italic` survives only for quoted Scripture and legacy surfaces (blog); don't add it as a decorative accent
 - `#FCF9F4` is the primary canvas
 - `#F6F3EE` is the primary tonal layering surface
 - `#1DC286` Jade is the primary CTA fill
@@ -45,6 +46,7 @@ Section order (each in `components/home/`):
 3. `DayScene` — ONE sticky scroll scene (520vh track, 100svh stage) that replaced the old sticky SMS + rhythms sections: dawn→noon→night sky, sun/moon/stars, hills tint, rail (desktop) or time chip (mobile), three copy beats, and a phone thread revealed by scroll thresholds with a typing indicator, the 1:48 PM banner, the "From 7:04 AM" memory chip, and the evening prayer-list reminder. Everything is written to the DOM from one rAF scroll handler; do not move it to React state per frame. Mobile: copy card on top, phone below, tucked off the bottom edge.
 4. `PrayerSection` — "Remember the people you're praying for." Zoe helps people remember to pray and follows up; it never prays for them or claims to.
 5. `JourneysSection` — two-row marquee of readable cards (titles/durations from `lib/journeyCatalog.ts`, deduped by slug). Thumbnails always show the full 16:9 art (`aspect-[1376/768]`), never cropped.
+5b. `ScriptureSection` (`id="scripture"`) — "Who taught Zoe the Bible?" three trust pillars (verified WEB verses, readable theology, lines it won't cross) linking to `/how-zoe-teaches`. Every claim there and on that page must match the Zoe backend (verse fetch/verify, theology package, morning lesson format); don't add claims it can't back up.
 6. `NotesSection` (`id="notes"`) — "Notes from the beta." sticky-note wall of real beta-member quotes in Caveat (loaded only here, not preloaded). Quotes live in `lib/betaNotes.ts`. The repo is public, so a quote goes in that file only after written permission under the exact name shown (survey testimonial opt-in or an email yes); the section stays hidden until there are `MIN_PUBLIC_NOTES`. Never reword a quote; trim with an ellipsis or fix a typo only. Handwriting and small square-cornered notes are a deliberate exception to the 24px-radius rule for this section only.
 7. `HomeWaitlist` (`id="waitlist"`) — the real signup: POST `/api/waitlist` with the canonical payload, one retry, Meta lead tracking, `signupConfirmation` states, inline per-field errors (the button is never disabled for validation), and the exact SMS consent text with Privacy/Terms links. `scripts/direct-beta-admission-copy.test.mjs` guards it.
 8. `PrivacySection` — four cards (just you / your church) and the privacy-policy link.
