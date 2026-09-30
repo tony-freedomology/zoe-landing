@@ -41,7 +41,7 @@ These are the non-negotiables.
 3. Jade `#1DC286` is the primary accent and CTA fill.
 4. CTA text on Jade is always white.
 5. `Plus Jakarta Sans` is the dominant typeface.
-6. `Newsreader Italic` is used only as a very occasional serif trust accent.
+6. Heading accents are a hand-drawn Jade pen stroke (one per page) and a Mint highlighter, never a serif italic. `Newsreader Italic` is only for quoted Scripture and verbatim quotes.
 7. Dark green sections are not the default brand language.
 8. Gradients and glassmorphism are not part of the default Zoe system.
 9. Layouts should feel calm, balanced, and restrained rather than editorial.
@@ -61,13 +61,14 @@ These are the non-negotiables.
 | `--zoe-sap` | `#1DC286` | Jade: canonical primary CTA/accent |
 | `--zoe-leaf` | `#1DC286` | Alias to Jade for supporting active/link accents |
 | `--zoe-forest` | `#007354` | Deeper trust-oriented accent |
+| Mint | `#BFEBD8` | Highlighter band behind accented heading phrases only |
 
 ### Font roles
 
 - `font-sans` -> `Plus Jakarta Sans`
 - `font-serif` -> `Newsreader`
 
-Agents should use `font-serif` only for rare trust accents. Do not introduce a different serif font.
+Agents should use `font-serif` only for quoted Scripture and verbatim quotes. Do not use it for heading accents, and do not introduce a different serif font.
 
 ## 4. Typography
 
@@ -76,7 +77,7 @@ Agents should use `font-serif` only for rare trust accents. Do not introduce a d
 - Primary UI/body/system: `font-sans`
 - Main section headlines: bold Plus Jakarta Sans with tight-but-controlled tracking
 - Buttons/nav/forms/metadata: Plus Jakarta Sans only, usually semibold or bold
-- Serif: accent only
+- Serif: quoted Scripture and verbatim quotes only
 
 ### Headline guidance
 
@@ -87,31 +88,19 @@ Default Zoe headlines should generally use:
 
 The goal is authoritative, geometric clarity with warmth, not literary/editorial drama.
 
-### Serif trust accent
+### Heading accent: Jade pen stroke + Mint highlighter
 
-This is a real part of the system and should be used occasionally.
+Adopted September 30, 2026 (option "E"). It replaces the old serif italic accent.
 
-Use serif accents for:
-- short trust beats
-- reflective asides
-- privacy/trust micro-headings
-- brief spiritual-weight moments
-- small brand-level statements like `quiet by design`
+- Accented words stay in Plus Jakarta Sans at the headline's own weight, tracking and color.
+- **Jade pen stroke:** the page's one primary headline gets a hand-drawn Jade (`#1DC286`) stroke under its accented words, from the same pen as the wordmark.
+- **Mint highlighter:** a handful of other key phrases get a flat Mint (`#BFEBD8`) band sitting low on the words. It draws in left to right as it scrolls into view and stays static under reduced motion.
+- One stroke per page, a few highlights. Not every heading needs an accent.
+- Implementation: use `headingAccent` (adds `.zoe-accent`). With `<html data-accent="combo">`, an accent inside an `h1` (or with `.zoe-accent-primary`) gets the stroke and every other accent gets the highlighter. Styles live in `app/globals.css`.
 
-Do not use serif for:
-- main hero headlines
-- nav
-- body copy
-- CTA buttons
-- feature-grid titles
-- long paragraphs
+### Newsreader Italic
 
-Recommended styling:
-- `font-serif`
-- `italic`
-- `text-zoe-forest` or `text-zoe-leaf`
-- small-to-medium size
-- one controlled use per section at most
+Use it for quoted Scripture and verbatim human quotes, plus legacy surfaces (the blog) until they're migrated. Never use it as a heading or emphasis accent, for nav, CTA buttons, feature titles, or body copy.
 
 ## 5. Surfaces
 
@@ -236,7 +225,7 @@ These can receive typography/color refinements, but not a structural reinvention
 - use oat and surface backgrounds
 - use Jade for emphasis
 - keep `Plus Jakarta Sans` dominant
-- use serif only for trust accents
+- use the Jade stroke and Mint highlighter for heading accents, sparingly
 - keep shadows subtle
 - prefer calm over spectacle
 - preserve the feeling of a lightweight tool
@@ -245,7 +234,8 @@ These can receive typography/color refinements, but not a structural reinvention
 
 - bring back cyan as a major accent
 - use navy as the main supporting color
-- overuse serif
+- bring back serif italic accents in headings
+- highlight every heading
 - default to dark sections
 - use glassmorphism for core landing surfaces
 - make Zoe feel like a bank, university, or enterprise dashboard
@@ -256,7 +246,7 @@ When editing default Zoe pages:
 
 1. Start from existing Zoe tokens before inventing new colors.
 2. Prefer updating surfaces and accents over redesigning page structure.
-3. If you need a serif moment, use one trust accent, not a new typography system.
+3. If a heading needs emphasis, use the one Jade stroke or a Mint highlight, not a serif or a new typography system.
 4. Keep retired prototype systems untouched unless the task explicitly includes them.
 5. If a page feels too editorial, remove flourish before changing layout.
 6. If a page feels too corporate, check for dark panels, navy text systems, or hard contrast sections.

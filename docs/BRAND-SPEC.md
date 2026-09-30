@@ -119,6 +119,7 @@ It should not feel:
 | Jade | `#1DC286` | Canonical Zoe green, main CTA and primary accent |
 | Leaf Green | `#1DC286` | Alias to Jade for supporting active accents |
 | Forest | `#007354` | Sparse trust-oriented deeper accent |
+| Mint | `#BFEBD8` | Highlighter band behind accented heading phrases only |
 
 ### Color behavior
 
@@ -131,27 +132,32 @@ It should not feel:
 ### Typography
 
 - **Primary system:** `Plus Jakarta Sans`
-- **Accent serif:** `Newsreader Italic`
+- **Scripture and quotes:** `Newsreader Italic`
 
 #### Type behavior
 
-- Main hero headlines stay sans-serif
-- Section headlines stay sans-serif
+- Headlines, including their accented words, stay in Plus Jakarta Sans
 - Buttons, nav, forms, metadata, and body stay sans-serif
-- Serif appears only as a rare trust-bearing accent
 
-Good serif uses:
-- a short trust line
-- a reflective aside
-- a privacy/trust micro-heading
-- a small brand-level phrase
+#### Heading accent (Sept 30, 2026): Jade pen stroke + Mint highlighter
 
-Bad serif uses:
-- hero headline
-- nav
+This replaces the Newsreader italic heading accent.
+- The page's one primary headline gets a hand-drawn Jade (`#1DC286`) stroke under its accented words, from the same pen as the wordmark.
+- A handful of other key phrases get a flat Mint (`#BFEBD8`) highlighter band that draws in as it scrolls into view (static under reduced motion).
+- Accented words keep the headline's font, weight and color.
+- One stroke per page, a few highlights. Not every heading needs one.
+
+#### Newsreader Italic
+
+Use it for:
+- quoted Scripture
+- verbatim human quotes (testimonials, customer words)
+- legacy surfaces (the blog) until they're migrated
+
+Never use it for:
+- heading or emphasis accents
+- hero headlines, nav, feature-card titles, CTA labels
 - long body copy
-- feature-card titles
-- CTA labels
 
 ### Composition rules
 
@@ -213,10 +219,10 @@ Should still feel warm and modern, not institutional or enterprise-admin.
 1. Default Zoe is a light brand.
 2. No gradients or glassmorphism in core default-brand surfaces.
 3. Plus Jakarta Sans is the dominant typeface.
-4. Newsreader Italic is rare and trust-bearing only.
+4. Heading accents are a Jade pen stroke (one per page) and Mint highlighter, never a serif italic. Newsreader Italic is only for quoted Scripture and verbatim quotes.
 5. Jade is the primary CTA fill.
 6. CTA text on green is white.
 7. The interface should feel like warm premium paper, not digital glass.
 8. If a page feels too corporate, remove dark slabs, navy support colors, and hard borders.
-9. If a page feels too editorial, reduce serif and flourish before changing the structure.
+9. If a page feels too editorial, reduce highlights and flourish before changing the structure.
 
