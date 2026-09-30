@@ -27,7 +27,7 @@ Default Zoe is `The Modern Apothecary (Bold Edition)` with a `Living Editorial` 
 Non-negotiables:
 - `Plus Jakarta Sans` is the dominant typeface
 - Heading accents (Sept 30, 2026, Tony's pick "E"): `<html data-accent="combo">` restyles every `.zoe-accent` (from `headingAccent`) as Plus Jakarta. The one page headline (an `h1` accent, or `.zoe-accent-primary`) gets the hand-drawn Jade stroke, and every other accent gets a Mint (#BFEBD8) marker band that draws in on scroll. Use one stroke per page and a handful of markers; not every heading needs one. Styles live in `app/globals.css`; the local-only toggle (`components/dev/AccentPreview.tsx`, never rendered in production) switches between the explored options for comparison.
-- `Newsreader Italic` survives only for quoted Scripture and legacy surfaces (blog); don't add it as a decorative accent
+- `Newsreader Italic` survives only for quoted Scripture and verbatim human quotes (e.g. blog `<blockquote>` pull quotes); don't add it as a decorative accent. Blog post titles take their Jade stroke from `titleAccent` in `lib/blogPosts.ts`
 - `#FCF9F4` is the primary canvas
 - `#F6F3EE` is the primary tonal layering surface
 - `#1DC286` Jade is the primary CTA fill

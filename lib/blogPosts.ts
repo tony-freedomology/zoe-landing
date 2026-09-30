@@ -7,7 +7,7 @@ export type BlogMessage = {
 export type BlogTryIt = {
   /** Plain lead-in, e.g. "Try it with Zoe:". */
   headline: string;
-  /** Serif-accent phrase that follows the headline. */
+  /** Accent phrase that follows the headline (Mint highlighter, see DESIGN.md). */
   headlineAccent: string;
   body: string;
   /** Optional timestamp shown above the exchange, e.g. "Tuesday 9:14 PM". */
@@ -18,6 +18,11 @@ export type BlogTryIt = {
 export type BlogPost = {
   slug: string;
   title: string;
+  /**
+   * Exact substring of `title` that gets the page's one Jade pen stroke in the
+   * post header (DESIGN.md "Heading Accent"). Omit for an unaccented title.
+   */
+  titleAccent?: string;
   shortTitle: string;
   description: string;
   /** Display date, e.g. "June 2026". */
@@ -51,6 +56,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "can-god-speak-through-ai",
     title: "Can God Speak Through AI?",
+    titleAccent: "Through AI",
     shortTitle: "Can God Speak Through AI?",
     description:
       "AI is not alive, spiritual, or a substitute for the Holy Spirit. But can God still use it?",
@@ -77,6 +83,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "ai-can-sort-your-thoughts",
     title: "AI Can Sort Your Thoughts, but it Can’t Receive Your Prayers",
+    titleAccent: "Receive Your Prayers",
     shortTitle: "AI Can Sort Your Thoughts",
     description:
       "A look at what happens when our instinct for prayer gets hijacked.",
@@ -108,6 +115,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "can-ai-help-you-walk-with-jesus",
     title: "Can AI Help You Walk With Jesus?",
+    titleAccent: "Walk With Jesus",
     shortTitle: "Can AI Help You Walk With Jesus?",
     description:
       "A plainspoken note on building Zoe carefully, honestly, and in public.",
@@ -136,6 +144,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "rhythm-instead-of-another-devotional-feed",
     title: "Why Zoe Starts With Rhythm Instead of Another Devotional Feed",
+    titleAccent: "Rhythm",
     shortTitle: "Zoe Starts With Rhythm",
     description:
       "The interesting question is whether AI can help us pay attention to Jesus when the day gets loud.",
@@ -164,6 +173,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "what-should-zoe-do-in-the-morning",
     title: "What Should Zoe Do in the Morning?",
+    titleAccent: "the Morning",
     shortTitle: "What Should Zoe Do in the Morning?",
     description:
       "A question about mornings, Scripture, and what kind of help is actually helpful.",
