@@ -33,6 +33,19 @@ export const BETA_NOTES: BetaNote[] = [
     name: "Laura",
     consent: "Beta survey testimonial opt-in, first name, 2026-08-01",
   },
+  {
+    id: "laurie",
+    quote:
+      "There have been days where I was down and low and behold a scripture was sent and it was just what I needed to hear!",
+    name: "Laurie C.",
+    consent: "Email yes to a homepage-quote ask signed \"Laurie C.\", 2026-09-30",
+  },
+  {
+    id: "colleen",
+    quote: "These lessons and the check ins during afternoon and evening really do so much for me!!",
+    name: "Colleen C.",
+    consent: "Email yes to a homepage-quote ask signed \"Colleen C.\", 2026-09-30",
+  },
 ];
 
 /** Below this many notes the section stays hidden. */
