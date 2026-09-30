@@ -74,6 +74,7 @@ export default function Footer({ hideWhyZoe = false }: FooterProps) {
             links={[
               { href: "/about", label: "About" },
               { href: "/philosophy", label: "Our philosophy" },
+              { href: "/how-zoe-teaches", label: "How Zoe teaches" },
               { href: "/churches", label: "For churches" },
               { href: "/brand-facts", label: "Brand facts" },
             ]}

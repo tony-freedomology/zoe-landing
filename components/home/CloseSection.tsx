@@ -7,7 +7,7 @@ export default function CloseSection() {
       <div className={wrap}>
         <h2
           id="close-h"
-          className="font-serif text-[clamp(56px,10vw,132px)] font-bold italic leading-[0.95] tracking-[-0.02em] text-zoe-sap"
+          className="zoe-display font-serif text-[clamp(56px,10vw,132px)] font-bold italic leading-[0.95] tracking-[-0.02em] text-zoe-sap"
         >
           Toward Him daily.
         </h2>

@@ -33,7 +33,7 @@ export default function HomeThesis() {
           </div>
 
           <article className="rounded-[28px] bg-white p-[clamp(26px,3.4vw,42px)] shadow-[0_18px_50px_rgba(45,50,49,0.05)] outline outline-1 outline-zoe-outline/45">
-            <p className="font-serif text-[clamp(28px,3vw,36px)] italic leading-[1.1] text-zoe-sap">The tension</p>
+            <p className="zoe-display font-serif text-[clamp(28px,3vw,36px)] italic leading-[1.1] text-zoe-sap">The tension</p>
             <hr className="my-[22px] h-px border-0 bg-zoe-outline/60" />
             <div className="grid gap-[18px] text-[17px] font-medium leading-[1.7] text-zoe-muted">
               <p>AI is here whether we like it or not, and the church needs to figure out what we&apos;re going to do about it.</p>
@@ -54,7 +54,7 @@ export default function HomeThesis() {
                 <b className="font-extrabold text-zoe-ink">Can it help with that?</b>
               </p>
             </div>
-            <p className="mt-6 font-serif text-[clamp(34px,3.6vw,46px)] italic leading-none text-zoe-sap">Meet Zoe.</p>
+            <p className="zoe-display mt-6 font-serif text-[clamp(34px,3.6vw,46px)] italic leading-none text-zoe-sap">Meet Zoe.</p>
           </article>
         </div>
 

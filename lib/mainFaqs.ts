@@ -41,6 +41,11 @@ export const mainFaqs: MainFaq[] = [
       "Mostly short morning texts around Scripture and prayer, with occasional follow-ups when you've asked Zoe to remember something.\n\nSo, for example, if you tell Zoe you're praying for your kid, your job interview, your anxiety, your marriage, your grief, or whatever else is actually happening in your life, Zoe can help you remember to bring that back to God later.\n\nYou can ask for less, pause, change timing, or text STOP anytime. No weird guilt trip.",
   },
   {
+    question: "Who trained Zoe? How does it know the Bible?",
+    answer:
+      "Honest answer: nobody built a magic Bible AI. Zoe runs on a general-purpose AI model, and what we built is everything around it.\n\nEvery verse Zoe quotes is pulled word for word from the World English Bible and checked in code before it sends, so the AI can't quote from memory or make one up. The theology it's instructed to hold is written down: historic Christian orthodoxy at the center, humble where Christians disagree, and your church's call on denominational stuff. And every morning lesson follows the same shape with the same rules.\n\nWe laid all of it out, piece by piece, at zoe.live/how-zoe-teaches.",
+  },
+  {
     question: "Is Zoe biblically accurate?",
     answer:
       "We're taking this seriously.\n\nZoe is built to use Scripture carefully, admit when something is debated, and avoid pretending certainty where Christians faithfully disagree.\n\nBut also, it's beta. If Zoe says something that feels off, weird, thin, too confident, or just plain wrong, that's exactly the kind of thing we want to know.\n\nThe goal is for Zoe to help you read the Bible, not replace reading it.",
@@ -63,7 +68,7 @@ export const mainFaqs: MainFaq[] = [
   {
     question: "Can I text STOP anytime?",
     answer:
-      "Yep.\n\nText STOP and Zoe stops texting you. No drama, no hard feelings, no weird guilt trip.\n\nHELP works too if you need the basic commands again. And if something feels off, you can start a message with BUG: or FEEDBACK: and it will get routed to us.",
+      "Yep.\n\nText STOP and Zoe stops texting you. No drama, no hard feelings, no weird guilt trip.\n\nHELP works too if you need the basic commands again. And if something feels off, just tell Zoe to pass it on to the team. It'll route it to us for you.",
   },
   {
     question: "Can my church use Zoe?",

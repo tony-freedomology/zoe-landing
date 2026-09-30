@@ -8,7 +8,7 @@ export default function ChurchClose() {
       <div className={wrap}>
         <h2
           id="cl-h"
-          className="mx-auto max-w-[14ch] font-serif text-[clamp(48px,8.4vw,112px)] font-semibold italic leading-[0.98] tracking-[-0.02em] text-zoe-sap"
+          className="mx-auto max-w-[14ch] zoe-display font-serif text-[clamp(48px,8.4vw,112px)] font-semibold italic leading-[0.98] tracking-[-0.02em] text-zoe-sap"
         >
           Help Sunday live in the rest of the week.
         </h2>
