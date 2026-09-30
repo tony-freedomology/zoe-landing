@@ -46,6 +46,19 @@ export const BETA_NOTES: BetaNote[] = [
     name: "Colleen C.",
     consent: "Email yes to a homepage-quote ask signed \"Colleen C.\", 2026-09-30",
   },
+  {
+    id: "lisse",
+    quote:
+      "Zoe is making a difference in staying connected with Jesus throughout my day, and I notice a difference in the way I interact with others as well as my thoughts.",
+    name: "Lisse",
+    consent: "Email yes, 2026-09-30: \"Totally fine with you sharing. Please use Lisse as my name.\"",
+  },
+  {
+    id: "nina",
+    quote: "I'm finding the devotionals easy to read and process after a rough night with the little one lol",
+    name: "Nina P.",
+    consent: "Email yes, 2026-09-30, to an ask offering \"Karina P.\" or \"Nina P.\" (she goes by Nina)",
+  },
 ];
 
 /** Below this many notes the section stays hidden. */
