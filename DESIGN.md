@@ -19,6 +19,7 @@ Zoe is a brand built on the intersection of ancient wisdom and modern vitality. 
 - **Forest (Secondary Accent):** `#007354` — Grounding and trust-oriented. Used for secondary elements or moments where a more serious tone is required.
 - **Ink (Typography):** `#2d3231` — The primary "black." Never use pure #000000. This charcoal-adjacent shade feels softer and more premium.
 - **Outline:** `#BBCAC1` — A subtle, muted green used sparingly for low-contrast dividers or border moments.
+- **Mint (Highlighter):** `#BFEBD8` — Accent-only. The flat marker band behind highlighted heading phrases (see Heading Accent). Never a fill, background, or text color.
 
 ## 3. Typography Hierarchy
 
@@ -27,11 +28,22 @@ Zoe is a brand built on the intersection of ancient wisdom and modern vitality. 
 - **Headlines:** Use **Bold** weight with tight-but-controlled tracking. It should feel authoritative, geometric, and anchored.
 - **Interface Labels:** Use Bold or SemiBold for clarity and a modern, high-end feel.
 - **Default page labels:** Avoid decorative uppercase eyebrow labels above headings on the default `zoe.live` pages. If metadata is needed, keep it quieter in the supporting text instead of making it a pre-title badge.
-- **Tracking:** Keep headline tracking tight, not compressed. Italic accents should use normal letter spacing so emphasized words never visually collide with the next word.
+- **Tracking:** Keep headline tracking tight, not compressed. Accented words keep the headline's own tracking, weight and color; the stroke or highlighter does the emphasizing.
 
-### Trust Accent: Newsreader Italic
+### Heading Accent: Jade Pen Stroke + Mint Highlighter
 
-- **Usage:** Reserved for rare captions, pull-quotes, and brand-level statements to provide warmth and an editorial "soul." Never used for functional UI labels or buttons.
+Adopted September 30, 2026 (Tony's option "E"). It replaces the Newsreader italic accent inside headings.
+
+- **Same type, marked by hand.** Accented words stay in Plus Jakarta Sans at the headline's weight and color. Nothing switches to a serif or italic.
+- **Jade pen stroke (one per page):** the page's primary headline gets a hand-drawn Jade (`#1DC286`) stroke under its accented words, pulled from the same pen as the wordmark.
+- **Mint highlighter (a handful per page):** other key phrases get a flat Mint (`#BFEBD8`) marker band sitting low on the words, like highlighting a line in your Bible. It draws in left to right as it scrolls into view, and stays static under reduced motion. Not every heading needs one.
+- **Keep it rare:** one stroke per page, a few highlights. If everything is marked, nothing is.
+- **On zoe.live:** `headingAccent` adds `.zoe-accent`; `<html data-accent="combo">` turns it into the stroke (inside an `h1`, or with `.zoe-accent-primary`) or the highlighter (everywhere else). The styles live in `app/globals.css`.
+
+### Newsreader Italic: Scripture and Quotes Only
+
+- **Usage:** Quoted Scripture and verbatim human quotes. Legacy surfaces (the blog) keep it until they're migrated.
+- **Never:** a decorative or emphasis accent in headings, or any functional UI label or button.
 
 ## 4. Non-Negotiable Principles
 
