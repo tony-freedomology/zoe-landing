@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import StructuredData from "./StructuredData";
 import CopyLinkButton from "./blog/CopyLinkButton";
 import ReadingProgress from "./blog/ReadingProgress";
-import { btnJade } from "./home/styles";
+import { btnJade, headingAccent } from "./home/styles";
 import { defaultTryIt, getBlogPost, isoMonth, relatedPosts, type BlogPost } from "../lib/blogPosts";
 import { journeyCatalog } from "../lib/journeyCatalog";
 import { getJourneyCardImagePath } from "../lib/journeyImages";
@@ -27,6 +27,20 @@ function firstSentence(text: string) {
   return (match ? match[0] : text).trim();
 }
 
+/** Post title with its `titleAccent` phrase wrapped in the heading accent (Jade stroke inside the h1). */
+function AccentedTitle({ title, accent }: { title: string; accent?: string }) {
+  const start = accent ? title.indexOf(accent) : -1;
+  if (!accent || start === -1) return <>{title}</>;
+  const end = start + accent.length;
+  return (
+    <>
+      {title.slice(0, start)}
+      <em className={headingAccent}>{accent}</em>
+      {title.slice(end)}
+    </>
+  );
+}
+
 function TryItCard({ post }: { post: BlogPost }) {
   const tryIt = post.tryIt ?? defaultTryIt;
   return (
@@ -34,7 +48,7 @@ function TryItCard({ post }: { post: BlogPost }) {
       <div>
         <h3 className="text-[clamp(24px,2.4vw,30px)] font-extrabold leading-[1.1] tracking-[-0.035em] text-zoe-ink [text-wrap:balance]">
           {tryIt.headline}{" "}
-          <em className="font-serif font-normal italic tracking-normal text-zoe-sap">{tryIt.headlineAccent}</em>
+          <em className={headingAccent}>{tryIt.headlineAccent}</em>
         </h3>
         <p className="mt-2.5 text-[15.5px] font-medium leading-[1.55] text-zoe-muted">{tryIt.body}</p>
         <Link href="/#waitlist" className={`${btnJade} mt-[18px] !px-6 !py-[15px]`}>
@@ -157,7 +171,7 @@ export default function BlogArticleShell({ slug, deck, children }: BlogArticleSh
               </span>
             </nav>
             <h1 className="mt-[22px] text-[clamp(36px,5.6vw,72px)] font-extrabold leading-none tracking-[-0.045em] text-zoe-ink [text-wrap:balance]">
-              {post.title}
+              <AccentedTitle title={post.title} accent={post.titleAccent} />
             </h1>
             {headerDeck ? (
               <p className="mt-5 max-w-[46ch] text-[clamp(18px,1.8vw,22px)] font-medium leading-[1.5] text-zoe-muted">

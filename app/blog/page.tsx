@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { withSocial } from "../../lib/seo";
-import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import Footer from "../../components/Footer";
+import { headingAccent } from "../../components/home/styles";
 import { blogPosts } from "../../lib/blogPosts";
 
 export const metadata: Metadata = withSocial({
@@ -26,32 +26,17 @@ const authorBySlug: Record<string, { name: string; role: string; initials: strin
   "rhythm-instead-of-another-devotional-feed": { name: "Tony Allen", role: "Founder", initials: "T" },
 };
 
-const displayTitleBySlug: Record<string, ReactNode> = {
-  "can-god-speak-through-ai": (
-    <>
-      Can God speak through <em>AI</em>?
-    </>
-  ),
-  "ai-can-sort-your-thoughts": (
-    <>
-      AI can sort your thoughts, but it can&apos;t receive your <em>prayers</em>.
-    </>
-  ),
-  "can-ai-help-you-walk-with-jesus": (
-    <>
-      Can AI help you walk with <em>Jesus</em>?
-    </>
-  ),
-  "what-should-zoe-do-in-the-morning": (
-    <>
-      What should Zoe do in the <em>morning</em>?
-    </>
-  ),
-  "rhythm-instead-of-another-devotional-feed": (
-    <>
-      Why Zoe starts with <em>rhythm</em>.
-    </>
-  ),
+/**
+ * Index display titles in sentence case. No heading accent here: the h1's Jade
+ * stroke is the page's one mark, the featured card is dark (a Mint band under
+ * Oat text loses contrast), and a highlight on every row would mean nothing.
+ */
+const displayTitleBySlug: Record<string, string> = {
+  "can-god-speak-through-ai": "Can God speak through AI?",
+  "ai-can-sort-your-thoughts": "AI can sort your thoughts, but it can't receive your prayers.",
+  "can-ai-help-you-walk-with-jesus": "Can AI help you walk with Jesus?",
+  "what-should-zoe-do-in-the-morning": "What should Zoe do in the morning?",
+  "rhythm-instead-of-another-devotional-feed": "Why Zoe starts with rhythm.",
 };
 
 function shortReadTime(readTime: string) {
@@ -74,11 +59,11 @@ function ArticleRow({ post }: { post: (typeof blogPosts)[number] }) {
       href={`/blog/${post.slug}`}
       className="group grid gap-4 rounded-2xl border border-transparent bg-white px-5 py-6 shadow-[0_10px_34px_rgba(45,50,49,0.035)] transition duration-200 hover:translate-x-1 hover:border-zoe-sap/55 hover:bg-zoe-surface md:grid-cols-[4rem_1fr_13rem_5rem] md:items-center md:gap-8 md:px-6 md:py-7"
     >
-      <div className="font-serif text-4xl italic leading-none tracking-[-0.02em] text-zoe-sap">
+      <div className="text-4xl font-extrabold tabular-nums leading-none tracking-[-0.045em] text-zoe-sap">
         {post.number}
       </div>
       <div>
-        <h4 className="max-w-2xl text-[1.65rem] font-extrabold leading-[1.08] tracking-[-0.032em] text-zoe-ink md:text-2xl [&_em]:font-serif [&_em]:font-medium [&_em]:italic [&_em]:tracking-normal [&_em]:text-zoe-sap">
+        <h4 className="max-w-2xl text-[1.65rem] font-extrabold leading-[1.08] tracking-[-0.032em] text-zoe-ink md:text-2xl">
           {displayTitle(post)}
         </h4>
         <p className="mt-2 max-w-3xl text-sm font-medium leading-6 tracking-normal text-zoe-muted">
@@ -113,9 +98,9 @@ export default function BlogIndexPage() {
           <h1 className="max-w-[11ch] text-[4.65rem] font-extrabold leading-[0.84] tracking-[-0.045em] text-zoe-ink md:text-[9.4rem] md:tracking-[-0.052em]">
             Between the
             <br />
-            <em className="font-serif font-medium italic tracking-normal text-zoe-sap">Sundays</em>.
+            <em className={headingAccent}>Sundays</em>.
           </h1>
-          <div className="mt-8 flex flex-col gap-7 border-t border-zoe-outline/70 pt-7 lg:flex-row lg:items-end lg:justify-between">
+          <div className="mt-10 flex flex-col gap-7 border-t border-zoe-outline/70 pt-7 md:mt-12 lg:flex-row lg:items-end lg:justify-between">
             <p className="max-w-2xl text-base font-medium leading-7 tracking-normal text-zoe-muted md:text-lg md:leading-8">
               Notes on shepherding, software, and the small ways grace shows up in the long week, written for pastors, members, and anyone curious how this works.
             </p>
@@ -158,7 +143,7 @@ export default function BlogIndexPage() {
 
             <div className="flex flex-col justify-between p-8 md:p-14">
               <div>
-                <h2 className="max-w-[14ch] text-[3rem] font-extrabold leading-[0.98] tracking-[-0.04em] text-zoe-oat md:text-[4rem] [&_em]:font-serif [&_em]:font-medium [&_em]:italic [&_em]:tracking-normal [&_em]:text-zoe-sap">
+                <h2 className="max-w-[14ch] text-[3rem] font-extrabold leading-[0.98] tracking-[-0.04em] text-zoe-oat md:text-[4rem]">
                   {displayTitle(featured)}
                 </h2>
                 <p className="mt-7 max-w-xl text-base font-medium leading-7 tracking-normal text-zoe-oat/72 md:text-lg md:leading-8">
@@ -184,8 +169,7 @@ export default function BlogIndexPage() {
             <>
               <div className="flex flex-col gap-2 px-1 pb-6 pt-16 md:flex-row md:items-baseline md:gap-6 md:px-6 md:pt-20">
                 <h3 className="text-3xl font-extrabold leading-none tracking-[-0.04em]">
-                  <em className="mr-2 font-serif font-medium italic text-zoe-sap">More</em>{" "}
-                  writing.
+                  More writing.
                 </h3>
               </div>
               <div className="space-y-3">

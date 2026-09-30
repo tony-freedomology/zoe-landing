@@ -42,7 +42,7 @@ Adopted September 30, 2026 (Tony's option "E"). It replaces the Newsreader itali
 
 ### Newsreader Italic: Scripture and Quotes Only
 
-- **Usage:** Quoted Scripture and verbatim human quotes. Legacy surfaces (the blog) keep it until they're migrated.
+- **Usage:** Quoted Scripture and verbatim human quotes, such as a blog post's `<blockquote>` pull quote of the author's own words.
 - **Never:** a decorative or emphasis accent in headings, or any functional UI label or button.
 
 ## 4. Non-Negotiable Principles
