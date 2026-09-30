@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion, type Transition } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import clsx from "clsx";
 
@@ -15,13 +15,22 @@ import ZoeMark from "./ZoeMark";
 const leadLinks = [{ href: "/#day", label: "How it works" }];
 
 const trailLinks = [
-  { href: "/#faq", label: "FAQ" },
   { href: "/churches", label: "For churches" },
-  { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
 ];
 
-const journeyLinks = [
+type MenuLink = { href: string; label: string; hint?: string };
+
+// The trust pages live together so people asking "can I trust this?" find the
+// answers in one place instead of scattered footer links.
+const aboutLinks: MenuLink[] = [
+  { href: "/about", label: "About Zoe", hint: "Who's building it and why" },
+  { href: "/how-zoe-teaches", label: "How Zoe teaches", hint: "Who taught Zoe the Bible?" },
+  { href: "/philosophy", label: "Our philosophy", hint: "Can AI help you walk with Jesus?" },
+  { href: "/faq", label: "FAQ", hint: "Pricing, privacy, texting" },
+];
+
+const journeyLinks: MenuLink[] = [
   { href: "/journeys", label: "All Journeys" },
   { href: "/journeys/new-believer", label: "First Steps" },
   { href: "/journeys/james-deep", label: "James: 10 Days Deep" },
@@ -53,11 +62,10 @@ export default function Navbar() {
   const cta = PAGE_CTAS[pathname] ?? DEFAULT_CTA;
 
   const [scrolled, setScrolled] = useState(false);
-  const [journeysOpen, setJourneysOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const journeysRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
   const menuId = useId();
-  const journeysId = useId();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -69,7 +77,7 @@ export default function Navbar() {
   // Close menus on route change
   useEffect(() => {
     setMobileOpen(false);
-    setJourneysOpen(false);
+    setOpenMenu(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -77,17 +85,17 @@ export default function Navbar() {
     return () => document.body.removeAttribute("data-mobile-menu-open");
   }, [mobileOpen]);
 
-  // Escape closes whichever menu is open; clicks outside close the dropdown.
+  // Escape closes whichever menu is open; clicks outside the nav close a dropdown.
   useEffect(() => {
-    if (!journeysOpen && !mobileOpen) return;
+    if (!openMenu && !mobileOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setJourneysOpen(false);
+        setOpenMenu(null);
         setMobileOpen(false);
       }
     };
     const onPointer = (e: PointerEvent) => {
-      if (journeysRef.current && !journeysRef.current.contains(e.target as Node)) setJourneysOpen(false);
+      if (navRef.current && !navRef.current.contains(e.target as Node)) setOpenMenu(null);
     };
     window.addEventListener("keydown", onKey);
     window.addEventListener("pointerdown", onPointer);
@@ -95,13 +103,25 @@ export default function Navbar() {
       window.removeEventListener("keydown", onKey);
       window.removeEventListener("pointerdown", onPointer);
     };
-  }, [journeysOpen, mobileOpen]);
+  }, [openMenu, mobileOpen]);
 
   if (hideOnPath) {
     return null;
   }
 
-  const menuTransition = reduceMotion ? { duration: 0 } : { duration: 0.18, ease: [0.16, 1, 0.3, 1] };
+  const menuTransition: Transition = reduceMotion ? { duration: 0 } : { duration: 0.18, ease: [0.16, 1, 0.3, 1] };
+  const dropdown = (id: string, label: string, links: MenuLink[], width: string) => (
+    <NavDropdown
+      label={label}
+      links={links}
+      width={width}
+      open={openMenu === id}
+      pathname={pathname}
+      transition={menuTransition}
+      onToggle={() => setOpenMenu((current) => (current === id ? null : id))}
+      onClose={() => setOpenMenu(null)}
+    />
+  );
 
   return (
     <header className="zoe-site-nav pointer-events-none fixed inset-x-0 top-0 z-[60] px-[clamp(10px,2vw,24px)] pt-[calc(10px+env(safe-area-inset-top,0px))]">
@@ -117,57 +137,15 @@ export default function Navbar() {
           <ZoeMark className="h-[30px] w-auto text-zoe-sap" />
         </Link>
 
-        <nav aria-label="Main" className="ml-1 hidden items-center gap-0.5 lg:flex">
+        <nav ref={navRef} aria-label="Main" className="ml-1 hidden items-center gap-0.5 lg:flex">
           {leadLinks.map((link) => (
             <Link key={link.href} href={link.href} className={desktopLink}>
               {link.label}
             </Link>
           ))}
 
-          <div
-            ref={journeysRef}
-            className="relative"
-            onBlur={(e) => {
-              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setJourneysOpen(false);
-            }}
-          >
-            <button
-              type="button"
-              aria-expanded={journeysOpen}
-              aria-controls={journeysId}
-              onClick={() => setJourneysOpen((v) => !v)}
-              className={clsx(desktopLink, "flex items-center gap-1", journeysOpen && "bg-zoe-surface text-zoe-ink")}
-            >
-              Journeys
-              <ChevronDown
-                className={clsx("h-4 w-4 transition-transform duration-200", journeysOpen && "rotate-180")}
-                aria-hidden="true"
-              />
-            </button>
-            <AnimatePresence>
-              {journeysOpen && (
-                <motion.div
-                  id={journeysId}
-                  initial={{ opacity: 0, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={menuTransition}
-                  className="absolute left-0 top-[calc(100%+14px)] w-60 overflow-hidden rounded-3xl bg-zoe-oat p-1.5 shadow-[0_20px_50px_rgba(45,50,49,0.12),0_0_0_1px_rgba(187,202,193,0.55)]"
-                >
-                  {journeyLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setJourneysOpen(false)}
-                      className="block rounded-2xl px-4 py-2.5 text-sm font-semibold text-zoe-ink/[0.82] no-underline transition-colors hover:bg-zoe-surface hover:text-zoe-ink"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          {dropdown("journeys", "Journeys", journeyLinks, "w-60")}
+          {dropdown("about", "About", aboutLinks, "w-72")}
 
           {trailLinks.map((link) => (
             <Link
@@ -212,29 +190,13 @@ export default function Navbar() {
             transition={menuTransition}
             className="pointer-events-auto mx-auto mt-2 max-h-[calc(100svh-90px)] max-w-[1200px] overflow-y-auto rounded-[28px] bg-zoe-oat p-2 shadow-[0_20px_50px_rgba(45,50,49,0.14),0_0_0_1px_rgba(187,202,193,0.55)] lg:hidden"
           >
-            {leadLinks.map((link) => (
+            {[...leadLinks, ...trailLinks].map((link) => (
               <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className={mobileLink}>
                 {link.label}
               </Link>
             ))}
-            {trailLinks.map((link) => (
-              <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className={mobileLink}>
-                {link.label}
-              </Link>
-            ))}
-            <div className="mt-1 border-t border-zoe-outline/40 pt-1">
-              <p className="px-4 pb-1 pt-3 text-[13px] font-bold text-zoe-muted">Journeys</p>
-              {journeyLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block rounded-2xl px-4 py-2.5 text-sm font-medium text-zoe-ink/80 no-underline transition-colors hover:bg-zoe-surface"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+            <MobileSection title="About" links={aboutLinks} onNavigate={() => setMobileOpen(false)} />
+            <MobileSection title="Journeys" links={journeyLinks} onNavigate={() => setMobileOpen(false)} />
             <div className="mt-1 border-t border-zoe-outline/40 p-2 pt-3">
               <Link
                 href={cta.href}
@@ -248,5 +210,99 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </header>
+  );
+}
+
+function NavDropdown({
+  label,
+  links,
+  width,
+  open,
+  pathname,
+  transition,
+  onToggle,
+  onClose,
+}: {
+  label: string;
+  links: MenuLink[];
+  width: string;
+  open: boolean;
+  pathname: string;
+  transition: Transition;
+  onToggle: () => void;
+  onClose: () => void;
+}) {
+  const panelId = useId();
+  const active = links.some((link) => link.href === pathname);
+
+  return (
+    <div
+      className="relative"
+      onBlur={(e) => {
+        if (open && !e.currentTarget.contains(e.relatedTarget as Node | null)) onClose();
+      }}
+    >
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={onToggle}
+        className={clsx(
+          desktopLink,
+          "flex items-center gap-1",
+          open && "bg-zoe-surface text-zoe-ink",
+          active && !open && "text-zoe-forest"
+        )}
+      >
+        {label}
+        <ChevronDown className={clsx("h-4 w-4 transition-transform duration-200", open && "rotate-180")} aria-hidden="true" />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            id={panelId}
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={transition}
+            className={clsx(
+              "absolute left-0 top-[calc(100%+14px)] overflow-hidden rounded-3xl bg-zoe-oat p-1.5 shadow-[0_20px_50px_rgba(45,50,49,0.12),0_0_0_1px_rgba(187,202,193,0.55)]",
+              width
+            )}
+          >
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={onClose}
+                aria-current={pathname === link.href ? "page" : undefined}
+                className="block rounded-2xl px-4 py-2.5 text-sm font-semibold text-zoe-ink/[0.82] no-underline transition-colors hover:bg-zoe-surface hover:text-zoe-ink aria-[current=page]:text-zoe-forest"
+              >
+                {link.label}
+                {link.hint ? <span className="mt-0.5 block text-[13px] font-medium text-zoe-muted">{link.hint}</span> : null}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function MobileSection({ title, links, onNavigate }: { title: string; links: MenuLink[]; onNavigate: () => void }) {
+  return (
+    <div className="mt-1 border-t border-zoe-outline/40 pt-1">
+      <p className="px-4 pb-1 pt-3 text-[13px] font-bold text-zoe-muted">{title}</p>
+      {links.map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          onClick={onNavigate}
+          className="block rounded-2xl px-4 py-2.5 text-sm font-medium text-zoe-ink/80 no-underline transition-colors hover:bg-zoe-surface"
+        >
+          {link.label}
+        </Link>
+      ))}
+    </div>
   );
 }

@@ -56,7 +56,7 @@ Section order (each in `components/home/`):
 Other rules:
 - Pricing language lives in `lib/pricingCopy.ts`; change it there, not inline.
 - Jade `#1DC286` for accents and CTAs; Forest only for small text. Zoe's sample texts are warm and use face emoji; Zoe never speaks for God.
-- The navbar (`components/Navbar.tsx`) is a floating Oat pill with the Jade vector wordmark (`components/ZoeMark.tsx`), identical over the hero and when scrolled, sitewide.
+- The navbar (`components/Navbar.tsx`) is a floating Oat pill with the Jade vector wordmark (`components/ZoeMark.tsx`), identical over the hero and when scrolled, sitewide. Order: How it works · Journeys ▾ · About ▾ · For churches · Blog. The About ▾ menu groups the trust pages (About Zoe, How Zoe teaches, Our philosophy, FAQ) with one-line hints so people asking "can I trust this?" find them; keep new trust/explainer pages there rather than adding top-level links. /faq ends with "The bigger questions" cards linking /how-zoe-teaches and /philosophy.
 - Performance: only hero layers load eagerly; everything below the fold is lazy. Keep the home page well under 2 MB transferred.
 
 ## Journey Lesson Pages
