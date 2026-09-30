@@ -181,7 +181,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                   <ZoeSVG color="white" staticOnly />
                 </div>
                 <p className="relative z-10 -mt-1 text-xs font-semibold tracking-tight text-white drop-shadow">
-                  Toward <span className="font-serif italic">Him</span>. Daily.
+                  Toward <span className="font-extrabold">Him</span>. Daily.
                 </p>
               </div>
             </div>
@@ -368,7 +368,7 @@ export default function HomePageContentShort({ variant = "default" }: ShortProps
                 <ZoeSVG color="white" staticOnly />
               </div>
               <p className="relative z-10 mt-4 text-lg font-semibold tracking-tight text-white drop-shadow-md">
-                Toward <span className="font-serif italic text-white">Him</span>. Daily.
+                Toward <span className="font-extrabold text-white">Him</span>. Daily.
               </p>
             </div>
           </div>
